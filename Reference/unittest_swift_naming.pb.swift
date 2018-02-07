@@ -717,44 +717,22 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 
 }
 
-struct SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".Foo"
+struct SwiftUnittest_Names_Foo: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 5001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_Foo.self, fieldNumber: fieldNumber)
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".FieldNames"
+struct SwiftUnittest_Names_FieldNames {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var string: Int32 {
     get {return _storage._string ?? 0}
@@ -2758,929 +2736,20 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
 
   init() {}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_storage._string)
-        case 2: try decoder.decodeSingularInt32Field(value: &_storage._int)
-        case 3: try decoder.decodeSingularInt32Field(value: &_storage._double)
-        case 4: try decoder.decodeSingularInt32Field(value: &_storage._float)
-        case 5: try decoder.decodeSingularInt32Field(value: &_storage._uint)
-        case 6: try decoder.decodeSingularInt32Field(value: &_storage._hashValue_p)
-        case 7: try decoder.decodeSingularInt32Field(value: &_storage._description_p)
-        case 8: try decoder.decodeSingularInt32Field(value: &_storage._debugDescription_p)
-        case 9: try decoder.decodeSingularInt32Field(value: &_storage._swift)
-        case 10: try decoder.decodeSingularInt32Field(value: &_storage._unrecognized)
-        case 11: try decoder.decodeSingularInt32Field(value: &_storage._class)
-        case 12: try decoder.decodeSingularInt32Field(value: &_storage._deinit)
-        case 13: try decoder.decodeSingularInt32Field(value: &_storage._enum)
-        case 15: try decoder.decodeSingularInt32Field(value: &_storage._func)
-        case 16: try decoder.decodeSingularInt32Field(value: &_storage._import)
-        case 17: try decoder.decodeSingularInt32Field(value: &_storage._init_p)
-        case 18: try decoder.decodeSingularInt32Field(value: &_storage._inout)
-        case 19: try decoder.decodeSingularInt32Field(value: &_storage._internal)
-        case 20: try decoder.decodeSingularInt32Field(value: &_storage._let)
-        case 21: try decoder.decodeSingularInt32Field(value: &_storage._operator)
-        case 22: try decoder.decodeSingularInt32Field(value: &_storage._private)
-        case 23: try decoder.decodeSingularInt32Field(value: &_storage._protocol)
-        case 24: try decoder.decodeSingularInt32Field(value: &_storage._public)
-        case 25: try decoder.decodeSingularInt32Field(value: &_storage._static)
-        case 26: try decoder.decodeSingularInt32Field(value: &_storage._struct)
-        case 27: try decoder.decodeSingularInt32Field(value: &_storage._subscript)
-        case 28: try decoder.decodeSingularInt32Field(value: &_storage._typealias)
-        case 29: try decoder.decodeSingularInt32Field(value: &_storage._var)
-        case 30: try decoder.decodeSingularInt32Field(value: &_storage._break)
-        case 31: try decoder.decodeSingularInt32Field(value: &_storage._case)
-        case 32: try decoder.decodeSingularInt32Field(value: &_storage._continue)
-        case 33: try decoder.decodeSingularInt32Field(value: &_storage._default)
-        case 34: try decoder.decodeSingularInt32Field(value: &_storage._defer)
-        case 35: try decoder.decodeSingularInt32Field(value: &_storage._do)
-        case 36: try decoder.decodeSingularInt32Field(value: &_storage._else)
-        case 37: try decoder.decodeSingularInt32Field(value: &_storage._fallthrough)
-        case 38: try decoder.decodeSingularInt32Field(value: &_storage._for)
-        case 39: try decoder.decodeSingularInt32Field(value: &_storage._guard)
-        case 40: try decoder.decodeSingularInt32Field(value: &_storage._if)
-        case 41: try decoder.decodeSingularInt32Field(value: &_storage._in)
-        case 42: try decoder.decodeSingularInt32Field(value: &_storage._repeat)
-        case 43: try decoder.decodeSingularInt32Field(value: &_storage._return)
-        case 44: try decoder.decodeSingularInt32Field(value: &_storage._switch)
-        case 45: try decoder.decodeSingularInt32Field(value: &_storage._where)
-        case 46: try decoder.decodeSingularInt32Field(value: &_storage._while)
-        case 47: try decoder.decodeSingularInt32Field(value: &_storage._as)
-        case 48: try decoder.decodeSingularInt32Field(value: &_storage._catch)
-        case 49: try decoder.decodeSingularInt32Field(value: &_storage._dynamicType_p)
-        case 50: try decoder.decodeSingularInt32Field(value: &_storage._false)
-        case 51: try decoder.decodeSingularInt32Field(value: &_storage._is)
-        case 52: try decoder.decodeSingularInt32Field(value: &_storage._nil)
-        case 53: try decoder.decodeSingularInt32Field(value: &_storage._rethrows)
-        case 54: try decoder.decodeSingularInt32Field(value: &_storage._super)
-        case 55: try decoder.decodeSingularInt32Field(value: &_storage._self_p)
-        case 57: try decoder.decodeSingularInt32Field(value: &_storage._throw)
-        case 58: try decoder.decodeSingularInt32Field(value: &_storage._throws)
-        case 59: try decoder.decodeSingularInt32Field(value: &_storage._true)
-        case 60: try decoder.decodeSingularInt32Field(value: &_storage._try)
-        case 61: try decoder.decodeSingularInt32Field(value: &_storage.__Column__)
-        case 62: try decoder.decodeSingularInt32Field(value: &_storage.__File__)
-        case 63: try decoder.decodeSingularInt32Field(value: &_storage.__Function__)
-        case 64: try decoder.decodeSingularInt32Field(value: &_storage.__Line__)
-        case 65: try decoder.decodeSingularInt32Field(value: &_storage.____)
-        case 66: try decoder.decodeSingularInt32Field(value: &_storage._associativity)
-        case 67: try decoder.decodeSingularInt32Field(value: &_storage._convenience)
-        case 68: try decoder.decodeSingularInt32Field(value: &_storage._dynamic)
-        case 69: try decoder.decodeSingularInt32Field(value: &_storage._didSet)
-        case 70: try decoder.decodeSingularInt32Field(value: &_storage._final)
-        case 71: try decoder.decodeSingularInt32Field(value: &_storage._get)
-        case 72: try decoder.decodeSingularInt32Field(value: &_storage._infix)
-        case 73: try decoder.decodeSingularInt32Field(value: &_storage._indirect)
-        case 74: try decoder.decodeSingularInt32Field(value: &_storage._lazy)
-        case 75: try decoder.decodeSingularInt32Field(value: &_storage._left)
-        case 76: try decoder.decodeSingularInt32Field(value: &_storage._mutating)
-        case 77: try decoder.decodeSingularInt32Field(value: &_storage._none)
-        case 78: try decoder.decodeSingularInt32Field(value: &_storage._nonmutating)
-        case 79: try decoder.decodeSingularInt32Field(value: &_storage._optional)
-        case 80: try decoder.decodeSingularInt32Field(value: &_storage._override)
-        case 81: try decoder.decodeSingularInt32Field(value: &_storage._postfix)
-        case 82: try decoder.decodeSingularInt32Field(value: &_storage._precedence)
-        case 83: try decoder.decodeSingularInt32Field(value: &_storage._prefix)
-        case 85: try decoder.decodeSingularInt32Field(value: &_storage._required)
-        case 86: try decoder.decodeSingularInt32Field(value: &_storage._right)
-        case 87: try decoder.decodeSingularInt32Field(value: &_storage._set)
-        case 88: try decoder.decodeSingularInt32Field(value: &_storage._type)
-        case 89: try decoder.decodeSingularInt32Field(value: &_storage._unowned)
-        case 90: try decoder.decodeSingularInt32Field(value: &_storage._weak)
-        case 91: try decoder.decodeSingularInt32Field(value: &_storage._willSet)
-        case 92: try decoder.decodeSingularInt32Field(value: &_storage._id)
-        case 93: try decoder.decodeSingularInt32Field(value: &_storage._cmd)
-        case 96: try decoder.decodeSingularInt32Field(value: &_storage._out)
-        case 98: try decoder.decodeSingularInt32Field(value: &_storage._bycopy)
-        case 99: try decoder.decodeSingularInt32Field(value: &_storage._byref)
-        case 100: try decoder.decodeSingularInt32Field(value: &_storage._oneway)
-        case 102: try decoder.decodeSingularInt32Field(value: &_storage._and)
-        case 103: try decoder.decodeSingularInt32Field(value: &_storage._andEq)
-        case 104: try decoder.decodeSingularInt32Field(value: &_storage._alignas)
-        case 105: try decoder.decodeSingularInt32Field(value: &_storage._alignof)
-        case 106: try decoder.decodeSingularInt32Field(value: &_storage._asm)
-        case 107: try decoder.decodeSingularInt32Field(value: &_storage._auto)
-        case 108: try decoder.decodeSingularInt32Field(value: &_storage._bitand)
-        case 109: try decoder.decodeSingularInt32Field(value: &_storage._bitor)
-        case 110: try decoder.decodeSingularInt32Field(value: &_storage._bool)
-        case 114: try decoder.decodeSingularInt32Field(value: &_storage._char)
-        case 115: try decoder.decodeSingularInt32Field(value: &_storage._char16T)
-        case 116: try decoder.decodeSingularInt32Field(value: &_storage._char32T)
-        case 118: try decoder.decodeSingularInt32Field(value: &_storage._compl)
-        case 119: try decoder.decodeSingularInt32Field(value: &_storage._const)
-        case 120: try decoder.decodeSingularInt32Field(value: &_storage._constexpr)
-        case 121: try decoder.decodeSingularInt32Field(value: &_storage._constCast)
-        case 123: try decoder.decodeSingularInt32Field(value: &_storage._decltype)
-        case 125: try decoder.decodeSingularInt32Field(value: &_storage._delete)
-        case 127: try decoder.decodeSingularInt32Field(value: &_storage._dynamicCast)
-        case 130: try decoder.decodeSingularInt32Field(value: &_storage._explicit)
-        case 131: try decoder.decodeSingularInt32Field(value: &_storage._export)
-        case 132: try decoder.decodeSingularInt32Field(value: &_storage._extern)
-        case 136: try decoder.decodeSingularInt32Field(value: &_storage._friend)
-        case 137: try decoder.decodeSingularInt32Field(value: &_storage._goto)
-        case 139: try decoder.decodeSingularInt32Field(value: &_storage._inline)
-        case 141: try decoder.decodeSingularInt32Field(value: &_storage._long)
-        case 142: try decoder.decodeSingularInt32Field(value: &_storage._mutable)
-        case 143: try decoder.decodeSingularInt32Field(value: &_storage._namespace)
-        case 144: try decoder.decodeSingularInt32Field(value: &_storage._new)
-        case 145: try decoder.decodeSingularInt32Field(value: &_storage._noexcept)
-        case 146: try decoder.decodeSingularInt32Field(value: &_storage._not)
-        case 147: try decoder.decodeSingularInt32Field(value: &_storage._notEq)
-        case 148: try decoder.decodeSingularInt32Field(value: &_storage._nullptr)
-        case 150: try decoder.decodeSingularInt32Field(value: &_storage._or)
-        case 151: try decoder.decodeSingularInt32Field(value: &_storage._orEq)
-        case 153: try decoder.decodeSingularInt32Field(value: &_storage._protected)
-        case 155: try decoder.decodeSingularInt32Field(value: &_storage._register)
-        case 156: try decoder.decodeSingularInt32Field(value: &_storage._reinterpretCast)
-        case 158: try decoder.decodeSingularInt32Field(value: &_storage._short)
-        case 159: try decoder.decodeSingularInt32Field(value: &_storage._signed)
-        case 160: try decoder.decodeSingularInt32Field(value: &_storage._sizeof)
-        case 162: try decoder.decodeSingularInt32Field(value: &_storage._staticAssert)
-        case 163: try decoder.decodeSingularInt32Field(value: &_storage._staticCast)
-        case 166: try decoder.decodeSingularInt32Field(value: &_storage._template)
-        case 167: try decoder.decodeSingularInt32Field(value: &_storage._this)
-        case 168: try decoder.decodeSingularInt32Field(value: &_storage._threadLocal)
-        case 172: try decoder.decodeSingularInt32Field(value: &_storage._typedef)
-        case 173: try decoder.decodeSingularInt32Field(value: &_storage._typeid)
-        case 174: try decoder.decodeSingularInt32Field(value: &_storage._typename)
-        case 175: try decoder.decodeSingularInt32Field(value: &_storage._union)
-        case 176: try decoder.decodeSingularInt32Field(value: &_storage._unsigned)
-        case 177: try decoder.decodeSingularInt32Field(value: &_storage._using)
-        case 178: try decoder.decodeSingularInt32Field(value: &_storage._virtual)
-        case 179: try decoder.decodeSingularInt32Field(value: &_storage._void)
-        case 180: try decoder.decodeSingularInt32Field(value: &_storage._volatile)
-        case 181: try decoder.decodeSingularInt32Field(value: &_storage._wcharT)
-        case 183: try decoder.decodeSingularInt32Field(value: &_storage._xor)
-        case 184: try decoder.decodeSingularInt32Field(value: &_storage._xorEq)
-        case 185: try decoder.decodeSingularInt32Field(value: &_storage._restrict)
-        case 186: try decoder.decodeSingularInt32Field(value: &_storage._category)
-        case 187: try decoder.decodeSingularInt32Field(value: &_storage._ivar)
-        case 188: try decoder.decodeSingularInt32Field(value: &_storage._method)
-        case 192: try decoder.decodeSingularInt32Field(value: &_storage._finalize)
-        case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash)
-        case 194: try decoder.decodeSingularInt32Field(value: &_storage._dealloc)
-        case 197: try decoder.decodeSingularInt32Field(value: &_storage._superclass)
-        case 198: try decoder.decodeSingularInt32Field(value: &_storage._retain)
-        case 199: try decoder.decodeSingularInt32Field(value: &_storage._release)
-        case 200: try decoder.decodeSingularInt32Field(value: &_storage._autorelease)
-        case 201: try decoder.decodeSingularInt32Field(value: &_storage._retainCount)
-        case 202: try decoder.decodeSingularInt32Field(value: &_storage._zone)
-        case 203: try decoder.decodeSingularInt32Field(value: &_storage._isProxy)
-        case 204: try decoder.decodeSingularInt32Field(value: &_storage._copy)
-        case 205: try decoder.decodeSingularInt32Field(value: &_storage._mutableCopy)
-        case 206: try decoder.decodeSingularInt32Field(value: &_storage._classForCoder)
-        case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear)
-        case 208: try decoder.decodeSingularInt32Field(value: &_storage._data)
-        case 209: try decoder.decodeSingularInt32Field(value: &_storage._delimitedData)
-        case 210: try decoder.decodeSingularInt32Field(value: &_storage._descriptor)
-        case 211: try decoder.decodeSingularInt32Field(value: &_storage._extensionRegistry)
-        case 212: try decoder.decodeSingularInt32Field(value: &_storage._extensionsCurrentlySet)
-        case 213: try decoder.decodeSingularInt32Field(value: &_storage._isInitialized_p)
-        case 214: try decoder.decodeSingularInt32Field(value: &_storage._serializedSize)
-        case 215: try decoder.decodeSingularInt32Field(value: &_storage._sortedExtensionsInUse)
-        case 216: try decoder.decodeSingularInt32Field(value: &_storage._unknownFields_p)
-        case 217: try decoder.decodeSingularInt32Field(value: &_storage._fixed)
-        case 218: try decoder.decodeSingularInt32Field(value: &_storage._fract)
-        case 219: try decoder.decodeSingularInt32Field(value: &_storage._size)
-        case 220: try decoder.decodeSingularInt32Field(value: &_storage._logicalAddress)
-        case 221: try decoder.decodeSingularInt32Field(value: &_storage._physicalAddress)
-        case 222: try decoder.decodeSingularInt32Field(value: &_storage._byteCount)
-        case 223: try decoder.decodeSingularInt32Field(value: &_storage._byteOffset)
-        case 224: try decoder.decodeSingularInt32Field(value: &_storage._duration)
-        case 225: try decoder.decodeSingularInt32Field(value: &_storage._absoluteTime)
-        case 226: try decoder.decodeSingularInt32Field(value: &_storage._optionBits)
-        case 227: try decoder.decodeSingularInt32Field(value: &_storage._itemCount)
-        case 228: try decoder.decodeSingularInt32Field(value: &_storage._pbversion)
-        case 229: try decoder.decodeSingularInt32Field(value: &_storage._scriptCode)
-        case 230: try decoder.decodeSingularInt32Field(value: &_storage._langCode)
-        case 231: try decoder.decodeSingularInt32Field(value: &_storage._regionCode)
-        case 232: try decoder.decodeSingularInt32Field(value: &_storage._ostype)
-        case 233: try decoder.decodeSingularInt32Field(value: &_storage._processSerialNumber)
-        case 234: try decoder.decodeSingularInt32Field(value: &_storage._point)
-        case 235: try decoder.decodeSingularInt32Field(value: &_storage._rect)
-        case 236: try decoder.decodeSingularInt32Field(value: &_storage._fixedPoint)
-        case 237: try decoder.decodeSingularInt32Field(value: &_storage._fixedRect)
-        case 238: try decoder.decodeSingularInt32Field(value: &_storage._style)
-        case 239: try decoder.decodeSingularInt32Field(value: &_storage._styleParameter)
-        case 240: try decoder.decodeSingularInt32Field(value: &_storage._styleField)
-        case 241: try decoder.decodeSingularInt32Field(value: &_storage._timeScale)
-        case 242: try decoder.decodeSingularInt32Field(value: &_storage._timeBase)
-        case 243: try decoder.decodeSingularInt32Field(value: &_storage._timeRecord)
-        case 244: try decoder.decodeSingularInt32Field(value: &_storage._jsonShouldBeOverriden)
-        case 245: try decoder.decodeSingularInt32Field(value: &_storage._any)
-        case 246: try decoder.decodeSingularInt32Field(value: &_storage._int32)
-        case 247: try decoder.decodeSingularInt32Field(value: &_storage._int64)
-        case 250: try decoder.decodeSingularInt32Field(value: &_storage._uint32)
-        case 251: try decoder.decodeSingularInt32Field(value: &_storage._uint64)
-        case 252: try decoder.decodeSingularInt32Field(value: &_storage._associatedtype)
-        case 253: try decoder.decodeSingularInt32Field(value: &_storage._fileprivate)
-        case 254: try decoder.decodeSingularInt32Field(value: &_storage._open)
-        case 255: try decoder.decodeSingularInt32Field(value: &_storage._serializedData)
-        case 256: try decoder.decodeSingularInt32Field(value: &_storage._hasSerializedData_p)
-        case 257: try decoder.decodeSingularInt32Field(value: &_storage._clearSerializedData_p)
-        case 258: try decoder.decodeSingularInt32Field(value: &_storage._jsonUtf8Data)
-        case 259: try decoder.decodeSingularInt32Field(value: &_storage._jsonString)
-        case 260: try decoder.decodeSingularInt32Field(value: &_storage._extension)
-        case 261: try decoder.decodeSingularInt32Field(value: &_storage._extensions)
-        default: break
-        }
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._string {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._int {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._double {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      }
-      if let v = _storage._float {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      }
-      if let v = _storage._uint {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
-      }
-      if let v = _storage._hashValue_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
-      }
-      if let v = _storage._description_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
-      }
-      if let v = _storage._debugDescription_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._swift {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
-      }
-      if let v = _storage._unrecognized {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-      }
-      if let v = _storage._class {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-      }
-      if let v = _storage._deinit {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      }
-      if let v = _storage._enum {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      }
-      if let v = _storage._func {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
-      }
-      if let v = _storage._import {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 16)
-      }
-      if let v = _storage._init_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
-      }
-      if let v = _storage._inout {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
-      }
-      if let v = _storage._internal {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 19)
-      }
-      if let v = _storage._let {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 20)
-      }
-      if let v = _storage._operator {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-      }
-      if let v = _storage._private {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-      }
-      if let v = _storage._protocol {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-      }
-      if let v = _storage._public {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-      }
-      if let v = _storage._static {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 25)
-      }
-      if let v = _storage._struct {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
-      }
-      if let v = _storage._subscript {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 27)
-      }
-      if let v = _storage._typealias {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 28)
-      }
-      if let v = _storage._var {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 29)
-      }
-      if let v = _storage._break {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
-      }
-      if let v = _storage._case {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
-      }
-      if let v = _storage._continue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
-      }
-      if let v = _storage._default {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
-      }
-      if let v = _storage._defer {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 34)
-      }
-      if let v = _storage._do {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 35)
-      }
-      if let v = _storage._else {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 36)
-      }
-      if let v = _storage._fallthrough {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 37)
-      }
-      if let v = _storage._for {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 38)
-      }
-      if let v = _storage._guard {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 39)
-      }
-      if let v = _storage._if {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 40)
-      }
-      if let v = _storage._in {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-      }
-      if let v = _storage._repeat {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-      }
-      if let v = _storage._return {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-      }
-      if let v = _storage._switch {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-      }
-      if let v = _storage._where {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 45)
-      }
-      if let v = _storage._while {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 46)
-      }
-      if let v = _storage._as {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
-      }
-      if let v = _storage._catch {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
-      }
-      if let v = _storage._dynamicType_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 49)
-      }
-      if let v = _storage._false {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 50)
-      }
-      if let v = _storage._is {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
-      }
-      if let v = _storage._nil {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 52)
-      }
-      if let v = _storage._rethrows {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 53)
-      }
-      if let v = _storage._super {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 54)
-      }
-      if let v = _storage._self_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 55)
-      }
-      if let v = _storage._throw {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 57)
-      }
-      if let v = _storage._throws {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 58)
-      }
-      if let v = _storage._true {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 59)
-      }
-      if let v = _storage._try {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 60)
-      }
-      if let v = _storage.__Column__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
-      }
-      if let v = _storage.__File__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 62)
-      }
-      if let v = _storage.__Function__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
-      }
-      if let v = _storage.__Line__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
-      }
-      if let v = _storage.____ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
-      }
-      if let v = _storage._associativity {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 66)
-      }
-      if let v = _storage._convenience {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 67)
-      }
-      if let v = _storage._dynamic {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 68)
-      }
-      if let v = _storage._didSet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 69)
-      }
-      if let v = _storage._final {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 70)
-      }
-      if let v = _storage._get {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 71)
-      }
-      if let v = _storage._infix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 72)
-      }
-      if let v = _storage._indirect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 73)
-      }
-      if let v = _storage._lazy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 74)
-      }
-      if let v = _storage._left {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 75)
-      }
-      if let v = _storage._mutating {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 76)
-      }
-      if let v = _storage._none {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 77)
-      }
-      if let v = _storage._nonmutating {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
-      }
-      if let v = _storage._optional {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 79)
-      }
-      if let v = _storage._override {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 80)
-      }
-      if let v = _storage._postfix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 81)
-      }
-      if let v = _storage._precedence {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 82)
-      }
-      if let v = _storage._prefix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 83)
-      }
-      if let v = _storage._required {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 85)
-      }
-      if let v = _storage._right {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 86)
-      }
-      if let v = _storage._set {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 87)
-      }
-      if let v = _storage._type {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 88)
-      }
-      if let v = _storage._unowned {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 89)
-      }
-      if let v = _storage._weak {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 90)
-      }
-      if let v = _storage._willSet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 91)
-      }
-      if let v = _storage._id {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 92)
-      }
-      if let v = _storage._cmd {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 93)
-      }
-      if let v = _storage._out {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 96)
-      }
-      if let v = _storage._bycopy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 98)
-      }
-      if let v = _storage._byref {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
-      }
-      if let v = _storage._oneway {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 100)
-      }
-      if let v = _storage._and {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 102)
-      }
-      if let v = _storage._andEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 103)
-      }
-      if let v = _storage._alignas {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 104)
-      }
-      if let v = _storage._alignof {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 105)
-      }
-      if let v = _storage._asm {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 106)
-      }
-      if let v = _storage._auto {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 107)
-      }
-      if let v = _storage._bitand {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 108)
-      }
-      if let v = _storage._bitor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 109)
-      }
-      if let v = _storage._bool {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 110)
-      }
-      if let v = _storage._char {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 114)
-      }
-      if let v = _storage._char16T {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 115)
-      }
-      if let v = _storage._char32T {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
-      }
-      if let v = _storage._compl {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 118)
-      }
-      if let v = _storage._const {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 119)
-      }
-      if let v = _storage._constexpr {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 120)
-      }
-      if let v = _storage._constCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 121)
-      }
-      if let v = _storage._decltype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 123)
-      }
-      if let v = _storage._delete {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 125)
-      }
-      if let v = _storage._dynamicCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 127)
-      }
-      if let v = _storage._explicit {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 130)
-      }
-      if let v = _storage._export {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 131)
-      }
-      if let v = _storage._extern {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 132)
-      }
-      if let v = _storage._friend {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 136)
-      }
-      if let v = _storage._goto {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 137)
-      }
-      if let v = _storage._inline {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 139)
-      }
-      if let v = _storage._long {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 141)
-      }
-      if let v = _storage._mutable {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 142)
-      }
-      if let v = _storage._namespace {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 143)
-      }
-      if let v = _storage._new {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 144)
-      }
-      if let v = _storage._noexcept {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 145)
-      }
-      if let v = _storage._not {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 146)
-      }
-      if let v = _storage._notEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 147)
-      }
-      if let v = _storage._nullptr {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 148)
-      }
-      if let v = _storage._or {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 150)
-      }
-      if let v = _storage._orEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 151)
-      }
-      if let v = _storage._protected {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 153)
-      }
-      if let v = _storage._register {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 155)
-      }
-      if let v = _storage._reinterpretCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 156)
-      }
-      if let v = _storage._short {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 158)
-      }
-      if let v = _storage._signed {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 159)
-      }
-      if let v = _storage._sizeof {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 160)
-      }
-      if let v = _storage._staticAssert {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 162)
-      }
-      if let v = _storage._staticCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 163)
-      }
-      if let v = _storage._template {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 166)
-      }
-      if let v = _storage._this {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
-      }
-      if let v = _storage._threadLocal {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 168)
-      }
-      if let v = _storage._typedef {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 172)
-      }
-      if let v = _storage._typeid {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 173)
-      }
-      if let v = _storage._typename {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 174)
-      }
-      if let v = _storage._union {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 175)
-      }
-      if let v = _storage._unsigned {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 176)
-      }
-      if let v = _storage._using {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 177)
-      }
-      if let v = _storage._virtual {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 178)
-      }
-      if let v = _storage._void {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 179)
-      }
-      if let v = _storage._volatile {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 180)
-      }
-      if let v = _storage._wcharT {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 181)
-      }
-      if let v = _storage._xor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 183)
-      }
-      if let v = _storage._xorEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 184)
-      }
-      if let v = _storage._restrict {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 185)
-      }
-      if let v = _storage._category {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 186)
-      }
-      if let v = _storage._ivar {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 187)
-      }
-      if let v = _storage._method {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 188)
-      }
-      if let v = _storage._finalize {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
-      }
-      if let v = _storage._hash {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
-      }
-      if let v = _storage._dealloc {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 194)
-      }
-      if let v = _storage._superclass {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 197)
-      }
-      if let v = _storage._retain {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 198)
-      }
-      if let v = _storage._release {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 199)
-      }
-      if let v = _storage._autorelease {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
-      }
-      if let v = _storage._retainCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
-      }
-      if let v = _storage._zone {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 202)
-      }
-      if let v = _storage._isProxy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 203)
-      }
-      if let v = _storage._copy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 204)
-      }
-      if let v = _storage._mutableCopy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 205)
-      }
-      if let v = _storage._classForCoder {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
-      }
-      if let v = _storage._clear {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
-      }
-      if let v = _storage._data {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 208)
-      }
-      if let v = _storage._delimitedData {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 209)
-      }
-      if let v = _storage._descriptor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 210)
-      }
-      if let v = _storage._extensionRegistry {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 211)
-      }
-      if let v = _storage._extensionsCurrentlySet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 212)
-      }
-      if let v = _storage._isInitialized_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 213)
-      }
-      if let v = _storage._serializedSize {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 214)
-      }
-      if let v = _storage._sortedExtensionsInUse {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 215)
-      }
-      if let v = _storage._unknownFields_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 216)
-      }
-      if let v = _storage._fixed {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 217)
-      }
-      if let v = _storage._fract {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 218)
-      }
-      if let v = _storage._size {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 219)
-      }
-      if let v = _storage._logicalAddress {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 220)
-      }
-      if let v = _storage._physicalAddress {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 221)
-      }
-      if let v = _storage._byteCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 222)
-      }
-      if let v = _storage._byteOffset {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 223)
-      }
-      if let v = _storage._duration {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 224)
-      }
-      if let v = _storage._absoluteTime {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 225)
-      }
-      if let v = _storage._optionBits {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
-      }
-      if let v = _storage._itemCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 227)
-      }
-      if let v = _storage._pbversion {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 228)
-      }
-      if let v = _storage._scriptCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 229)
-      }
-      if let v = _storage._langCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 230)
-      }
-      if let v = _storage._regionCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 231)
-      }
-      if let v = _storage._ostype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 232)
-      }
-      if let v = _storage._processSerialNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 233)
-      }
-      if let v = _storage._point {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 234)
-      }
-      if let v = _storage._rect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 235)
-      }
-      if let v = _storage._fixedPoint {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 236)
-      }
-      if let v = _storage._fixedRect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 237)
-      }
-      if let v = _storage._style {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 238)
-      }
-      if let v = _storage._styleParameter {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 239)
-      }
-      if let v = _storage._styleField {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 240)
-      }
-      if let v = _storage._timeScale {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
-      }
-      if let v = _storage._timeBase {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 242)
-      }
-      if let v = _storage._timeRecord {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 243)
-      }
-      if let v = _storage._jsonShouldBeOverriden {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
-      }
-      if let v = _storage._any {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 245)
-      }
-      if let v = _storage._int32 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 246)
-      }
-      if let v = _storage._int64 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 247)
-      }
-      if let v = _storage._uint32 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 250)
-      }
-      if let v = _storage._uint64 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 251)
-      }
-      if let v = _storage._associatedtype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 252)
-      }
-      if let v = _storage._fileprivate {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 253)
-      }
-      if let v = _storage._open {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 254)
-      }
-      if let v = _storage._serializedData {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 255)
-      }
-      if let v = _storage._hasSerializedData_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 256)
-      }
-      if let v = _storage._clearSerializedData_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 257)
-      }
-      if let v = _storage._jsonUtf8Data {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 258)
-      }
-      if let v = _storage._jsonString {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 259)
-      }
-      if let v = _storage._extension {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 260)
-      }
-      if let v = _storage._extensions {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 261)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".MessageNames"
+struct SwiftUnittest_Names_MessageNames {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct StringMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".String"
+  struct StringMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var string: Int32 {
       get {return _string ?? 0}
@@ -3695,35 +2764,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._string)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._string {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _string: Int32? = nil
   }
 
-  struct ProtocolMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Protocol"
+  struct ProtocolMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `protocol`: Int32 {
       get {return _protocol ?? 0}
@@ -3738,35 +2785,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._protocol)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._protocol {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _protocol: Int32? = nil
   }
 
-  struct IntMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Int"
+  struct IntMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var int: Int32 {
       get {return _int ?? 0}
@@ -3781,35 +2806,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._int)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._int {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _int: Int32? = nil
   }
 
-  struct DoubleMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Double"
+  struct DoubleMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var double: Int32 {
       get {return _double ?? 0}
@@ -3824,35 +2827,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._double)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._double {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _double: Int32? = nil
   }
 
-  struct FloatMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Float"
+  struct FloatMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var float: Int32 {
       get {return _float ?? 0}
@@ -3867,35 +2848,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._float)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._float {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _float: Int32? = nil
   }
 
-  struct UIntMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UInt"
+  struct UIntMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var uint: Int32 {
       get {return _uint ?? 0}
@@ -3910,35 +2869,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._uint)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._uint {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _uint: Int32? = nil
   }
 
-  struct hashValueMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hashValue"
+  struct hashValueMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var hashValue_p: Int32 {
       get {return _hashValue_p ?? 0}
@@ -3953,35 +2890,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._hashValue_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._hashValue_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _hashValue_p: Int32? = nil
   }
 
-  struct descriptionMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".description"
+  struct descriptionMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var description_p: Int32 {
       get {return _description_p ?? 0}
@@ -3996,35 +2911,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._description_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._description_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _description_p: Int32? = nil
   }
 
-  struct debugDescriptionMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".debugDescription"
+  struct debugDescriptionMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var debugDescription_p: Int32 {
       get {return _debugDescription_p ?? 0}
@@ -4039,35 +2932,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._debugDescription_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _debugDescription_p: Int32? = nil
   }
 
-  struct Swift: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
+  struct Swift {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var swift: Int32 {
       get {return _swift ?? 0}
@@ -4082,35 +2953,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._swift)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._swift {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _swift: Int32? = nil
   }
 
-  struct UNRECOGNIZED: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
+  struct UNRECOGNIZED {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var unrecognized: Int32 {
       get {return _unrecognized ?? 0}
@@ -4125,35 +2974,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._unrecognized)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._unrecognized {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _unrecognized: Int32? = nil
   }
 
-  struct classMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".class"
+  struct classMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `class`: Int32 {
       get {return _class ?? 0}
@@ -4168,35 +2995,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._class)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._class {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _class: Int32? = nil
   }
 
-  struct deinitMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".deinit"
+  struct deinitMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `deinit`: Int32 {
       get {return _deinit ?? 0}
@@ -4211,35 +3016,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._deinit)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._deinit {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _deinit: Int32? = nil
   }
 
-  struct enumMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".enum"
+  struct enumMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `enum`: Int32 {
       get {return _enum ?? 0}
@@ -4254,35 +3037,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._enum)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._enum {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _enum: Int32? = nil
   }
 
-  struct extensionMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extension"
+  struct extensionMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `extension`: Int32 {
       get {return _extension ?? 0}
@@ -4297,35 +3058,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._extension)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._extension {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _extension: Int32? = nil
   }
 
-  struct funcMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".func"
+  struct funcMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `func`: Int32 {
       get {return _func ?? 0}
@@ -4340,35 +3079,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._func)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._func {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _func: Int32? = nil
   }
 
-  struct importMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".import"
+  struct importMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `import`: Int32 {
       get {return _import ?? 0}
@@ -4383,35 +3100,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._import)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._import {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _import: Int32? = nil
   }
 
-  struct initMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".init"
+  struct initMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var init_p: Int32 {
       get {return _init_p ?? 0}
@@ -4426,35 +3121,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._init_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._init_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _init_p: Int32? = nil
   }
 
-  struct inoutMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inout"
+  struct inoutMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `inout`: Int32 {
       get {return _inout ?? 0}
@@ -4469,35 +3142,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._inout)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._inout {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _inout: Int32? = nil
   }
 
-  struct internalMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".internal"
+  struct internalMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `internal`: Int32 {
       get {return _internal ?? 0}
@@ -4512,35 +3163,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._internal)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._internal {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _internal: Int32? = nil
   }
 
-  struct letMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".let"
+  struct letMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `let`: Int32 {
       get {return _let ?? 0}
@@ -4555,35 +3184,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._let)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._let {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _let: Int32? = nil
   }
 
-  struct operatorMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".operator"
+  struct operatorMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `operator`: Int32 {
       get {return _operator ?? 0}
@@ -4598,35 +3205,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._operator)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._operator {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _operator: Int32? = nil
   }
 
-  struct privateMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".private"
+  struct privateMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `private`: Int32 {
       get {return _private ?? 0}
@@ -4641,35 +3226,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._private)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._private {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _private: Int32? = nil
   }
 
-  struct protocolMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protocol"
+  struct protocolMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `protocol`: Int32 {
       get {return _protocol ?? 0}
@@ -4684,35 +3247,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._protocol)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._protocol {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _protocol: Int32? = nil
   }
 
-  struct publicMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".public"
+  struct publicMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `public`: Int32 {
       get {return _public ?? 0}
@@ -4727,35 +3268,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._public)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._public {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _public: Int32? = nil
   }
 
-  struct staticMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static"
+  struct staticMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `static`: Int32 {
       get {return _static ?? 0}
@@ -4770,35 +3289,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._static)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._static {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _static: Int32? = nil
   }
 
-  struct structMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".struct"
+  struct structMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `struct`: Int32 {
       get {return _struct ?? 0}
@@ -4813,35 +3310,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._struct)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._struct {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _struct: Int32? = nil
   }
 
-  struct subscriptMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".subscript"
+  struct subscriptMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `subscript`: Int32 {
       get {return _subscript ?? 0}
@@ -4856,35 +3331,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._subscript)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._subscript {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _subscript: Int32? = nil
   }
 
-  struct typealiasMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typealias"
+  struct typealiasMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `typealias`: Int32 {
       get {return _typealias ?? 0}
@@ -4899,35 +3352,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._typealias)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._typealias {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _typealias: Int32? = nil
   }
 
-  struct varMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".var"
+  struct varMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `var`: Int32 {
       get {return _var ?? 0}
@@ -4942,35 +3373,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._var)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._var {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _var: Int32? = nil
   }
 
-  struct breakMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".break"
+  struct breakMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `break`: Int32 {
       get {return _break ?? 0}
@@ -4985,35 +3394,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._break)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._break {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _break: Int32? = nil
   }
 
-  struct caseMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".case"
+  struct caseMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `case`: Int32 {
       get {return _case ?? 0}
@@ -5028,35 +3415,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._case)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._case {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _case: Int32? = nil
   }
 
-  struct continueMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".continue"
+  struct continueMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `continue`: Int32 {
       get {return _continue ?? 0}
@@ -5071,35 +3436,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._continue)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._continue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _continue: Int32? = nil
   }
 
-  struct defaultMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".default"
+  struct defaultMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `default`: Int32 {
       get {return _default ?? 0}
@@ -5114,35 +3457,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._default)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._default {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _default: Int32? = nil
   }
 
-  struct deferMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".defer"
+  struct deferMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `defer`: Int32 {
       get {return _defer ?? 0}
@@ -5157,35 +3478,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._defer)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._defer {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _defer: Int32? = nil
   }
 
-  struct doMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".do"
+  struct doMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `do`: Int32 {
       get {return _do ?? 0}
@@ -5200,35 +3499,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._do)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._do {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _do: Int32? = nil
   }
 
-  struct elseMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".else"
+  struct elseMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `else`: Int32 {
       get {return _else ?? 0}
@@ -5243,35 +3520,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._else)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._else {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _else: Int32? = nil
   }
 
-  struct fallthroughMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".fallthrough"
+  struct fallthroughMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `fallthrough`: Int32 {
       get {return _fallthrough ?? 0}
@@ -5286,35 +3541,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._fallthrough)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._fallthrough {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _fallthrough: Int32? = nil
   }
 
-  struct forMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".for"
+  struct forMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `for`: Int32 {
       get {return _for ?? 0}
@@ -5329,35 +3562,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._for)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._for {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _for: Int32? = nil
   }
 
-  struct guardMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".guard"
+  struct guardMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `guard`: Int32 {
       get {return _guard ?? 0}
@@ -5372,35 +3583,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._guard)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._guard {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _guard: Int32? = nil
   }
 
-  struct ifMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".if"
+  struct ifMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `if`: Int32 {
       get {return _if ?? 0}
@@ -5415,35 +3604,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._if)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._if {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _if: Int32? = nil
   }
 
-  struct inMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".in"
+  struct inMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `in`: Int32 {
       get {return _in ?? 0}
@@ -5458,35 +3625,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._in)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._in {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _in: Int32? = nil
   }
 
-  struct repeatMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".repeat"
+  struct repeatMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `repeat`: Int32 {
       get {return _repeat ?? 0}
@@ -5501,35 +3646,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._repeat)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._repeat {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _repeat: Int32? = nil
   }
 
-  struct returnMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".return"
+  struct returnMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `return`: Int32 {
       get {return _return ?? 0}
@@ -5544,35 +3667,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._return)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._return {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _return: Int32? = nil
   }
 
-  struct switchMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".switch"
+  struct switchMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `switch`: Int32 {
       get {return _switch ?? 0}
@@ -5587,35 +3688,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._switch)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._switch {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _switch: Int32? = nil
   }
 
-  struct whereMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".where"
+  struct whereMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `where`: Int32 {
       get {return _where ?? 0}
@@ -5630,35 +3709,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._where)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._where {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _where: Int32? = nil
   }
 
-  struct whileMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".while"
+  struct whileMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `while`: Int32 {
       get {return _while ?? 0}
@@ -5673,35 +3730,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._while)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._while {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _while: Int32? = nil
   }
 
-  struct asMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".as"
+  struct asMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `as`: Int32 {
       get {return _as ?? 0}
@@ -5716,35 +3751,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._as)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._as {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _as: Int32? = nil
   }
 
-  struct catchMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".catch"
+  struct catchMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `catch`: Int32 {
       get {return _catch ?? 0}
@@ -5759,35 +3772,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._catch)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._catch {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _catch: Int32? = nil
   }
 
-  struct dynamicTypeMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamicType"
+  struct dynamicTypeMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var dynamicType_p: Int32 {
       get {return _dynamicType_p ?? 0}
@@ -5802,35 +3793,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._dynamicType_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._dynamicType_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _dynamicType_p: Int32? = nil
   }
 
-  struct falseMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".false"
+  struct falseMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `false`: Int32 {
       get {return _false ?? 0}
@@ -5845,35 +3814,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._false)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._false {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _false: Int32? = nil
   }
 
-  struct isMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".is"
+  struct isMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `is`: Int32 {
       get {return _is ?? 0}
@@ -5888,35 +3835,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._is)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._is {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _is: Int32? = nil
   }
 
-  struct nilMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nil"
+  struct nilMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `nil`: Int32 {
       get {return _nil ?? 0}
@@ -5931,35 +3856,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._nil)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._nil {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _nil: Int32? = nil
   }
 
-  struct rethrowsMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".rethrows"
+  struct rethrowsMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `rethrows`: Int32 {
       get {return _rethrows ?? 0}
@@ -5974,35 +3877,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._rethrows)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._rethrows {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _rethrows: Int32? = nil
   }
 
-  struct superMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".super"
+  struct superMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `super`: Int32 {
       get {return _super ?? 0}
@@ -6017,35 +3898,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._super)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._super {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _super: Int32? = nil
   }
 
-  struct selfMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".self"
+  struct selfMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var self_p: Int32 {
       get {return _self_p ?? 0}
@@ -6060,35 +3919,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._self_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._self_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _self_p: Int32? = nil
   }
 
-  struct throwMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throw"
+  struct throwMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `throw`: Int32 {
       get {return _throw ?? 0}
@@ -6103,35 +3940,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._throw)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._throw {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _throw: Int32? = nil
   }
 
-  struct throwsMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throws"
+  struct throwsMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `throws`: Int32 {
       get {return _throws ?? 0}
@@ -6146,35 +3961,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._throws)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._throws {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _throws: Int32? = nil
   }
 
-  struct trueMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".true"
+  struct trueMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `true`: Int32 {
       get {return _true ?? 0}
@@ -6189,35 +3982,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._true)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._true {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _true: Int32? = nil
   }
 
-  struct tryMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".try"
+  struct tryMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `try`: Int32 {
       get {return _try ?? 0}
@@ -6232,35 +4003,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._try)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._try {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _try: Int32? = nil
   }
 
-  struct __COLUMN__Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__COLUMN__"
+  struct __COLUMN__Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var _Column__: Int32 {
       get {return __Column__ ?? 0}
@@ -6275,35 +4024,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.__Column__)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self.__Column__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var __Column__: Int32? = nil
   }
 
-  struct __FILE__Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FILE__"
+  struct __FILE__Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var _File__: Int32 {
       get {return __File__ ?? 0}
@@ -6318,35 +4045,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.__File__)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self.__File__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var __File__: Int32? = nil
   }
 
-  struct __FUNCTION__Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FUNCTION__"
+  struct __FUNCTION__Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var _Function__: Int32 {
       get {return __Function__ ?? 0}
@@ -6361,35 +4066,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.__Function__)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self.__Function__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var __Function__: Int32? = nil
   }
 
-  struct __LINE__Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__LINE__"
+  struct __LINE__Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var _Line__: Int32 {
       get {return __Line__ ?? 0}
@@ -6404,35 +4087,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.__Line__)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self.__Line__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var __Line__: Int32? = nil
   }
 
-  struct _Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._"
+  struct _Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var ___: Int32 {
       get {return ____ ?? 0}
@@ -6447,35 +4108,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.____)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self.____ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var ____: Int32? = nil
   }
 
-  struct __Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__"
+  struct __Message {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var ____: Int32 {
       get {return _____ ?? 0}
@@ -6490,35 +4129,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._____)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._____ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _____: Int32? = nil
   }
 
-  struct associativity: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
+  struct associativity {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var associativity: Int32 {
       get {return _associativity ?? 0}
@@ -6533,35 +4150,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._associativity)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._associativity {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _associativity: Int32? = nil
   }
 
-  struct convenience: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".convenience"
+  struct convenience {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var convenience: Int32 {
       get {return _convenience ?? 0}
@@ -6576,35 +4171,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._convenience)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._convenience {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _convenience: Int32? = nil
   }
 
-  struct dynamic: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic"
+  struct dynamic {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var dynamic: Int32 {
       get {return _dynamic ?? 0}
@@ -6619,35 +4192,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._dynamic)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._dynamic {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _dynamic: Int32? = nil
   }
 
-  struct didSet: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".didSet"
+  struct didSet {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var didSet: Int32 {
       get {return _didSet ?? 0}
@@ -6662,35 +4213,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._didSet)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._didSet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _didSet: Int32? = nil
   }
 
-  struct final: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".final"
+  struct final {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var final: Int32 {
       get {return _final ?? 0}
@@ -6705,35 +4234,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._final)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._final {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _final: Int32? = nil
   }
 
-  struct get: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".get"
+  struct get {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var get: Int32 {
       get {return _get ?? 0}
@@ -6748,35 +4255,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._get)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._get {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _get: Int32? = nil
   }
 
-  struct infix: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".infix"
+  struct infix {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var infix: Int32 {
       get {return _infix ?? 0}
@@ -6791,35 +4276,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._infix)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._infix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _infix: Int32? = nil
   }
 
-  struct indirect: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".indirect"
+  struct indirect {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var indirect: Int32 {
       get {return _indirect ?? 0}
@@ -6834,35 +4297,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._indirect)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._indirect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _indirect: Int32? = nil
   }
 
-  struct lazy: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".lazy"
+  struct lazy {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var lazy: Int32 {
       get {return _lazy ?? 0}
@@ -6877,35 +4318,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._lazy)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._lazy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _lazy: Int32? = nil
   }
 
-  struct left: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".left"
+  struct left {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var left: Int32 {
       get {return _left ?? 0}
@@ -6920,35 +4339,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._left)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._left {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _left: Int32? = nil
   }
 
-  struct mutating: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutating"
+  struct mutating {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var mutating: Int32 {
       get {return _mutating ?? 0}
@@ -6963,35 +4360,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._mutating)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._mutating {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _mutating: Int32? = nil
   }
 
-  struct none: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".none"
+  struct none {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var none: Int32 {
       get {return _none ?? 0}
@@ -7006,35 +4381,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._none)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._none {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _none: Int32? = nil
   }
 
-  struct nonmutating: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nonmutating"
+  struct nonmutating {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var nonmutating: Int32 {
       get {return _nonmutating ?? 0}
@@ -7049,35 +4402,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._nonmutating)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._nonmutating {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _nonmutating: Int32? = nil
   }
 
-  struct optional: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
+  struct optional {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var optional: Int32 {
       get {return _optional ?? 0}
@@ -7092,35 +4423,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._optional)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._optional {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _optional: Int32? = nil
   }
 
-  struct override: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".override"
+  struct override {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var override: Int32 {
       get {return _override ?? 0}
@@ -7135,35 +4444,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._override)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._override {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _override: Int32? = nil
   }
 
-  struct postfix: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".postfix"
+  struct postfix {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var postfix: Int32 {
       get {return _postfix ?? 0}
@@ -7178,35 +4465,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._postfix)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._postfix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _postfix: Int32? = nil
   }
 
-  struct precedence: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".precedence"
+  struct precedence {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var precedence: Int32 {
       get {return _precedence ?? 0}
@@ -7221,35 +4486,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._precedence)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._precedence {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _precedence: Int32? = nil
   }
 
-  struct prefix: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".prefix"
+  struct prefix {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var prefix: Int32 {
       get {return _prefix ?? 0}
@@ -7264,35 +4507,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._prefix)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._prefix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _prefix: Int32? = nil
   }
 
-  struct required: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
+  struct required {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var required: Int32 {
       get {return _required ?? 0}
@@ -7307,35 +4528,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._required)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._required {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _required: Int32? = nil
   }
 
-  struct right: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".right"
+  struct right {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var right: Int32 {
       get {return _right ?? 0}
@@ -7350,35 +4549,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._right)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._right {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _right: Int32? = nil
   }
 
-  struct set: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".set"
+  struct set {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var set: Int32 {
       get {return _set ?? 0}
@@ -7393,35 +4570,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._set)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._set {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _set: Int32? = nil
   }
 
-  struct TypeMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Type"
+  struct TypeMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var type: Int32 {
       get {return _type ?? 0}
@@ -7436,35 +4591,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._type)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._type {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _type: Int32? = nil
   }
 
-  struct unowned: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unowned"
+  struct unowned {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var unowned: Int32 {
       get {return _unowned ?? 0}
@@ -7479,35 +4612,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._unowned)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._unowned {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _unowned: Int32? = nil
   }
 
-  struct weak: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".weak"
+  struct weak {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var weak: Int32 {
       get {return _weak ?? 0}
@@ -7522,35 +4633,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._weak)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._weak {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _weak: Int32? = nil
   }
 
-  struct willSet: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".willSet"
+  struct willSet {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var willSet: Int32 {
       get {return _willSet ?? 0}
@@ -7565,35 +4654,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._willSet)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._willSet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _willSet: Int32? = nil
   }
 
-  struct id: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".id"
+  struct id {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var id: Int32 {
       get {return _id ?? 0}
@@ -7608,35 +4675,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._id)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._id {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _id: Int32? = nil
   }
 
-  struct _cmd: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._cmd"
+  struct _cmd {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var cmd: Int32 {
       get {return _cmd ?? 0}
@@ -7651,35 +4696,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._cmd)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._cmd {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _cmd: Int32? = nil
   }
 
-  struct out: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".out"
+  struct out {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var out: Int32 {
       get {return _out ?? 0}
@@ -7694,35 +4717,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._out)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._out {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _out: Int32? = nil
   }
 
-  struct bycopy: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bycopy"
+  struct bycopy {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var bycopy: Int32 {
       get {return _bycopy ?? 0}
@@ -7737,35 +4738,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._bycopy)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._bycopy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _bycopy: Int32? = nil
   }
 
-  struct byref: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".byref"
+  struct byref {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var byref: Int32 {
       get {return _byref ?? 0}
@@ -7780,35 +4759,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._byref)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._byref {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _byref: Int32? = nil
   }
 
-  struct oneway: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".oneway"
+  struct oneway {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var oneway: Int32 {
       get {return _oneway ?? 0}
@@ -7823,35 +4780,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._oneway)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._oneway {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _oneway: Int32? = nil
   }
 
-  struct and: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and"
+  struct and {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var and: Int32 {
       get {return _and ?? 0}
@@ -7866,35 +4801,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._and)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._and {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _and: Int32? = nil
   }
 
-  struct and_eq: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and_eq"
+  struct and_eq {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var andEq: Int32 {
       get {return _andEq ?? 0}
@@ -7909,35 +4822,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._andEq)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._andEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _andEq: Int32? = nil
   }
 
-  struct alignas: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignas"
+  struct alignas {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var alignas: Int32 {
       get {return _alignas ?? 0}
@@ -7952,35 +4843,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._alignas)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._alignas {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _alignas: Int32? = nil
   }
 
-  struct alignof: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignof"
+  struct alignof {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var alignof: Int32 {
       get {return _alignof ?? 0}
@@ -7995,35 +4864,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._alignof)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._alignof {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _alignof: Int32? = nil
   }
 
-  struct asm: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".asm"
+  struct asm {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var asm: Int32 {
       get {return _asm ?? 0}
@@ -8038,35 +4885,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._asm)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._asm {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _asm: Int32? = nil
   }
 
-  struct auto: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".auto"
+  struct auto {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var auto: Int32 {
       get {return _auto ?? 0}
@@ -8081,35 +4906,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._auto)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._auto {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _auto: Int32? = nil
   }
 
-  struct bitand: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitand"
+  struct bitand {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var bitand: Int32 {
       get {return _bitand ?? 0}
@@ -8124,35 +4927,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._bitand)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._bitand {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _bitand: Int32? = nil
   }
 
-  struct bitor: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitor"
+  struct bitor {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var bitor: Int32 {
       get {return _bitor ?? 0}
@@ -8167,35 +4948,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._bitor)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._bitor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _bitor: Int32? = nil
   }
 
-  struct bool: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bool"
+  struct bool {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var bool: Int32 {
       get {return _bool ?? 0}
@@ -8210,35 +4969,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._bool)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._bool {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _bool: Int32? = nil
   }
 
-  struct char: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char"
+  struct char {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var char: Int32 {
       get {return _char ?? 0}
@@ -8253,35 +4990,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._char)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._char {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _char: Int32? = nil
   }
 
-  struct char16_t: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char16_t"
+  struct char16_t {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var char16T: Int32 {
       get {return _char16T ?? 0}
@@ -8296,35 +5011,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._char16T)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._char16T {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _char16T: Int32? = nil
   }
 
-  struct char32_t: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char32_t"
+  struct char32_t {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var char32T: Int32 {
       get {return _char32T ?? 0}
@@ -8339,35 +5032,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._char32T)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._char32T {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _char32T: Int32? = nil
   }
 
-  struct compl: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".compl"
+  struct compl {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var compl: Int32 {
       get {return _compl ?? 0}
@@ -8382,35 +5053,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._compl)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._compl {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _compl: Int32? = nil
   }
 
-  struct const: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const"
+  struct const {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var const: Int32 {
       get {return _const ?? 0}
@@ -8425,35 +5074,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._const)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._const {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _const: Int32? = nil
   }
 
-  struct constexpr: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".constexpr"
+  struct constexpr {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var constexpr: Int32 {
       get {return _constexpr ?? 0}
@@ -8468,35 +5095,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._constexpr)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._constexpr {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _constexpr: Int32? = nil
   }
 
-  struct const_cast: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const_cast"
+  struct const_cast {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var constCast: Int32 {
       get {return _constCast ?? 0}
@@ -8511,35 +5116,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._constCast)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._constCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _constCast: Int32? = nil
   }
 
-  struct decltype: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".decltype"
+  struct decltype {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var decltype: Int32 {
       get {return _decltype ?? 0}
@@ -8554,35 +5137,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._decltype)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._decltype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _decltype: Int32? = nil
   }
 
-  struct delete: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delete"
+  struct delete {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var delete: Int32 {
       get {return _delete ?? 0}
@@ -8597,35 +5158,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._delete)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._delete {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _delete: Int32? = nil
   }
 
-  struct dynamic_cast: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic_cast"
+  struct dynamic_cast {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var dynamicCast: Int32 {
       get {return _dynamicCast ?? 0}
@@ -8640,35 +5179,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._dynamicCast)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._dynamicCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _dynamicCast: Int32? = nil
   }
 
-  struct explicit: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".explicit"
+  struct explicit {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var explicit: Int32 {
       get {return _explicit ?? 0}
@@ -8683,35 +5200,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._explicit)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._explicit {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _explicit: Int32? = nil
   }
 
-  struct export: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".export"
+  struct export {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var export: Int32 {
       get {return _export ?? 0}
@@ -8726,35 +5221,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._export)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._export {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _export: Int32? = nil
   }
 
-  struct extern: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extern"
+  struct extern {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var extern: Int32 {
       get {return _extern ?? 0}
@@ -8769,35 +5242,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._extern)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._extern {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _extern: Int32? = nil
   }
 
-  struct friend: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".friend"
+  struct friend {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var friend: Int32 {
       get {return _friend ?? 0}
@@ -8812,35 +5263,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._friend)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._friend {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _friend: Int32? = nil
   }
 
-  struct goto: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".goto"
+  struct goto {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var goto: Int32 {
       get {return _goto ?? 0}
@@ -8855,35 +5284,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._goto)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._goto {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _goto: Int32? = nil
   }
 
-  struct inline: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inline"
+  struct inline {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var inline: Int32 {
       get {return _inline ?? 0}
@@ -8898,35 +5305,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._inline)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._inline {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _inline: Int32? = nil
   }
 
-  struct long: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".long"
+  struct long {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var long: Int32 {
       get {return _long ?? 0}
@@ -8941,35 +5326,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._long)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._long {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _long: Int32? = nil
   }
 
-  struct mutable: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutable"
+  struct mutable {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var mutable: Int32 {
       get {return _mutable ?? 0}
@@ -8984,35 +5347,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._mutable)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._mutable {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _mutable: Int32? = nil
   }
 
-  struct namespace: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".namespace"
+  struct namespace {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var namespace: Int32 {
       get {return _namespace ?? 0}
@@ -9027,35 +5368,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._namespace)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._namespace {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _namespace: Int32? = nil
   }
 
-  struct new: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".new"
+  struct new {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var new: Int32 {
       get {return _new ?? 0}
@@ -9070,35 +5389,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._new)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._new {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _new: Int32? = nil
   }
 
-  struct noexcept: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".noexcept"
+  struct noexcept {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var noexcept: Int32 {
       get {return _noexcept ?? 0}
@@ -9113,35 +5410,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._noexcept)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._noexcept {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _noexcept: Int32? = nil
   }
 
-  struct not: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not"
+  struct not {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var not: Int32 {
       get {return _not ?? 0}
@@ -9156,35 +5431,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._not)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._not {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _not: Int32? = nil
   }
 
-  struct not_eq: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not_eq"
+  struct not_eq {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var notEq: Int32 {
       get {return _notEq ?? 0}
@@ -9199,35 +5452,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._notEq)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._notEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _notEq: Int32? = nil
   }
 
-  struct nullptr: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nullptr"
+  struct nullptr {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var nullptr: Int32 {
       get {return _nullptr ?? 0}
@@ -9242,35 +5473,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._nullptr)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._nullptr {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _nullptr: Int32? = nil
   }
 
-  struct or: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or"
+  struct or {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var or: Int32 {
       get {return _or ?? 0}
@@ -9285,35 +5494,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._or)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._or {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _or: Int32? = nil
   }
 
-  struct or_eq: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or_eq"
+  struct or_eq {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var orEq: Int32 {
       get {return _orEq ?? 0}
@@ -9328,35 +5515,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._orEq)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._orEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _orEq: Int32? = nil
   }
 
-  struct protected: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protected"
+  struct protected {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var protected: Int32 {
       get {return _protected ?? 0}
@@ -9371,35 +5536,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._protected)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._protected {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _protected: Int32? = nil
   }
 
-  struct register: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".register"
+  struct register {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var register: Int32 {
       get {return _register ?? 0}
@@ -9414,35 +5557,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._register)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._register {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _register: Int32? = nil
   }
 
-  struct reinterpret_cast: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".reinterpret_cast"
+  struct reinterpret_cast {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var reinterpretCast: Int32 {
       get {return _reinterpretCast ?? 0}
@@ -9457,35 +5578,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._reinterpretCast)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._reinterpretCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _reinterpretCast: Int32? = nil
   }
 
-  struct short: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".short"
+  struct short {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var short: Int32 {
       get {return _short ?? 0}
@@ -9500,35 +5599,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._short)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._short {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _short: Int32? = nil
   }
 
-  struct signed: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".signed"
+  struct signed {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var signed: Int32 {
       get {return _signed ?? 0}
@@ -9543,35 +5620,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._signed)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._signed {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _signed: Int32? = nil
   }
 
-  struct sizeof: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sizeof"
+  struct sizeof {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var sizeof: Int32 {
       get {return _sizeof ?? 0}
@@ -9586,35 +5641,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._sizeof)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._sizeof {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _sizeof: Int32? = nil
   }
 
-  struct static_assert: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_assert"
+  struct static_assert {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var staticAssert: Int32 {
       get {return _staticAssert ?? 0}
@@ -9629,35 +5662,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._staticAssert)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._staticAssert {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _staticAssert: Int32? = nil
   }
 
-  struct static_cast: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_cast"
+  struct static_cast {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var staticCast: Int32 {
       get {return _staticCast ?? 0}
@@ -9672,35 +5683,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._staticCast)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._staticCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _staticCast: Int32? = nil
   }
 
-  struct template: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".template"
+  struct template {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var template: Int32 {
       get {return _template ?? 0}
@@ -9715,35 +5704,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._template)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._template {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _template: Int32? = nil
   }
 
-  struct this: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".this"
+  struct this {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var this: Int32 {
       get {return _this ?? 0}
@@ -9758,35 +5725,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._this)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._this {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _this: Int32? = nil
   }
 
-  struct thread_local: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".thread_local"
+  struct thread_local {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var threadLocal: Int32 {
       get {return _threadLocal ?? 0}
@@ -9801,35 +5746,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._threadLocal)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._threadLocal {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _threadLocal: Int32? = nil
   }
 
-  struct typedef: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typedef"
+  struct typedef {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var typedef: Int32 {
       get {return _typedef ?? 0}
@@ -9844,35 +5767,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._typedef)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._typedef {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _typedef: Int32? = nil
   }
 
-  struct typeid: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typeid"
+  struct typeid {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var typeid: Int32 {
       get {return _typeid ?? 0}
@@ -9887,35 +5788,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._typeid)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._typeid {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _typeid: Int32? = nil
   }
 
-  struct typename: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typename"
+  struct typename {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var typename: Int32 {
       get {return _typename ?? 0}
@@ -9930,35 +5809,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._typename)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._typename {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _typename: Int32? = nil
   }
 
-  struct union: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".union"
+  struct union {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var union: Int32 {
       get {return _union ?? 0}
@@ -9973,35 +5830,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._union)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._union {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _union: Int32? = nil
   }
 
-  struct unsigned: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unsigned"
+  struct unsigned {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var unsigned: Int32 {
       get {return _unsigned ?? 0}
@@ -10016,35 +5851,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._unsigned)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._unsigned {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _unsigned: Int32? = nil
   }
 
-  struct using: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".using"
+  struct using {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var using: Int32 {
       get {return _using ?? 0}
@@ -10059,35 +5872,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._using)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._using {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _using: Int32? = nil
   }
 
-  struct virtual: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".virtual"
+  struct virtual {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var virtual: Int32 {
       get {return _virtual ?? 0}
@@ -10102,35 +5893,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._virtual)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._virtual {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _virtual: Int32? = nil
   }
 
-  struct void: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".void"
+  struct void {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var void: Int32 {
       get {return _void ?? 0}
@@ -10145,35 +5914,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._void)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._void {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _void: Int32? = nil
   }
 
-  struct volatile: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".volatile"
+  struct volatile {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var volatile: Int32 {
       get {return _volatile ?? 0}
@@ -10188,35 +5935,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._volatile)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._volatile {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _volatile: Int32? = nil
   }
 
-  struct wchar_t: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".wchar_t"
+  struct wchar_t {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var wcharT: Int32 {
       get {return _wcharT ?? 0}
@@ -10231,35 +5956,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._wcharT)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._wcharT {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _wcharT: Int32? = nil
   }
 
-  struct xor: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor"
+  struct xor {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var xor: Int32 {
       get {return _xor ?? 0}
@@ -10274,35 +5977,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._xor)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._xor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _xor: Int32? = nil
   }
 
-  struct xor_eq: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor_eq"
+  struct xor_eq {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var xorEq: Int32 {
       get {return _xorEq ?? 0}
@@ -10317,35 +5998,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._xorEq)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._xorEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _xorEq: Int32? = nil
   }
 
-  struct restrict: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".restrict"
+  struct restrict {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var restrict: Int32 {
       get {return _restrict ?? 0}
@@ -10360,35 +6019,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._restrict)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._restrict {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _restrict: Int32? = nil
   }
 
-  struct Category: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Category"
+  struct Category {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var category: Int32 {
       get {return _category ?? 0}
@@ -10403,35 +6040,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._category)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._category {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _category: Int32? = nil
   }
 
-  struct Ivar: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Ivar"
+  struct Ivar {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var ivar: Int32 {
       get {return _ivar ?? 0}
@@ -10446,35 +6061,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._ivar)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._ivar {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _ivar: Int32? = nil
   }
 
-  struct Method: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Method"
+  struct Method {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var method: Int32 {
       get {return _method ?? 0}
@@ -10489,35 +6082,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._method)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._method {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _method: Int32? = nil
   }
 
-  struct finalize: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".finalize"
+  struct finalize {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var finalize: Int32 {
       get {return _finalize ?? 0}
@@ -10532,35 +6103,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._finalize)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._finalize {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _finalize: Int32? = nil
   }
 
-  struct hash: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
+  struct hash {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var hash: Int32 {
       get {return _hash ?? 0}
@@ -10575,35 +6124,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._hash)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._hash {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _hash: Int32? = nil
   }
 
-  struct dealloc: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dealloc"
+  struct dealloc {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var dealloc: Int32 {
       get {return _dealloc ?? 0}
@@ -10618,35 +6145,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._dealloc)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._dealloc {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _dealloc: Int32? = nil
   }
 
-  struct superclass: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".superclass"
+  struct superclass {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var superclass: Int32 {
       get {return _superclass ?? 0}
@@ -10661,35 +6166,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._superclass)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._superclass {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _superclass: Int32? = nil
   }
 
-  struct retain: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retain"
+  struct retain {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var retain: Int32 {
       get {return _retain ?? 0}
@@ -10704,35 +6187,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._retain)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._retain {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _retain: Int32? = nil
   }
 
-  struct release: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".release"
+  struct release {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var release: Int32 {
       get {return _release ?? 0}
@@ -10747,35 +6208,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._release)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._release {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _release: Int32? = nil
   }
 
-  struct autorelease: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".autorelease"
+  struct autorelease {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var autorelease: Int32 {
       get {return _autorelease ?? 0}
@@ -10790,35 +6229,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._autorelease)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._autorelease {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _autorelease: Int32? = nil
   }
 
-  struct retainCount: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retainCount"
+  struct retainCount {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var retainCount: Int32 {
       get {return _retainCount ?? 0}
@@ -10833,35 +6250,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._retainCount)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._retainCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _retainCount: Int32? = nil
   }
 
-  struct zone: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".zone"
+  struct zone {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var zone: Int32 {
       get {return _zone ?? 0}
@@ -10876,35 +6271,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._zone)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._zone {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _zone: Int32? = nil
   }
 
-  struct isProxy: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isProxy"
+  struct isProxy {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var isProxy: Int32 {
       get {return _isProxy ?? 0}
@@ -10919,35 +6292,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._isProxy)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._isProxy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _isProxy: Int32? = nil
   }
 
-  struct copy: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".copy"
+  struct copy {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var copy: Int32 {
       get {return _copy ?? 0}
@@ -10962,35 +6313,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._copy)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._copy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _copy: Int32? = nil
   }
 
-  struct mutableCopy: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutableCopy"
+  struct mutableCopy {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var mutableCopy: Int32 {
       get {return _mutableCopy ?? 0}
@@ -11005,35 +6334,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._mutableCopy)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._mutableCopy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _mutableCopy: Int32? = nil
   }
 
-  struct classForCoder: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".classForCoder"
+  struct classForCoder {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var classForCoder: Int32 {
       get {return _classForCoder ?? 0}
@@ -11048,35 +6355,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._classForCoder)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._classForCoder {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _classForCoder: Int32? = nil
   }
 
-  struct clear: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
+  struct clear {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var clear: Int32 {
       get {return _clear ?? 0}
@@ -11091,35 +6376,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._clear)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._clear {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _clear: Int32? = nil
   }
 
-  struct data: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".data"
+  struct data {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var data: Int32 {
       get {return _data ?? 0}
@@ -11134,35 +6397,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._data)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._data {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _data: Int32? = nil
   }
 
-  struct delimitedData: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delimitedData"
+  struct delimitedData {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var delimitedData: Int32 {
       get {return _delimitedData ?? 0}
@@ -11177,35 +6418,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._delimitedData)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._delimitedData {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _delimitedData: Int32? = nil
   }
 
-  struct descriptor: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".descriptor"
+  struct descriptor {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var descriptor: Int32 {
       get {return _descriptor ?? 0}
@@ -11220,35 +6439,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._descriptor)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._descriptor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _descriptor: Int32? = nil
   }
 
-  struct extensionRegistry: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionRegistry"
+  struct extensionRegistry {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var extensionRegistry: Int32 {
       get {return _extensionRegistry ?? 0}
@@ -11263,35 +6460,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._extensionRegistry)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._extensionRegistry {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _extensionRegistry: Int32? = nil
   }
 
-  struct extensionsCurrentlySet: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
+  struct extensionsCurrentlySet {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var extensionsCurrentlySet: Int32 {
       get {return _extensionsCurrentlySet ?? 0}
@@ -11306,35 +6481,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._extensionsCurrentlySet)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._extensionsCurrentlySet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _extensionsCurrentlySet: Int32? = nil
   }
 
-  struct isInitializedMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
+  struct isInitializedMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var isInitialized_p: Int32 {
       get {return _isInitialized_p ?? 0}
@@ -11349,35 +6502,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._isInitialized_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._isInitialized_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _isInitialized_p: Int32? = nil
   }
 
-  struct serializedSize: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedSize"
+  struct serializedSize {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var serializedSize: Int32 {
       get {return _serializedSize ?? 0}
@@ -11392,35 +6523,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._serializedSize)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._serializedSize {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _serializedSize: Int32? = nil
   }
 
-  struct sortedExtensionsInUse: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
+  struct sortedExtensionsInUse {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var sortedExtensionsInUse: Int32 {
       get {return _sortedExtensionsInUse ?? 0}
@@ -11435,35 +6544,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._sortedExtensionsInUse)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._sortedExtensionsInUse {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _sortedExtensionsInUse: Int32? = nil
   }
 
-  struct unknownFieldsMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unknownFields"
+  struct unknownFieldsMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var unknownFields_p: Int32 {
       get {return _unknownFields_p ?? 0}
@@ -11478,35 +6565,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._unknownFields_p)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._unknownFields_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _unknownFields_p: Int32? = nil
   }
 
-  struct Fixed: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fixed"
+  struct Fixed {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var fixed: Int32 {
       get {return _fixed ?? 0}
@@ -11521,35 +6586,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._fixed)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._fixed {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _fixed: Int32? = nil
   }
 
-  struct Fract: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fract"
+  struct Fract {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var fract: Int32 {
       get {return _fract ?? 0}
@@ -11564,35 +6607,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._fract)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._fract {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _fract: Int32? = nil
   }
 
-  struct Size: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Size"
+  struct Size {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var size: Int32 {
       get {return _size ?? 0}
@@ -11607,35 +6628,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._size)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._size {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _size: Int32? = nil
   }
 
-  struct LogicalAddress: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LogicalAddress"
+  struct LogicalAddress {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var logicalAddress: Int32 {
       get {return _logicalAddress ?? 0}
@@ -11650,35 +6649,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._logicalAddress)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._logicalAddress {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _logicalAddress: Int32? = nil
   }
 
-  struct PhysicalAddress: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PhysicalAddress"
+  struct PhysicalAddress {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var physicalAddress: Int32 {
       get {return _physicalAddress ?? 0}
@@ -11693,35 +6670,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._physicalAddress)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._physicalAddress {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _physicalAddress: Int32? = nil
   }
 
-  struct ByteCount: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteCount"
+  struct ByteCount {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var byteCount: Int32 {
       get {return _byteCount ?? 0}
@@ -11736,35 +6691,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._byteCount)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._byteCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _byteCount: Int32? = nil
   }
 
-  struct ByteOffset: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteOffset"
+  struct ByteOffset {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var byteOffset: Int32 {
       get {return _byteOffset ?? 0}
@@ -11779,35 +6712,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._byteOffset)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._byteOffset {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _byteOffset: Int32? = nil
   }
 
-  struct Duration: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Duration"
+  struct Duration {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var duration: Int32 {
       get {return _duration ?? 0}
@@ -11822,35 +6733,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._duration)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._duration {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _duration: Int32? = nil
   }
 
-  struct AbsoluteTime: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".AbsoluteTime"
+  struct AbsoluteTime {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var absoluteTime: Int32 {
       get {return _absoluteTime ?? 0}
@@ -11865,35 +6754,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._absoluteTime)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._absoluteTime {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _absoluteTime: Int32? = nil
   }
 
-  struct OptionBits: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OptionBits"
+  struct OptionBits {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var optionBits: Int32 {
       get {return _optionBits ?? 0}
@@ -11908,35 +6775,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._optionBits)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._optionBits {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _optionBits: Int32? = nil
   }
 
-  struct ItemCount: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ItemCount"
+  struct ItemCount {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var itemCount: Int32 {
       get {return _itemCount ?? 0}
@@ -11951,35 +6796,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._itemCount)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._itemCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _itemCount: Int32? = nil
   }
 
-  struct PBVersion: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PBVersion"
+  struct PBVersion {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var pbversion: Int32 {
       get {return _pbversion ?? 0}
@@ -11994,35 +6817,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._pbversion)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._pbversion {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _pbversion: Int32? = nil
   }
 
-  struct ScriptCode: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ScriptCode"
+  struct ScriptCode {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var scriptCode: Int32 {
       get {return _scriptCode ?? 0}
@@ -12037,35 +6838,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._scriptCode)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._scriptCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _scriptCode: Int32? = nil
   }
 
-  struct LangCode: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LangCode"
+  struct LangCode {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var langCode: Int32 {
       get {return _langCode ?? 0}
@@ -12080,35 +6859,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._langCode)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._langCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _langCode: Int32? = nil
   }
 
-  struct RegionCode: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".RegionCode"
+  struct RegionCode {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var regionCode: Int32 {
       get {return _regionCode ?? 0}
@@ -12123,35 +6880,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._regionCode)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._regionCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _regionCode: Int32? = nil
   }
 
-  struct OSType: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OSType"
+  struct OSType {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var ostype: Int32 {
       get {return _ostype ?? 0}
@@ -12166,35 +6901,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._ostype)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._ostype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _ostype: Int32? = nil
   }
 
-  struct ProcessSerialNumber: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
+  struct ProcessSerialNumber {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var processSerialNumber: Int32 {
       get {return _processSerialNumber ?? 0}
@@ -12209,35 +6922,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._processSerialNumber)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._processSerialNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _processSerialNumber: Int32? = nil
   }
 
-  struct Point: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Point"
+  struct Point {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var point: Int32 {
       get {return _point ?? 0}
@@ -12252,35 +6943,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._point)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._point {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _point: Int32? = nil
   }
 
-  struct Rect: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Rect"
+  struct Rect {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var rect: Int32 {
       get {return _rect ?? 0}
@@ -12295,35 +6964,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._rect)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._rect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _rect: Int32? = nil
   }
 
-  struct FixedPoint: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedPoint"
+  struct FixedPoint {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var fixedPoint: Int32 {
       get {return _fixedPoint ?? 0}
@@ -12338,35 +6985,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._fixedPoint)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._fixedPoint {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _fixedPoint: Int32? = nil
   }
 
-  struct FixedRect: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedRect"
+  struct FixedRect {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var fixedRect: Int32 {
       get {return _fixedRect ?? 0}
@@ -12381,35 +7006,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._fixedRect)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._fixedRect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _fixedRect: Int32? = nil
   }
 
-  struct Style: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Style"
+  struct Style {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var style: Int32 {
       get {return _style ?? 0}
@@ -12424,35 +7027,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._style)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._style {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _style: Int32? = nil
   }
 
-  struct StyleParameter: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleParameter"
+  struct StyleParameter {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var styleParameter: Int32 {
       get {return _styleParameter ?? 0}
@@ -12467,35 +7048,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._styleParameter)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._styleParameter {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _styleParameter: Int32? = nil
   }
 
-  struct StyleField: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleField"
+  struct StyleField {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var styleField: Int32 {
       get {return _styleField ?? 0}
@@ -12510,35 +7069,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._styleField)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._styleField {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _styleField: Int32? = nil
   }
 
-  struct TimeScale: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeScale"
+  struct TimeScale {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var timeScale: Int32 {
       get {return _timeScale ?? 0}
@@ -12553,35 +7090,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._timeScale)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._timeScale {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _timeScale: Int32? = nil
   }
 
-  struct TimeBase: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeBase"
+  struct TimeBase {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var timeBase: Int32 {
       get {return _timeBase ?? 0}
@@ -12596,35 +7111,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._timeBase)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._timeBase {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _timeBase: Int32? = nil
   }
 
-  struct TimeRecord: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeRecord"
+  struct TimeRecord {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var timeRecord: Int32 {
       get {return _timeRecord ?? 0}
@@ -12639,35 +7132,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._timeRecord)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._timeRecord {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _timeRecord: Int32? = nil
   }
 
-  struct serializedData: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedData"
+  struct serializedData {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var serializedData: Int32 {
       get {return _serializedData ?? 0}
@@ -12682,35 +7153,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._serializedData)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._serializedData {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _serializedData: Int32? = nil
   }
 
-  struct jsonUTF8Data: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
+  struct jsonUTF8Data {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var jsonUtf8Data: Int32 {
       get {return _jsonUtf8Data ?? 0}
@@ -12725,35 +7174,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._jsonUtf8Data)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._jsonUtf8Data {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _jsonUtf8Data: Int32? = nil
   }
 
-  struct jsonString: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonString"
+  struct jsonString {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var jsonString: Int32 {
       get {return _jsonString ?? 0}
@@ -12768,35 +7195,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._jsonString)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._jsonString {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _jsonString: Int32? = nil
   }
 
-  struct Extension: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
+  struct Extension {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var `extension`: Int32 {
       get {return _extension ?? 0}
@@ -12811,35 +7216,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._extension)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._extension {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _extension: Int32? = nil
   }
 
-  struct ExtensionsMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
+  struct ExtensionsMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var extensions: Int32 {
       get {return _extensions ?? 0}
@@ -12854,55 +7237,16 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._extensions)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._extensions {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _extensions: Int32? = nil
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".EnumNames"
+struct SwiftUnittest_Names_EnumNames {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17760,32 +12104,19 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message {
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".FieldNamingInitials"
+struct SwiftUnittest_Names_FieldNamingInitials {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Lowers: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
+  struct Lowers {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var http: Int32 {
       get {return _storage._http ?? 0}
@@ -17944,104 +12275,13 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      _ = _uniqueStorage()
-      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-        while let fieldNumber = try decoder.nextFieldNumber() {
-          switch fieldNumber {
-          case 1: try decoder.decodeSingularInt32Field(value: &_storage._http)
-          case 2: try decoder.decodeSingularInt32Field(value: &_storage._httpRequest)
-          case 3: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPRequest)
-          case 4: try decoder.decodeSingularInt32Field(value: &_storage._theHTTP)
-          case 11: try decoder.decodeSingularInt32Field(value: &_storage._https)
-          case 12: try decoder.decodeSingularInt32Field(value: &_storage._httpsRequest)
-          case 13: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPSRequest)
-          case 14: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPS)
-          case 21: try decoder.decodeSingularInt32Field(value: &_storage._url)
-          case 22: try decoder.decodeSingularInt32Field(value: &_storage._urlValue)
-          case 23: try decoder.decodeSingularInt32Field(value: &_storage._theURLValue)
-          case 24: try decoder.decodeSingularInt32Field(value: &_storage._theURL)
-          case 31: try decoder.decodeSingularInt32Field(value: &_storage._aBC)
-          case 41: try decoder.decodeSingularInt32Field(value: &_storage._id)
-          case 42: try decoder.decodeSingularInt32Field(value: &_storage._idNumber)
-          case 43: try decoder.decodeSingularInt32Field(value: &_storage._theIDNumber)
-          case 44: try decoder.decodeSingularInt32Field(value: &_storage._requestID)
-          default: break
-          }
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-        if let v = _storage._http {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-        }
-        if let v = _storage._httpRequest {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-        }
-        if let v = _storage._theHTTPRequest {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-        }
-        if let v = _storage._theHTTP {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-        }
-        if let v = _storage._https {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-        }
-        if let v = _storage._httpsRequest {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-        }
-        if let v = _storage._theHTTPSRequest {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-        }
-        if let v = _storage._theHTTPS {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-        }
-        if let v = _storage._url {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-        }
-        if let v = _storage._urlValue {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-        }
-        if let v = _storage._theURLValue {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-        }
-        if let v = _storage._theURL {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-        }
-        if let v = _storage._aBC {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
-        }
-        if let v = _storage._id {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-        }
-        if let v = _storage._idNumber {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-        }
-        if let v = _storage._theIDNumber {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-        }
-        if let v = _storage._requestID {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-        }
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  struct Uppers: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
+  struct Uppers {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var http: Int32 {
       get {return _http ?? 0}
@@ -18191,90 +12431,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._http)
-        case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
-        case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
-        case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
-        case 11: try decoder.decodeSingularInt32Field(value: &self._https)
-        case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
-        case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
-        case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
-        case 21: try decoder.decodeSingularInt32Field(value: &self._url)
-        case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
-        case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
-        case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
-        case 41: try decoder.decodeSingularInt32Field(value: &self._id)
-        case 42: try decoder.decodeSingularInt32Field(value: &self._idNumber)
-        case 43: try decoder.decodeSingularInt32Field(value: &self._theIDNumber)
-        case 44: try decoder.decodeSingularInt32Field(value: &self._requestID)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._http {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = self._httpRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      }
-      if let v = self._theHTTPRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      }
-      if let v = self._theHTTP {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      }
-      if let v = self._https {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-      }
-      if let v = self._httpsRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      }
-      if let v = self._theHTTPSRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      }
-      if let v = self._theHTTPS {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-      }
-      if let v = self._url {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-      }
-      if let v = self._urlValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-      }
-      if let v = self._theURLValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-      }
-      if let v = self._theURL {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-      }
-      if let v = self._id {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-      }
-      if let v = self._idNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-      }
-      if let v = self._theIDNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-      }
-      if let v = self._requestID {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _http: Int32? = nil
     fileprivate var _httpRequest: Int32? = nil
     fileprivate var _theHTTPRequest: Int32? = nil
@@ -18293,8 +12449,10 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
     fileprivate var _requestID: Int32? = nil
   }
 
-  struct WordCase: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".WordCase"
+  struct WordCase {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var http: Int32 {
       get {return _http ?? 0}
@@ -18444,90 +12602,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._http)
-        case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
-        case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
-        case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
-        case 11: try decoder.decodeSingularInt32Field(value: &self._https)
-        case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
-        case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
-        case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
-        case 21: try decoder.decodeSingularInt32Field(value: &self._url)
-        case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
-        case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
-        case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
-        case 41: try decoder.decodeSingularInt32Field(value: &self._id)
-        case 42: try decoder.decodeSingularInt32Field(value: &self._idNumber)
-        case 43: try decoder.decodeSingularInt32Field(value: &self._theIDNumber)
-        case 44: try decoder.decodeSingularInt32Field(value: &self._requestID)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._http {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = self._httpRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      }
-      if let v = self._theHTTPRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      }
-      if let v = self._theHTTP {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      }
-      if let v = self._https {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-      }
-      if let v = self._httpsRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      }
-      if let v = self._theHTTPSRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      }
-      if let v = self._theHTTPS {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-      }
-      if let v = self._url {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-      }
-      if let v = self._urlValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-      }
-      if let v = self._theURLValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-      }
-      if let v = self._theURL {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-      }
-      if let v = self._id {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-      }
-      if let v = self._idNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-      }
-      if let v = self._theIDNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-      }
-      if let v = self._requestID {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _http: Int32? = nil
     fileprivate var _httpRequest: Int32? = nil
     fileprivate var _theHTTPRequest: Int32? = nil
@@ -18547,240 +12621,82 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitials"
+struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitials.self, fieldNumber: fieldNumber)
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Lowers"
+struct SwiftUnittest_Names_Lowers {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Uppers"
+struct SwiftUnittest_Names_Uppers {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".WordCase"
+struct SwiftUnittest_Names_WordCase {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsLowers"
+struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsLowers.self, fieldNumber: fieldNumber)
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsUppers"
+struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsUppers.self, fieldNumber: fieldNumber)
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsWordCase"
+struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsWordCase.self, fieldNumber: fieldNumber)
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
@@ -21200,8 +15116,27 @@ extension SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding
   ]
 }
 
-extension SwiftUnittest_Names_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Foo"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 5001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_Foo.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Foo) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -21210,7 +15145,8 @@ extension SwiftUnittest_Names_Foo: SwiftProtobuf._MessageImplementationBase, Swi
   }
 }
 
-extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FieldNames"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "String"),
     2: .same(proto: "Int"),
@@ -21897,6 +15833,911 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
     return _storage
   }
 
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._string)
+        case 2: try decoder.decodeSingularInt32Field(value: &_storage._int)
+        case 3: try decoder.decodeSingularInt32Field(value: &_storage._double)
+        case 4: try decoder.decodeSingularInt32Field(value: &_storage._float)
+        case 5: try decoder.decodeSingularInt32Field(value: &_storage._uint)
+        case 6: try decoder.decodeSingularInt32Field(value: &_storage._hashValue_p)
+        case 7: try decoder.decodeSingularInt32Field(value: &_storage._description_p)
+        case 8: try decoder.decodeSingularInt32Field(value: &_storage._debugDescription_p)
+        case 9: try decoder.decodeSingularInt32Field(value: &_storage._swift)
+        case 10: try decoder.decodeSingularInt32Field(value: &_storage._unrecognized)
+        case 11: try decoder.decodeSingularInt32Field(value: &_storage._class)
+        case 12: try decoder.decodeSingularInt32Field(value: &_storage._deinit)
+        case 13: try decoder.decodeSingularInt32Field(value: &_storage._enum)
+        case 15: try decoder.decodeSingularInt32Field(value: &_storage._func)
+        case 16: try decoder.decodeSingularInt32Field(value: &_storage._import)
+        case 17: try decoder.decodeSingularInt32Field(value: &_storage._init_p)
+        case 18: try decoder.decodeSingularInt32Field(value: &_storage._inout)
+        case 19: try decoder.decodeSingularInt32Field(value: &_storage._internal)
+        case 20: try decoder.decodeSingularInt32Field(value: &_storage._let)
+        case 21: try decoder.decodeSingularInt32Field(value: &_storage._operator)
+        case 22: try decoder.decodeSingularInt32Field(value: &_storage._private)
+        case 23: try decoder.decodeSingularInt32Field(value: &_storage._protocol)
+        case 24: try decoder.decodeSingularInt32Field(value: &_storage._public)
+        case 25: try decoder.decodeSingularInt32Field(value: &_storage._static)
+        case 26: try decoder.decodeSingularInt32Field(value: &_storage._struct)
+        case 27: try decoder.decodeSingularInt32Field(value: &_storage._subscript)
+        case 28: try decoder.decodeSingularInt32Field(value: &_storage._typealias)
+        case 29: try decoder.decodeSingularInt32Field(value: &_storage._var)
+        case 30: try decoder.decodeSingularInt32Field(value: &_storage._break)
+        case 31: try decoder.decodeSingularInt32Field(value: &_storage._case)
+        case 32: try decoder.decodeSingularInt32Field(value: &_storage._continue)
+        case 33: try decoder.decodeSingularInt32Field(value: &_storage._default)
+        case 34: try decoder.decodeSingularInt32Field(value: &_storage._defer)
+        case 35: try decoder.decodeSingularInt32Field(value: &_storage._do)
+        case 36: try decoder.decodeSingularInt32Field(value: &_storage._else)
+        case 37: try decoder.decodeSingularInt32Field(value: &_storage._fallthrough)
+        case 38: try decoder.decodeSingularInt32Field(value: &_storage._for)
+        case 39: try decoder.decodeSingularInt32Field(value: &_storage._guard)
+        case 40: try decoder.decodeSingularInt32Field(value: &_storage._if)
+        case 41: try decoder.decodeSingularInt32Field(value: &_storage._in)
+        case 42: try decoder.decodeSingularInt32Field(value: &_storage._repeat)
+        case 43: try decoder.decodeSingularInt32Field(value: &_storage._return)
+        case 44: try decoder.decodeSingularInt32Field(value: &_storage._switch)
+        case 45: try decoder.decodeSingularInt32Field(value: &_storage._where)
+        case 46: try decoder.decodeSingularInt32Field(value: &_storage._while)
+        case 47: try decoder.decodeSingularInt32Field(value: &_storage._as)
+        case 48: try decoder.decodeSingularInt32Field(value: &_storage._catch)
+        case 49: try decoder.decodeSingularInt32Field(value: &_storage._dynamicType_p)
+        case 50: try decoder.decodeSingularInt32Field(value: &_storage._false)
+        case 51: try decoder.decodeSingularInt32Field(value: &_storage._is)
+        case 52: try decoder.decodeSingularInt32Field(value: &_storage._nil)
+        case 53: try decoder.decodeSingularInt32Field(value: &_storage._rethrows)
+        case 54: try decoder.decodeSingularInt32Field(value: &_storage._super)
+        case 55: try decoder.decodeSingularInt32Field(value: &_storage._self_p)
+        case 57: try decoder.decodeSingularInt32Field(value: &_storage._throw)
+        case 58: try decoder.decodeSingularInt32Field(value: &_storage._throws)
+        case 59: try decoder.decodeSingularInt32Field(value: &_storage._true)
+        case 60: try decoder.decodeSingularInt32Field(value: &_storage._try)
+        case 61: try decoder.decodeSingularInt32Field(value: &_storage.__Column__)
+        case 62: try decoder.decodeSingularInt32Field(value: &_storage.__File__)
+        case 63: try decoder.decodeSingularInt32Field(value: &_storage.__Function__)
+        case 64: try decoder.decodeSingularInt32Field(value: &_storage.__Line__)
+        case 65: try decoder.decodeSingularInt32Field(value: &_storage.____)
+        case 66: try decoder.decodeSingularInt32Field(value: &_storage._associativity)
+        case 67: try decoder.decodeSingularInt32Field(value: &_storage._convenience)
+        case 68: try decoder.decodeSingularInt32Field(value: &_storage._dynamic)
+        case 69: try decoder.decodeSingularInt32Field(value: &_storage._didSet)
+        case 70: try decoder.decodeSingularInt32Field(value: &_storage._final)
+        case 71: try decoder.decodeSingularInt32Field(value: &_storage._get)
+        case 72: try decoder.decodeSingularInt32Field(value: &_storage._infix)
+        case 73: try decoder.decodeSingularInt32Field(value: &_storage._indirect)
+        case 74: try decoder.decodeSingularInt32Field(value: &_storage._lazy)
+        case 75: try decoder.decodeSingularInt32Field(value: &_storage._left)
+        case 76: try decoder.decodeSingularInt32Field(value: &_storage._mutating)
+        case 77: try decoder.decodeSingularInt32Field(value: &_storage._none)
+        case 78: try decoder.decodeSingularInt32Field(value: &_storage._nonmutating)
+        case 79: try decoder.decodeSingularInt32Field(value: &_storage._optional)
+        case 80: try decoder.decodeSingularInt32Field(value: &_storage._override)
+        case 81: try decoder.decodeSingularInt32Field(value: &_storage._postfix)
+        case 82: try decoder.decodeSingularInt32Field(value: &_storage._precedence)
+        case 83: try decoder.decodeSingularInt32Field(value: &_storage._prefix)
+        case 85: try decoder.decodeSingularInt32Field(value: &_storage._required)
+        case 86: try decoder.decodeSingularInt32Field(value: &_storage._right)
+        case 87: try decoder.decodeSingularInt32Field(value: &_storage._set)
+        case 88: try decoder.decodeSingularInt32Field(value: &_storage._type)
+        case 89: try decoder.decodeSingularInt32Field(value: &_storage._unowned)
+        case 90: try decoder.decodeSingularInt32Field(value: &_storage._weak)
+        case 91: try decoder.decodeSingularInt32Field(value: &_storage._willSet)
+        case 92: try decoder.decodeSingularInt32Field(value: &_storage._id)
+        case 93: try decoder.decodeSingularInt32Field(value: &_storage._cmd)
+        case 96: try decoder.decodeSingularInt32Field(value: &_storage._out)
+        case 98: try decoder.decodeSingularInt32Field(value: &_storage._bycopy)
+        case 99: try decoder.decodeSingularInt32Field(value: &_storage._byref)
+        case 100: try decoder.decodeSingularInt32Field(value: &_storage._oneway)
+        case 102: try decoder.decodeSingularInt32Field(value: &_storage._and)
+        case 103: try decoder.decodeSingularInt32Field(value: &_storage._andEq)
+        case 104: try decoder.decodeSingularInt32Field(value: &_storage._alignas)
+        case 105: try decoder.decodeSingularInt32Field(value: &_storage._alignof)
+        case 106: try decoder.decodeSingularInt32Field(value: &_storage._asm)
+        case 107: try decoder.decodeSingularInt32Field(value: &_storage._auto)
+        case 108: try decoder.decodeSingularInt32Field(value: &_storage._bitand)
+        case 109: try decoder.decodeSingularInt32Field(value: &_storage._bitor)
+        case 110: try decoder.decodeSingularInt32Field(value: &_storage._bool)
+        case 114: try decoder.decodeSingularInt32Field(value: &_storage._char)
+        case 115: try decoder.decodeSingularInt32Field(value: &_storage._char16T)
+        case 116: try decoder.decodeSingularInt32Field(value: &_storage._char32T)
+        case 118: try decoder.decodeSingularInt32Field(value: &_storage._compl)
+        case 119: try decoder.decodeSingularInt32Field(value: &_storage._const)
+        case 120: try decoder.decodeSingularInt32Field(value: &_storage._constexpr)
+        case 121: try decoder.decodeSingularInt32Field(value: &_storage._constCast)
+        case 123: try decoder.decodeSingularInt32Field(value: &_storage._decltype)
+        case 125: try decoder.decodeSingularInt32Field(value: &_storage._delete)
+        case 127: try decoder.decodeSingularInt32Field(value: &_storage._dynamicCast)
+        case 130: try decoder.decodeSingularInt32Field(value: &_storage._explicit)
+        case 131: try decoder.decodeSingularInt32Field(value: &_storage._export)
+        case 132: try decoder.decodeSingularInt32Field(value: &_storage._extern)
+        case 136: try decoder.decodeSingularInt32Field(value: &_storage._friend)
+        case 137: try decoder.decodeSingularInt32Field(value: &_storage._goto)
+        case 139: try decoder.decodeSingularInt32Field(value: &_storage._inline)
+        case 141: try decoder.decodeSingularInt32Field(value: &_storage._long)
+        case 142: try decoder.decodeSingularInt32Field(value: &_storage._mutable)
+        case 143: try decoder.decodeSingularInt32Field(value: &_storage._namespace)
+        case 144: try decoder.decodeSingularInt32Field(value: &_storage._new)
+        case 145: try decoder.decodeSingularInt32Field(value: &_storage._noexcept)
+        case 146: try decoder.decodeSingularInt32Field(value: &_storage._not)
+        case 147: try decoder.decodeSingularInt32Field(value: &_storage._notEq)
+        case 148: try decoder.decodeSingularInt32Field(value: &_storage._nullptr)
+        case 150: try decoder.decodeSingularInt32Field(value: &_storage._or)
+        case 151: try decoder.decodeSingularInt32Field(value: &_storage._orEq)
+        case 153: try decoder.decodeSingularInt32Field(value: &_storage._protected)
+        case 155: try decoder.decodeSingularInt32Field(value: &_storage._register)
+        case 156: try decoder.decodeSingularInt32Field(value: &_storage._reinterpretCast)
+        case 158: try decoder.decodeSingularInt32Field(value: &_storage._short)
+        case 159: try decoder.decodeSingularInt32Field(value: &_storage._signed)
+        case 160: try decoder.decodeSingularInt32Field(value: &_storage._sizeof)
+        case 162: try decoder.decodeSingularInt32Field(value: &_storage._staticAssert)
+        case 163: try decoder.decodeSingularInt32Field(value: &_storage._staticCast)
+        case 166: try decoder.decodeSingularInt32Field(value: &_storage._template)
+        case 167: try decoder.decodeSingularInt32Field(value: &_storage._this)
+        case 168: try decoder.decodeSingularInt32Field(value: &_storage._threadLocal)
+        case 172: try decoder.decodeSingularInt32Field(value: &_storage._typedef)
+        case 173: try decoder.decodeSingularInt32Field(value: &_storage._typeid)
+        case 174: try decoder.decodeSingularInt32Field(value: &_storage._typename)
+        case 175: try decoder.decodeSingularInt32Field(value: &_storage._union)
+        case 176: try decoder.decodeSingularInt32Field(value: &_storage._unsigned)
+        case 177: try decoder.decodeSingularInt32Field(value: &_storage._using)
+        case 178: try decoder.decodeSingularInt32Field(value: &_storage._virtual)
+        case 179: try decoder.decodeSingularInt32Field(value: &_storage._void)
+        case 180: try decoder.decodeSingularInt32Field(value: &_storage._volatile)
+        case 181: try decoder.decodeSingularInt32Field(value: &_storage._wcharT)
+        case 183: try decoder.decodeSingularInt32Field(value: &_storage._xor)
+        case 184: try decoder.decodeSingularInt32Field(value: &_storage._xorEq)
+        case 185: try decoder.decodeSingularInt32Field(value: &_storage._restrict)
+        case 186: try decoder.decodeSingularInt32Field(value: &_storage._category)
+        case 187: try decoder.decodeSingularInt32Field(value: &_storage._ivar)
+        case 188: try decoder.decodeSingularInt32Field(value: &_storage._method)
+        case 192: try decoder.decodeSingularInt32Field(value: &_storage._finalize)
+        case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash)
+        case 194: try decoder.decodeSingularInt32Field(value: &_storage._dealloc)
+        case 197: try decoder.decodeSingularInt32Field(value: &_storage._superclass)
+        case 198: try decoder.decodeSingularInt32Field(value: &_storage._retain)
+        case 199: try decoder.decodeSingularInt32Field(value: &_storage._release)
+        case 200: try decoder.decodeSingularInt32Field(value: &_storage._autorelease)
+        case 201: try decoder.decodeSingularInt32Field(value: &_storage._retainCount)
+        case 202: try decoder.decodeSingularInt32Field(value: &_storage._zone)
+        case 203: try decoder.decodeSingularInt32Field(value: &_storage._isProxy)
+        case 204: try decoder.decodeSingularInt32Field(value: &_storage._copy)
+        case 205: try decoder.decodeSingularInt32Field(value: &_storage._mutableCopy)
+        case 206: try decoder.decodeSingularInt32Field(value: &_storage._classForCoder)
+        case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear)
+        case 208: try decoder.decodeSingularInt32Field(value: &_storage._data)
+        case 209: try decoder.decodeSingularInt32Field(value: &_storage._delimitedData)
+        case 210: try decoder.decodeSingularInt32Field(value: &_storage._descriptor)
+        case 211: try decoder.decodeSingularInt32Field(value: &_storage._extensionRegistry)
+        case 212: try decoder.decodeSingularInt32Field(value: &_storage._extensionsCurrentlySet)
+        case 213: try decoder.decodeSingularInt32Field(value: &_storage._isInitialized_p)
+        case 214: try decoder.decodeSingularInt32Field(value: &_storage._serializedSize)
+        case 215: try decoder.decodeSingularInt32Field(value: &_storage._sortedExtensionsInUse)
+        case 216: try decoder.decodeSingularInt32Field(value: &_storage._unknownFields_p)
+        case 217: try decoder.decodeSingularInt32Field(value: &_storage._fixed)
+        case 218: try decoder.decodeSingularInt32Field(value: &_storage._fract)
+        case 219: try decoder.decodeSingularInt32Field(value: &_storage._size)
+        case 220: try decoder.decodeSingularInt32Field(value: &_storage._logicalAddress)
+        case 221: try decoder.decodeSingularInt32Field(value: &_storage._physicalAddress)
+        case 222: try decoder.decodeSingularInt32Field(value: &_storage._byteCount)
+        case 223: try decoder.decodeSingularInt32Field(value: &_storage._byteOffset)
+        case 224: try decoder.decodeSingularInt32Field(value: &_storage._duration)
+        case 225: try decoder.decodeSingularInt32Field(value: &_storage._absoluteTime)
+        case 226: try decoder.decodeSingularInt32Field(value: &_storage._optionBits)
+        case 227: try decoder.decodeSingularInt32Field(value: &_storage._itemCount)
+        case 228: try decoder.decodeSingularInt32Field(value: &_storage._pbversion)
+        case 229: try decoder.decodeSingularInt32Field(value: &_storage._scriptCode)
+        case 230: try decoder.decodeSingularInt32Field(value: &_storage._langCode)
+        case 231: try decoder.decodeSingularInt32Field(value: &_storage._regionCode)
+        case 232: try decoder.decodeSingularInt32Field(value: &_storage._ostype)
+        case 233: try decoder.decodeSingularInt32Field(value: &_storage._processSerialNumber)
+        case 234: try decoder.decodeSingularInt32Field(value: &_storage._point)
+        case 235: try decoder.decodeSingularInt32Field(value: &_storage._rect)
+        case 236: try decoder.decodeSingularInt32Field(value: &_storage._fixedPoint)
+        case 237: try decoder.decodeSingularInt32Field(value: &_storage._fixedRect)
+        case 238: try decoder.decodeSingularInt32Field(value: &_storage._style)
+        case 239: try decoder.decodeSingularInt32Field(value: &_storage._styleParameter)
+        case 240: try decoder.decodeSingularInt32Field(value: &_storage._styleField)
+        case 241: try decoder.decodeSingularInt32Field(value: &_storage._timeScale)
+        case 242: try decoder.decodeSingularInt32Field(value: &_storage._timeBase)
+        case 243: try decoder.decodeSingularInt32Field(value: &_storage._timeRecord)
+        case 244: try decoder.decodeSingularInt32Field(value: &_storage._jsonShouldBeOverriden)
+        case 245: try decoder.decodeSingularInt32Field(value: &_storage._any)
+        case 246: try decoder.decodeSingularInt32Field(value: &_storage._int32)
+        case 247: try decoder.decodeSingularInt32Field(value: &_storage._int64)
+        case 250: try decoder.decodeSingularInt32Field(value: &_storage._uint32)
+        case 251: try decoder.decodeSingularInt32Field(value: &_storage._uint64)
+        case 252: try decoder.decodeSingularInt32Field(value: &_storage._associatedtype)
+        case 253: try decoder.decodeSingularInt32Field(value: &_storage._fileprivate)
+        case 254: try decoder.decodeSingularInt32Field(value: &_storage._open)
+        case 255: try decoder.decodeSingularInt32Field(value: &_storage._serializedData)
+        case 256: try decoder.decodeSingularInt32Field(value: &_storage._hasSerializedData_p)
+        case 257: try decoder.decodeSingularInt32Field(value: &_storage._clearSerializedData_p)
+        case 258: try decoder.decodeSingularInt32Field(value: &_storage._jsonUtf8Data)
+        case 259: try decoder.decodeSingularInt32Field(value: &_storage._jsonString)
+        case 260: try decoder.decodeSingularInt32Field(value: &_storage._extension)
+        case 261: try decoder.decodeSingularInt32Field(value: &_storage._extensions)
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._string {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._int {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      }
+      if let v = _storage._double {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+      }
+      if let v = _storage._float {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+      }
+      if let v = _storage._uint {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
+      }
+      if let v = _storage._hashValue_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+      }
+      if let v = _storage._description_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
+      }
+      if let v = _storage._debugDescription_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
+      }
+      if let v = _storage._swift {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
+      }
+      if let v = _storage._unrecognized {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+      }
+      if let v = _storage._class {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
+      }
+      if let v = _storage._deinit {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+      }
+      if let v = _storage._enum {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+      }
+      if let v = _storage._func {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
+      }
+      if let v = _storage._import {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 16)
+      }
+      if let v = _storage._init_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
+      }
+      if let v = _storage._inout {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
+      }
+      if let v = _storage._internal {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 19)
+      }
+      if let v = _storage._let {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 20)
+      }
+      if let v = _storage._operator {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
+      }
+      if let v = _storage._private {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
+      }
+      if let v = _storage._protocol {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
+      }
+      if let v = _storage._public {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
+      }
+      if let v = _storage._static {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 25)
+      }
+      if let v = _storage._struct {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
+      }
+      if let v = _storage._subscript {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 27)
+      }
+      if let v = _storage._typealias {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 28)
+      }
+      if let v = _storage._var {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 29)
+      }
+      if let v = _storage._break {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
+      }
+      if let v = _storage._case {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
+      }
+      if let v = _storage._continue {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
+      }
+      if let v = _storage._default {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
+      }
+      if let v = _storage._defer {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 34)
+      }
+      if let v = _storage._do {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 35)
+      }
+      if let v = _storage._else {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 36)
+      }
+      if let v = _storage._fallthrough {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 37)
+      }
+      if let v = _storage._for {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 38)
+      }
+      if let v = _storage._guard {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 39)
+      }
+      if let v = _storage._if {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 40)
+      }
+      if let v = _storage._in {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+      }
+      if let v = _storage._repeat {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+      }
+      if let v = _storage._return {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+      }
+      if let v = _storage._switch {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+      }
+      if let v = _storage._where {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 45)
+      }
+      if let v = _storage._while {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 46)
+      }
+      if let v = _storage._as {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
+      }
+      if let v = _storage._catch {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
+      }
+      if let v = _storage._dynamicType_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 49)
+      }
+      if let v = _storage._false {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 50)
+      }
+      if let v = _storage._is {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
+      }
+      if let v = _storage._nil {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 52)
+      }
+      if let v = _storage._rethrows {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 53)
+      }
+      if let v = _storage._super {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 54)
+      }
+      if let v = _storage._self_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 55)
+      }
+      if let v = _storage._throw {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 57)
+      }
+      if let v = _storage._throws {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 58)
+      }
+      if let v = _storage._true {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 59)
+      }
+      if let v = _storage._try {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 60)
+      }
+      if let v = _storage.__Column__ {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
+      }
+      if let v = _storage.__File__ {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 62)
+      }
+      if let v = _storage.__Function__ {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+      }
+      if let v = _storage.__Line__ {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+      }
+      if let v = _storage.____ {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
+      }
+      if let v = _storage._associativity {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 66)
+      }
+      if let v = _storage._convenience {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 67)
+      }
+      if let v = _storage._dynamic {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 68)
+      }
+      if let v = _storage._didSet {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 69)
+      }
+      if let v = _storage._final {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 70)
+      }
+      if let v = _storage._get {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 71)
+      }
+      if let v = _storage._infix {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 72)
+      }
+      if let v = _storage._indirect {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 73)
+      }
+      if let v = _storage._lazy {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 74)
+      }
+      if let v = _storage._left {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 75)
+      }
+      if let v = _storage._mutating {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 76)
+      }
+      if let v = _storage._none {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 77)
+      }
+      if let v = _storage._nonmutating {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
+      }
+      if let v = _storage._optional {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 79)
+      }
+      if let v = _storage._override {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 80)
+      }
+      if let v = _storage._postfix {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 81)
+      }
+      if let v = _storage._precedence {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 82)
+      }
+      if let v = _storage._prefix {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 83)
+      }
+      if let v = _storage._required {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 85)
+      }
+      if let v = _storage._right {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 86)
+      }
+      if let v = _storage._set {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 87)
+      }
+      if let v = _storage._type {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 88)
+      }
+      if let v = _storage._unowned {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 89)
+      }
+      if let v = _storage._weak {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 90)
+      }
+      if let v = _storage._willSet {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 91)
+      }
+      if let v = _storage._id {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 92)
+      }
+      if let v = _storage._cmd {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 93)
+      }
+      if let v = _storage._out {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 96)
+      }
+      if let v = _storage._bycopy {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 98)
+      }
+      if let v = _storage._byref {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
+      }
+      if let v = _storage._oneway {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 100)
+      }
+      if let v = _storage._and {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 102)
+      }
+      if let v = _storage._andEq {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 103)
+      }
+      if let v = _storage._alignas {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 104)
+      }
+      if let v = _storage._alignof {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 105)
+      }
+      if let v = _storage._asm {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 106)
+      }
+      if let v = _storage._auto {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 107)
+      }
+      if let v = _storage._bitand {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 108)
+      }
+      if let v = _storage._bitor {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 109)
+      }
+      if let v = _storage._bool {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 110)
+      }
+      if let v = _storage._char {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 114)
+      }
+      if let v = _storage._char16T {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 115)
+      }
+      if let v = _storage._char32T {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
+      }
+      if let v = _storage._compl {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 118)
+      }
+      if let v = _storage._const {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 119)
+      }
+      if let v = _storage._constexpr {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 120)
+      }
+      if let v = _storage._constCast {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 121)
+      }
+      if let v = _storage._decltype {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 123)
+      }
+      if let v = _storage._delete {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 125)
+      }
+      if let v = _storage._dynamicCast {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 127)
+      }
+      if let v = _storage._explicit {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 130)
+      }
+      if let v = _storage._export {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 131)
+      }
+      if let v = _storage._extern {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 132)
+      }
+      if let v = _storage._friend {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 136)
+      }
+      if let v = _storage._goto {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 137)
+      }
+      if let v = _storage._inline {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 139)
+      }
+      if let v = _storage._long {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 141)
+      }
+      if let v = _storage._mutable {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 142)
+      }
+      if let v = _storage._namespace {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 143)
+      }
+      if let v = _storage._new {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 144)
+      }
+      if let v = _storage._noexcept {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 145)
+      }
+      if let v = _storage._not {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 146)
+      }
+      if let v = _storage._notEq {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 147)
+      }
+      if let v = _storage._nullptr {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 148)
+      }
+      if let v = _storage._or {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 150)
+      }
+      if let v = _storage._orEq {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 151)
+      }
+      if let v = _storage._protected {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 153)
+      }
+      if let v = _storage._register {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 155)
+      }
+      if let v = _storage._reinterpretCast {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 156)
+      }
+      if let v = _storage._short {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 158)
+      }
+      if let v = _storage._signed {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 159)
+      }
+      if let v = _storage._sizeof {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 160)
+      }
+      if let v = _storage._staticAssert {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 162)
+      }
+      if let v = _storage._staticCast {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 163)
+      }
+      if let v = _storage._template {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 166)
+      }
+      if let v = _storage._this {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
+      }
+      if let v = _storage._threadLocal {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 168)
+      }
+      if let v = _storage._typedef {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 172)
+      }
+      if let v = _storage._typeid {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 173)
+      }
+      if let v = _storage._typename {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 174)
+      }
+      if let v = _storage._union {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 175)
+      }
+      if let v = _storage._unsigned {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 176)
+      }
+      if let v = _storage._using {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 177)
+      }
+      if let v = _storage._virtual {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 178)
+      }
+      if let v = _storage._void {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 179)
+      }
+      if let v = _storage._volatile {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 180)
+      }
+      if let v = _storage._wcharT {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 181)
+      }
+      if let v = _storage._xor {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 183)
+      }
+      if let v = _storage._xorEq {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 184)
+      }
+      if let v = _storage._restrict {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 185)
+      }
+      if let v = _storage._category {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 186)
+      }
+      if let v = _storage._ivar {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 187)
+      }
+      if let v = _storage._method {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 188)
+      }
+      if let v = _storage._finalize {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
+      }
+      if let v = _storage._hash {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
+      }
+      if let v = _storage._dealloc {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 194)
+      }
+      if let v = _storage._superclass {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 197)
+      }
+      if let v = _storage._retain {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 198)
+      }
+      if let v = _storage._release {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 199)
+      }
+      if let v = _storage._autorelease {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
+      }
+      if let v = _storage._retainCount {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
+      }
+      if let v = _storage._zone {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 202)
+      }
+      if let v = _storage._isProxy {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 203)
+      }
+      if let v = _storage._copy {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 204)
+      }
+      if let v = _storage._mutableCopy {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 205)
+      }
+      if let v = _storage._classForCoder {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
+      }
+      if let v = _storage._clear {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
+      }
+      if let v = _storage._data {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 208)
+      }
+      if let v = _storage._delimitedData {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 209)
+      }
+      if let v = _storage._descriptor {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 210)
+      }
+      if let v = _storage._extensionRegistry {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 211)
+      }
+      if let v = _storage._extensionsCurrentlySet {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 212)
+      }
+      if let v = _storage._isInitialized_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 213)
+      }
+      if let v = _storage._serializedSize {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 214)
+      }
+      if let v = _storage._sortedExtensionsInUse {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 215)
+      }
+      if let v = _storage._unknownFields_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 216)
+      }
+      if let v = _storage._fixed {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 217)
+      }
+      if let v = _storage._fract {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 218)
+      }
+      if let v = _storage._size {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 219)
+      }
+      if let v = _storage._logicalAddress {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 220)
+      }
+      if let v = _storage._physicalAddress {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 221)
+      }
+      if let v = _storage._byteCount {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 222)
+      }
+      if let v = _storage._byteOffset {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 223)
+      }
+      if let v = _storage._duration {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 224)
+      }
+      if let v = _storage._absoluteTime {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 225)
+      }
+      if let v = _storage._optionBits {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
+      }
+      if let v = _storage._itemCount {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 227)
+      }
+      if let v = _storage._pbversion {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 228)
+      }
+      if let v = _storage._scriptCode {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 229)
+      }
+      if let v = _storage._langCode {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 230)
+      }
+      if let v = _storage._regionCode {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 231)
+      }
+      if let v = _storage._ostype {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 232)
+      }
+      if let v = _storage._processSerialNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 233)
+      }
+      if let v = _storage._point {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 234)
+      }
+      if let v = _storage._rect {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 235)
+      }
+      if let v = _storage._fixedPoint {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 236)
+      }
+      if let v = _storage._fixedRect {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 237)
+      }
+      if let v = _storage._style {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 238)
+      }
+      if let v = _storage._styleParameter {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 239)
+      }
+      if let v = _storage._styleField {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 240)
+      }
+      if let v = _storage._timeScale {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
+      }
+      if let v = _storage._timeBase {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 242)
+      }
+      if let v = _storage._timeRecord {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 243)
+      }
+      if let v = _storage._jsonShouldBeOverriden {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
+      }
+      if let v = _storage._any {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 245)
+      }
+      if let v = _storage._int32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 246)
+      }
+      if let v = _storage._int64 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 247)
+      }
+      if let v = _storage._uint32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 250)
+      }
+      if let v = _storage._uint64 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 251)
+      }
+      if let v = _storage._associatedtype {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 252)
+      }
+      if let v = _storage._fileprivate {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 253)
+      }
+      if let v = _storage._open {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 254)
+      }
+      if let v = _storage._serializedData {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 255)
+      }
+      if let v = _storage._hasSerializedData_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 256)
+      }
+      if let v = _storage._clearSerializedData_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 257)
+      }
+      if let v = _storage._jsonUtf8Data {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 258)
+      }
+      if let v = _storage._jsonString {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 259)
+      }
+      if let v = _storage._extension {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 260)
+      }
+      if let v = _storage._extensions {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 261)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
@@ -22133,8 +16974,18 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MessageNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -22142,10 +16993,27 @@ extension SwiftUnittest_Names_MessageNames: SwiftProtobuf._MessageImplementation
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StringMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.StringMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".String"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "String"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._string)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._string {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
     if self._string != other._string {return false}
@@ -22154,10 +17022,27 @@ extension SwiftUnittest_Names_MessageNames.StringMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ProtocolMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Protocol"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Protocol"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._protocol)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._protocol {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
     if self._protocol != other._protocol {return false}
@@ -22166,10 +17051,27 @@ extension SwiftUnittest_Names_MessageNames.ProtocolMessage: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.IntMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.IntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Int"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Int"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._int)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._int {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
     if self._int != other._int {return false}
@@ -22178,10 +17080,27 @@ extension SwiftUnittest_Names_MessageNames.IntMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.DoubleMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Double"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Double"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._double)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._double {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
     if self._double != other._double {return false}
@@ -22190,10 +17109,27 @@ extension SwiftUnittest_Names_MessageNames.DoubleMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.FloatMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.FloatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Float"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Float"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._float)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._float {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
     if self._float != other._float {return false}
@@ -22202,10 +17138,27 @@ extension SwiftUnittest_Names_MessageNames.FloatMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.UIntMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.UIntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UInt"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "UInt"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._uint)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._uint {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
     if self._uint != other._uint {return false}
@@ -22214,10 +17167,27 @@ extension SwiftUnittest_Names_MessageNames.UIntMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.hashValueMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hashValue"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "hashValue"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._hashValue_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._hashValue_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
     if self._hashValue_p != other._hashValue_p {return false}
@@ -22226,10 +17196,27 @@ extension SwiftUnittest_Names_MessageNames.hashValueMessage: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.descriptionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".description"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "description"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._description_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._description_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
     if self._description_p != other._description_p {return false}
@@ -22238,10 +17225,27 @@ extension SwiftUnittest_Names_MessageNames.descriptionMessage: SwiftProtobuf._Me
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".debugDescription"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "debugDescription"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._debugDescription_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
     if self._debugDescription_p != other._debugDescription_p {return false}
@@ -22250,10 +17254,27 @@ extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobu
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Swift"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._swift)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._swift {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
     if self._swift != other._swift {return false}
@@ -22262,10 +17283,27 @@ extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "UNRECOGNIZED"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._unrecognized)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._unrecognized {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
     if self._unrecognized != other._unrecognized {return false}
@@ -22274,10 +17312,27 @@ extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.classMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".class"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "class"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._class)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._class {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
     if self._class != other._class {return false}
@@ -22286,10 +17341,27 @@ extension SwiftUnittest_Names_MessageNames.classMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.deinitMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.deinitMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".deinit"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deinit"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._deinit)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._deinit {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
     if self._deinit != other._deinit {return false}
@@ -22298,10 +17370,27 @@ extension SwiftUnittest_Names_MessageNames.deinitMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.enumMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".enum"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "enum"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._enum)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._enum {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
     if self._enum != other._enum {return false}
@@ -22310,10 +17399,27 @@ extension SwiftUnittest_Names_MessageNames.enumMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extensionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extension"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extension"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._extension)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._extension {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
     if self._extension != other._extension {return false}
@@ -22322,10 +17428,27 @@ extension SwiftUnittest_Names_MessageNames.extensionMessage: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.funcMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.funcMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".func"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "func"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._func)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._func {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
     if self._func != other._func {return false}
@@ -22334,10 +17457,27 @@ extension SwiftUnittest_Names_MessageNames.funcMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.importMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.importMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".import"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "import"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._import)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._import {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
     if self._import != other._import {return false}
@@ -22346,10 +17486,27 @@ extension SwiftUnittest_Names_MessageNames.importMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.initMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.initMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".init"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "init"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._init_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._init_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
     if self._init_p != other._init_p {return false}
@@ -22358,10 +17515,27 @@ extension SwiftUnittest_Names_MessageNames.initMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.inoutMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.inoutMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inout"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inout"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._inout)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._inout {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
     if self._inout != other._inout {return false}
@@ -22370,10 +17544,27 @@ extension SwiftUnittest_Names_MessageNames.inoutMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.internalMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.internalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".internal"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "internal"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._internal)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._internal {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
     if self._internal != other._internal {return false}
@@ -22382,10 +17573,27 @@ extension SwiftUnittest_Names_MessageNames.internalMessage: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.letMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.letMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".let"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "let"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._let)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._let {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
     if self._let != other._let {return false}
@@ -22394,10 +17602,27 @@ extension SwiftUnittest_Names_MessageNames.letMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.operatorMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.operatorMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".operator"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operator"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._operator)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._operator {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
     if self._operator != other._operator {return false}
@@ -22406,10 +17631,27 @@ extension SwiftUnittest_Names_MessageNames.operatorMessage: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.privateMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.privateMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".private"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "private"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._private)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._private {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
     if self._private != other._private {return false}
@@ -22418,10 +17660,27 @@ extension SwiftUnittest_Names_MessageNames.privateMessage: SwiftProtobuf._Messag
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.protocolMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.protocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protocol"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "protocol"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._protocol)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._protocol {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
     if self._protocol != other._protocol {return false}
@@ -22430,10 +17689,27 @@ extension SwiftUnittest_Names_MessageNames.protocolMessage: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.publicMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.publicMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".public"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "public"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._public)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._public {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
     if self._public != other._public {return false}
@@ -22442,10 +17718,27 @@ extension SwiftUnittest_Names_MessageNames.publicMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.staticMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.staticMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "static"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._static)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._static {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
     if self._static != other._static {return false}
@@ -22454,10 +17747,27 @@ extension SwiftUnittest_Names_MessageNames.staticMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.structMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.structMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".struct"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "struct"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._struct)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._struct {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
     if self._struct != other._struct {return false}
@@ -22466,10 +17776,27 @@ extension SwiftUnittest_Names_MessageNames.structMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.subscriptMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".subscript"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "subscript"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._subscript)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._subscript {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
     if self._subscript != other._subscript {return false}
@@ -22478,10 +17805,27 @@ extension SwiftUnittest_Names_MessageNames.subscriptMessage: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typealiasMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typealias"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typealias"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._typealias)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._typealias {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
     if self._typealias != other._typealias {return false}
@@ -22490,10 +17834,27 @@ extension SwiftUnittest_Names_MessageNames.typealiasMessage: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.varMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.varMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".var"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "var"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._var)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._var {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
     if self._var != other._var {return false}
@@ -22502,10 +17863,27 @@ extension SwiftUnittest_Names_MessageNames.varMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.breakMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.breakMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".break"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "break"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._break)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._break {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
     if self._break != other._break {return false}
@@ -22514,10 +17892,27 @@ extension SwiftUnittest_Names_MessageNames.breakMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.caseMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.caseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".case"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "case"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._case)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._case {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
     if self._case != other._case {return false}
@@ -22526,10 +17921,27 @@ extension SwiftUnittest_Names_MessageNames.caseMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.continueMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.continueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".continue"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "continue"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._continue)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._continue {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
     if self._continue != other._continue {return false}
@@ -22538,10 +17950,27 @@ extension SwiftUnittest_Names_MessageNames.continueMessage: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.defaultMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.defaultMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".default"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "default"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._default)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._default {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
     if self._default != other._default {return false}
@@ -22550,10 +17979,27 @@ extension SwiftUnittest_Names_MessageNames.defaultMessage: SwiftProtobuf._Messag
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.deferMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.deferMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".defer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defer"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._defer)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._defer {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
     if self._defer != other._defer {return false}
@@ -22562,10 +18008,27 @@ extension SwiftUnittest_Names_MessageNames.deferMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.doMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.doMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".do"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "do"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._do)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._do {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
     if self._do != other._do {return false}
@@ -22574,10 +18037,27 @@ extension SwiftUnittest_Names_MessageNames.doMessage: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.elseMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.elseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".else"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "else"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._else)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._else {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
     if self._else != other._else {return false}
@@ -22586,10 +18066,27 @@ extension SwiftUnittest_Names_MessageNames.elseMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.fallthroughMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".fallthrough"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fallthrough"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._fallthrough)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._fallthrough {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
     if self._fallthrough != other._fallthrough {return false}
@@ -22598,10 +18095,27 @@ extension SwiftUnittest_Names_MessageNames.fallthroughMessage: SwiftProtobuf._Me
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.forMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.forMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".for"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "for"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._for)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._for {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
     if self._for != other._for {return false}
@@ -22610,10 +18124,27 @@ extension SwiftUnittest_Names_MessageNames.forMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.guardMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.guardMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".guard"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "guard"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._guard)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._guard {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
     if self._guard != other._guard {return false}
@@ -22622,10 +18153,27 @@ extension SwiftUnittest_Names_MessageNames.guardMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ifMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".if"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "if"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._if)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._if {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
     if self._if != other._if {return false}
@@ -22634,10 +18182,27 @@ extension SwiftUnittest_Names_MessageNames.ifMessage: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.inMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.inMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".in"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "in"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._in)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._in {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
     if self._in != other._in {return false}
@@ -22646,10 +18211,27 @@ extension SwiftUnittest_Names_MessageNames.inMessage: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.repeatMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.repeatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".repeat"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "repeat"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._repeat)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._repeat {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
     if self._repeat != other._repeat {return false}
@@ -22658,10 +18240,27 @@ extension SwiftUnittest_Names_MessageNames.repeatMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.returnMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.returnMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".return"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "return"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._return)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._return {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
     if self._return != other._return {return false}
@@ -22670,10 +18269,27 @@ extension SwiftUnittest_Names_MessageNames.returnMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.switchMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.switchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".switch"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "switch"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._switch)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._switch {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
     if self._switch != other._switch {return false}
@@ -22682,10 +18298,27 @@ extension SwiftUnittest_Names_MessageNames.switchMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.whereMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.whereMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".where"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "where"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._where)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._where {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
     if self._where != other._where {return false}
@@ -22694,10 +18327,27 @@ extension SwiftUnittest_Names_MessageNames.whereMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.whileMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.whileMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".while"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "while"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._while)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._while {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
     if self._while != other._while {return false}
@@ -22706,10 +18356,27 @@ extension SwiftUnittest_Names_MessageNames.whileMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.asMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.asMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".as"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "as"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._as)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._as {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
     if self._as != other._as {return false}
@@ -22718,10 +18385,27 @@ extension SwiftUnittest_Names_MessageNames.asMessage: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.catchMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.catchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".catch"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "catch"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._catch)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._catch {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
     if self._catch != other._catch {return false}
@@ -22730,10 +18414,27 @@ extension SwiftUnittest_Names_MessageNames.catchMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamicType"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dynamicType"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._dynamicType_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._dynamicType_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
     if self._dynamicType_p != other._dynamicType_p {return false}
@@ -22742,10 +18443,27 @@ extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf._Me
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.falseMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.falseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".false"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "false"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._false)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._false {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
     if self._false != other._false {return false}
@@ -22754,10 +18472,27 @@ extension SwiftUnittest_Names_MessageNames.falseMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.isMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".is"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "is"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._is)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._is {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
     if self._is != other._is {return false}
@@ -22766,10 +18501,27 @@ extension SwiftUnittest_Names_MessageNames.isMessage: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.nilMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.nilMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nil"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nil"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._nil)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._nil {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
     if self._nil != other._nil {return false}
@@ -22778,10 +18530,27 @@ extension SwiftUnittest_Names_MessageNames.nilMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.rethrowsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".rethrows"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "rethrows"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._rethrows)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._rethrows {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
     if self._rethrows != other._rethrows {return false}
@@ -22790,10 +18559,27 @@ extension SwiftUnittest_Names_MessageNames.rethrowsMessage: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.superMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.superMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".super"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "super"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._super)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._super {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
     if self._super != other._super {return false}
@@ -22802,10 +18588,27 @@ extension SwiftUnittest_Names_MessageNames.superMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.selfMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.selfMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".self"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "self"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._self_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._self_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
     if self._self_p != other._self_p {return false}
@@ -22814,10 +18617,27 @@ extension SwiftUnittest_Names_MessageNames.selfMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.throwMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.throwMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throw"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "throw"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._throw)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._throw {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
     if self._throw != other._throw {return false}
@@ -22826,10 +18646,27 @@ extension SwiftUnittest_Names_MessageNames.throwMessage: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.throwsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.throwsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throws"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "throws"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._throws)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._throws {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
     if self._throws != other._throws {return false}
@@ -22838,10 +18675,27 @@ extension SwiftUnittest_Names_MessageNames.throwsMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.trueMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.trueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".true"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "true"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._true)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._true {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
     if self._true != other._true {return false}
@@ -22850,10 +18704,27 @@ extension SwiftUnittest_Names_MessageNames.trueMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.tryMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.tryMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".try"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "try"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._try)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._try {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
     if self._try != other._try {return false}
@@ -22862,10 +18733,27 @@ extension SwiftUnittest_Names_MessageNames.tryMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__COLUMN__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__COLUMN__"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.__Column__)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self.__Column__ {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
     if self.__Column__ != other.__Column__ {return false}
@@ -22874,10 +18762,27 @@ extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: SwiftProtobuf._Mes
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__FILE__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.__FILE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FILE__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__FILE__"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.__File__)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self.__File__ {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
     if self.__File__ != other.__File__ {return false}
@@ -22886,10 +18791,27 @@ extension SwiftUnittest_Names_MessageNames.__FILE__Message: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FUNCTION__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__FUNCTION__"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.__Function__)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self.__Function__ {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
     if self.__Function__ != other.__Function__ {return false}
@@ -22898,10 +18820,27 @@ extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf._M
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__LINE__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.__LINE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__LINE__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__LINE__"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.__Line__)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self.__Line__ {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
     if self.__Line__ != other.__Line__ {return false}
@@ -22910,10 +18849,27 @@ extension SwiftUnittest_Names_MessageNames.__LINE__Message: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames._Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames._Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "_"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.____)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self.____ {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._Message) -> Bool {
     if self.____ != other.____ {return false}
@@ -22922,10 +18878,27 @@ extension SwiftUnittest_Names_MessageNames._Message: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._____)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._____ {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
     if self._____ != other._____ {return false}
@@ -22934,10 +18907,27 @@ extension SwiftUnittest_Names_MessageNames.__Message: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.associativity: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.associativity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "associativity"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._associativity)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._associativity {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
     if self._associativity != other._associativity {return false}
@@ -22946,10 +18936,27 @@ extension SwiftUnittest_Names_MessageNames.associativity: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.convenience: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.convenience: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".convenience"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "convenience"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._convenience)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._convenience {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
     if self._convenience != other._convenience {return false}
@@ -22958,10 +18965,27 @@ extension SwiftUnittest_Names_MessageNames.convenience: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dynamic: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.dynamic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dynamic"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._dynamic)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._dynamic {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
     if self._dynamic != other._dynamic {return false}
@@ -22970,10 +18994,27 @@ extension SwiftUnittest_Names_MessageNames.dynamic: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.didSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.didSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".didSet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "didSet"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._didSet)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._didSet {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
     if self._didSet != other._didSet {return false}
@@ -22982,10 +19023,27 @@ extension SwiftUnittest_Names_MessageNames.didSet: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.final: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.final: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".final"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "final"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._final)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._final {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.final) -> Bool {
     if self._final != other._final {return false}
@@ -22994,10 +19052,27 @@ extension SwiftUnittest_Names_MessageNames.final: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.get: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.get: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".get"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "get"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._get)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._get {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.get) -> Bool {
     if self._get != other._get {return false}
@@ -23006,10 +19081,27 @@ extension SwiftUnittest_Names_MessageNames.get: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.infix: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.infix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".infix"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "infix"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._infix)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._infix {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.infix) -> Bool {
     if self._infix != other._infix {return false}
@@ -23018,10 +19110,27 @@ extension SwiftUnittest_Names_MessageNames.infix: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.indirect: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.indirect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".indirect"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "indirect"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._indirect)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._indirect {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
     if self._indirect != other._indirect {return false}
@@ -23030,10 +19139,27 @@ extension SwiftUnittest_Names_MessageNames.indirect: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.lazy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.lazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".lazy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "lazy"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._lazy)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._lazy {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
     if self._lazy != other._lazy {return false}
@@ -23042,10 +19168,27 @@ extension SwiftUnittest_Names_MessageNames.lazy: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.left: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.left: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".left"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "left"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._left)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._left {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.left) -> Bool {
     if self._left != other._left {return false}
@@ -23054,10 +19197,27 @@ extension SwiftUnittest_Names_MessageNames.left: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.mutating: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.mutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutating"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mutating"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._mutating)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._mutating {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
     if self._mutating != other._mutating {return false}
@@ -23066,10 +19226,27 @@ extension SwiftUnittest_Names_MessageNames.mutating: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.none: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.none: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".none"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "none"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._none)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._none {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.none) -> Bool {
     if self._none != other._none {return false}
@@ -23078,10 +19255,27 @@ extension SwiftUnittest_Names_MessageNames.none: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.nonmutating: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.nonmutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nonmutating"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nonmutating"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._nonmutating)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._nonmutating {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
     if self._nonmutating != other._nonmutating {return false}
@@ -23090,10 +19284,27 @@ extension SwiftUnittest_Names_MessageNames.nonmutating: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.optional: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "optional"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._optional)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._optional {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.optional) -> Bool {
     if self._optional != other._optional {return false}
@@ -23102,10 +19313,27 @@ extension SwiftUnittest_Names_MessageNames.optional: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.override: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.override: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".override"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "override"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._override)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._override {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.override) -> Bool {
     if self._override != other._override {return false}
@@ -23114,10 +19342,27 @@ extension SwiftUnittest_Names_MessageNames.override: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.postfix: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.postfix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".postfix"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "postfix"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._postfix)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._postfix {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
     if self._postfix != other._postfix {return false}
@@ -23126,10 +19371,27 @@ extension SwiftUnittest_Names_MessageNames.postfix: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.precedence: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.precedence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".precedence"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "precedence"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._precedence)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._precedence {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
     if self._precedence != other._precedence {return false}
@@ -23138,10 +19400,27 @@ extension SwiftUnittest_Names_MessageNames.precedence: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.prefix: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.prefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".prefix"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "prefix"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._prefix)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._prefix {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
     if self._prefix != other._prefix {return false}
@@ -23150,10 +19429,27 @@ extension SwiftUnittest_Names_MessageNames.prefix: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.required: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "required"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._required)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._required {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.required) -> Bool {
     if self._required != other._required {return false}
@@ -23162,10 +19458,27 @@ extension SwiftUnittest_Names_MessageNames.required: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.right: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.right: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".right"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "right"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._right)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._right {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.right) -> Bool {
     if self._right != other._right {return false}
@@ -23174,10 +19487,27 @@ extension SwiftUnittest_Names_MessageNames.right: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.set: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.set: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".set"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "set"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._set)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._set {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.set) -> Bool {
     if self._set != other._set {return false}
@@ -23186,10 +19516,27 @@ extension SwiftUnittest_Names_MessageNames.set: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TypeMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Type"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Type"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._type)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._type {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
     if self._type != other._type {return false}
@@ -23198,10 +19545,27 @@ extension SwiftUnittest_Names_MessageNames.TypeMessage: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.unowned: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.unowned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unowned"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "unowned"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._unowned)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._unowned {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
     if self._unowned != other._unowned {return false}
@@ -23210,10 +19574,27 @@ extension SwiftUnittest_Names_MessageNames.unowned: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.weak: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.weak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".weak"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "weak"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._weak)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._weak {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.weak) -> Bool {
     if self._weak != other._weak {return false}
@@ -23222,10 +19603,27 @@ extension SwiftUnittest_Names_MessageNames.weak: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.willSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.willSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".willSet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "willSet"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._willSet)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._willSet {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
     if self._willSet != other._willSet {return false}
@@ -23234,10 +19632,27 @@ extension SwiftUnittest_Names_MessageNames.willSet: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.id: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.id: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".id"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._id)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._id {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.id) -> Bool {
     if self._id != other._id {return false}
@@ -23246,10 +19661,27 @@ extension SwiftUnittest_Names_MessageNames.id: SwiftProtobuf._MessageImplementat
   }
 }
 
-extension SwiftUnittest_Names_MessageNames._cmd: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames._cmd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._cmd"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "_cmd"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._cmd)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._cmd {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
     if self._cmd != other._cmd {return false}
@@ -23258,10 +19690,27 @@ extension SwiftUnittest_Names_MessageNames._cmd: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.out: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.out: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".out"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "out"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._out)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._out {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.out) -> Bool {
     if self._out != other._out {return false}
@@ -23270,10 +19719,27 @@ extension SwiftUnittest_Names_MessageNames.out: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bycopy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.bycopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bycopy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bycopy"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._bycopy)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._bycopy {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
     if self._bycopy != other._bycopy {return false}
@@ -23282,10 +19748,27 @@ extension SwiftUnittest_Names_MessageNames.bycopy: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.byref: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.byref: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".byref"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "byref"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._byref)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._byref {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.byref) -> Bool {
     if self._byref != other._byref {return false}
@@ -23294,10 +19777,27 @@ extension SwiftUnittest_Names_MessageNames.byref: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.oneway: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.oneway: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".oneway"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "oneway"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._oneway)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._oneway {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
     if self._oneway != other._oneway {return false}
@@ -23306,10 +19806,27 @@ extension SwiftUnittest_Names_MessageNames.oneway: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.and: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.and: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "and"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._and)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._and {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and) -> Bool {
     if self._and != other._and {return false}
@@ -23318,10 +19835,27 @@ extension SwiftUnittest_Names_MessageNames.and: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.and_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.and_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "and_eq"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._andEq)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._andEq {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
     if self._andEq != other._andEq {return false}
@@ -23330,10 +19864,27 @@ extension SwiftUnittest_Names_MessageNames.and_eq: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.alignas: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.alignas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignas"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alignas"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._alignas)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._alignas {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
     if self._alignas != other._alignas {return false}
@@ -23342,10 +19893,27 @@ extension SwiftUnittest_Names_MessageNames.alignas: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.alignof: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.alignof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignof"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alignof"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._alignof)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._alignof {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
     if self._alignof != other._alignof {return false}
@@ -23354,10 +19922,27 @@ extension SwiftUnittest_Names_MessageNames.alignof: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.asm: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.asm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".asm"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "asm"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._asm)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._asm {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asm) -> Bool {
     if self._asm != other._asm {return false}
@@ -23366,10 +19951,27 @@ extension SwiftUnittest_Names_MessageNames.asm: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.auto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.auto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".auto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "auto"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._auto)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._auto {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.auto) -> Bool {
     if self._auto != other._auto {return false}
@@ -23378,10 +19980,27 @@ extension SwiftUnittest_Names_MessageNames.auto: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bitand: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.bitand: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitand"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bitand"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._bitand)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._bitand {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
     if self._bitand != other._bitand {return false}
@@ -23390,10 +20009,27 @@ extension SwiftUnittest_Names_MessageNames.bitand: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bitor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.bitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bitor"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._bitor)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._bitor {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
     if self._bitor != other._bitor {return false}
@@ -23402,10 +20038,27 @@ extension SwiftUnittest_Names_MessageNames.bitor: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bool: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.bool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bool"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bool"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._bool)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._bool {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bool) -> Bool {
     if self._bool != other._bool {return false}
@@ -23414,10 +20067,27 @@ extension SwiftUnittest_Names_MessageNames.bool: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.char: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.char: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "char"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._char)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._char {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char) -> Bool {
     if self._char != other._char {return false}
@@ -23426,10 +20096,27 @@ extension SwiftUnittest_Names_MessageNames.char: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.char16_t: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.char16_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char16_t"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "char16_t"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._char16T)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._char16T {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
     if self._char16T != other._char16T {return false}
@@ -23438,10 +20125,27 @@ extension SwiftUnittest_Names_MessageNames.char16_t: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.char32_t: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.char32_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char32_t"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "char32_t"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._char32T)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._char32T {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
     if self._char32T != other._char32T {return false}
@@ -23450,10 +20154,27 @@ extension SwiftUnittest_Names_MessageNames.char32_t: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.compl: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.compl: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".compl"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "compl"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._compl)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._compl {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.compl) -> Bool {
     if self._compl != other._compl {return false}
@@ -23462,10 +20183,27 @@ extension SwiftUnittest_Names_MessageNames.compl: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.const: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.const: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "const"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._const)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._const {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const) -> Bool {
     if self._const != other._const {return false}
@@ -23474,10 +20212,27 @@ extension SwiftUnittest_Names_MessageNames.const: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.constexpr: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.constexpr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".constexpr"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "constexpr"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._constexpr)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._constexpr {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
     if self._constexpr != other._constexpr {return false}
@@ -23486,10 +20241,27 @@ extension SwiftUnittest_Names_MessageNames.constexpr: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.const_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.const_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "const_cast"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._constCast)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._constCast {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
     if self._constCast != other._constCast {return false}
@@ -23498,10 +20270,27 @@ extension SwiftUnittest_Names_MessageNames.const_cast: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.decltype: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.decltype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".decltype"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "decltype"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._decltype)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._decltype {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
     if self._decltype != other._decltype {return false}
@@ -23510,10 +20299,27 @@ extension SwiftUnittest_Names_MessageNames.decltype: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.delete: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.delete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delete"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "delete"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._delete)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._delete {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delete) -> Bool {
     if self._delete != other._delete {return false}
@@ -23522,10 +20328,27 @@ extension SwiftUnittest_Names_MessageNames.delete: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dynamic_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "dynamic_cast"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._dynamicCast)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._dynamicCast {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
     if self._dynamicCast != other._dynamicCast {return false}
@@ -23534,10 +20357,27 @@ extension SwiftUnittest_Names_MessageNames.dynamic_cast: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.explicit: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.explicit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".explicit"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "explicit"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._explicit)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._explicit {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
     if self._explicit != other._explicit {return false}
@@ -23546,10 +20386,27 @@ extension SwiftUnittest_Names_MessageNames.explicit: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.export: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.export: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".export"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "export"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._export)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._export {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.export) -> Bool {
     if self._export != other._export {return false}
@@ -23558,10 +20415,27 @@ extension SwiftUnittest_Names_MessageNames.export: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extern: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.extern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extern"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extern"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._extern)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._extern {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extern) -> Bool {
     if self._extern != other._extern {return false}
@@ -23570,10 +20444,27 @@ extension SwiftUnittest_Names_MessageNames.extern: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.friend: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.friend: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".friend"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "friend"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._friend)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._friend {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.friend) -> Bool {
     if self._friend != other._friend {return false}
@@ -23582,10 +20473,27 @@ extension SwiftUnittest_Names_MessageNames.friend: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.goto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.goto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".goto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "goto"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._goto)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._goto {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.goto) -> Bool {
     if self._goto != other._goto {return false}
@@ -23594,10 +20502,27 @@ extension SwiftUnittest_Names_MessageNames.goto: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.inline: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.inline: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inline"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inline"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._inline)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._inline {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inline) -> Bool {
     if self._inline != other._inline {return false}
@@ -23606,10 +20531,27 @@ extension SwiftUnittest_Names_MessageNames.inline: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.long: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.long: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".long"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "long"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._long)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._long {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.long) -> Bool {
     if self._long != other._long {return false}
@@ -23618,10 +20560,27 @@ extension SwiftUnittest_Names_MessageNames.long: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.mutable: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.mutable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutable"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mutable"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._mutable)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._mutable {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
     if self._mutable != other._mutable {return false}
@@ -23630,10 +20589,27 @@ extension SwiftUnittest_Names_MessageNames.mutable: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.namespace: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.namespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".namespace"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "namespace"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._namespace)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._namespace {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
     if self._namespace != other._namespace {return false}
@@ -23642,10 +20618,27 @@ extension SwiftUnittest_Names_MessageNames.namespace: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.new: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.new: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".new"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "new"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._new)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._new {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.new) -> Bool {
     if self._new != other._new {return false}
@@ -23654,10 +20647,27 @@ extension SwiftUnittest_Names_MessageNames.new: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.noexcept: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.noexcept: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".noexcept"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "noexcept"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._noexcept)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._noexcept {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
     if self._noexcept != other._noexcept {return false}
@@ -23666,10 +20676,27 @@ extension SwiftUnittest_Names_MessageNames.noexcept: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.not: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.not: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "not"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._not)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._not {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not) -> Bool {
     if self._not != other._not {return false}
@@ -23678,10 +20705,27 @@ extension SwiftUnittest_Names_MessageNames.not: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.not_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.not_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "not_eq"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._notEq)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._notEq {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
     if self._notEq != other._notEq {return false}
@@ -23690,10 +20734,27 @@ extension SwiftUnittest_Names_MessageNames.not_eq: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.nullptr: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.nullptr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nullptr"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nullptr"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._nullptr)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._nullptr {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
     if self._nullptr != other._nullptr {return false}
@@ -23702,10 +20763,27 @@ extension SwiftUnittest_Names_MessageNames.nullptr: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.or: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.or: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "or"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._or)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._or {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or) -> Bool {
     if self._or != other._or {return false}
@@ -23714,10 +20792,27 @@ extension SwiftUnittest_Names_MessageNames.or: SwiftProtobuf._MessageImplementat
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.or_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.or_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "or_eq"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._orEq)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._orEq {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
     if self._orEq != other._orEq {return false}
@@ -23726,10 +20821,27 @@ extension SwiftUnittest_Names_MessageNames.or_eq: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.protected: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.protected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protected"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "protected"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._protected)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._protected {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protected) -> Bool {
     if self._protected != other._protected {return false}
@@ -23738,10 +20850,27 @@ extension SwiftUnittest_Names_MessageNames.protected: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.register: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.register: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".register"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "register"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._register)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._register {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.register) -> Bool {
     if self._register != other._register {return false}
@@ -23750,10 +20879,27 @@ extension SwiftUnittest_Names_MessageNames.register: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.reinterpret_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".reinterpret_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "reinterpret_cast"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._reinterpretCast)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._reinterpretCast {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
     if self._reinterpretCast != other._reinterpretCast {return false}
@@ -23762,10 +20908,27 @@ extension SwiftUnittest_Names_MessageNames.reinterpret_cast: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.short: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.short: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".short"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "short"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._short)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._short {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.short) -> Bool {
     if self._short != other._short {return false}
@@ -23774,10 +20937,27 @@ extension SwiftUnittest_Names_MessageNames.short: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.signed: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.signed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".signed"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signed"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._signed)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._signed {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.signed) -> Bool {
     if self._signed != other._signed {return false}
@@ -23786,10 +20966,27 @@ extension SwiftUnittest_Names_MessageNames.signed: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.sizeof: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.sizeof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sizeof"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sizeof"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._sizeof)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._sizeof {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
     if self._sizeof != other._sizeof {return false}
@@ -23798,10 +20995,27 @@ extension SwiftUnittest_Names_MessageNames.sizeof: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.static_assert: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.static_assert: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_assert"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "static_assert"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._staticAssert)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._staticAssert {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
     if self._staticAssert != other._staticAssert {return false}
@@ -23810,10 +21024,27 @@ extension SwiftUnittest_Names_MessageNames.static_assert: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.static_cast: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.static_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "static_cast"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._staticCast)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._staticCast {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
     if self._staticCast != other._staticCast {return false}
@@ -23822,10 +21053,27 @@ extension SwiftUnittest_Names_MessageNames.static_cast: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.template: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.template: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".template"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "template"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._template)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._template {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.template) -> Bool {
     if self._template != other._template {return false}
@@ -23834,10 +21082,27 @@ extension SwiftUnittest_Names_MessageNames.template: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.this: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.this: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".this"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "this"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._this)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._this {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.this) -> Bool {
     if self._this != other._this {return false}
@@ -23846,10 +21111,27 @@ extension SwiftUnittest_Names_MessageNames.this: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.thread_local: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.thread_local: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".thread_local"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "thread_local"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._threadLocal)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._threadLocal {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
     if self._threadLocal != other._threadLocal {return false}
@@ -23858,10 +21140,27 @@ extension SwiftUnittest_Names_MessageNames.thread_local: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typedef: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.typedef: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typedef"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typedef"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._typedef)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._typedef {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
     if self._typedef != other._typedef {return false}
@@ -23870,10 +21169,27 @@ extension SwiftUnittest_Names_MessageNames.typedef: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typeid: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.typeid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typeid"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typeid"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._typeid)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._typeid {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
     if self._typeid != other._typeid {return false}
@@ -23882,10 +21198,27 @@ extension SwiftUnittest_Names_MessageNames.typeid: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typename: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.typename: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typename"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typename"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._typename)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._typename {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typename) -> Bool {
     if self._typename != other._typename {return false}
@@ -23894,10 +21227,27 @@ extension SwiftUnittest_Names_MessageNames.typename: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.union: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.union: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".union"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "union"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._union)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._union {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.union) -> Bool {
     if self._union != other._union {return false}
@@ -23906,10 +21256,27 @@ extension SwiftUnittest_Names_MessageNames.union: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.unsigned: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.unsigned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unsigned"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "unsigned"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._unsigned)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._unsigned {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
     if self._unsigned != other._unsigned {return false}
@@ -23918,10 +21285,27 @@ extension SwiftUnittest_Names_MessageNames.unsigned: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.using: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.using: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".using"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "using"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._using)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._using {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.using) -> Bool {
     if self._using != other._using {return false}
@@ -23930,10 +21314,27 @@ extension SwiftUnittest_Names_MessageNames.using: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.virtual: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.virtual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".virtual"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "virtual"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._virtual)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._virtual {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
     if self._virtual != other._virtual {return false}
@@ -23942,10 +21343,27 @@ extension SwiftUnittest_Names_MessageNames.virtual: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.void: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".void"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "void"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._void)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._void {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.void) -> Bool {
     if self._void != other._void {return false}
@@ -23954,10 +21372,27 @@ extension SwiftUnittest_Names_MessageNames.void: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.volatile: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.volatile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".volatile"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "volatile"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._volatile)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._volatile {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
     if self._volatile != other._volatile {return false}
@@ -23966,10 +21401,27 @@ extension SwiftUnittest_Names_MessageNames.volatile: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.wchar_t: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.wchar_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".wchar_t"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "wchar_t"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._wcharT)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._wcharT {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
     if self._wcharT != other._wcharT {return false}
@@ -23978,10 +21430,27 @@ extension SwiftUnittest_Names_MessageNames.wchar_t: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.xor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.xor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "xor"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._xor)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._xor {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor) -> Bool {
     if self._xor != other._xor {return false}
@@ -23990,10 +21459,27 @@ extension SwiftUnittest_Names_MessageNames.xor: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.xor_eq: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.xor_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "xor_eq"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._xorEq)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._xorEq {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
     if self._xorEq != other._xorEq {return false}
@@ -24002,10 +21488,27 @@ extension SwiftUnittest_Names_MessageNames.xor_eq: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.restrict: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.restrict: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".restrict"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "restrict"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._restrict)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._restrict {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
     if self._restrict != other._restrict {return false}
@@ -24014,10 +21517,27 @@ extension SwiftUnittest_Names_MessageNames.restrict: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Category: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Category: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Category"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Category"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._category)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._category {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Category) -> Bool {
     if self._category != other._category {return false}
@@ -24026,10 +21546,27 @@ extension SwiftUnittest_Names_MessageNames.Category: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Ivar: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Ivar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Ivar"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Ivar"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._ivar)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._ivar {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
     if self._ivar != other._ivar {return false}
@@ -24038,10 +21575,27 @@ extension SwiftUnittest_Names_MessageNames.Ivar: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Method: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Method"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Method"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._method)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._method {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Method) -> Bool {
     if self._method != other._method {return false}
@@ -24050,10 +21604,27 @@ extension SwiftUnittest_Names_MessageNames.Method: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.finalize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.finalize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".finalize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "finalize"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._finalize)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._finalize {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
     if self._finalize != other._finalize {return false}
@@ -24062,10 +21633,27 @@ extension SwiftUnittest_Names_MessageNames.finalize: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "hash"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._hash)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._hash {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
     if self._hash != other._hash {return false}
@@ -24074,10 +21662,27 @@ extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dealloc: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.dealloc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dealloc"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dealloc"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._dealloc)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._dealloc {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
     if self._dealloc != other._dealloc {return false}
@@ -24086,10 +21691,27 @@ extension SwiftUnittest_Names_MessageNames.dealloc: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.superclass: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.superclass: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".superclass"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "superclass"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._superclass)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._superclass {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
     if self._superclass != other._superclass {return false}
@@ -24098,10 +21720,27 @@ extension SwiftUnittest_Names_MessageNames.superclass: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.retain: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.retain: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retain"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "retain"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._retain)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._retain {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retain) -> Bool {
     if self._retain != other._retain {return false}
@@ -24110,10 +21749,27 @@ extension SwiftUnittest_Names_MessageNames.retain: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.release: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.release: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".release"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "release"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._release)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._release {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.release) -> Bool {
     if self._release != other._release {return false}
@@ -24122,10 +21778,27 @@ extension SwiftUnittest_Names_MessageNames.release: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.autorelease: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.autorelease: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".autorelease"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "autorelease"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._autorelease)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._autorelease {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
     if self._autorelease != other._autorelease {return false}
@@ -24134,10 +21807,27 @@ extension SwiftUnittest_Names_MessageNames.autorelease: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.retainCount: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.retainCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retainCount"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "retainCount"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._retainCount)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._retainCount {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
     if self._retainCount != other._retainCount {return false}
@@ -24146,10 +21836,27 @@ extension SwiftUnittest_Names_MessageNames.retainCount: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.zone: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.zone: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".zone"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "zone"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._zone)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._zone {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.zone) -> Bool {
     if self._zone != other._zone {return false}
@@ -24158,10 +21865,27 @@ extension SwiftUnittest_Names_MessageNames.zone: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isProxy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.isProxy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isProxy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isProxy"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._isProxy)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._isProxy {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
     if self._isProxy != other._isProxy {return false}
@@ -24170,10 +21894,27 @@ extension SwiftUnittest_Names_MessageNames.isProxy: SwiftProtobuf._MessageImplem
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.copy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.copy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".copy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "copy"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._copy)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._copy {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.copy) -> Bool {
     if self._copy != other._copy {return false}
@@ -24182,10 +21923,27 @@ extension SwiftUnittest_Names_MessageNames.copy: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.mutableCopy: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.mutableCopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutableCopy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mutableCopy"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._mutableCopy)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._mutableCopy {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
     if self._mutableCopy != other._mutableCopy {return false}
@@ -24194,10 +21952,27 @@ extension SwiftUnittest_Names_MessageNames.mutableCopy: SwiftProtobuf._MessageIm
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.classForCoder: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.classForCoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".classForCoder"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "classForCoder"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._classForCoder)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._classForCoder {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
     if self._classForCoder != other._classForCoder {return false}
@@ -24206,10 +21981,27 @@ extension SwiftUnittest_Names_MessageNames.classForCoder: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "clear"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._clear)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._clear {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
     if self._clear != other._clear {return false}
@@ -24218,10 +22010,27 @@ extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.data: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".data"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._data)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._data {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.data) -> Bool {
     if self._data != other._data {return false}
@@ -24230,10 +22039,27 @@ extension SwiftUnittest_Names_MessageNames.data: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.delimitedData: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.delimitedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delimitedData"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "delimitedData"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._delimitedData)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._delimitedData {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
     if self._delimitedData != other._delimitedData {return false}
@@ -24242,10 +22068,27 @@ extension SwiftUnittest_Names_MessageNames.delimitedData: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.descriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.descriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".descriptor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "descriptor"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._descriptor)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._descriptor {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
     if self._descriptor != other._descriptor {return false}
@@ -24254,10 +22097,27 @@ extension SwiftUnittest_Names_MessageNames.descriptor: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extensionRegistry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionRegistry"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extensionRegistry"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._extensionRegistry)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._extensionRegistry {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
     if self._extensionRegistry != other._extensionRegistry {return false}
@@ -24266,10 +22126,27 @@ extension SwiftUnittest_Names_MessageNames.extensionRegistry: SwiftProtobuf._Mes
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extensionsCurrentlySet"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._extensionsCurrentlySet)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._extensionsCurrentlySet {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
     if self._extensionsCurrentlySet != other._extensionsCurrentlySet {return false}
@@ -24278,10 +22155,27 @@ extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isInitialized"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._isInitialized_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._isInitialized_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitializedMessage) -> Bool {
     if self._isInitialized_p != other._isInitialized_p {return false}
@@ -24290,10 +22184,27 @@ extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf._
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.serializedSize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.serializedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "serializedSize"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._serializedSize)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._serializedSize {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
     if self._serializedSize != other._serializedSize {return false}
@@ -24302,10 +22213,27 @@ extension SwiftUnittest_Names_MessageNames.serializedSize: SwiftProtobuf._Messag
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sortedExtensionsInUse"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._sortedExtensionsInUse)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._sortedExtensionsInUse {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
     if self._sortedExtensionsInUse != other._sortedExtensionsInUse {return false}
@@ -24314,10 +22242,27 @@ extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unknownFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "unknownFields"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._unknownFields_p)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._unknownFields_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
     if self._unknownFields_p != other._unknownFields_p {return false}
@@ -24326,10 +22271,27 @@ extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf._
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Fixed: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Fixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fixed"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Fixed"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._fixed)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._fixed {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
     if self._fixed != other._fixed {return false}
@@ -24338,10 +22300,27 @@ extension SwiftUnittest_Names_MessageNames.Fixed: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Fract: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Fract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fract"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Fract"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._fract)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._fract {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
     if self._fract != other._fract {return false}
@@ -24350,10 +22329,27 @@ extension SwiftUnittest_Names_MessageNames.Fract: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Size: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Size: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Size"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Size"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._size)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._size {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Size) -> Bool {
     if self._size != other._size {return false}
@@ -24362,10 +22358,27 @@ extension SwiftUnittest_Names_MessageNames.Size: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.LogicalAddress: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LogicalAddress"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "LogicalAddress"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._logicalAddress)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._logicalAddress {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
     if self._logicalAddress != other._logicalAddress {return false}
@@ -24374,10 +22387,27 @@ extension SwiftUnittest_Names_MessageNames.LogicalAddress: SwiftProtobuf._Messag
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.PhysicalAddress: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PhysicalAddress"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "PhysicalAddress"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._physicalAddress)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._physicalAddress {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
     if self._physicalAddress != other._physicalAddress {return false}
@@ -24386,10 +22416,27 @@ extension SwiftUnittest_Names_MessageNames.PhysicalAddress: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ByteCount: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ByteCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteCount"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ByteCount"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._byteCount)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._byteCount {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
     if self._byteCount != other._byteCount {return false}
@@ -24398,10 +22445,27 @@ extension SwiftUnittest_Names_MessageNames.ByteCount: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ByteOffset: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteOffset"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ByteOffset"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._byteOffset)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._byteOffset {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
     if self._byteOffset != other._byteOffset {return false}
@@ -24410,10 +22474,27 @@ extension SwiftUnittest_Names_MessageNames.ByteOffset: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Duration: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Duration"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Duration"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._duration)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._duration {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
     if self._duration != other._duration {return false}
@@ -24422,10 +22503,27 @@ extension SwiftUnittest_Names_MessageNames.Duration: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.AbsoluteTime: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".AbsoluteTime"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "AbsoluteTime"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._absoluteTime)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._absoluteTime {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
     if self._absoluteTime != other._absoluteTime {return false}
@@ -24434,10 +22532,27 @@ extension SwiftUnittest_Names_MessageNames.AbsoluteTime: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.OptionBits: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.OptionBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OptionBits"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "OptionBits"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._optionBits)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._optionBits {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
     if self._optionBits != other._optionBits {return false}
@@ -24446,10 +22561,27 @@ extension SwiftUnittest_Names_MessageNames.OptionBits: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ItemCount: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ItemCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ItemCount"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ItemCount"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._itemCount)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._itemCount {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
     if self._itemCount != other._itemCount {return false}
@@ -24458,10 +22590,27 @@ extension SwiftUnittest_Names_MessageNames.ItemCount: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.PBVersion: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.PBVersion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PBVersion"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "PBVersion"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._pbversion)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._pbversion {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
     if self._pbversion != other._pbversion {return false}
@@ -24470,10 +22619,27 @@ extension SwiftUnittest_Names_MessageNames.PBVersion: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ScriptCode: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ScriptCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ScriptCode"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ScriptCode"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._scriptCode)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._scriptCode {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
     if self._scriptCode != other._scriptCode {return false}
@@ -24482,10 +22648,27 @@ extension SwiftUnittest_Names_MessageNames.ScriptCode: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.LangCode: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.LangCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LangCode"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "LangCode"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._langCode)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._langCode {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
     if self._langCode != other._langCode {return false}
@@ -24494,10 +22677,27 @@ extension SwiftUnittest_Names_MessageNames.LangCode: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.RegionCode: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.RegionCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".RegionCode"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "RegionCode"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._regionCode)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._regionCode {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
     if self._regionCode != other._regionCode {return false}
@@ -24506,10 +22706,27 @@ extension SwiftUnittest_Names_MessageNames.RegionCode: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.OSType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.OSType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OSType"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "OSType"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._ostype)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._ostype {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
     if self._ostype != other._ostype {return false}
@@ -24518,10 +22735,27 @@ extension SwiftUnittest_Names_MessageNames.OSType: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ProcessSerialNumber"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._processSerialNumber)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._processSerialNumber {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
     if self._processSerialNumber != other._processSerialNumber {return false}
@@ -24530,10 +22764,27 @@ extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf._M
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Point: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Point: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Point"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Point"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._point)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._point {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Point) -> Bool {
     if self._point != other._point {return false}
@@ -24542,10 +22793,27 @@ extension SwiftUnittest_Names_MessageNames.Point: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Rect: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Rect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Rect"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Rect"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._rect)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._rect {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
     if self._rect != other._rect {return false}
@@ -24554,10 +22822,27 @@ extension SwiftUnittest_Names_MessageNames.Rect: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.FixedPoint: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.FixedPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedPoint"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FixedPoint"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._fixedPoint)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._fixedPoint {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
     if self._fixedPoint != other._fixedPoint {return false}
@@ -24566,10 +22851,27 @@ extension SwiftUnittest_Names_MessageNames.FixedPoint: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.FixedRect: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.FixedRect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedRect"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FixedRect"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._fixedRect)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._fixedRect {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
     if self._fixedRect != other._fixedRect {return false}
@@ -24578,10 +22880,27 @@ extension SwiftUnittest_Names_MessageNames.FixedRect: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Style: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Style: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Style"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Style"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._style)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._style {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Style) -> Bool {
     if self._style != other._style {return false}
@@ -24590,10 +22909,27 @@ extension SwiftUnittest_Names_MessageNames.Style: SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StyleParameter: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.StyleParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleParameter"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "StyleParameter"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._styleParameter)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._styleParameter {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
     if self._styleParameter != other._styleParameter {return false}
@@ -24602,10 +22938,27 @@ extension SwiftUnittest_Names_MessageNames.StyleParameter: SwiftProtobuf._Messag
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StyleField: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.StyleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleField"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "StyleField"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._styleField)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._styleField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
     if self._styleField != other._styleField {return false}
@@ -24614,10 +22967,27 @@ extension SwiftUnittest_Names_MessageNames.StyleField: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TimeScale: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.TimeScale: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeScale"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "TimeScale"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._timeScale)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._timeScale {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
     if self._timeScale != other._timeScale {return false}
@@ -24626,10 +22996,27 @@ extension SwiftUnittest_Names_MessageNames.TimeScale: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TimeBase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.TimeBase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeBase"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "TimeBase"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._timeBase)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._timeBase {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
     if self._timeBase != other._timeBase {return false}
@@ -24638,10 +23025,27 @@ extension SwiftUnittest_Names_MessageNames.TimeBase: SwiftProtobuf._MessageImple
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TimeRecord: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.TimeRecord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeRecord"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "TimeRecord"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._timeRecord)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._timeRecord {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
     if self._timeRecord != other._timeRecord {return false}
@@ -24650,10 +23054,27 @@ extension SwiftUnittest_Names_MessageNames.TimeRecord: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.serializedData: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.serializedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedData"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "serializedData"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._serializedData)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._serializedData {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedData) -> Bool {
     if self._serializedData != other._serializedData {return false}
@@ -24662,10 +23083,27 @@ extension SwiftUnittest_Names_MessageNames.serializedData: SwiftProtobuf._Messag
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "jsonUTF8Data"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._jsonUtf8Data)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._jsonUtf8Data {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.jsonUTF8Data) -> Bool {
     if self._jsonUtf8Data != other._jsonUtf8Data {return false}
@@ -24674,10 +23112,27 @@ extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: SwiftProtobuf._MessageI
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonString"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "jsonString"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._jsonString)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._jsonString {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.jsonString) -> Bool {
     if self._jsonString != other._jsonString {return false}
@@ -24686,10 +23141,27 @@ extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Extension"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._extension)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._extension {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Extension) -> Bool {
     if self._extension != other._extension {return false}
@@ -24698,10 +23170,27 @@ extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf._MessageImpl
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Extensions"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._extensions)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._extensions {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ExtensionsMessage) -> Bool {
     if self._extensions != other._extensions {return false}
@@ -24710,8 +23199,18 @@ extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf._Mes
   }
 }
 
-extension SwiftUnittest_Names_EnumNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".EnumNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_EnumNames) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -25985,8 +24484,18 @@ extension SwiftUnittest_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoName
   ]
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FieldNamingInitials"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -25994,7 +24503,8 @@ extension SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf._MessageImpleme
   }
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "http"),
     2: .standard(proto: "http_request"),
@@ -26066,6 +24576,91 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._Message
     return _storage
   }
 
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._http)
+        case 2: try decoder.decodeSingularInt32Field(value: &_storage._httpRequest)
+        case 3: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPRequest)
+        case 4: try decoder.decodeSingularInt32Field(value: &_storage._theHTTP)
+        case 11: try decoder.decodeSingularInt32Field(value: &_storage._https)
+        case 12: try decoder.decodeSingularInt32Field(value: &_storage._httpsRequest)
+        case 13: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPSRequest)
+        case 14: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPS)
+        case 21: try decoder.decodeSingularInt32Field(value: &_storage._url)
+        case 22: try decoder.decodeSingularInt32Field(value: &_storage._urlValue)
+        case 23: try decoder.decodeSingularInt32Field(value: &_storage._theURLValue)
+        case 24: try decoder.decodeSingularInt32Field(value: &_storage._theURL)
+        case 31: try decoder.decodeSingularInt32Field(value: &_storage._aBC)
+        case 41: try decoder.decodeSingularInt32Field(value: &_storage._id)
+        case 42: try decoder.decodeSingularInt32Field(value: &_storage._idNumber)
+        case 43: try decoder.decodeSingularInt32Field(value: &_storage._theIDNumber)
+        case 44: try decoder.decodeSingularInt32Field(value: &_storage._requestID)
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._http {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._httpRequest {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      }
+      if let v = _storage._theHTTPRequest {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+      }
+      if let v = _storage._theHTTP {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+      }
+      if let v = _storage._https {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
+      }
+      if let v = _storage._httpsRequest {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+      }
+      if let v = _storage._theHTTPSRequest {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+      }
+      if let v = _storage._theHTTPS {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
+      }
+      if let v = _storage._url {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
+      }
+      if let v = _storage._urlValue {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
+      }
+      if let v = _storage._theURLValue {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
+      }
+      if let v = _storage._theURL {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
+      }
+      if let v = _storage._aBC {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
+      }
+      if let v = _storage._id {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+      }
+      if let v = _storage._idNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+      }
+      if let v = _storage._theIDNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+      }
+      if let v = _storage._requestID {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
@@ -26097,7 +24692,8 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "HTTP"),
     2: .standard(proto: "HTTP_request"),
@@ -26116,6 +24712,82 @@ extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf._Message
     43: .standard(proto: "the_ID_number"),
     44: .standard(proto: "request_ID"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._http)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
+      case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
+      case 11: try decoder.decodeSingularInt32Field(value: &self._https)
+      case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
+      case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
+      case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
+      case 21: try decoder.decodeSingularInt32Field(value: &self._url)
+      case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
+      case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
+      case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
+      case 41: try decoder.decodeSingularInt32Field(value: &self._id)
+      case 42: try decoder.decodeSingularInt32Field(value: &self._idNumber)
+      case 43: try decoder.decodeSingularInt32Field(value: &self._theIDNumber)
+      case 44: try decoder.decodeSingularInt32Field(value: &self._requestID)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._http {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._httpRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
+    if let v = self._theHTTPRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    }
+    if let v = self._theHTTP {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    }
+    if let v = self._https {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
+    }
+    if let v = self._httpsRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+    }
+    if let v = self._theHTTPSRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+    }
+    if let v = self._theHTTPS {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
+    }
+    if let v = self._url {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
+    }
+    if let v = self._urlValue {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
+    }
+    if let v = self._theURLValue {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
+    }
+    if let v = self._theURL {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
+    }
+    if let v = self._id {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+    }
+    if let v = self._idNumber {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+    }
+    if let v = self._theIDNumber {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+    }
+    if let v = self._requestID {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
     if self._http != other._http {return false}
@@ -26139,7 +24811,8 @@ extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf._Message
   }
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".WordCase"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Http"),
     2: .same(proto: "HttpRequest"),
@@ -26158,6 +24831,82 @@ extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf._Messa
     43: .same(proto: "TheIdNumber"),
     44: .same(proto: "RequestId"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._http)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
+      case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
+      case 11: try decoder.decodeSingularInt32Field(value: &self._https)
+      case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
+      case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
+      case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
+      case 21: try decoder.decodeSingularInt32Field(value: &self._url)
+      case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
+      case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
+      case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
+      case 41: try decoder.decodeSingularInt32Field(value: &self._id)
+      case 42: try decoder.decodeSingularInt32Field(value: &self._idNumber)
+      case 43: try decoder.decodeSingularInt32Field(value: &self._theIDNumber)
+      case 44: try decoder.decodeSingularInt32Field(value: &self._requestID)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._http {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._httpRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
+    if let v = self._theHTTPRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    }
+    if let v = self._theHTTP {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    }
+    if let v = self._https {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
+    }
+    if let v = self._httpsRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+    }
+    if let v = self._theHTTPSRequest {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+    }
+    if let v = self._theHTTPS {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
+    }
+    if let v = self._url {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
+    }
+    if let v = self._urlValue {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
+    }
+    if let v = self._theURLValue {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
+    }
+    if let v = self._theURL {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
+    }
+    if let v = self._id {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+    }
+    if let v = self._idNumber {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+    }
+    if let v = self._theIDNumber {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+    }
+    if let v = self._requestID {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
     if self._http != other._http {return false}
@@ -26181,8 +24930,27 @@ extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitials"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 1001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitials.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -26191,8 +24959,18 @@ extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf._MessageImp
   }
 }
 
-extension SwiftUnittest_Names_Lowers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Lowers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Lowers) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -26200,8 +24978,18 @@ extension SwiftUnittest_Names_Lowers: SwiftProtobuf._MessageImplementationBase, 
   }
 }
 
-extension SwiftUnittest_Names_Uppers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Uppers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Uppers) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -26209,8 +24997,18 @@ extension SwiftUnittest_Names_Uppers: SwiftProtobuf._MessageImplementationBase, 
   }
 }
 
-extension SwiftUnittest_Names_WordCase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".WordCase"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_WordCase) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -26218,8 +25016,27 @@ extension SwiftUnittest_Names_WordCase: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsLowers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 1001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsLowers.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -26228,8 +25045,27 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsUppers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 1001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsUppers.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -26238,8 +25074,27 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf._Mess
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsWordCase"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 1001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsWordCase.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {
     if unknownFields != other.unknownFields {return false}

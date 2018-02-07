@@ -37,13 +37,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".MyMessage"
+struct ProtobufUnittest_Extend2_MyMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_Extend2_MyMessage.protoMessageName + ".C"
+  struct C {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var c: Int64 {
       get {return _c ?? 0}
@@ -58,55 +62,16 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1210: try decoder.decodeSingularInt64Field(value: &self._c)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._c {
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 1210)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _c: Int64? = nil
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".C"
+struct ProtobufUnittest_Extend2_C {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var c: Int64 {
     get {return _c ?? 0}
@@ -120,30 +85,6 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1220: try decoder.decodeSingularInt64Field(value: &self._c)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._c {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1220)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   fileprivate var _c: Int64? = nil
 }
@@ -253,8 +194,18 @@ extension ProtobufUnittest_Extend2_MyMessage {
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend2"
 
-extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend2_MyMessage) -> Bool {
     if unknownFields != other.unknownFields {return false}
@@ -262,10 +213,27 @@ extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf._MessageImplementati
   }
 }
 
-extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_Extend2_MyMessage.protoMessageName + ".C"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1210: .same(proto: "c"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1210: try decoder.decodeSingularInt64Field(value: &self._c)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._c {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1210)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend2_MyMessage.C) -> Bool {
     if self._c != other._c {return false}
@@ -274,10 +242,27 @@ extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension ProtobufUnittest_Extend2_C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend2_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".C"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1220: .same(proto: "c"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1220: try decoder.decodeSingularInt64Field(value: &self._c)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._c {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1220)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend2_C) -> Bool {
     if self._c != other._c {return false}

@@ -49,8 +49,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".Foo"
+struct UnittestDropUnknownFields_Foo {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var int32Value: Int32 = 0
 
@@ -90,38 +92,12 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message {
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
-      case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.int32Value != 0 {
-      try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
-    }
-    if self.enumValue != .foo {
-      try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".FooWithExtraFields"
+struct UnittestDropUnknownFields_FooWithExtraFields {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var int32Value: Int32 = 0
 
@@ -166,26 +142,29 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
   }
 
   init() {}
+}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "unittest_drop_unknown_fields"
+
+extension UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Foo"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "enum_value"),
+  ]
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
       case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
-      case 3: try decoder.decodeSingularInt32Field(value: &self.extraInt32Value)
       default: break
       }
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.int32Value != 0 {
       try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
@@ -193,22 +172,8 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
     if self.enumValue != .foo {
       try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
     }
-    if self.extraInt32Value != 0 {
-      try visitor.visitSingularInt32Field(value: self.extraInt32Value, fieldNumber: 3)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
-}
-
-// MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-fileprivate let _protobuf_package = "unittest_drop_unknown_fields"
-
-extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int32_value"),
-    2: .standard(proto: "enum_value"),
-  ]
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
     if self.int32Value != other.int32Value {return false}
@@ -226,12 +191,37 @@ extension UnittestDropUnknownFields_Foo.NestedEnum: SwiftProtobuf._ProtoNameProv
   ]
 }
 
-extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FooWithExtraFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int32_value"),
     2: .standard(proto: "enum_value"),
     3: .standard(proto: "extra_int32_value"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.extraInt32Value)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.int32Value != 0 {
+      try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
+    }
+    if self.enumValue != .foo {
+      try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
+    }
+    if self.extraInt32Value != 0 {
+      try visitor.visitSingularInt32Field(value: self.extraInt32Value, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
     if self.int32Value != other.int32Value {return false}

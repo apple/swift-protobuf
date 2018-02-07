@@ -35,8 +35,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
+struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var myString: String {
     get {return _storage._myString ?? String()}
@@ -130,8 +132,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     }
   }
 
-  struct NestedMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = Swift_Protobuf_TestFieldOrderings.protoMessageName + ".NestedMessage"
+  struct NestedMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     var oo: Int64 {
       get {return _oo ?? 0}
@@ -155,123 +159,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
     init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
-        case 2: try decoder.decodeSingularInt64Field(value: &self._oo)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._bb {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = self._oo {
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _oo: Int64? = nil
     fileprivate var _bb: Int32? = nil
   }
 
   init() {}
-
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
-        case 9:
-          if _storage._options != nil {try decoder.handleConflictingOneOf()}
-          var v: Bool?
-          try decoder.decodeSingularBoolField(value: &v)
-          if let v = v {_storage._options = .oneofBool(v)}
-        case 10:
-          if _storage._options != nil {try decoder.handleConflictingOneOf()}
-          var v: Int32?
-          try decoder.decodeSingularInt32Field(value: &v)
-          if let v = v {_storage._options = .oneofInt32(v)}
-        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
-        case 60:
-          if _storage._options != nil {try decoder.handleConflictingOneOf()}
-          var v: Int64?
-          try decoder.decodeSingularInt64Field(value: &v)
-          if let v = v {_storage._options = .oneofInt64(v)}
-        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
-        case 150:
-          if _storage._options != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._options = .oneofString(v)}
-        case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-        case 2..<9, 12..<56:
-          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
-        default: break
-        }
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._myInt {
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
-      }
-      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 9)
-      switch _storage._options {
-      case .oneofBool(let v)?:
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
-      case .oneofInt32(let v)?:
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-      case nil: break
-      default: break
-      }
-      if let v = _storage._myString {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 11)
-      }
-      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 12, end: 56)
-      if case .oneofInt64(let v)? = _storage._options {
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
-      }
-      if let v = _storage._myFloat {
-        try visitor.visitSingularFloatField(value: v, fieldNumber: 101)
-      }
-      if case .oneofString(let v)? = _storage._options {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 150)
-      }
-      if let v = _storage._optionalNestedMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
@@ -279,8 +171,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
 /// These checks how the traverse() generated for a oneof
 /// deals with field orders.  Currently requires inspecting the code.
-struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
-  static let protoMessageName: String = _protobuf_package + ".OneofTraversalGeneration"
+struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// Gaps, not no issues, no start:end: on traverse().
   var oGood: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood? = nil
@@ -428,104 +322,6 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
 
   init() {}
 
-  public var isInitialized: Bool {
-    if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return true
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1:
-        if self.oGood != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oGood = .a(v)}
-      case 26:
-        if self.oGood != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oGood = .b(v)}
-      case 101:
-        if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oConflictField = .a2(v)}
-      case 113: try decoder.decodeSingularInt32Field(value: &self._m)
-      case 126:
-        if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oConflictField = .b2(v)}
-      case 201:
-        if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oConflictExtensionsStart = .a3(v)}
-      case 226:
-        if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oConflictExtensionsStart = .b3(v)}
-      case 301:
-        if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oConflictExtensionsEnd = .a4(v)}
-      case 326:
-        if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oConflictExtensionsEnd = .b4(v)}
-      case 202..<203, 325..<326:
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self.oGood {
-    case .a(let v)?:
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    case .b(let v)?:
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
-    case nil: break
-    }
-    if case .a2(let v)? = self.oConflictField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)
-    }
-    if let v = self._m {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 113)
-    }
-    if case .b2(let v)? = self.oConflictField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 126)
-    }
-    if case .a3(let v)? = self.oConflictExtensionsStart {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
-    }
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 202, end: 203)
-    if case .b3(let v)? = self.oConflictExtensionsStart {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
-    }
-    if case .a4(let v)? = self.oConflictExtensionsEnd {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 301)
-    }
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 325, end: 326)
-    if case .b4(let v)? = self.oConflictExtensionsEnd {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 326)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _m: Int32? = nil
 }
@@ -589,7 +385,8 @@ let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<
 
 fileprivate let _protobuf_package = "swift.protobuf"
 
-extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .standard(proto: "my_string"),
     1: .standard(proto: "my_int"),
@@ -628,6 +425,82 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
     return _storage
   }
 
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
+        case 9:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: Bool?
+          try decoder.decodeSingularBoolField(value: &v)
+          if let v = v {_storage._options = .oneofBool(v)}
+        case 10:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {_storage._options = .oneofInt32(v)}
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
+        case 60:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: Int64?
+          try decoder.decodeSingularInt64Field(value: &v)
+          if let v = v {_storage._options = .oneofInt64(v)}
+        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
+        case 150:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._options = .oneofString(v)}
+        case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
+        case 2..<9, 12..<56:
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._myInt {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
+      }
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 9)
+      switch _storage._options {
+      case .oneofBool(let v)?:
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
+      case .oneofInt32(let v)?:
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+      case nil: break
+      default: break
+      }
+      if let v = _storage._myString {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 11)
+      }
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 12, end: 56)
+      if case .oneofInt64(let v)? = _storage._options {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
+      }
+      if let v = _storage._myFloat {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 101)
+      }
+      if case .oneofString(let v)? = _storage._options {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 150)
+      }
+      if let v = _storage._optionalNestedMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
@@ -648,11 +521,32 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Swift_Protobuf_TestFieldOrderings.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "oo"),
     1: .same(proto: "bb"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
+      case 2: try decoder.decodeSingularInt64Field(value: &self._oo)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._bb {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._oo {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
     if self._oo != other._oo {return false}
@@ -662,7 +556,8 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._Messag
   }
 }
 
-extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".OneofTraversalGeneration"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
     26: .same(proto: "b"),
@@ -674,6 +569,96 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf._MessageImpleme
     301: .same(proto: "a4"),
     326: .same(proto: "b4"),
   ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1:
+        if self.oGood != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oGood = .a(v)}
+      case 26:
+        if self.oGood != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oGood = .b(v)}
+      case 101:
+        if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictField = .a2(v)}
+      case 113: try decoder.decodeSingularInt32Field(value: &self._m)
+      case 126:
+        if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictField = .b2(v)}
+      case 201:
+        if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsStart = .a3(v)}
+      case 226:
+        if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsStart = .b3(v)}
+      case 301:
+        if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsEnd = .a4(v)}
+      case 326:
+        if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsEnd = .b4(v)}
+      case 202..<203, 325..<326:
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    switch self.oGood {
+    case .a(let v)?:
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    case .b(let v)?:
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
+    case nil: break
+    }
+    if case .a2(let v)? = self.oConflictField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)
+    }
+    if let v = self._m {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 113)
+    }
+    if case .b2(let v)? = self.oConflictField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 126)
+    }
+    if case .a3(let v)? = self.oConflictExtensionsStart {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 202, end: 203)
+    if case .b3(let v)? = self.oConflictExtensionsStart {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
+    }
+    if case .a4(let v)? = self.oConflictExtensionsEnd {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 301)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 325, end: 326)
+    if case .b4(let v)? = self.oConflictExtensionsEnd {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 326)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_OneofTraversalGeneration) -> Bool {
     if self.oGood != other.oGood {return false}
