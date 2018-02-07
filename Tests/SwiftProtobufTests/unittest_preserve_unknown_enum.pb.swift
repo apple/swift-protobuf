@@ -114,8 +114,10 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".MyMessage"
+struct Proto3PreserveUnknownEnumUnittest_MyMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var e: Proto3PreserveUnknownEnumUnittest_MyEnum = .foo
 
@@ -160,63 +162,12 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &self.e)
-      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
-      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
-      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
-      case 5:
-        if self.o != nil {try decoder.handleConflictingOneOf()}
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE1(v)}
-      case 6:
-        if self.o != nil {try decoder.handleConflictingOneOf()}
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE2(v)}
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.e != .foo {
-      try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
-    }
-    if !self.repeatedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedE, fieldNumber: 2)
-    }
-    if !self.repeatedPackedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
-    }
-    if !self.repeatedPackedUnexpectedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
-    }
-    switch self.o {
-    case .oneofE1(let v)?:
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    case .oneofE2(let v)?:
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
+struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = .eFoo
 
@@ -260,59 +211,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &self.e)
-      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
-      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
-      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
-      case 5:
-        if self.o != nil {try decoder.handleConflictingOneOf()}
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE1(v)}
-      case 6:
-        if self.o != nil {try decoder.handleConflictingOneOf()}
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE2(v)}
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.e != .eFoo {
-      try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
-    }
-    if !self.repeatedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedE, fieldNumber: 2)
-    }
-    if !self.repeatedPackedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
-    }
-    if !self.repeatedPackedUnexpectedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
-    }
-    switch self.o {
-    case .oneofE1(let v)?:
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    case .oneofE2(let v)?:
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -336,7 +234,8 @@ extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._Prot
   ]
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .standard(proto: "repeated_e"),
@@ -345,6 +244,51 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
     5: .standard(proto: "oneof_e_1"),
     6: .standard(proto: "oneof_e_2"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularEnumField(value: &self.e)
+      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
+      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
+      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
+      case 5:
+        if self.o != nil {try decoder.handleConflictingOneOf()}
+        var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.o = .oneofE1(v)}
+      case 6:
+        if self.o != nil {try decoder.handleConflictingOneOf()}
+        var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.o = .oneofE2(v)}
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.e != .foo {
+      try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
+    }
+    if !self.repeatedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedE, fieldNumber: 2)
+    }
+    if !self.repeatedPackedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
+    }
+    if !self.repeatedPackedUnexpectedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
+    }
+    switch self.o {
+    case .oneofE1(let v)?:
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+    case .oneofE2(let v)?:
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
     if self.e != other.e {return false}
@@ -357,7 +301,8 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
   }
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .standard(proto: "repeated_e"),
@@ -366,6 +311,51 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._M
     5: .standard(proto: "oneof_e_1"),
     6: .standard(proto: "oneof_e_2"),
   ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularEnumField(value: &self.e)
+      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
+      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
+      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
+      case 5:
+        if self.o != nil {try decoder.handleConflictingOneOf()}
+        var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.o = .oneofE1(v)}
+      case 6:
+        if self.o != nil {try decoder.handleConflictingOneOf()}
+        var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.o = .oneofE2(v)}
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.e != .eFoo {
+      try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
+    }
+    if !self.repeatedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedE, fieldNumber: 2)
+    }
+    if !self.repeatedPackedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
+    }
+    if !self.repeatedPackedUnexpectedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
+    }
+    switch self.o {
+    case .oneofE1(let v)?:
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+    case .oneofE2(let v)?:
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {
     if self.e != other.e {return false}

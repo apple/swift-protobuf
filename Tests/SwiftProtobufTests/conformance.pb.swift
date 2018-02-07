@@ -85,8 +85,10 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 ///   1. parse this proto (which should always succeed)
 ///   2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///   3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
+struct Conformance_ConformanceRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
@@ -144,56 +146,13 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   }
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1:
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
-        var v: Data?
-        try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.payload = .protobufPayload(v)}
-      case 2:
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
-        var v: String?
-        try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.payload = .jsonPayload(v)}
-      case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
-      case 4: try decoder.decodeSingularStringField(value: &self.messageType)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self.payload {
-    case .protobufPayload(let v)?:
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
-    case .jsonPayload(let v)?:
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case nil: break
-    }
-    if self.requestedOutputFormat != .unspecified {
-      try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
-    }
-    if !self.messageType.isEmpty {
-      try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
 /// Represents a single test case's output.
-struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
+struct Conformance_ConformanceResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var result: Conformance_ConformanceResponse.OneOf_Result? = nil
 
@@ -303,11 +262,86 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   }
 
   init() {}
+}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "conformance"
+
+extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNSPECIFIED"),
+    1: .same(proto: "PROTOBUF"),
+    2: .same(proto: "JSON"),
+  ]
+}
+
+extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "protobuf_payload"),
+    2: .standard(proto: "json_payload"),
+    3: .standard(proto: "requested_output_format"),
+    4: .standard(proto: "message_type"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1:
+        if self.payload != nil {try decoder.handleConflictingOneOf()}
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {self.payload = .protobufPayload(v)}
+      case 2:
+        if self.payload != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.payload = .jsonPayload(v)}
+      case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
+      case 4: try decoder.decodeSingularStringField(value: &self.messageType)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    switch self.payload {
+    case .protobufPayload(let v)?:
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
+    case .jsonPayload(let v)?:
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    case nil: break
+    }
+    if self.requestedOutputFormat != .unspecified {
+      try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
+    }
+    if !self.messageType.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
+    if self.payload != other.payload {return false}
+    if self.requestedOutputFormat != other.requestedOutputFormat {return false}
+    if self.messageType != other.messageType {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "parse_error"),
+    6: .standard(proto: "serialize_error"),
+    2: .standard(proto: "runtime_error"),
+    3: .standard(proto: "protobuf_payload"),
+    4: .standard(proto: "json_payload"),
+    5: .same(proto: "skipped"),
+  ]
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -346,10 +380,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self.result {
     case .parseError(let v)?:
@@ -368,46 +398,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-}
-
-// MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-fileprivate let _protobuf_package = "conformance"
-
-extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNSPECIFIED"),
-    1: .same(proto: "PROTOBUF"),
-    2: .same(proto: "JSON"),
-  ]
-}
-
-extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "protobuf_payload"),
-    2: .standard(proto: "json_payload"),
-    3: .standard(proto: "requested_output_format"),
-    4: .standard(proto: "message_type"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
-    if self.payload != other.payload {return false}
-    if self.requestedOutputFormat != other.requestedOutputFormat {return false}
-    if self.messageType != other.messageType {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "parse_error"),
-    6: .standard(proto: "serialize_error"),
-    2: .standard(proto: "runtime_error"),
-    3: .standard(proto: "protobuf_payload"),
-    4: .standard(proto: "json_payload"),
-    5: .same(proto: "skipped"),
-  ]
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
     if self.result != other.result {return false}

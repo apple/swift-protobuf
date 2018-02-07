@@ -110,8 +110,10 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
+struct ProtobufUnittest_TestEnumMap {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
@@ -120,38 +122,12 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &self.knownMapField)
-      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &self.unknownMapField)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: self.knownMapField, fieldNumber: 101)
-    }
-    if !self.unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: self.unknownMapField, fieldNumber: 102)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
+struct ProtobufUnittest_TestEnumMapPlusExtra {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
@@ -160,107 +136,37 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &self.knownMapField)
-      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &self.unknownMapField)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: self.knownMapField, fieldNumber: 101)
-    }
-    if !self.unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: self.unknownMapField, fieldNumber: 102)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestImportEnumMap"
+struct ProtobufUnittest_TestImportEnumMap {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: &self.importEnumAmp)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.importEnumAmp.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: self.importEnumAmp, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
-struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestIntIntMap"
+struct ProtobufUnittest_TestIntIntMap {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var m: Dictionary<Int32,Int32> = [:]
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &self.m)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.m.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: self.m, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 }
 
 /// Test all key types: string, plus the non-floating-point scalars.
-struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestMaps"
+struct ProtobufUnittest_TestMaps {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   var mInt32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
 
@@ -289,11 +195,196 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
+/// Test maps in submessages.
+struct ProtobufUnittest_TestSubmessageMaps {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var m: ProtobufUnittest_TestMaps {
+    get {return _storage._m ?? ProtobufUnittest_TestMaps()}
+    set {_uniqueStorage()._m = newValue}
+  }
+  /// Returns true if `m` has been explicitly set.
+  var hasM: Bool {return _storage._m != nil}
+  /// Clears the value of `m`. Subsequent reads from it will return its default value.
+  mutating func clearM() {_storage._m = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest"
+
+extension ProtobufUnittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
+    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
+    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
+    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
+    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
+    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
+  ]
+}
+
+extension ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &self.knownMapField)
+      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: &self.unknownMapField)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.knownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: self.knownMapField, fieldNumber: 101)
+    }
+    if !self.unknownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: self.unknownMapField, fieldNumber: 102)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
+    if self.knownMapField != other.knownMapField {return false}
+    if self.unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &self.knownMapField)
+      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: &self.unknownMapField)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.knownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: self.knownMapField, fieldNumber: 101)
+    }
+    if !self.unknownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: self.unknownMapField, fieldNumber: 102)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
+    if self.knownMapField != other.knownMapField {return false}
+    if self.unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestImportEnumMap"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "import_enum_amp"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: &self.importEnumAmp)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.importEnumAmp.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: self.importEnumAmp, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
+    if self.importEnumAmp != other.importEnumAmp {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestIntIntMap"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "m"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &self.m)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.m.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: self.m, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
+    if self.m != other.m {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMaps"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "m_int32"),
+    2: .standard(proto: "m_int64"),
+    3: .standard(proto: "m_uint32"),
+    4: .standard(proto: "m_uint64"),
+    5: .standard(proto: "m_sint32"),
+    6: .standard(proto: "m_sint64"),
+    7: .standard(proto: "m_fixed32"),
+    8: .standard(proto: "m_fixed64"),
+    9: .standard(proto: "m_sfixed32"),
+    10: .standard(proto: "m_sfixed64"),
+    11: .standard(proto: "m_bool"),
+    12: .standard(proto: "m_string"),
+  ]
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -314,10 +405,6 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.mInt32.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestIntIntMap>.self, value: self.mInt32, fieldNumber: 1)
@@ -357,145 +444,6 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-}
-
-/// Test maps in submessages.
-struct ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".TestSubmessageMaps"
-
-  var m: ProtobufUnittest_TestMaps {
-    get {return _storage._m ?? ProtobufUnittest_TestMaps()}
-    set {_uniqueStorage()._m = newValue}
-  }
-  /// Returns true if `m` has been explicitly set.
-  var hasM: Bool {return _storage._m != nil}
-  /// Clears the value of `m`. Subsequent reads from it will return its default value.
-  mutating func clearM() {_storage._m = nil}
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._m)
-        default: break
-        }
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._m {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-// MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-fileprivate let _protobuf_package = "protobuf_unittest"
-
-extension ProtobufUnittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
-  ]
-}
-
-extension ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
-    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
-  ]
-}
-
-extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
-    if self.knownMapField != other.knownMapField {return false}
-    if self.unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
-    if self.knownMapField != other.knownMapField {return false}
-    if self.unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "import_enum_amp"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
-    if self.importEnumAmp != other.importEnumAmp {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "m"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
-    if self.m != other.m {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "m_int32"),
-    2: .standard(proto: "m_int64"),
-    3: .standard(proto: "m_uint32"),
-    4: .standard(proto: "m_uint64"),
-    5: .standard(proto: "m_sint32"),
-    6: .standard(proto: "m_sint64"),
-    7: .standard(proto: "m_fixed32"),
-    8: .standard(proto: "m_fixed64"),
-    9: .standard(proto: "m_sfixed32"),
-    10: .standard(proto: "m_sfixed64"),
-    11: .standard(proto: "m_bool"),
-    12: .standard(proto: "m_string"),
-  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {
     if self.mInt32 != other.mInt32 {return false}
@@ -515,7 +463,8 @@ extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestSubmessageMaps"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "m"),
   ]
@@ -537,6 +486,27 @@ extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf._MessageImplementat
       _storage = _StorageClass(copying: _storage)
     }
     return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._m)
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._m {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSubmessageMaps) -> Bool {
