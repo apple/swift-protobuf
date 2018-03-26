@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.author = 'Apple Inc.'
   s.source = { :git => 'https://github.com/apple/swift-protobuf.git', :tag => s.version }
 
+  s.swift_version = '3.2'
   s.requires_arc = true
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.9'
