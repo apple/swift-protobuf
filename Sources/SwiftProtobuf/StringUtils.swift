@@ -116,7 +116,6 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
   if count == 0 {
     return String()
   }
-#if swift(>=3.1)
   // On Swift Linux 3.1, we can use Foundation as long
   // as there isn't a zero byte:
   //     https://bugs.swift.org/browse/SR-4216
@@ -126,7 +125,7 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
       return String._unconditionallyBridgeFromObjectiveC(s)
     }
   }
-#endif
+
   // If we can't use the Foundation version, use a slow
   // manual conversion to get correct error handling:
   let buffer = UnsafeBufferPointer(start: bytes, count: count)
