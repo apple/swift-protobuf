@@ -413,6 +413,12 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("optional_double: 1.0\n") {(o: MessageTestType) in
             return o.optionalDouble == 1.0
         }
+        assertTextFormatDecodeSucceeds("optional_double: 1\n") {(o: MessageTestType) in
+            return o.optionalDouble == 1.0
+        }
+        assertTextFormatDecodeSucceeds("optional_double: 0\n") {(o: MessageTestType) in
+            return o.optionalDouble == 0.0
+        }
         assertTextFormatDecodeSucceeds("12: 1.0\n") {(o: MessageTestType) in
             return o.optionalDouble == 1.0
         }
