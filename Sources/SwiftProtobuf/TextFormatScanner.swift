@@ -674,11 +674,11 @@ internal struct TextFormatScanner {
             c = p[0]
         }
         switch c {
-        case asciiZero: // '0' as first character only if followed by '.'
+        case asciiZero: // '0' as first character is not allowed followed by digit
             p += 1
-            guard p != end else {p = start; return nil}
+            guard p != end else {break}
             c = p[0]
-            if c != asciiPeriod {
+            if c >= asciiZero && c <= asciiNine {
                 p = start
                 return nil
             }

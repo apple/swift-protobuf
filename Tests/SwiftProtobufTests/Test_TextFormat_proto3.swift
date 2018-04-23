@@ -315,6 +315,22 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.optionalFloat == 1.0
         }
+        assertTextFormatDecodeSucceeds("optional_float: 11\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 11.0
+        }
+        assertTextFormatDecodeSucceeds("optional_float: 11f\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 11.0
+        }
+        assertTextFormatDecodeSucceeds("optional_float: 0\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 0.0
+        }
+        assertTextFormatDecodeSucceeds("optional_float: 0f\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 0.0
+        }
         assertTextFormatEncode("optional_float: inf\n") {(o: inout MessageTestType) in o.optionalFloat = Float.infinity}
         assertTextFormatEncode("optional_float: -inf\n") {(o: inout MessageTestType) in o.optionalFloat = -Float.infinity}
 
@@ -396,6 +412,12 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
         assertTextFormatDecodeSucceeds("optional_double: 1.0\n") {(o: MessageTestType) in
             return o.optionalDouble == 1.0
+        }
+        assertTextFormatDecodeSucceeds("optional_double: 1\n") {(o: MessageTestType) in
+            return o.optionalDouble == 1.0
+        }
+        assertTextFormatDecodeSucceeds("optional_double: 0\n") {(o: MessageTestType) in
+            return o.optionalDouble == 0.0
         }
         assertTextFormatDecodeSucceeds("12: 1.0\n") {(o: MessageTestType) in
             return o.optionalDouble == 1.0
