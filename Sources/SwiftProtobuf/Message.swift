@@ -126,7 +126,7 @@ public extension Message {
   /// set. Users of the generated code SHOULD NOT override this property.
   var isInitialized: Bool {
     // The generated code will include a specialization as needed.
-    return true;
+    return true
   }
 
   /// A hash based on the message's full contents. Can be overridden
