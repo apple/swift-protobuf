@@ -134,10 +134,12 @@ private func parseBytes(
     var sawSection4Characters = false
     var sawSection5Characters = false
     while index != end {
-        let digit = source[index]
+        var digit = source[index]
         if digit == asciiDoubleQuote {
             break
-        } else if digit == asciiBackslash {
+        }
+
+        if digit == asciiBackslash {
             source.formIndex(after: &index)
             if index == end {
                 throw JSONDecodingError.malformedString
@@ -145,24 +147,26 @@ private func parseBytes(
             let escaped = source[index]
             switch escaped {
             case asciiLowerU:
-                // TODO: Caller should pre-parse with full string decoder and then try again
+                // TODO: Parse hex escapes such as \u0041.  Note that
+                // such escapes are going to be extremely rare, so
+                // there's little point in optimizing for them.
                 throw JSONDecodingError.malformedString
             case asciiForwardSlash:
-                rawChars += 1
+                digit = escaped
             default:
                 // Reject \b \f \n \r \t \" or \\ and all illegal escapes
                 throw JSONDecodingError.malformedString
             }
-        } else {
-            if digit == asciiPlus || digit == asciiForwardSlash {
-                sawSection4Characters = true
-            } else if digit == asciiMinus || digit == asciiUnderscore {
-                sawSection5Characters = true
-            }
-            let k = base64Values[Int(digit)]
-            if k >= 0 {
-                rawChars += 1
-            }
+        }
+
+        if digit == asciiPlus || digit == asciiForwardSlash {
+            sawSection4Characters = true
+        } else if digit == asciiMinus || digit == asciiUnderscore {
+            sawSection5Characters = true
+        }
+        let k = base64Values[Int(digit)]
+        if k >= 0 {
+            rawChars += 1
         }
         source.formIndex(after: &index)
     }
@@ -206,6 +210,8 @@ private func parseBytes(
                     case asciiForwardSlash:
                         k = base64Values[Int(escaped)]
                     default:
+                        // Note: Invalid backslash escapes were caught
+                        // above; we should never get here.
                         throw JSONDecodingError.malformedString
                     }
                 case asciiSpace:

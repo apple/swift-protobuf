@@ -734,6 +734,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             $0.optionalBytes == Data(bytes: [251, 255, 191])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"-_+/\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"-_+\\/\"}")
     }
 
     func testOptionalBytes_escapes() {
