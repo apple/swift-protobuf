@@ -721,7 +721,12 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG==\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG===\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG====\"}")
-        // Accept both RFC4648 Section 4 and Section 5 base64 variants, but reject mixed coding:
+        // Google's parser accepts and ignores spaces:
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\" Q U J D R E U \"}") {
+            $0.optionalBytes == Data(bytes: [65, 66, 67, 68, 69])
+        }
+        // Accept both RFC4648 Section 4 "base64" and Section 5
+        // "URL-safe base64" variants, but reject mixed coding:
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"-_-_\"}") {
             $0.optionalBytes == Data(bytes: [251, 255, 191])
         }
