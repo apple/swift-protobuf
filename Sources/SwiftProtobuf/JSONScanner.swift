@@ -124,7 +124,7 @@ private func parseBytes(
     source.formIndex(after: &index)
 
     // Count the base-64 digits
-    // Ignore unrecognized characters in this first pass,
+    // Ignore most unrecognized characters in this first pass,
     // stop at the closing double quote.
     let digitsStart = index
     var rawChars = 0
@@ -134,14 +134,32 @@ private func parseBytes(
         let digit = source[index]
         if digit == asciiDoubleQuote {
             break
-        } else if digit == asciiPlus || digit == asciiForwardSlash {
-            sawSection4Characters = true
-        } else if digit == asciiMinus || digit == asciiUnderscore {
-            sawSection5Characters = true
-        }
-        let k = base64Values[Int(digit)]
-        if k >= 0 {
-            rawChars += 1
+        } else if digit == asciiBackslash {
+            source.formIndex(after: &index)
+            if index == end {
+                throw JSONDecodingError.malformedString
+            }
+            let escaped = source[index]
+            switch escaped {
+            case asciiLowerU:
+                // TODO: Caller should pre-parse with full string decoder and then try again
+                throw JSONDecodingError.malformedString
+            case asciiForwardSlash:
+                rawChars += 1
+            default:
+                // Reject \b \f \n \r \t \" or \\ and all illegal escapes
+                throw JSONDecodingError.malformedString
+            }
+        } else {
+            if digit == asciiPlus || digit == asciiForwardSlash {
+                sawSection4Characters = true
+            } else if digit == asciiMinus || digit == asciiUnderscore {
+                sawSection5Characters = true
+            }
+            let k = base64Values[Int(digit)]
+            if k >= 0 {
+                rawChars += 1
+            }
         }
         source.formIndex(after: &index)
     }
@@ -172,26 +190,24 @@ private func parseBytes(
         var padding = 0 // # padding '=' chars
         digits: while true {
             let digit = source[index]
-            let k = base64Values[Int(digit)]
-            if k >= 0 {
-                n <<= 6
-                n |= k
-                chars += 1
-                if chars == 4 {
-                    p[0] = UInt8(truncatingIfNeeded: n >> 16)
-                    p[1] = UInt8(truncatingIfNeeded: n >> 8)
-                    p[2] = UInt8(truncatingIfNeeded: n)
-                    p += 3
-                    chars = 0
-                    n = 0
-                }
-            } else {
+            var k = base64Values[Int(digit)]
+            if k < 0 {
                 switch digit {
                 case asciiDoubleQuote:
                     source.formIndex(after: &index)
                     break digits
+                case asciiBackslash:
+                    source.formIndex(after: &index)
+                    let escaped = source[index]
+                    switch escaped {
+                    case asciiForwardSlash:
+                        k = base64Values[Int(escaped)]
+                    default:
+                        throw JSONDecodingError.malformedString
+                    }
                 case asciiSpace:
-                    break
+                    source.formIndex(after: &index)
+                    continue digits
                 case asciiEqualSign: // Count padding
                     while true {
                         switch source[index] {
@@ -210,6 +226,17 @@ private func parseBytes(
                 default:
                     throw JSONDecodingError.malformedString
                 }
+            }
+            n <<= 6
+            n |= k
+            chars += 1
+            if chars == 4 {
+                p[0] = UInt8(truncatingIfNeeded: n >> 16)
+                p[1] = UInt8(truncatingIfNeeded: n >> 8)
+                p[2] = UInt8(truncatingIfNeeded: n)
+                p += 3
+                chars = 0
+                n = 0
             }
             source.formIndex(after: &index)
         }
