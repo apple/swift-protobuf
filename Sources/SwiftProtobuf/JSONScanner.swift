@@ -80,8 +80,11 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
   }
 }
 
-// Decode both the RFC 4648 section 4 Base 64 encoding and the
-// RFC 4648 section 5 Base 64 variant.
+// Decode both the RFC 4648 section 4 Base 64 encoding and the RFC
+// 4648 section 5 Base 64 variant.  The section 5 variant is also
+// known as "base64url" or the "URL-safe alphabet".
+// Note that both "-" and "+" decode to 62 and "/" and "_" both
+// decode as 63.
 let base64Values: [Int] = [
 /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
