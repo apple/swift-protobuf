@@ -721,7 +721,12 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG==\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG===\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG====\"}")
-        // Accept both RFC4648 Section 4 and Section 5 base64 variants, but reject mixed coding:
+        // Google's parser accepts and ignores spaces:
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\" Q U J D R E U \"}") {
+            $0.optionalBytes == Data(bytes: [65, 66, 67, 68, 69])
+        }
+        // Accept both RFC4648 Section 4 "base64" and Section 5
+        // "URL-safe base64" variants, but reject mixed coding:
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"-_-_\"}") {
             $0.optionalBytes == Data(bytes: [251, 255, 191])
         }
@@ -729,12 +734,47 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             $0.optionalBytes == Data(bytes: [251, 255, 191])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"-_+/\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"-_+\\/\"}")
     }
 
-    func testOptionalBytes2() {
-        assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUJD\"}") {
-            $0.optionalBytes == Data(bytes: [65, 66, 67])
+    func testOptionalBytes_escapes() {
+        // Many JSON encoders escape "/":
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/w==\"}") {
+            $0.optionalBytes == Data(bytes: [255])
         }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/w\"}") {
+            $0.optionalBytes == Data(bytes: [255])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/\\/\"}") {
+            $0.optionalBytes == Data(bytes: [255])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"a\\/\"}") {
+            $0.optionalBytes == Data(bytes: [107])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"ab\\/\"}") {
+            $0.optionalBytes == Data(bytes: [105, 191])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"abc\\/\"}") {
+            $0.optionalBytes == Data(bytes: [105, 183, 63])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/a\"}") {
+            $0.optionalBytes == Data(bytes: [253])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/\\/\\/\\/\"}") {
+            $0.optionalBytes == Data(bytes: [255, 255, 255])
+        }
+        // Most backslash escapes decode to values that are
+        // not legal in base-64 encoded strings
+        assertJSONDecodeFails("{\"optionalBytes\":\"a\\b\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"a\\f\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"a\\n\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"a\\r\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"a\\t\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"a\\\"\"}")
+
+        // TODO: For completeness, we should support \u1234 escapes
+        // assertJSONDecodeSucceeds("{\"optionalBytes\":\"\u0061\u0062\"}")
+        // assertJSONDecodeFails("{\"optionalBytes\":\"\u1234\u5678\"}")
     }
 
     func testOptionalBytes_roundtrip() throws {

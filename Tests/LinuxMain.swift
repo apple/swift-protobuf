@@ -546,7 +546,7 @@ extension Test_JSON {
         ("testOptionalString", testOptionalString),
         ("testOptionalString_controlCharacters", testOptionalString_controlCharacters),
         ("testOptionalBytes", testOptionalBytes),
-        ("testOptionalBytes2", testOptionalBytes2),
+        ("testOptionalBytes_escapes", testOptionalBytes_escapes),
         ("testOptionalBytes_roundtrip", testOptionalBytes_roundtrip),
         ("testOptionalNestedMessage", testOptionalNestedMessage),
         ("testOptionalNestedEnum", testOptionalNestedEnum),

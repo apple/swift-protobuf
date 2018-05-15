@@ -80,8 +80,11 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
   }
 }
 
-// Decode both the RFC 4648 section 4 Base 64 encoding and the
-// RFC 4648 section 5 Base 64 variant.
+// Decode both the RFC 4648 section 4 Base 64 encoding and the RFC
+// 4648 section 5 Base 64 variant.  The section 5 variant is also
+// known as "base64url" or the "URL-safe alphabet".
+// Note that both "-" and "+" decode to 62 and "/" and "_" both
+// decode as 63.
 let base64Values: [Int] = [
 /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -124,17 +127,39 @@ private func parseBytes(
     source.formIndex(after: &index)
 
     // Count the base-64 digits
-    // Ignore unrecognized characters in this first pass,
+    // Ignore most unrecognized characters in this first pass,
     // stop at the closing double quote.
     let digitsStart = index
     var rawChars = 0
     var sawSection4Characters = false
     var sawSection5Characters = false
     while index != end {
-        let digit = source[index]
+        var digit = source[index]
         if digit == asciiDoubleQuote {
             break
-        } else if digit == asciiPlus || digit == asciiForwardSlash {
+        }
+
+        if digit == asciiBackslash {
+            source.formIndex(after: &index)
+            if index == end {
+                throw JSONDecodingError.malformedString
+            }
+            let escaped = source[index]
+            switch escaped {
+            case asciiLowerU:
+                // TODO: Parse hex escapes such as \u0041.  Note that
+                // such escapes are going to be extremely rare, so
+                // there's little point in optimizing for them.
+                throw JSONDecodingError.malformedString
+            case asciiForwardSlash:
+                digit = escaped
+            default:
+                // Reject \b \f \n \r \t \" or \\ and all illegal escapes
+                throw JSONDecodingError.malformedString
+            }
+        }
+
+        if digit == asciiPlus || digit == asciiForwardSlash {
             sawSection4Characters = true
         } else if digit == asciiMinus || digit == asciiUnderscore {
             sawSection5Characters = true
@@ -172,26 +197,26 @@ private func parseBytes(
         var padding = 0 // # padding '=' chars
         digits: while true {
             let digit = source[index]
-            let k = base64Values[Int(digit)]
-            if k >= 0 {
-                n <<= 6
-                n |= k
-                chars += 1
-                if chars == 4 {
-                    p[0] = UInt8(truncatingIfNeeded: n >> 16)
-                    p[1] = UInt8(truncatingIfNeeded: n >> 8)
-                    p[2] = UInt8(truncatingIfNeeded: n)
-                    p += 3
-                    chars = 0
-                    n = 0
-                }
-            } else {
+            var k = base64Values[Int(digit)]
+            if k < 0 {
                 switch digit {
                 case asciiDoubleQuote:
                     source.formIndex(after: &index)
                     break digits
+                case asciiBackslash:
+                    source.formIndex(after: &index)
+                    let escaped = source[index]
+                    switch escaped {
+                    case asciiForwardSlash:
+                        k = base64Values[Int(escaped)]
+                    default:
+                        // Note: Invalid backslash escapes were caught
+                        // above; we should never get here.
+                        throw JSONDecodingError.malformedString
+                    }
                 case asciiSpace:
-                    break
+                    source.formIndex(after: &index)
+                    continue digits
                 case asciiEqualSign: // Count padding
                     while true {
                         switch source[index] {
@@ -210,6 +235,17 @@ private func parseBytes(
                 default:
                     throw JSONDecodingError.malformedString
                 }
+            }
+            n <<= 6
+            n |= k
+            chars += 1
+            if chars == 4 {
+                p[0] = UInt8(truncatingIfNeeded: n >> 16)
+                p[1] = UInt8(truncatingIfNeeded: n >> 8)
+                p[2] = UInt8(truncatingIfNeeded: n)
+                p += 3
+                chars = 0
+                n = 0
             }
             source.formIndex(after: &index)
         }
