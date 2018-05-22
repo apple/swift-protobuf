@@ -11,6 +11,6 @@
 import Foundation
 
 public protocol ProvidesLocationPath {
-  func getLocationPath(path: inout [Int32])
+  func getLocationPath(path: inout IndexPath)
   var file: FileDescriptor! { get }
 }
