@@ -402,6 +402,7 @@ struct Proto3Unittest_TestAllTypes {
     case oneofString(String)
     case oneofBytes(Data)
 
+  #if !swift(>=4.1)
     static func ==(lhs: Proto3Unittest_TestAllTypes.OneOf_OneofField, rhs: Proto3Unittest_TestAllTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
       case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
@@ -411,6 +412,7 @@ struct Proto3Unittest_TestAllTypes {
       default: return false
       }
     }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {

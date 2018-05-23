@@ -152,6 +152,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
 
+  #if !swift(>=4.1)
     static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
       switch (lhs, rhs) {
       case (.oneofE1(let l), .oneofE1(let r)): return l == r
@@ -159,6 +160,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}
@@ -201,6 +203,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
 
+  #if !swift(>=4.1)
     static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
       switch (lhs, rhs) {
       case (.oneofE1(let l), .oneofE1(let r)): return l == r
@@ -208,6 +211,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}

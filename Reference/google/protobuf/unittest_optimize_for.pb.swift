@@ -105,6 +105,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
     case integerField(Int32)
     case stringField(String)
 
+  #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo) -> Bool {
       switch (lhs, rhs) {
       case (.integerField(let l), .integerField(let r)): return l == r
@@ -112,6 +113,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}

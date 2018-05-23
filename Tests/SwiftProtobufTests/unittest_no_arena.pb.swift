@@ -692,6 +692,7 @@ struct ProtobufUnittestNoArena_TestAllTypes {
     case oneofBytes(Data)
     case lazyOneofNestedMessage(ProtobufUnittestNoArena_TestAllTypes.NestedMessage)
 
+  #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
       case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
@@ -702,6 +703,7 @@ struct ProtobufUnittestNoArena_TestAllTypes {
       default: return false
       }
     }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
