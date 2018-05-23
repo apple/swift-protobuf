@@ -91,6 +91,132 @@ internal struct HashVisitor: Visitor {
     mix(value.hashValue)
   }
 
+  mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
+  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+    mix(fieldNumber)
+    for v in value {
+      mix(v.hashValue)
+    }
+  }
+
   mutating func visitMapField<KeyType, ValueType: MapValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
@@ -100,7 +226,6 @@ internal struct HashVisitor: Visitor {
     mixMap(map: value)
   }
 
-
   mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
@@ -109,7 +234,6 @@ internal struct HashVisitor: Visitor {
     mix(fieldNumber)
     mixMap(map: value)
   }
-
 
   mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
