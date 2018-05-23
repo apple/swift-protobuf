@@ -139,7 +139,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularFloatField` once for each item in the array.
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws
 
   // Called for each non-packed repeated double field.
@@ -147,7 +147,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularDoubleField` once for each item in the array.
   mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws
 
   // Called for each non-packed repeated int32 field.
@@ -155,7 +155,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularInt32Field` once for each item in the array.
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws
 
   // Called for each non-packed repeated int64 field.
@@ -163,7 +163,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularInt64Field` once for each item in the array.
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws
 
   // Called for each non-packed repeated uint32 field.
@@ -171,7 +171,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularUInt32Field` once for each item in the array.
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws
 
   // Called for each non-packed repeated uint64 field.
@@ -179,7 +179,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularUInt64Field` once for each item in the array.
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws
 
   // Called for each non-packed repeated sint32 field.
@@ -187,7 +187,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularSInt32Field` once for each item in the array.
   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws
 
   // Called for each non-packed repeated sint64 field.
@@ -195,7 +195,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularSInt64Field` once for each item in the array.
   mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws
 
   // Called for each non-packed repeated fixed32 field.
@@ -203,7 +203,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularFixed32Field` once for each item in the array.
   mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws
 
   // Called for each non-packed repeated fixed64 field.
@@ -211,7 +211,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularFixed64Field` once for each item in the array.
   mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws
 
   // Called for each non-packed repeated sfixed32 field.
@@ -219,7 +219,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularSFixed32Field` once for each item in the array.
   mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws
 
   // Called for each non-packed repeated sfixed64 field.
@@ -227,7 +227,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularSFixed64Field` once for each item in the array.
   mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws
 
   // Called for each non-packed repeated bool field.
@@ -235,7 +235,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularBoolField` once for each item in the array.
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws
 
   // Called for each non-packed repeated string field.
@@ -243,7 +243,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularStringField` once for each item in the array.
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws
 
   // Called for each non-packed repeated bytes field.
@@ -251,7 +251,7 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularBytesField` once for each item in the array.
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws
 
   /// Called for each repeated, unpacked enum field.
@@ -259,16 +259,16 @@ public protocol Visitor {
   /// the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularEnumField` once for each item in the array.
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
   /// Called for each repeated nested message field. The method is called once
   /// with the complete array of values for the field.
   ///
   /// A default implementation is provided that simply calls
-  /// `visitSingularGroupField` once for each item in the array.
+  /// `visitSingularMessageField` once for each item in the array.
   mutating func visitRepeatedMessageField<M: Message>(value: [M],
-                                             fieldNumber: Int) throws
+                                                      fieldNumber: Int) throws
 
   /// Called for each repeated proto2 group field.
   ///
