@@ -530,6 +530,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum base64Values: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBase64Values // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBase64Values
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBase64Values
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBase64Values: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum BaseType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneBaseType // = 0
@@ -15448,6 +15473,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.available: Swift
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.b: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_b"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.base64Values: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_base64Values"),
   ]
 }
 

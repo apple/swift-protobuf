@@ -24,6 +24,7 @@ message GeneratedSwiftReservedEnums {
   enum asciiZero { NONE_asciiZero = 0; }
   enum available { NONE_available = 0; }
   enum b { NONE_b = 0; }
+  enum base64Values { NONE_base64Values = 0; }
   enum BaseType { NONE_BaseType = 0; }
   enum binary { NONE_binary = 0; }
   enum BinaryDecoder { NONE_BinaryDecoder = 0; }
