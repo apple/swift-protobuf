@@ -1362,6 +1362,58 @@ internal struct JSONScanner {
     return result
   }
 
+  /// Returns the number of elements until the end of the array.
+  /// Assumes array start '[' has already been skipped.  Slower than
+  /// countArrayObjectsQuickly, but it's safe to use when the array
+  /// contains nested objects, strings, etc.
+  internal mutating func countArrayElementsCarefully() throws -> Int {
+    skipWhitespace()
+    let start = index
+    if skipOptionalArrayEnd() {
+      index = start
+      return 0
+    }
+    var count = 0
+    while true {
+      try skipValue()
+      count += 1
+      if skipOptionalArrayEnd() {
+        index = start
+        return count
+      }
+      try skipRequiredComma()
+    }
+  }
+
+  /// Counts array elements by just looking for commas.
+  /// Very fast, but can get confused by nested objects or
+  /// strings that have commas or square brackets in them.
+  /// Use this only when a stray comma or square bracket would
+  /// be considered an error.
+  internal mutating func countArrayElementsQuickly() throws -> Int {
+    let start = index
+    if skipOptionalArrayEnd() {
+      index = start
+      return 0
+    }
+
+    var i = index
+    var items = 1
+    while i != source.endIndex {
+      let u = source[i]
+      switch u {
+      case asciiComma:
+        items += 1
+      case asciiCloseSquareBracket:
+        return items
+      default:
+        break
+      }
+      source.formIndex(after: &i)
+    }
+    throw JSONDecodingError.truncated
+  }
+
   /// Return the next complete JSON structure as a string.
   /// For example, this might return "true", or "123.456",
   /// or "{\"foo\": 7, \"bar\": [8, 9]}"
@@ -1461,24 +1513,26 @@ internal struct JSONScanner {
   // they don't know; newer clients may reject the same input due to
   // schema mismatches or other issues.
   private mutating func skipString() throws {
-    if currentByte != asciiDoubleQuote {
+    guard hasMoreContent else {
+      throw JSONDecodingError.truncated
+    }
+    guard currentByte == asciiDoubleQuote else {
       throw JSONDecodingError.malformedString
     }
     advance()
     while hasMoreContent {
       let c = currentByte
+      advance()
       switch c {
       case asciiDoubleQuote:
-        advance()
         return
       case asciiBackslash:
-        advance()
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
         advance()
       default:
-        advance()
+        break
       }
     }
     throw JSONDecodingError.truncated

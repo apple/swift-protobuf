@@ -1171,6 +1171,18 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: MessageTestType) in
             return o.repeatedNestedEnum == [.bar, .baz]
         }
+        assertTextFormatDecodeSucceeds("repeated_nested_enum: []") {
+            (o: MessageTestType) in
+            return o.repeatedNestedEnum == []
+        }
+        assertTextFormatDecodeSucceeds("repeated_nested_enum: [2]") {
+            (o: MessageTestType) in
+            return o.repeatedNestedEnum == [.bar]
+        }
+        assertTextFormatDecodeSucceeds("repeated_nested_enum: [BAR]") {
+            (o: MessageTestType) in
+            return o.repeatedNestedEnum == [.bar]
+        }
 
         assertTextFormatDecodeFails("repeated_nested_enum: BAR\nrepeated_nested_enum: a\n")
     }

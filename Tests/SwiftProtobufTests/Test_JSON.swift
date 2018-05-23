@@ -842,6 +842,29 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testRepeatedNestedEnum() {
+        assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\"]}") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.foo]
+        }
+        assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\",77]}") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.foo, .UNRECOGNIZED(77)]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\": []}") {
+            $0.repeatedNestedEnum == []
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\": [77]}") {
+            $0.repeatedNestedEnum == [.UNRECOGNIZED(77)]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\": [\"FOO\"]}") {
+            $0.repeatedNestedEnum == [.foo]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\": [ \"FOO\" , 77 , \"FOO\" ]}") {
+            $0.repeatedNestedEnum == [.foo, .UNRECOGNIZED(77), .foo]
+        }
+        assertJSONDecodeFails("{\"repeatedNestedEnum\": [ \"FOO\" , ]}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[,]}")
+    }
+
     func testRepeatedNestedMessage() {
         assertJSONEncode("{\"repeatedNestedMessage\":[{\"bb\":1}]}") {(o: inout MessageTestType) in
             var sub = Proto3Unittest_TestAllTypes.NestedMessage()
