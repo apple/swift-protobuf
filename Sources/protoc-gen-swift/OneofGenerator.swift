@@ -211,8 +211,11 @@ class OneofGenerator {
         }
 
         // Equatable conformance
+        p.print("\n")
+        p.outdent()
+        p.print("#if !swift(>=4.1)\n")
+        p.indent()
         p.print(
-            "\n",
             "\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
         p.indent()
         p.print("switch (lhs, rhs) {\n")
@@ -231,8 +234,8 @@ class OneofGenerator {
         p.print("}\n")
         p.outdent()
         p.print("}\n")
-
         p.outdent()
+        p.print("#endif\n")
         p.print("}\n")
     }
 
