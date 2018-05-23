@@ -24,6 +24,7 @@ message GeneratedSwiftReservedMessages {
   message asciiZero { int32 asciiZero = 1; }
   message available { int32 available = 1; }
   message b { int32 b = 1; }
+  message base64Values { int32 base64Values = 1; }
   message BaseType { int32 BaseType = 1; }
   message binary { int32 binary = 1; }
   message BinaryDecoder { int32 BinaryDecoder = 1; }
