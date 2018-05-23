@@ -486,6 +486,7 @@ struct ProtobufUnittest_OneofWellKnownTypes {
     case stringField(SwiftProtobuf.Google_Protobuf_StringValue)
     case bytesField(SwiftProtobuf.Google_Protobuf_BytesValue)
 
+  #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField, rhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
       case (.anyField(let l), .anyField(let r)): return l == r
@@ -509,6 +510,7 @@ struct ProtobufUnittest_OneofWellKnownTypes {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}

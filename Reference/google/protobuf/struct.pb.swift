@@ -188,6 +188,7 @@ struct Google_Protobuf_Value {
     /// Represents a repeated `Value`.
     case listValue(Google_Protobuf_ListValue)
 
+  #if !swift(>=4.1)
     static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
       switch (lhs, rhs) {
       case (.nullValue(let l), .nullValue(let r)): return l == r
@@ -199,6 +200,7 @@ struct Google_Protobuf_Value {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}

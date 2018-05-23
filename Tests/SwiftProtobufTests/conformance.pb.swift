@@ -136,6 +136,7 @@ struct Conformance_ConformanceRequest {
     case protobufPayload(Data)
     case jsonPayload(String)
 
+  #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
       switch (lhs, rhs) {
       case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
@@ -143,6 +144,7 @@ struct Conformance_ConformanceRequest {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}
@@ -248,6 +250,7 @@ struct Conformance_ConformanceResponse {
     /// wasn't supported, like JSON input/output.
     case skipped(String)
 
+  #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
       switch (lhs, rhs) {
       case (.parseError(let l), .parseError(let r)): return l == r
@@ -259,6 +262,7 @@ struct Conformance_ConformanceResponse {
       default: return false
       }
     }
+  #endif
   }
 
   init() {}

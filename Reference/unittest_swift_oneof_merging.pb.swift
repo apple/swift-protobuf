@@ -87,6 +87,7 @@ struct SwiftUnittest_TestMessage {
     case oneofString(String)
     case oneofBytes(Data)
 
+  #if !swift(>=4.1)
     static func ==(lhs: SwiftUnittest_TestMessage.OneOf_OneofField, rhs: SwiftUnittest_TestMessage.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
       case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
@@ -96,6 +97,7 @@ struct SwiftUnittest_TestMessage {
       default: return false
       }
     }
+  #endif
   }
 
   struct NestedMessage {
