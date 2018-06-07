@@ -67,6 +67,16 @@ struct ProtobufUnittest_TestLiteImportsNonlite {
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
   mutating func clearMessage() {_storage._message = nil}
 
+  /// Verifies that transitive required fields generates valid code.
+  var messageWithRequired: ProtobufUnittest_TestRequired {
+    get {return _storage._messageWithRequired ?? ProtobufUnittest_TestRequired()}
+    set {_uniqueStorage()._messageWithRequired = newValue}
+  }
+  /// Returns true if `messageWithRequired` has been explicitly set.
+  var hasMessageWithRequired: Bool {return _storage._messageWithRequired != nil}
+  /// Clears the value of `messageWithRequired`. Subsequent reads from it will return its default value.
+  mutating func clearMessageWithRequired() {_storage._messageWithRequired = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -82,10 +92,12 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftP
   static let protoMessageName: String = _protobuf_package + ".TestLiteImportsNonlite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
+    2: .standard(proto: "message_with_required"),
   ]
 
   fileprivate class _StorageClass {
     var _message: ProtobufUnittest_TestAllTypes? = nil
+    var _messageWithRequired: ProtobufUnittest_TestRequired? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -93,6 +105,7 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftP
 
     init(copying source: _StorageClass) {
       _message = source._message
+      _messageWithRequired = source._messageWithRequired
     }
   }
 
@@ -103,12 +116,20 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftP
     return _storage
   }
 
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._messageWithRequired, !v.isInitialized {return false}
+      return true
+    }
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
+        case 2: try decoder.decodeSingularMessageField(value: &_storage._messageWithRequired)
         default: break
         }
       }
@@ -120,6 +141,9 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftP
       if let v = _storage._message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
+      if let v = _storage._messageWithRequired {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -130,6 +154,7 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftP
         let _storage = _args.0
         let other_storage = _args.1
         if _storage._message != other_storage._message {return false}
+        if _storage._messageWithRequired != other_storage._messageWithRequired {return false}
         return true
       }
       if !storagesAreEqual {return false}
