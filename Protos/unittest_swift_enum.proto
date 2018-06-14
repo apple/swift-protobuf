@@ -61,6 +61,7 @@ message SwiftEnumWithAliasTest {
         option allow_alias = true;
         FOO1 = 1;
         FOO2 = 1;
+        BAZ1 = 3;  // out of value order to test allCases
         BAR1 = 2;
         BAR2 = 2;
     }

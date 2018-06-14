@@ -432,7 +432,8 @@ extension Test_Enum {
         ("testUnknownValues", testUnknownValues),
         ("testEnumPrefixStripping", testEnumPrefixStripping),
         ("testEnumPrefixStripping_TextFormat", testEnumPrefixStripping_TextFormat),
-        ("testEnumPrefixStripping_JSON", testEnumPrefixStripping_JSON)
+        ("testEnumPrefixStripping_JSON", testEnumPrefixStripping_JSON),
+        ("testCaseIterable", testCaseIterable)
     ]
 }
 
@@ -454,7 +455,8 @@ extension Test_Enum_Proto2 {
         ("testUnknownValues", testUnknownValues),
         ("testEnumPrefixStripping", testEnumPrefixStripping),
         ("testEnumPrefixStripping_TextFormat", testEnumPrefixStripping_TextFormat),
-        ("testEnumPrefixStripping_JSON", testEnumPrefixStripping_JSON)
+        ("testEnumPrefixStripping_JSON", testEnumPrefixStripping_JSON),
+        ("testCaseIterable", testCaseIterable)
     ]
 }
 

@@ -147,4 +147,30 @@ class Test_Enum: XCTestCase, PBTestHelpers {
         msg2 = try Protobuf3Unittest_SwiftEnumTest(jsonString: json)
         XCTAssertEqual(msg2, msg)
     }
+
+    func testCaseIterable() {
+      #if swift(>=4.2)
+        // proto3 syntax enums require the generator to create allCases,
+        // ensure it is works as expected (order of the file, no aliases).
+        var i = Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias.allCases.makeIterator()
+        guard let e1 = i.next() else {
+            XCTFail("Couldn't get first value")
+            return
+        }
+        guard let e2 = i.next() else {
+            XCTFail("Couldn't get second value")
+            return
+        }
+        guard let e3 = i.next() else {
+            XCTFail("Couldn't get third value")
+            return
+        }
+        // Should be the end.
+        XCTAssertNil(i.next())
+
+        XCTAssertEqual(e1, .foo1)
+        XCTAssertEqual(e2, .baz1)
+        XCTAssertEqual(e3, .bar1)
+      #endif
+    }
 }
