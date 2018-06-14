@@ -80,6 +80,16 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension Conformance_WireFormat: CaseIterable {
+  static var allCases: [Conformance_WireFormat] = [
+    .unspecified,
+    .protobuf,
+    .json,
+  ]
+}
+#endif
+
 /// Represents a single test case's input.  The testee should:
 ///
 ///   1. parse this proto (which should always succeed)

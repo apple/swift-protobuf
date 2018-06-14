@@ -616,6 +616,12 @@ struct ProtobufUnittest_TestAllRequiredTypes {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_TestAllRequiredTypes.NestedEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 struct ProtobufUnittest_TestSomeRequiredTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -711,6 +717,12 @@ struct ProtobufUnittest_TestSomeRequiredTypes {
   fileprivate var _requiredBytes: Data? = nil
   fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_TestSomeRequiredTypes.NestedEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

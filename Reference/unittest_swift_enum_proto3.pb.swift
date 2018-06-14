@@ -178,6 +178,36 @@ struct Protobuf3Unittest_SwiftEnumTest {
 
   init() {}
 }
+#if swift(>=4.2)
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTest1: CaseIterable {
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = [
+    .firstValue,
+    .secondValue,
+  ]
+}
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTest2: CaseIterable {
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest2] = [
+    .firstValue,
+    .secondValue,
+  ]
+}
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem: CaseIterable {
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem] = [
+    .enumTestNoStem1,
+    .enumTestNoStem2,
+  ]
+}
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord: CaseIterable {
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord] = [
+    .var,
+    .notReserved,
+  ]
+}
+#endif
 
 struct Protobuf3Unittest_SwiftEnumWithAliasTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -220,6 +250,15 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
 
   init() {}
 }
+#if swift(>=4.2)
+
+extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: CaseIterable {
+  static var allCases: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = [
+    .foo1,
+    .bar1,
+  ]
+}
+#endif
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

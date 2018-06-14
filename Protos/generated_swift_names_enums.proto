@@ -5,6 +5,7 @@ syntax = "proto3";
 package protobuf_unittest_generated;
 message GeneratedSwiftReservedEnums {
   enum adjusted { NONE_adjusted = 0; }
+  enum allCases { NONE_allCases = 0; }
   enum allocate { NONE_allocate = 0; }
   enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }

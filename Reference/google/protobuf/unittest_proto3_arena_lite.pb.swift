@@ -83,6 +83,17 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension Proto3ArenaLiteUnittest_ForeignEnum: CaseIterable {
+  static var allCases: [Proto3ArenaLiteUnittest_ForeignEnum] = [
+    .foreignZero,
+    .foreignFoo,
+    .foreignBar,
+    .foreignBaz,
+  ]
+}
+#endif
+
 /// This proto includes every type of field in both singular and repeated
 /// forms.
 struct Proto3ArenaLiteUnittest_TestAllTypes {
@@ -464,6 +475,18 @@ struct Proto3ArenaLiteUnittest_TestAllTypes {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+#if swift(>=4.2)
+
+extension Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum: CaseIterable {
+  static var allCases: [Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum] = [
+    .zero,
+    .foo,
+    .bar,
+    .baz,
+    .neg,
+  ]
+}
+#endif
 
 struct Proto3ArenaLiteUnittest_TestPackedTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

@@ -78,6 +78,12 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension Proto2PreserveUnknownEnumUnittest_MyEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
+
 struct Proto2PreserveUnknownEnumUnittest_MyMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

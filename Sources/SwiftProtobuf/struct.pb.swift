@@ -79,6 +79,14 @@ public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension Google_Protobuf_NullValue: CaseIterable {
+  public static var allCases: [Google_Protobuf_NullValue] = [
+    .nullValue,
+  ]
+}
+#endif
+
 /// `Struct` represents a structured data value, consisting of fields
 /// which map to dynamically typed values. In some languages, `Struct`
 /// might be supported by a native representation. For example, in

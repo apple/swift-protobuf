@@ -81,6 +81,12 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension ProtobufUnittest_MethodOpt1: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
+
 enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case value // = 1
@@ -103,6 +109,12 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
   }
 
 }
+
+#if swift(>=4.2)
+extension ProtobufUnittest_AggregateEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// A test message with custom options at all possible locations (and also some
 /// regular options, to make sure they interact nicely).
@@ -174,6 +186,12 @@ struct ProtobufUnittest_TestMessageWithCustomOptions {
 
   fileprivate var _field1: String? = nil
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_TestMessageWithCustomOptions.AnEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// A test RPC service with custom options at all possible locations (and also
 /// some regular options, to make sure they interact nicely).
@@ -252,6 +270,12 @@ struct ProtobufUnittest_DummyMessageContainingEnum {
 
   init() {}
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_DummyMessageContainingEnum.TestEnumType: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 struct ProtobufUnittest_DummyMessageInvalidAsOptionType {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -675,6 +699,12 @@ struct ProtobufUnittest_NestedOptionType {
 
   init() {}
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_NestedOptionType.NestedEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// Custom message option that has a required enum field.
 /// WARNING: this is strongly discouraged!
@@ -721,6 +751,12 @@ struct ProtobufUnittest_OldOptionType {
 
   fileprivate var _value: ProtobufUnittest_OldOptionType.TestEnum? = nil
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_OldOptionType.TestEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// Updated version of the custom option above.
 struct ProtobufUnittest_NewOptionType {
@@ -769,6 +805,12 @@ struct ProtobufUnittest_NewOptionType {
 
   fileprivate var _value: ProtobufUnittest_NewOptionType.TestEnum? = nil
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_NewOptionType.TestEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// Test message using the "required_enum_opt" option defined above.
 struct ProtobufUnittest_TestMessageWithRequiredEnumOption {

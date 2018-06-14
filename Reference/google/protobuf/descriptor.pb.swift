@@ -589,6 +589,16 @@ struct Google_Protobuf_FieldDescriptorProto {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+#if swift(>=4.2)
+
+extension Google_Protobuf_FieldDescriptorProto.TypeEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension Google_Protobuf_FieldDescriptorProto.Label: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// Describes a oneof.
 struct Google_Protobuf_OneofDescriptorProto {
@@ -1154,6 +1164,12 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+#if swift(>=4.2)
+
+extension Google_Protobuf_FileOptions.OptimizeMode: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1449,6 +1465,16 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _weak: Bool? = nil
 }
+#if swift(>=4.2)
+
+extension Google_Protobuf_FieldOptions.CType: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension Google_Protobuf_FieldOptions.JSType: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 struct Google_Protobuf_OneofOptions: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1638,6 +1664,12 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel? = nil
 }
+#if swift(>=4.2)
+
+extension Google_Protobuf_MethodOptions.IdempotencyLevel: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// A message representing a option the parser does not recognize. This only
 /// appears in options protos created by the compiler::Parser class.

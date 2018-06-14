@@ -81,6 +81,15 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension Google_Protobuf_Syntax: CaseIterable {
+  static var allCases: [Google_Protobuf_Syntax] = [
+    .proto2,
+    .proto3,
+  ]
+}
+#endif
+
 /// A protocol buffer message type.
 struct Google_Protobuf_Type {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -337,6 +346,41 @@ struct Google_Protobuf_Field {
 
   init() {}
 }
+#if swift(>=4.2)
+
+extension Google_Protobuf_Field.Kind: CaseIterable {
+  static var allCases: [Google_Protobuf_Field.Kind] = [
+    .typeUnknown,
+    .typeDouble,
+    .typeFloat,
+    .typeInt64,
+    .typeUint64,
+    .typeInt32,
+    .typeFixed64,
+    .typeFixed32,
+    .typeBool,
+    .typeString,
+    .typeGroup,
+    .typeMessage,
+    .typeBytes,
+    .typeUint32,
+    .typeEnum,
+    .typeSfixed32,
+    .typeSfixed64,
+    .typeSint32,
+    .typeSint64,
+  ]
+}
+
+extension Google_Protobuf_Field.Cardinality: CaseIterable {
+  static var allCases: [Google_Protobuf_Field.Cardinality] = [
+    .unknown,
+    .optional,
+    .required,
+    .repeated,
+  ]
+}
+#endif
 
 /// Enum type definition.
 struct Google_Protobuf_Enum {

@@ -82,6 +82,12 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+extension ProtobufUnittest_ForeignEnumLite: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
+
 enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case v1First // = 1
@@ -104,6 +110,12 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
   }
 
 }
+
+#if swift(>=4.2)
+extension ProtobufUnittest_V1EnumLite: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -130,6 +142,12 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
   }
 
 }
+
+#if swift(>=4.2)
+extension ProtobufUnittest_V2EnumLite: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 /// Same as TestAllTypes but with the lite runtime.
 struct ProtobufUnittest_TestAllTypesLite {
@@ -866,6 +884,12 @@ struct ProtobufUnittest_TestAllTypesLite {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+#if swift(>=4.2)
+
+extension ProtobufUnittest_TestAllTypesLite.NestedEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+#endif
 
 struct ProtobufUnittest_ForeignMessageLite {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
