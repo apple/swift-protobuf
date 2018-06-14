@@ -147,7 +147,7 @@ class Test_MessageSet: XCTestCase {
   // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Serialize)
   func testTextFormat_Serialize() {
     let msg = ProtobufUnittest_TestMessageSetContainer.with {
-      $0.messageSet.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i = 23;
+      $0.messageSet.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i = 23
       $0.messageSet.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str = "foo"
     }
 

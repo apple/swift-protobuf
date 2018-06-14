@@ -38,7 +38,7 @@ private func toJsonFieldName(_ s: String) -> String {
             result.append(String(c))
         }
     }
-    return result;
+    return result
 }
 
 /// Allocate static memory buffers to intern UTF-8
