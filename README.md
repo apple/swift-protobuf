@@ -182,7 +182,7 @@ you used to build the plugin above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(1,0,0))
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.0.0")
 ]
 ```
 
