@@ -50,13 +50,7 @@ fileprivate class InternPool {
   func intern(utf8: String.UTF8View) -> UnsafeBufferPointer<UInt8> {
     let bytePointer = UnsafeMutablePointer<UInt8>.allocate(capacity: utf8.count)
     let mutable = UnsafeMutableBufferPointer<UInt8>(start: bytePointer, count: utf8.count)
-    #if swift(>=3.1)
-      _ = mutable.initialize(from: utf8)
-    #else
-      for (utf8Index, mutableIndex) in zip(utf8.indices, mutable.indices) {
-        mutable[mutableIndex] = utf8[utf8Index]
-      }
-    #endif
+    _ = mutable.initialize(from: utf8)
     let immutable = UnsafeBufferPointer<UInt8>(start: bytePointer, count: utf8.count)
     interned.append(immutable)
     return immutable
