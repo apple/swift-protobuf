@@ -96,7 +96,7 @@ class EnumGenerator {
 
     p.print("\n")
     if includeGuards {
-      p.print("#if swift(>=4.2)\n")
+      p.print("#if swift(>=4.2)\n\n")
     }
     p.print("extension \(swiftFullName): CaseIterable {\n")
     p.indent()
@@ -113,7 +113,7 @@ class EnumGenerator {
     p.outdent()
     p.print("}\n")
     if includeGuards {
-      p.print("#endif\n")
+      p.print("\n#endif  // swift(>=4.2)\n")
     }
   }
 

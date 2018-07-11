@@ -126,9 +126,9 @@ class FileGenerator {
             var caseIterablePrinter = CodePrinter()
             m.generateEnumCaseIterable(printer: &caseIterablePrinter)
             if !caseIterablePrinter.isEmpty {
-              p.print("#if swift(>=4.2)\n")
+              p.print("\n#if swift(>=4.2)\n")
               p.print(caseIterablePrinter.content)
-              p.print("#endif\n")
+              p.print("\n#endif  // swift(>=4.2)\n")
             }
         }
 
