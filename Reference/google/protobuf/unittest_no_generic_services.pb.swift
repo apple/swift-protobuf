@@ -75,10 +75,12 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension Google_Protobuf_NoGenericServicesTest_TestEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

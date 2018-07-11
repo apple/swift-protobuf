@@ -81,6 +81,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension ProtobufUnittest_MapEnum: CaseIterable {
   static var allCases: [ProtobufUnittest_MapEnum] = [
     .foo,
@@ -88,7 +89,8 @@ extension ProtobufUnittest_MapEnum: CaseIterable {
     .baz,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// Tests maps.
 struct ProtobufUnittest_TestMap {
@@ -399,6 +401,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType {
 
   init() {}
 }
+
 #if swift(>=4.2)
 
 extension ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum: CaseIterable {
@@ -406,7 +409,8 @@ extension ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum: CaseIterabl
     .foo,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// Previously, message cannot contain map field called "entry".
 struct ProtobufUnittest_MessageContainingMapCalledEntry {

@@ -93,6 +93,7 @@ struct UnittestDropUnknownFields_Foo {
 
   init() {}
 }
+
 #if swift(>=4.2)
 
 extension UnittestDropUnknownFields_Foo.NestedEnum: CaseIterable {
@@ -102,7 +103,8 @@ extension UnittestDropUnknownFields_Foo.NestedEnum: CaseIterable {
     .baz,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct UnittestDropUnknownFields_FooWithExtraFields {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -153,6 +155,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
 
   init() {}
 }
+
 #if swift(>=4.2)
 
 extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable {
@@ -163,7 +166,8 @@ extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable 
     .qux,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

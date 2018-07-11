@@ -65,10 +65,12 @@ enum SDTTopLevelEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension SDTTopLevelEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct SDTTopLevelMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -223,12 +225,14 @@ struct SDTTopLevelMessage {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
 #if swift(>=4.2)
 
 extension SDTTopLevelMessage.SubEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct SDTTopLevelMessage2 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

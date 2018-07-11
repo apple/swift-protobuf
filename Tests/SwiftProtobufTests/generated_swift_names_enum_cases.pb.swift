@@ -1888,6 +1888,7 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnum] = [
     .none,
@@ -2506,7 +2507,8 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .yday,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -87,10 +87,12 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension ProtobufUnittest_ForeignEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// Test an enum that has multiple values with the same number.
 enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
@@ -125,10 +127,12 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension ProtobufUnittest_TestEnumWithDupValue: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// Test an enum with large, unordered values.
 enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
@@ -173,10 +177,12 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension ProtobufUnittest_TestSparseEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
@@ -892,12 +898,14 @@ struct ProtobufUnittest_TestAllTypes {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
 #if swift(>=4.2)
 
 extension ProtobufUnittest_TestAllTypes.NestedEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// This proto includes a recusively nested message.
 struct ProtobufUnittest_NestedTestAllTypes {
@@ -3209,12 +3217,14 @@ struct ProtobufUnittest_TestOneof2 {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
 #if swift(>=4.2)
 
 extension ProtobufUnittest_TestOneof2.NestedEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct ProtobufUnittest_TestRequiredOneof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -3516,12 +3526,14 @@ struct ProtobufUnittest_TestDynamicExtensions {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
 #if swift(>=4.2)
 
 extension ProtobufUnittest_TestDynamicExtensions.DynamicEnumType: CaseIterable {
   // Support synthesized by the compiler.
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

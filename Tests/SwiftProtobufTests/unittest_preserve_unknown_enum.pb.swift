@@ -81,6 +81,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension Proto3PreserveUnknownEnumUnittest_MyEnum: CaseIterable {
   static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [
     .foo,
@@ -88,7 +89,8 @@ extension Proto3PreserveUnknownEnumUnittest_MyEnum: CaseIterable {
     .baz,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -125,6 +127,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: CaseIterable {
   static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [
     .eFoo,
@@ -133,7 +136,8 @@ extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: CaseIterable {
     .eExtra,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

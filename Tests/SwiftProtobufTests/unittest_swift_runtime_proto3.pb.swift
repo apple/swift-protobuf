@@ -553,6 +553,7 @@ struct ProtobufUnittest_Message3 {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
 #if swift(>=4.2)
 
 extension ProtobufUnittest_Message3.Enum: CaseIterable {
@@ -563,7 +564,8 @@ extension ProtobufUnittest_Message3.Enum: CaseIterable {
     .extra3,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct ProtobufUnittest_Msg3NoStorage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

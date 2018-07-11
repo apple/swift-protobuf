@@ -83,6 +83,7 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 }
 
 #if swift(>=4.2)
+
 extension Proto2NofieldpresenceUnittest_ForeignEnum: CaseIterable {
   static var allCases: [Proto2NofieldpresenceUnittest_ForeignEnum] = [
     .foreignFoo,
@@ -90,7 +91,8 @@ extension Proto2NofieldpresenceUnittest_ForeignEnum: CaseIterable {
     .foreignBaz,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
@@ -457,6 +459,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
 #if swift(>=4.2)
 
 extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum: CaseIterable {
@@ -466,7 +469,8 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum: CaseIterable {
     .baz,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

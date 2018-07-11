@@ -15357,6 +15357,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   init() {}
 }
+
 #if swift(>=4.2)
 
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.adjusted: CaseIterable {
@@ -19036,7 +19037,8 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday: CaseIterab
     .noneYday,
   ]
 }
-#endif
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
