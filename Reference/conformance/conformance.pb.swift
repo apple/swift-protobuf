@@ -83,6 +83,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 #if swift(>=4.2)
 
 extension Conformance_WireFormat: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Conformance_WireFormat] = [
     .unspecified,
     .protobuf,

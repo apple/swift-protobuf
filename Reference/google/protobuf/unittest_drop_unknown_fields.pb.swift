@@ -97,6 +97,7 @@ struct UnittestDropUnknownFields_Foo {
 #if swift(>=4.2)
 
 extension UnittestDropUnknownFields_Foo.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [UnittestDropUnknownFields_Foo.NestedEnum] = [
     .foo,
     .bar,
@@ -159,6 +160,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
 #if swift(>=4.2)
 
 extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [UnittestDropUnknownFields_FooWithExtraFields.NestedEnum] = [
     .foo,
     .bar,

@@ -89,6 +89,7 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
 #if swift(>=4.2)
 
 extension ProtobufTestMessages_Proto3_ForeignEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufTestMessages_Proto3_ForeignEnum] = [
     .foreignFoo,
     .foreignBar,
@@ -916,6 +917,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 #if swift(>=4.2)
 
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
     .foo,
     .bar,

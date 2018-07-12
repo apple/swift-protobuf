@@ -557,6 +557,7 @@ struct ProtobufUnittest_Message3 {
 #if swift(>=4.2)
 
 extension ProtobufUnittest_Message3.Enum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittest_Message3.Enum] = [
     .foo,
     .bar,

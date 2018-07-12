@@ -1890,6 +1890,7 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
 #if swift(>=4.2)
 
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnum] = [
     .none,
     .adjusted,

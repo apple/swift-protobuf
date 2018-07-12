@@ -82,6 +82,7 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
 #if swift(>=4.2)
 
 extension Google_Protobuf_NullValue: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Google_Protobuf_NullValue] = [
     .nullValue,
   ]

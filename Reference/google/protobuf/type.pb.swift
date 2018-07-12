@@ -84,6 +84,7 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 #if swift(>=4.2)
 
 extension Google_Protobuf_Syntax: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Google_Protobuf_Syntax] = [
     .proto2,
     .proto3,
@@ -352,6 +353,7 @@ struct Google_Protobuf_Field {
 #if swift(>=4.2)
 
 extension Google_Protobuf_Field.Kind: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Google_Protobuf_Field.Kind] = [
     .typeUnknown,
     .typeDouble,
@@ -376,6 +378,7 @@ extension Google_Protobuf_Field.Kind: CaseIterable {
 }
 
 extension Google_Protobuf_Field.Cardinality: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Google_Protobuf_Field.Cardinality] = [
     .unknown,
     .optional,
