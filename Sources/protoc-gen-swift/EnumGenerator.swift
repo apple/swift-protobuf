@@ -101,6 +101,7 @@ class EnumGenerator {
     p.print("extension \(swiftFullName): CaseIterable {\n")
     p.indent()
     if enumDescriptor.hasUnknownPreservingSemantics {
+      p.print("// The compiler won't synthesize support with the \(unrecognizedCaseName) case.\n")
       p.print("\(visibility)static var allCases: [\(swiftFullName)] = [\n")
       for v in mainEnumValueDescriptors {
         let dottedName = namer.dottedRelativeName(enumValue: v)
