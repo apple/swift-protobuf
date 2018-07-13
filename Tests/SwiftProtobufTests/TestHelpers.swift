@@ -326,7 +326,10 @@ extension PBTestVisitor {
     XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
     XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
   }
 

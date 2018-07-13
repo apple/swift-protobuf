@@ -161,13 +161,19 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
     try startField(for: fieldNumber)
     let json = try value.jsonUTF8Data()
     encoder.append(utf8Data: json)
   }
 
-  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+  mutating func visitSingularGroupField<G: Message & Hashable>(
+    value: G,
+    fieldNumber: Int
+  ) throws {
     // Google does not serialize groups into JSON
   }
 
@@ -269,7 +275,10 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+  mutating func visitRepeatedMessageField<M: Message & Hashable>(
+    value: [M],
+    fieldNumber: Int
+  ) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: M) throws in
       let json = try v.jsonUTF8Data()
@@ -277,7 +286,10 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+  mutating func visitRepeatedGroupField<G: Message & Hashable>(
+    value: [G],
+    fieldNumber: Int
+  ) throws {
     // Google does not serialize groups into JSON
   }
 

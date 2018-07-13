@@ -123,7 +123,10 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
       }
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
       // Messages can only be map values, never keys
       assert(fieldNumber == 2)
       startValue()

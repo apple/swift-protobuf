@@ -91,11 +91,17 @@ internal extension SelectiveVisitor {
     assert(false)
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
     assert(false)
   }
 
-  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+  mutating func visitSingularGroupField<G: Message & Hashable>(
+    value: G,
+    fieldNumber: Int
+  ) throws {
     assert(false)
   }
 
@@ -163,11 +169,17 @@ internal extension SelectiveVisitor {
     assert(false)
   }
 
-  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+  mutating func visitRepeatedMessageField<M: Message & Hashable>(
+    value: [M],
+    fieldNumber: Int
+  ) throws {
     assert(false)
   }
 
-  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+  mutating func visitRepeatedGroupField<G: Message & Hashable>(
+    value: [G],
+    fieldNumber: Int
+  ) throws {
     assert(false)
   }
 

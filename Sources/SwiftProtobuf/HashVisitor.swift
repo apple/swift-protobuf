@@ -87,7 +87,7 @@ internal struct HashVisitor: Visitor {
     mix(value.hashValue)
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
+  mutating func visitSingularMessageField<M: Message & Hashable>(value: M, fieldNumber: Int) {
     mix(fieldNumber)
     mix(value.hashValue)
   }
@@ -264,7 +264,10 @@ internal struct HashVisitor: Visitor {
     }
   }
 
-  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+  mutating func visitRepeatedMessageField<M: Message & Hashable>(
+    value: [M],
+    fieldNumber: Int
+  ) throws {
     mix(fieldNumber)
     // TODO: Message doesn't add Hashable, _MessageImplementationBase does, so
     // this can't use value.hashValue here, need to revisit this.
@@ -273,7 +276,10 @@ internal struct HashVisitor: Visitor {
     }
   }
 
-  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+  mutating func visitRepeatedGroupField<G: Message & Hashable>(
+    value: [G],
+    fieldNumber: Int
+  ) throws {
     mix(fieldNumber)
     // TODO: Message doesn't add Hashable, _MessageImplementationBase does, so
     // this can't use value.hashValue here, need to revisit this.

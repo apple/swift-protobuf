@@ -200,8 +200,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
       encoder.endRegularField()
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M,
-                                             fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startMessageField()
       var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
@@ -353,8 +355,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   // Messages and groups
-  mutating func visitRepeatedMessageField<M: Message>(value: [M],
-                                             fieldNumber: Int) throws {
+  mutating func visitRepeatedMessageField<M: Message>(
+    value: [M],
+    fieldNumber: Int
+  ) throws {
       for v in value {
           emitFieldName(lookingUp: fieldNumber)
           encoder.startMessageField()
