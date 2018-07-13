@@ -269,11 +269,13 @@ internal struct HashVisitor: Visitor {
     fieldNumber: Int
   ) throws {
     mix(fieldNumber)
-    // TODO: Message doesn't add Hashable, _MessageImplementationBase does, so
-    // this can't use value.hashValue here, need to revisit this.
-    for v in value {
-      mix(v.hashValue)
-    }
+    #if swift(>=4.2)
+      mix(value.hashValue)
+    #else
+      for v in value {
+        mix(v.hashValue)
+      }
+    #endif
   }
 
   mutating func visitRepeatedGroupField<G: Message & Hashable>(
@@ -281,11 +283,13 @@ internal struct HashVisitor: Visitor {
     fieldNumber: Int
   ) throws {
     mix(fieldNumber)
-    // TODO: Message doesn't add Hashable, _MessageImplementationBase does, so
-    // this can't use value.hashValue here, need to revisit this.
-    for v in value {
-      mix(v.hashValue)
-    }
+    #if swift(>=4.2)
+      mix(value.hashValue)
+    #else
+      for v in value {
+        mix(v.hashValue)
+      }
+    #endif
   }
 
   mutating func visitMapField<KeyType, ValueType: MapValueType>(
