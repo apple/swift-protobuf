@@ -124,7 +124,10 @@ public protocol Visitor {
   /// Called for each non-repeated nested message field.
   ///
   /// There is no default implementation.  This must be implemented.
-  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws
 
   /// Called for each non-repeated proto2 group field.
   ///
@@ -132,7 +135,10 @@ public protocol Visitor {
   /// `visitSingularMessageField`. Implementors who need to handle groups
   /// differently than nested messages can override this and provide distinct
   /// implementations.
-  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws
+  mutating func visitSingularGroupField<G: Message & Hashable>(
+    value: G,
+    fieldNumber: Int
+  ) throws
 
   // Called for each non-packed repeated float field.
   /// The method is called once with the complete array of values for
@@ -267,14 +273,19 @@ public protocol Visitor {
   ///
   /// A default implementation is provided that simply calls
   /// `visitSingularMessageField` once for each item in the array.
-  mutating func visitRepeatedMessageField<M: Message>(value: [M],
-                                                      fieldNumber: Int) throws
+  mutating func visitRepeatedMessageField<M: Message & Hashable>(
+    value: [M],
+    fieldNumber: Int
+  ) throws
 
   /// Called for each repeated proto2 group field.
   ///
   /// A default implementation is provided that simply calls
   /// `visitSingularGroupField` once for each item in the array.
-  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws
+  mutating func visitRepeatedGroupField<G: Message & Hashable>(
+    value: [G],
+    fieldNumber: Int
+  ) throws
 
   // Called for each packed, repeated float field.
   ///
@@ -587,13 +598,19 @@ extension Visitor {
     }
   }
 
-  public mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+  public mutating func visitRepeatedMessageField<M: Message & Hashable>(
+    value: [M],
+    fieldNumber: Int
+  ) throws {
     for v in value {
       try visitSingularMessageField(value: v, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+  public mutating func visitRepeatedGroupField<G: Message & Hashable>(
+    value: [G],
+    fieldNumber: Int
+  ) throws {
     for v in value {
       try visitSingularGroupField(value: v, fieldNumber: fieldNumber)
     }
@@ -666,8 +683,10 @@ extension Visitor {
   // format (which has a different encoding for groups) and JSON
   // (which explicitly ignores all groups).
 
-  public mutating func visitSingularGroupField<G: Message>(value: G,
-                                                  fieldNumber: Int) throws {
+  public mutating func visitSingularGroupField<G: Message & Hashable>(
+    value: G,
+    fieldNumber: Int
+  ) throws {
     try visitSingularMessageField(value: value, fieldNumber: fieldNumber)
   }
 

@@ -103,15 +103,20 @@ internal struct BinaryEncodingVisitor: Visitor {
                                  fieldNumber: fieldNumber)
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M,
-                                             fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     let length = try value.serializedDataSize()
     encoder.putVarInt(value: length)
     try value.traverse(visitor: &self)
   }
 
-  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+  mutating func visitSingularGroupField<G: Message & Hashable>(
+    value: G,
+    fieldNumber: Int
+  ) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
     try value.traverse(visitor: &self)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .endGroup)
@@ -334,7 +339,10 @@ internal extension BinaryEncodingVisitor {
       self.encoder = encoder
     }
 
-    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+    mutating func visitSingularMessageField<M: Message & Hashable>(
+      value: M,
+      fieldNumber: Int
+    ) throws {
       encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.itemStart.rawValue))
 
       encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.typeId.rawValue))

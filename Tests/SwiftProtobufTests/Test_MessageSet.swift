@@ -201,7 +201,10 @@ class Test_MessageSet: XCTestCase {
                     "Expected more unknowns: \(expectedUnknowns)")
     }
 
-    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+    mutating func visitSingularMessageField<M: Message & Hashable>(
+      value: M,
+      fieldNumber: Int
+    ) throws {
       guard !expectedMessages.isEmpty else {
         XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
         return

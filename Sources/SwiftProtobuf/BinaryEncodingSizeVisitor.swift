@@ -242,8 +242,10 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M,
-                                             fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message & Hashable>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .lengthDelimited).encodedSize
     let messageSize = try value.serializedDataSize()
@@ -251,8 +253,10 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
   }
 
-  mutating func visitRepeatedMessageField<M: Message>(value: [M],
-                                             fieldNumber: Int) throws {
+  mutating func visitRepeatedMessageField<M: Message & Hashable>(
+    value: [M],
+    fieldNumber: Int
+  ) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .lengthDelimited).encodedSize
     serializedSize += value.count * tagSize
@@ -263,7 +267,10 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     }
   }
 
-  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+  mutating func visitSingularGroupField<G: Message & Hashable>(
+    value: G,
+    fieldNumber: Int
+  ) throws {
     // The wire format doesn't matter here because the encoded size of the
     // integer won't change based on the low three bits.
     let tagSize = FieldTag(fieldNumber: fieldNumber,
@@ -272,8 +279,10 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     try value.traverse(visitor: &self)
   }
 
-  mutating func visitRepeatedGroupField<G: Message>(value: [G],
-                                           fieldNumber: Int) throws {
+  mutating func visitRepeatedGroupField<G: Message & Hashable>(
+    value: [G],
+    fieldNumber: Int
+  ) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .startGroup).encodedSize
     serializedSize += 2 * value.count * tagSize
@@ -352,7 +361,10 @@ internal extension BinaryEncodingSizeVisitor {
 
     init() {}
 
-    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+    mutating func visitSingularMessageField<M: Message & Hashable>(
+      value: M,
+      fieldNumber: Int
+    ) throws {
       var groupSize = WireFormat.MessageSet.itemTagsEncodedSize
 
       groupSize += Varint.encodedSize(of: Int32(fieldNumber))

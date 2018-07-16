@@ -405,7 +405,7 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
 //
 // ========== Message ==========
 //
-public struct OptionalMessageExtensionField<M: Message & Equatable>:
+public struct OptionalMessageExtensionField<M: Message & Hashable>:
   ExtensionField {
   public typealias BaseType = M
   public typealias ValueType = BaseType
@@ -463,7 +463,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
   }
 }
 
-public struct RepeatedMessageExtensionField<M: Message & Equatable>:
+public struct RepeatedMessageExtensionField<M: Message & Hashable>:
   ExtensionField {
   public typealias BaseType = M
   public typealias ValueType = [BaseType]
