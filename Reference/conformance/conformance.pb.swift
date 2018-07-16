@@ -136,6 +136,8 @@ struct Conformance_ConformanceRequest {
   /// protobuf_test_messages.proto2.TestAllTypesProto2.
   var messageType: String = String()
 
+  var ignoreUnknownJson: Bool = false
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The payload (whether protobuf of JSON) is always for a
@@ -300,6 +302,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     2: .standard(proto: "json_payload"),
     3: .standard(proto: "requested_output_format"),
     4: .standard(proto: "message_type"),
+    5: .standard(proto: "ignore_unknown_json"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -317,6 +320,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
         if let v = v {self.payload = .jsonPayload(v)}
       case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
       case 4: try decoder.decodeSingularStringField(value: &self.messageType)
+      case 5: try decoder.decodeSingularBoolField(value: &self.ignoreUnknownJson)
       default: break
       }
     }
@@ -336,6 +340,9 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if !self.messageType.isEmpty {
       try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
     }
+    if self.ignoreUnknownJson != false {
+      try visitor.visitSingularBoolField(value: self.ignoreUnknownJson, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -343,6 +350,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if self.payload != other.payload {return false}
     if self.requestedOutputFormat != other.requestedOutputFormat {return false}
     if self.messageType != other.messageType {return false}
+    if self.ignoreUnknownJson != other.ignoreUnknownJson {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
