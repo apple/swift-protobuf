@@ -5,6 +5,7 @@ syntax = "proto3";
 package protobuf_unittest_generated;
 message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
+  message allCases { int32 allCases = 1; }
   message allocate { int32 allocate = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }

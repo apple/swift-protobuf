@@ -86,6 +86,19 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+
+extension ProtobufTestMessages_Proto3_ForeignEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufTestMessages_Proto3_ForeignEnum] = [
+    .foreignFoo,
+    .foreignBar,
+    .foreignBaz,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 /// This proto includes every type of field in both singular and repeated
 /// forms.
 ///
@@ -900,6 +913,20 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
+
+#if swift(>=4.2)
+
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
+    .foo,
+    .bar,
+    .baz,
+    .neg,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 struct ProtobufTestMessages_Proto3_ForeignMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

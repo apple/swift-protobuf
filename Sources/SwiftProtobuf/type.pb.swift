@@ -81,6 +81,18 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+
+extension Google_Protobuf_Syntax: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [Google_Protobuf_Syntax] = [
+    .proto2,
+    .proto3,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 /// A protocol buffer message type.
 public struct Google_Protobuf_Type {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -337,6 +349,45 @@ public struct Google_Protobuf_Field {
 
   public init() {}
 }
+
+#if swift(>=4.2)
+
+extension Google_Protobuf_Field.Kind: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [Google_Protobuf_Field.Kind] = [
+    .typeUnknown,
+    .typeDouble,
+    .typeFloat,
+    .typeInt64,
+    .typeUint64,
+    .typeInt32,
+    .typeFixed64,
+    .typeFixed32,
+    .typeBool,
+    .typeString,
+    .typeGroup,
+    .typeMessage,
+    .typeBytes,
+    .typeUint32,
+    .typeEnum,
+    .typeSfixed32,
+    .typeSfixed64,
+    .typeSint32,
+    .typeSint64,
+  ]
+}
+
+extension Google_Protobuf_Field.Cardinality: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [Google_Protobuf_Field.Cardinality] = [
+    .unknown,
+    .optional,
+    .required,
+    .repeated,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 /// Enum type definition.
 public struct Google_Protobuf_Enum {

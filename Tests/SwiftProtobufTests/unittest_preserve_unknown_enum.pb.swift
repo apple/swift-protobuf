@@ -80,6 +80,19 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+
+extension Proto3PreserveUnknownEnumUnittest_MyEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [
+    .foo,
+    .bar,
+    .baz,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eFoo // = 0
@@ -113,6 +126,20 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   }
 
 }
+
+#if swift(>=4.2)
+
+extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [
+    .eFoo,
+    .eBar,
+    .eBaz,
+    .eExtra,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

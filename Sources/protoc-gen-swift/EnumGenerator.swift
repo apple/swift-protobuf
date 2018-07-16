@@ -26,6 +26,8 @@ class EnumGenerator {
   private let generatorOptions: GeneratorOptions
   private let namer: SwiftProtobufNamer
 
+  /// The values that aren't aliases, as ordered in the .proto.
+  private let mainEnumValueDescriptors: [EnumValueDescriptor]
   /// The values that aren't aliases, sorted by number.
   private let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
 
@@ -40,9 +42,10 @@ class EnumGenerator {
     self.generatorOptions = generatorOptions
     self.namer = namer
 
-    mainEnumValueDescriptorsSorted = descriptor.values.filter({
+    mainEnumValueDescriptors = descriptor.values.filter({
       return $0.aliasOf == nil
-    }).sorted(by: {
+    })
+    mainEnumValueDescriptorsSorted = mainEnumValueDescriptors.sorted(by: {
       return $0.number < $1.number
     })
 
@@ -80,6 +83,39 @@ class EnumGenerator {
     p.outdent()
     p.print("\n")
     p.print("}\n")
+  }
+
+  func generateCaseIterable(
+    printer p: inout CodePrinter,
+    includeGuards: Bool = true
+  ) {
+    // NOTE: When we can assume Swift 4.2, this should move from an extension
+    // to being directly done when declaring the type.
+
+    let visibility = generatorOptions.visibilitySourceSnippet
+
+    p.print("\n")
+    if includeGuards {
+      p.print("#if swift(>=4.2)\n\n")
+    }
+    p.print("extension \(swiftFullName): CaseIterable {\n")
+    p.indent()
+    if enumDescriptor.hasUnknownPreservingSemantics {
+      p.print("// The compiler won't synthesize support with the \(unrecognizedCaseName) case.\n")
+      p.print("\(visibility)static var allCases: [\(swiftFullName)] = [\n")
+      for v in mainEnumValueDescriptors {
+        let dottedName = namer.dottedRelativeName(enumValue: v)
+        p.print("  \(dottedName),\n")
+      }
+      p.print("]\n")
+    } else {
+      p.print("// Support synthesized by the compiler.\n")
+    }
+    p.outdent()
+    p.print("}\n")
+    if includeGuards {
+      p.print("\n#endif  // swift(>=4.2)\n")
+    }
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter) {

@@ -80,6 +80,19 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+
+extension Conformance_WireFormat: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Conformance_WireFormat] = [
+    .unspecified,
+    .protobuf,
+    .json,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 /// Represents a single test case's input.  The testee should:
 ///
 ///   1. parse this proto (which should always succeed)

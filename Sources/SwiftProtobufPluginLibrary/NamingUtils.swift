@@ -149,6 +149,7 @@ fileprivate let quotableEnumCases: Set<String> = {
  */
 fileprivate let reservedEnumCases: Set<String> = [
   // Don't conflict with standard Swift property names:
+  "allCases",
   "debugDescription",
   "description",
   "dynamicType",

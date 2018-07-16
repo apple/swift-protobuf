@@ -683,6 +683,14 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
 
 }
 
+#if swift(>=4.2)
+
+extension SwiftUnittest_Names_EnumFieldNames: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
+
 enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case aa // = 0
@@ -716,6 +724,14 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
   }
 
 }
+
+#if swift(>=4.2)
+
+extension SwiftUnittest_Names_EnumFieldNames2: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
 
 struct SwiftUnittest_Names_Foo: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -12105,6 +12121,854 @@ struct SwiftUnittest_Names_EnumNames {
 
   init() {}
 }
+
+#if swift(>=4.2)
+
+extension SwiftUnittest_Names_EnumNames.StringEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ProtocolEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.IntEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.DoubleEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.FloatEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.UIntEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.hashValueEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.descriptionEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.debugDescriptionEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Swift: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.UNRECOGNIZED: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.classEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.deinitEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.enumEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.extensionEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.funcEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.importEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.initEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.inoutEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.internalEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.letEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.operatorEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.privateEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.protocolEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.publicEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.staticEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.structEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.subscriptEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.typealiasEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.varEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.breakEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.caseEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.continueEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.defaultEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.deferEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.doEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.elseEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.fallthroughEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.forEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.guardEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ifEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.inEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.repeatEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.returnEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.switchEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.whereEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.whileEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.asEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.catchEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.dynamicTypeEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.falseEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.isEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.nilEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.rethrowsEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.superEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.selfEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.throwEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.throwsEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.trueEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.tryEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.__COLUMN__Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.__FILE__Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.__FUNCTION__Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.__LINE__Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames._Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.__Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.associativity: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.convenience: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.dynamic: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.didSet: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.final: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.get: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.infix: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.indirect: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.lazy: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.left: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.mutating: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.none: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.nonmutating: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.optional: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.override: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.postfix: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.precedence: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.prefix: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.required: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.right: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.set: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.TypeEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.unowned: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.weak: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.willSet: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.id: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames._cmd: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.out: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.bycopy: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.byref: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.oneway: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.and: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.and_eq: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.alignas: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.alignof: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.asm: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.auto: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.bitand: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.bitor: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.bool: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.char: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.char16_t: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.char32_t: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.compl: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.const: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.constexpr: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.const_cast: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.decltype: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.delete: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.dynamic_cast: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.explicit: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.export: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.extern: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.friend: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.goto: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.inline: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.long: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.mutable: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.namespace: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.new: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.noexcept: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.not: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.not_eq: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.nullptr: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.or: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.or_eq: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.protected: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.register: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.reinterpret_cast: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.short: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.signed: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.sizeof: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.static_assert: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.static_cast: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.template: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.this: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.thread_local: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.typedef: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.typeid: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.typename: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.union: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.unsigned: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.using: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.virtual: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.void: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.volatile: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.wchar_t: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.xor: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.xor_eq: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.restrict: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Category: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Ivar: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Method: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.finalize: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.hash: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.dealloc: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.superclass: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.retain: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.release: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.autorelease: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.retainCount: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.zone: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.isProxy: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.copy: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.mutableCopy: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.classForCoder: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.clear: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.data: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.delimitedData: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.descriptor: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.extensionRegistry: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.extensionsCurrentlySet: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.isInitializedEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.serializedSize: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.sortedExtensionsInUse: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.unknownFieldsEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Fixed: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Fract: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Size: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.LogicalAddress: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.PhysicalAddress: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ByteCount: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ByteOffset: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Duration: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.AbsoluteTime: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.OptionBits: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ItemCount: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.PBVersion: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ScriptCode: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.LangCode: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.RegionCode: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.OSType: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ProcessSerialNumber: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Point: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Rect: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.FixedPoint: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.FixedRect: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Style: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.StyleParameter: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.StyleField: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.TimeScale: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.TimeBase: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.TimeRecord: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.Extension: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension SwiftUnittest_Names_EnumNames.ExtensionsEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
 
 struct SwiftUnittest_Names_FieldNamingInitials {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

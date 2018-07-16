@@ -117,10 +117,19 @@ class FileGenerator {
 
         for e in enums {
             e.generateMainEnum(printer: &p)
+            e.generateCaseIterable(printer: &p)
         }
 
         for m in messages {
             m.generateMainStruct(printer: &p, parent: nil, errorString: &errorString)
+
+            var caseIterablePrinter = CodePrinter()
+            m.generateEnumCaseIterable(printer: &caseIterablePrinter)
+            if !caseIterablePrinter.isEmpty {
+              p.print("\n#if swift(>=4.2)\n")
+              p.print(caseIterablePrinter.content)
+              p.print("\n#endif  // swift(>=4.2)\n")
+            }
         }
 
         if !extensionSet.isEmpty {

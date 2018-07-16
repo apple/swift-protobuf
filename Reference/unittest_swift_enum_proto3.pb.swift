@@ -179,6 +179,42 @@ struct Protobuf3Unittest_SwiftEnumTest {
   init() {}
 }
 
+#if swift(>=4.2)
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTest1: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = [
+    .firstValue,
+    .secondValue,
+  ]
+}
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTest2: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest2] = [
+    .firstValue,
+    .secondValue,
+  ]
+}
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem] = [
+    .enumTestNoStem1,
+    .enumTestNoStem2,
+  ]
+}
+
+extension Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord] = [
+    .var,
+    .notReserved,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 struct Protobuf3Unittest_SwiftEnumWithAliasTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -192,6 +228,9 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
     typealias RawValue = Int
     case foo1 // = 0
     static let foo2 = foo1
+
+    /// out of value order to test allCases
+    case baz1 // = 3
     case bar1 // = 2
     static let bar2 = bar1
     case UNRECOGNIZED(Int)
@@ -204,6 +243,7 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
       switch rawValue {
       case 0: self = .foo1
       case 2: self = .bar1
+      case 3: self = .baz1
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -212,6 +252,7 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
       switch self {
       case .foo1: return 0
       case .bar1: return 2
+      case .baz1: return 3
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -220,6 +261,19 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
 
   init() {}
 }
+
+#if swift(>=4.2)
+
+extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = [
+    .foo1,
+    .baz1,
+    .bar1,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -333,5 +387,6 @@ extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf.
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .aliased(proto: "FOO1", aliases: ["FOO2"]),
     2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+    3: .same(proto: "BAZ1"),
   ]
 }

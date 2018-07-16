@@ -94,6 +94,19 @@ struct UnittestDropUnknownFields_Foo {
   init() {}
 }
 
+#if swift(>=4.2)
+
+extension UnittestDropUnknownFields_Foo.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [UnittestDropUnknownFields_Foo.NestedEnum] = [
+    .foo,
+    .bar,
+    .baz,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 struct UnittestDropUnknownFields_FooWithExtraFields {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -143,6 +156,20 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
 
   init() {}
 }
+
+#if swift(>=4.2)
+
+extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [UnittestDropUnknownFields_FooWithExtraFields.NestedEnum] = [
+    .foo,
+    .bar,
+    .baz,
+    .qux,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
