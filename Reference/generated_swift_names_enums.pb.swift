@@ -6355,6 +6355,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum ignoreUnknownFields: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneIgnoreUnknownFields // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIgnoreUnknownFields
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIgnoreUnknownFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIgnoreUnknownFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum index: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneIndex // = 0
@@ -17131,6 +17156,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i: CaseIterable 
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ignoreUnknownFields: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ignoreUnknownFields] = [
+    .noneIgnoreUnknownFields,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index] = [
@@ -21191,6 +21223,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hour: SwiftProto
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_i"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ignoreUnknownFields: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ignoreUnknownFields"),
   ]
 }
 

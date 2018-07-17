@@ -257,6 +257,7 @@ message GeneratedSwiftReservedMessages {
   message hasValue { int32 hasValue = 1; }
   message hour { int32 hour = 1; }
   message i { int32 i = 1; }
+  message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message index { int32 index = 1; }
   message init { int32 init = 1; }
   message inout { int32 inout = 1; }
