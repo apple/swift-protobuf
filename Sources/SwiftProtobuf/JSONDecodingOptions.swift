@@ -22,7 +22,7 @@ public struct JSONDecodingOptions {
   public var messageDepthLimit: Int = 100
 
   /// If unknown fields in the JSON should be ignored. If they aren't
-  /// ignored, and error will be raised if one is encountered.
+  /// ignored, an error will be raised if one is encountered.
   public var ignoreUnknownFields: Bool = false
 
   public init() {}
