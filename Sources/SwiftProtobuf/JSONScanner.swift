@@ -376,6 +376,7 @@ internal struct JSONScanner {
   private var numberFormatter = DoubleFormatter()
   internal var recursionLimit: Int
   internal var recursionBudget: Int
+  private var ignoreUnknownFields: Bool
 
   /// True if the scanner has read all of the data from the source, with the
   /// exception of any trailing whitespace (which is consumed by reading this
@@ -397,11 +398,16 @@ internal struct JSONScanner {
     return source[index]
   }
 
-  internal init(source: UnsafeBufferPointer<UInt8>, messageDepthLimit: Int) {
+  internal init(
+    source: UnsafeBufferPointer<UInt8>,
+    messageDepthLimit: Int,
+    ignoreUnknownFields: Bool
+  ) {
     self.source = source
     self.index = source.startIndex
     self.recursionLimit = messageDepthLimit
     self.recursionBudget = messageDepthLimit
+    self.ignoreUnknownFields = ignoreUnknownFields
   }
 
   private mutating func incrementRecursionDepth() throws {
@@ -1248,12 +1254,19 @@ internal struct JSONScanner {
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
         }
+        if !ignoreUnknownFields {
+          let fieldName = utf8ToString(bytes: key.baseAddress!, count: key.count)!
+          throw JSONDecodingError.unknownField(fieldName)
+        }
       } else {
         // Slow path:  We parsed a String; lookups from String are slower.
         let key = try nextQuotedString()
         try skipRequiredCharacter(asciiColon) // :
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
+        }
+        if !ignoreUnknownFields {
+          throw JSONDecodingError.unknownField(key)
         }
       }
       // Unknown field, skip it and try to parse the next field name

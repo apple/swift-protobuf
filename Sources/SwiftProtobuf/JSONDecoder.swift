@@ -27,7 +27,9 @@ internal struct JSONDecoder: Decoder {
 
   internal init(source: UnsafeBufferPointer<UInt8>, options: JSONDecodingOptions) {
     self.options = options
-    self.scanner = JSONScanner(source: source, messageDepthLimit: self.options.messageDepthLimit)
+    self.scanner = JSONScanner(source: source,
+                               messageDepthLimit: self.options.messageDepthLimit,
+                               ignoreUnknownFields: self.options.ignoreUnknownFields)
   }
 
   private init(decoder: JSONDecoder) {
