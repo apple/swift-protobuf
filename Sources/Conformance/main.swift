@@ -62,8 +62,10 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
 
     // Detect when something gets added to the conformance request that isn't
     // supported yet.
-    if !request.unknownFields.data.isEmpty {
-        response.runtimeError = "ConformanceRequest had unknown fields; regenerate conformance.pb.swift and see what support needs to be added."
+    guard request.unknownFields.data.isEmpty else {
+        response.runtimeError =
+            "ConformanceRequest had unknown fields; regenerate conformance.pb.swift and"
+            + " see what support needs to be added."
         return response
     }
 
