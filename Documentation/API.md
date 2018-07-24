@@ -141,26 +141,6 @@ then the word `Message` is appended to the name.
 For example, a `message Int` in the proto file will cause the
 generator to emit a `struct IntMessage` to the generated Swift file.
 
-### Overridable Message methods
-
-You can redefine the following in manually-constructed extensions if you
-want to override the default generated behavior for any reason:
-
-```swift
-  // By default, this just calls `serializedText()`
-  public var debugDescription: String
-
-  // By default, this computes a simple hash over all of the
-  // defined fields and submessages.
-  public var hashValue: Int
-
-  // The == operator is implemented in terms of this method
-  // so that you can easily override the implementation.
-  // You may override this method, but you should never call it directly.
-  // The default generated implementation compares every field for equality.
-  public func isEqualTo(message: Example) -> Bool
-```
-
 ## Enum API
 
 Proto enums are translated to Swift enums in a fairly straightforward manner.
