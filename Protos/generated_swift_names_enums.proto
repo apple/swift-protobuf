@@ -257,6 +257,7 @@ message GeneratedSwiftReservedEnums {
   enum hasValue { NONE_hasValue = 0; }
   enum hour { NONE_hour = 0; }
   enum i { NONE_i = 0; }
+  enum ignoreUnknownFields { NONE_ignoreUnknownFields = 0; }
   enum index { NONE_index = 0; }
   enum init { NONE_init = 0; }
   enum inout { NONE_inout = 0; }

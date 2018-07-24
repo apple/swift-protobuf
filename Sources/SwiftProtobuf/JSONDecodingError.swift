@@ -55,4 +55,8 @@ public enum JSONDecodingError: Error {
     case conflictingOneOf
     /// Reached the nesting limit for messages within messages while decoding.
     case messageDepthLimit
+    /// Encountered an unknown field with the given name. When parsing JSON, you
+    /// can instead instruct the library to ignore this via
+    /// JSONDecodingOptions.ignoreUnknownFields.
+    case unknownField(String)
 }

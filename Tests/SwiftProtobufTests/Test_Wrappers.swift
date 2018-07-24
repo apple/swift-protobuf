@@ -143,7 +143,7 @@ class Test_Wrappers: XCTestCase {
         // TODO: More
 
         let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
-          jsonString: "{\"optionalUInt64Wrapper\":null}")
+          jsonString: "{\"optionalUint64Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalUint64Wrapper)
 
         assertJSONDecodeNullFails(for: Google_Protobuf_UInt64Value.self)
@@ -181,7 +181,7 @@ class Test_Wrappers: XCTestCase {
         // TODO: More
 
         let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
-          jsonString: "{\"optionalUInt32Wrapper\":null}")
+          jsonString: "{\"optionalUint32Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalUint32Wrapper)
 
         assertJSONDecodeNullFails(for: Google_Protobuf_UInt32Value.self)
