@@ -375,9 +375,9 @@ use an additional type object at this point.
 
 Many other facilities - not just serialization - can be built on
 top of this same machinery.
-For example, the default `hashValue` implementation uses the same
-traversal machinery to iterate over all of the set fields and values
-in order to compute the hash.
+For example, the `hashValue` implementation uses the same traversal
+machinery to iterate over all of the set fields and values in order
+to compute the hash.
 
 You can look at the runtime library to see more details about the
 `Visitor` protocol and the various implementations in each encoder.
@@ -447,8 +447,6 @@ collected unknown field data onto the resulting message object.
 ## Miscellaneous support methods
 
 TODO: initializers
-
-TODO: isEqualTo
 
 TODO: _protobuf_generated methods
 
