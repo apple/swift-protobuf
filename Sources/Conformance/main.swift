@@ -69,6 +69,16 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         return response
     }
 
+    switch request.testCategory {
+    case .binaryTest, .jsonTest, .jsonIgnoreUnknownParsingTest:
+        break  // known, nothing to do.
+    case .UNRECOGNIZED(let x):
+        response.runtimeError =
+          "ConformanceRequest had a new testCategory (\(x)); regenerate conformance.pb.swift"
+          + " and see what support needs to be added."
+        return response
+    }
+
     let msgType: SwiftProtobuf.Message.Type
     switch request.messageType {
     case "":
@@ -95,7 +105,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         }
     case .jsonPayload(let json)?:
         var options = JSONDecodingOptions()
-        options.ignoreUnknownFields = request.ignoreUnknownJson
+        options.ignoreUnknownFields = (request.testCategory == .jsonIgnoreUnknownParsingTest)
         do {
             testMessage = try msgType.init(jsonString: json, options: options)
         } catch let e {
