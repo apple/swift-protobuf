@@ -93,6 +93,60 @@ extension Conformance_WireFormat: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+enum Conformance_TestCategory: SwiftProtobuf.Enum {
+  typealias RawValue = Int
+
+  /// Test binary wire format.
+  case binaryTest // = 0
+
+  /// Test json wire format.
+  case jsonTest // = 1
+
+  /// Similar to JSON_TEST. However, during parsing json, testee should ignore
+  /// unknown fields. This feature is optional. Each implementation can descide
+  /// whether to support it.  See
+  /// https://developers.google.com/protocol-buffers/docs/proto3#json_options
+  /// for more detail.
+  case jsonIgnoreUnknownParsingTest // = 2
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .binaryTest
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .binaryTest
+    case 1: self = .jsonTest
+    case 2: self = .jsonIgnoreUnknownParsingTest
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .binaryTest: return 0
+    case .jsonTest: return 1
+    case .jsonIgnoreUnknownParsingTest: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Conformance_TestCategory: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Conformance_TestCategory] = [
+    .binaryTest,
+    .jsonTest,
+    .jsonIgnoreUnknownParsingTest,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 /// Represents a single test case's input.  The testee should:
 ///
 ///   1. parse this proto (which should always succeed)
@@ -136,7 +190,10 @@ struct Conformance_ConformanceRequest {
   /// protobuf_test_messages.proto2.TestAllTypesProto2.
   var messageType: String = String()
 
-  var ignoreUnknownJson: Bool = false
+  /// Each test is given a specific test category. Some category may need spedific
+  /// support in testee programs. Refer to the defintion of TestCategory for
+  /// more information.
+  var testCategory: Conformance_TestCategory = .binaryTest
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -295,6 +352,14 @@ extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
+extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "BINARY_TEST"),
+    1: .same(proto: "JSON_TEST"),
+    2: .same(proto: "JSON_IGNORE_UNKNOWN_PARSING_TEST"),
+  ]
+}
+
 extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -302,7 +367,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     2: .standard(proto: "json_payload"),
     3: .standard(proto: "requested_output_format"),
     4: .standard(proto: "message_type"),
-    5: .standard(proto: "ignore_unknown_json"),
+    5: .standard(proto: "test_category"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -320,7 +385,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
         if let v = v {self.payload = .jsonPayload(v)}
       case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
       case 4: try decoder.decodeSingularStringField(value: &self.messageType)
-      case 5: try decoder.decodeSingularBoolField(value: &self.ignoreUnknownJson)
+      case 5: try decoder.decodeSingularEnumField(value: &self.testCategory)
       default: break
       }
     }
@@ -340,8 +405,8 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if !self.messageType.isEmpty {
       try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
     }
-    if self.ignoreUnknownJson != false {
-      try visitor.visitSingularBoolField(value: self.ignoreUnknownJson, fieldNumber: 5)
+    if self.testCategory != .binaryTest {
+      try visitor.visitSingularEnumField(value: self.testCategory, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -350,7 +415,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if self.payload != other.payload {return false}
     if self.requestedOutputFormat != other.requestedOutputFormat {return false}
     if self.messageType != other.messageType {return false}
-    if self.ignoreUnknownJson != other.ignoreUnknownJson {return false}
+    if self.testCategory != other.testCategory {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
