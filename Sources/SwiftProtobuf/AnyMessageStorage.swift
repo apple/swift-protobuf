@@ -56,7 +56,7 @@ fileprivate func unpack(contentJSON: Data,
                         as messageType: Message.Type) throws -> Message {
   guard messageType is _CustomJSONCodable.Type else {
     let contentJSONAsObject = asJSONObject(body: contentJSON)
-    return try messageType.init(jsonUTF8Data: contentJSONAsObject)
+    return try messageType.init(jsonUTF8Data: contentJSONAsObject, options: options)
   }
 
   var value = String()
