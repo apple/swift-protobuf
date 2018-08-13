@@ -22,7 +22,7 @@ private let i_16777619 = Int(16777619)
 ///
 /// Note that because this visits every field, it has the potential to be slow
 /// for large or deeply nested messages. Users who need to use such messages as
-/// dictionary keys or set members should use a wrapper struct around the message
+/// dictionary keys or set members can use a wrapper struct around the message
 /// and use a custom Hashable implementation that looks at the subset of the
 /// message fields they want to include.
 internal struct HashVisitor: Visitor {
