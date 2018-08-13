@@ -584,22 +584,22 @@ extension Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_Type, rhs: Google_Protobuf_Type) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._fields != other_storage._fields {return false}
-        if _storage._oneofs != other_storage._oneofs {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._sourceContext != other_storage._sourceContext {return false}
-        if _storage._syntax != other_storage._syntax {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._fields != rhs_storage._fields {return false}
+        if _storage._oneofs != rhs_storage._oneofs {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._sourceContext != rhs_storage._sourceContext {return false}
+        if _storage._syntax != rhs_storage._syntax {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -671,18 +671,18 @@ extension Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
-    if self.kind != other.kind {return false}
-    if self.cardinality != other.cardinality {return false}
-    if self.number != other.number {return false}
-    if self.name != other.name {return false}
-    if self.typeURL != other.typeURL {return false}
-    if self.oneofIndex != other.oneofIndex {return false}
-    if self.packed != other.packed {return false}
-    if self.options != other.options {return false}
-    if self.jsonName != other.jsonName {return false}
-    if self.defaultValue != other.defaultValue {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_Field, rhs: Google_Protobuf_Field) -> Bool {
+    if lhs.kind != rhs.kind {return false}
+    if lhs.cardinality != rhs.cardinality {return false}
+    if lhs.number != rhs.number {return false}
+    if lhs.name != rhs.name {return false}
+    if lhs.typeURL != rhs.typeURL {return false}
+    if lhs.oneofIndex != rhs.oneofIndex {return false}
+    if lhs.packed != rhs.packed {return false}
+    if lhs.options != rhs.options {return false}
+    if lhs.jsonName != rhs.jsonName {return false}
+    if lhs.defaultValue != rhs.defaultValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -794,21 +794,21 @@ extension Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_Enum, rhs: Google_Protobuf_Enum) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._enumvalue != other_storage._enumvalue {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._sourceContext != other_storage._sourceContext {return false}
-        if _storage._syntax != other_storage._syntax {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._enumvalue != rhs_storage._enumvalue {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._sourceContext != rhs_storage._sourceContext {return false}
+        if _storage._syntax != rhs_storage._syntax {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -845,11 +845,11 @@ extension Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
-    if self.name != other.name {return false}
-    if self.number != other.number {return false}
-    if self.options != other.options {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_EnumValue, rhs: Google_Protobuf_EnumValue) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.number != rhs.number {return false}
+    if lhs.options != rhs.options {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -907,18 +907,18 @@ extension Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_Option, rhs: Google_Protobuf_Option) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._value != other_storage._value {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._value != rhs_storage._value {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
