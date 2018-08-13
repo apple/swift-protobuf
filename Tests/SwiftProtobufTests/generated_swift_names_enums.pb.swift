@@ -6205,6 +6205,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum hasher: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasher // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasher
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasher
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasher: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum hashValueEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHashValue // = 0
@@ -6749,6 +6774,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneInternalState: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum into: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneInto // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneInto
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneInto
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneInto: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -7674,6 +7724,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneLittleEndianBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum localHasher: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneLocalHasher // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneLocalHasher
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneLocalHasher
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneLocalHasher: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -17139,6 +17214,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: CaseIt
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher] = [
+    .noneHasher,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum] = [
@@ -17290,6 +17372,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.InternalState: C
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.InternalState] = [
     .noneInternalState,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.into: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.into] = [
+    .noneInto,
   ]
 }
 
@@ -17549,6 +17638,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndianByte
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndianBytes] = [
     .noneLittleEndianBytes,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.localHasher: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.localHasher] = [
+    .noneLocalHasher,
   ]
 }
 
@@ -21222,6 +21318,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: SwiftP
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasher"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hashValue"),
@@ -21351,6 +21453,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Internal: SwiftP
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.InternalState: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_InternalState"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.into: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_into"),
   ]
 }
 
@@ -21573,6 +21681,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndian: Sw
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndianBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_littleEndianBytes"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.localHasher: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_localHasher"),
   ]
 }
 

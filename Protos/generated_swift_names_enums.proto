@@ -251,6 +251,7 @@ message GeneratedSwiftReservedEnums {
   enum hasExtensionValue { NONE_hasExtensionValue = 0; }
   enum hash { NONE_hash = 0; }
   enum Hashable { NONE_Hashable = 0; }
+  enum hasher { NONE_hasher = 0; }
   enum hashValue { NONE_hashValue = 0; }
   enum HashVisitor { NONE_HashVisitor = 0; }
   enum hasSourceContext { NONE_hasSourceContext = 0; }
@@ -273,6 +274,7 @@ message GeneratedSwiftReservedEnums {
   enum intern { NONE_intern = 0; }
   enum Internal { NONE_Internal = 0; }
   enum InternalState { NONE_InternalState = 0; }
+  enum into { NONE_into = 0; }
   enum ints { NONE_ints = 0; }
   enum isA { NONE_isA = 0; }
   enum isEqual { NONE_isEqual = 0; }
@@ -310,6 +312,7 @@ message GeneratedSwiftReservedEnums {
   enum listValue { NONE_listValue = 0; }
   enum littleEndian { NONE_littleEndian = 0; }
   enum littleEndianBytes { NONE_littleEndianBytes = 0; }
+  enum localHasher { NONE_localHasher = 0; }
   enum M { NONE_M = 0; }
   enum major { NONE_major = 0; }
   enum makeIterator { NONE_makeIterator = 0; }

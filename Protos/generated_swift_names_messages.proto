@@ -251,6 +251,7 @@ message GeneratedSwiftReservedMessages {
   message hasExtensionValue { int32 hasExtensionValue = 1; }
   message hash { int32 hash = 1; }
   message Hashable { int32 Hashable = 1; }
+  message hasher { int32 hasher = 1; }
   message hashValue { int32 hashValue = 1; }
   message HashVisitor { int32 HashVisitor = 1; }
   message hasSourceContext { int32 hasSourceContext = 1; }
@@ -273,6 +274,7 @@ message GeneratedSwiftReservedMessages {
   message intern { int32 intern = 1; }
   message Internal { int32 Internal = 1; }
   message InternalState { int32 InternalState = 1; }
+  message into { int32 into = 1; }
   message ints { int32 ints = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
@@ -310,6 +312,7 @@ message GeneratedSwiftReservedMessages {
   message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
   message littleEndianBytes { int32 littleEndianBytes = 1; }
+  message localHasher { int32 localHasher = 1; }
   message M { int32 M = 1; }
   message major { int32 major = 1; }
   message makeIterator { int32 makeIterator = 1; }
