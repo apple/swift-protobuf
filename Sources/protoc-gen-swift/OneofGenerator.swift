@@ -368,9 +368,9 @@ class OneofGenerator {
 
         let otherStoredProperty: String
         if usesHeapStorage {
-          otherStoredProperty = "other_storage.\(underscoreSwiftFieldName)"
+          otherStoredProperty = "rhs_storage.\(underscoreSwiftFieldName)"
         } else {
-          otherStoredProperty = "other.\(swiftFieldName)"
+          otherStoredProperty = "rhs.\(swiftFieldName)"
         }
 
         p.print("if \(storedProperty) != \(otherStoredProperty) {return false}\n")

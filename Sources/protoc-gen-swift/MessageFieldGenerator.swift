@@ -138,14 +138,17 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     }
 
     func generateFieldComparison(printer p: inout CodePrinter) {
+        let lhsProperty: String
         let otherStoredProperty: String
         if usesHeapStorage {
-            otherStoredProperty = "other_storage.\(underscoreSwiftName)"
+            lhsProperty = "_storage.\(underscoreSwiftName)"
+            otherStoredProperty = "rhs_storage.\(underscoreSwiftName)"
         } else {
-            otherStoredProperty = "other.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
+            lhsProperty = "lhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
+            otherStoredProperty = "rhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
         }
 
-        p.print("if \(storedProperty) != \(otherStoredProperty) {return false}\n")
+        p.print("if \(lhsProperty) != \(otherStoredProperty) {return false}\n")
     }
 
    func generateRequiredFieldCheck(printer p: inout CodePrinter) {
