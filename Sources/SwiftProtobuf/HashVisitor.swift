@@ -18,13 +18,13 @@ import Foundation
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 
-/// Computes the hash value of a message by visiting its fields recursively.
+/// Computes the hash of a message by visiting its fields recursively.
 ///
 /// Note that because this visits every field, it has the potential to be slow
 /// for large or deeply nested messages. Users who need to use such messages as
-/// dictionary keys or set members should override `hashValue` in an extension
-/// and provide a more efficient implementation by examining only a subset of
-/// key fields.
+/// dictionary keys or set members can use a wrapper struct around the message
+/// and use a custom Hashable implementation that looks at the subset of the
+/// message fields they want to include.
 internal struct HashVisitor: Visitor {
 
   // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
