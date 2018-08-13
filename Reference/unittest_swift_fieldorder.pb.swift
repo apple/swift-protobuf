@@ -671,11 +671,11 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
   }
 
   static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration, rhs: Swift_Protobuf_OneofTraversalGeneration) -> Bool {
-    if self.oGood != rhs.oGood {return false}
-    if self.oConflictField != rhs.oConflictField {return false}
+    if lhs.oGood != rhs.oGood {return false}
+    if lhs.oConflictField != rhs.oConflictField {return false}
     if lhs._m != rhs._m {return false}
-    if self.oConflictExtensionsStart != rhs.oConflictExtensionsStart {return false}
-    if self.oConflictExtensionsEnd != rhs.oConflictExtensionsEnd {return false}
+    if lhs.oConflictExtensionsStart != rhs.oConflictExtensionsStart {return false}
+    if lhs.oConflictExtensionsEnd != rhs.oConflictExtensionsEnd {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true

@@ -412,7 +412,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   static func ==(lhs: Conformance_ConformanceRequest, rhs: Conformance_ConformanceRequest) -> Bool {
-    if self.payload != rhs.payload {return false}
+    if lhs.payload != rhs.payload {return false}
     if lhs.requestedOutputFormat != rhs.requestedOutputFormat {return false}
     if lhs.messageType != rhs.messageType {return false}
     if lhs.testCategory != rhs.testCategory {return false}
@@ -490,7 +490,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   static func ==(lhs: Conformance_ConformanceResponse, rhs: Conformance_ConformanceResponse) -> Bool {
-    if self.result != rhs.result {return false}
+    if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

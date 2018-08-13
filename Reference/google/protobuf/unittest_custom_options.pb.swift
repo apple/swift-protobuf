@@ -1916,7 +1916,7 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, 
 
   static func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions, rhs: ProtobufUnittest_TestMessageWithCustomOptions) -> Bool {
     if lhs._field1 != rhs._field1 {return false}
-    if self.anOneof != rhs.anOneof {return false}
+    if lhs.anOneof != rhs.anOneof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
