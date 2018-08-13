@@ -15,7 +15,7 @@
 /// = JSON serialization (with some twists to account for specialty JSON
 ///   encodings)
 /// = Protobuf text serialization
-/// = hashValue computation
+/// = Hashable computation
 ///
 /// Conceptually, serializers create visitor objects that are
 /// then passed recursively to every message and field via generated
