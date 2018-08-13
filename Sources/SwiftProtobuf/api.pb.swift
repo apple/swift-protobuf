@@ -354,23 +354,23 @@ extension Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_Api, rhs: Google_Protobuf_Api) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._methods != other_storage._methods {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._version != other_storage._version {return false}
-        if _storage._sourceContext != other_storage._sourceContext {return false}
-        if _storage._mixins != other_storage._mixins {return false}
-        if _storage._syntax != other_storage._syntax {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._methods != rhs_storage._methods {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._version != rhs_storage._version {return false}
+        if _storage._sourceContext != rhs_storage._sourceContext {return false}
+        if _storage._mixins != rhs_storage._mixins {return false}
+        if _storage._syntax != rhs_storage._syntax {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -427,15 +427,15 @@ extension Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
-    if self.name != other.name {return false}
-    if self.requestTypeURL != other.requestTypeURL {return false}
-    if self.requestStreaming != other.requestStreaming {return false}
-    if self.responseTypeURL != other.responseTypeURL {return false}
-    if self.responseStreaming != other.responseStreaming {return false}
-    if self.options != other.options {return false}
-    if self.syntax != other.syntax {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_Method, rhs: Google_Protobuf_Method) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.requestTypeURL != rhs.requestTypeURL {return false}
+    if lhs.requestStreaming != rhs.requestStreaming {return false}
+    if lhs.responseTypeURL != rhs.responseTypeURL {return false}
+    if lhs.responseStreaming != rhs.responseStreaming {return false}
+    if lhs.options != rhs.options {return false}
+    if lhs.syntax != rhs.syntax {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -467,10 +467,10 @@ extension Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Mixin) -> Bool {
-    if self.name != other.name {return false}
-    if self.root != other.root {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_Mixin, rhs: Google_Protobuf_Mixin) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.root != rhs.root {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

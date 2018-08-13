@@ -2064,9 +2064,9 @@ extension Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileDescriptorSet) -> Bool {
-    if self.file != other.file {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_FileDescriptorSet, rhs: Google_Protobuf_FileDescriptorSet) -> Bool {
+    if lhs.file != rhs.file {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2205,28 +2205,28 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_FileDescriptorProto, rhs: Google_Protobuf_FileDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._package != other_storage._package {return false}
-        if _storage._dependency != other_storage._dependency {return false}
-        if _storage._publicDependency != other_storage._publicDependency {return false}
-        if _storage._weakDependency != other_storage._weakDependency {return false}
-        if _storage._messageType != other_storage._messageType {return false}
-        if _storage._enumType != other_storage._enumType {return false}
-        if _storage._service != other_storage._service {return false}
-        if _storage._extension != other_storage._extension {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._sourceCodeInfo != other_storage._sourceCodeInfo {return false}
-        if _storage._syntax != other_storage._syntax {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._package != rhs_storage._package {return false}
+        if _storage._dependency != rhs_storage._dependency {return false}
+        if _storage._publicDependency != rhs_storage._publicDependency {return false}
+        if _storage._weakDependency != rhs_storage._weakDependency {return false}
+        if _storage._messageType != rhs_storage._messageType {return false}
+        if _storage._enumType != rhs_storage._enumType {return false}
+        if _storage._service != rhs_storage._service {return false}
+        if _storage._extension != rhs_storage._extension {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._sourceCodeInfo != rhs_storage._sourceCodeInfo {return false}
+        if _storage._syntax != rhs_storage._syntax {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2353,26 +2353,26 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_DescriptorProto, rhs: Google_Protobuf_DescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._field != other_storage._field {return false}
-        if _storage._extension != other_storage._extension {return false}
-        if _storage._nestedType != other_storage._nestedType {return false}
-        if _storage._enumType != other_storage._enumType {return false}
-        if _storage._extensionRange != other_storage._extensionRange {return false}
-        if _storage._oneofDecl != other_storage._oneofDecl {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._reservedRange != other_storage._reservedRange {return false}
-        if _storage._reservedName != other_storage._reservedName {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._field != rhs_storage._field {return false}
+        if _storage._extension != rhs_storage._extension {return false}
+        if _storage._nestedType != rhs_storage._nestedType {return false}
+        if _storage._enumType != rhs_storage._enumType {return false}
+        if _storage._extensionRange != rhs_storage._extensionRange {return false}
+        if _storage._oneofDecl != rhs_storage._oneofDecl {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._reservedRange != rhs_storage._reservedRange {return false}
+        if _storage._reservedName != rhs_storage._reservedName {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2444,19 +2444,19 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_DescriptorProto.ExtensionRange, rhs: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._start != other_storage._start {return false}
-        if _storage._end != other_storage._end {return false}
-        if _storage._options != other_storage._options {return false}
+        let rhs_storage = _args.1
+        if _storage._start != rhs_storage._start {return false}
+        if _storage._end != rhs_storage._end {return false}
+        if _storage._options != rhs_storage._options {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2488,10 +2488,10 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
-    if self._start != other._start {return false}
-    if self._end != other._end {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_DescriptorProto.ReservedRange, rhs: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
+    if lhs._start != rhs._start {return false}
+    if lhs._end != rhs._end {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2527,10 +2527,10 @@ extension Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ExtensionRangeOptions) -> Bool {
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_ExtensionRangeOptions, rhs: Google_Protobuf_ExtensionRangeOptions) -> Bool {
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -2651,26 +2651,26 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_FieldDescriptorProto, rhs: Google_Protobuf_FieldDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._number != other_storage._number {return false}
-        if _storage._label != other_storage._label {return false}
-        if _storage._type != other_storage._type {return false}
-        if _storage._typeName != other_storage._typeName {return false}
-        if _storage._extendee != other_storage._extendee {return false}
-        if _storage._defaultValue != other_storage._defaultValue {return false}
-        if _storage._oneofIndex != other_storage._oneofIndex {return false}
-        if _storage._jsonName != other_storage._jsonName {return false}
-        if _storage._options != other_storage._options {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._number != rhs_storage._number {return false}
+        if _storage._label != rhs_storage._label {return false}
+        if _storage._type != rhs_storage._type {return false}
+        if _storage._typeName != rhs_storage._typeName {return false}
+        if _storage._extendee != rhs_storage._extendee {return false}
+        if _storage._defaultValue != rhs_storage._defaultValue {return false}
+        if _storage._oneofIndex != rhs_storage._oneofIndex {return false}
+        if _storage._jsonName != rhs_storage._jsonName {return false}
+        if _storage._options != rhs_storage._options {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2766,18 +2766,18 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_OneofDescriptorProto, rhs: Google_Protobuf_OneofDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._options != other_storage._options {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._options != rhs_storage._options {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2864,21 +2864,21 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_EnumDescriptorProto, rhs: Google_Protobuf_EnumDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._value != other_storage._value {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._reservedRange != other_storage._reservedRange {return false}
-        if _storage._reservedName != other_storage._reservedName {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._value != rhs_storage._value {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._reservedRange != rhs_storage._reservedRange {return false}
+        if _storage._reservedName != rhs_storage._reservedName {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2910,10 +2910,10 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto.EnumReservedRange) -> Bool {
-    if self._start != other._start {return false}
-    if self._end != other._end {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_EnumDescriptorProto.EnumReservedRange, rhs: Google_Protobuf_EnumDescriptorProto.EnumReservedRange) -> Bool {
+    if lhs._start != rhs._start {return false}
+    if lhs._end != rhs._end {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -2985,19 +2985,19 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_EnumValueDescriptorProto, rhs: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._number != other_storage._number {return false}
-        if _storage._options != other_storage._options {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._number != rhs_storage._number {return false}
+        if _storage._options != rhs_storage._options {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -3070,19 +3070,19 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_ServiceDescriptorProto, rhs: Google_Protobuf_ServiceDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._method != other_storage._method {return false}
-        if _storage._options != other_storage._options {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._method != rhs_storage._method {return false}
+        if _storage._options != rhs_storage._options {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -3175,22 +3175,22 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_MethodDescriptorProto, rhs: Google_Protobuf_MethodDescriptorProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._name != other_storage._name {return false}
-        if _storage._inputType != other_storage._inputType {return false}
-        if _storage._outputType != other_storage._outputType {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._clientStreaming != other_storage._clientStreaming {return false}
-        if _storage._serverStreaming != other_storage._serverStreaming {return false}
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._inputType != rhs_storage._inputType {return false}
+        if _storage._outputType != rhs_storage._outputType {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._clientStreaming != rhs_storage._clientStreaming {return false}
+        if _storage._serverStreaming != rhs_storage._serverStreaming {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -3392,38 +3392,38 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  public static func ==(lhs: Google_Protobuf_FileOptions, rhs: Google_Protobuf_FileOptions) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._javaPackage != other_storage._javaPackage {return false}
-        if _storage._javaOuterClassname != other_storage._javaOuterClassname {return false}
-        if _storage._javaMultipleFiles != other_storage._javaMultipleFiles {return false}
-        if _storage._javaGenerateEqualsAndHash != other_storage._javaGenerateEqualsAndHash {return false}
-        if _storage._javaStringCheckUtf8 != other_storage._javaStringCheckUtf8 {return false}
-        if _storage._optimizeFor != other_storage._optimizeFor {return false}
-        if _storage._goPackage != other_storage._goPackage {return false}
-        if _storage._ccGenericServices != other_storage._ccGenericServices {return false}
-        if _storage._javaGenericServices != other_storage._javaGenericServices {return false}
-        if _storage._pyGenericServices != other_storage._pyGenericServices {return false}
-        if _storage._phpGenericServices != other_storage._phpGenericServices {return false}
-        if _storage._deprecated != other_storage._deprecated {return false}
-        if _storage._ccEnableArenas != other_storage._ccEnableArenas {return false}
-        if _storage._objcClassPrefix != other_storage._objcClassPrefix {return false}
-        if _storage._csharpNamespace != other_storage._csharpNamespace {return false}
-        if _storage._swiftPrefix != other_storage._swiftPrefix {return false}
-        if _storage._phpClassPrefix != other_storage._phpClassPrefix {return false}
-        if _storage._phpNamespace != other_storage._phpNamespace {return false}
-        if _storage._phpMetadataNamespace != other_storage._phpMetadataNamespace {return false}
-        if _storage._rubyPackage != other_storage._rubyPackage {return false}
-        if _storage._uninterpretedOption != other_storage._uninterpretedOption {return false}
+        let rhs_storage = _args.1
+        if _storage._javaPackage != rhs_storage._javaPackage {return false}
+        if _storage._javaOuterClassname != rhs_storage._javaOuterClassname {return false}
+        if _storage._javaMultipleFiles != rhs_storage._javaMultipleFiles {return false}
+        if _storage._javaGenerateEqualsAndHash != rhs_storage._javaGenerateEqualsAndHash {return false}
+        if _storage._javaStringCheckUtf8 != rhs_storage._javaStringCheckUtf8 {return false}
+        if _storage._optimizeFor != rhs_storage._optimizeFor {return false}
+        if _storage._goPackage != rhs_storage._goPackage {return false}
+        if _storage._ccGenericServices != rhs_storage._ccGenericServices {return false}
+        if _storage._javaGenericServices != rhs_storage._javaGenericServices {return false}
+        if _storage._pyGenericServices != rhs_storage._pyGenericServices {return false}
+        if _storage._phpGenericServices != rhs_storage._phpGenericServices {return false}
+        if _storage._deprecated != rhs_storage._deprecated {return false}
+        if _storage._ccEnableArenas != rhs_storage._ccEnableArenas {return false}
+        if _storage._objcClassPrefix != rhs_storage._objcClassPrefix {return false}
+        if _storage._csharpNamespace != rhs_storage._csharpNamespace {return false}
+        if _storage._swiftPrefix != rhs_storage._swiftPrefix {return false}
+        if _storage._phpClassPrefix != rhs_storage._phpClassPrefix {return false}
+        if _storage._phpNamespace != rhs_storage._phpNamespace {return false}
+        if _storage._phpMetadataNamespace != rhs_storage._phpMetadataNamespace {return false}
+        if _storage._rubyPackage != rhs_storage._rubyPackage {return false}
+        if _storage._uninterpretedOption != rhs_storage._uninterpretedOption {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3487,14 +3487,14 @@ extension Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_MessageOptions) -> Bool {
-    if self._messageSetWireFormat != other._messageSetWireFormat {return false}
-    if self._noStandardDescriptorAccessor != other._noStandardDescriptorAccessor {return false}
-    if self._deprecated != other._deprecated {return false}
-    if self._mapEntry != other._mapEntry {return false}
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_MessageOptions, rhs: Google_Protobuf_MessageOptions) -> Bool {
+    if lhs._messageSetWireFormat != rhs._messageSetWireFormat {return false}
+    if lhs._noStandardDescriptorAccessor != rhs._noStandardDescriptorAccessor {return false}
+    if lhs._deprecated != rhs._deprecated {return false}
+    if lhs._mapEntry != rhs._mapEntry {return false}
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3560,16 +3560,16 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldOptions) -> Bool {
-    if self._ctype != other._ctype {return false}
-    if self._packed != other._packed {return false}
-    if self._jstype != other._jstype {return false}
-    if self._lazy != other._lazy {return false}
-    if self._deprecated != other._deprecated {return false}
-    if self._weak != other._weak {return false}
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_FieldOptions, rhs: Google_Protobuf_FieldOptions) -> Bool {
+    if lhs._ctype != rhs._ctype {return false}
+    if lhs._packed != rhs._packed {return false}
+    if lhs._jstype != rhs._jstype {return false}
+    if lhs._lazy != rhs._lazy {return false}
+    if lhs._deprecated != rhs._deprecated {return false}
+    if lhs._weak != rhs._weak {return false}
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3621,10 +3621,10 @@ extension Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofOptions) -> Bool {
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_OneofOptions, rhs: Google_Protobuf_OneofOptions) -> Bool {
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3670,12 +3670,12 @@ extension Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumOptions) -> Bool {
-    if self._allowAlias != other._allowAlias {return false}
-    if self._deprecated != other._deprecated {return false}
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_EnumOptions, rhs: Google_Protobuf_EnumOptions) -> Bool {
+    if lhs._allowAlias != rhs._allowAlias {return false}
+    if lhs._deprecated != rhs._deprecated {return false}
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3716,11 +3716,11 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValueOptions) -> Bool {
-    if self._deprecated != other._deprecated {return false}
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_EnumValueOptions, rhs: Google_Protobuf_EnumValueOptions) -> Bool {
+    if lhs._deprecated != rhs._deprecated {return false}
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3761,11 +3761,11 @@ extension Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ServiceOptions) -> Bool {
-    if self._deprecated != other._deprecated {return false}
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_ServiceOptions, rhs: Google_Protobuf_ServiceOptions) -> Bool {
+    if lhs._deprecated != rhs._deprecated {return false}
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3811,12 +3811,12 @@ extension Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
-    if self._deprecated != other._deprecated {return false}
-    if self._idempotencyLevel != other._idempotencyLevel {return false}
-    if self.uninterpretedOption != other.uninterpretedOption {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  public static func ==(lhs: Google_Protobuf_MethodOptions, rhs: Google_Protobuf_MethodOptions) -> Bool {
+    if lhs._deprecated != rhs._deprecated {return false}
+    if lhs._idempotencyLevel != rhs._idempotencyLevel {return false}
+    if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -3886,15 +3886,15 @@ extension Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption) -> Bool {
-    if self.name != other.name {return false}
-    if self._identifierValue != other._identifierValue {return false}
-    if self._positiveIntValue != other._positiveIntValue {return false}
-    if self._negativeIntValue != other._negativeIntValue {return false}
-    if self._doubleValue != other._doubleValue {return false}
-    if self._stringValue != other._stringValue {return false}
-    if self._aggregateValue != other._aggregateValue {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_UninterpretedOption, rhs: Google_Protobuf_UninterpretedOption) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs._identifierValue != rhs._identifierValue {return false}
+    if lhs._positiveIntValue != rhs._positiveIntValue {return false}
+    if lhs._negativeIntValue != rhs._negativeIntValue {return false}
+    if lhs._doubleValue != rhs._doubleValue {return false}
+    if lhs._stringValue != rhs._stringValue {return false}
+    if lhs._aggregateValue != rhs._aggregateValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -3932,10 +3932,10 @@ extension Google_Protobuf_UninterpretedOption.NamePart: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
-    if self._namePart != other._namePart {return false}
-    if self._isExtension != other._isExtension {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_UninterpretedOption.NamePart, rhs: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
+    if lhs._namePart != rhs._namePart {return false}
+    if lhs._isExtension != rhs._isExtension {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -3962,9 +3962,9 @@ extension Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo) -> Bool {
-    if self.location != other.location {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_SourceCodeInfo, rhs: Google_Protobuf_SourceCodeInfo) -> Bool {
+    if lhs.location != rhs.location {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -4011,13 +4011,13 @@ extension Google_Protobuf_SourceCodeInfo.Location: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
-    if self.path != other.path {return false}
-    if self.span != other.span {return false}
-    if self._leadingComments != other._leadingComments {return false}
-    if self._trailingComments != other._trailingComments {return false}
-    if self.leadingDetachedComments != other.leadingDetachedComments {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_SourceCodeInfo.Location, rhs: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
+    if lhs.path != rhs.path {return false}
+    if lhs.span != rhs.span {return false}
+    if lhs._leadingComments != rhs._leadingComments {return false}
+    if lhs._trailingComments != rhs._trailingComments {return false}
+    if lhs.leadingDetachedComments != rhs.leadingDetachedComments {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -4044,9 +4044,9 @@ extension Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo) -> Bool {
-    if self.annotation != other.annotation {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_GeneratedCodeInfo, rhs: Google_Protobuf_GeneratedCodeInfo) -> Bool {
+    if lhs.annotation != rhs.annotation {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -4088,12 +4088,12 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
-    if self.path != other.path {return false}
-    if self._sourceFile != other._sourceFile {return false}
-    if self._begin != other._begin {return false}
-    if self._end != other._end {return false}
-    if unknownFields != other.unknownFields {return false}
+  public static func ==(lhs: Google_Protobuf_GeneratedCodeInfo.Annotation, rhs: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
+    if lhs.path != rhs.path {return false}
+    if lhs._sourceFile != rhs._sourceFile {return false}
+    if lhs._begin != rhs._begin {return false}
+    if lhs._end != rhs._end {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
