@@ -316,12 +316,12 @@ extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Protobuf3Unittest_SwiftEnumTest) -> Bool {
-    if self.values1 != other.values1 {return false}
-    if self.values2 != other.values2 {return false}
-    if self.values3 != other.values3 {return false}
-    if self.values4 != other.values4 {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Protobuf3Unittest_SwiftEnumTest, rhs: Protobuf3Unittest_SwiftEnumTest) -> Bool {
+    if lhs.values1 != rhs.values1 {return false}
+    if lhs.values2 != rhs.values2 {return false}
+    if lhs.values3 != rhs.values3 {return false}
+    if lhs.values4 != rhs.values4 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -376,9 +376,9 @@ extension Protobuf3Unittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Protobuf3Unittest_SwiftEnumWithAliasTest) -> Bool {
-    if self.values != other.values {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Protobuf3Unittest_SwiftEnumWithAliasTest, rhs: Protobuf3Unittest_SwiftEnumWithAliasTest) -> Bool {
+    if lhs.values != rhs.values {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

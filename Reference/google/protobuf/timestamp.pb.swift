@@ -178,10 +178,10 @@ extension Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
-    if self.seconds != other.seconds {return false}
-    if self.nanos != other.nanos {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp) -> Bool {
+    if lhs.seconds != rhs.seconds {return false}
+    if lhs.nanos != rhs.nanos {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

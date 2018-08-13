@@ -321,13 +321,13 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
-    if self.e != other.e {return false}
-    if self.repeatedE != other.repeatedE {return false}
-    if self.repeatedPackedE != other.repeatedPackedE {return false}
-    if self.repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
-    if self.o != other.o {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
+    if lhs.e != rhs.e {return false}
+    if lhs.repeatedE != rhs.repeatedE {return false}
+    if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}
+    if lhs.repeatedPackedUnexpectedE != rhs.repeatedPackedUnexpectedE {return false}
+    if self.o != rhs.o {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -388,13 +388,13 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {
-    if self.e != other.e {return false}
-    if self.repeatedE != other.repeatedE {return false}
-    if self.repeatedPackedE != other.repeatedPackedE {return false}
-    if self.repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
-    if self.o != other.o {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {
+    if lhs.e != rhs.e {return false}
+    if lhs.repeatedE != rhs.repeatedE {return false}
+    if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}
+    if lhs.repeatedPackedUnexpectedE != rhs.repeatedPackedUnexpectedE {return false}
+    if self.o != rhs.o {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

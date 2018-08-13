@@ -283,10 +283,10 @@ extension ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
-    if self.knownMapField != other.knownMapField {return false}
-    if self.unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestEnumMap, rhs: ProtobufUnittest_TestEnumMap) -> Bool {
+    if lhs.knownMapField != rhs.knownMapField {return false}
+    if lhs.unknownMapField != rhs.unknownMapField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -318,10 +318,10 @@ extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
-    if self.knownMapField != other.knownMapField {return false}
-    if self.unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestEnumMapPlusExtra, rhs: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
+    if lhs.knownMapField != rhs.knownMapField {return false}
+    if lhs.unknownMapField != rhs.unknownMapField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -348,9 +348,9 @@ extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
-    if self.importEnumAmp != other.importEnumAmp {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestImportEnumMap, rhs: ProtobufUnittest_TestImportEnumMap) -> Bool {
+    if lhs.importEnumAmp != rhs.importEnumAmp {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -377,9 +377,9 @@ extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
-    if self.m != other.m {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestIntIntMap, rhs: ProtobufUnittest_TestIntIntMap) -> Bool {
+    if lhs.m != rhs.m {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -461,20 +461,20 @@ extension ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {
-    if self.mInt32 != other.mInt32 {return false}
-    if self.mInt64 != other.mInt64 {return false}
-    if self.mUint32 != other.mUint32 {return false}
-    if self.mUint64 != other.mUint64 {return false}
-    if self.mSint32 != other.mSint32 {return false}
-    if self.mSint64 != other.mSint64 {return false}
-    if self.mFixed32 != other.mFixed32 {return false}
-    if self.mFixed64 != other.mFixed64 {return false}
-    if self.mSfixed32 != other.mSfixed32 {return false}
-    if self.mSfixed64 != other.mSfixed64 {return false}
-    if self.mBool != other.mBool {return false}
-    if self.mString != other.mString {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestMaps, rhs: ProtobufUnittest_TestMaps) -> Bool {
+    if lhs.mInt32 != rhs.mInt32 {return false}
+    if lhs.mInt64 != rhs.mInt64 {return false}
+    if lhs.mUint32 != rhs.mUint32 {return false}
+    if lhs.mUint64 != rhs.mUint64 {return false}
+    if lhs.mSint32 != rhs.mSint32 {return false}
+    if lhs.mSint64 != rhs.mSint64 {return false}
+    if lhs.mFixed32 != rhs.mFixed32 {return false}
+    if lhs.mFixed64 != rhs.mFixed64 {return false}
+    if lhs.mSfixed32 != rhs.mSfixed32 {return false}
+    if lhs.mSfixed64 != rhs.mSfixed64 {return false}
+    if lhs.mBool != rhs.mBool {return false}
+    if lhs.mString != rhs.mString {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -525,17 +525,17 @@ extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSubmessageMaps) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestSubmessageMaps, rhs: ProtobufUnittest_TestSubmessageMaps) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._m != other_storage._m {return false}
+        let rhs_storage = _args.1
+        if _storage._m != rhs_storage._m {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

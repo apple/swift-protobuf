@@ -145,9 +145,9 @@ extension ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {
-    if self._d != other._d {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittestImport_ImportMessageLite, rhs: ProtobufUnittestImport_ImportMessageLite) -> Bool {
+    if lhs._d != rhs._d {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

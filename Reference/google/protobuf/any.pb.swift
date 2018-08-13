@@ -222,12 +222,12 @@ extension Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = _storage.isEqualTo(other: other._storage)
+  static func ==(lhs: Google_Protobuf_Any, rhs: Google_Protobuf_Any) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = lhs._storage.isEqualTo(other: rhs._storage)
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
