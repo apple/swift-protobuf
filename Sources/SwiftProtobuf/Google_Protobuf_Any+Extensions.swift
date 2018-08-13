@@ -93,9 +93,15 @@ public extension Google_Protobuf_Any {
     return _storage.isA(type)
   }
 
+#if swift(>=4.2)
+  public func hash(into hasher: inout Hasher) {
+    _storage.hash(into: &hasher)
+  }
+#else  // swift(>=4.2)
   public var hashValue: Int {
     return _storage.hashValue
   }
+#endif  // swift(>=4.2)
 }
 
 extension Google_Protobuf_Any {
