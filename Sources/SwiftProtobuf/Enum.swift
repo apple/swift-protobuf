@@ -39,9 +39,15 @@ public protocol Enum: RawRepresentable, Hashable {
 }
 
 extension Enum {
+#if swift(>=4.2)
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(rawValue)
+  }
+#else  // swift(>=4.2)
   public var hashValue: Int {
     return rawValue
   }
+#endif  // swift(>=4.2)
 
   /// Internal convenience property representing the name of the enum value (or
   /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
