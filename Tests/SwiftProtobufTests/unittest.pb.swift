@@ -7604,7 +7604,7 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftPro
 
   static func ==(lhs: ProtobufUnittest_TestDeprecatedFields, rhs: ProtobufUnittest_TestDeprecatedFields) -> Bool {
     if lhs._deprecatedInt32 != rhs._deprecatedInt32 {return false}
-    if self.oneofFields != rhs.oneofFields {return false}
+    if lhs.oneofFields != rhs.oneofFields {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

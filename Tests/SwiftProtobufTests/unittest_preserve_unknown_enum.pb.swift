@@ -326,7 +326,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
     if lhs.repeatedE != rhs.repeatedE {return false}
     if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}
     if lhs.repeatedPackedUnexpectedE != rhs.repeatedPackedUnexpectedE {return false}
-    if self.o != rhs.o {return false}
+    if lhs.o != rhs.o {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -393,7 +393,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
     if lhs.repeatedE != rhs.repeatedE {return false}
     if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}
     if lhs.repeatedPackedUnexpectedE != rhs.repeatedPackedUnexpectedE {return false}
-    if self.o != rhs.o {return false}
+    if lhs.o != rhs.o {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
