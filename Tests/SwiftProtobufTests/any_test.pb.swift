@@ -144,19 +144,19 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestAny, rhs: ProtobufUnittest_TestAny) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._int32Value != other_storage._int32Value {return false}
-        if _storage._anyValue != other_storage._anyValue {return false}
-        if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
+        let rhs_storage = _args.1
+        if _storage._int32Value != rhs_storage._int32Value {return false}
+        if _storage._anyValue != rhs_storage._anyValue {return false}
+        if _storage._repeatedAnyValue != rhs_storage._repeatedAnyValue {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

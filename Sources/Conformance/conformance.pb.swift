@@ -411,12 +411,12 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
-    if self.payload != other.payload {return false}
-    if self.requestedOutputFormat != other.requestedOutputFormat {return false}
-    if self.messageType != other.messageType {return false}
-    if self.testCategory != other.testCategory {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Conformance_ConformanceRequest, rhs: Conformance_ConformanceRequest) -> Bool {
+    if self.payload != rhs.payload {return false}
+    if lhs.requestedOutputFormat != rhs.requestedOutputFormat {return false}
+    if lhs.messageType != rhs.messageType {return false}
+    if lhs.testCategory != rhs.testCategory {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -489,9 +489,9 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
-    if self.result != other.result {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Conformance_ConformanceResponse, rhs: Conformance_ConformanceResponse) -> Bool {
+    if self.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

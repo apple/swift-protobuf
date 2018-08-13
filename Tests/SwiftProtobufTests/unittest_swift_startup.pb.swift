@@ -179,9 +179,9 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufObjcUnittest_TestObjCStartupMessage) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  static func ==(lhs: ProtobufObjcUnittest_TestObjCStartupMessage, rhs: ProtobufObjcUnittest_TestObjCStartupMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -199,8 +199,8 @@ extension ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufObjcUnittest_TestObjCStartupNested) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufObjcUnittest_TestObjCStartupNested, rhs: ProtobufObjcUnittest_TestObjCStartupNested) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

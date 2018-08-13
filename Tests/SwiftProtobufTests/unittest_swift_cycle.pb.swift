@@ -229,19 +229,19 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_CycleFoo, rhs: ProtobufUnittest_CycleFoo) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._aFoo != other_storage._aFoo {return false}
-        if _storage._aBar != other_storage._aBar {return false}
-        if _storage._aBaz != other_storage._aBaz {return false}
+        let rhs_storage = _args.1
+        if _storage._aFoo != rhs_storage._aFoo {return false}
+        if _storage._aBar != rhs_storage._aBar {return false}
+        if _storage._aBaz != rhs_storage._aBaz {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -306,19 +306,19 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_CycleBar, rhs: ProtobufUnittest_CycleBar) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._aBar != other_storage._aBar {return false}
-        if _storage._aBaz != other_storage._aBaz {return false}
-        if _storage._aFoo != other_storage._aFoo {return false}
+        let rhs_storage = _args.1
+        if _storage._aBar != rhs_storage._aBar {return false}
+        if _storage._aBaz != rhs_storage._aBaz {return false}
+        if _storage._aFoo != rhs_storage._aFoo {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -383,19 +383,19 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_CycleBaz, rhs: ProtobufUnittest_CycleBaz) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._aBaz != other_storage._aBaz {return false}
-        if _storage._aFoo != other_storage._aFoo {return false}
-        if _storage._aBar != other_storage._aBar {return false}
+        let rhs_storage = _args.1
+        if _storage._aBaz != rhs_storage._aBaz {return false}
+        if _storage._aFoo != rhs_storage._aFoo {return false}
+        if _storage._aBar != rhs_storage._aBar {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

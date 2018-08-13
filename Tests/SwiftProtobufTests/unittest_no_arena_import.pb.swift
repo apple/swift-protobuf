@@ -96,9 +96,9 @@ extension Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {
-    if self._d != other._d {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Proto2ArenaUnittest_ImportNoArenaNestedMessage, rhs: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {
+    if lhs._d != rhs._d {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

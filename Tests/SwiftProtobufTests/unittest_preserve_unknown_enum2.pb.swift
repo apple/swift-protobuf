@@ -215,13 +215,13 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
-    if self._e != other._e {return false}
-    if self.repeatedE != other.repeatedE {return false}
-    if self.repeatedPackedE != other.repeatedPackedE {return false}
-    if self.repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
-    if self.o != other.o {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Proto2PreserveUnknownEnumUnittest_MyMessage, rhs: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
+    if lhs._e != rhs._e {return false}
+    if lhs.repeatedE != rhs.repeatedE {return false}
+    if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}
+    if lhs.repeatedPackedUnexpectedE != rhs.repeatedPackedUnexpectedE {return false}
+    if self.o != rhs.o {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
