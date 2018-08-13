@@ -366,14 +366,17 @@ class OneofGenerator {
         // First field causes the output.
         guard field === fields.first else { return }
 
+        let lhsProperty: String
         let otherStoredProperty: String
         if usesHeapStorage {
+          lhsProperty = "_storage.\(underscoreSwiftFieldName)"
           otherStoredProperty = "rhs_storage.\(underscoreSwiftFieldName)"
         } else {
+          lhsProperty = "lhs.\(swiftFieldName)"
           otherStoredProperty = "rhs.\(swiftFieldName)"
         }
 
-        p.print("if \(storedProperty) != \(otherStoredProperty) {return false}\n")
+        p.print("if \(lhsProperty) != \(otherStoredProperty) {return false}\n")
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter, field: MemberFieldGenerator) {
