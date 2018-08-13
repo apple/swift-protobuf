@@ -15,8 +15,10 @@
 
 import Foundation
 
+#if !swift(>=4.2)
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
+#endif
 
 fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
   var visitor = try JSONEncodingVisitor(message: message)
@@ -295,21 +297,30 @@ extension AnyMessageStorage {
 /// test.  Of course, regardless of the above, we must guarantee that
 /// hashValue is compatible with equality.
 extension AnyMessageStorage {
+#if swift(>=4.2)
+  // Can't use _valueData for a few reasons:
+  // 1. Since decode is done on demand, two objects could be equal
+  //    but created differently (one from JSON, one for Message, etc.),
+  //    and the hash values have to be equal even if we don't have data
+  //    yet.
+  // 2. map<> serialization order is undefined. At the time of writing
+  //    the Swift, Objective-C, and Go runtimes all tend to have random
+  //    orders, so the messages could be identical, but in binary form
+  //    they could differ.
+  public func hash(into hasher: inout Hasher) {
+    if !_typeURL.isEmpty {
+      hasher.combine(_typeURL)
+    }
+  }
+#else  // swift(>=4.2)
   var hashValue: Int {
     var hash: Int = i_2166136261
     if !_typeURL.isEmpty {
       hash = (hash &* i_16777619) ^ _typeURL.hashValue
     }
-    // Can't use _valueData for a few reasons:
-    // 1. Since decode is done on demand, two objects could be equal
-    //    but created differently (one from JSON, one for Message, etc.),
-    //    and the hashes have to be equal even if we don't have data yet.
-    // 2. map<> serialization order is undefined. At the time of writing
-    //    the Swift, Objective-C, and Go runtimes all tend to have random
-    //    orders, so the messages could be identical, but in binary form
-    //    they could differ.
     return hash
   }
+#endif  // swift(>=4.2)
 
   func isEqualTo(other: AnyMessageStorage) -> Bool {
     if (_typeURL != other._typeURL) {

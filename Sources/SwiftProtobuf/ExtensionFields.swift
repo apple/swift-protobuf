@@ -472,7 +472,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
 
 #if swift(>=4.2)
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(value.hashValue) // TODO(thomasvl): Fix this once message is updated!
+    value.hash(into: &hasher)
   }
 #else  // swift(>=4.2)
   public var hashValue: Int {return value.hashValue}
@@ -531,7 +531,7 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
 #if swift(>=4.2)
   public func hash(into hasher: inout Hasher) {
     for e in value {
-      hasher.combine(e.hashValue) // TODO(thomasvl): Fix this once message is updated!
+      e.hash(into: &hasher)
     }
   }
 #else  // swift(>=4.2)
@@ -602,7 +602,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
 
 #if swift(>=4.2)
   public func hash(into hasher: inout Hasher) {
-    hasher.combine(value.hashValue) // TODO(thomasvl): Fix this once message is updated!
+    hasher.combine(value)
   }
 #else  // swift(>=4.2)
   public var hashValue: Int {return value.hashValue}
@@ -662,9 +662,7 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
 
 #if swift(>=4.2)
   public func hash(into hasher: inout Hasher) {
-    for e in value {
-      hasher.combine(e.hashValue) // TODO(thomasvl): Fix this once message is updated!
-    }
+    hasher.combine(value)
   }
 #else  // swift(>=4.2)
   public var hashValue: Int {

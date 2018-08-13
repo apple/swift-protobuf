@@ -27,6 +27,9 @@ private let i_16777619 = Int(16777619)
 /// message fields they want to include.
 internal struct HashVisitor: Visitor {
 
+#if swift(>=4.2)
+  internal private(set) var hasher: Hasher
+#else  // swift(>=4.2)
   // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
   private(set) var hashValue = i_2166136261
 
@@ -34,7 +37,6 @@ internal struct HashVisitor: Visitor {
     hashValue = (hashValue ^ hash) &* i_16777619
   }
 
-#if !swift(>=4.2)
   private mutating func mixMap<K, V: Hashable>(map: Dictionary<K,V>) {
     var mapHash = 0
     for (k, v) in map {
@@ -43,60 +45,111 @@ internal struct HashVisitor: Visitor {
     }
     mix(mapHash)
   }
+#endif // swift(>=4.2)
+
+#if swift(>=4.2)
+  init(_ hasher: Hasher) {
+    self.hasher = hasher
+  }
+#else
+  init() {}
 #endif
 
-  init() {}
-
   mutating func visitUnknown(bytes: Data) throws {
-    mix(bytes.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(bytes)
+    #else
+      mix(bytes.hashValue)
+    #endif
   }
 
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+   #endif
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitSingularEnumField<E: Enum>(value: E,
                                                 fieldNumber: Int) {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
-    mix(fieldNumber)
-    mix(value.hashValue)
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      value.hash(into: &hasher)
+    #else
+      mix(fieldNumber)
+      mix(value.hashValue)
+    #endif
   }
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -104,10 +157,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -115,10 +169,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -126,10 +181,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -137,10 +193,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -148,10 +205,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -159,10 +217,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -170,10 +229,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -181,10 +241,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -192,10 +253,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -203,10 +265,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -214,10 +277,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -225,10 +289,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -236,10 +301,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -247,10 +313,11 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       for v in value {
         mix(v.hashValue)
       }
@@ -258,28 +325,43 @@ internal struct HashVisitor: Visitor {
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    mix(fieldNumber)
-    for v in value {
-      mix(v.hashValue)
-    }
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
+    #else
+      mix(fieldNumber)
+      for v in value {
+        mix(v.hashValue)
+      }
+    #endif
   }
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
-    mix(fieldNumber)
-    // TODO: Message doesn't add Hashable, _MessageImplementationBase does, so
-    // this can't use value.hashValue here, need to revisit this.
-    for v in value {
-      mix(v.hashValue)
-    }
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      for v in value {
+        v.hash(into: &hasher)
+      }
+    #else
+      mix(fieldNumber)
+      for v in value {
+        mix(v.hashValue)
+      }
+    #endif
   }
 
   mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
-    mix(fieldNumber)
-    // TODO: Message doesn't add Hashable, _MessageImplementationBase does, so
-    // this can't use value.hashValue here, need to revisit this.
-    for v in value {
-      mix(v.hashValue)
-    }
+    #if swift(>=4.2)
+      hasher.combine(fieldNumber)
+      for v in value {
+        v.hash(into: &hasher)
+      }
+    #else
+      mix(fieldNumber)
+      for v in value {
+        mix(v.hashValue)
+      }
+    #endif
   }
 
   mutating func visitMapField<KeyType, ValueType: MapValueType>(
@@ -287,10 +369,11 @@ internal struct HashVisitor: Visitor {
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       mixMap(map: value)
     #endif
   }
@@ -300,10 +383,11 @@ internal struct HashVisitor: Visitor {
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where ValueType.RawValue == Int {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       mixMap(map: value)
     #endif
   }
@@ -313,10 +397,11 @@ internal struct HashVisitor: Visitor {
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    mix(fieldNumber)
     #if swift(>=4.2)
-      mix(value.hashValue)
+      hasher.combine(fieldNumber)
+      hasher.combine(value)
     #else
+      mix(fieldNumber)
       mixMap(map: value)
     #endif
   }
