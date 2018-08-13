@@ -39,6 +39,22 @@ public struct ExtensionFieldValueSet: Hashable {
 
   public init() {}
 
+#if swift(>=4.2)
+  public func hash(into hasher: inout Hasher) {
+    // AnyExtensionField is not Hashable, and the Self constraint that would
+    // add breaks some of the uses of it; so the only choice is to manually
+    // mix things in. However, one must remember to do things in an order
+    // independent manner.
+    var hash = 16777619
+    for (fieldNumber, v) in values {
+      var localHasher = hasher
+      localHasher.combine(fieldNumber)
+      v.hash(into: &localHasher)
+      hash = hash &+ localHasher.finalize()
+    }
+    hasher.combine(hash)
+  }
+#else  // swift(>=4.2)
   public var hashValue: Int {
     var hash = 16777619
     for (fieldNumber, v) in values {
@@ -47,6 +63,7 @@ public struct ExtensionFieldValueSet: Hashable {
     }
     return hash
   }
+#endif  // swift(>=4.2)
 
   public func traverse<V: Visitor>(visitor: inout V, start: Int, end: Int) throws {
     let validIndexes = values.keys.filter {$0 >= start && $0 < end}
