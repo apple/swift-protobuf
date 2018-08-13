@@ -202,10 +202,10 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
-    if self.int32Value != other.int32Value {return false}
-    if self.enumValue != other.enumValue {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: UnittestDropUnknownFields_Foo, rhs: UnittestDropUnknownFields_Foo) -> Bool {
+    if lhs.int32Value != rhs.int32Value {return false}
+    if lhs.enumValue != rhs.enumValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -250,11 +250,11 @@ extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
-    if self.int32Value != other.int32Value {return false}
-    if self.enumValue != other.enumValue {return false}
-    if self.extraInt32Value != other.extraInt32Value {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: UnittestDropUnknownFields_FooWithExtraFields, rhs: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
+    if lhs.int32Value != rhs.int32Value {return false}
+    if lhs.enumValue != rhs.enumValue {return false}
+    if lhs.extraInt32Value != rhs.extraInt32Value {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

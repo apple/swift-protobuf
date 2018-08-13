@@ -597,16 +597,16 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
-    if self._protoMessageName != other._protoMessageName {return false}
-    if self._protoPackageName != other._protoPackageName {return false}
-    if self._anyTypePrefix != other._anyTypePrefix {return false}
-    if self._anyTypeURL != other._anyTypeURL {return false}
-    if self._isInitialized_p != other._isInitialized_p {return false}
-    if self._hashValue_p != other._hashValue_p {return false}
-    if self._debugDescription_p != other._debugDescription_p {return false}
-    if self._requiredInt != other._requiredInt {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_SwiftReservedTest, rhs: ProtobufUnittest_SwiftReservedTest) -> Bool {
+    if lhs._protoMessageName != rhs._protoMessageName {return false}
+    if lhs._protoPackageName != rhs._protoPackageName {return false}
+    if lhs._anyTypePrefix != rhs._anyTypePrefix {return false}
+    if lhs._anyTypeURL != rhs._anyTypeURL {return false}
+    if lhs._isInitialized_p != rhs._isInitialized_p {return false}
+    if lhs._hashValue_p != rhs._hashValue_p {return false}
+    if lhs._debugDescription_p != rhs._debugDescription_p {return false}
+    if lhs._requiredInt != rhs._requiredInt {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -650,9 +650,9 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  static func ==(lhs: ProtobufUnittest_SwiftReservedTest.classMessage, rhs: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -679,9 +679,9 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  static func ==(lhs: ProtobufUnittest_SwiftReservedTest.TypeMessage, rhs: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -699,8 +699,8 @@ extension ProtobufUnittest_SwiftReservedTest.isEqual: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqual) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_SwiftReservedTest.isEqual, rhs: ProtobufUnittest_SwiftReservedTest.isEqual) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -718,8 +718,8 @@ extension ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTestExt) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_SwiftReservedTestExt, rhs: ProtobufUnittest_SwiftReservedTestExt) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

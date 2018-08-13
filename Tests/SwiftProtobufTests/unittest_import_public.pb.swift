@@ -98,9 +98,9 @@ extension ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessage) -> Bool {
-    if self._e != other._e {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittestImport_PublicImportMessage, rhs: ProtobufUnittestImport_PublicImportMessage) -> Bool {
+    if lhs._e != rhs._e {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

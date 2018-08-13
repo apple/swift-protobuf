@@ -110,9 +110,9 @@ extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_NestedMessage) -> Bool {
-    if self._d != other._d {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Proto2ArenaUnittest_NestedMessage, rhs: Proto2ArenaUnittest_NestedMessage) -> Bool {
+    if lhs._d != rhs._d {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -144,10 +144,10 @@ extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_ArenaMessage) -> Bool {
-    if self.repeatedNestedMessage != other.repeatedNestedMessage {return false}
-    if self.repeatedImportNoArenaMessage != other.repeatedImportNoArenaMessage {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Proto2ArenaUnittest_ArenaMessage, rhs: Proto2ArenaUnittest_ArenaMessage) -> Bool {
+    if lhs.repeatedNestedMessage != rhs.repeatedNestedMessage {return false}
+    if lhs.repeatedImportNoArenaMessage != rhs.repeatedImportNoArenaMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

@@ -269,17 +269,17 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_TestMessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: SwiftUnittest_TestMessage, rhs: SwiftUnittest_TestMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._oneofField != other_storage._oneofField {return false}
+        let rhs_storage = _args.1
+        if _storage._oneofField != rhs_storage._oneofField {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -316,11 +316,11 @@ extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_TestMessage.NestedMessage) -> Bool {
-    if self._a != other._a {return false}
-    if self._b != other._b {return false}
-    if self._c != other._c {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftUnittest_TestMessage.NestedMessage, rhs: SwiftUnittest_TestMessage.NestedMessage) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._b != rhs._b {return false}
+    if lhs._c != rhs._c {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -378,18 +378,18 @@ extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_TestParsingMerge) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: SwiftUnittest_TestParsingMerge, rhs: SwiftUnittest_TestParsingMerge) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._optionalMessage != other_storage._optionalMessage {return false}
-        if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._optionalMessage != rhs_storage._optionalMessage {return false}
+        if _storage._repeatedMessage != rhs_storage._repeatedMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -421,10 +421,10 @@ extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
-    if self.field1 != other.field1 {return false}
-    if self.field2 != other.field2 {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
+    if lhs.field1 != rhs.field1 {return false}
+    if lhs.field2 != rhs.field2 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

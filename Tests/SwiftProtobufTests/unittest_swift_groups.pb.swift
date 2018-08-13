@@ -352,10 +352,10 @@ extension SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
-    if self._a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
-    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+  static func ==(lhs: SwiftTestGroupExtensions, rhs: SwiftTestGroupExtensions) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -382,9 +382,9 @@ extension ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ExtensionGroup) -> Bool {
-    if self._a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ExtensionGroup, rhs: ExtensionGroup) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -411,9 +411,9 @@ extension RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
-    if self._a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: RepeatedExtensionGroup, rhs: RepeatedExtensionGroup) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -440,9 +440,9 @@ extension SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {
-    if self._a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftTestGroupUnextended, rhs: SwiftTestGroupUnextended) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -507,19 +507,19 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: SwiftTestNestingGroupsMessage, rhs: SwiftTestNestingGroupsMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._outerA != other_storage._outerA {return false}
-        if _storage._subGroup1 != other_storage._subGroup1 {return false}
-        if _storage._subGroup3 != other_storage._subGroup3 {return false}
+        let rhs_storage = _args.1
+        if _storage._outerA != rhs_storage._outerA {return false}
+        if _storage._subGroup1 != rhs_storage._subGroup1 {return false}
+        if _storage._subGroup3 != rhs_storage._subGroup3 {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -577,18 +577,18 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup1, rhs: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._sub1A != other_storage._sub1A {return false}
-        if _storage._subGroup2 != other_storage._subGroup2 {return false}
+        let rhs_storage = _args.1
+        if _storage._sub1A != rhs_storage._sub1A {return false}
+        if _storage._subGroup2 != rhs_storage._subGroup2 {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -615,9 +615,9 @@ extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
-    if self._sub2A != other._sub2A {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2, rhs: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
+    if lhs._sub2A != rhs._sub2A {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -649,10 +649,10 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3) -> Bool {
-    if self._sub3A != other._sub3A {return false}
-    if self.subGroup4 != other.subGroup4 {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup3, rhs: SwiftTestNestingGroupsMessage.SubGroup3) -> Bool {
+    if lhs._sub3A != rhs._sub3A {return false}
+    if lhs.subGroup4 != rhs.subGroup4 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -679,9 +679,9 @@ extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
-    if self._sub4A != other._sub4A {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4, rhs: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
+    if lhs._sub4A != rhs._sub4A {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

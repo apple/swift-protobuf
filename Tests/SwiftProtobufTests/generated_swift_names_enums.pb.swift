@@ -19702,8 +19702,8 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittestGenerated_GeneratedSwiftReservedEnums) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedEnums, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedEnums) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

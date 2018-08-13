@@ -623,35 +623,35 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMap) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestMap, rhs: ProtobufUnittest_TestMap) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-        if _storage._mapStringString != other_storage._mapStringString {return false}
-        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
-        if _storage._mapStringForeignMessage != other_storage._mapStringForeignMessage {return false}
-        if _storage._mapInt32AllTypes != other_storage._mapInt32AllTypes {return false}
+        let rhs_storage = _args.1
+        if _storage._mapInt32Int32 != rhs_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != rhs_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != rhs_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != rhs_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != rhs_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != rhs_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != rhs_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != rhs_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != rhs_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != rhs_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != rhs_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != rhs_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
+        if _storage._mapStringString != rhs_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != rhs_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != rhs_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != rhs_storage._mapInt32ForeignMessage {return false}
+        if _storage._mapStringForeignMessage != rhs_storage._mapStringForeignMessage {return false}
+        if _storage._mapInt32AllTypes != rhs_storage._mapInt32AllTypes {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -702,17 +702,17 @@ extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMapSubmessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestMapSubmessage, rhs: ProtobufUnittest_TestMapSubmessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._testMap != other_storage._testMap {return false}
+        let rhs_storage = _args.1
+        if _storage._testMap != rhs_storage._testMap {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -739,9 +739,9 @@ extension ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageMap) -> Bool {
-    if self.mapInt32Message != other.mapInt32Message {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestMessageMap, rhs: ProtobufUnittest_TestMessageMap) -> Bool {
+    if lhs.mapInt32Message != rhs.mapInt32Message {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -773,10 +773,10 @@ extension ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSameTypeMap) -> Bool {
-    if self.map1 != other.map1 {return false}
-    if self.map2 != other.map2 {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestSameTypeMap, rhs: ProtobufUnittest_TestSameTypeMap) -> Bool {
+    if lhs.map1 != rhs.map1 {return false}
+    if lhs.map2 != rhs.map2 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -808,9 +808,9 @@ extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMap) -> Bool {
-    if self.mapField != other.mapField {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestRequiredMessageMap, rhs: ProtobufUnittest_TestRequiredMessageMap) -> Bool {
+    if lhs.mapField != rhs.mapField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -980,34 +980,34 @@ extension ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestArenaMap) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestArenaMap, rhs: ProtobufUnittest_TestArenaMap) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-        if _storage._mapStringString != other_storage._mapStringString {return false}
-        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
-        if _storage._mapInt32ForeignMessageNoArena != other_storage._mapInt32ForeignMessageNoArena {return false}
+        let rhs_storage = _args.1
+        if _storage._mapInt32Int32 != rhs_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != rhs_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != rhs_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != rhs_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != rhs_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != rhs_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != rhs_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != rhs_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != rhs_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != rhs_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != rhs_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != rhs_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != rhs_storage._mapBoolBool {return false}
+        if _storage._mapStringString != rhs_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != rhs_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != rhs_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != rhs_storage._mapInt32ForeignMessage {return false}
+        if _storage._mapInt32ForeignMessageNoArena != rhs_storage._mapInt32ForeignMessageNoArena {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -1034,9 +1034,9 @@ extension ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_MessageContainingEnumCalledType) -> Bool {
-    if self.type != other.type {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_MessageContainingEnumCalledType, rhs: ProtobufUnittest_MessageContainingEnumCalledType) -> Bool {
+    if lhs.type != rhs.type {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -1069,9 +1069,9 @@ extension ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_MessageContainingMapCalledEntry) -> Bool {
-    if self.entry != other.entry {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_MessageContainingMapCalledEntry, rhs: ProtobufUnittest_MessageContainingMapCalledEntry) -> Bool {
+    if lhs.entry != rhs.entry {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -1098,9 +1098,9 @@ extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRecursiveMapMessage) -> Bool {
-    if self.a != other.a {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestRecursiveMapMessage, rhs: ProtobufUnittest_TestRecursiveMapMessage) -> Bool {
+    if lhs.a != rhs.a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
