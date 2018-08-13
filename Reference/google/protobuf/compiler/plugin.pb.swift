@@ -343,12 +343,12 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
-    if self._major != other._major {return false}
-    if self._minor != other._minor {return false}
-    if self._patch != other._patch {return false}
-    if self._suffix != other._suffix {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Google_Protobuf_Compiler_Version, rhs: Google_Protobuf_Compiler_Version) -> Bool {
+    if lhs._major != rhs._major {return false}
+    if lhs._minor != rhs._minor {return false}
+    if lhs._patch != rhs._patch {return false}
+    if lhs._suffix != rhs._suffix {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -427,20 +427,20 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorRequest, rhs: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
-        if _storage._parameter != other_storage._parameter {return false}
-        if _storage._protoFile != other_storage._protoFile {return false}
-        if _storage._compilerVersion != other_storage._compilerVersion {return false}
+        let rhs_storage = _args.1
+        if _storage._fileToGenerate != rhs_storage._fileToGenerate {return false}
+        if _storage._parameter != rhs_storage._parameter {return false}
+        if _storage._protoFile != rhs_storage._protoFile {return false}
+        if _storage._compilerVersion != rhs_storage._compilerVersion {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -472,10 +472,10 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    if self._error != other._error {return false}
-    if self.file != other.file {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
+    if lhs._error != rhs._error {return false}
+    if lhs.file != rhs.file {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -512,11 +512,11 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
-    if self._name != other._name {return false}
-    if self._insertionPoint != other._insertionPoint {return false}
-    if self._content != other._content {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse.File, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
+    if lhs._name != rhs._name {return false}
+    if lhs._insertionPoint != rhs._insertionPoint {return false}
+    if lhs._content != rhs._content {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

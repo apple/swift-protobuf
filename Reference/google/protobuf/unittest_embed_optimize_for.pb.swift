@@ -148,18 +148,18 @@ extension ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestEmbedOptimizedForSize, rhs: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._optionalMessage != other_storage._optionalMessage {return false}
-        if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._optionalMessage != rhs_storage._optionalMessage {return false}
+        if _storage._repeatedMessage != rhs_storage._repeatedMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

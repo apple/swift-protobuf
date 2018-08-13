@@ -146,17 +146,17 @@ extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_LazyImports_ImportedMessage) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_LazyImports_ImportedMessage, rhs: ProtobufUnittest_LazyImports_ImportedMessage) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._lazyMessage != other_storage._lazyMessage {return false}
+        let rhs_storage = _args.1
+        if _storage._lazyMessage != rhs_storage._lazyMessage {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -174,8 +174,8 @@ extension ProtobufUnittest_LazyImports_MessageCustomOption: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_LazyImports_MessageCustomOption) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_LazyImports_MessageCustomOption, rhs: ProtobufUnittest_LazyImports_MessageCustomOption) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -193,8 +193,8 @@ extension ProtobufUnittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_LazyImports_MessageCustomOption2) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_LazyImports_MessageCustomOption2, rhs: ProtobufUnittest_LazyImports_MessageCustomOption2) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

@@ -84,8 +84,8 @@ extension Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: Google_Protobuf_Empty, rhs: Google_Protobuf_Empty) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

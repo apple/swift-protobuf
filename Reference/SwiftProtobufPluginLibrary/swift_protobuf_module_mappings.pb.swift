@@ -92,9 +92,9 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftProtobuf_GenSwift_ModuleMappings) -> Bool {
-    if self.mapping != other.mapping {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftProtobuf_GenSwift_ModuleMappings, rhs: SwiftProtobuf_GenSwift_ModuleMappings) -> Bool {
+    if lhs.mapping != rhs.mapping {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -126,10 +126,10 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftProtobuf_GenSwift_ModuleMappings.Entry) -> Bool {
-    if self.moduleName != other.moduleName {return false}
-    if self.protoFilePath != other.protoFilePath {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftProtobuf_GenSwift_ModuleMappings.Entry, rhs: SwiftProtobuf_GenSwift_ModuleMappings.Entry) -> Bool {
+    if lhs.moduleName != rhs.moduleName {return false}
+    if lhs.protoFilePath != rhs.protoFilePath {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

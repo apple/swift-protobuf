@@ -339,8 +339,8 @@ extension SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftReservedTestExt2) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: SwiftReservedTestExt2, rhs: SwiftReservedTestExt2) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

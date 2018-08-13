@@ -1189,63 +1189,63 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+  static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes, rhs: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
-        let other_storage = _args.1
-        if _storage._requiredInt32 != other_storage._requiredInt32 {return false}
-        if _storage._requiredInt64 != other_storage._requiredInt64 {return false}
-        if _storage._requiredUint32 != other_storage._requiredUint32 {return false}
-        if _storage._requiredUint64 != other_storage._requiredUint64 {return false}
-        if _storage._requiredSint32 != other_storage._requiredSint32 {return false}
-        if _storage._requiredSint64 != other_storage._requiredSint64 {return false}
-        if _storage._requiredFixed32 != other_storage._requiredFixed32 {return false}
-        if _storage._requiredFixed64 != other_storage._requiredFixed64 {return false}
-        if _storage._requiredSfixed32 != other_storage._requiredSfixed32 {return false}
-        if _storage._requiredSfixed64 != other_storage._requiredSfixed64 {return false}
-        if _storage._requiredFloat != other_storage._requiredFloat {return false}
-        if _storage._requiredDouble != other_storage._requiredDouble {return false}
-        if _storage._requiredBool != other_storage._requiredBool {return false}
-        if _storage._requiredString != other_storage._requiredString {return false}
-        if _storage._requiredBytes != other_storage._requiredBytes {return false}
-        if _storage._requiredGroup != other_storage._requiredGroup {return false}
-        if _storage._requiredNestedMessage != other_storage._requiredNestedMessage {return false}
-        if _storage._requiredForeignMessage != other_storage._requiredForeignMessage {return false}
-        if _storage._requiredImportMessage != other_storage._requiredImportMessage {return false}
-        if _storage._requiredNestedEnum != other_storage._requiredNestedEnum {return false}
-        if _storage._requiredForeignEnum != other_storage._requiredForeignEnum {return false}
-        if _storage._requiredImportEnum != other_storage._requiredImportEnum {return false}
-        if _storage._requiredStringPiece != other_storage._requiredStringPiece {return false}
-        if _storage._requiredCord != other_storage._requiredCord {return false}
-        if _storage._requiredPublicImportMessage != other_storage._requiredPublicImportMessage {return false}
-        if _storage._requiredLazyMessage != other_storage._requiredLazyMessage {return false}
-        if _storage._defaultInt32 != other_storage._defaultInt32 {return false}
-        if _storage._defaultInt64 != other_storage._defaultInt64 {return false}
-        if _storage._defaultUint32 != other_storage._defaultUint32 {return false}
-        if _storage._defaultUint64 != other_storage._defaultUint64 {return false}
-        if _storage._defaultSint32 != other_storage._defaultSint32 {return false}
-        if _storage._defaultSint64 != other_storage._defaultSint64 {return false}
-        if _storage._defaultFixed32 != other_storage._defaultFixed32 {return false}
-        if _storage._defaultFixed64 != other_storage._defaultFixed64 {return false}
-        if _storage._defaultSfixed32 != other_storage._defaultSfixed32 {return false}
-        if _storage._defaultSfixed64 != other_storage._defaultSfixed64 {return false}
-        if _storage._defaultFloat != other_storage._defaultFloat {return false}
-        if _storage._defaultDouble != other_storage._defaultDouble {return false}
-        if _storage._defaultBool != other_storage._defaultBool {return false}
-        if _storage._defaultString != other_storage._defaultString {return false}
-        if _storage._defaultBytes != other_storage._defaultBytes {return false}
-        if _storage._defaultNestedEnum != other_storage._defaultNestedEnum {return false}
-        if _storage._defaultForeignEnum != other_storage._defaultForeignEnum {return false}
-        if _storage._defaultImportEnum != other_storage._defaultImportEnum {return false}
-        if _storage._defaultStringPiece != other_storage._defaultStringPiece {return false}
-        if _storage._defaultCord != other_storage._defaultCord {return false}
-        if _storage._oneofField != other_storage._oneofField {return false}
+        let rhs_storage = _args.1
+        if _storage._requiredInt32 != rhs_storage._requiredInt32 {return false}
+        if _storage._requiredInt64 != rhs_storage._requiredInt64 {return false}
+        if _storage._requiredUint32 != rhs_storage._requiredUint32 {return false}
+        if _storage._requiredUint64 != rhs_storage._requiredUint64 {return false}
+        if _storage._requiredSint32 != rhs_storage._requiredSint32 {return false}
+        if _storage._requiredSint64 != rhs_storage._requiredSint64 {return false}
+        if _storage._requiredFixed32 != rhs_storage._requiredFixed32 {return false}
+        if _storage._requiredFixed64 != rhs_storage._requiredFixed64 {return false}
+        if _storage._requiredSfixed32 != rhs_storage._requiredSfixed32 {return false}
+        if _storage._requiredSfixed64 != rhs_storage._requiredSfixed64 {return false}
+        if _storage._requiredFloat != rhs_storage._requiredFloat {return false}
+        if _storage._requiredDouble != rhs_storage._requiredDouble {return false}
+        if _storage._requiredBool != rhs_storage._requiredBool {return false}
+        if _storage._requiredString != rhs_storage._requiredString {return false}
+        if _storage._requiredBytes != rhs_storage._requiredBytes {return false}
+        if _storage._requiredGroup != rhs_storage._requiredGroup {return false}
+        if _storage._requiredNestedMessage != rhs_storage._requiredNestedMessage {return false}
+        if _storage._requiredForeignMessage != rhs_storage._requiredForeignMessage {return false}
+        if _storage._requiredImportMessage != rhs_storage._requiredImportMessage {return false}
+        if _storage._requiredNestedEnum != rhs_storage._requiredNestedEnum {return false}
+        if _storage._requiredForeignEnum != rhs_storage._requiredForeignEnum {return false}
+        if _storage._requiredImportEnum != rhs_storage._requiredImportEnum {return false}
+        if _storage._requiredStringPiece != rhs_storage._requiredStringPiece {return false}
+        if _storage._requiredCord != rhs_storage._requiredCord {return false}
+        if _storage._requiredPublicImportMessage != rhs_storage._requiredPublicImportMessage {return false}
+        if _storage._requiredLazyMessage != rhs_storage._requiredLazyMessage {return false}
+        if _storage._defaultInt32 != rhs_storage._defaultInt32 {return false}
+        if _storage._defaultInt64 != rhs_storage._defaultInt64 {return false}
+        if _storage._defaultUint32 != rhs_storage._defaultUint32 {return false}
+        if _storage._defaultUint64 != rhs_storage._defaultUint64 {return false}
+        if _storage._defaultSint32 != rhs_storage._defaultSint32 {return false}
+        if _storage._defaultSint64 != rhs_storage._defaultSint64 {return false}
+        if _storage._defaultFixed32 != rhs_storage._defaultFixed32 {return false}
+        if _storage._defaultFixed64 != rhs_storage._defaultFixed64 {return false}
+        if _storage._defaultSfixed32 != rhs_storage._defaultSfixed32 {return false}
+        if _storage._defaultSfixed64 != rhs_storage._defaultSfixed64 {return false}
+        if _storage._defaultFloat != rhs_storage._defaultFloat {return false}
+        if _storage._defaultDouble != rhs_storage._defaultDouble {return false}
+        if _storage._defaultBool != rhs_storage._defaultBool {return false}
+        if _storage._defaultString != rhs_storage._defaultString {return false}
+        if _storage._defaultBytes != rhs_storage._defaultBytes {return false}
+        if _storage._defaultNestedEnum != rhs_storage._defaultNestedEnum {return false}
+        if _storage._defaultForeignEnum != rhs_storage._defaultForeignEnum {return false}
+        if _storage._defaultImportEnum != rhs_storage._defaultImportEnum {return false}
+        if _storage._defaultStringPiece != rhs_storage._defaultStringPiece {return false}
+        if _storage._defaultCord != rhs_storage._defaultCord {return false}
+        if _storage._oneofField != rhs_storage._oneofField {return false}
         return true
       }
       if !storagesAreEqual {return false}
     }
-    if unknownFields != other.unknownFields {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -1286,9 +1286,9 @@ extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
-    if self._bb != other._bb {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.NestedMessage, rhs: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
+    if lhs._bb != rhs._bb {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -1320,9 +1320,9 @@ extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
-    if self._a != other._a {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup, rhs: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -1384,14 +1384,14 @@ extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
-    if self._requiredInt32 != other._requiredInt32 {return false}
-    if self._requiredFloat != other._requiredFloat {return false}
-    if self._requiredBool != other._requiredBool {return false}
-    if self._requiredString != other._requiredString {return false}
-    if self._requiredBytes != other._requiredBytes {return false}
-    if self._requiredNestedEnum != other._requiredNestedEnum {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittest_TestSomeRequiredTypes, rhs: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
+    if lhs._requiredInt32 != rhs._requiredInt32 {return false}
+    if lhs._requiredFloat != rhs._requiredFloat {return false}
+    if lhs._requiredBool != rhs._requiredBool {return false}
+    if lhs._requiredString != rhs._requiredString {return false}
+    if lhs._requiredBytes != rhs._requiredBytes {return false}
+    if lhs._requiredNestedEnum != rhs._requiredNestedEnum {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

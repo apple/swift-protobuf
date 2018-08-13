@@ -96,9 +96,9 @@ extension ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
-    if self._c != other._c {return false}
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ProtobufUnittestNoArena_ForeignMessageLite, rhs: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
+    if lhs._c != rhs._c {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
