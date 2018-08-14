@@ -108,6 +108,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalInt32 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalInt32 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalInt32)
+        XCTAssertTrue(d.hasOptionalInt32)
+        d.clearOptionalInt32()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalInt32)
+        XCTAssertFalse(d.hasOptionalInt32)
     }
 
     func testEncoding_optionalInt64() {
@@ -137,6 +150,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalInt64 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalInt64 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalInt64)
+        XCTAssertTrue(d.hasOptionalInt64)
+        d.clearOptionalInt64()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalInt64)
+        XCTAssertFalse(d.hasOptionalInt64)
     }
 
     func testEncoding_optionalUint32() {
@@ -165,6 +191,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalUint32 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalUint32 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalUint32)
+        XCTAssertTrue(d.hasOptionalUint32)
+        d.clearOptionalUint32()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalUint32)
+        XCTAssertFalse(d.hasOptionalUint32)
     }
 
     func testEncoding_optionalUint64() {
@@ -208,6 +247,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalUint64 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalUint64 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalUint64)
+        XCTAssertTrue(d.hasOptionalUint64)
+        d.clearOptionalUint64()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalUint64)
+        XCTAssertFalse(d.hasOptionalUint64)
     }
 
     func testEncoding_optionalSint32() {
@@ -249,6 +301,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalSint32 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalSint32 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSint32)
+        XCTAssertTrue(d.hasOptionalSint32)
+        d.clearOptionalSint32()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSint32)
+        XCTAssertFalse(d.hasOptionalSint32)
     }
 
     func testEncoding_optionalSint64() {
@@ -284,6 +349,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalSint64 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalSint64 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSint64)
+        XCTAssertTrue(d.hasOptionalSint64)
+        d.clearOptionalSint64()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSint64)
+        XCTAssertFalse(d.hasOptionalSint64)
     }
 
     func testEncoding_optionalFixed32() {
@@ -328,6 +406,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalFixed32 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalFixed32 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalFixed32)
+        XCTAssertTrue(d.hasOptionalFixed32)
+        d.clearOptionalFixed32()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalFixed32)
+        XCTAssertFalse(d.hasOptionalFixed32)
     }
 
     func testEncoding_optionalFixed64() {
@@ -376,6 +467,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalFixed64 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalFixed64 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalFixed64)
+        XCTAssertTrue(d.hasOptionalFixed64)
+        d.clearOptionalFixed64()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalFixed64)
+        XCTAssertFalse(d.hasOptionalFixed64)
     }
 
     func testEncoding_optionalSfixed32() {
@@ -422,6 +526,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalSfixed32 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalSfixed32 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSfixed32)
+        XCTAssertTrue(d.hasOptionalSfixed32)
+        d.clearOptionalSfixed32()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSfixed32)
+        XCTAssertFalse(d.hasOptionalSfixed32)
     }
 
     func testEncoding_optionalSfixed64() {
@@ -468,6 +585,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalSfixed64 = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalSfixed64 = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSfixed64)
+        XCTAssertTrue(d.hasOptionalSfixed64)
+        d.clearOptionalSfixed64()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalSfixed64)
+        XCTAssertFalse(d.hasOptionalSfixed64)
     }
 
     func testEncoding_optionalFloat() {
@@ -513,6 +643,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalFloat = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalFloat = 1.0
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalFloat)
+        XCTAssertTrue(d.hasOptionalFloat)
+        d.clearOptionalFloat()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalFloat)
+        XCTAssertFalse(d.hasOptionalFloat)
     }
 
     func testEncoding_optionalDouble() {
@@ -556,6 +699,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalDouble = 0
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalDouble = 1.0
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalDouble)
+        XCTAssertTrue(d.hasOptionalDouble)
+        d.clearOptionalDouble()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalDouble)
+        XCTAssertFalse(d.hasOptionalDouble)
     }
 
     func testEncoding_optionalBool() {
@@ -599,6 +755,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalBool = false
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalBool = true
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalBool)
+        XCTAssertTrue(d.hasOptionalBool)
+        d.clearOptionalBool()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalBool)
+        XCTAssertFalse(d.hasOptionalBool)
     }
 
     func testEncoding_optionalString() {
@@ -656,6 +825,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalString = ""
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalString = "blah"
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalString)
+        XCTAssertTrue(d.hasOptionalString)
+        d.clearOptionalString()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalString)
+        XCTAssertFalse(d.hasOptionalString)
     }
 
     func testEncoding_optionalGroup() {
@@ -700,6 +882,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([134, 1, 0]) // Bad wire type
         assertDecodeFails([135, 1]) // Bad wire type
         assertDecodeFails([135, 1, 0]) // Bad wire type
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalGroup.a = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalGroup)
+        XCTAssertTrue(d.hasOptionalGroup)
+        d.clearOptionalGroup()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalGroup)
+        XCTAssertFalse(d.hasOptionalGroup)
     }
 
     func testEncoding_optionalBytes() {
@@ -745,6 +940,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, b)
         b.optionalBytes = Data()
         XCTAssertEqual(a, b)
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalBytes = Data(bytes: [1])
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalBytes)
+        XCTAssertTrue(d.hasOptionalBytes)
+        d.clearOptionalBytes()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalBytes)
+        XCTAssertFalse(d.hasOptionalBytes)
     }
 
     func testEncoding_optionalNestedMessage() {
@@ -763,6 +971,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         assertDecodeFails([146, 1, 2, 8, 128])
         assertDecodeFails([146, 1, 1, 128])
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalNestedMessage.bb = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalNestedMessage)
+        XCTAssertTrue(d.hasOptionalNestedMessage)
+        d.clearOptionalNestedMessage()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalNestedMessage)
+        XCTAssertFalse(d.hasOptionalNestedMessage)
     }
 
     // Known message field followed by unknown field
@@ -877,6 +1098,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([159, 1]) // Wire type 7
         assertDecodeFails([159, 1, 0])
         assertDecodeFails([154, 1, 4, 8, 1]) // Truncated
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalForeignMessage.c = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalForeignMessage)
+        XCTAssertTrue(d.hasOptionalForeignMessage)
+        d.clearOptionalForeignMessage()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalForeignMessage)
+        XCTAssertFalse(d.hasOptionalForeignMessage)
     }
 
     func testEncoding_optionalImportMessage() {
@@ -887,6 +1121,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeSucceeds([162, 1, 4, 8, 1, 8, 3]) {$0.optionalImportMessage.d == 3}
         assertDecodeSucceeds([162, 1, 2, 8, 1, 162, 1, 2, 8, 4]) {$0.optionalImportMessage.d == 4}
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalImportMessage.d = 1
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalImportMessage)
+        XCTAssertTrue(d.hasOptionalImportMessage)
+        d.clearOptionalImportMessage()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalImportMessage)
+        XCTAssertFalse(d.hasOptionalImportMessage)
     }
 
     func testEncoding_optionalNestedEnum() throws {
@@ -913,6 +1160,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertFalse(decoded.hasOptionalNestedEnum)
         let recoded = try decoded.serializedBytes()
         XCTAssertEqual(recoded, [168, 1, 128, 1])
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalNestedEnum = .bar
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalNestedEnum)
+        XCTAssertTrue(d.hasOptionalNestedEnum)
+        d.clearOptionalNestedEnum()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalNestedEnum)
+        XCTAssertFalse(d.hasOptionalNestedEnum)
     }
 
     func testEncoding_optionalForeignEnum() {
@@ -922,6 +1182,19 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_foreign_enum: FOREIGN_BAR\n") {(o: inout MessageTestType) in
             o.optionalForeignEnum = .foreignBar
         }
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalForeignEnum = .foreignBar
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalForeignEnum)
+        XCTAssertTrue(d.hasOptionalForeignEnum)
+        d.clearOptionalForeignEnum()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalForeignEnum)
+        XCTAssertFalse(d.hasOptionalForeignEnum)
     }
 
     func testEncoding_optionalImportEnum() {
@@ -931,18 +1204,57 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_import_enum: IMPORT_BAR\n") {(o: inout MessageTestType) in
             o.optionalImportEnum = .importBar
         }
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalImportEnum = .importBar
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalImportEnum)
+        XCTAssertTrue(d.hasOptionalImportEnum)
+        d.clearOptionalImportEnum()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalImportEnum)
+        XCTAssertFalse(d.hasOptionalImportEnum)
     }
 
     func testEncoding_optionalStringPiece() {
         assertEncode([194, 1, 6, 97, 98, 99, 100, 101, 102]) {(o: inout MessageTestType) in
             o.optionalStringPiece = "abcdef"
         }
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalStringPiece = "mumble"
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalStringPiece)
+        XCTAssertTrue(d.hasOptionalStringPiece)
+        d.clearOptionalStringPiece()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalStringPiece)
+        XCTAssertFalse(d.hasOptionalStringPiece)
     }
 
     func testEncoding_optionalCord() {
         assertEncode([202, 1, 6, 102, 101, 100, 99, 98, 97]) {(o: inout MessageTestType) in
             o.optionalCord = "fedcba"
         }
+
+        // Ensure storage is uniqued for clear.
+        let c = MessageTestType.with {
+            $0.optionalCord = "mumble"
+        }
+        var d = c
+        XCTAssertEqual(c, d)
+        XCTAssertTrue(c.hasOptionalCord)
+        XCTAssertTrue(d.hasOptionalCord)
+        d.clearOptionalCord()
+        XCTAssertNotEqual(c, d)
+        XCTAssertTrue(c.hasOptionalCord)
+        XCTAssertFalse(d.hasOptionalCord)
     }
 
     func testEncoding_optionalPublicImportMessage() {
