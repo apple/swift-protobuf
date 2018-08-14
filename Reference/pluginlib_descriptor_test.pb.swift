@@ -84,7 +84,7 @@ struct SDTTopLevelMessage {
   /// Returns true if `field1` has been explicitly set.
   var hasField1: Bool {return _storage._field1 != nil}
   /// Clears the value of `field1`. Subsequent reads from it will return its default value.
-  mutating func clearField1() {_storage._field1 = nil}
+  mutating func clearField1() {_uniqueStorage()._field1 = nil}
 
   var field2: Int32 {
     get {return _storage._field2 ?? 0}
@@ -93,7 +93,7 @@ struct SDTTopLevelMessage {
   /// Returns true if `field2` has been explicitly set.
   var hasField2: Bool {return _storage._field2 != nil}
   /// Clears the value of `field2`. Subsequent reads from it will return its default value.
-  mutating func clearField2() {_storage._field2 = nil}
+  mutating func clearField2() {_uniqueStorage()._field2 = nil}
 
   var o: OneOf_O? {
     get {return _storage._o}
@@ -194,7 +194,7 @@ struct SDTTopLevelMessage {
     /// Returns true if `field1` has been explicitly set.
     var hasField1: Bool {return _storage._field1 != nil}
     /// Clears the value of `field1`. Subsequent reads from it will return its default value.
-    mutating func clearField1() {_storage._field1 = nil}
+    mutating func clearField1() {_uniqueStorage()._field1 = nil}
 
     var field2: String {
       get {return _storage._field2 ?? String()}
@@ -203,7 +203,7 @@ struct SDTTopLevelMessage {
     /// Returns true if `field2` has been explicitly set.
     var hasField2: Bool {return _storage._field2 != nil}
     /// Clears the value of `field2`. Subsequent reads from it will return its default value.
-    mutating func clearField2() {_storage._field2 = nil}
+    mutating func clearField2() {_uniqueStorage()._field2 = nil}
 
     var field3: SDTTopLevelMessage.SubMessage {
       get {return _storage._field3 ?? SDTTopLevelMessage.SubMessage()}
@@ -212,7 +212,7 @@ struct SDTTopLevelMessage {
     /// Returns true if `field3` has been explicitly set.
     var hasField3: Bool {return _storage._field3 != nil}
     /// Clears the value of `field3`. Subsequent reads from it will return its default value.
-    mutating func clearField3() {_storage._field3 = nil}
+    mutating func clearField3() {_uniqueStorage()._field3 = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -246,7 +246,7 @@ struct SDTTopLevelMessage2 {
   /// Returns true if `left` has been explicitly set.
   var hasLeft: Bool {return _storage._left != nil}
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
-  mutating func clearLeft() {_storage._left = nil}
+  mutating func clearLeft() {_uniqueStorage()._left = nil}
 
   var right: SDTTopLevelMessage2 {
     get {return _storage._right ?? SDTTopLevelMessage2()}
@@ -255,7 +255,7 @@ struct SDTTopLevelMessage2 {
   /// Returns true if `right` has been explicitly set.
   var hasRight: Bool {return _storage._right != nil}
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
-  mutating func clearRight() {_storage._right = nil}
+  mutating func clearRight() {_uniqueStorage()._right = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -276,7 +276,7 @@ struct SDTExternalRefs {
   /// Returns true if `desc` has been explicitly set.
   var hasDesc: Bool {return _storage._desc != nil}
   /// Clears the value of `desc`. Subsequent reads from it will return its default value.
-  mutating func clearDesc() {_storage._desc = nil}
+  mutating func clearDesc() {_uniqueStorage()._desc = nil}
 
   var ver: Google_Protobuf_Compiler_Version {
     get {return _storage._ver ?? Google_Protobuf_Compiler_Version()}
@@ -285,7 +285,7 @@ struct SDTExternalRefs {
   /// Returns true if `ver` has been explicitly set.
   var hasVer: Bool {return _storage._ver != nil}
   /// Clears the value of `ver`. Subsequent reads from it will return its default value.
-  mutating func clearVer() {_storage._ver = nil}
+  mutating func clearVer() {_uniqueStorage()._ver = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

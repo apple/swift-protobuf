@@ -47,7 +47,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `myString` has been explicitly set.
   var hasMyString: Bool {return _storage._myString != nil}
   /// Clears the value of `myString`. Subsequent reads from it will return its default value.
-  mutating func clearMyString() {_storage._myString = nil}
+  mutating func clearMyString() {_uniqueStorage()._myString = nil}
 
   var myInt: Int64 {
     get {return _storage._myInt ?? 0}
@@ -56,7 +56,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `myInt` has been explicitly set.
   var hasMyInt: Bool {return _storage._myInt != nil}
   /// Clears the value of `myInt`. Subsequent reads from it will return its default value.
-  mutating func clearMyInt() {_storage._myInt = nil}
+  mutating func clearMyInt() {_uniqueStorage()._myInt = nil}
 
   var myFloat: Float {
     get {return _storage._myFloat ?? 0}
@@ -65,7 +65,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `myFloat` has been explicitly set.
   var hasMyFloat: Bool {return _storage._myFloat != nil}
   /// Clears the value of `myFloat`. Subsequent reads from it will return its default value.
-  mutating func clearMyFloat() {_storage._myFloat = nil}
+  mutating func clearMyFloat() {_uniqueStorage()._myFloat = nil}
 
   var options: OneOf_Options? {
     get {return _storage._options}
@@ -111,7 +111,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
+  mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -67,7 +67,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `i` has been explicitly set.
   var hasI: Bool {return _storage._i != nil}
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
-  mutating func clearI() {_storage._i = nil}
+  mutating func clearI() {_uniqueStorage()._i = nil}
 
   var msg: ProtobufUnittest_ForeignMessage {
     get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
@@ -76,7 +76,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `msg` has been explicitly set.
   var hasMsg: Bool {return _storage._msg != nil}
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
-  mutating func clearMsg() {_storage._msg = nil}
+  mutating func clearMsg() {_uniqueStorage()._msg = nil}
 
   var foo: OneOf_Foo? {
     get {return _storage._foo}
@@ -155,7 +155,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize {
   /// Returns true if `o` has been explicitly set.
   var hasO: Bool {return _storage._o != nil}
   /// Clears the value of `o`. Subsequent reads from it will return its default value.
-  mutating func clearO() {_storage._o = nil}
+  mutating func clearO() {_uniqueStorage()._o = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

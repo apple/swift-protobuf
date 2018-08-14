@@ -6366,6 +6366,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct uniqueStorage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var uniqueStorage: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct unknown {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -22731,6 +22743,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.union: SwiftP
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.union, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.union) -> Bool {
     if lhs.union != rhs.union {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.uniqueStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".uniqueStorage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "uniqueStorage"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.uniqueStorage)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.uniqueStorage != 0 {
+      try visitor.visitSingularInt32Field(value: self.uniqueStorage, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.uniqueStorage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.uniqueStorage) -> Bool {
+    if lhs.uniqueStorage != rhs.uniqueStorage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

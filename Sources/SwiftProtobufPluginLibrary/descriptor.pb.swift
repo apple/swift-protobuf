@@ -85,7 +85,7 @@ public struct Google_Protobuf_FileDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   /// e.g. "foo", "foo.bar", etc.
   public var package: String {
@@ -95,7 +95,7 @@ public struct Google_Protobuf_FileDescriptorProto {
   /// Returns true if `package` has been explicitly set.
   public var hasPackage: Bool {return _storage._package != nil}
   /// Clears the value of `package`. Subsequent reads from it will return its default value.
-  public mutating func clearPackage() {_storage._package = nil}
+  public mutating func clearPackage() {_uniqueStorage()._package = nil}
 
   /// Names of files imported by this file.
   public var dependency: [String] {
@@ -144,7 +144,7 @@ public struct Google_Protobuf_FileDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   /// This field contains optional information about the original source code.
   /// You may safely remove this entire field without harming runtime
@@ -157,7 +157,7 @@ public struct Google_Protobuf_FileDescriptorProto {
   /// Returns true if `sourceCodeInfo` has been explicitly set.
   public var hasSourceCodeInfo: Bool {return _storage._sourceCodeInfo != nil}
   /// Clears the value of `sourceCodeInfo`. Subsequent reads from it will return its default value.
-  public mutating func clearSourceCodeInfo() {_storage._sourceCodeInfo = nil}
+  public mutating func clearSourceCodeInfo() {_uniqueStorage()._sourceCodeInfo = nil}
 
   /// The syntax of the proto file.
   /// The supported values are "proto2" and "proto3".
@@ -168,7 +168,7 @@ public struct Google_Protobuf_FileDescriptorProto {
   /// Returns true if `syntax` has been explicitly set.
   public var hasSyntax: Bool {return _storage._syntax != nil}
   /// Clears the value of `syntax`. Subsequent reads from it will return its default value.
-  public mutating func clearSyntax() {_storage._syntax = nil}
+  public mutating func clearSyntax() {_uniqueStorage()._syntax = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -190,7 +190,7 @@ public struct Google_Protobuf_DescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var field: [Google_Protobuf_FieldDescriptorProto] {
     get {return _storage._field}
@@ -229,7 +229,7 @@ public struct Google_Protobuf_DescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   public var reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] {
     get {return _storage._reservedRange}
@@ -257,7 +257,7 @@ public struct Google_Protobuf_DescriptorProto {
     /// Returns true if `start` has been explicitly set.
     public var hasStart: Bool {return _storage._start != nil}
     /// Clears the value of `start`. Subsequent reads from it will return its default value.
-    public mutating func clearStart() {_storage._start = nil}
+    public mutating func clearStart() {_uniqueStorage()._start = nil}
 
     public var end: Int32 {
       get {return _storage._end ?? 0}
@@ -266,7 +266,7 @@ public struct Google_Protobuf_DescriptorProto {
     /// Returns true if `end` has been explicitly set.
     public var hasEnd: Bool {return _storage._end != nil}
     /// Clears the value of `end`. Subsequent reads from it will return its default value.
-    public mutating func clearEnd() {_storage._end = nil}
+    public mutating func clearEnd() {_uniqueStorage()._end = nil}
 
     public var options: Google_Protobuf_ExtensionRangeOptions {
       get {return _storage._options ?? Google_Protobuf_ExtensionRangeOptions()}
@@ -275,7 +275,7 @@ public struct Google_Protobuf_DescriptorProto {
     /// Returns true if `options` has been explicitly set.
     public var hasOptions: Bool {return _storage._options != nil}
     /// Clears the value of `options`. Subsequent reads from it will return its default value.
-    public mutating func clearOptions() {_storage._options = nil}
+    public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -353,7 +353,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var number: Int32 {
     get {return _storage._number ?? 0}
@@ -362,7 +362,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `number` has been explicitly set.
   public var hasNumber: Bool {return _storage._number != nil}
   /// Clears the value of `number`. Subsequent reads from it will return its default value.
-  public mutating func clearNumber() {_storage._number = nil}
+  public mutating func clearNumber() {_uniqueStorage()._number = nil}
 
   public var label: Google_Protobuf_FieldDescriptorProto.Label {
     get {return _storage._label ?? .optional}
@@ -371,7 +371,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `label` has been explicitly set.
   public var hasLabel: Bool {return _storage._label != nil}
   /// Clears the value of `label`. Subsequent reads from it will return its default value.
-  public mutating func clearLabel() {_storage._label = nil}
+  public mutating func clearLabel() {_uniqueStorage()._label = nil}
 
   /// If type_name is set, this need not be set.  If both this and type_name
   /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
@@ -382,7 +382,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `type` has been explicitly set.
   public var hasType: Bool {return _storage._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  public mutating func clearType() {_storage._type = nil}
+  public mutating func clearType() {_uniqueStorage()._type = nil}
 
   /// For message and enum types, this is the name of the type.  If the name
   /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
@@ -396,7 +396,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `typeName` has been explicitly set.
   public var hasTypeName: Bool {return _storage._typeName != nil}
   /// Clears the value of `typeName`. Subsequent reads from it will return its default value.
-  public mutating func clearTypeName() {_storage._typeName = nil}
+  public mutating func clearTypeName() {_uniqueStorage()._typeName = nil}
 
   /// For extensions, this is the name of the type being extended.  It is
   /// resolved in the same manner as type_name.
@@ -407,7 +407,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `extendee` has been explicitly set.
   public var hasExtendee: Bool {return _storage._extendee != nil}
   /// Clears the value of `extendee`. Subsequent reads from it will return its default value.
-  public mutating func clearExtendee() {_storage._extendee = nil}
+  public mutating func clearExtendee() {_uniqueStorage()._extendee = nil}
 
   /// For numeric types, contains the original text representation of the value.
   /// For booleans, "true" or "false".
@@ -421,7 +421,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `defaultValue` has been explicitly set.
   public var hasDefaultValue: Bool {return _storage._defaultValue != nil}
   /// Clears the value of `defaultValue`. Subsequent reads from it will return its default value.
-  public mutating func clearDefaultValue() {_storage._defaultValue = nil}
+  public mutating func clearDefaultValue() {_uniqueStorage()._defaultValue = nil}
 
   /// If set, gives the index of a oneof in the containing type's oneof_decl
   /// list.  This field is a member of that oneof.
@@ -432,7 +432,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `oneofIndex` has been explicitly set.
   public var hasOneofIndex: Bool {return _storage._oneofIndex != nil}
   /// Clears the value of `oneofIndex`. Subsequent reads from it will return its default value.
-  public mutating func clearOneofIndex() {_storage._oneofIndex = nil}
+  public mutating func clearOneofIndex() {_uniqueStorage()._oneofIndex = nil}
 
   /// JSON name of this field. The value is set by protocol compiler. If the
   /// user has set a "json_name" option on this field, that option's value
@@ -445,7 +445,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `jsonName` has been explicitly set.
   public var hasJsonName: Bool {return _storage._jsonName != nil}
   /// Clears the value of `jsonName`. Subsequent reads from it will return its default value.
-  public mutating func clearJsonName() {_storage._jsonName = nil}
+  public mutating func clearJsonName() {_uniqueStorage()._jsonName = nil}
 
   public var options: Google_Protobuf_FieldOptions {
     get {return _storage._options ?? Google_Protobuf_FieldOptions()}
@@ -454,7 +454,7 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -615,7 +615,7 @@ public struct Google_Protobuf_OneofDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var options: Google_Protobuf_OneofOptions {
     get {return _storage._options ?? Google_Protobuf_OneofOptions()}
@@ -624,7 +624,7 @@ public struct Google_Protobuf_OneofDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -646,7 +646,7 @@ public struct Google_Protobuf_EnumDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var value: [Google_Protobuf_EnumValueDescriptorProto] {
     get {return _storage._value}
@@ -660,7 +660,7 @@ public struct Google_Protobuf_EnumDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   /// Range of reserved numeric values. Reserved numeric values may not be used
   /// by enum values in the same enum declaration. Reserved ranges may not
@@ -736,7 +736,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var number: Int32 {
     get {return _storage._number ?? 0}
@@ -745,7 +745,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto {
   /// Returns true if `number` has been explicitly set.
   public var hasNumber: Bool {return _storage._number != nil}
   /// Clears the value of `number`. Subsequent reads from it will return its default value.
-  public mutating func clearNumber() {_storage._number = nil}
+  public mutating func clearNumber() {_uniqueStorage()._number = nil}
 
   public var options: Google_Protobuf_EnumValueOptions {
     get {return _storage._options ?? Google_Protobuf_EnumValueOptions()}
@@ -754,7 +754,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -776,7 +776,7 @@ public struct Google_Protobuf_ServiceDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   public var method: [Google_Protobuf_MethodDescriptorProto] {
     get {return _storage._method}
@@ -790,7 +790,7 @@ public struct Google_Protobuf_ServiceDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -812,7 +812,7 @@ public struct Google_Protobuf_MethodDescriptorProto {
   /// Returns true if `name` has been explicitly set.
   public var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_storage._name = nil}
+  public mutating func clearName() {_uniqueStorage()._name = nil}
 
   /// Input and output type names.  These are resolved in the same way as
   /// FieldDescriptorProto.type_name, but must refer to a message type.
@@ -823,7 +823,7 @@ public struct Google_Protobuf_MethodDescriptorProto {
   /// Returns true if `inputType` has been explicitly set.
   public var hasInputType: Bool {return _storage._inputType != nil}
   /// Clears the value of `inputType`. Subsequent reads from it will return its default value.
-  public mutating func clearInputType() {_storage._inputType = nil}
+  public mutating func clearInputType() {_uniqueStorage()._inputType = nil}
 
   public var outputType: String {
     get {return _storage._outputType ?? String()}
@@ -832,7 +832,7 @@ public struct Google_Protobuf_MethodDescriptorProto {
   /// Returns true if `outputType` has been explicitly set.
   public var hasOutputType: Bool {return _storage._outputType != nil}
   /// Clears the value of `outputType`. Subsequent reads from it will return its default value.
-  public mutating func clearOutputType() {_storage._outputType = nil}
+  public mutating func clearOutputType() {_uniqueStorage()._outputType = nil}
 
   public var options: Google_Protobuf_MethodOptions {
     get {return _storage._options ?? Google_Protobuf_MethodOptions()}
@@ -841,7 +841,7 @@ public struct Google_Protobuf_MethodDescriptorProto {
   /// Returns true if `options` has been explicitly set.
   public var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_storage._options = nil}
+  public mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   /// Identifies if client streams multiple client messages
   public var clientStreaming: Bool {
@@ -851,7 +851,7 @@ public struct Google_Protobuf_MethodDescriptorProto {
   /// Returns true if `clientStreaming` has been explicitly set.
   public var hasClientStreaming: Bool {return _storage._clientStreaming != nil}
   /// Clears the value of `clientStreaming`. Subsequent reads from it will return its default value.
-  public mutating func clearClientStreaming() {_storage._clientStreaming = nil}
+  public mutating func clearClientStreaming() {_uniqueStorage()._clientStreaming = nil}
 
   /// Identifies if server streams multiple server messages
   public var serverStreaming: Bool {
@@ -861,7 +861,7 @@ public struct Google_Protobuf_MethodDescriptorProto {
   /// Returns true if `serverStreaming` has been explicitly set.
   public var hasServerStreaming: Bool {return _storage._serverStreaming != nil}
   /// Clears the value of `serverStreaming`. Subsequent reads from it will return its default value.
-  public mutating func clearServerStreaming() {_storage._serverStreaming = nil}
+  public mutating func clearServerStreaming() {_uniqueStorage()._serverStreaming = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -886,7 +886,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `javaPackage` has been explicitly set.
   public var hasJavaPackage: Bool {return _storage._javaPackage != nil}
   /// Clears the value of `javaPackage`. Subsequent reads from it will return its default value.
-  public mutating func clearJavaPackage() {_storage._javaPackage = nil}
+  public mutating func clearJavaPackage() {_uniqueStorage()._javaPackage = nil}
 
   /// If set, all the classes from the .proto file are wrapped in a single
   /// outer class with the given name.  This applies to both Proto1
@@ -900,7 +900,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `javaOuterClassname` has been explicitly set.
   public var hasJavaOuterClassname: Bool {return _storage._javaOuterClassname != nil}
   /// Clears the value of `javaOuterClassname`. Subsequent reads from it will return its default value.
-  public mutating func clearJavaOuterClassname() {_storage._javaOuterClassname = nil}
+  public mutating func clearJavaOuterClassname() {_uniqueStorage()._javaOuterClassname = nil}
 
   /// If set true, then the Java code generator will generate a separate .java
   /// file for each top-level message, enum, and service defined in the .proto
@@ -915,7 +915,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `javaMultipleFiles` has been explicitly set.
   public var hasJavaMultipleFiles: Bool {return _storage._javaMultipleFiles != nil}
   /// Clears the value of `javaMultipleFiles`. Subsequent reads from it will return its default value.
-  public mutating func clearJavaMultipleFiles() {_storage._javaMultipleFiles = nil}
+  public mutating func clearJavaMultipleFiles() {_uniqueStorage()._javaMultipleFiles = nil}
 
   /// This option does nothing.
   public var javaGenerateEqualsAndHash: Bool {
@@ -925,7 +925,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `javaGenerateEqualsAndHash` has been explicitly set.
   public var hasJavaGenerateEqualsAndHash: Bool {return _storage._javaGenerateEqualsAndHash != nil}
   /// Clears the value of `javaGenerateEqualsAndHash`. Subsequent reads from it will return its default value.
-  public mutating func clearJavaGenerateEqualsAndHash() {_storage._javaGenerateEqualsAndHash = nil}
+  public mutating func clearJavaGenerateEqualsAndHash() {_uniqueStorage()._javaGenerateEqualsAndHash = nil}
 
   /// If set true, then the Java2 code generator will generate code that
   /// throws an exception whenever an attempt is made to assign a non-UTF-8
@@ -940,7 +940,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `javaStringCheckUtf8` has been explicitly set.
   public var hasJavaStringCheckUtf8: Bool {return _storage._javaStringCheckUtf8 != nil}
   /// Clears the value of `javaStringCheckUtf8`. Subsequent reads from it will return its default value.
-  public mutating func clearJavaStringCheckUtf8() {_storage._javaStringCheckUtf8 = nil}
+  public mutating func clearJavaStringCheckUtf8() {_uniqueStorage()._javaStringCheckUtf8 = nil}
 
   public var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode {
     get {return _storage._optimizeFor ?? .speed}
@@ -949,7 +949,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optimizeFor` has been explicitly set.
   public var hasOptimizeFor: Bool {return _storage._optimizeFor != nil}
   /// Clears the value of `optimizeFor`. Subsequent reads from it will return its default value.
-  public mutating func clearOptimizeFor() {_storage._optimizeFor = nil}
+  public mutating func clearOptimizeFor() {_uniqueStorage()._optimizeFor = nil}
 
   /// Sets the Go package where structs generated from this .proto will be
   /// placed. If omitted, the Go package will be derived from the following:
@@ -963,7 +963,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `goPackage` has been explicitly set.
   public var hasGoPackage: Bool {return _storage._goPackage != nil}
   /// Clears the value of `goPackage`. Subsequent reads from it will return its default value.
-  public mutating func clearGoPackage() {_storage._goPackage = nil}
+  public mutating func clearGoPackage() {_uniqueStorage()._goPackage = nil}
 
   /// Should generic services be generated in each language?  "Generic" services
   /// are not specific to any particular RPC system.  They are generated by the
@@ -982,7 +982,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `ccGenericServices` has been explicitly set.
   public var hasCcGenericServices: Bool {return _storage._ccGenericServices != nil}
   /// Clears the value of `ccGenericServices`. Subsequent reads from it will return its default value.
-  public mutating func clearCcGenericServices() {_storage._ccGenericServices = nil}
+  public mutating func clearCcGenericServices() {_uniqueStorage()._ccGenericServices = nil}
 
   public var javaGenericServices: Bool {
     get {return _storage._javaGenericServices ?? false}
@@ -991,7 +991,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `javaGenericServices` has been explicitly set.
   public var hasJavaGenericServices: Bool {return _storage._javaGenericServices != nil}
   /// Clears the value of `javaGenericServices`. Subsequent reads from it will return its default value.
-  public mutating func clearJavaGenericServices() {_storage._javaGenericServices = nil}
+  public mutating func clearJavaGenericServices() {_uniqueStorage()._javaGenericServices = nil}
 
   public var pyGenericServices: Bool {
     get {return _storage._pyGenericServices ?? false}
@@ -1000,7 +1000,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `pyGenericServices` has been explicitly set.
   public var hasPyGenericServices: Bool {return _storage._pyGenericServices != nil}
   /// Clears the value of `pyGenericServices`. Subsequent reads from it will return its default value.
-  public mutating func clearPyGenericServices() {_storage._pyGenericServices = nil}
+  public mutating func clearPyGenericServices() {_uniqueStorage()._pyGenericServices = nil}
 
   public var phpGenericServices: Bool {
     get {return _storage._phpGenericServices ?? false}
@@ -1009,7 +1009,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `phpGenericServices` has been explicitly set.
   public var hasPhpGenericServices: Bool {return _storage._phpGenericServices != nil}
   /// Clears the value of `phpGenericServices`. Subsequent reads from it will return its default value.
-  public mutating func clearPhpGenericServices() {_storage._phpGenericServices = nil}
+  public mutating func clearPhpGenericServices() {_uniqueStorage()._phpGenericServices = nil}
 
   /// Is this file deprecated?
   /// Depending on the target platform, this can emit Deprecated annotations
@@ -1022,7 +1022,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `deprecated` has been explicitly set.
   public var hasDeprecated: Bool {return _storage._deprecated != nil}
   /// Clears the value of `deprecated`. Subsequent reads from it will return its default value.
-  public mutating func clearDeprecated() {_storage._deprecated = nil}
+  public mutating func clearDeprecated() {_uniqueStorage()._deprecated = nil}
 
   /// Enables the use of arenas for the proto messages in this file. This applies
   /// only to generated classes for C++.
@@ -1033,7 +1033,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `ccEnableArenas` has been explicitly set.
   public var hasCcEnableArenas: Bool {return _storage._ccEnableArenas != nil}
   /// Clears the value of `ccEnableArenas`. Subsequent reads from it will return its default value.
-  public mutating func clearCcEnableArenas() {_storage._ccEnableArenas = nil}
+  public mutating func clearCcEnableArenas() {_uniqueStorage()._ccEnableArenas = nil}
 
   /// Sets the objective c class prefix which is prepended to all objective c
   /// generated classes from this .proto. There is no default.
@@ -1044,7 +1044,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `objcClassPrefix` has been explicitly set.
   public var hasObjcClassPrefix: Bool {return _storage._objcClassPrefix != nil}
   /// Clears the value of `objcClassPrefix`. Subsequent reads from it will return its default value.
-  public mutating func clearObjcClassPrefix() {_storage._objcClassPrefix = nil}
+  public mutating func clearObjcClassPrefix() {_uniqueStorage()._objcClassPrefix = nil}
 
   /// Namespace for generated classes; defaults to the package.
   public var csharpNamespace: String {
@@ -1054,7 +1054,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `csharpNamespace` has been explicitly set.
   public var hasCsharpNamespace: Bool {return _storage._csharpNamespace != nil}
   /// Clears the value of `csharpNamespace`. Subsequent reads from it will return its default value.
-  public mutating func clearCsharpNamespace() {_storage._csharpNamespace = nil}
+  public mutating func clearCsharpNamespace() {_uniqueStorage()._csharpNamespace = nil}
 
   /// By default Swift generators will take the proto package and CamelCase it
   /// replacing '.' with underscore and use that to prefix the types/symbols
@@ -1067,7 +1067,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `swiftPrefix` has been explicitly set.
   public var hasSwiftPrefix: Bool {return _storage._swiftPrefix != nil}
   /// Clears the value of `swiftPrefix`. Subsequent reads from it will return its default value.
-  public mutating func clearSwiftPrefix() {_storage._swiftPrefix = nil}
+  public mutating func clearSwiftPrefix() {_uniqueStorage()._swiftPrefix = nil}
 
   /// Sets the php class prefix which is prepended to all php generated classes
   /// from this .proto. Default is empty.
@@ -1078,7 +1078,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `phpClassPrefix` has been explicitly set.
   public var hasPhpClassPrefix: Bool {return _storage._phpClassPrefix != nil}
   /// Clears the value of `phpClassPrefix`. Subsequent reads from it will return its default value.
-  public mutating func clearPhpClassPrefix() {_storage._phpClassPrefix = nil}
+  public mutating func clearPhpClassPrefix() {_uniqueStorage()._phpClassPrefix = nil}
 
   /// Use this option to change the namespace of php generated classes. Default
   /// is empty. When this option is empty, the package name will be used for
@@ -1090,7 +1090,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `phpNamespace` has been explicitly set.
   public var hasPhpNamespace: Bool {return _storage._phpNamespace != nil}
   /// Clears the value of `phpNamespace`. Subsequent reads from it will return its default value.
-  public mutating func clearPhpNamespace() {_storage._phpNamespace = nil}
+  public mutating func clearPhpNamespace() {_uniqueStorage()._phpNamespace = nil}
 
   /// Use this option to change the namespace of php generated metadata classes.
   /// Default is empty. When this option is empty, the proto file name will be used
@@ -1102,7 +1102,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `phpMetadataNamespace` has been explicitly set.
   public var hasPhpMetadataNamespace: Bool {return _storage._phpMetadataNamespace != nil}
   /// Clears the value of `phpMetadataNamespace`. Subsequent reads from it will return its default value.
-  public mutating func clearPhpMetadataNamespace() {_storage._phpMetadataNamespace = nil}
+  public mutating func clearPhpMetadataNamespace() {_uniqueStorage()._phpMetadataNamespace = nil}
 
   /// Use this option to change the package of ruby generated classes. Default
   /// is empty. When this option is not set, the package name will be used for
@@ -1114,7 +1114,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `rubyPackage` has been explicitly set.
   public var hasRubyPackage: Bool {return _storage._rubyPackage != nil}
   /// Clears the value of `rubyPackage`. Subsequent reads from it will return its default value.
-  public mutating func clearRubyPackage() {_storage._rubyPackage = nil}
+  public mutating func clearRubyPackage() {_uniqueStorage()._rubyPackage = nil}
 
   /// The parser stores options it doesn't recognize here.
   /// See the documentation for the "Options" section above.

@@ -34,7 +34,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `anyField` has been explicitly set.
   var hasAnyField: Bool {return _storage._anyField != nil}
   /// Clears the value of `anyField`. Subsequent reads from it will return its default value.
-  mutating func clearAnyField() {_storage._anyField = nil}
+  mutating func clearAnyField() {_uniqueStorage()._anyField = nil}
 
   var apiField: SwiftProtobuf.Google_Protobuf_Api {
     get {return _storage._apiField ?? SwiftProtobuf.Google_Protobuf_Api()}
@@ -43,7 +43,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `apiField` has been explicitly set.
   var hasApiField: Bool {return _storage._apiField != nil}
   /// Clears the value of `apiField`. Subsequent reads from it will return its default value.
-  mutating func clearApiField() {_storage._apiField = nil}
+  mutating func clearApiField() {_uniqueStorage()._apiField = nil}
 
   var durationField: SwiftProtobuf.Google_Protobuf_Duration {
     get {return _storage._durationField ?? SwiftProtobuf.Google_Protobuf_Duration()}
@@ -52,7 +52,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `durationField` has been explicitly set.
   var hasDurationField: Bool {return _storage._durationField != nil}
   /// Clears the value of `durationField`. Subsequent reads from it will return its default value.
-  mutating func clearDurationField() {_storage._durationField = nil}
+  mutating func clearDurationField() {_uniqueStorage()._durationField = nil}
 
   var emptyField: SwiftProtobuf.Google_Protobuf_Empty {
     get {return _storage._emptyField ?? SwiftProtobuf.Google_Protobuf_Empty()}
@@ -61,7 +61,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `emptyField` has been explicitly set.
   var hasEmptyField: Bool {return _storage._emptyField != nil}
   /// Clears the value of `emptyField`. Subsequent reads from it will return its default value.
-  mutating func clearEmptyField() {_storage._emptyField = nil}
+  mutating func clearEmptyField() {_uniqueStorage()._emptyField = nil}
 
   var fieldMaskField: SwiftProtobuf.Google_Protobuf_FieldMask {
     get {return _storage._fieldMaskField ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
@@ -70,7 +70,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `fieldMaskField` has been explicitly set.
   var hasFieldMaskField: Bool {return _storage._fieldMaskField != nil}
   /// Clears the value of `fieldMaskField`. Subsequent reads from it will return its default value.
-  mutating func clearFieldMaskField() {_storage._fieldMaskField = nil}
+  mutating func clearFieldMaskField() {_uniqueStorage()._fieldMaskField = nil}
 
   var sourceContextField: SwiftProtobuf.Google_Protobuf_SourceContext {
     get {return _storage._sourceContextField ?? SwiftProtobuf.Google_Protobuf_SourceContext()}
@@ -79,7 +79,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `sourceContextField` has been explicitly set.
   var hasSourceContextField: Bool {return _storage._sourceContextField != nil}
   /// Clears the value of `sourceContextField`. Subsequent reads from it will return its default value.
-  mutating func clearSourceContextField() {_storage._sourceContextField = nil}
+  mutating func clearSourceContextField() {_uniqueStorage()._sourceContextField = nil}
 
   var structField: SwiftProtobuf.Google_Protobuf_Struct {
     get {return _storage._structField ?? SwiftProtobuf.Google_Protobuf_Struct()}
@@ -88,7 +88,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `structField` has been explicitly set.
   var hasStructField: Bool {return _storage._structField != nil}
   /// Clears the value of `structField`. Subsequent reads from it will return its default value.
-  mutating func clearStructField() {_storage._structField = nil}
+  mutating func clearStructField() {_uniqueStorage()._structField = nil}
 
   var timestampField: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._timestampField ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
@@ -97,7 +97,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `timestampField` has been explicitly set.
   var hasTimestampField: Bool {return _storage._timestampField != nil}
   /// Clears the value of `timestampField`. Subsequent reads from it will return its default value.
-  mutating func clearTimestampField() {_storage._timestampField = nil}
+  mutating func clearTimestampField() {_uniqueStorage()._timestampField = nil}
 
   var typeField: SwiftProtobuf.Google_Protobuf_Type {
     get {return _storage._typeField ?? SwiftProtobuf.Google_Protobuf_Type()}
@@ -106,7 +106,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `typeField` has been explicitly set.
   var hasTypeField: Bool {return _storage._typeField != nil}
   /// Clears the value of `typeField`. Subsequent reads from it will return its default value.
-  mutating func clearTypeField() {_storage._typeField = nil}
+  mutating func clearTypeField() {_uniqueStorage()._typeField = nil}
 
   var doubleField: SwiftProtobuf.Google_Protobuf_DoubleValue {
     get {return _storage._doubleField ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
@@ -115,7 +115,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `doubleField` has been explicitly set.
   var hasDoubleField: Bool {return _storage._doubleField != nil}
   /// Clears the value of `doubleField`. Subsequent reads from it will return its default value.
-  mutating func clearDoubleField() {_storage._doubleField = nil}
+  mutating func clearDoubleField() {_uniqueStorage()._doubleField = nil}
 
   var floatField: SwiftProtobuf.Google_Protobuf_FloatValue {
     get {return _storage._floatField ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
@@ -124,7 +124,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `floatField` has been explicitly set.
   var hasFloatField: Bool {return _storage._floatField != nil}
   /// Clears the value of `floatField`. Subsequent reads from it will return its default value.
-  mutating func clearFloatField() {_storage._floatField = nil}
+  mutating func clearFloatField() {_uniqueStorage()._floatField = nil}
 
   var int64Field: SwiftProtobuf.Google_Protobuf_Int64Value {
     get {return _storage._int64Field ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
@@ -133,7 +133,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `int64Field` has been explicitly set.
   var hasInt64Field: Bool {return _storage._int64Field != nil}
   /// Clears the value of `int64Field`. Subsequent reads from it will return its default value.
-  mutating func clearInt64Field() {_storage._int64Field = nil}
+  mutating func clearInt64Field() {_uniqueStorage()._int64Field = nil}
 
   var uint64Field: SwiftProtobuf.Google_Protobuf_UInt64Value {
     get {return _storage._uint64Field ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
@@ -142,7 +142,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `uint64Field` has been explicitly set.
   var hasUint64Field: Bool {return _storage._uint64Field != nil}
   /// Clears the value of `uint64Field`. Subsequent reads from it will return its default value.
-  mutating func clearUint64Field() {_storage._uint64Field = nil}
+  mutating func clearUint64Field() {_uniqueStorage()._uint64Field = nil}
 
   var int32Field: SwiftProtobuf.Google_Protobuf_Int32Value {
     get {return _storage._int32Field ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
@@ -151,7 +151,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `int32Field` has been explicitly set.
   var hasInt32Field: Bool {return _storage._int32Field != nil}
   /// Clears the value of `int32Field`. Subsequent reads from it will return its default value.
-  mutating func clearInt32Field() {_storage._int32Field = nil}
+  mutating func clearInt32Field() {_uniqueStorage()._int32Field = nil}
 
   var uint32Field: SwiftProtobuf.Google_Protobuf_UInt32Value {
     get {return _storage._uint32Field ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
@@ -160,7 +160,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `uint32Field` has been explicitly set.
   var hasUint32Field: Bool {return _storage._uint32Field != nil}
   /// Clears the value of `uint32Field`. Subsequent reads from it will return its default value.
-  mutating func clearUint32Field() {_storage._uint32Field = nil}
+  mutating func clearUint32Field() {_uniqueStorage()._uint32Field = nil}
 
   var boolField: SwiftProtobuf.Google_Protobuf_BoolValue {
     get {return _storage._boolField ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
@@ -169,7 +169,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `boolField` has been explicitly set.
   var hasBoolField: Bool {return _storage._boolField != nil}
   /// Clears the value of `boolField`. Subsequent reads from it will return its default value.
-  mutating func clearBoolField() {_storage._boolField = nil}
+  mutating func clearBoolField() {_uniqueStorage()._boolField = nil}
 
   var stringField: SwiftProtobuf.Google_Protobuf_StringValue {
     get {return _storage._stringField ?? SwiftProtobuf.Google_Protobuf_StringValue()}
@@ -178,7 +178,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `stringField` has been explicitly set.
   var hasStringField: Bool {return _storage._stringField != nil}
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
-  mutating func clearStringField() {_storage._stringField = nil}
+  mutating func clearStringField() {_uniqueStorage()._stringField = nil}
 
   var bytesField: SwiftProtobuf.Google_Protobuf_BytesValue {
     get {return _storage._bytesField ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
@@ -187,7 +187,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `bytesField` has been explicitly set.
   var hasBytesField: Bool {return _storage._bytesField != nil}
   /// Clears the value of `bytesField`. Subsequent reads from it will return its default value.
-  mutating func clearBytesField() {_storage._bytesField = nil}
+  mutating func clearBytesField() {_uniqueStorage()._bytesField = nil}
 
   /// Part of struct, but useful to be able to test separately
   var valueField: SwiftProtobuf.Google_Protobuf_Value {
@@ -197,7 +197,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
   /// Returns true if `valueField` has been explicitly set.
   var hasValueField: Bool {return _storage._valueField != nil}
   /// Clears the value of `valueField`. Subsequent reads from it will return its default value.
-  mutating func clearValueField() {_storage._valueField = nil}
+  mutating func clearValueField() {_uniqueStorage()._valueField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

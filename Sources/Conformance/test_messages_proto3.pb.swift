@@ -194,7 +194,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
+  mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? ProtobufTestMessages_Proto3_ForeignMessage()}
@@ -203,7 +203,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalForeignMessage` has been explicitly set.
   var hasOptionalForeignMessage: Bool {return _storage._optionalForeignMessage != nil}
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignMessage() {_storage._optionalForeignMessage = nil}
+  mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
   var optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum {
     get {return _storage._optionalNestedEnum}
@@ -232,7 +232,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `recursiveMessage` has been explicitly set.
   var hasRecursiveMessage: Bool {return _storage._recursiveMessage != nil}
   /// Clears the value of `recursiveMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRecursiveMessage() {_storage._recursiveMessage = nil}
+  mutating func clearRecursiveMessage() {_uniqueStorage()._recursiveMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
@@ -521,7 +521,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalBoolWrapper` has been explicitly set.
   var hasOptionalBoolWrapper: Bool {return _storage._optionalBoolWrapper != nil}
   /// Clears the value of `optionalBoolWrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBoolWrapper() {_storage._optionalBoolWrapper = nil}
+  mutating func clearOptionalBoolWrapper() {_uniqueStorage()._optionalBoolWrapper = nil}
 
   var optionalInt32Wrapper: SwiftProtobuf.Google_Protobuf_Int32Value {
     get {return _storage._optionalInt32Wrapper ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
@@ -530,7 +530,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalInt32Wrapper` has been explicitly set.
   var hasOptionalInt32Wrapper: Bool {return _storage._optionalInt32Wrapper != nil}
   /// Clears the value of `optionalInt32Wrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt32Wrapper() {_storage._optionalInt32Wrapper = nil}
+  mutating func clearOptionalInt32Wrapper() {_uniqueStorage()._optionalInt32Wrapper = nil}
 
   var optionalInt64Wrapper: SwiftProtobuf.Google_Protobuf_Int64Value {
     get {return _storage._optionalInt64Wrapper ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
@@ -539,7 +539,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalInt64Wrapper` has been explicitly set.
   var hasOptionalInt64Wrapper: Bool {return _storage._optionalInt64Wrapper != nil}
   /// Clears the value of `optionalInt64Wrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt64Wrapper() {_storage._optionalInt64Wrapper = nil}
+  mutating func clearOptionalInt64Wrapper() {_uniqueStorage()._optionalInt64Wrapper = nil}
 
   var optionalUint32Wrapper: SwiftProtobuf.Google_Protobuf_UInt32Value {
     get {return _storage._optionalUint32Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
@@ -548,7 +548,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalUint32Wrapper` has been explicitly set.
   var hasOptionalUint32Wrapper: Bool {return _storage._optionalUint32Wrapper != nil}
   /// Clears the value of `optionalUint32Wrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalUint32Wrapper() {_storage._optionalUint32Wrapper = nil}
+  mutating func clearOptionalUint32Wrapper() {_uniqueStorage()._optionalUint32Wrapper = nil}
 
   var optionalUint64Wrapper: SwiftProtobuf.Google_Protobuf_UInt64Value {
     get {return _storage._optionalUint64Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
@@ -557,7 +557,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalUint64Wrapper` has been explicitly set.
   var hasOptionalUint64Wrapper: Bool {return _storage._optionalUint64Wrapper != nil}
   /// Clears the value of `optionalUint64Wrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalUint64Wrapper() {_storage._optionalUint64Wrapper = nil}
+  mutating func clearOptionalUint64Wrapper() {_uniqueStorage()._optionalUint64Wrapper = nil}
 
   var optionalFloatWrapper: SwiftProtobuf.Google_Protobuf_FloatValue {
     get {return _storage._optionalFloatWrapper ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
@@ -566,7 +566,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalFloatWrapper` has been explicitly set.
   var hasOptionalFloatWrapper: Bool {return _storage._optionalFloatWrapper != nil}
   /// Clears the value of `optionalFloatWrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalFloatWrapper() {_storage._optionalFloatWrapper = nil}
+  mutating func clearOptionalFloatWrapper() {_uniqueStorage()._optionalFloatWrapper = nil}
 
   var optionalDoubleWrapper: SwiftProtobuf.Google_Protobuf_DoubleValue {
     get {return _storage._optionalDoubleWrapper ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
@@ -575,7 +575,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalDoubleWrapper` has been explicitly set.
   var hasOptionalDoubleWrapper: Bool {return _storage._optionalDoubleWrapper != nil}
   /// Clears the value of `optionalDoubleWrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalDoubleWrapper() {_storage._optionalDoubleWrapper = nil}
+  mutating func clearOptionalDoubleWrapper() {_uniqueStorage()._optionalDoubleWrapper = nil}
 
   var optionalStringWrapper: SwiftProtobuf.Google_Protobuf_StringValue {
     get {return _storage._optionalStringWrapper ?? SwiftProtobuf.Google_Protobuf_StringValue()}
@@ -584,7 +584,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalStringWrapper` has been explicitly set.
   var hasOptionalStringWrapper: Bool {return _storage._optionalStringWrapper != nil}
   /// Clears the value of `optionalStringWrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalStringWrapper() {_storage._optionalStringWrapper = nil}
+  mutating func clearOptionalStringWrapper() {_uniqueStorage()._optionalStringWrapper = nil}
 
   var optionalBytesWrapper: SwiftProtobuf.Google_Protobuf_BytesValue {
     get {return _storage._optionalBytesWrapper ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
@@ -593,7 +593,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalBytesWrapper` has been explicitly set.
   var hasOptionalBytesWrapper: Bool {return _storage._optionalBytesWrapper != nil}
   /// Clears the value of `optionalBytesWrapper`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBytesWrapper() {_storage._optionalBytesWrapper = nil}
+  mutating func clearOptionalBytesWrapper() {_uniqueStorage()._optionalBytesWrapper = nil}
 
   var repeatedBoolWrapper: [SwiftProtobuf.Google_Protobuf_BoolValue] {
     get {return _storage._repeatedBoolWrapper}
@@ -647,7 +647,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalDuration` has been explicitly set.
   var hasOptionalDuration: Bool {return _storage._optionalDuration != nil}
   /// Clears the value of `optionalDuration`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalDuration() {_storage._optionalDuration = nil}
+  mutating func clearOptionalDuration() {_uniqueStorage()._optionalDuration = nil}
 
   var optionalTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._optionalTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
@@ -656,7 +656,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalTimestamp` has been explicitly set.
   var hasOptionalTimestamp: Bool {return _storage._optionalTimestamp != nil}
   /// Clears the value of `optionalTimestamp`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalTimestamp() {_storage._optionalTimestamp = nil}
+  mutating func clearOptionalTimestamp() {_uniqueStorage()._optionalTimestamp = nil}
 
   var optionalFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask {
     get {return _storage._optionalFieldMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
@@ -665,7 +665,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalFieldMask` has been explicitly set.
   var hasOptionalFieldMask: Bool {return _storage._optionalFieldMask != nil}
   /// Clears the value of `optionalFieldMask`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalFieldMask() {_storage._optionalFieldMask = nil}
+  mutating func clearOptionalFieldMask() {_uniqueStorage()._optionalFieldMask = nil}
 
   var optionalStruct: SwiftProtobuf.Google_Protobuf_Struct {
     get {return _storage._optionalStruct ?? SwiftProtobuf.Google_Protobuf_Struct()}
@@ -674,7 +674,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalStruct` has been explicitly set.
   var hasOptionalStruct: Bool {return _storage._optionalStruct != nil}
   /// Clears the value of `optionalStruct`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalStruct() {_storage._optionalStruct = nil}
+  mutating func clearOptionalStruct() {_uniqueStorage()._optionalStruct = nil}
 
   var optionalAny: SwiftProtobuf.Google_Protobuf_Any {
     get {return _storage._optionalAny ?? SwiftProtobuf.Google_Protobuf_Any()}
@@ -683,7 +683,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalAny` has been explicitly set.
   var hasOptionalAny: Bool {return _storage._optionalAny != nil}
   /// Clears the value of `optionalAny`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalAny() {_storage._optionalAny = nil}
+  mutating func clearOptionalAny() {_uniqueStorage()._optionalAny = nil}
 
   var optionalValue: SwiftProtobuf.Google_Protobuf_Value {
     get {return _storage._optionalValue ?? SwiftProtobuf.Google_Protobuf_Value()}
@@ -692,7 +692,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Returns true if `optionalValue` has been explicitly set.
   var hasOptionalValue: Bool {return _storage._optionalValue != nil}
   /// Clears the value of `optionalValue`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalValue() {_storage._optionalValue = nil}
+  mutating func clearOptionalValue() {_uniqueStorage()._optionalValue = nil}
 
   var repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] {
     get {return _storage._repeatedDuration}
@@ -900,7 +900,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     /// Returns true if `corecursive` has been explicitly set.
     var hasCorecursive: Bool {return _storage._corecursive != nil}
     /// Clears the value of `corecursive`. Subsequent reads from it will return its default value.
-    mutating func clearCorecursive() {_storage._corecursive = nil}
+    mutating func clearCorecursive() {_uniqueStorage()._corecursive = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -80,7 +80,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer {
   /// Returns true if `messageSet` has been explicitly set.
   var hasMessageSet: Bool {return _storage._messageSet != nil}
   /// Clears the value of `messageSet`. Subsequent reads from it will return its default value.
-  mutating func clearMessageSet() {_storage._messageSet = nil}
+  mutating func clearMessageSet() {_uniqueStorage()._messageSet = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

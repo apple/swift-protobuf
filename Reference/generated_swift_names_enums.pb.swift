@@ -13230,6 +13230,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum uniqueStorage: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneUniqueStorage // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUniqueStorage
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUniqueStorage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUniqueStorage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum unknown: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneUnknown // = 0
@@ -19081,6 +19106,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.union: CaseItera
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uniqueStorage: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uniqueStorage] = [
+    .noneUniqueStorage,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknown: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknown] = [
@@ -22873,6 +22905,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarVie
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.union: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_union"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uniqueStorage: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_uniqueStorage"),
   ]
 }
 

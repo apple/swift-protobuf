@@ -226,7 +226,7 @@ struct ProtobufUnittest_TestSubmessageMaps {
   /// Returns true if `m` has been explicitly set.
   var hasM: Bool {return _storage._m != nil}
   /// Clears the value of `m`. Subsequent reads from it will return its default value.
-  mutating func clearM() {_storage._m = nil}
+  mutating func clearM() {_uniqueStorage()._m = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -199,7 +199,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalInt32` has been explicitly set.
   var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt32() {_storage._optionalInt32 = nil}
+  mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
 
   var optionalInt64: Int64 {
     get {return _storage._optionalInt64 ?? 0}
@@ -208,7 +208,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalInt64` has been explicitly set.
   var hasOptionalInt64: Bool {return _storage._optionalInt64 != nil}
   /// Clears the value of `optionalInt64`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt64() {_storage._optionalInt64 = nil}
+  mutating func clearOptionalInt64() {_uniqueStorage()._optionalInt64 = nil}
 
   var optionalUint32: UInt32 {
     get {return _storage._optionalUint32 ?? 0}
@@ -217,7 +217,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalUint32` has been explicitly set.
   var hasOptionalUint32: Bool {return _storage._optionalUint32 != nil}
   /// Clears the value of `optionalUint32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalUint32() {_storage._optionalUint32 = nil}
+  mutating func clearOptionalUint32() {_uniqueStorage()._optionalUint32 = nil}
 
   var optionalUint64: UInt64 {
     get {return _storage._optionalUint64 ?? 0}
@@ -226,7 +226,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalUint64` has been explicitly set.
   var hasOptionalUint64: Bool {return _storage._optionalUint64 != nil}
   /// Clears the value of `optionalUint64`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalUint64() {_storage._optionalUint64 = nil}
+  mutating func clearOptionalUint64() {_uniqueStorage()._optionalUint64 = nil}
 
   var optionalSint32: Int32 {
     get {return _storage._optionalSint32 ?? 0}
@@ -235,7 +235,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalSint32` has been explicitly set.
   var hasOptionalSint32: Bool {return _storage._optionalSint32 != nil}
   /// Clears the value of `optionalSint32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSint32() {_storage._optionalSint32 = nil}
+  mutating func clearOptionalSint32() {_uniqueStorage()._optionalSint32 = nil}
 
   var optionalSint64: Int64 {
     get {return _storage._optionalSint64 ?? 0}
@@ -244,7 +244,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalSint64` has been explicitly set.
   var hasOptionalSint64: Bool {return _storage._optionalSint64 != nil}
   /// Clears the value of `optionalSint64`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSint64() {_storage._optionalSint64 = nil}
+  mutating func clearOptionalSint64() {_uniqueStorage()._optionalSint64 = nil}
 
   var optionalFixed32: UInt32 {
     get {return _storage._optionalFixed32 ?? 0}
@@ -253,7 +253,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalFixed32` has been explicitly set.
   var hasOptionalFixed32: Bool {return _storage._optionalFixed32 != nil}
   /// Clears the value of `optionalFixed32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalFixed32() {_storage._optionalFixed32 = nil}
+  mutating func clearOptionalFixed32() {_uniqueStorage()._optionalFixed32 = nil}
 
   var optionalFixed64: UInt64 {
     get {return _storage._optionalFixed64 ?? 0}
@@ -262,7 +262,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalFixed64` has been explicitly set.
   var hasOptionalFixed64: Bool {return _storage._optionalFixed64 != nil}
   /// Clears the value of `optionalFixed64`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalFixed64() {_storage._optionalFixed64 = nil}
+  mutating func clearOptionalFixed64() {_uniqueStorage()._optionalFixed64 = nil}
 
   var optionalSfixed32: Int32 {
     get {return _storage._optionalSfixed32 ?? 0}
@@ -271,7 +271,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalSfixed32` has been explicitly set.
   var hasOptionalSfixed32: Bool {return _storage._optionalSfixed32 != nil}
   /// Clears the value of `optionalSfixed32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSfixed32() {_storage._optionalSfixed32 = nil}
+  mutating func clearOptionalSfixed32() {_uniqueStorage()._optionalSfixed32 = nil}
 
   var optionalSfixed64: Int64 {
     get {return _storage._optionalSfixed64 ?? 0}
@@ -280,7 +280,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalSfixed64` has been explicitly set.
   var hasOptionalSfixed64: Bool {return _storage._optionalSfixed64 != nil}
   /// Clears the value of `optionalSfixed64`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalSfixed64() {_storage._optionalSfixed64 = nil}
+  mutating func clearOptionalSfixed64() {_uniqueStorage()._optionalSfixed64 = nil}
 
   var optionalFloat: Float {
     get {return _storage._optionalFloat ?? 0}
@@ -289,7 +289,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalFloat` has been explicitly set.
   var hasOptionalFloat: Bool {return _storage._optionalFloat != nil}
   /// Clears the value of `optionalFloat`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalFloat() {_storage._optionalFloat = nil}
+  mutating func clearOptionalFloat() {_uniqueStorage()._optionalFloat = nil}
 
   var optionalDouble: Double {
     get {return _storage._optionalDouble ?? 0}
@@ -298,7 +298,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalDouble` has been explicitly set.
   var hasOptionalDouble: Bool {return _storage._optionalDouble != nil}
   /// Clears the value of `optionalDouble`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalDouble() {_storage._optionalDouble = nil}
+  mutating func clearOptionalDouble() {_uniqueStorage()._optionalDouble = nil}
 
   var optionalBool: Bool {
     get {return _storage._optionalBool ?? false}
@@ -307,7 +307,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalBool` has been explicitly set.
   var hasOptionalBool: Bool {return _storage._optionalBool != nil}
   /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBool() {_storage._optionalBool = nil}
+  mutating func clearOptionalBool() {_uniqueStorage()._optionalBool = nil}
 
   var optionalString: String {
     get {return _storage._optionalString ?? String()}
@@ -316,7 +316,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalString` has been explicitly set.
   var hasOptionalString: Bool {return _storage._optionalString != nil}
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() {_storage._optionalString = nil}
+  mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
     get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
@@ -325,7 +325,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalBytes` has been explicitly set.
   var hasOptionalBytes: Bool {return _storage._optionalBytes != nil}
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBytes() {_storage._optionalBytes = nil}
+  mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
   var optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup {
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestAllTypes.OptionalGroup()}
@@ -334,7 +334,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalGroup` has been explicitly set.
   var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() {_storage._optionalGroup = nil}
+  mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
 
   var optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
@@ -343,7 +343,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
+  mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var optionalForeignMessage: ProtobufUnittest_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? ProtobufUnittest_ForeignMessage()}
@@ -352,7 +352,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalForeignMessage` has been explicitly set.
   var hasOptionalForeignMessage: Bool {return _storage._optionalForeignMessage != nil}
   /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignMessage() {_storage._optionalForeignMessage = nil}
+  mutating func clearOptionalForeignMessage() {_uniqueStorage()._optionalForeignMessage = nil}
 
   var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
     get {return _storage._optionalImportMessage ?? ProtobufUnittestImport_ImportMessage()}
@@ -361,7 +361,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalImportMessage` has been explicitly set.
   var hasOptionalImportMessage: Bool {return _storage._optionalImportMessage != nil}
   /// Clears the value of `optionalImportMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalImportMessage() {_storage._optionalImportMessage = nil}
+  mutating func clearOptionalImportMessage() {_uniqueStorage()._optionalImportMessage = nil}
 
   var optionalNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum {
     get {return _storage._optionalNestedEnum ?? .foo}
@@ -370,7 +370,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalNestedEnum` has been explicitly set.
   var hasOptionalNestedEnum: Bool {return _storage._optionalNestedEnum != nil}
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedEnum() {_storage._optionalNestedEnum = nil}
+  mutating func clearOptionalNestedEnum() {_uniqueStorage()._optionalNestedEnum = nil}
 
   var optionalForeignEnum: ProtobufUnittest_ForeignEnum {
     get {return _storage._optionalForeignEnum ?? .foreignFoo}
@@ -379,7 +379,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Bool {return _storage._optionalForeignEnum != nil}
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() {_storage._optionalForeignEnum = nil}
+  mutating func clearOptionalForeignEnum() {_uniqueStorage()._optionalForeignEnum = nil}
 
   var optionalImportEnum: ProtobufUnittestImport_ImportEnum {
     get {return _storage._optionalImportEnum ?? .importFoo}
@@ -388,7 +388,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalImportEnum` has been explicitly set.
   var hasOptionalImportEnum: Bool {return _storage._optionalImportEnum != nil}
   /// Clears the value of `optionalImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalImportEnum() {_storage._optionalImportEnum = nil}
+  mutating func clearOptionalImportEnum() {_uniqueStorage()._optionalImportEnum = nil}
 
   var optionalStringPiece: String {
     get {return _storage._optionalStringPiece ?? String()}
@@ -397,7 +397,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalStringPiece` has been explicitly set.
   var hasOptionalStringPiece: Bool {return _storage._optionalStringPiece != nil}
   /// Clears the value of `optionalStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalStringPiece() {_storage._optionalStringPiece = nil}
+  mutating func clearOptionalStringPiece() {_uniqueStorage()._optionalStringPiece = nil}
 
   var optionalCord: String {
     get {return _storage._optionalCord ?? String()}
@@ -406,7 +406,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalCord` has been explicitly set.
   var hasOptionalCord: Bool {return _storage._optionalCord != nil}
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalCord() {_storage._optionalCord = nil}
+  mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
 
   /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
@@ -416,7 +416,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalPublicImportMessage` has been explicitly set.
   var hasOptionalPublicImportMessage: Bool {return _storage._optionalPublicImportMessage != nil}
   /// Clears the value of `optionalPublicImportMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalPublicImportMessage() {_storage._optionalPublicImportMessage = nil}
+  mutating func clearOptionalPublicImportMessage() {_uniqueStorage()._optionalPublicImportMessage = nil}
 
   var optionalLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalLazyMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
@@ -425,7 +425,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `optionalLazyMessage` has been explicitly set.
   var hasOptionalLazyMessage: Bool {return _storage._optionalLazyMessage != nil}
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalLazyMessage() {_storage._optionalLazyMessage = nil}
+  mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
@@ -561,7 +561,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultInt32` has been explicitly set.
   var hasDefaultInt32: Bool {return _storage._defaultInt32 != nil}
   /// Clears the value of `defaultInt32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultInt32() {_storage._defaultInt32 = nil}
+  mutating func clearDefaultInt32() {_uniqueStorage()._defaultInt32 = nil}
 
   var defaultInt64: Int64 {
     get {return _storage._defaultInt64 ?? 42}
@@ -570,7 +570,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultInt64` has been explicitly set.
   var hasDefaultInt64: Bool {return _storage._defaultInt64 != nil}
   /// Clears the value of `defaultInt64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultInt64() {_storage._defaultInt64 = nil}
+  mutating func clearDefaultInt64() {_uniqueStorage()._defaultInt64 = nil}
 
   var defaultUint32: UInt32 {
     get {return _storage._defaultUint32 ?? 43}
@@ -579,7 +579,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultUint32` has been explicitly set.
   var hasDefaultUint32: Bool {return _storage._defaultUint32 != nil}
   /// Clears the value of `defaultUint32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultUint32() {_storage._defaultUint32 = nil}
+  mutating func clearDefaultUint32() {_uniqueStorage()._defaultUint32 = nil}
 
   var defaultUint64: UInt64 {
     get {return _storage._defaultUint64 ?? 44}
@@ -588,7 +588,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultUint64` has been explicitly set.
   var hasDefaultUint64: Bool {return _storage._defaultUint64 != nil}
   /// Clears the value of `defaultUint64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultUint64() {_storage._defaultUint64 = nil}
+  mutating func clearDefaultUint64() {_uniqueStorage()._defaultUint64 = nil}
 
   var defaultSint32: Int32 {
     get {return _storage._defaultSint32 ?? -45}
@@ -597,7 +597,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultSint32` has been explicitly set.
   var hasDefaultSint32: Bool {return _storage._defaultSint32 != nil}
   /// Clears the value of `defaultSint32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSint32() {_storage._defaultSint32 = nil}
+  mutating func clearDefaultSint32() {_uniqueStorage()._defaultSint32 = nil}
 
   var defaultSint64: Int64 {
     get {return _storage._defaultSint64 ?? 46}
@@ -606,7 +606,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultSint64` has been explicitly set.
   var hasDefaultSint64: Bool {return _storage._defaultSint64 != nil}
   /// Clears the value of `defaultSint64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSint64() {_storage._defaultSint64 = nil}
+  mutating func clearDefaultSint64() {_uniqueStorage()._defaultSint64 = nil}
 
   var defaultFixed32: UInt32 {
     get {return _storage._defaultFixed32 ?? 47}
@@ -615,7 +615,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultFixed32` has been explicitly set.
   var hasDefaultFixed32: Bool {return _storage._defaultFixed32 != nil}
   /// Clears the value of `defaultFixed32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultFixed32() {_storage._defaultFixed32 = nil}
+  mutating func clearDefaultFixed32() {_uniqueStorage()._defaultFixed32 = nil}
 
   var defaultFixed64: UInt64 {
     get {return _storage._defaultFixed64 ?? 48}
@@ -624,7 +624,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultFixed64` has been explicitly set.
   var hasDefaultFixed64: Bool {return _storage._defaultFixed64 != nil}
   /// Clears the value of `defaultFixed64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultFixed64() {_storage._defaultFixed64 = nil}
+  mutating func clearDefaultFixed64() {_uniqueStorage()._defaultFixed64 = nil}
 
   var defaultSfixed32: Int32 {
     get {return _storage._defaultSfixed32 ?? 49}
@@ -633,7 +633,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultSfixed32` has been explicitly set.
   var hasDefaultSfixed32: Bool {return _storage._defaultSfixed32 != nil}
   /// Clears the value of `defaultSfixed32`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSfixed32() {_storage._defaultSfixed32 = nil}
+  mutating func clearDefaultSfixed32() {_uniqueStorage()._defaultSfixed32 = nil}
 
   var defaultSfixed64: Int64 {
     get {return _storage._defaultSfixed64 ?? -50}
@@ -642,7 +642,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultSfixed64` has been explicitly set.
   var hasDefaultSfixed64: Bool {return _storage._defaultSfixed64 != nil}
   /// Clears the value of `defaultSfixed64`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultSfixed64() {_storage._defaultSfixed64 = nil}
+  mutating func clearDefaultSfixed64() {_uniqueStorage()._defaultSfixed64 = nil}
 
   var defaultFloat: Float {
     get {return _storage._defaultFloat ?? 51.5}
@@ -651,7 +651,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultFloat` has been explicitly set.
   var hasDefaultFloat: Bool {return _storage._defaultFloat != nil}
   /// Clears the value of `defaultFloat`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultFloat() {_storage._defaultFloat = nil}
+  mutating func clearDefaultFloat() {_uniqueStorage()._defaultFloat = nil}
 
   var defaultDouble: Double {
     get {return _storage._defaultDouble ?? 52000}
@@ -660,7 +660,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultDouble` has been explicitly set.
   var hasDefaultDouble: Bool {return _storage._defaultDouble != nil}
   /// Clears the value of `defaultDouble`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultDouble() {_storage._defaultDouble = nil}
+  mutating func clearDefaultDouble() {_uniqueStorage()._defaultDouble = nil}
 
   var defaultBool: Bool {
     get {return _storage._defaultBool ?? true}
@@ -669,7 +669,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultBool` has been explicitly set.
   var hasDefaultBool: Bool {return _storage._defaultBool != nil}
   /// Clears the value of `defaultBool`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultBool() {_storage._defaultBool = nil}
+  mutating func clearDefaultBool() {_uniqueStorage()._defaultBool = nil}
 
   var defaultString: String {
     get {return _storage._defaultString ?? "hello"}
@@ -678,7 +678,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultString` has been explicitly set.
   var hasDefaultString: Bool {return _storage._defaultString != nil}
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultString() {_storage._defaultString = nil}
+  mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
 
   var defaultBytes: Data {
     get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
@@ -687,7 +687,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultBytes` has been explicitly set.
   var hasDefaultBytes: Bool {return _storage._defaultBytes != nil}
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultBytes() {_storage._defaultBytes = nil}
+  mutating func clearDefaultBytes() {_uniqueStorage()._defaultBytes = nil}
 
   var defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum {
     get {return _storage._defaultNestedEnum ?? .bar}
@@ -696,7 +696,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultNestedEnum` has been explicitly set.
   var hasDefaultNestedEnum: Bool {return _storage._defaultNestedEnum != nil}
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNestedEnum() {_storage._defaultNestedEnum = nil}
+  mutating func clearDefaultNestedEnum() {_uniqueStorage()._defaultNestedEnum = nil}
 
   var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
     get {return _storage._defaultForeignEnum ?? .foreignBar}
@@ -705,7 +705,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultForeignEnum` has been explicitly set.
   var hasDefaultForeignEnum: Bool {return _storage._defaultForeignEnum != nil}
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultForeignEnum() {_storage._defaultForeignEnum = nil}
+  mutating func clearDefaultForeignEnum() {_uniqueStorage()._defaultForeignEnum = nil}
 
   var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
     get {return _storage._defaultImportEnum ?? .importBar}
@@ -714,7 +714,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultImportEnum` has been explicitly set.
   var hasDefaultImportEnum: Bool {return _storage._defaultImportEnum != nil}
   /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultImportEnum() {_storage._defaultImportEnum = nil}
+  mutating func clearDefaultImportEnum() {_uniqueStorage()._defaultImportEnum = nil}
 
   var defaultStringPiece: String {
     get {return _storage._defaultStringPiece ?? "abc"}
@@ -723,7 +723,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultStringPiece` has been explicitly set.
   var hasDefaultStringPiece: Bool {return _storage._defaultStringPiece != nil}
   /// Clears the value of `defaultStringPiece`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultStringPiece() {_storage._defaultStringPiece = nil}
+  mutating func clearDefaultStringPiece() {_uniqueStorage()._defaultStringPiece = nil}
 
   var defaultCord: String {
     get {return _storage._defaultCord ?? "123"}
@@ -732,7 +732,7 @@ struct ProtobufUnittest_TestAllTypes {
   /// Returns true if `defaultCord` has been explicitly set.
   var hasDefaultCord: Bool {return _storage._defaultCord != nil}
   /// Clears the value of `defaultCord`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultCord() {_storage._defaultCord = nil}
+  mutating func clearDefaultCord() {_uniqueStorage()._defaultCord = nil}
 
   /// For oneof test
   var oneofField: OneOf_OneofField? {
@@ -920,7 +920,7 @@ struct ProtobufUnittest_NestedTestAllTypes {
   /// Returns true if `child` has been explicitly set.
   var hasChild: Bool {return _storage._child != nil}
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
-  mutating func clearChild() {_storage._child = nil}
+  mutating func clearChild() {_uniqueStorage()._child = nil}
 
   var payload: ProtobufUnittest_TestAllTypes {
     get {return _storage._payload ?? ProtobufUnittest_TestAllTypes()}
@@ -929,7 +929,7 @@ struct ProtobufUnittest_NestedTestAllTypes {
   /// Returns true if `payload` has been explicitly set.
   var hasPayload: Bool {return _storage._payload != nil}
   /// Clears the value of `payload`. Subsequent reads from it will return its default value.
-  mutating func clearPayload() {_storage._payload = nil}
+  mutating func clearPayload() {_uniqueStorage()._payload = nil}
 
   var repeatedChild: [ProtobufUnittest_NestedTestAllTypes] {
     get {return _storage._repeatedChild}
@@ -1105,7 +1105,7 @@ struct ProtobufUnittest_TestGroup {
   /// Returns true if `optionalGroup` has been explicitly set.
   var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() {_storage._optionalGroup = nil}
+  mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
 
   var optionalForeignEnum: ProtobufUnittest_ForeignEnum {
     get {return _storage._optionalForeignEnum ?? .foreignFoo}
@@ -1114,7 +1114,7 @@ struct ProtobufUnittest_TestGroup {
   /// Returns true if `optionalForeignEnum` has been explicitly set.
   var hasOptionalForeignEnum: Bool {return _storage._optionalForeignEnum != nil}
   /// Clears the value of `optionalForeignEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalForeignEnum() {_storage._optionalForeignEnum = nil}
+  mutating func clearOptionalForeignEnum() {_uniqueStorage()._optionalForeignEnum = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1204,7 +1204,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `a` has been explicitly set.
   var hasA: Bool {return _storage._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  mutating func clearA() {_storage._a = nil}
+  mutating func clearA() {_uniqueStorage()._a = nil}
 
   var dummy2: Int32 {
     get {return _storage._dummy2 ?? 0}
@@ -1213,7 +1213,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy2` has been explicitly set.
   var hasDummy2: Bool {return _storage._dummy2 != nil}
   /// Clears the value of `dummy2`. Subsequent reads from it will return its default value.
-  mutating func clearDummy2() {_storage._dummy2 = nil}
+  mutating func clearDummy2() {_uniqueStorage()._dummy2 = nil}
 
   var b: Int32 {
     get {return _storage._b ?? 0}
@@ -1222,7 +1222,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `b` has been explicitly set.
   var hasB: Bool {return _storage._b != nil}
   /// Clears the value of `b`. Subsequent reads from it will return its default value.
-  mutating func clearB() {_storage._b = nil}
+  mutating func clearB() {_uniqueStorage()._b = nil}
 
   /// Pad the field count to 32 so that we can test that IsInitialized()
   /// properly checks multiple elements of has_bits_.
@@ -1233,7 +1233,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy4` has been explicitly set.
   var hasDummy4: Bool {return _storage._dummy4 != nil}
   /// Clears the value of `dummy4`. Subsequent reads from it will return its default value.
-  mutating func clearDummy4() {_storage._dummy4 = nil}
+  mutating func clearDummy4() {_uniqueStorage()._dummy4 = nil}
 
   var dummy5: Int32 {
     get {return _storage._dummy5 ?? 0}
@@ -1242,7 +1242,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy5` has been explicitly set.
   var hasDummy5: Bool {return _storage._dummy5 != nil}
   /// Clears the value of `dummy5`. Subsequent reads from it will return its default value.
-  mutating func clearDummy5() {_storage._dummy5 = nil}
+  mutating func clearDummy5() {_uniqueStorage()._dummy5 = nil}
 
   var dummy6: Int32 {
     get {return _storage._dummy6 ?? 0}
@@ -1251,7 +1251,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy6` has been explicitly set.
   var hasDummy6: Bool {return _storage._dummy6 != nil}
   /// Clears the value of `dummy6`. Subsequent reads from it will return its default value.
-  mutating func clearDummy6() {_storage._dummy6 = nil}
+  mutating func clearDummy6() {_uniqueStorage()._dummy6 = nil}
 
   var dummy7: Int32 {
     get {return _storage._dummy7 ?? 0}
@@ -1260,7 +1260,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy7` has been explicitly set.
   var hasDummy7: Bool {return _storage._dummy7 != nil}
   /// Clears the value of `dummy7`. Subsequent reads from it will return its default value.
-  mutating func clearDummy7() {_storage._dummy7 = nil}
+  mutating func clearDummy7() {_uniqueStorage()._dummy7 = nil}
 
   var dummy8: Int32 {
     get {return _storage._dummy8 ?? 0}
@@ -1269,7 +1269,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy8` has been explicitly set.
   var hasDummy8: Bool {return _storage._dummy8 != nil}
   /// Clears the value of `dummy8`. Subsequent reads from it will return its default value.
-  mutating func clearDummy8() {_storage._dummy8 = nil}
+  mutating func clearDummy8() {_uniqueStorage()._dummy8 = nil}
 
   var dummy9: Int32 {
     get {return _storage._dummy9 ?? 0}
@@ -1278,7 +1278,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy9` has been explicitly set.
   var hasDummy9: Bool {return _storage._dummy9 != nil}
   /// Clears the value of `dummy9`. Subsequent reads from it will return its default value.
-  mutating func clearDummy9() {_storage._dummy9 = nil}
+  mutating func clearDummy9() {_uniqueStorage()._dummy9 = nil}
 
   var dummy10: Int32 {
     get {return _storage._dummy10 ?? 0}
@@ -1287,7 +1287,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy10` has been explicitly set.
   var hasDummy10: Bool {return _storage._dummy10 != nil}
   /// Clears the value of `dummy10`. Subsequent reads from it will return its default value.
-  mutating func clearDummy10() {_storage._dummy10 = nil}
+  mutating func clearDummy10() {_uniqueStorage()._dummy10 = nil}
 
   var dummy11: Int32 {
     get {return _storage._dummy11 ?? 0}
@@ -1296,7 +1296,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy11` has been explicitly set.
   var hasDummy11: Bool {return _storage._dummy11 != nil}
   /// Clears the value of `dummy11`. Subsequent reads from it will return its default value.
-  mutating func clearDummy11() {_storage._dummy11 = nil}
+  mutating func clearDummy11() {_uniqueStorage()._dummy11 = nil}
 
   var dummy12: Int32 {
     get {return _storage._dummy12 ?? 0}
@@ -1305,7 +1305,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy12` has been explicitly set.
   var hasDummy12: Bool {return _storage._dummy12 != nil}
   /// Clears the value of `dummy12`. Subsequent reads from it will return its default value.
-  mutating func clearDummy12() {_storage._dummy12 = nil}
+  mutating func clearDummy12() {_uniqueStorage()._dummy12 = nil}
 
   var dummy13: Int32 {
     get {return _storage._dummy13 ?? 0}
@@ -1314,7 +1314,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy13` has been explicitly set.
   var hasDummy13: Bool {return _storage._dummy13 != nil}
   /// Clears the value of `dummy13`. Subsequent reads from it will return its default value.
-  mutating func clearDummy13() {_storage._dummy13 = nil}
+  mutating func clearDummy13() {_uniqueStorage()._dummy13 = nil}
 
   var dummy14: Int32 {
     get {return _storage._dummy14 ?? 0}
@@ -1323,7 +1323,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy14` has been explicitly set.
   var hasDummy14: Bool {return _storage._dummy14 != nil}
   /// Clears the value of `dummy14`. Subsequent reads from it will return its default value.
-  mutating func clearDummy14() {_storage._dummy14 = nil}
+  mutating func clearDummy14() {_uniqueStorage()._dummy14 = nil}
 
   var dummy15: Int32 {
     get {return _storage._dummy15 ?? 0}
@@ -1332,7 +1332,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy15` has been explicitly set.
   var hasDummy15: Bool {return _storage._dummy15 != nil}
   /// Clears the value of `dummy15`. Subsequent reads from it will return its default value.
-  mutating func clearDummy15() {_storage._dummy15 = nil}
+  mutating func clearDummy15() {_uniqueStorage()._dummy15 = nil}
 
   var dummy16: Int32 {
     get {return _storage._dummy16 ?? 0}
@@ -1341,7 +1341,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy16` has been explicitly set.
   var hasDummy16: Bool {return _storage._dummy16 != nil}
   /// Clears the value of `dummy16`. Subsequent reads from it will return its default value.
-  mutating func clearDummy16() {_storage._dummy16 = nil}
+  mutating func clearDummy16() {_uniqueStorage()._dummy16 = nil}
 
   var dummy17: Int32 {
     get {return _storage._dummy17 ?? 0}
@@ -1350,7 +1350,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy17` has been explicitly set.
   var hasDummy17: Bool {return _storage._dummy17 != nil}
   /// Clears the value of `dummy17`. Subsequent reads from it will return its default value.
-  mutating func clearDummy17() {_storage._dummy17 = nil}
+  mutating func clearDummy17() {_uniqueStorage()._dummy17 = nil}
 
   var dummy18: Int32 {
     get {return _storage._dummy18 ?? 0}
@@ -1359,7 +1359,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy18` has been explicitly set.
   var hasDummy18: Bool {return _storage._dummy18 != nil}
   /// Clears the value of `dummy18`. Subsequent reads from it will return its default value.
-  mutating func clearDummy18() {_storage._dummy18 = nil}
+  mutating func clearDummy18() {_uniqueStorage()._dummy18 = nil}
 
   var dummy19: Int32 {
     get {return _storage._dummy19 ?? 0}
@@ -1368,7 +1368,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy19` has been explicitly set.
   var hasDummy19: Bool {return _storage._dummy19 != nil}
   /// Clears the value of `dummy19`. Subsequent reads from it will return its default value.
-  mutating func clearDummy19() {_storage._dummy19 = nil}
+  mutating func clearDummy19() {_uniqueStorage()._dummy19 = nil}
 
   var dummy20: Int32 {
     get {return _storage._dummy20 ?? 0}
@@ -1377,7 +1377,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy20` has been explicitly set.
   var hasDummy20: Bool {return _storage._dummy20 != nil}
   /// Clears the value of `dummy20`. Subsequent reads from it will return its default value.
-  mutating func clearDummy20() {_storage._dummy20 = nil}
+  mutating func clearDummy20() {_uniqueStorage()._dummy20 = nil}
 
   var dummy21: Int32 {
     get {return _storage._dummy21 ?? 0}
@@ -1386,7 +1386,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy21` has been explicitly set.
   var hasDummy21: Bool {return _storage._dummy21 != nil}
   /// Clears the value of `dummy21`. Subsequent reads from it will return its default value.
-  mutating func clearDummy21() {_storage._dummy21 = nil}
+  mutating func clearDummy21() {_uniqueStorage()._dummy21 = nil}
 
   var dummy22: Int32 {
     get {return _storage._dummy22 ?? 0}
@@ -1395,7 +1395,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy22` has been explicitly set.
   var hasDummy22: Bool {return _storage._dummy22 != nil}
   /// Clears the value of `dummy22`. Subsequent reads from it will return its default value.
-  mutating func clearDummy22() {_storage._dummy22 = nil}
+  mutating func clearDummy22() {_uniqueStorage()._dummy22 = nil}
 
   var dummy23: Int32 {
     get {return _storage._dummy23 ?? 0}
@@ -1404,7 +1404,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy23` has been explicitly set.
   var hasDummy23: Bool {return _storage._dummy23 != nil}
   /// Clears the value of `dummy23`. Subsequent reads from it will return its default value.
-  mutating func clearDummy23() {_storage._dummy23 = nil}
+  mutating func clearDummy23() {_uniqueStorage()._dummy23 = nil}
 
   var dummy24: Int32 {
     get {return _storage._dummy24 ?? 0}
@@ -1413,7 +1413,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy24` has been explicitly set.
   var hasDummy24: Bool {return _storage._dummy24 != nil}
   /// Clears the value of `dummy24`. Subsequent reads from it will return its default value.
-  mutating func clearDummy24() {_storage._dummy24 = nil}
+  mutating func clearDummy24() {_uniqueStorage()._dummy24 = nil}
 
   var dummy25: Int32 {
     get {return _storage._dummy25 ?? 0}
@@ -1422,7 +1422,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy25` has been explicitly set.
   var hasDummy25: Bool {return _storage._dummy25 != nil}
   /// Clears the value of `dummy25`. Subsequent reads from it will return its default value.
-  mutating func clearDummy25() {_storage._dummy25 = nil}
+  mutating func clearDummy25() {_uniqueStorage()._dummy25 = nil}
 
   var dummy26: Int32 {
     get {return _storage._dummy26 ?? 0}
@@ -1431,7 +1431,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy26` has been explicitly set.
   var hasDummy26: Bool {return _storage._dummy26 != nil}
   /// Clears the value of `dummy26`. Subsequent reads from it will return its default value.
-  mutating func clearDummy26() {_storage._dummy26 = nil}
+  mutating func clearDummy26() {_uniqueStorage()._dummy26 = nil}
 
   var dummy27: Int32 {
     get {return _storage._dummy27 ?? 0}
@@ -1440,7 +1440,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy27` has been explicitly set.
   var hasDummy27: Bool {return _storage._dummy27 != nil}
   /// Clears the value of `dummy27`. Subsequent reads from it will return its default value.
-  mutating func clearDummy27() {_storage._dummy27 = nil}
+  mutating func clearDummy27() {_uniqueStorage()._dummy27 = nil}
 
   var dummy28: Int32 {
     get {return _storage._dummy28 ?? 0}
@@ -1449,7 +1449,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy28` has been explicitly set.
   var hasDummy28: Bool {return _storage._dummy28 != nil}
   /// Clears the value of `dummy28`. Subsequent reads from it will return its default value.
-  mutating func clearDummy28() {_storage._dummy28 = nil}
+  mutating func clearDummy28() {_uniqueStorage()._dummy28 = nil}
 
   var dummy29: Int32 {
     get {return _storage._dummy29 ?? 0}
@@ -1458,7 +1458,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy29` has been explicitly set.
   var hasDummy29: Bool {return _storage._dummy29 != nil}
   /// Clears the value of `dummy29`. Subsequent reads from it will return its default value.
-  mutating func clearDummy29() {_storage._dummy29 = nil}
+  mutating func clearDummy29() {_uniqueStorage()._dummy29 = nil}
 
   var dummy30: Int32 {
     get {return _storage._dummy30 ?? 0}
@@ -1467,7 +1467,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy30` has been explicitly set.
   var hasDummy30: Bool {return _storage._dummy30 != nil}
   /// Clears the value of `dummy30`. Subsequent reads from it will return its default value.
-  mutating func clearDummy30() {_storage._dummy30 = nil}
+  mutating func clearDummy30() {_uniqueStorage()._dummy30 = nil}
 
   var dummy31: Int32 {
     get {return _storage._dummy31 ?? 0}
@@ -1476,7 +1476,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy31` has been explicitly set.
   var hasDummy31: Bool {return _storage._dummy31 != nil}
   /// Clears the value of `dummy31`. Subsequent reads from it will return its default value.
-  mutating func clearDummy31() {_storage._dummy31 = nil}
+  mutating func clearDummy31() {_uniqueStorage()._dummy31 = nil}
 
   var dummy32: Int32 {
     get {return _storage._dummy32 ?? 0}
@@ -1485,7 +1485,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `dummy32` has been explicitly set.
   var hasDummy32: Bool {return _storage._dummy32 != nil}
   /// Clears the value of `dummy32`. Subsequent reads from it will return its default value.
-  mutating func clearDummy32() {_storage._dummy32 = nil}
+  mutating func clearDummy32() {_uniqueStorage()._dummy32 = nil}
 
   var c: Int32 {
     get {return _storage._c ?? 0}
@@ -1494,7 +1494,7 @@ struct ProtobufUnittest_TestRequired {
   /// Returns true if `c` has been explicitly set.
   var hasC: Bool {return _storage._c != nil}
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
-  mutating func clearC() {_storage._c = nil}
+  mutating func clearC() {_uniqueStorage()._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1515,7 +1515,7 @@ struct ProtobufUnittest_TestRequiredForeign {
   /// Returns true if `optionalMessage` has been explicitly set.
   var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
+  mutating func clearOptionalMessage() {_uniqueStorage()._optionalMessage = nil}
 
   var repeatedMessage: [ProtobufUnittest_TestRequired] {
     get {return _storage._repeatedMessage}
@@ -1529,7 +1529,7 @@ struct ProtobufUnittest_TestRequiredForeign {
   /// Returns true if `dummy` has been explicitly set.
   var hasDummy: Bool {return _storage._dummy != nil}
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
-  mutating func clearDummy() {_storage._dummy = nil}
+  mutating func clearDummy() {_uniqueStorage()._dummy = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1550,7 +1550,7 @@ struct ProtobufUnittest_TestRequiredMessage {
   /// Returns true if `optionalMessage` has been explicitly set.
   var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
+  mutating func clearOptionalMessage() {_uniqueStorage()._optionalMessage = nil}
 
   var repeatedMessage: [ProtobufUnittest_TestRequired] {
     get {return _storage._repeatedMessage}
@@ -1564,7 +1564,7 @@ struct ProtobufUnittest_TestRequiredMessage {
   /// Returns true if `requiredMessage` has been explicitly set.
   var hasRequiredMessage: Bool {return _storage._requiredMessage != nil}
   /// Clears the value of `requiredMessage`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredMessage() {_storage._requiredMessage = nil}
+  mutating func clearRequiredMessage() {_uniqueStorage()._requiredMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1586,7 +1586,7 @@ struct ProtobufUnittest_TestForeignNested {
   /// Returns true if `foreignNested` has been explicitly set.
   var hasForeignNested: Bool {return _storage._foreignNested != nil}
   /// Clears the value of `foreignNested`. Subsequent reads from it will return its default value.
-  mutating func clearForeignNested() {_storage._foreignNested = nil}
+  mutating func clearForeignNested() {_uniqueStorage()._foreignNested = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1678,7 +1678,7 @@ struct ProtobufUnittest_TestRecursiveMessage {
   /// Returns true if `a` has been explicitly set.
   var hasA: Bool {return _storage._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  mutating func clearA() {_storage._a = nil}
+  mutating func clearA() {_uniqueStorage()._a = nil}
 
   var i: Int32 {
     get {return _storage._i ?? 0}
@@ -1687,7 +1687,7 @@ struct ProtobufUnittest_TestRecursiveMessage {
   /// Returns true if `i` has been explicitly set.
   var hasI: Bool {return _storage._i != nil}
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
-  mutating func clearI() {_storage._i = nil}
+  mutating func clearI() {_uniqueStorage()._i = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1709,7 +1709,7 @@ struct ProtobufUnittest_TestMutualRecursionA {
   /// Returns true if `bb` has been explicitly set.
   var hasBb: Bool {return _storage._bb != nil}
   /// Clears the value of `bb`. Subsequent reads from it will return its default value.
-  mutating func clearBb() {_storage._bb = nil}
+  mutating func clearBb() {_uniqueStorage()._bb = nil}
 
   var subGroup: ProtobufUnittest_TestMutualRecursionA.SubGroup {
     get {return _storage._subGroup ?? ProtobufUnittest_TestMutualRecursionA.SubGroup()}
@@ -1718,7 +1718,7 @@ struct ProtobufUnittest_TestMutualRecursionA {
   /// Returns true if `subGroup` has been explicitly set.
   var hasSubGroup: Bool {return _storage._subGroup != nil}
   /// Clears the value of `subGroup`. Subsequent reads from it will return its default value.
-  mutating func clearSubGroup() {_storage._subGroup = nil}
+  mutating func clearSubGroup() {_uniqueStorage()._subGroup = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1734,7 +1734,7 @@ struct ProtobufUnittest_TestMutualRecursionA {
     /// Returns true if `b` has been explicitly set.
     var hasB: Bool {return _storage._b != nil}
     /// Clears the value of `b`. Subsequent reads from it will return its default value.
-    mutating func clearB() {_storage._b = nil}
+    mutating func clearB() {_uniqueStorage()._b = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1756,7 +1756,7 @@ struct ProtobufUnittest_TestMutualRecursionA {
     /// Returns true if `subMessage` has been explicitly set.
     var hasSubMessage: Bool {return _storage._subMessage != nil}
     /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
-    mutating func clearSubMessage() {_storage._subMessage = nil}
+    mutating func clearSubMessage() {_uniqueStorage()._subMessage = nil}
 
     var notInThisScc: ProtobufUnittest_TestAllTypes {
       get {return _storage._notInThisScc ?? ProtobufUnittest_TestAllTypes()}
@@ -1765,7 +1765,7 @@ struct ProtobufUnittest_TestMutualRecursionA {
     /// Returns true if `notInThisScc` has been explicitly set.
     var hasNotInThisScc: Bool {return _storage._notInThisScc != nil}
     /// Clears the value of `notInThisScc`. Subsequent reads from it will return its default value.
-    mutating func clearNotInThisScc() {_storage._notInThisScc = nil}
+    mutating func clearNotInThisScc() {_uniqueStorage()._notInThisScc = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1791,7 +1791,7 @@ struct ProtobufUnittest_TestMutualRecursionB {
   /// Returns true if `a` has been explicitly set.
   var hasA: Bool {return _storage._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  mutating func clearA() {_storage._a = nil}
+  mutating func clearA() {_uniqueStorage()._a = nil}
 
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -1800,7 +1800,7 @@ struct ProtobufUnittest_TestMutualRecursionB {
   /// Returns true if `optionalInt32` has been explicitly set.
   var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt32() {_storage._optionalInt32 = nil}
+  mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1821,7 +1821,7 @@ struct ProtobufUnittest_TestIsInitialized {
   /// Returns true if `subMessage` has been explicitly set.
   var hasSubMessage: Bool {return _storage._subMessage != nil}
   /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
-  mutating func clearSubMessage() {_storage._subMessage = nil}
+  mutating func clearSubMessage() {_uniqueStorage()._subMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1837,7 +1837,7 @@ struct ProtobufUnittest_TestIsInitialized {
     /// Returns true if `subGroup` has been explicitly set.
     var hasSubGroup: Bool {return _storage._subGroup != nil}
     /// Clears the value of `subGroup`. Subsequent reads from it will return its default value.
-    mutating func clearSubGroup() {_storage._subGroup = nil}
+    mutating func clearSubGroup() {_uniqueStorage()._subGroup = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1889,7 +1889,7 @@ struct ProtobufUnittest_TestDupFieldNumber {
   /// Returns true if `a` has been explicitly set.
   var hasA: Bool {return _storage._a != nil}
   /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  mutating func clearA() {_storage._a = nil}
+  mutating func clearA() {_uniqueStorage()._a = nil}
 
   var foo: ProtobufUnittest_TestDupFieldNumber.Foo {
     get {return _storage._foo ?? ProtobufUnittest_TestDupFieldNumber.Foo()}
@@ -1898,7 +1898,7 @@ struct ProtobufUnittest_TestDupFieldNumber {
   /// Returns true if `foo` has been explicitly set.
   var hasFoo: Bool {return _storage._foo != nil}
   /// Clears the value of `foo`. Subsequent reads from it will return its default value.
-  mutating func clearFoo() {_storage._foo = nil}
+  mutating func clearFoo() {_uniqueStorage()._foo = nil}
 
   var bar: ProtobufUnittest_TestDupFieldNumber.Bar {
     get {return _storage._bar ?? ProtobufUnittest_TestDupFieldNumber.Bar()}
@@ -1907,7 +1907,7 @@ struct ProtobufUnittest_TestDupFieldNumber {
   /// Returns true if `bar` has been explicitly set.
   var hasBar: Bool {return _storage._bar != nil}
   /// Clears the value of `bar`. Subsequent reads from it will return its default value.
-  mutating func clearBar() {_storage._bar = nil}
+  mutating func clearBar() {_uniqueStorage()._bar = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1971,7 +1971,7 @@ struct ProtobufUnittest_TestEagerMessage {
   /// Returns true if `subMessage` has been explicitly set.
   var hasSubMessage: Bool {return _storage._subMessage != nil}
   /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
-  mutating func clearSubMessage() {_storage._subMessage = nil}
+  mutating func clearSubMessage() {_uniqueStorage()._subMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1992,7 +1992,7 @@ struct ProtobufUnittest_TestLazyMessage {
   /// Returns true if `subMessage` has been explicitly set.
   var hasSubMessage: Bool {return _storage._subMessage != nil}
   /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
-  mutating func clearSubMessage() {_storage._subMessage = nil}
+  mutating func clearSubMessage() {_uniqueStorage()._subMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2014,7 +2014,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits {
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
+  mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2051,7 +2051,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames {
   /// Returns true if `primitiveField` has been explicitly set.
   var hasPrimitiveField: Bool {return _storage._primitiveField != nil}
   /// Clears the value of `primitiveField`. Subsequent reads from it will return its default value.
-  mutating func clearPrimitiveField() {_storage._primitiveField = nil}
+  mutating func clearPrimitiveField() {_uniqueStorage()._primitiveField = nil}
 
   var stringField: String {
     get {return _storage._stringField ?? String()}
@@ -2060,7 +2060,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames {
   /// Returns true if `stringField` has been explicitly set.
   var hasStringField: Bool {return _storage._stringField != nil}
   /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
-  mutating func clearStringField() {_storage._stringField = nil}
+  mutating func clearStringField() {_uniqueStorage()._stringField = nil}
 
   var enumField: ProtobufUnittest_ForeignEnum {
     get {return _storage._enumField ?? .foreignFoo}
@@ -2069,7 +2069,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames {
   /// Returns true if `enumField` has been explicitly set.
   var hasEnumField: Bool {return _storage._enumField != nil}
   /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
-  mutating func clearEnumField() {_storage._enumField = nil}
+  mutating func clearEnumField() {_uniqueStorage()._enumField = nil}
 
   var messageField: ProtobufUnittest_ForeignMessage {
     get {return _storage._messageField ?? ProtobufUnittest_ForeignMessage()}
@@ -2078,7 +2078,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames {
   /// Returns true if `messageField` has been explicitly set.
   var hasMessageField: Bool {return _storage._messageField != nil}
   /// Clears the value of `messageField`. Subsequent reads from it will return its default value.
-  mutating func clearMessageField() {_storage._messageField = nil}
+  mutating func clearMessageField() {_uniqueStorage()._messageField = nil}
 
   var stringPieceField: String {
     get {return _storage._stringPieceField ?? String()}
@@ -2087,7 +2087,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames {
   /// Returns true if `stringPieceField` has been explicitly set.
   var hasStringPieceField: Bool {return _storage._stringPieceField != nil}
   /// Clears the value of `stringPieceField`. Subsequent reads from it will return its default value.
-  mutating func clearStringPieceField() {_storage._stringPieceField = nil}
+  mutating func clearStringPieceField() {_uniqueStorage()._stringPieceField = nil}
 
   var cordField: String {
     get {return _storage._cordField ?? String()}
@@ -2096,7 +2096,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames {
   /// Returns true if `cordField` has been explicitly set.
   var hasCordField: Bool {return _storage._cordField != nil}
   /// Clears the value of `cordField`. Subsequent reads from it will return its default value.
-  mutating func clearCordField() {_storage._cordField = nil}
+  mutating func clearCordField() {_uniqueStorage()._cordField = nil}
 
   var repeatedPrimitiveField: [Int32] {
     get {return _storage._repeatedPrimitiveField}
@@ -2149,7 +2149,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `myString` has been explicitly set.
   var hasMyString: Bool {return _storage._myString != nil}
   /// Clears the value of `myString`. Subsequent reads from it will return its default value.
-  mutating func clearMyString() {_storage._myString = nil}
+  mutating func clearMyString() {_uniqueStorage()._myString = nil}
 
   var myInt: Int64 {
     get {return _storage._myInt ?? 0}
@@ -2158,7 +2158,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `myInt` has been explicitly set.
   var hasMyInt: Bool {return _storage._myInt != nil}
   /// Clears the value of `myInt`. Subsequent reads from it will return its default value.
-  mutating func clearMyInt() {_storage._myInt = nil}
+  mutating func clearMyInt() {_uniqueStorage()._myInt = nil}
 
   var myFloat: Float {
     get {return _storage._myFloat ?? 0}
@@ -2167,7 +2167,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `myFloat` has been explicitly set.
   var hasMyFloat: Bool {return _storage._myFloat != nil}
   /// Clears the value of `myFloat`. Subsequent reads from it will return its default value.
-  mutating func clearMyFloat() {_storage._myFloat = nil}
+  mutating func clearMyFloat() {_uniqueStorage()._myFloat = nil}
 
   var optionalNestedMessage: ProtobufUnittest_TestFieldOrderings.NestedMessage {
     get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestFieldOrderings.NestedMessage()}
@@ -2176,7 +2176,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalNestedMessage` has been explicitly set.
   var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
+  mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2295,7 +2295,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `escapedBytes` has been explicitly set.
   var hasEscapedBytes: Bool {return _storage._escapedBytes != nil}
   /// Clears the value of `escapedBytes`. Subsequent reads from it will return its default value.
-  mutating func clearEscapedBytes() {_storage._escapedBytes = nil}
+  mutating func clearEscapedBytes() {_uniqueStorage()._escapedBytes = nil}
 
   var largeUint32: UInt32 {
     get {return _storage._largeUint32 ?? 4294967295}
@@ -2304,7 +2304,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `largeUint32` has been explicitly set.
   var hasLargeUint32: Bool {return _storage._largeUint32 != nil}
   /// Clears the value of `largeUint32`. Subsequent reads from it will return its default value.
-  mutating func clearLargeUint32() {_storage._largeUint32 = nil}
+  mutating func clearLargeUint32() {_uniqueStorage()._largeUint32 = nil}
 
   var largeUint64: UInt64 {
     get {return _storage._largeUint64 ?? 18446744073709551615}
@@ -2313,7 +2313,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `largeUint64` has been explicitly set.
   var hasLargeUint64: Bool {return _storage._largeUint64 != nil}
   /// Clears the value of `largeUint64`. Subsequent reads from it will return its default value.
-  mutating func clearLargeUint64() {_storage._largeUint64 = nil}
+  mutating func clearLargeUint64() {_uniqueStorage()._largeUint64 = nil}
 
   var smallInt32: Int32 {
     get {return _storage._smallInt32 ?? -2147483647}
@@ -2322,7 +2322,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `smallInt32` has been explicitly set.
   var hasSmallInt32: Bool {return _storage._smallInt32 != nil}
   /// Clears the value of `smallInt32`. Subsequent reads from it will return its default value.
-  mutating func clearSmallInt32() {_storage._smallInt32 = nil}
+  mutating func clearSmallInt32() {_uniqueStorage()._smallInt32 = nil}
 
   var smallInt64: Int64 {
     get {return _storage._smallInt64 ?? -9223372036854775807}
@@ -2331,7 +2331,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `smallInt64` has been explicitly set.
   var hasSmallInt64: Bool {return _storage._smallInt64 != nil}
   /// Clears the value of `smallInt64`. Subsequent reads from it will return its default value.
-  mutating func clearSmallInt64() {_storage._smallInt64 = nil}
+  mutating func clearSmallInt64() {_uniqueStorage()._smallInt64 = nil}
 
   var reallySmallInt32: Int32 {
     get {return _storage._reallySmallInt32 ?? -2147483648}
@@ -2340,7 +2340,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `reallySmallInt32` has been explicitly set.
   var hasReallySmallInt32: Bool {return _storage._reallySmallInt32 != nil}
   /// Clears the value of `reallySmallInt32`. Subsequent reads from it will return its default value.
-  mutating func clearReallySmallInt32() {_storage._reallySmallInt32 = nil}
+  mutating func clearReallySmallInt32() {_uniqueStorage()._reallySmallInt32 = nil}
 
   var reallySmallInt64: Int64 {
     get {return _storage._reallySmallInt64 ?? -9223372036854775808}
@@ -2349,7 +2349,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `reallySmallInt64` has been explicitly set.
   var hasReallySmallInt64: Bool {return _storage._reallySmallInt64 != nil}
   /// Clears the value of `reallySmallInt64`. Subsequent reads from it will return its default value.
-  mutating func clearReallySmallInt64() {_storage._reallySmallInt64 = nil}
+  mutating func clearReallySmallInt64() {_uniqueStorage()._reallySmallInt64 = nil}
 
   /// The default value here is UTF-8 for "\u1234".  (We could also just type
   /// the UTF-8 text directly into this text file rather than escape it, but
@@ -2361,7 +2361,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `utf8String` has been explicitly set.
   var hasUtf8String: Bool {return _storage._utf8String != nil}
   /// Clears the value of `utf8String`. Subsequent reads from it will return its default value.
-  mutating func clearUtf8String() {_storage._utf8String = nil}
+  mutating func clearUtf8String() {_uniqueStorage()._utf8String = nil}
 
   /// Tests for single-precision floating-point values.
   var zeroFloat: Float {
@@ -2371,7 +2371,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `zeroFloat` has been explicitly set.
   var hasZeroFloat: Bool {return _storage._zeroFloat != nil}
   /// Clears the value of `zeroFloat`. Subsequent reads from it will return its default value.
-  mutating func clearZeroFloat() {_storage._zeroFloat = nil}
+  mutating func clearZeroFloat() {_uniqueStorage()._zeroFloat = nil}
 
   var oneFloat: Float {
     get {return _storage._oneFloat ?? 1}
@@ -2380,7 +2380,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `oneFloat` has been explicitly set.
   var hasOneFloat: Bool {return _storage._oneFloat != nil}
   /// Clears the value of `oneFloat`. Subsequent reads from it will return its default value.
-  mutating func clearOneFloat() {_storage._oneFloat = nil}
+  mutating func clearOneFloat() {_uniqueStorage()._oneFloat = nil}
 
   var smallFloat: Float {
     get {return _storage._smallFloat ?? 1.5}
@@ -2389,7 +2389,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `smallFloat` has been explicitly set.
   var hasSmallFloat: Bool {return _storage._smallFloat != nil}
   /// Clears the value of `smallFloat`. Subsequent reads from it will return its default value.
-  mutating func clearSmallFloat() {_storage._smallFloat = nil}
+  mutating func clearSmallFloat() {_uniqueStorage()._smallFloat = nil}
 
   var negativeOneFloat: Float {
     get {return _storage._negativeOneFloat ?? -1}
@@ -2398,7 +2398,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `negativeOneFloat` has been explicitly set.
   var hasNegativeOneFloat: Bool {return _storage._negativeOneFloat != nil}
   /// Clears the value of `negativeOneFloat`. Subsequent reads from it will return its default value.
-  mutating func clearNegativeOneFloat() {_storage._negativeOneFloat = nil}
+  mutating func clearNegativeOneFloat() {_uniqueStorage()._negativeOneFloat = nil}
 
   var negativeFloat: Float {
     get {return _storage._negativeFloat ?? -1.5}
@@ -2407,7 +2407,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `negativeFloat` has been explicitly set.
   var hasNegativeFloat: Bool {return _storage._negativeFloat != nil}
   /// Clears the value of `negativeFloat`. Subsequent reads from it will return its default value.
-  mutating func clearNegativeFloat() {_storage._negativeFloat = nil}
+  mutating func clearNegativeFloat() {_uniqueStorage()._negativeFloat = nil}
 
   /// Using exponents
   var largeFloat: Float {
@@ -2417,7 +2417,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `largeFloat` has been explicitly set.
   var hasLargeFloat: Bool {return _storage._largeFloat != nil}
   /// Clears the value of `largeFloat`. Subsequent reads from it will return its default value.
-  mutating func clearLargeFloat() {_storage._largeFloat = nil}
+  mutating func clearLargeFloat() {_uniqueStorage()._largeFloat = nil}
 
   var smallNegativeFloat: Float {
     get {return _storage._smallNegativeFloat ?? -8e-28}
@@ -2426,7 +2426,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `smallNegativeFloat` has been explicitly set.
   var hasSmallNegativeFloat: Bool {return _storage._smallNegativeFloat != nil}
   /// Clears the value of `smallNegativeFloat`. Subsequent reads from it will return its default value.
-  mutating func clearSmallNegativeFloat() {_storage._smallNegativeFloat = nil}
+  mutating func clearSmallNegativeFloat() {_uniqueStorage()._smallNegativeFloat = nil}
 
   /// Text for nonfinite floating-point values.
   var infDouble: Double {
@@ -2436,7 +2436,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `infDouble` has been explicitly set.
   var hasInfDouble: Bool {return _storage._infDouble != nil}
   /// Clears the value of `infDouble`. Subsequent reads from it will return its default value.
-  mutating func clearInfDouble() {_storage._infDouble = nil}
+  mutating func clearInfDouble() {_uniqueStorage()._infDouble = nil}
 
   var negInfDouble: Double {
     get {return _storage._negInfDouble ?? -Double.infinity}
@@ -2445,7 +2445,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `negInfDouble` has been explicitly set.
   var hasNegInfDouble: Bool {return _storage._negInfDouble != nil}
   /// Clears the value of `negInfDouble`. Subsequent reads from it will return its default value.
-  mutating func clearNegInfDouble() {_storage._negInfDouble = nil}
+  mutating func clearNegInfDouble() {_uniqueStorage()._negInfDouble = nil}
 
   var nanDouble: Double {
     get {return _storage._nanDouble ?? Double.nan}
@@ -2454,7 +2454,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `nanDouble` has been explicitly set.
   var hasNanDouble: Bool {return _storage._nanDouble != nil}
   /// Clears the value of `nanDouble`. Subsequent reads from it will return its default value.
-  mutating func clearNanDouble() {_storage._nanDouble = nil}
+  mutating func clearNanDouble() {_uniqueStorage()._nanDouble = nil}
 
   var infFloat: Float {
     get {return _storage._infFloat ?? Float.infinity}
@@ -2463,7 +2463,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `infFloat` has been explicitly set.
   var hasInfFloat: Bool {return _storage._infFloat != nil}
   /// Clears the value of `infFloat`. Subsequent reads from it will return its default value.
-  mutating func clearInfFloat() {_storage._infFloat = nil}
+  mutating func clearInfFloat() {_uniqueStorage()._infFloat = nil}
 
   var negInfFloat: Float {
     get {return _storage._negInfFloat ?? -Float.infinity}
@@ -2472,7 +2472,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `negInfFloat` has been explicitly set.
   var hasNegInfFloat: Bool {return _storage._negInfFloat != nil}
   /// Clears the value of `negInfFloat`. Subsequent reads from it will return its default value.
-  mutating func clearNegInfFloat() {_storage._negInfFloat = nil}
+  mutating func clearNegInfFloat() {_uniqueStorage()._negInfFloat = nil}
 
   var nanFloat: Float {
     get {return _storage._nanFloat ?? Float.nan}
@@ -2481,7 +2481,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `nanFloat` has been explicitly set.
   var hasNanFloat: Bool {return _storage._nanFloat != nil}
   /// Clears the value of `nanFloat`. Subsequent reads from it will return its default value.
-  mutating func clearNanFloat() {_storage._nanFloat = nil}
+  mutating func clearNanFloat() {_uniqueStorage()._nanFloat = nil}
 
   /// Tests for C++ trigraphs.
   /// Trigraphs should be escaped in C++ generated files, but they should not be
@@ -2495,7 +2495,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `cppTrigraph` has been explicitly set.
   var hasCppTrigraph: Bool {return _storage._cppTrigraph != nil}
   /// Clears the value of `cppTrigraph`. Subsequent reads from it will return its default value.
-  mutating func clearCppTrigraph() {_storage._cppTrigraph = nil}
+  mutating func clearCppTrigraph() {_uniqueStorage()._cppTrigraph = nil}
 
   /// String defaults containing the character '\000'
   var stringWithZero: String {
@@ -2505,7 +2505,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `stringWithZero` has been explicitly set.
   var hasStringWithZero: Bool {return _storage._stringWithZero != nil}
   /// Clears the value of `stringWithZero`. Subsequent reads from it will return its default value.
-  mutating func clearStringWithZero() {_storage._stringWithZero = nil}
+  mutating func clearStringWithZero() {_uniqueStorage()._stringWithZero = nil}
 
   var bytesWithZero: Data {
     get {return _storage._bytesWithZero ?? Data(bytes: [119, 111, 114, 0, 108, 100])}
@@ -2514,7 +2514,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `bytesWithZero` has been explicitly set.
   var hasBytesWithZero: Bool {return _storage._bytesWithZero != nil}
   /// Clears the value of `bytesWithZero`. Subsequent reads from it will return its default value.
-  mutating func clearBytesWithZero() {_storage._bytesWithZero = nil}
+  mutating func clearBytesWithZero() {_uniqueStorage()._bytesWithZero = nil}
 
   var stringPieceWithZero: String {
     get {return _storage._stringPieceWithZero ?? "ab\0c"}
@@ -2523,7 +2523,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `stringPieceWithZero` has been explicitly set.
   var hasStringPieceWithZero: Bool {return _storage._stringPieceWithZero != nil}
   /// Clears the value of `stringPieceWithZero`. Subsequent reads from it will return its default value.
-  mutating func clearStringPieceWithZero() {_storage._stringPieceWithZero = nil}
+  mutating func clearStringPieceWithZero() {_uniqueStorage()._stringPieceWithZero = nil}
 
   var cordWithZero: String {
     get {return _storage._cordWithZero ?? "12\03"}
@@ -2532,7 +2532,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `cordWithZero` has been explicitly set.
   var hasCordWithZero: Bool {return _storage._cordWithZero != nil}
   /// Clears the value of `cordWithZero`. Subsequent reads from it will return its default value.
-  mutating func clearCordWithZero() {_storage._cordWithZero = nil}
+  mutating func clearCordWithZero() {_uniqueStorage()._cordWithZero = nil}
 
   var replacementString: String {
     get {return _storage._replacementString ?? "${unknown}"}
@@ -2541,7 +2541,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Returns true if `replacementString` has been explicitly set.
   var hasReplacementString: Bool {return _storage._replacementString != nil}
   /// Clears the value of `replacementString`. Subsequent reads from it will return its default value.
-  mutating func clearReplacementString() {_storage._replacementString = nil}
+  mutating func clearReplacementString() {_uniqueStorage()._replacementString = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2856,7 +2856,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible {
   /// Returns true if `fooInt` has been explicitly set.
   var hasFooInt: Bool {return _storage._fooInt != nil}
   /// Clears the value of `fooInt`. Subsequent reads from it will return its default value.
-  mutating func clearFooInt() {_storage._fooInt = nil}
+  mutating func clearFooInt() {_uniqueStorage()._fooInt = nil}
 
   var fooString: String {
     get {return _storage._fooString ?? String()}
@@ -2865,7 +2865,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible {
   /// Returns true if `fooString` has been explicitly set.
   var hasFooString: Bool {return _storage._fooString != nil}
   /// Clears the value of `fooString`. Subsequent reads from it will return its default value.
-  mutating func clearFooString() {_storage._fooString = nil}
+  mutating func clearFooString() {_uniqueStorage()._fooString = nil}
 
   var fooMessage: ProtobufUnittest_TestAllTypes {
     get {return _storage._fooMessage ?? ProtobufUnittest_TestAllTypes()}
@@ -2874,7 +2874,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible {
   /// Returns true if `fooMessage` has been explicitly set.
   var hasFooMessage: Bool {return _storage._fooMessage != nil}
   /// Clears the value of `fooMessage`. Subsequent reads from it will return its default value.
-  mutating func clearFooMessage() {_storage._fooMessage = nil}
+  mutating func clearFooMessage() {_uniqueStorage()._fooMessage = nil}
 
   var fooGroup: ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup {
     get {return _storage._fooGroup ?? ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup()}
@@ -2883,7 +2883,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible {
   /// Returns true if `fooGroup` has been explicitly set.
   var hasFooGroup: Bool {return _storage._fooGroup != nil}
   /// Clears the value of `fooGroup`. Subsequent reads from it will return its default value.
-  mutating func clearFooGroup() {_storage._fooGroup = nil}
+  mutating func clearFooGroup() {_uniqueStorage()._fooGroup = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3065,7 +3065,7 @@ struct ProtobufUnittest_TestOneof2 {
   /// Returns true if `bazInt` has been explicitly set.
   var hasBazInt: Bool {return _storage._bazInt != nil}
   /// Clears the value of `bazInt`. Subsequent reads from it will return its default value.
-  mutating func clearBazInt() {_storage._bazInt = nil}
+  mutating func clearBazInt() {_uniqueStorage()._bazInt = nil}
 
   var bazString: String {
     get {return _storage._bazString ?? "BAZ"}
@@ -3074,7 +3074,7 @@ struct ProtobufUnittest_TestOneof2 {
   /// Returns true if `bazString` has been explicitly set.
   var hasBazString: Bool {return _storage._bazString != nil}
   /// Clears the value of `bazString`. Subsequent reads from it will return its default value.
-  mutating func clearBazString() {_storage._bazString = nil}
+  mutating func clearBazString() {_uniqueStorage()._bazString = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3422,7 +3422,7 @@ struct ProtobufUnittest_TestDynamicExtensions {
   /// Returns true if `scalarExtension` has been explicitly set.
   var hasScalarExtension: Bool {return _storage._scalarExtension != nil}
   /// Clears the value of `scalarExtension`. Subsequent reads from it will return its default value.
-  mutating func clearScalarExtension() {_storage._scalarExtension = nil}
+  mutating func clearScalarExtension() {_uniqueStorage()._scalarExtension = nil}
 
   var enumExtension: ProtobufUnittest_ForeignEnum {
     get {return _storage._enumExtension ?? .foreignFoo}
@@ -3431,7 +3431,7 @@ struct ProtobufUnittest_TestDynamicExtensions {
   /// Returns true if `enumExtension` has been explicitly set.
   var hasEnumExtension: Bool {return _storage._enumExtension != nil}
   /// Clears the value of `enumExtension`. Subsequent reads from it will return its default value.
-  mutating func clearEnumExtension() {_storage._enumExtension = nil}
+  mutating func clearEnumExtension() {_uniqueStorage()._enumExtension = nil}
 
   var dynamicEnumExtension: ProtobufUnittest_TestDynamicExtensions.DynamicEnumType {
     get {return _storage._dynamicEnumExtension ?? .dynamicFoo}
@@ -3440,7 +3440,7 @@ struct ProtobufUnittest_TestDynamicExtensions {
   /// Returns true if `dynamicEnumExtension` has been explicitly set.
   var hasDynamicEnumExtension: Bool {return _storage._dynamicEnumExtension != nil}
   /// Clears the value of `dynamicEnumExtension`. Subsequent reads from it will return its default value.
-  mutating func clearDynamicEnumExtension() {_storage._dynamicEnumExtension = nil}
+  mutating func clearDynamicEnumExtension() {_uniqueStorage()._dynamicEnumExtension = nil}
 
   var messageExtension: ProtobufUnittest_ForeignMessage {
     get {return _storage._messageExtension ?? ProtobufUnittest_ForeignMessage()}
@@ -3449,7 +3449,7 @@ struct ProtobufUnittest_TestDynamicExtensions {
   /// Returns true if `messageExtension` has been explicitly set.
   var hasMessageExtension: Bool {return _storage._messageExtension != nil}
   /// Clears the value of `messageExtension`. Subsequent reads from it will return its default value.
-  mutating func clearMessageExtension() {_storage._messageExtension = nil}
+  mutating func clearMessageExtension() {_uniqueStorage()._messageExtension = nil}
 
   var dynamicMessageExtension: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType {
     get {return _storage._dynamicMessageExtension ?? ProtobufUnittest_TestDynamicExtensions.DynamicMessageType()}
@@ -3458,7 +3458,7 @@ struct ProtobufUnittest_TestDynamicExtensions {
   /// Returns true if `dynamicMessageExtension` has been explicitly set.
   var hasDynamicMessageExtension: Bool {return _storage._dynamicMessageExtension != nil}
   /// Clears the value of `dynamicMessageExtension`. Subsequent reads from it will return its default value.
-  mutating func clearDynamicMessageExtension() {_storage._dynamicMessageExtension = nil}
+  mutating func clearDynamicMessageExtension() {_uniqueStorage()._dynamicMessageExtension = nil}
 
   var repeatedExtension: [String] {
     get {return _storage._repeatedExtension}
@@ -3577,7 +3577,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `requiredAllTypes` has been explicitly set.
   var hasRequiredAllTypes: Bool {return _storage._requiredAllTypes != nil}
   /// Clears the value of `requiredAllTypes`. Subsequent reads from it will return its default value.
-  mutating func clearRequiredAllTypes() {_storage._requiredAllTypes = nil}
+  mutating func clearRequiredAllTypes() {_uniqueStorage()._requiredAllTypes = nil}
 
   var optionalAllTypes: ProtobufUnittest_TestAllTypes {
     get {return _storage._optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
@@ -3586,7 +3586,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalAllTypes` has been explicitly set.
   var hasOptionalAllTypes: Bool {return _storage._optionalAllTypes != nil}
   /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalAllTypes() {_storage._optionalAllTypes = nil}
+  mutating func clearOptionalAllTypes() {_uniqueStorage()._optionalAllTypes = nil}
 
   var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] {
     get {return _storage._repeatedAllTypes}
@@ -3600,7 +3600,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalGroup` has been explicitly set.
   var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() {_storage._optionalGroup = nil}
+  mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
 
   var repeatedGroup: [ProtobufUnittest_TestParsingMerge.RepeatedGroup] {
     get {return _storage._repeatedGroup}
@@ -3647,7 +3647,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
       /// Returns true if `field1` has been explicitly set.
       var hasField1: Bool {return _storage._field1 != nil}
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
-      mutating func clearField1() {_storage._field1 = nil}
+      mutating func clearField1() {_uniqueStorage()._field1 = nil}
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3668,7 +3668,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
       /// Returns true if `field1` has been explicitly set.
       var hasField1: Bool {return _storage._field1 != nil}
       /// Clears the value of `field1`. Subsequent reads from it will return its default value.
-      mutating func clearField1() {_storage._field1 = nil}
+      mutating func clearField1() {_uniqueStorage()._field1 = nil}
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3692,7 +3692,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
     /// Returns true if `optionalGroupAllTypes` has been explicitly set.
     var hasOptionalGroupAllTypes: Bool {return _storage._optionalGroupAllTypes != nil}
     /// Clears the value of `optionalGroupAllTypes`. Subsequent reads from it will return its default value.
-    mutating func clearOptionalGroupAllTypes() {_storage._optionalGroupAllTypes = nil}
+    mutating func clearOptionalGroupAllTypes() {_uniqueStorage()._optionalGroupAllTypes = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3713,7 +3713,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
     /// Returns true if `repeatedGroupAllTypes` has been explicitly set.
     var hasRepeatedGroupAllTypes: Bool {return _storage._repeatedGroupAllTypes != nil}
     /// Clears the value of `repeatedGroupAllTypes`. Subsequent reads from it will return its default value.
-    mutating func clearRepeatedGroupAllTypes() {_storage._repeatedGroupAllTypes = nil}
+    mutating func clearRepeatedGroupAllTypes() {_uniqueStorage()._repeatedGroupAllTypes = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3894,7 +3894,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalInt32` has been explicitly set.
   var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt32() {_storage._optionalInt32 = nil}
+  mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
 
   var fixed32: Int32 {
     get {return _storage._fixed32 ?? 0}
@@ -3903,7 +3903,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `fixed32` has been explicitly set.
   var hasFixed32: Bool {return _storage._fixed32 != nil}
   /// Clears the value of `fixed32`. Subsequent reads from it will return its default value.
-  mutating func clearFixed32() {_storage._fixed32 = nil}
+  mutating func clearFixed32() {_uniqueStorage()._fixed32 = nil}
 
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
@@ -3922,7 +3922,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalEnum` has been explicitly set.
   var hasOptionalEnum: Bool {return _storage._optionalEnum != nil}
   /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalEnum() {_storage._optionalEnum = nil}
+  mutating func clearOptionalEnum() {_uniqueStorage()._optionalEnum = nil}
 
   var optionalString: String {
     get {return _storage._optionalString ?? String()}
@@ -3931,7 +3931,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalString` has been explicitly set.
   var hasOptionalString: Bool {return _storage._optionalString != nil}
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() {_storage._optionalString = nil}
+  mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
     get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
@@ -3940,7 +3940,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalBytes` has been explicitly set.
   var hasOptionalBytes: Bool {return _storage._optionalBytes != nil}
   /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBytes() {_storage._optionalBytes = nil}
+  mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
   var optionalMessage: ProtobufUnittest_ForeignMessage {
     get {return _storage._optionalMessage ?? ProtobufUnittest_ForeignMessage()}
@@ -3949,7 +3949,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalMessage` has been explicitly set.
   var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
+  mutating func clearOptionalMessage() {_uniqueStorage()._optionalMessage = nil}
 
   var optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup {
     get {return _storage._optionalGroup ?? ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup()}
@@ -3958,7 +3958,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `optionalGroup` has been explicitly set.
   var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() {_storage._optionalGroup = nil}
+  mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
 
   var stringStringMap: Dictionary<String,String> {
     get {return _storage._stringStringMap}

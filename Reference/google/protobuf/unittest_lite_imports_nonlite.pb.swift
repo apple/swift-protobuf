@@ -65,7 +65,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite {
   /// Returns true if `message` has been explicitly set.
   var hasMessage: Bool {return _storage._message != nil}
   /// Clears the value of `message`. Subsequent reads from it will return its default value.
-  mutating func clearMessage() {_storage._message = nil}
+  mutating func clearMessage() {_uniqueStorage()._message = nil}
 
   /// Verifies that transitive required fields generates valid code.
   var messageWithRequired: ProtobufUnittest_TestRequired {
@@ -75,7 +75,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite {
   /// Returns true if `messageWithRequired` has been explicitly set.
   var hasMessageWithRequired: Bool {return _storage._messageWithRequired != nil}
   /// Clears the value of `messageWithRequired`. Subsequent reads from it will return its default value.
-  mutating func clearMessageWithRequired() {_storage._messageWithRequired = nil}
+  mutating func clearMessageWithRequired() {_uniqueStorage()._messageWithRequired = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

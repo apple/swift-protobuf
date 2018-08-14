@@ -157,7 +157,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `x` has been explicitly set.
   var hasX: Bool {return _storage._x != nil}
   /// Clears the value of `x`. Subsequent reads from it will return its default value.
-  mutating func clearX() {_storage._x = nil}
+  mutating func clearX() {_uniqueStorage()._x = nil}
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: ProtobufUnittest_Extend_MsgUsesStorage {
@@ -167,7 +167,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.ExtensibleMessage {
   /// Returns true if `y` has been explicitly set.
   var hasY: Bool {return _storage._y != nil}
   /// Clears the value of `y`. Subsequent reads from it will return its default value.
-  mutating func clearY() {_storage._y = nil}
+  mutating func clearY() {_uniqueStorage()._y = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
