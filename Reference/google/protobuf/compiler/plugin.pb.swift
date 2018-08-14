@@ -141,7 +141,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest {
   /// Returns true if `parameter` has been explicitly set.
   var hasParameter: Bool {return _storage._parameter != nil}
   /// Clears the value of `parameter`. Subsequent reads from it will return its default value.
-  mutating func clearParameter() {_storage._parameter = nil}
+  mutating func clearParameter() {_uniqueStorage()._parameter = nil}
 
   /// FileDescriptorProtos for all files in files_to_generate and everything
   /// they import.  The files will appear in topological order, so each file
@@ -170,7 +170,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest {
   /// Returns true if `compilerVersion` has been explicitly set.
   var hasCompilerVersion: Bool {return _storage._compilerVersion != nil}
   /// Clears the value of `compilerVersion`. Subsequent reads from it will return its default value.
-  mutating func clearCompilerVersion() {_storage._compilerVersion = nil}
+  mutating func clearCompilerVersion() {_uniqueStorage()._compilerVersion = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

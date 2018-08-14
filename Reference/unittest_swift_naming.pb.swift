@@ -757,7 +757,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `string` has been explicitly set.
   var hasString: Bool {return _storage._string != nil}
   /// Clears the value of `string`. Subsequent reads from it will return its default value.
-  mutating func clearString() {_storage._string = nil}
+  mutating func clearString() {_uniqueStorage()._string = nil}
 
   var int: Int32 {
     get {return _storage._int ?? 0}
@@ -766,7 +766,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `int` has been explicitly set.
   var hasInt: Bool {return _storage._int != nil}
   /// Clears the value of `int`. Subsequent reads from it will return its default value.
-  mutating func clearInt() {_storage._int = nil}
+  mutating func clearInt() {_uniqueStorage()._int = nil}
 
   var double: Int32 {
     get {return _storage._double ?? 0}
@@ -775,7 +775,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `double` has been explicitly set.
   var hasDouble: Bool {return _storage._double != nil}
   /// Clears the value of `double`. Subsequent reads from it will return its default value.
-  mutating func clearDouble() {_storage._double = nil}
+  mutating func clearDouble() {_uniqueStorage()._double = nil}
 
   var float: Int32 {
     get {return _storage._float ?? 0}
@@ -784,7 +784,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `float` has been explicitly set.
   var hasFloat: Bool {return _storage._float != nil}
   /// Clears the value of `float`. Subsequent reads from it will return its default value.
-  mutating func clearFloat() {_storage._float = nil}
+  mutating func clearFloat() {_uniqueStorage()._float = nil}
 
   var uint: Int32 {
     get {return _storage._uint ?? 0}
@@ -793,7 +793,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `uint` has been explicitly set.
   var hasUint: Bool {return _storage._uint != nil}
   /// Clears the value of `uint`. Subsequent reads from it will return its default value.
-  mutating func clearUint() {_storage._uint = nil}
+  mutating func clearUint() {_uniqueStorage()._uint = nil}
 
   var hashValue_p: Int32 {
     get {return _storage._hashValue_p ?? 0}
@@ -802,7 +802,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `hashValue_p` has been explicitly set.
   var hasHashValue_p: Bool {return _storage._hashValue_p != nil}
   /// Clears the value of `hashValue_p`. Subsequent reads from it will return its default value.
-  mutating func clearHashValue_p() {_storage._hashValue_p = nil}
+  mutating func clearHashValue_p() {_uniqueStorage()._hashValue_p = nil}
 
   var description_p: Int32 {
     get {return _storage._description_p ?? 0}
@@ -811,7 +811,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `description_p` has been explicitly set.
   var hasDescription_p: Bool {return _storage._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
-  mutating func clearDescription_p() {_storage._description_p = nil}
+  mutating func clearDescription_p() {_uniqueStorage()._description_p = nil}
 
   var debugDescription_p: Int32 {
     get {return _storage._debugDescription_p ?? 0}
@@ -820,7 +820,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `debugDescription_p` has been explicitly set.
   var hasDebugDescription_p: Bool {return _storage._debugDescription_p != nil}
   /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
-  mutating func clearDebugDescription_p() {_storage._debugDescription_p = nil}
+  mutating func clearDebugDescription_p() {_uniqueStorage()._debugDescription_p = nil}
 
   var swift: Int32 {
     get {return _storage._swift ?? 0}
@@ -829,7 +829,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `swift` has been explicitly set.
   var hasSwift: Bool {return _storage._swift != nil}
   /// Clears the value of `swift`. Subsequent reads from it will return its default value.
-  mutating func clearSwift() {_storage._swift = nil}
+  mutating func clearSwift() {_uniqueStorage()._swift = nil}
 
   var unrecognized: Int32 {
     get {return _storage._unrecognized ?? 0}
@@ -838,7 +838,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `unrecognized` has been explicitly set.
   var hasUnrecognized: Bool {return _storage._unrecognized != nil}
   /// Clears the value of `unrecognized`. Subsequent reads from it will return its default value.
-  mutating func clearUnrecognized() {_storage._unrecognized = nil}
+  mutating func clearUnrecognized() {_uniqueStorage()._unrecognized = nil}
 
   var `class`: Int32 {
     get {return _storage._class ?? 0}
@@ -847,7 +847,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``class`` has been explicitly set.
   var hasClass: Bool {return _storage._class != nil}
   /// Clears the value of ``class``. Subsequent reads from it will return its default value.
-  mutating func clearClass() {_storage._class = nil}
+  mutating func clearClass() {_uniqueStorage()._class = nil}
 
   var `deinit`: Int32 {
     get {return _storage._deinit ?? 0}
@@ -856,7 +856,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``deinit`` has been explicitly set.
   var hasDeinit: Bool {return _storage._deinit != nil}
   /// Clears the value of ``deinit``. Subsequent reads from it will return its default value.
-  mutating func clearDeinit() {_storage._deinit = nil}
+  mutating func clearDeinit() {_uniqueStorage()._deinit = nil}
 
   var `enum`: Int32 {
     get {return _storage._enum ?? 0}
@@ -865,7 +865,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``enum`` has been explicitly set.
   var hasEnum: Bool {return _storage._enum != nil}
   /// Clears the value of ``enum``. Subsequent reads from it will return its default value.
-  mutating func clearEnum() {_storage._enum = nil}
+  mutating func clearEnum() {_uniqueStorage()._enum = nil}
 
   var `func`: Int32 {
     get {return _storage._func ?? 0}
@@ -874,7 +874,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``func`` has been explicitly set.
   var hasFunc: Bool {return _storage._func != nil}
   /// Clears the value of ``func``. Subsequent reads from it will return its default value.
-  mutating func clearFunc() {_storage._func = nil}
+  mutating func clearFunc() {_uniqueStorage()._func = nil}
 
   var `import`: Int32 {
     get {return _storage._import ?? 0}
@@ -883,7 +883,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``import`` has been explicitly set.
   var hasImport: Bool {return _storage._import != nil}
   /// Clears the value of ``import``. Subsequent reads from it will return its default value.
-  mutating func clearImport() {_storage._import = nil}
+  mutating func clearImport() {_uniqueStorage()._import = nil}
 
   var init_p: Int32 {
     get {return _storage._init_p ?? 0}
@@ -892,7 +892,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `init_p` has been explicitly set.
   var hasInit_p: Bool {return _storage._init_p != nil}
   /// Clears the value of `init_p`. Subsequent reads from it will return its default value.
-  mutating func clearInit_p() {_storage._init_p = nil}
+  mutating func clearInit_p() {_uniqueStorage()._init_p = nil}
 
   var `inout`: Int32 {
     get {return _storage._inout ?? 0}
@@ -901,7 +901,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``inout`` has been explicitly set.
   var hasInout: Bool {return _storage._inout != nil}
   /// Clears the value of ``inout``. Subsequent reads from it will return its default value.
-  mutating func clearInout() {_storage._inout = nil}
+  mutating func clearInout() {_uniqueStorage()._inout = nil}
 
   var `internal`: Int32 {
     get {return _storage._internal ?? 0}
@@ -910,7 +910,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``internal`` has been explicitly set.
   var hasInternal: Bool {return _storage._internal != nil}
   /// Clears the value of ``internal``. Subsequent reads from it will return its default value.
-  mutating func clearInternal() {_storage._internal = nil}
+  mutating func clearInternal() {_uniqueStorage()._internal = nil}
 
   var `let`: Int32 {
     get {return _storage._let ?? 0}
@@ -919,7 +919,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``let`` has been explicitly set.
   var hasLet: Bool {return _storage._let != nil}
   /// Clears the value of ``let``. Subsequent reads from it will return its default value.
-  mutating func clearLet() {_storage._let = nil}
+  mutating func clearLet() {_uniqueStorage()._let = nil}
 
   var `operator`: Int32 {
     get {return _storage._operator ?? 0}
@@ -928,7 +928,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``operator`` has been explicitly set.
   var hasOperator: Bool {return _storage._operator != nil}
   /// Clears the value of ``operator``. Subsequent reads from it will return its default value.
-  mutating func clearOperator() {_storage._operator = nil}
+  mutating func clearOperator() {_uniqueStorage()._operator = nil}
 
   var `private`: Int32 {
     get {return _storage._private ?? 0}
@@ -937,7 +937,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``private`` has been explicitly set.
   var hasPrivate: Bool {return _storage._private != nil}
   /// Clears the value of ``private``. Subsequent reads from it will return its default value.
-  mutating func clearPrivate() {_storage._private = nil}
+  mutating func clearPrivate() {_uniqueStorage()._private = nil}
 
   var `protocol`: Int32 {
     get {return _storage._protocol ?? 0}
@@ -946,7 +946,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``protocol`` has been explicitly set.
   var hasProtocol: Bool {return _storage._protocol != nil}
   /// Clears the value of ``protocol``. Subsequent reads from it will return its default value.
-  mutating func clearProtocol() {_storage._protocol = nil}
+  mutating func clearProtocol() {_uniqueStorage()._protocol = nil}
 
   var `public`: Int32 {
     get {return _storage._public ?? 0}
@@ -955,7 +955,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``public`` has been explicitly set.
   var hasPublic: Bool {return _storage._public != nil}
   /// Clears the value of ``public``. Subsequent reads from it will return its default value.
-  mutating func clearPublic() {_storage._public = nil}
+  mutating func clearPublic() {_uniqueStorage()._public = nil}
 
   var `static`: Int32 {
     get {return _storage._static ?? 0}
@@ -964,7 +964,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``static`` has been explicitly set.
   var hasStatic: Bool {return _storage._static != nil}
   /// Clears the value of ``static``. Subsequent reads from it will return its default value.
-  mutating func clearStatic() {_storage._static = nil}
+  mutating func clearStatic() {_uniqueStorage()._static = nil}
 
   var `struct`: Int32 {
     get {return _storage._struct ?? 0}
@@ -973,7 +973,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``struct`` has been explicitly set.
   var hasStruct: Bool {return _storage._struct != nil}
   /// Clears the value of ``struct``. Subsequent reads from it will return its default value.
-  mutating func clearStruct() {_storage._struct = nil}
+  mutating func clearStruct() {_uniqueStorage()._struct = nil}
 
   var `subscript`: Int32 {
     get {return _storage._subscript ?? 0}
@@ -982,7 +982,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``subscript`` has been explicitly set.
   var hasSubscript: Bool {return _storage._subscript != nil}
   /// Clears the value of ``subscript``. Subsequent reads from it will return its default value.
-  mutating func clearSubscript() {_storage._subscript = nil}
+  mutating func clearSubscript() {_uniqueStorage()._subscript = nil}
 
   var `typealias`: Int32 {
     get {return _storage._typealias ?? 0}
@@ -991,7 +991,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``typealias`` has been explicitly set.
   var hasTypealias: Bool {return _storage._typealias != nil}
   /// Clears the value of ``typealias``. Subsequent reads from it will return its default value.
-  mutating func clearTypealias() {_storage._typealias = nil}
+  mutating func clearTypealias() {_uniqueStorage()._typealias = nil}
 
   var `var`: Int32 {
     get {return _storage._var ?? 0}
@@ -1000,7 +1000,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``var`` has been explicitly set.
   var hasVar: Bool {return _storage._var != nil}
   /// Clears the value of ``var``. Subsequent reads from it will return its default value.
-  mutating func clearVar() {_storage._var = nil}
+  mutating func clearVar() {_uniqueStorage()._var = nil}
 
   var `break`: Int32 {
     get {return _storage._break ?? 0}
@@ -1009,7 +1009,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``break`` has been explicitly set.
   var hasBreak: Bool {return _storage._break != nil}
   /// Clears the value of ``break``. Subsequent reads from it will return its default value.
-  mutating func clearBreak() {_storage._break = nil}
+  mutating func clearBreak() {_uniqueStorage()._break = nil}
 
   var `case`: Int32 {
     get {return _storage._case ?? 0}
@@ -1018,7 +1018,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``case`` has been explicitly set.
   var hasCase: Bool {return _storage._case != nil}
   /// Clears the value of ``case``. Subsequent reads from it will return its default value.
-  mutating func clearCase() {_storage._case = nil}
+  mutating func clearCase() {_uniqueStorage()._case = nil}
 
   var `continue`: Int32 {
     get {return _storage._continue ?? 0}
@@ -1027,7 +1027,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``continue`` has been explicitly set.
   var hasContinue: Bool {return _storage._continue != nil}
   /// Clears the value of ``continue``. Subsequent reads from it will return its default value.
-  mutating func clearContinue() {_storage._continue = nil}
+  mutating func clearContinue() {_uniqueStorage()._continue = nil}
 
   var `default`: Int32 {
     get {return _storage._default ?? 0}
@@ -1036,7 +1036,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``default`` has been explicitly set.
   var hasDefault: Bool {return _storage._default != nil}
   /// Clears the value of ``default``. Subsequent reads from it will return its default value.
-  mutating func clearDefault() {_storage._default = nil}
+  mutating func clearDefault() {_uniqueStorage()._default = nil}
 
   var `defer`: Int32 {
     get {return _storage._defer ?? 0}
@@ -1045,7 +1045,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``defer`` has been explicitly set.
   var hasDefer: Bool {return _storage._defer != nil}
   /// Clears the value of ``defer``. Subsequent reads from it will return its default value.
-  mutating func clearDefer() {_storage._defer = nil}
+  mutating func clearDefer() {_uniqueStorage()._defer = nil}
 
   var `do`: Int32 {
     get {return _storage._do ?? 0}
@@ -1054,7 +1054,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``do`` has been explicitly set.
   var hasDo: Bool {return _storage._do != nil}
   /// Clears the value of ``do``. Subsequent reads from it will return its default value.
-  mutating func clearDo() {_storage._do = nil}
+  mutating func clearDo() {_uniqueStorage()._do = nil}
 
   var `else`: Int32 {
     get {return _storage._else ?? 0}
@@ -1063,7 +1063,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``else`` has been explicitly set.
   var hasElse: Bool {return _storage._else != nil}
   /// Clears the value of ``else``. Subsequent reads from it will return its default value.
-  mutating func clearElse() {_storage._else = nil}
+  mutating func clearElse() {_uniqueStorage()._else = nil}
 
   var `fallthrough`: Int32 {
     get {return _storage._fallthrough ?? 0}
@@ -1072,7 +1072,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``fallthrough`` has been explicitly set.
   var hasFallthrough: Bool {return _storage._fallthrough != nil}
   /// Clears the value of ``fallthrough``. Subsequent reads from it will return its default value.
-  mutating func clearFallthrough() {_storage._fallthrough = nil}
+  mutating func clearFallthrough() {_uniqueStorage()._fallthrough = nil}
 
   var `for`: Int32 {
     get {return _storage._for ?? 0}
@@ -1081,7 +1081,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``for`` has been explicitly set.
   var hasFor: Bool {return _storage._for != nil}
   /// Clears the value of ``for``. Subsequent reads from it will return its default value.
-  mutating func clearFor() {_storage._for = nil}
+  mutating func clearFor() {_uniqueStorage()._for = nil}
 
   var `guard`: Int32 {
     get {return _storage._guard ?? 0}
@@ -1090,7 +1090,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``guard`` has been explicitly set.
   var hasGuard: Bool {return _storage._guard != nil}
   /// Clears the value of ``guard``. Subsequent reads from it will return its default value.
-  mutating func clearGuard() {_storage._guard = nil}
+  mutating func clearGuard() {_uniqueStorage()._guard = nil}
 
   var `if`: Int32 {
     get {return _storage._if ?? 0}
@@ -1099,7 +1099,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``if`` has been explicitly set.
   var hasIf: Bool {return _storage._if != nil}
   /// Clears the value of ``if``. Subsequent reads from it will return its default value.
-  mutating func clearIf() {_storage._if = nil}
+  mutating func clearIf() {_uniqueStorage()._if = nil}
 
   var `in`: Int32 {
     get {return _storage._in ?? 0}
@@ -1108,7 +1108,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``in`` has been explicitly set.
   var hasIn: Bool {return _storage._in != nil}
   /// Clears the value of ``in``. Subsequent reads from it will return its default value.
-  mutating func clearIn() {_storage._in = nil}
+  mutating func clearIn() {_uniqueStorage()._in = nil}
 
   var `repeat`: Int32 {
     get {return _storage._repeat ?? 0}
@@ -1117,7 +1117,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``repeat`` has been explicitly set.
   var hasRepeat: Bool {return _storage._repeat != nil}
   /// Clears the value of ``repeat``. Subsequent reads from it will return its default value.
-  mutating func clearRepeat() {_storage._repeat = nil}
+  mutating func clearRepeat() {_uniqueStorage()._repeat = nil}
 
   var `return`: Int32 {
     get {return _storage._return ?? 0}
@@ -1126,7 +1126,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``return`` has been explicitly set.
   var hasReturn: Bool {return _storage._return != nil}
   /// Clears the value of ``return``. Subsequent reads from it will return its default value.
-  mutating func clearReturn() {_storage._return = nil}
+  mutating func clearReturn() {_uniqueStorage()._return = nil}
 
   var `switch`: Int32 {
     get {return _storage._switch ?? 0}
@@ -1135,7 +1135,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``switch`` has been explicitly set.
   var hasSwitch: Bool {return _storage._switch != nil}
   /// Clears the value of ``switch``. Subsequent reads from it will return its default value.
-  mutating func clearSwitch() {_storage._switch = nil}
+  mutating func clearSwitch() {_uniqueStorage()._switch = nil}
 
   var `where`: Int32 {
     get {return _storage._where ?? 0}
@@ -1144,7 +1144,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``where`` has been explicitly set.
   var hasWhere: Bool {return _storage._where != nil}
   /// Clears the value of ``where``. Subsequent reads from it will return its default value.
-  mutating func clearWhere() {_storage._where = nil}
+  mutating func clearWhere() {_uniqueStorage()._where = nil}
 
   var `while`: Int32 {
     get {return _storage._while ?? 0}
@@ -1153,7 +1153,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``while`` has been explicitly set.
   var hasWhile: Bool {return _storage._while != nil}
   /// Clears the value of ``while``. Subsequent reads from it will return its default value.
-  mutating func clearWhile() {_storage._while = nil}
+  mutating func clearWhile() {_uniqueStorage()._while = nil}
 
   var `as`: Int32 {
     get {return _storage._as ?? 0}
@@ -1162,7 +1162,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``as`` has been explicitly set.
   var hasAs: Bool {return _storage._as != nil}
   /// Clears the value of ``as``. Subsequent reads from it will return its default value.
-  mutating func clearAs() {_storage._as = nil}
+  mutating func clearAs() {_uniqueStorage()._as = nil}
 
   var `catch`: Int32 {
     get {return _storage._catch ?? 0}
@@ -1171,7 +1171,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``catch`` has been explicitly set.
   var hasCatch: Bool {return _storage._catch != nil}
   /// Clears the value of ``catch``. Subsequent reads from it will return its default value.
-  mutating func clearCatch() {_storage._catch = nil}
+  mutating func clearCatch() {_uniqueStorage()._catch = nil}
 
   var dynamicType_p: Int32 {
     get {return _storage._dynamicType_p ?? 0}
@@ -1180,7 +1180,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `dynamicType_p` has been explicitly set.
   var hasDynamicType_p: Bool {return _storage._dynamicType_p != nil}
   /// Clears the value of `dynamicType_p`. Subsequent reads from it will return its default value.
-  mutating func clearDynamicType_p() {_storage._dynamicType_p = nil}
+  mutating func clearDynamicType_p() {_uniqueStorage()._dynamicType_p = nil}
 
   var `false`: Int32 {
     get {return _storage._false ?? 0}
@@ -1189,7 +1189,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``false`` has been explicitly set.
   var hasFalse: Bool {return _storage._false != nil}
   /// Clears the value of ``false``. Subsequent reads from it will return its default value.
-  mutating func clearFalse() {_storage._false = nil}
+  mutating func clearFalse() {_uniqueStorage()._false = nil}
 
   var `is`: Int32 {
     get {return _storage._is ?? 0}
@@ -1198,7 +1198,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``is`` has been explicitly set.
   var hasIs: Bool {return _storage._is != nil}
   /// Clears the value of ``is``. Subsequent reads from it will return its default value.
-  mutating func clearIs() {_storage._is = nil}
+  mutating func clearIs() {_uniqueStorage()._is = nil}
 
   var `nil`: Int32 {
     get {return _storage._nil ?? 0}
@@ -1207,7 +1207,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``nil`` has been explicitly set.
   var hasNil: Bool {return _storage._nil != nil}
   /// Clears the value of ``nil``. Subsequent reads from it will return its default value.
-  mutating func clearNil() {_storage._nil = nil}
+  mutating func clearNil() {_uniqueStorage()._nil = nil}
 
   var `rethrows`: Int32 {
     get {return _storage._rethrows ?? 0}
@@ -1216,7 +1216,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``rethrows`` has been explicitly set.
   var hasRethrows: Bool {return _storage._rethrows != nil}
   /// Clears the value of ``rethrows``. Subsequent reads from it will return its default value.
-  mutating func clearRethrows() {_storage._rethrows = nil}
+  mutating func clearRethrows() {_uniqueStorage()._rethrows = nil}
 
   var `super`: Int32 {
     get {return _storage._super ?? 0}
@@ -1225,7 +1225,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``super`` has been explicitly set.
   var hasSuper: Bool {return _storage._super != nil}
   /// Clears the value of ``super``. Subsequent reads from it will return its default value.
-  mutating func clearSuper() {_storage._super = nil}
+  mutating func clearSuper() {_uniqueStorage()._super = nil}
 
   var self_p: Int32 {
     get {return _storage._self_p ?? 0}
@@ -1234,7 +1234,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `self_p` has been explicitly set.
   var hasSelf_p: Bool {return _storage._self_p != nil}
   /// Clears the value of `self_p`. Subsequent reads from it will return its default value.
-  mutating func clearSelf_p() {_storage._self_p = nil}
+  mutating func clearSelf_p() {_uniqueStorage()._self_p = nil}
 
   var `throw`: Int32 {
     get {return _storage._throw ?? 0}
@@ -1243,7 +1243,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``throw`` has been explicitly set.
   var hasThrow: Bool {return _storage._throw != nil}
   /// Clears the value of ``throw``. Subsequent reads from it will return its default value.
-  mutating func clearThrow() {_storage._throw = nil}
+  mutating func clearThrow() {_uniqueStorage()._throw = nil}
 
   var `throws`: Int32 {
     get {return _storage._throws ?? 0}
@@ -1252,7 +1252,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``throws`` has been explicitly set.
   var hasThrows: Bool {return _storage._throws != nil}
   /// Clears the value of ``throws``. Subsequent reads from it will return its default value.
-  mutating func clearThrows() {_storage._throws = nil}
+  mutating func clearThrows() {_uniqueStorage()._throws = nil}
 
   var `true`: Int32 {
     get {return _storage._true ?? 0}
@@ -1261,7 +1261,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``true`` has been explicitly set.
   var hasTrue: Bool {return _storage._true != nil}
   /// Clears the value of ``true``. Subsequent reads from it will return its default value.
-  mutating func clearTrue() {_storage._true = nil}
+  mutating func clearTrue() {_uniqueStorage()._true = nil}
 
   var `try`: Int32 {
     get {return _storage._try ?? 0}
@@ -1270,7 +1270,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``try`` has been explicitly set.
   var hasTry: Bool {return _storage._try != nil}
   /// Clears the value of ``try``. Subsequent reads from it will return its default value.
-  mutating func clearTry() {_storage._try = nil}
+  mutating func clearTry() {_uniqueStorage()._try = nil}
 
   var _Column__: Int32 {
     get {return _storage.__Column__ ?? 0}
@@ -1279,7 +1279,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `_Column__` has been explicitly set.
   var has_Column__: Bool {return _storage.__Column__ != nil}
   /// Clears the value of `_Column__`. Subsequent reads from it will return its default value.
-  mutating func clear_Column__() {_storage.__Column__ = nil}
+  mutating func clear_Column__() {_uniqueStorage().__Column__ = nil}
 
   var _File__: Int32 {
     get {return _storage.__File__ ?? 0}
@@ -1288,7 +1288,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `_File__` has been explicitly set.
   var has_File__: Bool {return _storage.__File__ != nil}
   /// Clears the value of `_File__`. Subsequent reads from it will return its default value.
-  mutating func clear_File__() {_storage.__File__ = nil}
+  mutating func clear_File__() {_uniqueStorage().__File__ = nil}
 
   var _Function__: Int32 {
     get {return _storage.__Function__ ?? 0}
@@ -1297,7 +1297,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `_Function__` has been explicitly set.
   var has_Function__: Bool {return _storage.__Function__ != nil}
   /// Clears the value of `_Function__`. Subsequent reads from it will return its default value.
-  mutating func clear_Function__() {_storage.__Function__ = nil}
+  mutating func clear_Function__() {_uniqueStorage().__Function__ = nil}
 
   var _Line__: Int32 {
     get {return _storage.__Line__ ?? 0}
@@ -1306,7 +1306,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `_Line__` has been explicitly set.
   var has_Line__: Bool {return _storage.__Line__ != nil}
   /// Clears the value of `_Line__`. Subsequent reads from it will return its default value.
-  mutating func clear_Line__() {_storage.__Line__ = nil}
+  mutating func clear_Line__() {_uniqueStorage().__Line__ = nil}
 
   var ___: Int32 {
     get {return _storage.____ ?? 0}
@@ -1315,7 +1315,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `___` has been explicitly set.
   var has___: Bool {return _storage.____ != nil}
   /// Clears the value of `___`. Subsequent reads from it will return its default value.
-  mutating func clear___() {_storage.____ = nil}
+  mutating func clear___() {_uniqueStorage().____ = nil}
 
   var associativity: Int32 {
     get {return _storage._associativity ?? 0}
@@ -1324,7 +1324,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `associativity` has been explicitly set.
   var hasAssociativity: Bool {return _storage._associativity != nil}
   /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
-  mutating func clearAssociativity() {_storage._associativity = nil}
+  mutating func clearAssociativity() {_uniqueStorage()._associativity = nil}
 
   var convenience: Int32 {
     get {return _storage._convenience ?? 0}
@@ -1333,7 +1333,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `convenience` has been explicitly set.
   var hasConvenience: Bool {return _storage._convenience != nil}
   /// Clears the value of `convenience`. Subsequent reads from it will return its default value.
-  mutating func clearConvenience() {_storage._convenience = nil}
+  mutating func clearConvenience() {_uniqueStorage()._convenience = nil}
 
   var dynamic: Int32 {
     get {return _storage._dynamic ?? 0}
@@ -1342,7 +1342,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `dynamic` has been explicitly set.
   var hasDynamic: Bool {return _storage._dynamic != nil}
   /// Clears the value of `dynamic`. Subsequent reads from it will return its default value.
-  mutating func clearDynamic() {_storage._dynamic = nil}
+  mutating func clearDynamic() {_uniqueStorage()._dynamic = nil}
 
   var didSet: Int32 {
     get {return _storage._didSet ?? 0}
@@ -1351,7 +1351,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `didSet` has been explicitly set.
   var hasDidSet: Bool {return _storage._didSet != nil}
   /// Clears the value of `didSet`. Subsequent reads from it will return its default value.
-  mutating func clearDidSet() {_storage._didSet = nil}
+  mutating func clearDidSet() {_uniqueStorage()._didSet = nil}
 
   var final: Int32 {
     get {return _storage._final ?? 0}
@@ -1360,7 +1360,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `final` has been explicitly set.
   var hasFinal: Bool {return _storage._final != nil}
   /// Clears the value of `final`. Subsequent reads from it will return its default value.
-  mutating func clearFinal() {_storage._final = nil}
+  mutating func clearFinal() {_uniqueStorage()._final = nil}
 
   var get: Int32 {
     get {return _storage._get ?? 0}
@@ -1369,7 +1369,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `get` has been explicitly set.
   var hasGet: Bool {return _storage._get != nil}
   /// Clears the value of `get`. Subsequent reads from it will return its default value.
-  mutating func clearGet() {_storage._get = nil}
+  mutating func clearGet() {_uniqueStorage()._get = nil}
 
   var infix: Int32 {
     get {return _storage._infix ?? 0}
@@ -1378,7 +1378,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `infix` has been explicitly set.
   var hasInfix: Bool {return _storage._infix != nil}
   /// Clears the value of `infix`. Subsequent reads from it will return its default value.
-  mutating func clearInfix() {_storage._infix = nil}
+  mutating func clearInfix() {_uniqueStorage()._infix = nil}
 
   var indirect: Int32 {
     get {return _storage._indirect ?? 0}
@@ -1387,7 +1387,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `indirect` has been explicitly set.
   var hasIndirect: Bool {return _storage._indirect != nil}
   /// Clears the value of `indirect`. Subsequent reads from it will return its default value.
-  mutating func clearIndirect() {_storage._indirect = nil}
+  mutating func clearIndirect() {_uniqueStorage()._indirect = nil}
 
   var lazy: Int32 {
     get {return _storage._lazy ?? 0}
@@ -1396,7 +1396,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `lazy` has been explicitly set.
   var hasLazy: Bool {return _storage._lazy != nil}
   /// Clears the value of `lazy`. Subsequent reads from it will return its default value.
-  mutating func clearLazy() {_storage._lazy = nil}
+  mutating func clearLazy() {_uniqueStorage()._lazy = nil}
 
   var left: Int32 {
     get {return _storage._left ?? 0}
@@ -1405,7 +1405,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `left` has been explicitly set.
   var hasLeft: Bool {return _storage._left != nil}
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
-  mutating func clearLeft() {_storage._left = nil}
+  mutating func clearLeft() {_uniqueStorage()._left = nil}
 
   var mutating: Int32 {
     get {return _storage._mutating ?? 0}
@@ -1414,7 +1414,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `mutating` has been explicitly set.
   var hasMutating: Bool {return _storage._mutating != nil}
   /// Clears the value of `mutating`. Subsequent reads from it will return its default value.
-  mutating func clearMutating() {_storage._mutating = nil}
+  mutating func clearMutating() {_uniqueStorage()._mutating = nil}
 
   var none: Int32 {
     get {return _storage._none ?? 0}
@@ -1423,7 +1423,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `none` has been explicitly set.
   var hasNone: Bool {return _storage._none != nil}
   /// Clears the value of `none`. Subsequent reads from it will return its default value.
-  mutating func clearNone() {_storage._none = nil}
+  mutating func clearNone() {_uniqueStorage()._none = nil}
 
   var nonmutating: Int32 {
     get {return _storage._nonmutating ?? 0}
@@ -1432,7 +1432,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `nonmutating` has been explicitly set.
   var hasNonmutating: Bool {return _storage._nonmutating != nil}
   /// Clears the value of `nonmutating`. Subsequent reads from it will return its default value.
-  mutating func clearNonmutating() {_storage._nonmutating = nil}
+  mutating func clearNonmutating() {_uniqueStorage()._nonmutating = nil}
 
   var optional: Int32 {
     get {return _storage._optional ?? 0}
@@ -1441,7 +1441,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `optional` has been explicitly set.
   var hasOptional: Bool {return _storage._optional != nil}
   /// Clears the value of `optional`. Subsequent reads from it will return its default value.
-  mutating func clearOptional() {_storage._optional = nil}
+  mutating func clearOptional() {_uniqueStorage()._optional = nil}
 
   var override: Int32 {
     get {return _storage._override ?? 0}
@@ -1450,7 +1450,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `override` has been explicitly set.
   var hasOverride: Bool {return _storage._override != nil}
   /// Clears the value of `override`. Subsequent reads from it will return its default value.
-  mutating func clearOverride() {_storage._override = nil}
+  mutating func clearOverride() {_uniqueStorage()._override = nil}
 
   var postfix: Int32 {
     get {return _storage._postfix ?? 0}
@@ -1459,7 +1459,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `postfix` has been explicitly set.
   var hasPostfix: Bool {return _storage._postfix != nil}
   /// Clears the value of `postfix`. Subsequent reads from it will return its default value.
-  mutating func clearPostfix() {_storage._postfix = nil}
+  mutating func clearPostfix() {_uniqueStorage()._postfix = nil}
 
   var precedence: Int32 {
     get {return _storage._precedence ?? 0}
@@ -1468,7 +1468,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `precedence` has been explicitly set.
   var hasPrecedence: Bool {return _storage._precedence != nil}
   /// Clears the value of `precedence`. Subsequent reads from it will return its default value.
-  mutating func clearPrecedence() {_storage._precedence = nil}
+  mutating func clearPrecedence() {_uniqueStorage()._precedence = nil}
 
   var prefix: Int32 {
     get {return _storage._prefix ?? 0}
@@ -1477,7 +1477,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `prefix` has been explicitly set.
   var hasPrefix: Bool {return _storage._prefix != nil}
   /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
-  mutating func clearPrefix() {_storage._prefix = nil}
+  mutating func clearPrefix() {_uniqueStorage()._prefix = nil}
 
   var required: Int32 {
     get {return _storage._required ?? 0}
@@ -1486,7 +1486,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `required` has been explicitly set.
   var hasRequired: Bool {return _storage._required != nil}
   /// Clears the value of `required`. Subsequent reads from it will return its default value.
-  mutating func clearRequired() {_storage._required = nil}
+  mutating func clearRequired() {_uniqueStorage()._required = nil}
 
   var right: Int32 {
     get {return _storage._right ?? 0}
@@ -1495,7 +1495,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `right` has been explicitly set.
   var hasRight: Bool {return _storage._right != nil}
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
-  mutating func clearRight() {_storage._right = nil}
+  mutating func clearRight() {_uniqueStorage()._right = nil}
 
   var set: Int32 {
     get {return _storage._set ?? 0}
@@ -1504,7 +1504,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `set` has been explicitly set.
   var hasSet: Bool {return _storage._set != nil}
   /// Clears the value of `set`. Subsequent reads from it will return its default value.
-  mutating func clearSet() {_storage._set = nil}
+  mutating func clearSet() {_uniqueStorage()._set = nil}
 
   var type: Int32 {
     get {return _storage._type ?? 0}
@@ -1513,7 +1513,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `type` has been explicitly set.
   var hasType: Bool {return _storage._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {_storage._type = nil}
+  mutating func clearType() {_uniqueStorage()._type = nil}
 
   var unowned: Int32 {
     get {return _storage._unowned ?? 0}
@@ -1522,7 +1522,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `unowned` has been explicitly set.
   var hasUnowned: Bool {return _storage._unowned != nil}
   /// Clears the value of `unowned`. Subsequent reads from it will return its default value.
-  mutating func clearUnowned() {_storage._unowned = nil}
+  mutating func clearUnowned() {_uniqueStorage()._unowned = nil}
 
   var weak: Int32 {
     get {return _storage._weak ?? 0}
@@ -1531,7 +1531,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `weak` has been explicitly set.
   var hasWeak: Bool {return _storage._weak != nil}
   /// Clears the value of `weak`. Subsequent reads from it will return its default value.
-  mutating func clearWeak() {_storage._weak = nil}
+  mutating func clearWeak() {_uniqueStorage()._weak = nil}
 
   var willSet: Int32 {
     get {return _storage._willSet ?? 0}
@@ -1540,7 +1540,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `willSet` has been explicitly set.
   var hasWillSet: Bool {return _storage._willSet != nil}
   /// Clears the value of `willSet`. Subsequent reads from it will return its default value.
-  mutating func clearWillSet() {_storage._willSet = nil}
+  mutating func clearWillSet() {_uniqueStorage()._willSet = nil}
 
   var id: Int32 {
     get {return _storage._id ?? 0}
@@ -1549,7 +1549,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `id` has been explicitly set.
   var hasID: Bool {return _storage._id != nil}
   /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  mutating func clearID() {_storage._id = nil}
+  mutating func clearID() {_uniqueStorage()._id = nil}
 
   var cmd: Int32 {
     get {return _storage._cmd ?? 0}
@@ -1558,7 +1558,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `cmd` has been explicitly set.
   var hasCmd: Bool {return _storage._cmd != nil}
   /// Clears the value of `cmd`. Subsequent reads from it will return its default value.
-  mutating func clearCmd() {_storage._cmd = nil}
+  mutating func clearCmd() {_uniqueStorage()._cmd = nil}
 
   var out: Int32 {
     get {return _storage._out ?? 0}
@@ -1567,7 +1567,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `out` has been explicitly set.
   var hasOut: Bool {return _storage._out != nil}
   /// Clears the value of `out`. Subsequent reads from it will return its default value.
-  mutating func clearOut() {_storage._out = nil}
+  mutating func clearOut() {_uniqueStorage()._out = nil}
 
   var bycopy: Int32 {
     get {return _storage._bycopy ?? 0}
@@ -1576,7 +1576,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `bycopy` has been explicitly set.
   var hasBycopy: Bool {return _storage._bycopy != nil}
   /// Clears the value of `bycopy`. Subsequent reads from it will return its default value.
-  mutating func clearBycopy() {_storage._bycopy = nil}
+  mutating func clearBycopy() {_uniqueStorage()._bycopy = nil}
 
   var byref: Int32 {
     get {return _storage._byref ?? 0}
@@ -1585,7 +1585,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `byref` has been explicitly set.
   var hasByref: Bool {return _storage._byref != nil}
   /// Clears the value of `byref`. Subsequent reads from it will return its default value.
-  mutating func clearByref() {_storage._byref = nil}
+  mutating func clearByref() {_uniqueStorage()._byref = nil}
 
   var oneway: Int32 {
     get {return _storage._oneway ?? 0}
@@ -1594,7 +1594,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `oneway` has been explicitly set.
   var hasOneway: Bool {return _storage._oneway != nil}
   /// Clears the value of `oneway`. Subsequent reads from it will return its default value.
-  mutating func clearOneway() {_storage._oneway = nil}
+  mutating func clearOneway() {_uniqueStorage()._oneway = nil}
 
   var and: Int32 {
     get {return _storage._and ?? 0}
@@ -1603,7 +1603,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `and` has been explicitly set.
   var hasAnd: Bool {return _storage._and != nil}
   /// Clears the value of `and`. Subsequent reads from it will return its default value.
-  mutating func clearAnd() {_storage._and = nil}
+  mutating func clearAnd() {_uniqueStorage()._and = nil}
 
   var andEq: Int32 {
     get {return _storage._andEq ?? 0}
@@ -1612,7 +1612,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `andEq` has been explicitly set.
   var hasAndEq: Bool {return _storage._andEq != nil}
   /// Clears the value of `andEq`. Subsequent reads from it will return its default value.
-  mutating func clearAndEq() {_storage._andEq = nil}
+  mutating func clearAndEq() {_uniqueStorage()._andEq = nil}
 
   var alignas: Int32 {
     get {return _storage._alignas ?? 0}
@@ -1621,7 +1621,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `alignas` has been explicitly set.
   var hasAlignas: Bool {return _storage._alignas != nil}
   /// Clears the value of `alignas`. Subsequent reads from it will return its default value.
-  mutating func clearAlignas() {_storage._alignas = nil}
+  mutating func clearAlignas() {_uniqueStorage()._alignas = nil}
 
   var alignof: Int32 {
     get {return _storage._alignof ?? 0}
@@ -1630,7 +1630,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `alignof` has been explicitly set.
   var hasAlignof: Bool {return _storage._alignof != nil}
   /// Clears the value of `alignof`. Subsequent reads from it will return its default value.
-  mutating func clearAlignof() {_storage._alignof = nil}
+  mutating func clearAlignof() {_uniqueStorage()._alignof = nil}
 
   var asm: Int32 {
     get {return _storage._asm ?? 0}
@@ -1639,7 +1639,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `asm` has been explicitly set.
   var hasAsm: Bool {return _storage._asm != nil}
   /// Clears the value of `asm`. Subsequent reads from it will return its default value.
-  mutating func clearAsm() {_storage._asm = nil}
+  mutating func clearAsm() {_uniqueStorage()._asm = nil}
 
   var auto: Int32 {
     get {return _storage._auto ?? 0}
@@ -1648,7 +1648,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `auto` has been explicitly set.
   var hasAuto: Bool {return _storage._auto != nil}
   /// Clears the value of `auto`. Subsequent reads from it will return its default value.
-  mutating func clearAuto() {_storage._auto = nil}
+  mutating func clearAuto() {_uniqueStorage()._auto = nil}
 
   var bitand: Int32 {
     get {return _storage._bitand ?? 0}
@@ -1657,7 +1657,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `bitand` has been explicitly set.
   var hasBitand: Bool {return _storage._bitand != nil}
   /// Clears the value of `bitand`. Subsequent reads from it will return its default value.
-  mutating func clearBitand() {_storage._bitand = nil}
+  mutating func clearBitand() {_uniqueStorage()._bitand = nil}
 
   var bitor: Int32 {
     get {return _storage._bitor ?? 0}
@@ -1666,7 +1666,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `bitor` has been explicitly set.
   var hasBitor: Bool {return _storage._bitor != nil}
   /// Clears the value of `bitor`. Subsequent reads from it will return its default value.
-  mutating func clearBitor() {_storage._bitor = nil}
+  mutating func clearBitor() {_uniqueStorage()._bitor = nil}
 
   var bool: Int32 {
     get {return _storage._bool ?? 0}
@@ -1675,7 +1675,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `bool` has been explicitly set.
   var hasBool: Bool {return _storage._bool != nil}
   /// Clears the value of `bool`. Subsequent reads from it will return its default value.
-  mutating func clearBool() {_storage._bool = nil}
+  mutating func clearBool() {_uniqueStorage()._bool = nil}
 
   var char: Int32 {
     get {return _storage._char ?? 0}
@@ -1684,7 +1684,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `char` has been explicitly set.
   var hasChar: Bool {return _storage._char != nil}
   /// Clears the value of `char`. Subsequent reads from it will return its default value.
-  mutating func clearChar() {_storage._char = nil}
+  mutating func clearChar() {_uniqueStorage()._char = nil}
 
   var char16T: Int32 {
     get {return _storage._char16T ?? 0}
@@ -1693,7 +1693,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `char16T` has been explicitly set.
   var hasChar16T: Bool {return _storage._char16T != nil}
   /// Clears the value of `char16T`. Subsequent reads from it will return its default value.
-  mutating func clearChar16T() {_storage._char16T = nil}
+  mutating func clearChar16T() {_uniqueStorage()._char16T = nil}
 
   var char32T: Int32 {
     get {return _storage._char32T ?? 0}
@@ -1702,7 +1702,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `char32T` has been explicitly set.
   var hasChar32T: Bool {return _storage._char32T != nil}
   /// Clears the value of `char32T`. Subsequent reads from it will return its default value.
-  mutating func clearChar32T() {_storage._char32T = nil}
+  mutating func clearChar32T() {_uniqueStorage()._char32T = nil}
 
   var compl: Int32 {
     get {return _storage._compl ?? 0}
@@ -1711,7 +1711,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `compl` has been explicitly set.
   var hasCompl: Bool {return _storage._compl != nil}
   /// Clears the value of `compl`. Subsequent reads from it will return its default value.
-  mutating func clearCompl() {_storage._compl = nil}
+  mutating func clearCompl() {_uniqueStorage()._compl = nil}
 
   var const: Int32 {
     get {return _storage._const ?? 0}
@@ -1720,7 +1720,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `const` has been explicitly set.
   var hasConst: Bool {return _storage._const != nil}
   /// Clears the value of `const`. Subsequent reads from it will return its default value.
-  mutating func clearConst() {_storage._const = nil}
+  mutating func clearConst() {_uniqueStorage()._const = nil}
 
   var constexpr: Int32 {
     get {return _storage._constexpr ?? 0}
@@ -1729,7 +1729,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `constexpr` has been explicitly set.
   var hasConstexpr: Bool {return _storage._constexpr != nil}
   /// Clears the value of `constexpr`. Subsequent reads from it will return its default value.
-  mutating func clearConstexpr() {_storage._constexpr = nil}
+  mutating func clearConstexpr() {_uniqueStorage()._constexpr = nil}
 
   var constCast: Int32 {
     get {return _storage._constCast ?? 0}
@@ -1738,7 +1738,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `constCast` has been explicitly set.
   var hasConstCast: Bool {return _storage._constCast != nil}
   /// Clears the value of `constCast`. Subsequent reads from it will return its default value.
-  mutating func clearConstCast() {_storage._constCast = nil}
+  mutating func clearConstCast() {_uniqueStorage()._constCast = nil}
 
   var decltype: Int32 {
     get {return _storage._decltype ?? 0}
@@ -1747,7 +1747,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `decltype` has been explicitly set.
   var hasDecltype: Bool {return _storage._decltype != nil}
   /// Clears the value of `decltype`. Subsequent reads from it will return its default value.
-  mutating func clearDecltype() {_storage._decltype = nil}
+  mutating func clearDecltype() {_uniqueStorage()._decltype = nil}
 
   var delete: Int32 {
     get {return _storage._delete ?? 0}
@@ -1756,7 +1756,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `delete` has been explicitly set.
   var hasDelete: Bool {return _storage._delete != nil}
   /// Clears the value of `delete`. Subsequent reads from it will return its default value.
-  mutating func clearDelete() {_storage._delete = nil}
+  mutating func clearDelete() {_uniqueStorage()._delete = nil}
 
   var dynamicCast: Int32 {
     get {return _storage._dynamicCast ?? 0}
@@ -1765,7 +1765,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `dynamicCast` has been explicitly set.
   var hasDynamicCast: Bool {return _storage._dynamicCast != nil}
   /// Clears the value of `dynamicCast`. Subsequent reads from it will return its default value.
-  mutating func clearDynamicCast() {_storage._dynamicCast = nil}
+  mutating func clearDynamicCast() {_uniqueStorage()._dynamicCast = nil}
 
   var explicit: Int32 {
     get {return _storage._explicit ?? 0}
@@ -1774,7 +1774,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `explicit` has been explicitly set.
   var hasExplicit: Bool {return _storage._explicit != nil}
   /// Clears the value of `explicit`. Subsequent reads from it will return its default value.
-  mutating func clearExplicit() {_storage._explicit = nil}
+  mutating func clearExplicit() {_uniqueStorage()._explicit = nil}
 
   var export: Int32 {
     get {return _storage._export ?? 0}
@@ -1783,7 +1783,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `export` has been explicitly set.
   var hasExport: Bool {return _storage._export != nil}
   /// Clears the value of `export`. Subsequent reads from it will return its default value.
-  mutating func clearExport() {_storage._export = nil}
+  mutating func clearExport() {_uniqueStorage()._export = nil}
 
   var extern: Int32 {
     get {return _storage._extern ?? 0}
@@ -1792,7 +1792,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `extern` has been explicitly set.
   var hasExtern: Bool {return _storage._extern != nil}
   /// Clears the value of `extern`. Subsequent reads from it will return its default value.
-  mutating func clearExtern() {_storage._extern = nil}
+  mutating func clearExtern() {_uniqueStorage()._extern = nil}
 
   var friend: Int32 {
     get {return _storage._friend ?? 0}
@@ -1801,7 +1801,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `friend` has been explicitly set.
   var hasFriend: Bool {return _storage._friend != nil}
   /// Clears the value of `friend`. Subsequent reads from it will return its default value.
-  mutating func clearFriend() {_storage._friend = nil}
+  mutating func clearFriend() {_uniqueStorage()._friend = nil}
 
   var goto: Int32 {
     get {return _storage._goto ?? 0}
@@ -1810,7 +1810,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `goto` has been explicitly set.
   var hasGoto: Bool {return _storage._goto != nil}
   /// Clears the value of `goto`. Subsequent reads from it will return its default value.
-  mutating func clearGoto() {_storage._goto = nil}
+  mutating func clearGoto() {_uniqueStorage()._goto = nil}
 
   var inline: Int32 {
     get {return _storage._inline ?? 0}
@@ -1819,7 +1819,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `inline` has been explicitly set.
   var hasInline: Bool {return _storage._inline != nil}
   /// Clears the value of `inline`. Subsequent reads from it will return its default value.
-  mutating func clearInline() {_storage._inline = nil}
+  mutating func clearInline() {_uniqueStorage()._inline = nil}
 
   var long: Int32 {
     get {return _storage._long ?? 0}
@@ -1828,7 +1828,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `long` has been explicitly set.
   var hasLong: Bool {return _storage._long != nil}
   /// Clears the value of `long`. Subsequent reads from it will return its default value.
-  mutating func clearLong() {_storage._long = nil}
+  mutating func clearLong() {_uniqueStorage()._long = nil}
 
   var mutable: Int32 {
     get {return _storage._mutable ?? 0}
@@ -1837,7 +1837,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `mutable` has been explicitly set.
   var hasMutable: Bool {return _storage._mutable != nil}
   /// Clears the value of `mutable`. Subsequent reads from it will return its default value.
-  mutating func clearMutable() {_storage._mutable = nil}
+  mutating func clearMutable() {_uniqueStorage()._mutable = nil}
 
   var namespace: Int32 {
     get {return _storage._namespace ?? 0}
@@ -1846,7 +1846,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `namespace` has been explicitly set.
   var hasNamespace: Bool {return _storage._namespace != nil}
   /// Clears the value of `namespace`. Subsequent reads from it will return its default value.
-  mutating func clearNamespace() {_storage._namespace = nil}
+  mutating func clearNamespace() {_uniqueStorage()._namespace = nil}
 
   var new: Int32 {
     get {return _storage._new ?? 0}
@@ -1855,7 +1855,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `new` has been explicitly set.
   var hasNew: Bool {return _storage._new != nil}
   /// Clears the value of `new`. Subsequent reads from it will return its default value.
-  mutating func clearNew() {_storage._new = nil}
+  mutating func clearNew() {_uniqueStorage()._new = nil}
 
   var noexcept: Int32 {
     get {return _storage._noexcept ?? 0}
@@ -1864,7 +1864,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `noexcept` has been explicitly set.
   var hasNoexcept: Bool {return _storage._noexcept != nil}
   /// Clears the value of `noexcept`. Subsequent reads from it will return its default value.
-  mutating func clearNoexcept() {_storage._noexcept = nil}
+  mutating func clearNoexcept() {_uniqueStorage()._noexcept = nil}
 
   var not: Int32 {
     get {return _storage._not ?? 0}
@@ -1873,7 +1873,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `not` has been explicitly set.
   var hasNot: Bool {return _storage._not != nil}
   /// Clears the value of `not`. Subsequent reads from it will return its default value.
-  mutating func clearNot() {_storage._not = nil}
+  mutating func clearNot() {_uniqueStorage()._not = nil}
 
   var notEq: Int32 {
     get {return _storage._notEq ?? 0}
@@ -1882,7 +1882,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `notEq` has been explicitly set.
   var hasNotEq: Bool {return _storage._notEq != nil}
   /// Clears the value of `notEq`. Subsequent reads from it will return its default value.
-  mutating func clearNotEq() {_storage._notEq = nil}
+  mutating func clearNotEq() {_uniqueStorage()._notEq = nil}
 
   var nullptr: Int32 {
     get {return _storage._nullptr ?? 0}
@@ -1891,7 +1891,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `nullptr` has been explicitly set.
   var hasNullptr: Bool {return _storage._nullptr != nil}
   /// Clears the value of `nullptr`. Subsequent reads from it will return its default value.
-  mutating func clearNullptr() {_storage._nullptr = nil}
+  mutating func clearNullptr() {_uniqueStorage()._nullptr = nil}
 
   var or: Int32 {
     get {return _storage._or ?? 0}
@@ -1900,7 +1900,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `or` has been explicitly set.
   var hasOr: Bool {return _storage._or != nil}
   /// Clears the value of `or`. Subsequent reads from it will return its default value.
-  mutating func clearOr() {_storage._or = nil}
+  mutating func clearOr() {_uniqueStorage()._or = nil}
 
   var orEq: Int32 {
     get {return _storage._orEq ?? 0}
@@ -1909,7 +1909,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `orEq` has been explicitly set.
   var hasOrEq: Bool {return _storage._orEq != nil}
   /// Clears the value of `orEq`. Subsequent reads from it will return its default value.
-  mutating func clearOrEq() {_storage._orEq = nil}
+  mutating func clearOrEq() {_uniqueStorage()._orEq = nil}
 
   var protected: Int32 {
     get {return _storage._protected ?? 0}
@@ -1918,7 +1918,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `protected` has been explicitly set.
   var hasProtected: Bool {return _storage._protected != nil}
   /// Clears the value of `protected`. Subsequent reads from it will return its default value.
-  mutating func clearProtected() {_storage._protected = nil}
+  mutating func clearProtected() {_uniqueStorage()._protected = nil}
 
   var register: Int32 {
     get {return _storage._register ?? 0}
@@ -1927,7 +1927,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `register` has been explicitly set.
   var hasRegister: Bool {return _storage._register != nil}
   /// Clears the value of `register`. Subsequent reads from it will return its default value.
-  mutating func clearRegister() {_storage._register = nil}
+  mutating func clearRegister() {_uniqueStorage()._register = nil}
 
   var reinterpretCast: Int32 {
     get {return _storage._reinterpretCast ?? 0}
@@ -1936,7 +1936,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `reinterpretCast` has been explicitly set.
   var hasReinterpretCast: Bool {return _storage._reinterpretCast != nil}
   /// Clears the value of `reinterpretCast`. Subsequent reads from it will return its default value.
-  mutating func clearReinterpretCast() {_storage._reinterpretCast = nil}
+  mutating func clearReinterpretCast() {_uniqueStorage()._reinterpretCast = nil}
 
   var short: Int32 {
     get {return _storage._short ?? 0}
@@ -1945,7 +1945,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `short` has been explicitly set.
   var hasShort: Bool {return _storage._short != nil}
   /// Clears the value of `short`. Subsequent reads from it will return its default value.
-  mutating func clearShort() {_storage._short = nil}
+  mutating func clearShort() {_uniqueStorage()._short = nil}
 
   var signed: Int32 {
     get {return _storage._signed ?? 0}
@@ -1954,7 +1954,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `signed` has been explicitly set.
   var hasSigned: Bool {return _storage._signed != nil}
   /// Clears the value of `signed`. Subsequent reads from it will return its default value.
-  mutating func clearSigned() {_storage._signed = nil}
+  mutating func clearSigned() {_uniqueStorage()._signed = nil}
 
   var sizeof: Int32 {
     get {return _storage._sizeof ?? 0}
@@ -1963,7 +1963,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `sizeof` has been explicitly set.
   var hasSizeof: Bool {return _storage._sizeof != nil}
   /// Clears the value of `sizeof`. Subsequent reads from it will return its default value.
-  mutating func clearSizeof() {_storage._sizeof = nil}
+  mutating func clearSizeof() {_uniqueStorage()._sizeof = nil}
 
   var staticAssert: Int32 {
     get {return _storage._staticAssert ?? 0}
@@ -1972,7 +1972,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `staticAssert` has been explicitly set.
   var hasStaticAssert: Bool {return _storage._staticAssert != nil}
   /// Clears the value of `staticAssert`. Subsequent reads from it will return its default value.
-  mutating func clearStaticAssert() {_storage._staticAssert = nil}
+  mutating func clearStaticAssert() {_uniqueStorage()._staticAssert = nil}
 
   var staticCast: Int32 {
     get {return _storage._staticCast ?? 0}
@@ -1981,7 +1981,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `staticCast` has been explicitly set.
   var hasStaticCast: Bool {return _storage._staticCast != nil}
   /// Clears the value of `staticCast`. Subsequent reads from it will return its default value.
-  mutating func clearStaticCast() {_storage._staticCast = nil}
+  mutating func clearStaticCast() {_uniqueStorage()._staticCast = nil}
 
   var template: Int32 {
     get {return _storage._template ?? 0}
@@ -1990,7 +1990,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `template` has been explicitly set.
   var hasTemplate: Bool {return _storage._template != nil}
   /// Clears the value of `template`. Subsequent reads from it will return its default value.
-  mutating func clearTemplate() {_storage._template = nil}
+  mutating func clearTemplate() {_uniqueStorage()._template = nil}
 
   var this: Int32 {
     get {return _storage._this ?? 0}
@@ -1999,7 +1999,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `this` has been explicitly set.
   var hasThis: Bool {return _storage._this != nil}
   /// Clears the value of `this`. Subsequent reads from it will return its default value.
-  mutating func clearThis() {_storage._this = nil}
+  mutating func clearThis() {_uniqueStorage()._this = nil}
 
   var threadLocal: Int32 {
     get {return _storage._threadLocal ?? 0}
@@ -2008,7 +2008,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `threadLocal` has been explicitly set.
   var hasThreadLocal: Bool {return _storage._threadLocal != nil}
   /// Clears the value of `threadLocal`. Subsequent reads from it will return its default value.
-  mutating func clearThreadLocal() {_storage._threadLocal = nil}
+  mutating func clearThreadLocal() {_uniqueStorage()._threadLocal = nil}
 
   var typedef: Int32 {
     get {return _storage._typedef ?? 0}
@@ -2017,7 +2017,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `typedef` has been explicitly set.
   var hasTypedef: Bool {return _storage._typedef != nil}
   /// Clears the value of `typedef`. Subsequent reads from it will return its default value.
-  mutating func clearTypedef() {_storage._typedef = nil}
+  mutating func clearTypedef() {_uniqueStorage()._typedef = nil}
 
   var typeid: Int32 {
     get {return _storage._typeid ?? 0}
@@ -2026,7 +2026,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `typeid` has been explicitly set.
   var hasTypeid: Bool {return _storage._typeid != nil}
   /// Clears the value of `typeid`. Subsequent reads from it will return its default value.
-  mutating func clearTypeid() {_storage._typeid = nil}
+  mutating func clearTypeid() {_uniqueStorage()._typeid = nil}
 
   var typename: Int32 {
     get {return _storage._typename ?? 0}
@@ -2035,7 +2035,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `typename` has been explicitly set.
   var hasTypename: Bool {return _storage._typename != nil}
   /// Clears the value of `typename`. Subsequent reads from it will return its default value.
-  mutating func clearTypename() {_storage._typename = nil}
+  mutating func clearTypename() {_uniqueStorage()._typename = nil}
 
   var union: Int32 {
     get {return _storage._union ?? 0}
@@ -2044,7 +2044,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `union` has been explicitly set.
   var hasUnion: Bool {return _storage._union != nil}
   /// Clears the value of `union`. Subsequent reads from it will return its default value.
-  mutating func clearUnion() {_storage._union = nil}
+  mutating func clearUnion() {_uniqueStorage()._union = nil}
 
   var unsigned: Int32 {
     get {return _storage._unsigned ?? 0}
@@ -2053,7 +2053,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `unsigned` has been explicitly set.
   var hasUnsigned: Bool {return _storage._unsigned != nil}
   /// Clears the value of `unsigned`. Subsequent reads from it will return its default value.
-  mutating func clearUnsigned() {_storage._unsigned = nil}
+  mutating func clearUnsigned() {_uniqueStorage()._unsigned = nil}
 
   var using: Int32 {
     get {return _storage._using ?? 0}
@@ -2062,7 +2062,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `using` has been explicitly set.
   var hasUsing: Bool {return _storage._using != nil}
   /// Clears the value of `using`. Subsequent reads from it will return its default value.
-  mutating func clearUsing() {_storage._using = nil}
+  mutating func clearUsing() {_uniqueStorage()._using = nil}
 
   var virtual: Int32 {
     get {return _storage._virtual ?? 0}
@@ -2071,7 +2071,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `virtual` has been explicitly set.
   var hasVirtual: Bool {return _storage._virtual != nil}
   /// Clears the value of `virtual`. Subsequent reads from it will return its default value.
-  mutating func clearVirtual() {_storage._virtual = nil}
+  mutating func clearVirtual() {_uniqueStorage()._virtual = nil}
 
   var void: Int32 {
     get {return _storage._void ?? 0}
@@ -2080,7 +2080,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `void` has been explicitly set.
   var hasVoid: Bool {return _storage._void != nil}
   /// Clears the value of `void`. Subsequent reads from it will return its default value.
-  mutating func clearVoid() {_storage._void = nil}
+  mutating func clearVoid() {_uniqueStorage()._void = nil}
 
   var volatile: Int32 {
     get {return _storage._volatile ?? 0}
@@ -2089,7 +2089,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `volatile` has been explicitly set.
   var hasVolatile: Bool {return _storage._volatile != nil}
   /// Clears the value of `volatile`. Subsequent reads from it will return its default value.
-  mutating func clearVolatile() {_storage._volatile = nil}
+  mutating func clearVolatile() {_uniqueStorage()._volatile = nil}
 
   var wcharT: Int32 {
     get {return _storage._wcharT ?? 0}
@@ -2098,7 +2098,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `wcharT` has been explicitly set.
   var hasWcharT: Bool {return _storage._wcharT != nil}
   /// Clears the value of `wcharT`. Subsequent reads from it will return its default value.
-  mutating func clearWcharT() {_storage._wcharT = nil}
+  mutating func clearWcharT() {_uniqueStorage()._wcharT = nil}
 
   var xor: Int32 {
     get {return _storage._xor ?? 0}
@@ -2107,7 +2107,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `xor` has been explicitly set.
   var hasXor: Bool {return _storage._xor != nil}
   /// Clears the value of `xor`. Subsequent reads from it will return its default value.
-  mutating func clearXor() {_storage._xor = nil}
+  mutating func clearXor() {_uniqueStorage()._xor = nil}
 
   var xorEq: Int32 {
     get {return _storage._xorEq ?? 0}
@@ -2116,7 +2116,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `xorEq` has been explicitly set.
   var hasXorEq: Bool {return _storage._xorEq != nil}
   /// Clears the value of `xorEq`. Subsequent reads from it will return its default value.
-  mutating func clearXorEq() {_storage._xorEq = nil}
+  mutating func clearXorEq() {_uniqueStorage()._xorEq = nil}
 
   var restrict: Int32 {
     get {return _storage._restrict ?? 0}
@@ -2125,7 +2125,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `restrict` has been explicitly set.
   var hasRestrict: Bool {return _storage._restrict != nil}
   /// Clears the value of `restrict`. Subsequent reads from it will return its default value.
-  mutating func clearRestrict() {_storage._restrict = nil}
+  mutating func clearRestrict() {_uniqueStorage()._restrict = nil}
 
   var category: Int32 {
     get {return _storage._category ?? 0}
@@ -2134,7 +2134,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `category` has been explicitly set.
   var hasCategory: Bool {return _storage._category != nil}
   /// Clears the value of `category`. Subsequent reads from it will return its default value.
-  mutating func clearCategory() {_storage._category = nil}
+  mutating func clearCategory() {_uniqueStorage()._category = nil}
 
   var ivar: Int32 {
     get {return _storage._ivar ?? 0}
@@ -2143,7 +2143,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `ivar` has been explicitly set.
   var hasIvar: Bool {return _storage._ivar != nil}
   /// Clears the value of `ivar`. Subsequent reads from it will return its default value.
-  mutating func clearIvar() {_storage._ivar = nil}
+  mutating func clearIvar() {_uniqueStorage()._ivar = nil}
 
   var method: Int32 {
     get {return _storage._method ?? 0}
@@ -2152,7 +2152,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `method` has been explicitly set.
   var hasMethod: Bool {return _storage._method != nil}
   /// Clears the value of `method`. Subsequent reads from it will return its default value.
-  mutating func clearMethod() {_storage._method = nil}
+  mutating func clearMethod() {_uniqueStorage()._method = nil}
 
   var finalize: Int32 {
     get {return _storage._finalize ?? 0}
@@ -2161,7 +2161,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `finalize` has been explicitly set.
   var hasFinalize: Bool {return _storage._finalize != nil}
   /// Clears the value of `finalize`. Subsequent reads from it will return its default value.
-  mutating func clearFinalize() {_storage._finalize = nil}
+  mutating func clearFinalize() {_uniqueStorage()._finalize = nil}
 
   var hash: Int32 {
     get {return _storage._hash ?? 0}
@@ -2170,7 +2170,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `hash` has been explicitly set.
   var hasHash: Bool {return _storage._hash != nil}
   /// Clears the value of `hash`. Subsequent reads from it will return its default value.
-  mutating func clearHash() {_storage._hash = nil}
+  mutating func clearHash() {_uniqueStorage()._hash = nil}
 
   var dealloc: Int32 {
     get {return _storage._dealloc ?? 0}
@@ -2179,7 +2179,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `dealloc` has been explicitly set.
   var hasDealloc: Bool {return _storage._dealloc != nil}
   /// Clears the value of `dealloc`. Subsequent reads from it will return its default value.
-  mutating func clearDealloc() {_storage._dealloc = nil}
+  mutating func clearDealloc() {_uniqueStorage()._dealloc = nil}
 
   var superclass: Int32 {
     get {return _storage._superclass ?? 0}
@@ -2188,7 +2188,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `superclass` has been explicitly set.
   var hasSuperclass: Bool {return _storage._superclass != nil}
   /// Clears the value of `superclass`. Subsequent reads from it will return its default value.
-  mutating func clearSuperclass() {_storage._superclass = nil}
+  mutating func clearSuperclass() {_uniqueStorage()._superclass = nil}
 
   var retain: Int32 {
     get {return _storage._retain ?? 0}
@@ -2197,7 +2197,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `retain` has been explicitly set.
   var hasRetain: Bool {return _storage._retain != nil}
   /// Clears the value of `retain`. Subsequent reads from it will return its default value.
-  mutating func clearRetain() {_storage._retain = nil}
+  mutating func clearRetain() {_uniqueStorage()._retain = nil}
 
   var release: Int32 {
     get {return _storage._release ?? 0}
@@ -2206,7 +2206,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `release` has been explicitly set.
   var hasRelease: Bool {return _storage._release != nil}
   /// Clears the value of `release`. Subsequent reads from it will return its default value.
-  mutating func clearRelease() {_storage._release = nil}
+  mutating func clearRelease() {_uniqueStorage()._release = nil}
 
   var autorelease: Int32 {
     get {return _storage._autorelease ?? 0}
@@ -2215,7 +2215,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `autorelease` has been explicitly set.
   var hasAutorelease: Bool {return _storage._autorelease != nil}
   /// Clears the value of `autorelease`. Subsequent reads from it will return its default value.
-  mutating func clearAutorelease() {_storage._autorelease = nil}
+  mutating func clearAutorelease() {_uniqueStorage()._autorelease = nil}
 
   var retainCount: Int32 {
     get {return _storage._retainCount ?? 0}
@@ -2224,7 +2224,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `retainCount` has been explicitly set.
   var hasRetainCount: Bool {return _storage._retainCount != nil}
   /// Clears the value of `retainCount`. Subsequent reads from it will return its default value.
-  mutating func clearRetainCount() {_storage._retainCount = nil}
+  mutating func clearRetainCount() {_uniqueStorage()._retainCount = nil}
 
   var zone: Int32 {
     get {return _storage._zone ?? 0}
@@ -2233,7 +2233,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `zone` has been explicitly set.
   var hasZone: Bool {return _storage._zone != nil}
   /// Clears the value of `zone`. Subsequent reads from it will return its default value.
-  mutating func clearZone() {_storage._zone = nil}
+  mutating func clearZone() {_uniqueStorage()._zone = nil}
 
   var isProxy: Int32 {
     get {return _storage._isProxy ?? 0}
@@ -2242,7 +2242,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `isProxy` has been explicitly set.
   var hasIsProxy: Bool {return _storage._isProxy != nil}
   /// Clears the value of `isProxy`. Subsequent reads from it will return its default value.
-  mutating func clearIsProxy() {_storage._isProxy = nil}
+  mutating func clearIsProxy() {_uniqueStorage()._isProxy = nil}
 
   var copy: Int32 {
     get {return _storage._copy ?? 0}
@@ -2251,7 +2251,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `copy` has been explicitly set.
   var hasCopy: Bool {return _storage._copy != nil}
   /// Clears the value of `copy`. Subsequent reads from it will return its default value.
-  mutating func clearCopy() {_storage._copy = nil}
+  mutating func clearCopy() {_uniqueStorage()._copy = nil}
 
   var mutableCopy: Int32 {
     get {return _storage._mutableCopy ?? 0}
@@ -2260,7 +2260,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `mutableCopy` has been explicitly set.
   var hasMutableCopy: Bool {return _storage._mutableCopy != nil}
   /// Clears the value of `mutableCopy`. Subsequent reads from it will return its default value.
-  mutating func clearMutableCopy() {_storage._mutableCopy = nil}
+  mutating func clearMutableCopy() {_uniqueStorage()._mutableCopy = nil}
 
   var classForCoder: Int32 {
     get {return _storage._classForCoder ?? 0}
@@ -2269,7 +2269,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `classForCoder` has been explicitly set.
   var hasClassForCoder: Bool {return _storage._classForCoder != nil}
   /// Clears the value of `classForCoder`. Subsequent reads from it will return its default value.
-  mutating func clearClassForCoder() {_storage._classForCoder = nil}
+  mutating func clearClassForCoder() {_uniqueStorage()._classForCoder = nil}
 
   var clear: Int32 {
     get {return _storage._clear ?? 0}
@@ -2278,7 +2278,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `clear` has been explicitly set.
   var hasClear: Bool {return _storage._clear != nil}
   /// Clears the value of `clear`. Subsequent reads from it will return its default value.
-  mutating func clearClear() {_storage._clear = nil}
+  mutating func clearClear() {_uniqueStorage()._clear = nil}
 
   var data: Int32 {
     get {return _storage._data ?? 0}
@@ -2287,7 +2287,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `data` has been explicitly set.
   var hasData: Bool {return _storage._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() {_storage._data = nil}
+  mutating func clearData() {_uniqueStorage()._data = nil}
 
   var delimitedData: Int32 {
     get {return _storage._delimitedData ?? 0}
@@ -2296,7 +2296,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `delimitedData` has been explicitly set.
   var hasDelimitedData: Bool {return _storage._delimitedData != nil}
   /// Clears the value of `delimitedData`. Subsequent reads from it will return its default value.
-  mutating func clearDelimitedData() {_storage._delimitedData = nil}
+  mutating func clearDelimitedData() {_uniqueStorage()._delimitedData = nil}
 
   var descriptor: Int32 {
     get {return _storage._descriptor ?? 0}
@@ -2305,7 +2305,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `descriptor` has been explicitly set.
   var hasDescriptor: Bool {return _storage._descriptor != nil}
   /// Clears the value of `descriptor`. Subsequent reads from it will return its default value.
-  mutating func clearDescriptor() {_storage._descriptor = nil}
+  mutating func clearDescriptor() {_uniqueStorage()._descriptor = nil}
 
   var extensionRegistry: Int32 {
     get {return _storage._extensionRegistry ?? 0}
@@ -2314,7 +2314,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `extensionRegistry` has been explicitly set.
   var hasExtensionRegistry: Bool {return _storage._extensionRegistry != nil}
   /// Clears the value of `extensionRegistry`. Subsequent reads from it will return its default value.
-  mutating func clearExtensionRegistry() {_storage._extensionRegistry = nil}
+  mutating func clearExtensionRegistry() {_uniqueStorage()._extensionRegistry = nil}
 
   var extensionsCurrentlySet: Int32 {
     get {return _storage._extensionsCurrentlySet ?? 0}
@@ -2323,7 +2323,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `extensionsCurrentlySet` has been explicitly set.
   var hasExtensionsCurrentlySet: Bool {return _storage._extensionsCurrentlySet != nil}
   /// Clears the value of `extensionsCurrentlySet`. Subsequent reads from it will return its default value.
-  mutating func clearExtensionsCurrentlySet() {_storage._extensionsCurrentlySet = nil}
+  mutating func clearExtensionsCurrentlySet() {_uniqueStorage()._extensionsCurrentlySet = nil}
 
   var isInitialized_p: Int32 {
     get {return _storage._isInitialized_p ?? 0}
@@ -2332,7 +2332,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `isInitialized_p` has been explicitly set.
   var hasIsInitialized_p: Bool {return _storage._isInitialized_p != nil}
   /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
-  mutating func clearIsInitialized_p() {_storage._isInitialized_p = nil}
+  mutating func clearIsInitialized_p() {_uniqueStorage()._isInitialized_p = nil}
 
   var serializedSize: Int32 {
     get {return _storage._serializedSize ?? 0}
@@ -2341,7 +2341,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `serializedSize` has been explicitly set.
   var hasSerializedSize: Bool {return _storage._serializedSize != nil}
   /// Clears the value of `serializedSize`. Subsequent reads from it will return its default value.
-  mutating func clearSerializedSize() {_storage._serializedSize = nil}
+  mutating func clearSerializedSize() {_uniqueStorage()._serializedSize = nil}
 
   var sortedExtensionsInUse: Int32 {
     get {return _storage._sortedExtensionsInUse ?? 0}
@@ -2350,7 +2350,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `sortedExtensionsInUse` has been explicitly set.
   var hasSortedExtensionsInUse: Bool {return _storage._sortedExtensionsInUse != nil}
   /// Clears the value of `sortedExtensionsInUse`. Subsequent reads from it will return its default value.
-  mutating func clearSortedExtensionsInUse() {_storage._sortedExtensionsInUse = nil}
+  mutating func clearSortedExtensionsInUse() {_uniqueStorage()._sortedExtensionsInUse = nil}
 
   var unknownFields_p: Int32 {
     get {return _storage._unknownFields_p ?? 0}
@@ -2359,7 +2359,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `unknownFields_p` has been explicitly set.
   var hasUnknownFields_p: Bool {return _storage._unknownFields_p != nil}
   /// Clears the value of `unknownFields_p`. Subsequent reads from it will return its default value.
-  mutating func clearUnknownFields_p() {_storage._unknownFields_p = nil}
+  mutating func clearUnknownFields_p() {_uniqueStorage()._unknownFields_p = nil}
 
   var fixed: Int32 {
     get {return _storage._fixed ?? 0}
@@ -2368,7 +2368,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `fixed` has been explicitly set.
   var hasFixed: Bool {return _storage._fixed != nil}
   /// Clears the value of `fixed`. Subsequent reads from it will return its default value.
-  mutating func clearFixed() {_storage._fixed = nil}
+  mutating func clearFixed() {_uniqueStorage()._fixed = nil}
 
   var fract: Int32 {
     get {return _storage._fract ?? 0}
@@ -2377,7 +2377,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `fract` has been explicitly set.
   var hasFract: Bool {return _storage._fract != nil}
   /// Clears the value of `fract`. Subsequent reads from it will return its default value.
-  mutating func clearFract() {_storage._fract = nil}
+  mutating func clearFract() {_uniqueStorage()._fract = nil}
 
   var size: Int32 {
     get {return _storage._size ?? 0}
@@ -2386,7 +2386,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `size` has been explicitly set.
   var hasSize: Bool {return _storage._size != nil}
   /// Clears the value of `size`. Subsequent reads from it will return its default value.
-  mutating func clearSize() {_storage._size = nil}
+  mutating func clearSize() {_uniqueStorage()._size = nil}
 
   var logicalAddress: Int32 {
     get {return _storage._logicalAddress ?? 0}
@@ -2395,7 +2395,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `logicalAddress` has been explicitly set.
   var hasLogicalAddress: Bool {return _storage._logicalAddress != nil}
   /// Clears the value of `logicalAddress`. Subsequent reads from it will return its default value.
-  mutating func clearLogicalAddress() {_storage._logicalAddress = nil}
+  mutating func clearLogicalAddress() {_uniqueStorage()._logicalAddress = nil}
 
   var physicalAddress: Int32 {
     get {return _storage._physicalAddress ?? 0}
@@ -2404,7 +2404,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `physicalAddress` has been explicitly set.
   var hasPhysicalAddress: Bool {return _storage._physicalAddress != nil}
   /// Clears the value of `physicalAddress`. Subsequent reads from it will return its default value.
-  mutating func clearPhysicalAddress() {_storage._physicalAddress = nil}
+  mutating func clearPhysicalAddress() {_uniqueStorage()._physicalAddress = nil}
 
   var byteCount: Int32 {
     get {return _storage._byteCount ?? 0}
@@ -2413,7 +2413,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `byteCount` has been explicitly set.
   var hasByteCount: Bool {return _storage._byteCount != nil}
   /// Clears the value of `byteCount`. Subsequent reads from it will return its default value.
-  mutating func clearByteCount() {_storage._byteCount = nil}
+  mutating func clearByteCount() {_uniqueStorage()._byteCount = nil}
 
   var byteOffset: Int32 {
     get {return _storage._byteOffset ?? 0}
@@ -2422,7 +2422,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `byteOffset` has been explicitly set.
   var hasByteOffset: Bool {return _storage._byteOffset != nil}
   /// Clears the value of `byteOffset`. Subsequent reads from it will return its default value.
-  mutating func clearByteOffset() {_storage._byteOffset = nil}
+  mutating func clearByteOffset() {_uniqueStorage()._byteOffset = nil}
 
   var duration: Int32 {
     get {return _storage._duration ?? 0}
@@ -2431,7 +2431,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `duration` has been explicitly set.
   var hasDuration: Bool {return _storage._duration != nil}
   /// Clears the value of `duration`. Subsequent reads from it will return its default value.
-  mutating func clearDuration() {_storage._duration = nil}
+  mutating func clearDuration() {_uniqueStorage()._duration = nil}
 
   var absoluteTime: Int32 {
     get {return _storage._absoluteTime ?? 0}
@@ -2440,7 +2440,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `absoluteTime` has been explicitly set.
   var hasAbsoluteTime: Bool {return _storage._absoluteTime != nil}
   /// Clears the value of `absoluteTime`. Subsequent reads from it will return its default value.
-  mutating func clearAbsoluteTime() {_storage._absoluteTime = nil}
+  mutating func clearAbsoluteTime() {_uniqueStorage()._absoluteTime = nil}
 
   var optionBits: Int32 {
     get {return _storage._optionBits ?? 0}
@@ -2449,7 +2449,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `optionBits` has been explicitly set.
   var hasOptionBits: Bool {return _storage._optionBits != nil}
   /// Clears the value of `optionBits`. Subsequent reads from it will return its default value.
-  mutating func clearOptionBits() {_storage._optionBits = nil}
+  mutating func clearOptionBits() {_uniqueStorage()._optionBits = nil}
 
   var itemCount: Int32 {
     get {return _storage._itemCount ?? 0}
@@ -2458,7 +2458,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `itemCount` has been explicitly set.
   var hasItemCount: Bool {return _storage._itemCount != nil}
   /// Clears the value of `itemCount`. Subsequent reads from it will return its default value.
-  mutating func clearItemCount() {_storage._itemCount = nil}
+  mutating func clearItemCount() {_uniqueStorage()._itemCount = nil}
 
   var pbversion: Int32 {
     get {return _storage._pbversion ?? 0}
@@ -2467,7 +2467,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `pbversion` has been explicitly set.
   var hasPbversion: Bool {return _storage._pbversion != nil}
   /// Clears the value of `pbversion`. Subsequent reads from it will return its default value.
-  mutating func clearPbversion() {_storage._pbversion = nil}
+  mutating func clearPbversion() {_uniqueStorage()._pbversion = nil}
 
   var scriptCode: Int32 {
     get {return _storage._scriptCode ?? 0}
@@ -2476,7 +2476,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `scriptCode` has been explicitly set.
   var hasScriptCode: Bool {return _storage._scriptCode != nil}
   /// Clears the value of `scriptCode`. Subsequent reads from it will return its default value.
-  mutating func clearScriptCode() {_storage._scriptCode = nil}
+  mutating func clearScriptCode() {_uniqueStorage()._scriptCode = nil}
 
   var langCode: Int32 {
     get {return _storage._langCode ?? 0}
@@ -2485,7 +2485,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `langCode` has been explicitly set.
   var hasLangCode: Bool {return _storage._langCode != nil}
   /// Clears the value of `langCode`. Subsequent reads from it will return its default value.
-  mutating func clearLangCode() {_storage._langCode = nil}
+  mutating func clearLangCode() {_uniqueStorage()._langCode = nil}
 
   var regionCode: Int32 {
     get {return _storage._regionCode ?? 0}
@@ -2494,7 +2494,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `regionCode` has been explicitly set.
   var hasRegionCode: Bool {return _storage._regionCode != nil}
   /// Clears the value of `regionCode`. Subsequent reads from it will return its default value.
-  mutating func clearRegionCode() {_storage._regionCode = nil}
+  mutating func clearRegionCode() {_uniqueStorage()._regionCode = nil}
 
   var ostype: Int32 {
     get {return _storage._ostype ?? 0}
@@ -2503,7 +2503,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `ostype` has been explicitly set.
   var hasOstype: Bool {return _storage._ostype != nil}
   /// Clears the value of `ostype`. Subsequent reads from it will return its default value.
-  mutating func clearOstype() {_storage._ostype = nil}
+  mutating func clearOstype() {_uniqueStorage()._ostype = nil}
 
   var processSerialNumber: Int32 {
     get {return _storage._processSerialNumber ?? 0}
@@ -2512,7 +2512,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `processSerialNumber` has been explicitly set.
   var hasProcessSerialNumber: Bool {return _storage._processSerialNumber != nil}
   /// Clears the value of `processSerialNumber`. Subsequent reads from it will return its default value.
-  mutating func clearProcessSerialNumber() {_storage._processSerialNumber = nil}
+  mutating func clearProcessSerialNumber() {_uniqueStorage()._processSerialNumber = nil}
 
   var point: Int32 {
     get {return _storage._point ?? 0}
@@ -2521,7 +2521,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `point` has been explicitly set.
   var hasPoint: Bool {return _storage._point != nil}
   /// Clears the value of `point`. Subsequent reads from it will return its default value.
-  mutating func clearPoint() {_storage._point = nil}
+  mutating func clearPoint() {_uniqueStorage()._point = nil}
 
   var rect: Int32 {
     get {return _storage._rect ?? 0}
@@ -2530,7 +2530,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `rect` has been explicitly set.
   var hasRect: Bool {return _storage._rect != nil}
   /// Clears the value of `rect`. Subsequent reads from it will return its default value.
-  mutating func clearRect() {_storage._rect = nil}
+  mutating func clearRect() {_uniqueStorage()._rect = nil}
 
   var fixedPoint: Int32 {
     get {return _storage._fixedPoint ?? 0}
@@ -2539,7 +2539,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `fixedPoint` has been explicitly set.
   var hasFixedPoint: Bool {return _storage._fixedPoint != nil}
   /// Clears the value of `fixedPoint`. Subsequent reads from it will return its default value.
-  mutating func clearFixedPoint() {_storage._fixedPoint = nil}
+  mutating func clearFixedPoint() {_uniqueStorage()._fixedPoint = nil}
 
   var fixedRect: Int32 {
     get {return _storage._fixedRect ?? 0}
@@ -2548,7 +2548,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `fixedRect` has been explicitly set.
   var hasFixedRect: Bool {return _storage._fixedRect != nil}
   /// Clears the value of `fixedRect`. Subsequent reads from it will return its default value.
-  mutating func clearFixedRect() {_storage._fixedRect = nil}
+  mutating func clearFixedRect() {_uniqueStorage()._fixedRect = nil}
 
   var style: Int32 {
     get {return _storage._style ?? 0}
@@ -2557,7 +2557,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `style` has been explicitly set.
   var hasStyle: Bool {return _storage._style != nil}
   /// Clears the value of `style`. Subsequent reads from it will return its default value.
-  mutating func clearStyle() {_storage._style = nil}
+  mutating func clearStyle() {_uniqueStorage()._style = nil}
 
   var styleParameter: Int32 {
     get {return _storage._styleParameter ?? 0}
@@ -2566,7 +2566,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `styleParameter` has been explicitly set.
   var hasStyleParameter: Bool {return _storage._styleParameter != nil}
   /// Clears the value of `styleParameter`. Subsequent reads from it will return its default value.
-  mutating func clearStyleParameter() {_storage._styleParameter = nil}
+  mutating func clearStyleParameter() {_uniqueStorage()._styleParameter = nil}
 
   var styleField: Int32 {
     get {return _storage._styleField ?? 0}
@@ -2575,7 +2575,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `styleField` has been explicitly set.
   var hasStyleField: Bool {return _storage._styleField != nil}
   /// Clears the value of `styleField`. Subsequent reads from it will return its default value.
-  mutating func clearStyleField() {_storage._styleField = nil}
+  mutating func clearStyleField() {_uniqueStorage()._styleField = nil}
 
   var timeScale: Int32 {
     get {return _storage._timeScale ?? 0}
@@ -2584,7 +2584,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `timeScale` has been explicitly set.
   var hasTimeScale: Bool {return _storage._timeScale != nil}
   /// Clears the value of `timeScale`. Subsequent reads from it will return its default value.
-  mutating func clearTimeScale() {_storage._timeScale = nil}
+  mutating func clearTimeScale() {_uniqueStorage()._timeScale = nil}
 
   var timeBase: Int32 {
     get {return _storage._timeBase ?? 0}
@@ -2593,7 +2593,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `timeBase` has been explicitly set.
   var hasTimeBase: Bool {return _storage._timeBase != nil}
   /// Clears the value of `timeBase`. Subsequent reads from it will return its default value.
-  mutating func clearTimeBase() {_storage._timeBase = nil}
+  mutating func clearTimeBase() {_uniqueStorage()._timeBase = nil}
 
   var timeRecord: Int32 {
     get {return _storage._timeRecord ?? 0}
@@ -2602,7 +2602,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `timeRecord` has been explicitly set.
   var hasTimeRecord: Bool {return _storage._timeRecord != nil}
   /// Clears the value of `timeRecord`. Subsequent reads from it will return its default value.
-  mutating func clearTimeRecord() {_storage._timeRecord = nil}
+  mutating func clearTimeRecord() {_uniqueStorage()._timeRecord = nil}
 
   var jsonShouldBeOverriden: Int32 {
     get {return _storage._jsonShouldBeOverriden ?? 0}
@@ -2611,7 +2611,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `jsonShouldBeOverriden` has been explicitly set.
   var hasJsonShouldBeOverriden: Bool {return _storage._jsonShouldBeOverriden != nil}
   /// Clears the value of `jsonShouldBeOverriden`. Subsequent reads from it will return its default value.
-  mutating func clearJsonShouldBeOverriden() {_storage._jsonShouldBeOverriden = nil}
+  mutating func clearJsonShouldBeOverriden() {_uniqueStorage()._jsonShouldBeOverriden = nil}
 
   var any: Int32 {
     get {return _storage._any ?? 0}
@@ -2620,7 +2620,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `any` has been explicitly set.
   var hasAny: Bool {return _storage._any != nil}
   /// Clears the value of `any`. Subsequent reads from it will return its default value.
-  mutating func clearAny() {_storage._any = nil}
+  mutating func clearAny() {_uniqueStorage()._any = nil}
 
   var int32: Int32 {
     get {return _storage._int32 ?? 0}
@@ -2629,7 +2629,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `int32` has been explicitly set.
   var hasInt32: Bool {return _storage._int32 != nil}
   /// Clears the value of `int32`. Subsequent reads from it will return its default value.
-  mutating func clearInt32() {_storage._int32 = nil}
+  mutating func clearInt32() {_uniqueStorage()._int32 = nil}
 
   var int64: Int32 {
     get {return _storage._int64 ?? 0}
@@ -2638,7 +2638,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `int64` has been explicitly set.
   var hasInt64: Bool {return _storage._int64 != nil}
   /// Clears the value of `int64`. Subsequent reads from it will return its default value.
-  mutating func clearInt64() {_storage._int64 = nil}
+  mutating func clearInt64() {_uniqueStorage()._int64 = nil}
 
   var uint32: Int32 {
     get {return _storage._uint32 ?? 0}
@@ -2647,7 +2647,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `uint32` has been explicitly set.
   var hasUint32: Bool {return _storage._uint32 != nil}
   /// Clears the value of `uint32`. Subsequent reads from it will return its default value.
-  mutating func clearUint32() {_storage._uint32 = nil}
+  mutating func clearUint32() {_uniqueStorage()._uint32 = nil}
 
   var uint64: Int32 {
     get {return _storage._uint64 ?? 0}
@@ -2656,7 +2656,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `uint64` has been explicitly set.
   var hasUint64: Bool {return _storage._uint64 != nil}
   /// Clears the value of `uint64`. Subsequent reads from it will return its default value.
-  mutating func clearUint64() {_storage._uint64 = nil}
+  mutating func clearUint64() {_uniqueStorage()._uint64 = nil}
 
   var `associatedtype`: Int32 {
     get {return _storage._associatedtype ?? 0}
@@ -2665,7 +2665,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``associatedtype`` has been explicitly set.
   var hasAssociatedtype: Bool {return _storage._associatedtype != nil}
   /// Clears the value of ``associatedtype``. Subsequent reads from it will return its default value.
-  mutating func clearAssociatedtype() {_storage._associatedtype = nil}
+  mutating func clearAssociatedtype() {_uniqueStorage()._associatedtype = nil}
 
   var `fileprivate`: Int32 {
     get {return _storage._fileprivate ?? 0}
@@ -2674,7 +2674,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``fileprivate`` has been explicitly set.
   var hasFileprivate: Bool {return _storage._fileprivate != nil}
   /// Clears the value of ``fileprivate``. Subsequent reads from it will return its default value.
-  mutating func clearFileprivate() {_storage._fileprivate = nil}
+  mutating func clearFileprivate() {_uniqueStorage()._fileprivate = nil}
 
   var `open`: Int32 {
     get {return _storage._open ?? 0}
@@ -2683,7 +2683,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``open`` has been explicitly set.
   var hasOpen: Bool {return _storage._open != nil}
   /// Clears the value of ``open``. Subsequent reads from it will return its default value.
-  mutating func clearOpen() {_storage._open = nil}
+  mutating func clearOpen() {_uniqueStorage()._open = nil}
 
   var serializedData: Int32 {
     get {return _storage._serializedData ?? 0}
@@ -2692,7 +2692,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `serializedData` has been explicitly set.
   var hasSerializedData: Bool {return _storage._serializedData != nil}
   /// Clears the value of `serializedData`. Subsequent reads from it will return its default value.
-  mutating func clearSerializedData() {_storage._serializedData = nil}
+  mutating func clearSerializedData() {_uniqueStorage()._serializedData = nil}
 
   var hasSerializedData_p: Int32 {
     get {return _storage._hasSerializedData_p ?? 0}
@@ -2701,7 +2701,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `hasSerializedData_p` has been explicitly set.
   var hasHasSerializedData_p: Bool {return _storage._hasSerializedData_p != nil}
   /// Clears the value of `hasSerializedData_p`. Subsequent reads from it will return its default value.
-  mutating func clearHasSerializedData_p() {_storage._hasSerializedData_p = nil}
+  mutating func clearHasSerializedData_p() {_uniqueStorage()._hasSerializedData_p = nil}
 
   var clearSerializedData_p: Int32 {
     get {return _storage._clearSerializedData_p ?? 0}
@@ -2710,7 +2710,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `clearSerializedData_p` has been explicitly set.
   var hasClearSerializedData_p: Bool {return _storage._clearSerializedData_p != nil}
   /// Clears the value of `clearSerializedData_p`. Subsequent reads from it will return its default value.
-  mutating func clearClearSerializedData_p() {_storage._clearSerializedData_p = nil}
+  mutating func clearClearSerializedData_p() {_uniqueStorage()._clearSerializedData_p = nil}
 
   var jsonUtf8Data: Int32 {
     get {return _storage._jsonUtf8Data ?? 0}
@@ -2719,7 +2719,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `jsonUtf8Data` has been explicitly set.
   var hasJsonUtf8Data: Bool {return _storage._jsonUtf8Data != nil}
   /// Clears the value of `jsonUtf8Data`. Subsequent reads from it will return its default value.
-  mutating func clearJsonUtf8Data() {_storage._jsonUtf8Data = nil}
+  mutating func clearJsonUtf8Data() {_uniqueStorage()._jsonUtf8Data = nil}
 
   var jsonString: Int32 {
     get {return _storage._jsonString ?? 0}
@@ -2728,7 +2728,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `jsonString` has been explicitly set.
   var hasJsonString: Bool {return _storage._jsonString != nil}
   /// Clears the value of `jsonString`. Subsequent reads from it will return its default value.
-  mutating func clearJsonString() {_storage._jsonString = nil}
+  mutating func clearJsonString() {_uniqueStorage()._jsonString = nil}
 
   var `extension`: Int32 {
     get {return _storage._extension ?? 0}
@@ -2737,7 +2737,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if ``extension`` has been explicitly set.
   var hasExtension: Bool {return _storage._extension != nil}
   /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
-  mutating func clearExtension() {_storage._extension = nil}
+  mutating func clearExtension() {_uniqueStorage()._extension = nil}
 
   var extensions: Int32 {
     get {return _storage._extensions ?? 0}
@@ -2746,7 +2746,7 @@ struct SwiftUnittest_Names_FieldNames {
   /// Returns true if `extensions` has been explicitly set.
   var hasExtensions: Bool {return _storage._extensions != nil}
   /// Clears the value of `extensions`. Subsequent reads from it will return its default value.
-  mutating func clearExtensions() {_storage._extensions = nil}
+  mutating func clearExtensions() {_uniqueStorage()._extensions = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -12989,7 +12989,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `http` has been explicitly set.
     var hasHTTP: Bool {return _storage._http != nil}
     /// Clears the value of `http`. Subsequent reads from it will return its default value.
-    mutating func clearHTTP() {_storage._http = nil}
+    mutating func clearHTTP() {_uniqueStorage()._http = nil}
 
     var httpRequest: Int32 {
       get {return _storage._httpRequest ?? 0}
@@ -12998,7 +12998,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `httpRequest` has been explicitly set.
     var hasHTTPRequest: Bool {return _storage._httpRequest != nil}
     /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
-    mutating func clearHTTPRequest() {_storage._httpRequest = nil}
+    mutating func clearHTTPRequest() {_uniqueStorage()._httpRequest = nil}
 
     var theHTTPRequest: Int32 {
       get {return _storage._theHTTPRequest ?? 0}
@@ -13007,7 +13007,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theHTTPRequest` has been explicitly set.
     var hasTheHTTPRequest: Bool {return _storage._theHTTPRequest != nil}
     /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTPRequest() {_storage._theHTTPRequest = nil}
+    mutating func clearTheHTTPRequest() {_uniqueStorage()._theHTTPRequest = nil}
 
     var theHTTP: Int32 {
       get {return _storage._theHTTP ?? 0}
@@ -13016,7 +13016,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theHTTP` has been explicitly set.
     var hasTheHTTP: Bool {return _storage._theHTTP != nil}
     /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTP() {_storage._theHTTP = nil}
+    mutating func clearTheHTTP() {_uniqueStorage()._theHTTP = nil}
 
     var https: Int32 {
       get {return _storage._https ?? 0}
@@ -13025,7 +13025,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `https` has been explicitly set.
     var hasHTTPS: Bool {return _storage._https != nil}
     /// Clears the value of `https`. Subsequent reads from it will return its default value.
-    mutating func clearHTTPS() {_storage._https = nil}
+    mutating func clearHTTPS() {_uniqueStorage()._https = nil}
 
     var httpsRequest: Int32 {
       get {return _storage._httpsRequest ?? 0}
@@ -13034,7 +13034,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `httpsRequest` has been explicitly set.
     var hasHTTPSRequest: Bool {return _storage._httpsRequest != nil}
     /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
-    mutating func clearHTTPSRequest() {_storage._httpsRequest = nil}
+    mutating func clearHTTPSRequest() {_uniqueStorage()._httpsRequest = nil}
 
     var theHTTPSRequest: Int32 {
       get {return _storage._theHTTPSRequest ?? 0}
@@ -13043,7 +13043,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theHTTPSRequest` has been explicitly set.
     var hasTheHTTPSRequest: Bool {return _storage._theHTTPSRequest != nil}
     /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTPSRequest() {_storage._theHTTPSRequest = nil}
+    mutating func clearTheHTTPSRequest() {_uniqueStorage()._theHTTPSRequest = nil}
 
     var theHTTPS: Int32 {
       get {return _storage._theHTTPS ?? 0}
@@ -13052,7 +13052,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theHTTPS` has been explicitly set.
     var hasTheHTTPS: Bool {return _storage._theHTTPS != nil}
     /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTPS() {_storage._theHTTPS = nil}
+    mutating func clearTheHTTPS() {_uniqueStorage()._theHTTPS = nil}
 
     var url: Int32 {
       get {return _storage._url ?? 0}
@@ -13061,7 +13061,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `url` has been explicitly set.
     var hasURL: Bool {return _storage._url != nil}
     /// Clears the value of `url`. Subsequent reads from it will return its default value.
-    mutating func clearURL() {_storage._url = nil}
+    mutating func clearURL() {_uniqueStorage()._url = nil}
 
     var urlValue: Int32 {
       get {return _storage._urlValue ?? 0}
@@ -13070,7 +13070,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `urlValue` has been explicitly set.
     var hasURLValue: Bool {return _storage._urlValue != nil}
     /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
-    mutating func clearURLValue() {_storage._urlValue = nil}
+    mutating func clearURLValue() {_uniqueStorage()._urlValue = nil}
 
     var theURLValue: Int32 {
       get {return _storage._theURLValue ?? 0}
@@ -13079,7 +13079,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theURLValue` has been explicitly set.
     var hasTheURLValue: Bool {return _storage._theURLValue != nil}
     /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
-    mutating func clearTheURLValue() {_storage._theURLValue = nil}
+    mutating func clearTheURLValue() {_uniqueStorage()._theURLValue = nil}
 
     var theURL: Int32 {
       get {return _storage._theURL ?? 0}
@@ -13088,7 +13088,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theURL` has been explicitly set.
     var hasTheURL: Bool {return _storage._theURL != nil}
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
-    mutating func clearTheURL() {_storage._theURL = nil}
+    mutating func clearTheURL() {_uniqueStorage()._theURL = nil}
 
     var aBC: Int32 {
       get {return _storage._aBC ?? 0}
@@ -13097,7 +13097,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `aBC` has been explicitly set.
     var hasABC: Bool {return _storage._aBC != nil}
     /// Clears the value of `aBC`. Subsequent reads from it will return its default value.
-    mutating func clearABC() {_storage._aBC = nil}
+    mutating func clearABC() {_uniqueStorage()._aBC = nil}
 
     var id: Int32 {
       get {return _storage._id ?? 0}
@@ -13106,7 +13106,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `id` has been explicitly set.
     var hasID: Bool {return _storage._id != nil}
     /// Clears the value of `id`. Subsequent reads from it will return its default value.
-    mutating func clearID() {_storage._id = nil}
+    mutating func clearID() {_uniqueStorage()._id = nil}
 
     var idNumber: Int32 {
       get {return _storage._idNumber ?? 0}
@@ -13115,7 +13115,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `idNumber` has been explicitly set.
     var hasIDNumber: Bool {return _storage._idNumber != nil}
     /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
-    mutating func clearIDNumber() {_storage._idNumber = nil}
+    mutating func clearIDNumber() {_uniqueStorage()._idNumber = nil}
 
     var theIDNumber: Int32 {
       get {return _storage._theIDNumber ?? 0}
@@ -13124,7 +13124,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `theIDNumber` has been explicitly set.
     var hasTheIDNumber: Bool {return _storage._theIDNumber != nil}
     /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
-    mutating func clearTheIDNumber() {_storage._theIDNumber = nil}
+    mutating func clearTheIDNumber() {_uniqueStorage()._theIDNumber = nil}
 
     var requestID: Int32 {
       get {return _storage._requestID ?? 0}
@@ -13133,7 +13133,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
     /// Returns true if `requestID` has been explicitly set.
     var hasRequestID: Bool {return _storage._requestID != nil}
     /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
-    mutating func clearRequestID() {_storage._requestID = nil}
+    mutating func clearRequestID() {_uniqueStorage()._requestID = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -67,7 +67,7 @@ struct ProtobufUnittest_LazyImports_ImportedMessage {
   /// Returns true if `lazyMessage` has been explicitly set.
   var hasLazyMessage: Bool {return _storage._lazyMessage != nil}
   /// Clears the value of `lazyMessage`. Subsequent reads from it will return its default value.
-  mutating func clearLazyMessage() {_storage._lazyMessage = nil}
+  mutating func clearLazyMessage() {_uniqueStorage()._lazyMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

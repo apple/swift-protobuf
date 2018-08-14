@@ -532,6 +532,7 @@ message GeneratedSwiftReservedMessages {
   message unicodeScalars { int32 unicodeScalars = 1; }
   message UnicodeScalarView { int32 UnicodeScalarView = 1; }
   message union { int32 union = 1; }
+  message uniqueStorage { int32 uniqueStorage = 1; }
   message unknown { int32 unknown = 1; }
   message unknownFields { int32 unknownFields = 1; }
   message UnknownStorage { int32 UnknownStorage = 1; }

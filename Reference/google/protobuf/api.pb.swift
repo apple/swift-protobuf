@@ -114,7 +114,7 @@ struct Google_Protobuf_Api {
   /// Returns true if `sourceContext` has been explicitly set.
   var hasSourceContext: Bool {return _storage._sourceContext != nil}
   /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
-  mutating func clearSourceContext() {_storage._sourceContext = nil}
+  mutating func clearSourceContext() {_uniqueStorage()._sourceContext = nil}
 
   /// Included interfaces. See [Mixin][].
   var mixins: [Google_Protobuf_Mixin] {

@@ -66,7 +66,7 @@ struct ProtobufUnittest_TestAny {
   /// Returns true if `anyValue` has been explicitly set.
   var hasAnyValue: Bool {return _storage._anyValue != nil}
   /// Clears the value of `anyValue`. Subsequent reads from it will return its default value.
-  mutating func clearAnyValue() {_storage._anyValue = nil}
+  mutating func clearAnyValue() {_uniqueStorage()._anyValue = nil}
 
   var repeatedAnyValue: [SwiftProtobuf.Google_Protobuf_Any] {
     get {return _storage._repeatedAnyValue}

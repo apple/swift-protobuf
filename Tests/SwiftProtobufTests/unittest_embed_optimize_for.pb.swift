@@ -69,7 +69,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize {
   /// Returns true if `optionalMessage` has been explicitly set.
   var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
+  mutating func clearOptionalMessage() {_uniqueStorage()._optionalMessage = nil}
 
   var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {
     get {return _storage._repeatedMessage}

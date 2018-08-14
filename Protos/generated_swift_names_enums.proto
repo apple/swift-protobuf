@@ -532,6 +532,7 @@ message GeneratedSwiftReservedEnums {
   enum unicodeScalars { NONE_unicodeScalars = 0; }
   enum UnicodeScalarView { NONE_UnicodeScalarView = 0; }
   enum union { NONE_union = 0; }
+  enum uniqueStorage { NONE_uniqueStorage = 0; }
   enum unknown { NONE_unknown = 0; }
   enum unknownFields { NONE_unknownFields = 0; }
   enum UnknownStorage { NONE_UnknownStorage = 0; }
