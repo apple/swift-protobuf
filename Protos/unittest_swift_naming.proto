@@ -910,9 +910,9 @@ enum EnumFieldNames2 {
 
     // protoc no longer allows enum naming that would differ only in underscores.
     // Initial commit:
-    //   https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
+    //   https://github.com/protocolbuffers/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
     // Change keep proto3 as error, but proto2 to just a warning:
-    //   https://github.com/google/protobuf/pull/2204
+    //   https://github.com/protocolbuffers/protobuf/pull/2204
     // So this is in a second enum so it won't cause issues with the '_' one;
     // but still ensure things generator correctly.
     __ = 1065;

@@ -43,8 +43,8 @@ fi
 # Directory containing this script
 readonly script_dir="."
 
-# Change this if your checkout of github.com/google/protobuf is in a different
-# location.
+# Change this if your checkout of github.com/protocolbuffers/protobuf is in a
+# different location.
 readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../../protobuf"}
 
 function usage() {

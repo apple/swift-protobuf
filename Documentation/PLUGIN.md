@@ -25,7 +25,7 @@ To use Swift with Protocol buffers, you'll need:
   with the latest version of Xcode.
 
 * Google's protoc compiler.  You can get recent versions from
-  [Google's github repository](https://github.com/google/protobuf).
+  [Google's github repository](https://github.com/protocolbuffers/protobuf).
 
 ### Build and Install
 

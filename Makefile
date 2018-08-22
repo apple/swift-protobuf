@@ -515,7 +515,7 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
 check-for-protobuf-checkout:
 	@if [ ! -d "${GOOGLE_PROTOBUF_CHECKOUT}/src/google/protobuf" ]; then \
 	  echo "ERROR: ${GOOGLE_PROTOBUF_CHECKOUT} does not appear to be a checkout of"; \
-	  echo "ERROR:   github.com/google/protobuf. Please check it out or set"; \
+	  echo "ERROR:   github.com/protocolbuffers/protobuf. Please check it out or set"; \
 	  echo "ERROR:   GOOGLE_PROTOBUF_CHECKOUT to point to a checkout."; \
 	  exit 1; \
 	fi
