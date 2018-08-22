@@ -65,8 +65,9 @@ class FileGenerator {
         //
         // The C++ FileDescriptor::GetSourceLocation(), says the location for
         // the file is an empty path. That never seems to have comments on it.
-        // https://github.com/google/protobuf/issues/2249 opened to figure out
-        // the right way to do this since the syntax entry is optional.
+        // https://github.com/protocolbuffers/protobuf/issues/2249 opened to
+        // figure out the right way to do this since the syntax entry is
+        // optional.
         let syntaxPath = IndexPath(index: Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax)
         if let syntaxLocation = fileDescriptor.sourceCodeInfoLocation(path: syntaxPath) {
           let comments = syntaxLocation.asSourceComment(commentPrefix: "///",

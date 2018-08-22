@@ -67,7 +67,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         do {
             let c1 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":null}")
             // null here decodes to an empty field.
-            // See github.com/google/protobuf Issue #1327
+            // See github.com/protocolbuffers/protobuf Issue #1327
             XCTAssertEqual(try c1.jsonString(), "{}")
         } catch let e {
             XCTFail("Didn't decode c1: \(e)")
