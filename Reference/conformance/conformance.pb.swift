@@ -95,39 +95,42 @@ extension Conformance_WireFormat: CaseIterable {
 
 enum Conformance_TestCategory: SwiftProtobuf.Enum {
   typealias RawValue = Int
+  case unspecifiedTest // = 0
 
   /// Test binary wire format.
-  case binaryTest // = 0
+  case binaryTest // = 1
 
   /// Test json wire format.
-  case jsonTest // = 1
+  case jsonTest // = 2
 
   /// Similar to JSON_TEST. However, during parsing json, testee should ignore
   /// unknown fields. This feature is optional. Each implementation can descide
   /// whether to support it.  See
   /// https://developers.google.com/protocol-buffers/docs/proto3#json_options
   /// for more detail.
-  case jsonIgnoreUnknownParsingTest // = 2
+  case jsonIgnoreUnknownParsingTest // = 3
   case UNRECOGNIZED(Int)
 
   init() {
-    self = .binaryTest
+    self = .unspecifiedTest
   }
 
   init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .binaryTest
-    case 1: self = .jsonTest
-    case 2: self = .jsonIgnoreUnknownParsingTest
+    case 0: self = .unspecifiedTest
+    case 1: self = .binaryTest
+    case 2: self = .jsonTest
+    case 3: self = .jsonIgnoreUnknownParsingTest
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   var rawValue: Int {
     switch self {
-    case .binaryTest: return 0
-    case .jsonTest: return 1
-    case .jsonIgnoreUnknownParsingTest: return 2
+    case .unspecifiedTest: return 0
+    case .binaryTest: return 1
+    case .jsonTest: return 2
+    case .jsonIgnoreUnknownParsingTest: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -139,6 +142,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
 extension Conformance_TestCategory: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Conformance_TestCategory] = [
+    .unspecifiedTest,
     .binaryTest,
     .jsonTest,
     .jsonIgnoreUnknownParsingTest,
@@ -190,10 +194,10 @@ struct Conformance_ConformanceRequest {
   /// protobuf_test_messages.proto2.TestAllTypesProto2.
   var messageType: String = String()
 
-  /// Each test is given a specific test category. Some category may need spedific
-  /// support in testee programs. Refer to the defintion of TestCategory for
-  /// more information.
-  var testCategory: Conformance_TestCategory = .binaryTest
+  /// Each test is given a specific test category. Some category may need
+  /// spedific support in testee programs. Refer to the defintion of TestCategory
+  /// for more information.
+  var testCategory: Conformance_TestCategory = .unspecifiedTest
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -354,9 +358,10 @@ extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
 
 extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "BINARY_TEST"),
-    1: .same(proto: "JSON_TEST"),
-    2: .same(proto: "JSON_IGNORE_UNKNOWN_PARSING_TEST"),
+    0: .same(proto: "UNSPECIFIED_TEST"),
+    1: .same(proto: "BINARY_TEST"),
+    2: .same(proto: "JSON_TEST"),
+    3: .same(proto: "JSON_IGNORE_UNKNOWN_PARSING_TEST"),
   ]
 }
 
@@ -405,7 +410,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if !self.messageType.isEmpty {
       try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
     }
-    if self.testCategory != .binaryTest {
+    if self.testCategory != .unspecifiedTest {
       try visitor.visitSingularEnumField(value: self.testCategory, fieldNumber: 5)
     }
     try unknownFields.traverse(visitor: &visitor)
