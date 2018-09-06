@@ -70,7 +70,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     }
 
     switch request.testCategory {
-    case .binaryTest, .jsonTest, .jsonIgnoreUnknownParsingTest:
+    case .unspecifiedTest, .binaryTest, .jsonTest, .jsonIgnoreUnknownParsingTest:
         break  // known, nothing to do.
     case .UNRECOGNIZED(let x):
         response.runtimeError =
