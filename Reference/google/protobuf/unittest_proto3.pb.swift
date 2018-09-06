@@ -636,6 +636,88 @@ struct Proto3Unittest_TestEmptyMessage {
   init() {}
 }
 
+/// Same layout as TestOneof2 in unittest.proto to test unknown enum value
+/// parsing behavior in oneof.
+struct Proto3Unittest_TestOneof2 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var foo: Proto3Unittest_TestOneof2.OneOf_Foo? = nil
+
+  var fooEnum: Proto3Unittest_TestOneof2.NestedEnum {
+    get {
+      if case .fooEnum(let v)? = foo {return v}
+      return .unknown
+    }
+    set {foo = .fooEnum(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Foo: Equatable {
+    case fooEnum(Proto3Unittest_TestOneof2.NestedEnum)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: Proto3Unittest_TestOneof2.OneOf_Foo, rhs: Proto3Unittest_TestOneof2.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.fooEnum(let l), .fooEnum(let r)): return l == r
+      }
+    }
+  #endif
+  }
+
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unknown // = 0
+    case foo // = 1
+    case bar // = 2
+    case baz // = 3
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .unknown
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unknown
+      case 1: self = .foo
+      case 2: self = .bar
+      case 3: self = .baz
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unknown: return 0
+      case .foo: return 1
+      case .bar: return 2
+      case .baz: return 3
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  init() {}
+}
+
+#if swift(>=4.2)
+
+extension Proto3Unittest_TestOneof2.NestedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Proto3Unittest_TestOneof2.NestedEnum] = [
+    .unknown,
+    .foo,
+    .bar,
+    .baz,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto3_unittest"
@@ -1495,4 +1577,46 @@ extension Proto3Unittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Proto3Unittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestOneof2"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    6: .standard(proto: "foo_enum"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 6:
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: Proto3Unittest_TestOneof2.NestedEnum?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.foo = .fooEnum(v)}
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if case .fooEnum(let v)? = self.foo {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3Unittest_TestOneof2, rhs: Proto3Unittest_TestOneof2) -> Bool {
+    if lhs.foo != rhs.foo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto3Unittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNKNOWN"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
