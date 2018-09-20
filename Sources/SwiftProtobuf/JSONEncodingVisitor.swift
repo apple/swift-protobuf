@@ -157,7 +157,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    if let n = value.name {
+    if !options.alwaysPrintEnumsAsInts, let n = value.name {
       encoder.appendQuoted(name: n)
     } else {
       encoder.putEnumInt(value: value.rawValue)
@@ -262,9 +262,10 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    let alwaysPrintEnumsAsInts = options.alwaysPrintEnumsAsInts
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: E) throws in
-      if let n = v.name {
+      if !alwaysPrintEnumsAsInts, let n = v.name {
         encoder.appendQuoted(name: n)
       } else {
         encoder.putEnumInt(value: v.rawValue)
