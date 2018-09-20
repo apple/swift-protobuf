@@ -105,6 +105,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum alwaysPrintEnumsAsInts: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneAlwaysPrintEnumsAsInts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAlwaysPrintEnumsAsInts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAlwaysPrintEnumsAsInts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAlwaysPrintEnumsAsInts: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum any: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneAny // = 0
@@ -6980,31 +7005,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum Iterator: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneIterator // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneIterator
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneIterator
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneIterator: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum i_2166136261: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneI2166136261 // = 0
@@ -7149,6 +7149,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneJsonencodingError: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum JSONEncodingOptions: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneJsonencodingOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneJsonencodingOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneJsonencodingOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneJsonencodingOptions: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -15506,6 +15531,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allocate: CaseIt
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts] = [
+    .noneAlwaysPrintEnumsAsInts,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.any: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.any] = [
@@ -17431,13 +17463,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedS
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator] = [
-    .noneIterator,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i_2166136261: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i_2166136261] = [
@@ -17477,6 +17502,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingErro
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingError] = [
     .noneJsonencodingError,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingOptions: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingOptions] = [
+    .noneJsonencodingOptions,
   ]
 }
 
@@ -19854,6 +19886,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allocate: SwiftP
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_alwaysPrintEnumsAsInts"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.any: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_any"),
@@ -21504,12 +21542,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedS
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_Iterator"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i_2166136261: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_i_2166136261"),
@@ -21543,6 +21575,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonEncoder: Swi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONEncodingError"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_JSONEncodingOptions"),
   ]
 }
 

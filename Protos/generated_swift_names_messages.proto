@@ -7,6 +7,7 @@ message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
   message allCases { int32 allCases = 1; }
   message allocate { int32 allocate = 1; }
+  message alwaysPrintEnumsAsInts { int32 alwaysPrintEnumsAsInts = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
   message AnyMessageExtension { int32 AnyMessageExtension = 1; }
@@ -282,13 +283,13 @@ message GeneratedSwiftReservedMessages {
   message isInitialized { int32 isInitialized = 1; }
   message it { int32 it = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
-  message Iterator { int32 Iterator = 1; }
   message i_2166136261 { int32 i_2166136261 = 1; }
   message JSONDecoder { int32 JSONDecoder = 1; }
   message JSONDecodingError { int32 JSONDecodingError = 1; }
   message JSONDecodingOptions { int32 JSONDecodingOptions = 1; }
   message jsonEncoder { int32 jsonEncoder = 1; }
   message JSONEncodingError { int32 JSONEncodingError = 1; }
+  message JSONEncodingOptions { int32 JSONEncodingOptions = 1; }
   message JSONEncodingVisitor { int32 JSONEncodingVisitor = 1; }
   message JSONMapEncodingVisitor { int32 JSONMapEncodingVisitor = 1; }
   message jsonName { int32 jsonName = 1; }
