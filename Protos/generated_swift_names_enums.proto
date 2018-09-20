@@ -7,6 +7,7 @@ message GeneratedSwiftReservedEnums {
   enum adjusted { NONE_adjusted = 0; }
   enum allCases { NONE_allCases = 0; }
   enum allocate { NONE_allocate = 0; }
+  enum alwaysPrintEnumsAsInts { NONE_alwaysPrintEnumsAsInts = 0; }
   enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
   enum AnyMessageExtension { NONE_AnyMessageExtension = 0; }
@@ -282,13 +283,13 @@ message GeneratedSwiftReservedEnums {
   enum isInitialized { NONE_isInitialized = 0; }
   enum it { NONE_it = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
-  enum Iterator { NONE_Iterator = 0; }
   enum i_2166136261 { NONE_i_2166136261 = 0; }
   enum JSONDecoder { NONE_JSONDecoder = 0; }
   enum JSONDecodingError { NONE_JSONDecodingError = 0; }
   enum JSONDecodingOptions { NONE_JSONDecodingOptions = 0; }
   enum jsonEncoder { NONE_jsonEncoder = 0; }
   enum JSONEncodingError { NONE_JSONEncodingError = 0; }
+  enum JSONEncodingOptions { NONE_JSONEncodingOptions = 0; }
   enum JSONEncodingVisitor { NONE_JSONEncodingVisitor = 0; }
   enum JSONMapEncodingVisitor { NONE_JSONMapEncodingVisitor = 0; }
   enum jsonName { NONE_jsonName = 0; }
