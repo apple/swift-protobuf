@@ -22,10 +22,15 @@ public extension Message {
   /// serializing to JSON.
   ///
   /// - Returns: A string containing the JSON serialization of the messages.
-  /// - Parameter collection: The list of messages to encode.
+  /// - Parameters:
+  ///   - collection: The list of messages to encode.
+  ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public static func jsonString<C: Collection>(from collection: C) throws -> String where C.Iterator.Element == Self {
-    let data = try jsonUTF8Data(from: collection)
+  public static func jsonString<C: Collection>(
+    from collection: C,
+    options: JSONEncodingOptions = JSONEncodingOptions()
+  ) throws -> String where C.Iterator.Element == Self {
+    let data = try jsonUTF8Data(from: collection, options: options)
     return String(data: data, encoding: String.Encoding.utf8)!
   }
 
@@ -35,10 +40,15 @@ public extension Message {
   /// serializing to JSON.
   ///
   /// - Returns: A Data containing the JSON serialization of the messages.
-  /// - Parameter collection: The list of messages to encode.
+  /// - Parameters:
+  ///   - collection: The list of messages to encode.
+  ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public static func jsonUTF8Data<C: Collection>(from collection: C) throws -> Data where C.Iterator.Element == Self {
-    var visitor = try JSONEncodingVisitor(type: Self.self)
+  public static func jsonUTF8Data<C: Collection>(
+    from collection: C,
+    options: JSONEncodingOptions = JSONEncodingOptions()
+  ) throws -> Data where C.Iterator.Element == Self {
+    var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startArray()
     for message in collection {
         visitor.startObject()

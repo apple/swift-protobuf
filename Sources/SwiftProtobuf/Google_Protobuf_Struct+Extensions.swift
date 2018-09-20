@@ -28,10 +28,10 @@ extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
 }
 
 extension Google_Protobuf_Struct: _CustomJSONCodable {
-  internal func encodedJSONString() throws -> String {
+  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var jsonEncoder = JSONEncoder()
     jsonEncoder.startObject()
-    var mapVisitor = JSONMapEncodingVisitor(encoder: jsonEncoder)
+    var mapVisitor = JSONMapEncodingVisitor(encoder: jsonEncoder, options: options)
     for (k,v) in fields {
       try mapVisitor.visitSingularStringField(value: k, fieldNumber: 1)
       try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)

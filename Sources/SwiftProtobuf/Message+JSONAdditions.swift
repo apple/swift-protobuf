@@ -22,9 +22,13 @@ public extension Message {
   /// serializing to JSON.
   ///
   /// - Returns: A string containing the JSON serialization of the message.
+  /// - Parameters:
+  ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  func jsonString() throws -> String {
-    let data = try jsonUTF8Data()
+  func jsonString(
+    options: JSONEncodingOptions = JSONEncodingOptions()
+  ) throws -> String {
+    let data = try jsonUTF8Data(options: options)
     return String(data: data, encoding: String.Encoding.utf8)!
   }
 
@@ -34,14 +38,18 @@ public extension Message {
   /// serializing to JSON.
   ///
   /// - Returns: A Data containing the JSON serialization of the message.
+  /// - Parameters:
+  ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  func jsonUTF8Data() throws -> Data {
+  func jsonUTF8Data(
+    options: JSONEncodingOptions = JSONEncodingOptions()
+  ) throws -> Data {
     if let m = self as? _CustomJSONCodable {
-      let string = try m.encodedJSONString()
+      let string = try m.encodedJSONString(options: options)
       let data = string.data(using: String.Encoding.utf8)! // Cannot fail!
       return data
     }
-    var visitor = try JSONEncodingVisitor(message: self)
+    var visitor = try JSONEncodingVisitor(message: self, options: options)
     visitor.startObject()
     try traverse(visitor: &visitor)
     visitor.endObject()

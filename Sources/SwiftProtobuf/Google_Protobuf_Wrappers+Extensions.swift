@@ -47,7 +47,7 @@ extension Google_Protobuf_DoubleValue:
     self.init(floatLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var encoder = JSONEncoder()
     encoder.putDoubleValue(value: value)
     return encoder.stringResult
@@ -75,7 +75,7 @@ extension Google_Protobuf_FloatValue:
     self.init(floatLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var encoder = JSONEncoder()
     encoder.putFloatValue(value: value)
     return encoder.stringResult
@@ -103,7 +103,7 @@ extension Google_Protobuf_Int64Value:
     self.init(integerLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var encoder = JSONEncoder()
     encoder.putInt64(value: value)
     return encoder.stringResult
@@ -131,7 +131,7 @@ extension Google_Protobuf_UInt64Value:
     self.init(integerLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var encoder = JSONEncoder()
     encoder.putUInt64(value: value)
     return encoder.stringResult
@@ -159,7 +159,7 @@ extension Google_Protobuf_Int32Value:
     self.init(integerLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return String(value)
   }
 
@@ -185,7 +185,7 @@ extension Google_Protobuf_UInt32Value:
     self.init(integerLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return String(value)
   }
 
@@ -211,7 +211,7 @@ extension Google_Protobuf_BoolValue:
     self.init(booleanLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return value ? "true" : "false"
   }
 
@@ -247,7 +247,7 @@ extension Google_Protobuf_StringValue:
     self.init(unicodeScalarLiteral)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var encoder = JSONEncoder()
     encoder.putStringValue(value: value)
     return encoder.stringResult
@@ -269,7 +269,7 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper, _CustomJSONCodable {
     self.value = value
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var encoder = JSONEncoder()
     encoder.putBytesValue(value: value)
     return encoder.stringResult

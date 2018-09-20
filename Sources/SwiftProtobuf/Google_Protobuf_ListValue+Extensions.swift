@@ -26,13 +26,13 @@ extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
 }
 
 extension Google_Protobuf_ListValue: _CustomJSONCodable {
-  internal func encodedJSONString() throws -> String {
+  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var jsonEncoder = JSONEncoder()
     jsonEncoder.append(text: "[")
     var separator: StaticString = ""
     for v in values {
       jsonEncoder.append(staticText: separator)
-      try v.serializeJSONValue(to: &jsonEncoder)
+      try v.serializeJSONValue(to: &jsonEncoder, options: options)
       separator = ","
     }
     jsonEncoder.append(text: "]")

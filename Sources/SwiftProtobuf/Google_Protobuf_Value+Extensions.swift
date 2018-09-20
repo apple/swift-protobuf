@@ -69,9 +69,9 @@ extension Google_Protobuf_Value: ExpressibleByNilLiteral {
 }
 
 extension Google_Protobuf_Value: _CustomJSONCodable {
-  internal func encodedJSONString() throws -> String {
+  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var jsonEncoder = JSONEncoder()
-    try serializeJSONValue(to: &jsonEncoder)
+    try serializeJSONValue(to: &jsonEncoder, options: options)
     return jsonEncoder.stringResult
   }
 
@@ -146,14 +146,17 @@ extension Google_Protobuf_Value {
   }
 
   /// Writes out the JSON representation of the value to the given encoder.
-  internal func serializeJSONValue(to encoder: inout JSONEncoder) throws {
+  internal func serializeJSONValue(
+    to encoder: inout JSONEncoder,
+    options: JSONEncodingOptions
+  ) throws {
     switch kind {
     case .nullValue?: encoder.putNullValue()
     case .numberValue(let v)?: encoder.putDoubleValue(value: v)
     case .stringValue(let v)?: encoder.putStringValue(value: v)
     case .boolValue(let v)?: encoder.putBoolValue(value: v)
-    case .structValue(let v)?: encoder.append(text: try v.jsonString())
-    case .listValue(let v)?: encoder.append(text: try v.jsonString())
+    case .structValue(let v)?: encoder.append(text: try v.jsonString(options: options))
+    case .listValue(let v)?: encoder.append(text: try v.jsonString(options: options))
     case nil: throw JSONEncodingError.missingValue
     }
   }

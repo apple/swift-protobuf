@@ -159,7 +159,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
     }
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     // Note:  Proto requires alphanumeric field names, so there
     // cannot be a ',' or '"' character to mess up this formatting.
     var jsonPaths = [String]()

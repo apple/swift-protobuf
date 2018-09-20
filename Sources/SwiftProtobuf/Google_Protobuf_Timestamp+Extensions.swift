@@ -225,7 +225,7 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
     (seconds, nanos) = try parseTimestamp(s: s)
   }
 
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
       return "\"\(formatted)\""
     } else {
