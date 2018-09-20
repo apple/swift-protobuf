@@ -590,6 +590,12 @@ extension Test_JSONDecodingOptions {
     ]
 }
 
+extension Test_JSONEncodingOptions {
+    static var allTests = [
+        ("testAlwaysPrintEnumsAsInts", testAlwaysPrintEnumsAsInts)
+    ]
+}
+
 extension Test_JSON_Array {
     static var allTests = [
         ("testTwoObjectsWithMultipleFields", testTwoObjectsWithMultipleFields),
@@ -1122,6 +1128,7 @@ XCTMain(
         testCase(Test_JSONPacked.allTests),
         testCase(Test_JSONrepeated.allTests),
         testCase(Test_JSONDecodingOptions.allTests),
+        testCase(Test_JSONEncodingOptions.allTests),
         testCase(Test_JSON_Array.allTests),
         testCase(Test_JSON_Conformance.allTests),
         testCase(Test_JSON_Group.allTests),
