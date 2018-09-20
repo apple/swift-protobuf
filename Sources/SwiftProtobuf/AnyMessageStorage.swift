@@ -20,12 +20,16 @@ private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 #endif
 
-fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
-  var visitor = try JSONEncodingVisitor(message: message)
+fileprivate func serializeAnyJSON(
+  for message: Message,
+  typeURL: String,
+  options: JSONEncodingOptions
+) throws -> String {
+  var visitor = try JSONEncodingVisitor(message: message, options: options)
   visitor.startObject()
   visitor.encodeField(name: "@type", stringValue: typeURL)
   if let m = message as? _CustomJSONCodable {
-    let value = try m.encodedJSONString()
+    let value = try m.encodedJSONString(options: options)
     visitor.encodeField(name: "value", jsonText: value)
   } else {
     try message.traverse(visitor: &visitor)
@@ -381,7 +385,7 @@ extension AnyMessageStorage {
   //  * The protobuf field we were deserialized from.
   // The last case requires locating the type, deserializing
   // into an object, then reserializing back to JSON.
-  func encodedJSONString() throws -> String {
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     switch state {
     case .binary(let valueData):
       // Transcode by decoding the binary data to a message object
@@ -394,13 +398,13 @@ extension AnyMessageStorage {
         throw JSONEncodingError.anyTranscodeFailure
       }
       let m = try messageType.init(serializedData: valueData, partial: true)
-      return try serializeAnyJSON(for: m, typeURL: _typeURL)
+      return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)
 
     case .message(let msg):
       // We should have been initialized with a typeURL, but
       // ensure it wasn't cleared.
       let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix)
-      return try serializeAnyJSON(for: msg, typeURL: url)
+      return try serializeAnyJSON(for: msg, typeURL: url, options: options)
 
     case .contentJSON(let contentJSON, _):
       var jsonEncoder = JSONEncoder()
@@ -409,6 +413,8 @@ extension AnyMessageStorage {
       jsonEncoder.putStringValue(value: _typeURL)
       if !contentJSON.isEmpty {
         jsonEncoder.append(staticText: ",")
+        // NOTE: This doesn't really take `options` into account since it is
+        // just reflecting out what was taken in originally.
         jsonEncoder.append(utf8Data: contentJSON)
       }
       jsonEncoder.endObject()

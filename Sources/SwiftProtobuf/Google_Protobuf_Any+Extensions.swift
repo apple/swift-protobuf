@@ -131,8 +131,8 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
     }
   }
 
-  internal func encodedJSONString() throws -> String {
-    return try _storage.encodedJSONString()
+  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
+    return try _storage.encodedJSONString(options: options)
   }
 
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {

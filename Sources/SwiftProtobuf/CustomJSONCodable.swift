@@ -14,7 +14,7 @@
 
 /// Allows WKTs to provide their custom JSON encodings.
 internal protocol _CustomJSONCodable {
-  func encodedJSONString() throws -> String
+  func encodedJSONString(options: JSONEncodingOptions) throws -> String
   mutating func decodeJSON(from: inout JSONDecoder) throws
 
   /// Called when the JSON `null` literal is encountered in a position where

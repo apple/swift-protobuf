@@ -23,9 +23,11 @@ import Foundation
 internal struct JSONMapEncodingVisitor: SelectiveVisitor {
   private var separator: StaticString?
   internal var encoder: JSONEncoder
+  private let options: JSONEncodingOptions
 
-  init(encoder: JSONEncoder) {
+  init(encoder: JSONEncoder, options: JSONEncodingOptions) {
       self.encoder = encoder
+      self.options = options
   }
 
   private mutating func startKey() {
@@ -127,7 +129,7 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
       // Messages can only be map values, never keys
       assert(fieldNumber == 2)
       startValue()
-      let json = try value.jsonString()
+      let json = try value.jsonString(options: options)
       encoder.append(text: json)
   }
 
