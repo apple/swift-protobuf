@@ -57,6 +57,92 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2}} X")
     }
 
+    func testMapInt64Int64() throws {
+        assertJSONEncode("{\"mapInt64Int64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
+            o.mapInt64Int64 = [1:2]
+        }
+    }
+
+    func testMapUInt32UInt32() throws {
+        assertJSONEncode("{\"mapUint32Uint32\":{\"1\":2}}") {(o: inout MessageTestType) in
+            o.mapUint32Uint32 = [1:2]
+        }
+    }
+
+    func testMapUInt64UInt64() throws {
+        assertJSONEncode("{\"mapUint64Uint64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
+            o.mapUint64Uint64 = [1:2]
+        }
+    }
+
+    func testMapSInt32SInt32() throws {
+        assertJSONEncode("{\"mapSint32Sint32\":{\"1\":2}}") {(o: inout MessageTestType) in
+            o.mapSint32Sint32 = [1:2]
+        }
+    }
+
+    func testMapSInt64SInt64() throws {
+        assertJSONEncode("{\"mapSint64Sint64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
+            o.mapSint64Sint64 = [1:2]
+        }
+    }
+
+    func testFixed32Fixed32() throws {
+        assertJSONEncode("{\"mapFixed32Fixed32\":{\"1\":2}}") {(o: inout MessageTestType) in
+            o.mapFixed32Fixed32 = [1:2]
+        }
+    }
+
+    func testFixed64Fixed64() throws {
+        assertJSONEncode("{\"mapFixed64Fixed64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
+            o.mapFixed64Fixed64 = [1:2]
+        }
+    }
+
+    func testSFixed32SFixed32() throws {
+        assertJSONEncode("{\"mapSfixed32Sfixed32\":{\"1\":2}}") {(o: inout MessageTestType) in
+            o.mapSfixed32Sfixed32 = [1:2]
+        }
+    }
+
+    func testSFixed64SFixed64() throws {
+        assertJSONEncode("{\"mapSfixed64Sfixed64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
+            o.mapSfixed64Sfixed64 = [1:2]
+        }
+    }
+
+    func test_mapInt32Float() {
+        assertJSONDecodeSucceeds("{\"mapInt32Float\":{\"1\":1}}") {
+            $0.mapInt32Float == [1: Float(1.0)]
+        }
+
+        assertJSONEncode("{\"mapInt32Float\":{\"1\":1}}") {
+            $0.mapInt32Float[1] = Float(1.0)
+        }
+    }
+
+    func test_mapInt32Double() {
+        assertJSONDecodeSucceeds("{\"mapInt32Double\":{\"1\":1}}") {
+            $0.mapInt32Double == [1: Double(1.0)]
+        }
+
+        assertJSONEncode("{\"mapInt32Double\":{\"1\":1}}") {
+            $0.mapInt32Double[1] = Double(1.0)
+        }
+
+    }
+
+    func test_mapBoolBool() {
+        assertDecodeSucceeds([106, 4, 8, 0, 16, 0]) {
+            $0.mapBoolBool == [false: false]
+        }
+        assertJSONDecodeSucceeds("{\"mapBoolBool\": {\"true\": true, \"false\": false}}") {
+            $0.mapBoolBool == [true: true, false: false]
+        }
+        assertJSONDecodeFails("{\"mapBoolBool\": {true: true}}")
+        assertJSONDecodeFails("{\"mapBoolBool\": {false: false}}")
+    }
+
     func testMapStringString() throws {
         assertJSONEncode("{\"mapStringString\":{\"3\":\"4\"}}") {(o: inout MessageTestType) in
             o.mapStringString = ["3":"4"]
@@ -110,16 +196,5 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             sub8.c = 8
             return $0.mapInt32ForeignMessage == [7:sub7, 8:sub8]
         }
-    }
-
-    func test_mapBoolBool() {
-        assertDecodeSucceeds([106, 4, 8, 0, 16, 0]) {
-            $0.mapBoolBool == [false: false]
-        }
-        assertJSONDecodeSucceeds("{\"mapBoolBool\": {\"true\": true, \"false\": false}}") {
-            $0.mapBoolBool == [true: true, false: false]
-        }
-        assertJSONDecodeFails("{\"mapBoolBool\": {true: true}}")
-        assertJSONDecodeFails("{\"mapBoolBool\": {false: false}}")
     }
 }
