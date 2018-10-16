@@ -41,6 +41,18 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
         // Decode should work same regardless of order
         assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":2, \"3\":4}}") {$0.mapInt32Int32 == [1:2, 3:4]}
         assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"3\":4,\"1\":2}}") {$0.mapInt32Int32 == [1:2, 3:4]}
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"2147483647\":2147483647}}") {
+            $0.mapInt32Int32 == [2147483647:2147483647]
+        }
+        assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"-2147483648\":-2147483648}}") {
+            $0.mapInt32Int32 == [-2147483648:-2147483648]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"2147483647\":2147483648}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"2147483648\":2147483647}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"-2147483649\":2147483647}}")
+        assertJSONDecodeFails("{\"mapInt32Int32\":{\"2147483647\":-2147483649}}")
         // JSON RFC does not allow trailing comma
         assertJSONDecodeFails("{\"mapInt32Int32\":{\"3\":4,\"1\":2,}}")
         // Int values should support being quoted or unquoted
@@ -61,11 +73,24 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"mapInt64Int64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
             o.mapInt64Int64 = [1:2]
         }
+        assertJSONEncode("{\"mapInt64Int64\":{\"9223372036854775807\":\"-9223372036854775808\"}}") {(o: inout MessageTestType) in
+            o.mapInt64Int64 = [9223372036854775807: -9223372036854775808]
+        }
+        assertJSONDecodeSucceeds("{\"mapInt64Int64\":{\"9223372036854775807\":-9223372036854775808}}") {
+            $0.mapInt64Int64 == [9223372036854775807: -9223372036854775808]
+        }
+        assertJSONDecodeFails("{\"mapInt64Int64\":{\"9223372036854775807\":9223372036854775808}}")
     }
 
     func testMapUInt32UInt32() throws {
         assertJSONEncode("{\"mapUint32Uint32\":{\"1\":2}}") {(o: inout MessageTestType) in
             o.mapUint32Uint32 = [1:2]
+        }
+        assertJSONDecodeFails("{\"mapUint32Uint32\":{\"1\":-2}}")
+        assertJSONDecodeFails("{\"mapUint32Uint32\":{\"-1\":2}}")
+        assertJSONDecodeFails("{\"mapUint32Uint32\":{1:2}}")
+        assertJSONDecodeSucceeds("{\"mapUint32Uint32\":{\"1\":\"2\"}}") {
+            $0.mapUint32Uint32 == [1:2]
         }
     }
 
@@ -73,42 +98,112 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"mapUint64Uint64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
             o.mapUint64Uint64 = [1:2]
         }
+        assertJSONEncode("{\"mapUint64Uint64\":{\"1\":\"18446744073709551615\"}}") {(o: inout MessageTestType) in
+            o.mapUint64Uint64 = [1:18446744073709551615 as UInt64]
+        }
+        assertJSONDecodeSucceeds("{\"mapUint64Uint64\":{\"1\":18446744073709551615}}") {
+            $0.mapUint64Uint64 == [1:18446744073709551615 as UInt64]
+        }
+        assertJSONDecodeFails("{\"mapUint64Uint64\":{\"1\":\"18446744073709551616\"}}")
+        assertJSONDecodeFails("{\"mapUint64Uint64\":{1:\"18446744073709551615\"}}")
     }
 
     func testMapSInt32SInt32() throws {
         assertJSONEncode("{\"mapSint32Sint32\":{\"1\":2}}") {(o: inout MessageTestType) in
             o.mapSint32Sint32 = [1:2]
         }
+        assertJSONDecodeSucceeds("{\"mapSint32Sint32\":{\"1\":\"-2\"}}") {
+            $0.mapSint32Sint32 == [1:-2]
+        }
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{1:-2}}")
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapSint32Sint32\":{\"2147483647\":2147483647}}") {
+            $0.mapSint32Sint32 == [2147483647:2147483647]
+        }
+        assertJSONDecodeSucceeds("{\"mapSint32Sint32\":{\"-2147483648\":-2147483648}}") {
+            $0.mapSint32Sint32 == [-2147483648:-2147483648]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"2147483647\":2147483648}}")
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"2147483648\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"-2147483649\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSint32Sint32\":{\"2147483647\":-2147483649}}")
     }
 
     func testMapSInt64SInt64() throws {
         assertJSONEncode("{\"mapSint64Sint64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
             o.mapSint64Sint64 = [1:2]
         }
+        assertJSONEncode("{\"mapSint64Sint64\":{\"9223372036854775807\":\"-9223372036854775808\"}}") {(o: inout MessageTestType) in
+            o.mapSint64Sint64 = [9223372036854775807: -9223372036854775808]
+        }
+        assertJSONDecodeSucceeds("{\"mapSint64Sint64\":{\"9223372036854775807\":-9223372036854775808}}") {
+            $0.mapSint64Sint64 == [9223372036854775807: -9223372036854775808]
+        }
+        assertJSONDecodeFails("{\"mapSint64Sint64\":{\"9223372036854775807\":9223372036854775808}}")
     }
 
     func testFixed32Fixed32() throws {
         assertJSONEncode("{\"mapFixed32Fixed32\":{\"1\":2}}") {(o: inout MessageTestType) in
             o.mapFixed32Fixed32 = [1:2]
         }
+        assertJSONEncode("{\"mapFixed32Fixed32\":{\"0\":0}}") {(o: inout MessageTestType) in
+            o.mapFixed32Fixed32 = [0:0]
+        }
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapFixed32Fixed32\":{\"4294967295\":4294967295}}") {
+            $0.mapFixed32Fixed32 == [4294967295:4294967295]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"4294967295\":4294967296}}")
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"4294967296\":4294967295}}")
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"-1\":4294967295}}")
+        assertJSONDecodeFails("{\"mapFixed32Fixed32\":{\"4294967295\":-1}}")
     }
 
     func testFixed64Fixed64() throws {
         assertJSONEncode("{\"mapFixed64Fixed64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
             o.mapFixed64Fixed64 = [1:2]
         }
+        assertJSONEncode("{\"mapFixed64Fixed64\":{\"1\":\"18446744073709551615\"}}") {(o: inout MessageTestType) in
+            o.mapFixed64Fixed64 = [1:18446744073709551615 as UInt64]
+        }
+        assertJSONDecodeSucceeds("{\"mapFixed64Fixed64\":{\"1\":18446744073709551615}}") {
+            $0.mapFixed64Fixed64 == [1:18446744073709551615 as UInt64]
+        }
+        assertJSONDecodeFails("{\"mapFixed64Fixed64\":{\"1\":\"18446744073709551616\"}}")
+        assertJSONDecodeFails("{\"mapFixed64Fixed64\":{1:\"18446744073709551615\"}}")
     }
 
     func testSFixed32SFixed32() throws {
         assertJSONEncode("{\"mapSfixed32Sfixed32\":{\"1\":2}}") {(o: inout MessageTestType) in
             o.mapSfixed32Sfixed32 = [1:2]
         }
+        // In range values succeed
+        assertJSONDecodeSucceeds("{\"mapSfixed32Sfixed32\":{\"2147483647\":2147483647}}") {
+            $0.mapSfixed32Sfixed32 == [2147483647:2147483647]
+        }
+        assertJSONDecodeSucceeds("{\"mapSfixed32Sfixed32\":{\"-2147483648\":-2147483648}}") {
+            $0.mapSfixed32Sfixed32 == [-2147483648:-2147483648]
+        }
+        // Out of range values fail
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"2147483647\":2147483648}}")
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"2147483648\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"-2147483649\":2147483647}}")
+        assertJSONDecodeFails("{\"mapSfixed32Sfixed32\":{\"2147483647\":-2147483649}}")
     }
 
     func testSFixed64SFixed64() throws {
         assertJSONEncode("{\"mapSfixed64Sfixed64\":{\"1\":\"2\"}}") {(o: inout MessageTestType) in
             o.mapSfixed64Sfixed64 = [1:2]
         }
+        assertJSONEncode("{\"mapSfixed64Sfixed64\":{\"9223372036854775807\":\"-9223372036854775808\"}}") {(o: inout MessageTestType) in
+            o.mapSfixed64Sfixed64 = [9223372036854775807: -9223372036854775808]
+        }
+        assertJSONDecodeSucceeds("{\"mapSfixed64Sfixed64\":{\"9223372036854775807\":-9223372036854775808}}") {
+            $0.mapSfixed64Sfixed64 == [9223372036854775807: -9223372036854775808]
+        }
+        assertJSONDecodeFails("{\"mapSfixed64Sfixed64\":{\"9223372036854775807\":9223372036854775808}}")
     }
 
     func test_mapInt32Float() {
@@ -118,6 +213,10 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
 
         assertJSONEncode("{\"mapInt32Float\":{\"1\":1}}") {
             $0.mapInt32Float[1] = Float(1.0)
+        }
+
+        assertJSONDecodeSucceeds("{\"mapInt32Float\":{\"1\":3.141592}}") {
+            $0.mapInt32Float[1] == 3.141592 as Float
         }
     }
 
@@ -130,6 +229,9 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             $0.mapInt32Double[1] = Double(1.0)
         }
 
+        assertJSONDecodeSucceeds("{\"mapInt32Double\":{\"1\":3.141592}}") {
+            $0.mapInt32Double[1] == 3.141592
+        }
     }
 
     func test_mapBoolBool() {
