@@ -206,7 +206,7 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
   }
 }
 
-public extension Google_Protobuf_Timestamp {
+extension Google_Protobuf_Timestamp {
   /// Creates a new `Google_Protobuf_Timestamp` equal to the given number of
   /// seconds and nanoseconds.
   ///
@@ -234,7 +234,7 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
   }
 }
 
-public extension Google_Protobuf_Timestamp {
+extension Google_Protobuf_Timestamp {
   /// Creates a new `Google_Protobuf_Timestamp` initialized relative to 00:00:00
   /// UTC on 1 January 1970 by a given number of seconds.
   ///

@@ -104,7 +104,7 @@ private func parseJSONFieldNames(names: String) -> [String]? {
   return split
 }
 
-public extension Google_Protobuf_FieldMask {
+extension Google_Protobuf_FieldMask {
   /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
   ///
   /// The paths should match the names used in the .proto file, which may be

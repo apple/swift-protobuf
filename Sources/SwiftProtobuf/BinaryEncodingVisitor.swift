@@ -324,7 +324,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   }
 }
 
-internal extension BinaryEncodingVisitor {
+extension BinaryEncodingVisitor {
 
   // Helper Visitor to when writing out the extensions as MessageSets.
   internal struct BinaryEncodingMessageSetVisitor: SelectiveVisitor {

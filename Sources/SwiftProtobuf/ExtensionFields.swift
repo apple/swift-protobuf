@@ -46,10 +46,10 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   var isInitialized: Bool { get }
 }
 
-public extension AnyExtensionField {
+extension AnyExtensionField {
   // Default implementation for extensions fields.  The message types below provide
   // custom versions.
-  var isInitialized: Bool { return true }
+  public var isInitialized: Bool { return true }
 }
 
 ///

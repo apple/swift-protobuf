@@ -15,7 +15,7 @@
 import Foundation
 
 /// Text format encoding and decoding methods for messages.
-public extension Message {
+extension Message {
   /// Returns a string containing the Protocol Buffer text format serialization
   /// of the message.
   ///

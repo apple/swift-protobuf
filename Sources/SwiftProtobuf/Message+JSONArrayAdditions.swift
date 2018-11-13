@@ -15,7 +15,7 @@
 import Foundation
 
 /// JSON encoding and decoding methods for arrays of messages.
-public extension Message {
+extension Message {
   /// Returns a string containing the JSON serialization of the messages.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when

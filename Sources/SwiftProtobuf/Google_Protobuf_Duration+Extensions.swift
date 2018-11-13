@@ -115,7 +115,7 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
   }
 }
 
-public extension Google_Protobuf_Duration {
+extension Google_Protobuf_Duration {
   /// Creates a new `Google_Protobuf_Duration` equal to the given number of
   /// seconds and nanoseconds.
   ///
