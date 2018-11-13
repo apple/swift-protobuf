@@ -75,7 +75,7 @@ fileprivate var knownTypes: [String:Message.Type] = [
   "google.protobuf.Value": Google_Protobuf_Value.self,
 ]
 
-public extension Google_Protobuf_Any {
+extension Google_Protobuf_Any {
 
     /// Register a message type so that Any objects can use
     /// them for decoding contents.

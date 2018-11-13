@@ -18,7 +18,7 @@ import Foundation
 
 public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
 
-public extension Google_Protobuf_Any {
+extension Google_Protobuf_Any {
   /// Initialize an Any object from the provided message.
   ///
   /// This corresponds to the `pack` operation in the C++ API.

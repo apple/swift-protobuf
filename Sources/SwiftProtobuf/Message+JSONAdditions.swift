@@ -15,7 +15,7 @@
 import Foundation
 
 /// JSON encoding and decoding methods for messages.
-public extension Message {
+extension Message {
   /// Returns a string containing the JSON serialization of the message.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
@@ -25,7 +25,7 @@ public extension Message {
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  func jsonString(
+  public func jsonString(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> String {
     let data = try jsonUTF8Data(options: options)
@@ -41,7 +41,7 @@ public extension Message {
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  func jsonUTF8Data(
+  public func jsonUTF8Data(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> Data {
     if let m = self as? _CustomJSONCodable {

@@ -15,7 +15,7 @@
 import Foundation
 
 /// Binary encoding and decoding methods for messages.
-public extension Message {
+extension Message {
   /// Returns a `Data` value containing the Protocol Buffer binary format
   /// serialization of the message.
   ///
@@ -27,7 +27,7 @@ public extension Message {
   /// - Returns: A `Data` value containing the binary serialization of the
   ///   message.
   /// - Throws: `BinaryEncodingError` if encoding fails.
-  func serializedData(partial: Bool = false) throws -> Data {
+  public func serializedData(partial: Bool = false) throws -> Data {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
     }
@@ -69,7 +69,7 @@ public extension Message {
   ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
-  init(
+  public init(
     serializedData data: Data,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
@@ -97,7 +97,7 @@ public extension Message {
   ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
-  mutating func merge(
+  public mutating func merge(
     serializedData data: Data,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,

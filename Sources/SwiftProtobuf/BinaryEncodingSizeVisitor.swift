@@ -344,7 +344,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   }
 }
 
-internal extension BinaryEncodingSizeVisitor {
+extension BinaryEncodingSizeVisitor {
 
   // Helper Visitor to compute the sizes when writing out the extensions as MessageSets.
   internal struct BinaryEncodingMessageSetSizeVisitor: SelectiveVisitor {

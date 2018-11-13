@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-public extension Message {
+extension Message {
   /// Initialize this message from the provided `google.protobuf.Any`
   /// well-known type.
   ///
