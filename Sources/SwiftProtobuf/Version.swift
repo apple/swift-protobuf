@@ -17,12 +17,12 @@ import Foundation
 // Expose version information about the library.
 public struct Version {
   /// Major version.
-  static public let major = 1
+  public static let major = 1
   /// Minor version.
-  static public let minor = 2
+  public static let minor = 2
   /// Revision number.
-  static public let revision = 0
+  public static let revision = 0
 
   /// String form of the version number.
-  static public let versionString = "\(major).\(minor).\(revision)"
+  public static let versionString = "\(major).\(minor).\(revision)"
 }
