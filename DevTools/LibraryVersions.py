@@ -42,9 +42,9 @@ def ValidateFiles():
 
   # Test Sources/SwiftProtobuf/Version.swift
   version_swift_content = open(_VERSION_SWIFT_PATH).read()
-  major_line = 'static public let major = %s\n' % major
-  minor_line = 'static public let minor = %s\n' % minor
-  revision_line = 'static public let revision = %s\n' % revision
+  major_line = 'public static let major = %s\n' % major
+  minor_line = 'public static let minor = %s\n' % minor
+  revision_line = 'public static let revision = %s\n' % revision
   had_major = major_line in version_swift_content
   had_minor = minor_line in version_swift_content
   had_revision = revision_line in version_swift_content
@@ -71,14 +71,14 @@ def UpdateFiles(version_string):
 
   # Update Sources/SwiftProtobuf/Version.swift
   version_swift_content = open(_VERSION_SWIFT_PATH).read()
-  version_swift_content = re.sub(r'static public let major = \d+\n',
-                                 'static public let major = %s\n' % major,
+  version_swift_content = re.sub(r'public static let major = \d+\n',
+                                 'public static let major = %s\n' % major,
                                  version_swift_content)
-  version_swift_content = re.sub(r'static public let minor = \d+\n',
-                                 'static public let minor = %s\n' % minor,
+  version_swift_content = re.sub(r'public static let minor = \d+\n',
+                                 'public static let minor = %s\n' % minor,
                                  version_swift_content)
-  version_swift_content = re.sub(r'static public let revision = \d+\n',
-                                 'static public let revision = %s\n' % revision,
+  version_swift_content = re.sub(r'public static let revision = \d+\n',
+                                 'public static let revision = %s\n' % revision,
                                  version_swift_content)
   open(_VERSION_SWIFT_PATH, 'w').write(version_swift_content)
 

@@ -68,7 +68,7 @@ public protocol MapValueType: FieldType {
 ///
 public struct ProtobufFloat: FieldType, MapValueType {
     public typealias BaseType = Float
-    static public var proto3DefaultValue: Float {return 0.0}
+    public static var proto3DefaultValue: Float {return 0.0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularFloatField(value: &value)
     }
@@ -91,7 +91,7 @@ public struct ProtobufFloat: FieldType, MapValueType {
 ///
 public struct ProtobufDouble: FieldType, MapValueType {
     public typealias BaseType = Double
-    static public var proto3DefaultValue: Double {return 0.0}
+    public static var proto3DefaultValue: Double {return 0.0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularDoubleField(value: &value)
     }
@@ -114,7 +114,7 @@ public struct ProtobufDouble: FieldType, MapValueType {
 ///
 public struct ProtobufInt32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int32
-    static public var proto3DefaultValue: Int32 {return 0}
+    public static var proto3DefaultValue: Int32 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularInt32Field(value: &value)
     }
@@ -138,7 +138,7 @@ public struct ProtobufInt32: FieldType, MapKeyType, MapValueType {
 
 public struct ProtobufInt64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
-    static public var proto3DefaultValue: Int64 {return 0}
+    public static var proto3DefaultValue: Int64 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularInt64Field(value: &value)
     }
@@ -161,7 +161,7 @@ public struct ProtobufInt64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufUInt32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt32
-    static public var proto3DefaultValue: UInt32 {return 0}
+    public static var proto3DefaultValue: UInt32 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularUInt32Field(value: &value)
     }
@@ -185,7 +185,7 @@ public struct ProtobufUInt32: FieldType, MapKeyType, MapValueType {
 
 public struct ProtobufUInt64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt64
-    static public var proto3DefaultValue: UInt64 {return 0}
+    public static var proto3DefaultValue: UInt64 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularUInt64Field(value: &value)
     }
@@ -208,7 +208,7 @@ public struct ProtobufUInt64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufSInt32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int32
-    static public var proto3DefaultValue: Int32 {return 0}
+    public static var proto3DefaultValue: Int32 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularSInt32Field(value: &value)
     }
@@ -232,7 +232,7 @@ public struct ProtobufSInt32: FieldType, MapKeyType, MapValueType {
 
 public struct ProtobufSInt64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
-    static public var proto3DefaultValue: Int64 {return 0}
+    public static var proto3DefaultValue: Int64 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularSInt64Field(value: &value)
     }
@@ -255,7 +255,7 @@ public struct ProtobufSInt64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufFixed32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt32
-    static public var proto3DefaultValue: UInt32 {return 0}
+    public static var proto3DefaultValue: UInt32 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularFixed32Field(value: &value)
     }
@@ -278,7 +278,7 @@ public struct ProtobufFixed32: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufFixed64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = UInt64
-    static public var proto3DefaultValue: UInt64 {return 0}
+    public static var proto3DefaultValue: UInt64 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularFixed64Field(value: &value)
     }
@@ -301,7 +301,7 @@ public struct ProtobufFixed64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufSFixed32: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int32
-    static public var proto3DefaultValue: Int32 {return 0}
+    public static var proto3DefaultValue: Int32 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularSFixed32Field(value: &value)
     }
@@ -324,7 +324,7 @@ public struct ProtobufSFixed32: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufSFixed64: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Int64
-    static public var proto3DefaultValue: Int64 {return 0}
+    public static var proto3DefaultValue: Int64 {return 0}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularSFixed64Field(value: &value)
     }
@@ -347,7 +347,7 @@ public struct ProtobufSFixed64: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = Bool
-    static public var proto3DefaultValue: Bool {return false}
+    public static var proto3DefaultValue: Bool {return false}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularBoolField(value: &value)
     }
@@ -370,7 +370,7 @@ public struct ProtobufBool: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufString: FieldType, MapKeyType, MapValueType {
     public typealias BaseType = String
-    static public var proto3DefaultValue: String {return String()}
+    public static var proto3DefaultValue: String {return String()}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularStringField(value: &value)
     }
@@ -393,7 +393,7 @@ public struct ProtobufString: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufBytes: FieldType, MapValueType {
     public typealias BaseType = Data
-    static public var proto3DefaultValue: Data {return Internal.emptyData}
+    public static var proto3DefaultValue: Data {return Internal.emptyData}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularBytesField(value: &value)
     }

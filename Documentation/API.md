@@ -60,7 +60,7 @@ public struct Example: SwiftProtobuf.Message {
   //    $0.field1 = 7
   //    $0.field2 = ["foo", "bar"]
   // }
-  static public with(_ configurator: (inout Example) -> ());
+  public static with(_ configurator: (inout Example) -> ());
 
   // Messages can be serialized or deserialized to Data objects
   // using protobuf binary format.
