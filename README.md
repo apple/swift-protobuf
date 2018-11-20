@@ -183,7 +183,7 @@ the plugin above:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-protobuf.git", .exact("1.2.0")),
+    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.2.0"),
 ],
 targets: [
     .target(name: "MyTarget", dependencies: ["SwiftProtobuf"]),
