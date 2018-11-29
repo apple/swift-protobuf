@@ -572,9 +572,9 @@ test-xcode-iOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_iOS \
 		-configuration Debug \
-		-destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
+		-destination "platform=iOS Simulator,name=iPhone 8,OS=latest" \
 		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-		-disable-concurrent-testing \
+		-disable-concurrent-destination-testing \
 		test $(XCODEBUILD_EXTRAS)
 
 # 4s - 32bit, 6s - 64bit
@@ -585,9 +585,9 @@ test-xcode-iOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_iOS \
 		-configuration Release \
-		-destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
+		-destination "platform=iOS Simulator,name=iPhone 8,OS=latest" \
 		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-		-disable-concurrent-testing \
+		-disable-concurrent-destination-testing \
 		test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
 
 test-xcode-macOS-debug:
