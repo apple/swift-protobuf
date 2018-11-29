@@ -2046,18 +2046,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extensionMessage {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var `extension`: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct ExtensionField {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -12351,35 +12339,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ExtensibleMes
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ExtensibleMessage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ExtensibleMessage) -> Bool {
     if lhs.extensibleMessage != rhs.extensibleMessage {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".extension"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "extension"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.`extension`)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.`extension` != 0 {
-      try visitor.visitSingularInt32Field(value: self.`extension`, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.extensionMessage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.extensionMessage) -> Bool {
-    if lhs.`extension` != rhs.`extension` {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

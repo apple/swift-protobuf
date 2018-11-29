@@ -172,7 +172,6 @@ message GeneratedSwiftReservedMessages {
   message extendedGraphemeClusterLiteral { int32 extendedGraphemeClusterLiteral = 1; }
   message ExtendedGraphemeClusterLiteralType { int32 ExtendedGraphemeClusterLiteralType = 1; }
   message ExtensibleMessage { int32 ExtensibleMessage = 1; }
-  message extension { int32 extension = 1; }
   message ExtensionField { int32 ExtensionField = 1; }
   message extensionFieldNumber { int32 extensionFieldNumber = 1; }
   message ExtensionFieldValueSet { int32 ExtensionFieldValueSet = 1; }
