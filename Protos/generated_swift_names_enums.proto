@@ -172,7 +172,6 @@ message GeneratedSwiftReservedEnums {
   enum extendedGraphemeClusterLiteral { NONE_extendedGraphemeClusterLiteral = 0; }
   enum ExtendedGraphemeClusterLiteralType { NONE_ExtendedGraphemeClusterLiteralType = 0; }
   enum ExtensibleMessage { NONE_ExtensibleMessage = 0; }
-  enum extension { NONE_extension = 0; }
   enum ExtensionField { NONE_ExtensionField = 0; }
   enum extensionFieldNumber { NONE_extensionFieldNumber = 0; }
   enum ExtensionFieldValueSet { NONE_ExtensionFieldValueSet = 0; }
