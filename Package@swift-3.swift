@@ -1,3 +1,5 @@
+// swift-tools-version:3.0
+
 // Package.swift - description
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
