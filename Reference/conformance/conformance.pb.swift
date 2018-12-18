@@ -54,6 +54,9 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
   case unspecified // = 0
   case protobuf // = 1
   case json // = 2
+
+  /// Google internal only. Opensource testees just skip it.
+  case jspb // = 3
   case UNRECOGNIZED(Int)
 
   init() {
@@ -65,6 +68,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     case 0: self = .unspecified
     case 1: self = .protobuf
     case 2: self = .json
+    case 3: self = .jspb
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -74,6 +78,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     case .unspecified: return 0
     case .protobuf: return 1
     case .json: return 2
+    case .jspb: return 3
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -88,6 +93,7 @@ extension Conformance_WireFormat: CaseIterable {
     .unspecified,
     .protobuf,
     .json,
+    .jspb,
   ]
 }
 
@@ -109,6 +115,9 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   /// https://developers.google.com/protocol-buffers/docs/proto3#json_options
   /// for more detail.
   case jsonIgnoreUnknownParsingTest // = 3
+
+  /// Test jspb wire format. Google internal only.
+  case jspbTest // = 4
   case UNRECOGNIZED(Int)
 
   init() {
@@ -121,6 +130,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
     case 1: self = .binaryTest
     case 2: self = .jsonTest
     case 3: self = .jsonIgnoreUnknownParsingTest
+    case 4: self = .jspbTest
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -131,6 +141,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
     case .binaryTest: return 1
     case .jsonTest: return 2
     case .jsonIgnoreUnknownParsingTest: return 3
+    case .jspbTest: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -146,6 +157,7 @@ extension Conformance_TestCategory: CaseIterable {
     .binaryTest,
     .jsonTest,
     .jsonIgnoreUnknownParsingTest,
+    .jspbTest,
   ]
 }
 
@@ -168,36 +180,67 @@ struct Conformance_ConformanceRequest {
   /// TODO(haberman): if/when we expand the conformance tests to support proto2,
   /// we will want to include a field that lets the payload/response be a
   /// protobuf_test_messages.proto2.TestAllTypes message instead.
-  var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
+  var payload: OneOf_Payload? {
+    get {return _storage._payload}
+    set {_uniqueStorage()._payload = newValue}
+  }
 
   var protobufPayload: Data {
     get {
-      if case .protobufPayload(let v)? = payload {return v}
+      if case .protobufPayload(let v)? = _storage._payload {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set {payload = .protobufPayload(newValue)}
+    set {_uniqueStorage()._payload = .protobufPayload(newValue)}
   }
 
   var jsonPayload: String {
     get {
-      if case .jsonPayload(let v)? = payload {return v}
+      if case .jsonPayload(let v)? = _storage._payload {return v}
       return String()
     }
-    set {payload = .jsonPayload(newValue)}
+    set {_uniqueStorage()._payload = .jsonPayload(newValue)}
+  }
+
+  /// Google internal only.
+  var jspbPayload: String {
+    get {
+      if case .jspbPayload(let v)? = _storage._payload {return v}
+      return String()
+    }
+    set {_uniqueStorage()._payload = .jspbPayload(newValue)}
   }
 
   /// Which format should the testee serialize its message to?
-  var requestedOutputFormat: Conformance_WireFormat = .unspecified
+  var requestedOutputFormat: Conformance_WireFormat {
+    get {return _storage._requestedOutputFormat}
+    set {_uniqueStorage()._requestedOutputFormat = newValue}
+  }
 
   /// The full name for the test message to use; for the moment, either:
   /// protobuf_test_messages.proto3.TestAllTypesProto3 or
   /// protobuf_test_messages.proto2.TestAllTypesProto2.
-  var messageType: String = String()
+  var messageType: String {
+    get {return _storage._messageType}
+    set {_uniqueStorage()._messageType = newValue}
+  }
 
   /// Each test is given a specific test category. Some category may need
   /// spedific support in testee programs. Refer to the defintion of TestCategory
   /// for more information.
-  var testCategory: Conformance_TestCategory = .unspecifiedTest
+  var testCategory: Conformance_TestCategory {
+    get {return _storage._testCategory}
+    set {_uniqueStorage()._testCategory = newValue}
+  }
+
+  /// Specify details for how to encode jspb.
+  var jspbEncodingOptions: Conformance_JspbEncodingConfig {
+    get {return _storage._jspbEncodingOptions ?? Conformance_JspbEncodingConfig()}
+    set {_uniqueStorage()._jspbEncodingOptions = newValue}
+  }
+  /// Returns true if `jspbEncodingOptions` has been explicitly set.
+  var hasJspbEncodingOptions: Bool {return _storage._jspbEncodingOptions != nil}
+  /// Clears the value of `jspbEncodingOptions`. Subsequent reads from it will return its default value.
+  mutating func clearJspbEncodingOptions() {_uniqueStorage()._jspbEncodingOptions = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -211,12 +254,15 @@ struct Conformance_ConformanceRequest {
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)
+    /// Google internal only.
+    case jspbPayload(String)
 
   #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
       switch (lhs, rhs) {
       case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
       case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
+      case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
       default: return false
       }
     }
@@ -224,6 +270,8 @@ struct Conformance_ConformanceRequest {
   }
 
   init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Represents a single test case's output.
@@ -299,6 +347,17 @@ struct Conformance_ConformanceResponse {
     set {result = .skipped(newValue)}
   }
 
+  /// If the input was successfully parsed and the requested output was JSPB,
+  /// serialize to JSPB and set it in this field. JSPB is google internal only
+  /// format. Opensource testees can just skip it.
+  var jspbPayload: String {
+    get {
+      if case .jspbPayload(let v)? = result {return v}
+      return String()
+    }
+    set {result = .jspbPayload(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
@@ -325,6 +384,10 @@ struct Conformance_ConformanceResponse {
     /// For when the testee skipped the test, likely because a certain feature
     /// wasn't supported, like JSON input/output.
     case skipped(String)
+    /// If the input was successfully parsed and the requested output was JSPB,
+    /// serialize to JSPB and set it in this field. JSPB is google internal only
+    /// format. Opensource testees can just skip it.
+    case jspbPayload(String)
 
   #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
@@ -335,11 +398,26 @@ struct Conformance_ConformanceResponse {
       case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
       case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
       case (.skipped(let l), .skipped(let r)): return l == r
+      case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
       default: return false
       }
     }
   #endif
   }
+
+  init() {}
+}
+
+/// Encoding options for jspb format.
+struct Conformance_JspbEncodingConfig {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Encode the value field of Any as jspb array if ture, otherwise binary.
+  var useJspbArrayAnyFormat: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 }
@@ -353,6 +431,7 @@ extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "UNSPECIFIED"),
     1: .same(proto: "PROTOBUF"),
     2: .same(proto: "JSON"),
+    3: .same(proto: "JSPB"),
   ]
 }
 
@@ -362,6 +441,7 @@ extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "BINARY_TEST"),
     2: .same(proto: "JSON_TEST"),
     3: .same(proto: "JSON_IGNORE_UNKNOWN_PARSING_TEST"),
+    4: .same(proto: "JSPB_TEST"),
   ]
 }
 
@@ -370,57 +450,113 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "protobuf_payload"),
     2: .standard(proto: "json_payload"),
+    7: .standard(proto: "jspb_payload"),
     3: .standard(proto: "requested_output_format"),
     4: .standard(proto: "message_type"),
     5: .standard(proto: "test_category"),
+    6: .standard(proto: "jspb_encoding_options"),
   ]
 
+  fileprivate class _StorageClass {
+    var _payload: Conformance_ConformanceRequest.OneOf_Payload?
+    var _requestedOutputFormat: Conformance_WireFormat = .unspecified
+    var _messageType: String = String()
+    var _testCategory: Conformance_TestCategory = .unspecifiedTest
+    var _jspbEncodingOptions: Conformance_JspbEncodingConfig? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _payload = source._payload
+      _requestedOutputFormat = source._requestedOutputFormat
+      _messageType = source._messageType
+      _testCategory = source._testCategory
+      _jspbEncodingOptions = source._jspbEncodingOptions
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1:
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
-        var v: Data?
-        try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.payload = .protobufPayload(v)}
-      case 2:
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
-        var v: String?
-        try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.payload = .jsonPayload(v)}
-      case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
-      case 4: try decoder.decodeSingularStringField(value: &self.messageType)
-      case 5: try decoder.decodeSingularEnumField(value: &self.testCategory)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1:
+          if _storage._payload != nil {try decoder.handleConflictingOneOf()}
+          var v: Data?
+          try decoder.decodeSingularBytesField(value: &v)
+          if let v = v {_storage._payload = .protobufPayload(v)}
+        case 2:
+          if _storage._payload != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._payload = .jsonPayload(v)}
+        case 3: try decoder.decodeSingularEnumField(value: &_storage._requestedOutputFormat)
+        case 4: try decoder.decodeSingularStringField(value: &_storage._messageType)
+        case 5: try decoder.decodeSingularEnumField(value: &_storage._testCategory)
+        case 6: try decoder.decodeSingularMessageField(value: &_storage._jspbEncodingOptions)
+        case 7:
+          if _storage._payload != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._payload = .jspbPayload(v)}
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self.payload {
-    case .protobufPayload(let v)?:
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
-    case .jsonPayload(let v)?:
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case nil: break
-    }
-    if self.requestedOutputFormat != .unspecified {
-      try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
-    }
-    if !self.messageType.isEmpty {
-      try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
-    }
-    if self.testCategory != .unspecifiedTest {
-      try visitor.visitSingularEnumField(value: self.testCategory, fieldNumber: 5)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      switch _storage._payload {
+      case .protobufPayload(let v)?:
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
+      case .jsonPayload(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      case nil: break
+      default: break
+      }
+      if _storage._requestedOutputFormat != .unspecified {
+        try visitor.visitSingularEnumField(value: _storage._requestedOutputFormat, fieldNumber: 3)
+      }
+      if !_storage._messageType.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._messageType, fieldNumber: 4)
+      }
+      if _storage._testCategory != .unspecifiedTest {
+        try visitor.visitSingularEnumField(value: _storage._testCategory, fieldNumber: 5)
+      }
+      if let v = _storage._jspbEncodingOptions {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      }
+      if case .jspbPayload(let v)? = _storage._payload {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Conformance_ConformanceRequest, rhs: Conformance_ConformanceRequest) -> Bool {
-    if lhs.payload != rhs.payload {return false}
-    if lhs.requestedOutputFormat != rhs.requestedOutputFormat {return false}
-    if lhs.messageType != rhs.messageType {return false}
-    if lhs.testCategory != rhs.testCategory {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._payload != rhs_storage._payload {return false}
+        if _storage._requestedOutputFormat != rhs_storage._requestedOutputFormat {return false}
+        if _storage._messageType != rhs_storage._messageType {return false}
+        if _storage._testCategory != rhs_storage._testCategory {return false}
+        if _storage._jspbEncodingOptions != rhs_storage._jspbEncodingOptions {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -435,6 +571,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     3: .standard(proto: "protobuf_payload"),
     4: .standard(proto: "json_payload"),
     5: .same(proto: "skipped"),
+    7: .standard(proto: "jspb_payload"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -470,6 +607,11 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .serializeError(v)}
+      case 7:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .jspbPayload(v)}
       default: break
       }
     }
@@ -489,6 +631,8 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
       try visitor.visitSingularStringField(value: v, fieldNumber: 5)
     case .serializeError(let v)?:
       try visitor.visitSingularStringField(value: v, fieldNumber: 6)
+    case .jspbPayload(let v)?:
+      try visitor.visitSingularStringField(value: v, fieldNumber: 7)
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -496,6 +640,35 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
   static func ==(lhs: Conformance_ConformanceResponse, rhs: Conformance_ConformanceResponse) -> Bool {
     if lhs.result != rhs.result {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".JspbEncodingConfig"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "use_jspb_array_any_format"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularBoolField(value: &self.useJspbArrayAnyFormat)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.useJspbArrayAnyFormat != false {
+      try visitor.visitSingularBoolField(value: self.useJspbArrayAnyFormat, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Conformance_JspbEncodingConfig, rhs: Conformance_JspbEncodingConfig) -> Bool {
+    if lhs.useJspbArrayAnyFormat != rhs.useJspbArrayAnyFormat {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
