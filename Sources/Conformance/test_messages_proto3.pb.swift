@@ -215,6 +215,11 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
 
+  var optionalAliasedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum {
+    get {return _storage._optionalAliasedEnum}
+    set {_uniqueStorage()._optionalAliasedEnum = newValue}
+  }
+
   var optionalStringPiece: String {
     get {return _storage._optionalStringPiece}
     set {_uniqueStorage()._optionalStringPiece = newValue}
@@ -883,6 +888,39 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 
   }
 
+  enum AliasedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case aliasFoo // = 0
+    case aliasBar // = 1
+    case aliasBaz // = 2
+    static let qux = aliasBaz
+    static let bAz = aliasBaz
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .aliasFoo
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .aliasFoo
+      case 1: self = .aliasBar
+      case 2: self = .aliasBaz
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .aliasFoo: return 0
+      case .aliasBar: return 1
+      case .aliasBaz: return 2
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   struct NestedMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -923,6 +961,15 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: CaseIterabl
     .bar,
     .baz,
     .neg,
+  ]
+}
+
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum] = [
+    .aliasFoo,
+    .aliasBar,
+    .aliasBaz,
   ]
 }
 
@@ -974,6 +1021,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     19: .standard(proto: "optional_foreign_message"),
     21: .standard(proto: "optional_nested_enum"),
     22: .standard(proto: "optional_foreign_enum"),
+    23: .standard(proto: "optional_aliased_enum"),
     24: .standard(proto: "optional_string_piece"),
     25: .standard(proto: "optional_cord"),
     27: .standard(proto: "recursive_message"),
@@ -1096,6 +1144,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage? = nil
     var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum = .foo
     var _optionalForeignEnum: ProtobufTestMessages_Proto3_ForeignEnum = .foreignFoo
+    var _optionalAliasedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum = .aliasFoo
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
     var _recursiveMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3? = nil
@@ -1213,6 +1262,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       _optionalForeignMessage = source._optionalForeignMessage
       _optionalNestedEnum = source._optionalNestedEnum
       _optionalForeignEnum = source._optionalForeignEnum
+      _optionalAliasedEnum = source._optionalAliasedEnum
       _optionalStringPiece = source._optionalStringPiece
       _optionalCord = source._optionalCord
       _recursiveMessage = source._recursiveMessage
@@ -1339,6 +1389,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         case 19: try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage)
         case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
         case 22: try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum)
+        case 23: try decoder.decodeSingularEnumField(value: &_storage._optionalAliasedEnum)
         case 24: try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece)
         case 25: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
         case 27: try decoder.decodeSingularMessageField(value: &_storage._recursiveMessage)
@@ -1542,6 +1593,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       }
       if _storage._optionalForeignEnum != .foreignFoo {
         try visitor.visitSingularEnumField(value: _storage._optionalForeignEnum, fieldNumber: 22)
+      }
+      if _storage._optionalAliasedEnum != .aliasFoo {
+        try visitor.visitSingularEnumField(value: _storage._optionalAliasedEnum, fieldNumber: 23)
       }
       if !_storage._optionalStringPiece.isEmpty {
         try visitor.visitSingularStringField(value: _storage._optionalStringPiece, fieldNumber: 24)
@@ -1865,6 +1919,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         if _storage._optionalForeignMessage != rhs_storage._optionalForeignMessage {return false}
         if _storage._optionalNestedEnum != rhs_storage._optionalNestedEnum {return false}
         if _storage._optionalForeignEnum != rhs_storage._optionalForeignEnum {return false}
+        if _storage._optionalAliasedEnum != rhs_storage._optionalAliasedEnum {return false}
         if _storage._optionalStringPiece != rhs_storage._optionalStringPiece {return false}
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._recursiveMessage != rhs_storage._recursiveMessage {return false}
@@ -1972,6 +2027,14 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: SwiftProtob
     0: .same(proto: "FOO"),
     1: .same(proto: "BAR"),
     2: .same(proto: "BAZ"),
+  ]
+}
+
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ALIAS_FOO"),
+    1: .same(proto: "ALIAS_BAR"),
+    2: .aliased(proto: "ALIAS_BAZ", aliases: ["QUX", "qux", "bAz"]),
   ]
 }
 
