@@ -185,6 +185,14 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "    name: \"TEST_ENUM_ALIAS\"",
       "    number: 0",  // Alias 0 - Unique name
       "  }",
+      "  value {",
+      "    name: \"mumble\"",
+      "    number: 1",  // Alias 1 - Collision with next alias
+      "  }",
+      "  value {",
+      "    name: \"MUMBLE\"",
+      "    number: 0",  // Alias 0 - Collision with previous alias
+      "  }",
       "}"
     ]
 
@@ -203,7 +211,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
-    XCTAssertEqual(values.count, 6)
+    XCTAssertEqual(values.count, 8)
 
     // Test relativeName(enumValue:)
 
@@ -213,20 +221,26 @@ class Test_SwiftProtobufNamer: XCTestCase {
     XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
+    XCTAssertEqual(namer.relativeName(enumValue: values[6]), "mumble_1")
+    XCTAssertEqual(namer.relativeName(enumValue: values[7]), "mumble_0")
 
     // Test uniquelyNamedValues(enum:)
 
     let filtered = namer.uniquelyNamedValues(enum: e)
-    XCTAssertEqual(filtered.count, 4)
+    XCTAssertEqual(filtered.count, 6)
 
     XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
     XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
     XCTAssertEqual(filtered[2].name, "_FOO")
     XCTAssertEqual(filtered[3].name, "TEST_ENUM_ALIAS")
+    XCTAssertEqual(filtered[4].name, "mumble")
+    XCTAssertEqual(filtered[5].name, "MUMBLE")
     XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo_0")
     XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
     XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "alias")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[4]), "mumble_1")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[5]), "mumble_0")
   }
 
   func testEnumValueHandling_UniqueAliasNameCollisions() {
@@ -255,7 +269,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "  }",
       "  value {",
       "    name: \"QUX\"",
-      "    number: 2",
+      "    number: 2",  // short name merged with the next because they have the same value.
       "  }",
       "  value {",
       "    name: \"qux\"",
