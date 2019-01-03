@@ -180,10 +180,23 @@ public final class SwiftProtobufNamer {
   /// api pov.
   public func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
     return e.values.filter {
+      // Original are kept as is. The computations for relative
+      // name already adds values for collisions with different
+      // values.
       guard let aliasOf = $0.aliasOf else { return true }
       let relativeName = self.relativeName(enumValue: $0)
       let aliasOfRelativeName = self.relativeName(enumValue: aliasOf)
-      return relativeName != aliasOfRelativeName
+      // If the relative name matches for the alias and original, drop
+      // the alias.
+      guard relativeName != aliasOfRelativeName else { return false }
+      // Only include this alias if it is the first one with this name.
+      // (handles alias with different cases in their names that get
+      // mangled to a single Swift name.)
+      let firstAlias = aliasOf.aliases.firstIndex {
+        let otherRelativeName = self.relativeName(enumValue: $0)
+        return relativeName == otherRelativeName
+      }
+      return aliasOf.aliases[firstAlias!] === $0
     }
   }
 
