@@ -228,4 +228,96 @@ class Test_SwiftProtobufNamer: XCTestCase {
     XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "alias")
   }
+
+  func testEnumValueHandling_UniqueAliasNameCollisions() {
+    // Tests were the aliases collided in naming, but not with
+    // the original.
+
+    let txt = [
+      "name: \"test.proto\"",
+      "syntax: \"proto2\"",
+      "enum_type {",
+      "  name: \"AliasedEnum\"",
+      "  options {",
+      "     allow_alias: true",
+      "  }",
+      "  value {",
+      "    name: \"ALIAS_FOO\"",
+      "    number: 0",
+      "  }",
+      "  value {",
+      "    name: \"ALIAS_BAR\"",
+      "    number: 1",
+      "  }",
+      "  value {",
+      "    name: \"ALIAS_BAZ\"",
+      "    number: 2",
+      "  }",
+      "  value {",
+      "    name: \"QUX\"",
+      "    number: 2",
+      "  }",
+      "  value {",
+      "    name: \"qux\"",
+      "    number: 2",
+      "  }",
+      "  value {",
+      "    name: \"bAz\"",
+      "    number: 2",
+      "  }",
+      "}"
+    ]
+
+    let fileProto: Google_Protobuf_FileDescriptorProto
+    do {
+      fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+    } catch let e {
+      XCTFail("Error: \(e)")
+      return
+    }
+
+    let descriptorSet = DescriptorSet(protos: [fileProto])
+    let namer =
+      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+
+    let e = descriptorSet.lookupEnumDescriptor(protoName: ".AliasedEnum")
+    let values = e.values
+    XCTAssertEqual(values.count, 6)
+
+    XCTAssertEqual(values[0].name, "ALIAS_FOO")
+    XCTAssertEqual(values[1].name, "ALIAS_BAR")
+    XCTAssertEqual(values[2].name, "ALIAS_BAZ")
+    XCTAssertEqual(values[3].name, "QUX")
+    XCTAssertEqual(values[4].name, "qux")
+    XCTAssertEqual(values[5].name, "bAz")
+
+    // Test relativeName(enumValue:)
+
+    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "aliasFoo")
+    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "aliasBar")
+    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "aliasBaz")
+    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "qux")
+    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "qux")
+    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "bAz")
+
+    // Test uniquelyNamedValues(enum:)
+
+    // QUX & qux collided, so only one remains.
+
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 5)
+
+    XCTAssertEqual(filtered[0].name, "ALIAS_FOO")
+    XCTAssertEqual(filtered[1].name, "ALIAS_BAR")
+    XCTAssertEqual(filtered[2].name, "ALIAS_BAZ")
+    XCTAssertEqual(filtered[3].name, "QUX")
+    XCTAssertEqual(filtered[4].name, "bAz")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "aliasFoo")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "aliasBar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "aliasBaz")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "qux")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[4]), "bAz")
+  }
+
 }

@@ -53,7 +53,8 @@ extension Test_SwiftProtobufNamer {
     static var allTests = [
         ("testEnumValueHandling_AliasNameMatches", testEnumValueHandling_AliasNameMatches),
         ("testEnumValueHandling_NameCollisions", testEnumValueHandling_NameCollisions),
-        ("testEnumValueHandling_NameCollisionsAndAliasMatches", testEnumValueHandling_NameCollisionsAndAliasMatches)
+        ("testEnumValueHandling_NameCollisionsAndAliasMatches", testEnumValueHandling_NameCollisionsAndAliasMatches),
+        ("testEnumValueHandling_UniqueAliasNameCollisions", testEnumValueHandling_UniqueAliasNameCollisions)
     ]
 }
 
