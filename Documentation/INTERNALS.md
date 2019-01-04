@@ -19,8 +19,8 @@ behavior are always appreciated.
 
 The goal is to always support "one full major version”, which basically
 means if the current official release of Swift is `X.Y`, the library will
-support back to `X-1.Y`.  That is, when Swift 4.1 gets released, the minimum
-for support gets moved up to 3.1.
+support back to `X-1.Y`.  That is, when Swift 4.2 was released, the minimum
+for support got moved up to 3.2.
 
 When the minimum Swift version gets updated, update:
 - The `README.md` in the root of the project
