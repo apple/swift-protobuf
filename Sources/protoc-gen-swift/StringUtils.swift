@@ -14,12 +14,7 @@ func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   var dir = ""
   var base = ""
   var suffix = ""
-#if swift(>=3.2)
-  let pathnameChars = pathname
-#else
-  let pathnameChars = pathname.characters
-#endif
-  for c in pathnameChars {
+  for c in pathname {
     if c == "/" {
       dir += base + suffix + String(c)
       base = ""
@@ -31,11 +26,7 @@ func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
       suffix += String(c)
     }
   }
-#if swift(>=3.2)
   let validSuffix = suffix.isEmpty || suffix.first == "."
-#else
-  let validSuffix = suffix.isEmpty || suffix.characters.first == "."
-#endif
   if !validSuffix {
     base += suffix
     suffix = ""
