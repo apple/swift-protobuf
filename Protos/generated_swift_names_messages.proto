@@ -54,7 +54,6 @@ message GeneratedSwiftReservedMessages {
   message capitalizeNext { int32 capitalizeNext = 1; }
   message cardinality { int32 cardinality = 1; }
   message Character { int32 Character = 1; }
-  message characters { int32 characters = 1; }
   message chars { int32 chars = 1; }
   message class { int32 class = 1; }
   message clearExtensionValue { int32 clearExtensionValue = 1; }

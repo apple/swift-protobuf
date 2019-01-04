@@ -1280,31 +1280,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum characters: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneCharacters // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneCharacters
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneCharacters
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneCharacters: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum chars: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneChars // = 0
@@ -15835,13 +15810,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Character: CaseI
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.characters: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.characters] = [
-    .noneCharacters,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars] = [
@@ -20133,12 +20101,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.cardinality: Swi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Character: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Character"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.characters: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_characters"),
   ]
 }
 

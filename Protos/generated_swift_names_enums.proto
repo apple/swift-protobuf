@@ -54,7 +54,6 @@ message GeneratedSwiftReservedEnums {
   enum capitalizeNext { NONE_capitalizeNext = 0; }
   enum cardinality { NONE_cardinality = 0; }
   enum Character { NONE_Character = 0; }
-  enum characters { NONE_characters = 0; }
   enum chars { NONE_chars = 0; }
   enum class { NONE_class = 0; }
   enum clearExtensionValue { NONE_clearExtensionValue = 0; }
