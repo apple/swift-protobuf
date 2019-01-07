@@ -36,8 +36,7 @@ extension Array {
   }
 }
 
-#if swift(>=4.2)
-#else  // swift(>=4.2)
+#if !swift(>=4.2)
 extension Array {
   func firstIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
     var i = self.startIndex
@@ -50,4 +49,4 @@ extension Array {
     return nil
   }
 }
-#endif  // swift(>=4.2)
+#endif  // !swift(>=4.2)
