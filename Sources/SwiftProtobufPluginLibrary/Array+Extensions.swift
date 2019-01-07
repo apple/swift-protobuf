@@ -35,3 +35,18 @@ extension Array {
     }
   }
 }
+
+#if !swift(>=4.2)
+extension Array {
+  func firstIndex(where predicate: (Element) throws -> Bool) rethrows -> Int? {
+    var i = self.startIndex
+    while i < self.endIndex {
+      if try predicate(self[i]) {
+        return i
+      }
+      self.formIndex(after: &i)
+    }
+    return nil
+  }
+}
+#endif  // !swift(>=4.2)
