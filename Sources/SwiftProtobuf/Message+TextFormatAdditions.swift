@@ -24,7 +24,6 @@ extension Message {
   ///
   /// - Returns: A string containing the text format serialization of the
   ///   message.
-  /// - Throws: `TextFormatEncodingError` if encoding fails.
   public func textFormatString() -> String {
     var visitor = TextFormatEncodingVisitor(message: self)
     if let any = self as? Google_Protobuf_Any {
