@@ -57,6 +57,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 
   /// Google internal only. Opensource testees just skip it.
   case jspb // = 3
+  case textFormat // = 4
   case UNRECOGNIZED(Int)
 
   init() {
@@ -69,6 +70,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     case 1: self = .protobuf
     case 2: self = .json
     case 3: self = .jspb
+    case 4: self = .textFormat
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -79,6 +81,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     case .protobuf: return 1
     case .json: return 2
     case .jspb: return 3
+    case .textFormat: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -94,6 +97,7 @@ extension Conformance_WireFormat: CaseIterable {
     .protobuf,
     .json,
     .jspb,
+    .textFormat,
   ]
 }
 
@@ -116,8 +120,12 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   /// for more detail.
   case jsonIgnoreUnknownParsingTest // = 3
 
-  /// Test jspb wire format. Google internal only.
+  /// Test jspb wire format. Google internal only. Opensource testees just skip it.
   case jspbTest // = 4
+
+  /// Test text format. For cpp, java and python, testees can already deal with
+  /// this type. Testees of other languages can simply skip it.
+  case textFormatTest // = 5
   case UNRECOGNIZED(Int)
 
   init() {
@@ -131,6 +139,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
     case 2: self = .jsonTest
     case 3: self = .jsonIgnoreUnknownParsingTest
     case 4: self = .jspbTest
+    case 5: self = .textFormatTest
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -142,6 +151,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
     case .jsonTest: return 2
     case .jsonIgnoreUnknownParsingTest: return 3
     case .jspbTest: return 4
+    case .textFormatTest: return 5
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -158,10 +168,26 @@ extension Conformance_TestCategory: CaseIterable {
     .jsonTest,
     .jsonIgnoreUnknownParsingTest,
     .jspbTest,
+    .textFormatTest,
   ]
 }
 
 #endif  // swift(>=4.2)
+
+/// The conformance runner will request a list of failures as the first request.
+/// This will be known by message_type == "conformance.FailureSet", a conformance
+/// test should return a serialized FailureSet in protobuf_payload.
+struct Conformance_FailureSet {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var failure: [String] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
 
 /// Represents a single test case's input.  The testee should:
 ///
@@ -201,13 +227,21 @@ struct Conformance_ConformanceRequest {
     set {_uniqueStorage()._payload = .jsonPayload(newValue)}
   }
 
-  /// Google internal only.
+  /// Google internal only.  Opensource testees just skip it.
   var jspbPayload: String {
     get {
       if case .jspbPayload(let v)? = _storage._payload {return v}
       return String()
     }
     set {_uniqueStorage()._payload = .jspbPayload(newValue)}
+  }
+
+  var textPayload: String {
+    get {
+      if case .textPayload(let v)? = _storage._payload {return v}
+      return String()
+    }
+    set {_uniqueStorage()._payload = .textPayload(newValue)}
   }
 
   /// Which format should the testee serialize its message to?
@@ -254,8 +288,9 @@ struct Conformance_ConformanceRequest {
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)
-    /// Google internal only.
+    /// Google internal only.  Opensource testees just skip it.
     case jspbPayload(String)
+    case textPayload(String)
 
   #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
@@ -263,6 +298,7 @@ struct Conformance_ConformanceRequest {
       case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
       case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
       case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
+      case (.textPayload(let l), .textPayload(let r)): return l == r
       default: return false
       }
     }
@@ -358,6 +394,16 @@ struct Conformance_ConformanceResponse {
     set {result = .jspbPayload(newValue)}
   }
 
+  /// If the input was successfully parsed and the requested output was
+  /// TEXT_FORMAT, serialize to TEXT_FORMAT and set it in this field.
+  var textPayload: String {
+    get {
+      if case .textPayload(let v)? = result {return v}
+      return String()
+    }
+    set {result = .textPayload(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
@@ -388,6 +434,9 @@ struct Conformance_ConformanceResponse {
     /// serialize to JSPB and set it in this field. JSPB is google internal only
     /// format. Opensource testees can just skip it.
     case jspbPayload(String)
+    /// If the input was successfully parsed and the requested output was
+    /// TEXT_FORMAT, serialize to TEXT_FORMAT and set it in this field.
+    case textPayload(String)
 
   #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
@@ -399,6 +448,7 @@ struct Conformance_ConformanceResponse {
       case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
       case (.skipped(let l), .skipped(let r)): return l == r
       case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
+      case (.textPayload(let l), .textPayload(let r)): return l == r
       default: return false
       }
     }
@@ -432,6 +482,7 @@ extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "PROTOBUF"),
     2: .same(proto: "JSON"),
     3: .same(proto: "JSPB"),
+    4: .same(proto: "TEXT_FORMAT"),
   ]
 }
 
@@ -442,7 +493,37 @@ extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
     2: .same(proto: "JSON_TEST"),
     3: .same(proto: "JSON_IGNORE_UNKNOWN_PARSING_TEST"),
     4: .same(proto: "JSPB_TEST"),
+    5: .same(proto: "TEXT_FORMAT_TEST"),
   ]
+}
+
+extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".FailureSet"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "failure"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedStringField(value: &self.failure)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.failure.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.failure, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Conformance_FailureSet, rhs: Conformance_FailureSet) -> Bool {
+    if lhs.failure != rhs.failure {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
 
 extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -451,6 +532,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     1: .standard(proto: "protobuf_payload"),
     2: .standard(proto: "json_payload"),
     7: .standard(proto: "jspb_payload"),
+    8: .standard(proto: "text_payload"),
     3: .standard(proto: "requested_output_format"),
     4: .standard(proto: "message_type"),
     5: .standard(proto: "test_category"),
@@ -508,6 +590,11 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
           var v: String?
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {_storage._payload = .jspbPayload(v)}
+        case 8:
+          if _storage._payload != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._payload = .textPayload(v)}
         default: break
         }
       }
@@ -536,8 +623,13 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       if let v = _storage._jspbEncodingOptions {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
       }
-      if case .jspbPayload(let v)? = _storage._payload {
+      switch _storage._payload {
+      case .jspbPayload(let v)?:
         try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+      case .textPayload(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+      case nil: break
+      default: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -572,6 +664,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     4: .standard(proto: "json_payload"),
     5: .same(proto: "skipped"),
     7: .standard(proto: "jspb_payload"),
+    8: .standard(proto: "text_payload"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -612,6 +705,11 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .jspbPayload(v)}
+      case 8:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .textPayload(v)}
       default: break
       }
     }
@@ -633,6 +731,8 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
       try visitor.visitSingularStringField(value: v, fieldNumber: 6)
     case .jspbPayload(let v)?:
       try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+    case .textPayload(let v)?:
+      try visitor.visitSingularStringField(value: v, fieldNumber: 8)
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
