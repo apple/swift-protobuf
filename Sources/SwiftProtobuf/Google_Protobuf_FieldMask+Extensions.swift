@@ -58,6 +58,8 @@ private func JSONToProto(name: String) -> String? {
 }
 
 private func parseJSONFieldNames(names: String) -> [String]? {
+  // An empty field mask is the empty string (no paths).
+  guard !names.isEmpty else { return [] }
   var fieldNameCount = 0
   var fieldName = String()
   var split = [String]()
