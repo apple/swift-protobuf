@@ -30,7 +30,13 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONEncode("\"foo,fooBar\"") { (o: inout MessageTestType) in
             o.paths = ["foo", "foo_bar"]
         }
+        // assertJSONEncode doesn't want an empty object, hand roll it.
+        let msg = MessageTestType.with { (o: inout MessageTestType) in
+          o.paths = []
+        }
+        XCTAssertEqual(try msg.jsonString(), "\"\"")
         assertJSONDecodeSucceeds("\"foo\"") { $0.paths == ["foo"] }
+        assertJSONDecodeSucceeds("\"\"") { $0.paths == [] }
         assertJSONDecodeFails("foo")
         assertJSONDecodeFails("\"foo,\"")
         assertJSONDecodeFails("\"foo\",\"bar\"")
@@ -76,6 +82,15 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
         do {
             let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
             XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
+        } catch {
+            XCTFail("Should have decoded correctly")
+        }
+
+        // https://github.com/protocolbuffers/protobuf/issues/4734 resulted in a new conformance
+        // test to confirm an empty string works.
+        do {
+            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"\"}")
+            XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask())
         } catch {
             XCTFail("Should have decoded correctly")
         }
