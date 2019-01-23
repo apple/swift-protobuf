@@ -11,26 +11,32 @@
 import Foundation
 
 public protocol ProvidesSourceCodeLocation {
-  var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? { get }
+      var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
+            get
+      }
 }
 
 // Default implementation for things that support ProvidesLocationPath.
 extension ProvidesSourceCodeLocation where Self: ProvidesLocationPath {
-  public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
-    var path = IndexPath()
-    getLocationPath(path: &path)
-    return file.sourceCodeInfoLocation(path: path)
-  }
+      public var sourceCodeInfoLocation:
+            Google_Protobuf_SourceCodeInfo.Location?
+      {
+            var path = IndexPath()
+            getLocationPath(path: &path)
+            return file.sourceCodeInfoLocation(path: path)
+      }
 }
 
 // Helper to get source comments out of ProvidesSourceCodeLocation
 extension ProvidesSourceCodeLocation {
-  public func protoSourceComments(commentPrefix: String = "///",
-                                  leadingDetachedPrefix: String? = nil) -> String {
-    if let loc = sourceCodeInfoLocation {
-      return loc.asSourceComment(commentPrefix: commentPrefix,
-                                 leadingDetachedPrefix: leadingDetachedPrefix)
-    }
-    return String()
-  }
+      public func protoSourceComments(
+            commentPrefix: String = "///", leadingDetachedPrefix: String? = nil
+      ) -> String {
+            if let loc = sourceCodeInfoLocation {
+                  return loc.asSourceComment(
+                        commentPrefix: commentPrefix,
+                        leadingDetachedPrefix: leadingDetachedPrefix)
+            }
+            return String()
+      }
 }

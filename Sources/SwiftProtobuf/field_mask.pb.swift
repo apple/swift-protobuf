@@ -35,7 +35,6 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 import Foundation
 
 // If the compiler emits an error on this type, it is because this file
@@ -43,9 +42,10 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck
+{
+      struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+      typealias Version = _2
 }
 
 /// `FieldMask` represents a set of symbolic field paths, for example:
@@ -248,47 +248,58 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// request should verify the included field paths, and return an
 /// `INVALID_ARGUMENT` error if any path is duplicated or unmappable.
 public struct Google_Protobuf_FieldMask {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
 
-  /// The set of field mask paths.
-  public var paths: [String] = []
+      /// The set of field mask paths.
+      public var paths: [String] = []
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+      public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".FieldMask"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "paths"),
-  ]
+extension Google_Protobuf_FieldMask: SwiftProtobuf.Message,
+      SwiftProtobuf._MessageImplementationBase,
+      SwiftProtobuf._ProtoNameProviding
+{
+      public static let protoMessageName: String = _protobuf_package
+            + ".FieldMask"
+      public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+            1: .same(proto: "paths"),
+      ]
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeRepeatedStringField(value: &self.paths)
-      default: break
+      public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(
+            decoder: inout D
+      ) throws {
+            while let fieldNumber = try decoder.nextFieldNumber() {
+                  switch fieldNumber {
+                  case 1:
+                        try decoder.decodeRepeatedStringField(
+                              value: &self.paths)
+                  default: break
+                  }
+            }
       }
-    }
-  }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.paths.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.paths, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+      public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+            if !self.paths.isEmpty {
+                  try visitor.visitRepeatedStringField(
+                        value: self.paths, fieldNumber: 1)
+            }
+            try unknownFields.traverse(visitor: &visitor)
+      }
 
-  public static func ==(lhs: Google_Protobuf_FieldMask, rhs: Google_Protobuf_FieldMask) -> Bool {
-    if lhs.paths != rhs.paths {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+      public static func == (
+            lhs: Google_Protobuf_FieldMask, rhs: Google_Protobuf_FieldMask
+      ) -> Bool {
+            if lhs.paths != rhs.paths { return false }
+            if lhs.unknownFields != rhs.unknownFields { return false }
+            return true
+      }
 }

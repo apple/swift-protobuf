@@ -22,25 +22,23 @@ import Foundation
 /// formats (for example, a field encoded as a varint when a fixed32 integer
 /// was expected).
 public struct UnknownStorage: Equatable {
-  /// The raw protocol buffer binary-encoded bytes that represent the unknown
-  /// fields of a decoded message.
-  public private(set) var data = Internal.emptyData
+      /// The raw protocol buffer binary-encoded bytes that represent the unknown
+      /// fields of a decoded message.
+      public private(set) var data = Internal.emptyData
 
-#if !swift(>=4.1)
-  public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
-    return lhs.data == rhs.data
-  }
-#endif
+      #if !swift(>=4.1)
+        public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
+          return lhs.data == rhs.data
+        }
+      #endif
 
-  public init() {}
+      public init() {}
 
-  internal mutating func append(protobufData: Data) {
-    data.append(protobufData)
-  }
+      internal mutating func append(protobufData: Data) {
+            data.append(protobufData)
+      }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !data.isEmpty {
-      try visitor.visitUnknown(bytes: data)
-    }
-  }
+      public func traverse<V: Visitor>(visitor: inout V) throws {
+            if !data.isEmpty { try visitor.visitUnknown(bytes: data) }
+      }
 }

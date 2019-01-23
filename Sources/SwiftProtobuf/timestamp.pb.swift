@@ -35,7 +35,6 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 import Foundation
 
 // If the compiler emits an error on this type, it is because this file
@@ -43,9 +42,10 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck
+{
+      struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+      typealias Version = _2
 }
 
 /// A Timestamp represents a point in time independent of any time zone or local
@@ -129,61 +129,73 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D
 /// ) to obtain a formatter capable of generating timestamps in this format.
 public struct Google_Protobuf_Timestamp {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
 
-  /// Represents seconds of UTC time since Unix epoch
-  /// 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
-  /// 9999-12-31T23:59:59Z inclusive.
-  public var seconds: Int64 = 0
+      /// Represents seconds of UTC time since Unix epoch
+      /// 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
+      /// 9999-12-31T23:59:59Z inclusive.
+      public var seconds: Int64 = 0
 
-  /// Non-negative fractions of a second at nanosecond resolution. Negative
-  /// second values with fractions must still have non-negative nanos values
-  /// that count forward in time. Must be from 0 to 999,999,999
-  /// inclusive.
-  public var nanos: Int32 = 0
+      /// Non-negative fractions of a second at nanosecond resolution. Negative
+      /// second values with fractions must still have non-negative nanos values
+      /// that count forward in time. Must be from 0 to 999,999,999
+      /// inclusive.
+      public var nanos: Int32 = 0
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+      public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-    2: .same(proto: "nanos"),
-  ]
+extension Google_Protobuf_Timestamp: SwiftProtobuf.Message,
+      SwiftProtobuf._MessageImplementationBase,
+      SwiftProtobuf._ProtoNameProviding
+{
+      public static let protoMessageName: String = _protobuf_package
+            + ".Timestamp"
+      public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+            1: .same(proto: "seconds"), 2: .same(proto: "nanos"),
+      ]
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &self.seconds)
-      case 2: try decoder.decodeSingularInt32Field(value: &self.nanos)
-      default: break
+      public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(
+            decoder: inout D
+      ) throws {
+            while let fieldNumber = try decoder.nextFieldNumber() {
+                  switch fieldNumber {
+                  case 1:
+                        try decoder.decodeSingularInt64Field(
+                              value: &self.seconds)
+                  case 2:
+                        try decoder.decodeSingularInt32Field(value: &self.nanos)
+                  default: break
+                  }
+            }
       }
-    }
-  }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
-    }
-    if self.nanos != 0 {
-      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+      public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+            if self.seconds != 0 {
+                  try visitor.visitSingularInt64Field(
+                        value: self.seconds, fieldNumber: 1)
+            }
+            if self.nanos != 0 {
+                  try visitor.visitSingularInt32Field(
+                        value: self.nanos, fieldNumber: 2)
+            }
+            try unknownFields.traverse(visitor: &visitor)
+      }
 
-  public static func ==(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp) -> Bool {
-    if lhs.seconds != rhs.seconds {return false}
-    if lhs.nanos != rhs.nanos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+      public static func == (
+            lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp
+      ) -> Bool {
+            if lhs.seconds != rhs.seconds { return false }
+            if lhs.nanos != rhs.nanos { return false }
+            if lhs.unknownFields != rhs.unknownFields { return false }
+            return true
+      }
 }

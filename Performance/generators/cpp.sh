@@ -71,6 +71,7 @@ using google::protobuf::Descriptor;
 using google::protobuf::DescriptorPool;
 using google::protobuf::TextFormat;
 using google::protobuf::util::BinaryToJsonString;
+using google::protobuf::util::JsonParseOptions;
 using google::protobuf::util::JsonToBinaryString;
 using google::protobuf::util::MessageDifferencer;
 using google::protobuf::util::NewTypeResolverForDescriptorPool;
@@ -129,7 +130,10 @@ void Harness::run() {
       });
       auto decoded_binary = measure_subtask("Decode JSON", [&]() {
         string out_binary;
-        JsonToBinaryString(type_resolver, *type_url, json, &out_binary);
+        JsonParseOptions json_parse_options;
+        json_parse_options.case_insensitive_enum_parsing = false;
+        JsonToBinaryString(type_resolver, *type_url, json, &out_binary,
+            json_parse_options);
         return out_binary;
       });
 

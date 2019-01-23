@@ -20,32 +20,29 @@ import Foundation
 /// implementations. NOT INTENDED TO BE CALLED BY CLIENTS.
 public enum Internal {
 
-  /// A singleton instance of an empty data that is used by the generated code
-  /// for default values. This is a performance enhancement to work around the
-  /// fact that the `Data` type in Swift involves a new heap allocation every
-  /// time an empty instance is initialized, instead of sharing a common empty
-  /// backing storage.
-  public static let emptyData = Data()
+      /// A singleton instance of an empty data that is used by the generated code
+      /// for default values. This is a performance enhancement to work around the
+      /// fact that the `Data` type in Swift involves a new heap allocation every
+      /// time an empty instance is initialized, instead of sharing a common empty
+      /// backing storage.
+      public static let emptyData = Data()
 
-  /// Helper to loop over a list of Messages to see if they are all
-  /// initialized (see Message.isInitialized for what that means).
-  public static func areAllInitialized(_ listOfMessages: [Message]) -> Bool {
-    for msg in listOfMessages {
-      if !msg.isInitialized {
-        return false
+      /// Helper to loop over a list of Messages to see if they are all
+      /// initialized (see Message.isInitialized for what that means).
+      public static func areAllInitialized(_ listOfMessages: [Message]) -> Bool
+      {
+            for msg in listOfMessages { if !msg.isInitialized { return false } }
+            return true
       }
-    }
-    return true
-  }
 
-  /// Helper to loop over dictionary with values that are Messages to see if
-  /// they are all initialized (see Message.isInitialized for what that means).
-  public static func areAllInitialized<K>(_ mapToMessages: [K: Message]) -> Bool {
-    for (_, msg) in mapToMessages {
-      if !msg.isInitialized {
-        return false
+      /// Helper to loop over dictionary with values that are Messages to see if
+      /// they are all initialized (see Message.isInitialized for what that means).
+      public static func areAllInitialized<K>(_ mapToMessages: [K: Message])
+            -> Bool
+      {
+            for (_, msg) in mapToMessages {
+                  if !msg.isInitialized { return false }
+            }
+            return true
       }
-    }
-    return true
-  }
 }

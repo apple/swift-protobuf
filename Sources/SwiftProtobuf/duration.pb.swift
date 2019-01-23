@@ -35,7 +35,6 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 import Foundation
 
 // If the compiler emits an error on this type, it is because this file
@@ -43,9 +42,10 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck
+{
+      struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+      typealias Version = _2
 }
 
 /// A Duration represents a signed, fixed-length span of time represented
@@ -107,63 +107,75 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// be expressed in JSON format as "3.000000001s", and 3 seconds and 1
 /// microsecond should be expressed in JSON format as "3.000001s".
 public struct Google_Protobuf_Duration {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
 
-  /// Signed seconds of the span of time. Must be from -315,576,000,000
-  /// to +315,576,000,000 inclusive. Note: these bounds are computed from:
-  /// 60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
-  public var seconds: Int64 = 0
+      /// Signed seconds of the span of time. Must be from -315,576,000,000
+      /// to +315,576,000,000 inclusive. Note: these bounds are computed from:
+      /// 60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
+      public var seconds: Int64 = 0
 
-  /// Signed fractions of a second at nanosecond resolution of the span
-  /// of time. Durations less than one second are represented with a 0
-  /// `seconds` field and a positive or negative `nanos` field. For durations
-  /// of one second or more, a non-zero value for the `nanos` field must be
-  /// of the same sign as the `seconds` field. Must be from -999,999,999
-  /// to +999,999,999 inclusive.
-  public var nanos: Int32 = 0
+      /// Signed fractions of a second at nanosecond resolution of the span
+      /// of time. Durations less than one second are represented with a 0
+      /// `seconds` field and a positive or negative `nanos` field. For durations
+      /// of one second or more, a non-zero value for the `nanos` field must be
+      /// of the same sign as the `seconds` field. Must be from -999,999,999
+      /// to +999,999,999 inclusive.
+      public var nanos: Int32 = 0
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+      public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Duration"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-    2: .same(proto: "nanos"),
-  ]
+extension Google_Protobuf_Duration: SwiftProtobuf.Message,
+      SwiftProtobuf._MessageImplementationBase,
+      SwiftProtobuf._ProtoNameProviding
+{
+      public static let protoMessageName: String = _protobuf_package
+            + ".Duration"
+      public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+            1: .same(proto: "seconds"), 2: .same(proto: "nanos"),
+      ]
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &self.seconds)
-      case 2: try decoder.decodeSingularInt32Field(value: &self.nanos)
-      default: break
+      public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(
+            decoder: inout D
+      ) throws {
+            while let fieldNumber = try decoder.nextFieldNumber() {
+                  switch fieldNumber {
+                  case 1:
+                        try decoder.decodeSingularInt64Field(
+                              value: &self.seconds)
+                  case 2:
+                        try decoder.decodeSingularInt32Field(value: &self.nanos)
+                  default: break
+                  }
+            }
       }
-    }
-  }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
-    }
-    if self.nanos != 0 {
-      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+      public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+            if self.seconds != 0 {
+                  try visitor.visitSingularInt64Field(
+                        value: self.seconds, fieldNumber: 1)
+            }
+            if self.nanos != 0 {
+                  try visitor.visitSingularInt32Field(
+                        value: self.nanos, fieldNumber: 2)
+            }
+            try unknownFields.traverse(visitor: &visitor)
+      }
 
-  public static func ==(lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration) -> Bool {
-    if lhs.seconds != rhs.seconds {return false}
-    if lhs.nanos != rhs.nanos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+      public static func == (
+            lhs: Google_Protobuf_Duration, rhs: Google_Protobuf_Duration
+      ) -> Bool {
+            if lhs.seconds != rhs.seconds { return false }
+            if lhs.nanos != rhs.nanos { return false }
+            if lhs.unknownFields != rhs.unknownFields { return false }
+            return true
+      }
 }

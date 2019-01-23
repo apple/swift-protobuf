@@ -13,24 +13,25 @@
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse {
-  /// Helper to make a response with an error.
-  public init(error: String) {
-    self.init()
-    self.error = error
-  }
+      /// Helper to make a response with an error.
+      public init(error: String) {
+            self.init()
+            self.error = error
+      }
 
-  /// Helper to make a response with a set of files
-  public init(files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File]) {
-    self.init()
-    self.file = files
-  }
+      /// Helper to make a response with a set of files
+      public init(files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File])
+      {
+            self.init()
+            self.file = files
+      }
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File {
-  /// Helper to make a Response.File with specific content.
-  public init(name: String, content: String) {
-    self.init()
-    self.name = name
-    self.content = content
-  }
+      /// Helper to make a Response.File with specific content.
+      public init(name: String, content: String) {
+            self.init()
+            self.name = name
+            self.content = content
+      }
 }

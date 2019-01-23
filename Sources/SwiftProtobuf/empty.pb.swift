@@ -35,7 +35,6 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 import Foundation
 
 // If the compiler emits an error on this type, it is because this file
@@ -43,9 +42,10 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck
+{
+      struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+      typealias Version = _2
 }
 
 /// A generic empty message that you can re-use to avoid defining duplicated
@@ -58,34 +58,38 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// The JSON representation for `Empty` is empty JSON object `{}`.
 public struct Google_Protobuf_Empty {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public init() {}
+      public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = _protobuf_package + ".Empty"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+extension Google_Protobuf_Empty: SwiftProtobuf.Message,
+      SwiftProtobuf._MessageImplementationBase,
+      SwiftProtobuf._ProtoNameProviding
+{
+      public static let protoMessageName: String = _protobuf_package + ".Empty"
+      public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
+      public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(
+            decoder: inout D
+      ) throws { while let _ = try decoder.nextFieldNumber() {} }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+      public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+            try unknownFields.traverse(visitor: &visitor)
+      }
 
-  public static func ==(lhs: Google_Protobuf_Empty, rhs: Google_Protobuf_Empty) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+      public static func == (
+            lhs: Google_Protobuf_Empty, rhs: Google_Protobuf_Empty
+      ) -> Bool {
+            if lhs.unknownFields != rhs.unknownFields { return false }
+            return true
+      }
 }

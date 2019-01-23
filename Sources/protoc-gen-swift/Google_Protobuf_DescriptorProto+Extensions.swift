@@ -14,23 +14,21 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufPluginLibrary
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange {
 
-  /// A `String` containing the Swift range expression that represents this
-  /// extension range.
-  var swiftRangeExpression: String {
-    return "\(start)..<\(end)"
-  }
+      /// A `String` containing the Swift range expression that represents this
+      /// extension range.
+      var swiftRangeExpression: String { return "\(start)..<\(end)" }
 
-  /// A `String` containing the Swift Boolean expression that tests the given
-  /// variable for containment within this extension range.
-  ///
-  /// - Parameter variable: The name of the variable to test in the expression.
-  /// - Returns: A `String` containing the Boolean expression.
-  func swiftBooleanExpression(variable: String) -> String {
-    return "\(start) <= \(variable) && \(variable) < \(end)"
-  }
+      /// A `String` containing the Swift Boolean expression that tests the given
+      /// variable for containment within this extension range.
+      ///
+      /// - Parameter variable: The name of the variable to test in the expression.
+      /// - Returns: A `String` containing the Boolean expression.
+      func swiftBooleanExpression(variable: String) -> String {
+            return "\(start) <= \(variable) && \(variable) < \(end)"
+      }
 }
