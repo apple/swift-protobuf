@@ -334,6 +334,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatEncode("optional_float: inf\n") {(o: inout MessageTestType) in o.optionalFloat = Float.infinity}
         assertTextFormatEncode("optional_float: -inf\n") {(o: inout MessageTestType) in o.optionalFloat = -Float.infinity}
 
+        // protobuf conformance requires too-large floats to round to Infinity
         assertTextFormatDecodeSucceeds("optional_float: 3.4028235e+39\n") {
             (o: MessageTestType) in
             return o.optionalFloat == Float.infinity
@@ -341,6 +342,33 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("optional_float: -3.4028235e+39\n") {
             (o: MessageTestType) in
             return o.optionalFloat == -Float.infinity
+        }
+        // Too-small values round to zero (not currently checked by conformance)
+        assertTextFormatDecodeSucceeds("optional_float: 1e-50\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 0.0 && o.optionalFloat.sign == .plus
+        }
+        assertTextFormatDecodeSucceeds("optional_float: -1e-50\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 0.0 && o.optionalFloat.sign == .minus
+        }
+        // protobuf conformance requires subnormals to be handled
+        assertTextFormatDecodeSucceeds("optional_float: 1.17549e-39\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 1.17549e-39
+        }
+        assertTextFormatDecodeSucceeds("optional_float: -1.17549e-39\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == -1.17549e-39
+        }
+        // protobuf conformance requires integer forms larger than Int64 to be accepted
+        assertTextFormatDecodeSucceeds("optional_float: 18446744073709551616\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == 1.84467441e+19
+        }
+        assertTextFormatDecodeSucceeds("optional_float: -18446744073709551616\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == -1.84467441e+19
         }
 
         let b = Proto3Unittest_TestAllTypes.with {$0.optionalFloat = Float.nan}
