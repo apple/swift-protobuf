@@ -334,6 +334,15 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatEncode("optional_float: inf\n") {(o: inout MessageTestType) in o.optionalFloat = Float.infinity}
         assertTextFormatEncode("optional_float: -inf\n") {(o: inout MessageTestType) in o.optionalFloat = -Float.infinity}
 
+        assertTextFormatDecodeSucceeds("optional_float: 3.4028235e+39\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == Float.infinity
+        }
+        assertTextFormatDecodeSucceeds("optional_float: -3.4028235e+39\n") {
+            (o: MessageTestType) in
+            return o.optionalFloat == -Float.infinity
+        }
+
         let b = Proto3Unittest_TestAllTypes.with {$0.optionalFloat = Float.nan}
         XCTAssertEqual("optional_float: nan\n", b.textFormatString())
 

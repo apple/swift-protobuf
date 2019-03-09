@@ -800,10 +800,7 @@ internal struct TextFormatScanner {
 
     internal mutating func nextFloat() throws -> Float {
         if let d = tryParseFloatString() {
-            let n = Float(d)
-            if n.isFinite {
-                return n
-            }
+            return Float(d)
         }
         if skipOptionalNaN() {
             return Float.nan
