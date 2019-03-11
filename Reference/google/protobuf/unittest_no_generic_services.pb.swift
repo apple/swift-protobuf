@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 1
 
@@ -76,13 +76,13 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
 
 #if swift(>=4.2)
 
-extension Google_Protobuf_NoGenericServicesTest_TestEnum: CaseIterable {
+extension ProtobufUnittest_NoGenericServicesTest_TestEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
 
 #endif  // swift(>=4.2)
 
-struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -106,21 +106,21 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensib
 
 // MARK: - Extension support defined in unittest_no_generic_services.proto.
 
-extension Google_Protobuf_NoGenericServicesTest_TestMessage {
+extension ProtobufUnittest_NoGenericServicesTest_TestMessage {
 
-  var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
-    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
-    set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
+  var ProtobufUnittest_NoGenericServicesTest_testExtension: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
-  /// Returns true if extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`
+  /// Returns true if extension `ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension`
   /// has been explicitly set.
-  var hasGoogle_Protobuf_NoGenericServicesTest_testExtension: Bool {
-    return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
+  var hasProtobufUnittest_NoGenericServicesTest_testExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension)
   }
-  /// Clears the value of extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`.
+  /// Clears the value of extension `ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearGoogle_Protobuf_NoGenericServicesTest_testExtension() {
-    clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
+  mutating func clearProtobufUnittest_NoGenericServicesTest_testExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension)
   }
 
 }
@@ -129,26 +129,26 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
+let ProtobufUnittest_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension
 ]
 
-let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
+let ProtobufUnittest_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_NoGenericServicesTest_TestMessage>(
   _protobuf_fieldNumber: 1000,
-  fieldName: "google.protobuf.no_generic_services_test.test_extension"
+  fieldName: "protobuf_unittest.no_generic_services_test.test_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "google.protobuf.no_generic_services_test"
+fileprivate let _protobuf_package = "protobuf_unittest.no_generic_services_test"
 
-extension Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FOO"),
   ]
 }
 
-extension Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -164,7 +164,7 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Messa
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -178,7 +178,7 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Protobuf_NoGenericServicesTest_TestMessage, rhs: Google_Protobuf_NoGenericServicesTest_TestMessage) -> Bool {
+  static func ==(lhs: ProtobufUnittest_NoGenericServicesTest_TestMessage, rhs: ProtobufUnittest_NoGenericServicesTest_TestMessage) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
