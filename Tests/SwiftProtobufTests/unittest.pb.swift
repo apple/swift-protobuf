@@ -184,6 +184,337 @@ extension ProtobufUnittest_TestSparseEnum: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+enum ProtobufUnittest_VeryLargeEnum: SwiftProtobuf.Enum {
+  typealias RawValue = Int
+  case enumLabelDefault // = 0
+  case enumLabel1 // = 1
+  case enumLabel2 // = 2
+  case enumLabel3 // = 3
+  case enumLabel4 // = 4
+  case enumLabel5 // = 5
+  case enumLabel6 // = 6
+  case enumLabel7 // = 7
+  case enumLabel8 // = 8
+  case enumLabel9 // = 9
+  case enumLabel10 // = 10
+  case enumLabel11 // = 11
+  case enumLabel12 // = 12
+  case enumLabel13 // = 13
+  case enumLabel14 // = 14
+  case enumLabel15 // = 15
+  case enumLabel16 // = 16
+  case enumLabel17 // = 17
+  case enumLabel18 // = 18
+  case enumLabel19 // = 19
+  case enumLabel20 // = 20
+  case enumLabel21 // = 21
+  case enumLabel22 // = 22
+  case enumLabel23 // = 23
+  case enumLabel24 // = 24
+  case enumLabel25 // = 25
+  case enumLabel26 // = 26
+  case enumLabel27 // = 27
+  case enumLabel28 // = 28
+  case enumLabel29 // = 29
+  case enumLabel30 // = 30
+  case enumLabel31 // = 31
+  case enumLabel32 // = 32
+  case enumLabel33 // = 33
+  case enumLabel34 // = 34
+  case enumLabel35 // = 35
+  case enumLabel36 // = 36
+  case enumLabel37 // = 37
+  case enumLabel38 // = 38
+  case enumLabel39 // = 39
+  case enumLabel40 // = 40
+  case enumLabel41 // = 41
+  case enumLabel42 // = 42
+  case enumLabel43 // = 43
+  case enumLabel44 // = 44
+  case enumLabel45 // = 45
+  case enumLabel46 // = 46
+  case enumLabel47 // = 47
+  case enumLabel48 // = 48
+  case enumLabel49 // = 49
+  case enumLabel50 // = 50
+  case enumLabel51 // = 51
+  case enumLabel52 // = 52
+  case enumLabel53 // = 53
+  case enumLabel54 // = 54
+  case enumLabel55 // = 55
+  case enumLabel56 // = 56
+  case enumLabel57 // = 57
+  case enumLabel58 // = 58
+  case enumLabel59 // = 59
+  case enumLabel60 // = 60
+  case enumLabel61 // = 61
+  case enumLabel62 // = 62
+  case enumLabel63 // = 63
+  case enumLabel64 // = 64
+  case enumLabel65 // = 65
+  case enumLabel66 // = 66
+  case enumLabel67 // = 67
+  case enumLabel68 // = 68
+  case enumLabel69 // = 69
+  case enumLabel70 // = 70
+  case enumLabel71 // = 71
+  case enumLabel72 // = 72
+  case enumLabel73 // = 73
+  case enumLabel74 // = 74
+  case enumLabel75 // = 75
+  case enumLabel76 // = 76
+  case enumLabel77 // = 77
+  case enumLabel78 // = 78
+  case enumLabel79 // = 79
+  case enumLabel80 // = 80
+  case enumLabel81 // = 81
+  case enumLabel82 // = 82
+  case enumLabel83 // = 83
+  case enumLabel84 // = 84
+  case enumLabel85 // = 85
+  case enumLabel86 // = 86
+  case enumLabel87 // = 87
+  case enumLabel88 // = 88
+  case enumLabel89 // = 89
+  case enumLabel90 // = 90
+  case enumLabel91 // = 91
+  case enumLabel92 // = 92
+  case enumLabel93 // = 93
+  case enumLabel94 // = 94
+  case enumLabel95 // = 95
+  case enumLabel96 // = 96
+  case enumLabel97 // = 97
+  case enumLabel98 // = 98
+  case enumLabel99 // = 99
+  case enumLabel100 // = 100
+
+  init() {
+    self = .enumLabelDefault
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .enumLabelDefault
+    case 1: self = .enumLabel1
+    case 2: self = .enumLabel2
+    case 3: self = .enumLabel3
+    case 4: self = .enumLabel4
+    case 5: self = .enumLabel5
+    case 6: self = .enumLabel6
+    case 7: self = .enumLabel7
+    case 8: self = .enumLabel8
+    case 9: self = .enumLabel9
+    case 10: self = .enumLabel10
+    case 11: self = .enumLabel11
+    case 12: self = .enumLabel12
+    case 13: self = .enumLabel13
+    case 14: self = .enumLabel14
+    case 15: self = .enumLabel15
+    case 16: self = .enumLabel16
+    case 17: self = .enumLabel17
+    case 18: self = .enumLabel18
+    case 19: self = .enumLabel19
+    case 20: self = .enumLabel20
+    case 21: self = .enumLabel21
+    case 22: self = .enumLabel22
+    case 23: self = .enumLabel23
+    case 24: self = .enumLabel24
+    case 25: self = .enumLabel25
+    case 26: self = .enumLabel26
+    case 27: self = .enumLabel27
+    case 28: self = .enumLabel28
+    case 29: self = .enumLabel29
+    case 30: self = .enumLabel30
+    case 31: self = .enumLabel31
+    case 32: self = .enumLabel32
+    case 33: self = .enumLabel33
+    case 34: self = .enumLabel34
+    case 35: self = .enumLabel35
+    case 36: self = .enumLabel36
+    case 37: self = .enumLabel37
+    case 38: self = .enumLabel38
+    case 39: self = .enumLabel39
+    case 40: self = .enumLabel40
+    case 41: self = .enumLabel41
+    case 42: self = .enumLabel42
+    case 43: self = .enumLabel43
+    case 44: self = .enumLabel44
+    case 45: self = .enumLabel45
+    case 46: self = .enumLabel46
+    case 47: self = .enumLabel47
+    case 48: self = .enumLabel48
+    case 49: self = .enumLabel49
+    case 50: self = .enumLabel50
+    case 51: self = .enumLabel51
+    case 52: self = .enumLabel52
+    case 53: self = .enumLabel53
+    case 54: self = .enumLabel54
+    case 55: self = .enumLabel55
+    case 56: self = .enumLabel56
+    case 57: self = .enumLabel57
+    case 58: self = .enumLabel58
+    case 59: self = .enumLabel59
+    case 60: self = .enumLabel60
+    case 61: self = .enumLabel61
+    case 62: self = .enumLabel62
+    case 63: self = .enumLabel63
+    case 64: self = .enumLabel64
+    case 65: self = .enumLabel65
+    case 66: self = .enumLabel66
+    case 67: self = .enumLabel67
+    case 68: self = .enumLabel68
+    case 69: self = .enumLabel69
+    case 70: self = .enumLabel70
+    case 71: self = .enumLabel71
+    case 72: self = .enumLabel72
+    case 73: self = .enumLabel73
+    case 74: self = .enumLabel74
+    case 75: self = .enumLabel75
+    case 76: self = .enumLabel76
+    case 77: self = .enumLabel77
+    case 78: self = .enumLabel78
+    case 79: self = .enumLabel79
+    case 80: self = .enumLabel80
+    case 81: self = .enumLabel81
+    case 82: self = .enumLabel82
+    case 83: self = .enumLabel83
+    case 84: self = .enumLabel84
+    case 85: self = .enumLabel85
+    case 86: self = .enumLabel86
+    case 87: self = .enumLabel87
+    case 88: self = .enumLabel88
+    case 89: self = .enumLabel89
+    case 90: self = .enumLabel90
+    case 91: self = .enumLabel91
+    case 92: self = .enumLabel92
+    case 93: self = .enumLabel93
+    case 94: self = .enumLabel94
+    case 95: self = .enumLabel95
+    case 96: self = .enumLabel96
+    case 97: self = .enumLabel97
+    case 98: self = .enumLabel98
+    case 99: self = .enumLabel99
+    case 100: self = .enumLabel100
+    default: return nil
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .enumLabelDefault: return 0
+    case .enumLabel1: return 1
+    case .enumLabel2: return 2
+    case .enumLabel3: return 3
+    case .enumLabel4: return 4
+    case .enumLabel5: return 5
+    case .enumLabel6: return 6
+    case .enumLabel7: return 7
+    case .enumLabel8: return 8
+    case .enumLabel9: return 9
+    case .enumLabel10: return 10
+    case .enumLabel11: return 11
+    case .enumLabel12: return 12
+    case .enumLabel13: return 13
+    case .enumLabel14: return 14
+    case .enumLabel15: return 15
+    case .enumLabel16: return 16
+    case .enumLabel17: return 17
+    case .enumLabel18: return 18
+    case .enumLabel19: return 19
+    case .enumLabel20: return 20
+    case .enumLabel21: return 21
+    case .enumLabel22: return 22
+    case .enumLabel23: return 23
+    case .enumLabel24: return 24
+    case .enumLabel25: return 25
+    case .enumLabel26: return 26
+    case .enumLabel27: return 27
+    case .enumLabel28: return 28
+    case .enumLabel29: return 29
+    case .enumLabel30: return 30
+    case .enumLabel31: return 31
+    case .enumLabel32: return 32
+    case .enumLabel33: return 33
+    case .enumLabel34: return 34
+    case .enumLabel35: return 35
+    case .enumLabel36: return 36
+    case .enumLabel37: return 37
+    case .enumLabel38: return 38
+    case .enumLabel39: return 39
+    case .enumLabel40: return 40
+    case .enumLabel41: return 41
+    case .enumLabel42: return 42
+    case .enumLabel43: return 43
+    case .enumLabel44: return 44
+    case .enumLabel45: return 45
+    case .enumLabel46: return 46
+    case .enumLabel47: return 47
+    case .enumLabel48: return 48
+    case .enumLabel49: return 49
+    case .enumLabel50: return 50
+    case .enumLabel51: return 51
+    case .enumLabel52: return 52
+    case .enumLabel53: return 53
+    case .enumLabel54: return 54
+    case .enumLabel55: return 55
+    case .enumLabel56: return 56
+    case .enumLabel57: return 57
+    case .enumLabel58: return 58
+    case .enumLabel59: return 59
+    case .enumLabel60: return 60
+    case .enumLabel61: return 61
+    case .enumLabel62: return 62
+    case .enumLabel63: return 63
+    case .enumLabel64: return 64
+    case .enumLabel65: return 65
+    case .enumLabel66: return 66
+    case .enumLabel67: return 67
+    case .enumLabel68: return 68
+    case .enumLabel69: return 69
+    case .enumLabel70: return 70
+    case .enumLabel71: return 71
+    case .enumLabel72: return 72
+    case .enumLabel73: return 73
+    case .enumLabel74: return 74
+    case .enumLabel75: return 75
+    case .enumLabel76: return 76
+    case .enumLabel77: return 77
+    case .enumLabel78: return 78
+    case .enumLabel79: return 79
+    case .enumLabel80: return 80
+    case .enumLabel81: return 81
+    case .enumLabel82: return 82
+    case .enumLabel83: return 83
+    case .enumLabel84: return 84
+    case .enumLabel85: return 85
+    case .enumLabel86: return 86
+    case .enumLabel87: return 87
+    case .enumLabel88: return 88
+    case .enumLabel89: return 89
+    case .enumLabel90: return 90
+    case .enumLabel91: return 91
+    case .enumLabel92: return 92
+    case .enumLabel93: return 93
+    case .enumLabel94: return 94
+    case .enumLabel95: return 95
+    case .enumLabel96: return 96
+    case .enumLabel97: return 97
+    case .enumLabel98: return 98
+    case .enumLabel99: return 99
+    case .enumLabel100: return 100
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension ProtobufUnittest_VeryLargeEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
+
 /// This proto includes every type of field in both singular and repeated
 /// forms.
 struct ProtobufUnittest_TestAllTypes {
@@ -6733,6 +7064,112 @@ extension ProtobufUnittest_TestSparseEnum: SwiftProtobuf._ProtoNameProviding {
     123: .same(proto: "SPARSE_A"),
     62374: .same(proto: "SPARSE_B"),
     12589234: .same(proto: "SPARSE_C"),
+  ]
+}
+
+extension ProtobufUnittest_VeryLargeEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "ENUM_LABEL_DEFAULT"),
+    1: .same(proto: "ENUM_LABEL_1"),
+    2: .same(proto: "ENUM_LABEL_2"),
+    3: .same(proto: "ENUM_LABEL_3"),
+    4: .same(proto: "ENUM_LABEL_4"),
+    5: .same(proto: "ENUM_LABEL_5"),
+    6: .same(proto: "ENUM_LABEL_6"),
+    7: .same(proto: "ENUM_LABEL_7"),
+    8: .same(proto: "ENUM_LABEL_8"),
+    9: .same(proto: "ENUM_LABEL_9"),
+    10: .same(proto: "ENUM_LABEL_10"),
+    11: .same(proto: "ENUM_LABEL_11"),
+    12: .same(proto: "ENUM_LABEL_12"),
+    13: .same(proto: "ENUM_LABEL_13"),
+    14: .same(proto: "ENUM_LABEL_14"),
+    15: .same(proto: "ENUM_LABEL_15"),
+    16: .same(proto: "ENUM_LABEL_16"),
+    17: .same(proto: "ENUM_LABEL_17"),
+    18: .same(proto: "ENUM_LABEL_18"),
+    19: .same(proto: "ENUM_LABEL_19"),
+    20: .same(proto: "ENUM_LABEL_20"),
+    21: .same(proto: "ENUM_LABEL_21"),
+    22: .same(proto: "ENUM_LABEL_22"),
+    23: .same(proto: "ENUM_LABEL_23"),
+    24: .same(proto: "ENUM_LABEL_24"),
+    25: .same(proto: "ENUM_LABEL_25"),
+    26: .same(proto: "ENUM_LABEL_26"),
+    27: .same(proto: "ENUM_LABEL_27"),
+    28: .same(proto: "ENUM_LABEL_28"),
+    29: .same(proto: "ENUM_LABEL_29"),
+    30: .same(proto: "ENUM_LABEL_30"),
+    31: .same(proto: "ENUM_LABEL_31"),
+    32: .same(proto: "ENUM_LABEL_32"),
+    33: .same(proto: "ENUM_LABEL_33"),
+    34: .same(proto: "ENUM_LABEL_34"),
+    35: .same(proto: "ENUM_LABEL_35"),
+    36: .same(proto: "ENUM_LABEL_36"),
+    37: .same(proto: "ENUM_LABEL_37"),
+    38: .same(proto: "ENUM_LABEL_38"),
+    39: .same(proto: "ENUM_LABEL_39"),
+    40: .same(proto: "ENUM_LABEL_40"),
+    41: .same(proto: "ENUM_LABEL_41"),
+    42: .same(proto: "ENUM_LABEL_42"),
+    43: .same(proto: "ENUM_LABEL_43"),
+    44: .same(proto: "ENUM_LABEL_44"),
+    45: .same(proto: "ENUM_LABEL_45"),
+    46: .same(proto: "ENUM_LABEL_46"),
+    47: .same(proto: "ENUM_LABEL_47"),
+    48: .same(proto: "ENUM_LABEL_48"),
+    49: .same(proto: "ENUM_LABEL_49"),
+    50: .same(proto: "ENUM_LABEL_50"),
+    51: .same(proto: "ENUM_LABEL_51"),
+    52: .same(proto: "ENUM_LABEL_52"),
+    53: .same(proto: "ENUM_LABEL_53"),
+    54: .same(proto: "ENUM_LABEL_54"),
+    55: .same(proto: "ENUM_LABEL_55"),
+    56: .same(proto: "ENUM_LABEL_56"),
+    57: .same(proto: "ENUM_LABEL_57"),
+    58: .same(proto: "ENUM_LABEL_58"),
+    59: .same(proto: "ENUM_LABEL_59"),
+    60: .same(proto: "ENUM_LABEL_60"),
+    61: .same(proto: "ENUM_LABEL_61"),
+    62: .same(proto: "ENUM_LABEL_62"),
+    63: .same(proto: "ENUM_LABEL_63"),
+    64: .same(proto: "ENUM_LABEL_64"),
+    65: .same(proto: "ENUM_LABEL_65"),
+    66: .same(proto: "ENUM_LABEL_66"),
+    67: .same(proto: "ENUM_LABEL_67"),
+    68: .same(proto: "ENUM_LABEL_68"),
+    69: .same(proto: "ENUM_LABEL_69"),
+    70: .same(proto: "ENUM_LABEL_70"),
+    71: .same(proto: "ENUM_LABEL_71"),
+    72: .same(proto: "ENUM_LABEL_72"),
+    73: .same(proto: "ENUM_LABEL_73"),
+    74: .same(proto: "ENUM_LABEL_74"),
+    75: .same(proto: "ENUM_LABEL_75"),
+    76: .same(proto: "ENUM_LABEL_76"),
+    77: .same(proto: "ENUM_LABEL_77"),
+    78: .same(proto: "ENUM_LABEL_78"),
+    79: .same(proto: "ENUM_LABEL_79"),
+    80: .same(proto: "ENUM_LABEL_80"),
+    81: .same(proto: "ENUM_LABEL_81"),
+    82: .same(proto: "ENUM_LABEL_82"),
+    83: .same(proto: "ENUM_LABEL_83"),
+    84: .same(proto: "ENUM_LABEL_84"),
+    85: .same(proto: "ENUM_LABEL_85"),
+    86: .same(proto: "ENUM_LABEL_86"),
+    87: .same(proto: "ENUM_LABEL_87"),
+    88: .same(proto: "ENUM_LABEL_88"),
+    89: .same(proto: "ENUM_LABEL_89"),
+    90: .same(proto: "ENUM_LABEL_90"),
+    91: .same(proto: "ENUM_LABEL_91"),
+    92: .same(proto: "ENUM_LABEL_92"),
+    93: .same(proto: "ENUM_LABEL_93"),
+    94: .same(proto: "ENUM_LABEL_94"),
+    95: .same(proto: "ENUM_LABEL_95"),
+    96: .same(proto: "ENUM_LABEL_96"),
+    97: .same(proto: "ENUM_LABEL_97"),
+    98: .same(proto: "ENUM_LABEL_98"),
+    99: .same(proto: "ENUM_LABEL_99"),
+    100: .same(proto: "ENUM_LABEL_100"),
   ]
 }
 

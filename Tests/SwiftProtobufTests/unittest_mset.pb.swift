@@ -83,19 +83,37 @@ struct ProtobufUnittest_TestMessageSetExtension1 {
   // methods supported on all messages.
 
   var i: Int32 {
-    get {return _i ?? 0}
-    set {_i = newValue}
+    get {return _storage._i ?? 0}
+    set {_uniqueStorage()._i = newValue}
   }
   /// Returns true if `i` has been explicitly set.
-  var hasI: Bool {return self._i != nil}
+  var hasI: Bool {return _storage._i != nil}
   /// Clears the value of `i`. Subsequent reads from it will return its default value.
-  mutating func clearI() {self._i = nil}
+  mutating func clearI() {_uniqueStorage()._i = nil}
+
+  var recursive: Proto2WireformatUnittest_TestMessageSet {
+    get {return _storage._recursive ?? Proto2WireformatUnittest_TestMessageSet()}
+    set {_uniqueStorage()._recursive = newValue}
+  }
+  /// Returns true if `recursive` has been explicitly set.
+  var hasRecursive: Bool {return _storage._recursive != nil}
+  /// Clears the value of `recursive`. Subsequent reads from it will return its default value.
+  mutating func clearRecursive() {_uniqueStorage()._recursive = nil}
+
+  var testAliasing: String {
+    get {return _storage._testAliasing ?? String()}
+    set {_uniqueStorage()._testAliasing = newValue}
+  }
+  /// Returns true if `testAliasing` has been explicitly set.
+  var hasTestAliasing: Bool {return _storage._testAliasing != nil}
+  /// Clears the value of `testAliasing`. Subsequent reads from it will return its default value.
+  mutating func clearTestAliasing() {_uniqueStorage()._testAliasing = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _i: Int32? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestMessageSetExtension2 {
@@ -302,26 +320,81 @@ extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, Swif
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     15: .same(proto: "i"),
+    16: .same(proto: "recursive"),
+    17: .standard(proto: "test_aliasing"),
   ]
 
+  fileprivate class _StorageClass {
+    var _i: Int32? = nil
+    var _recursive: Proto2WireformatUnittest_TestMessageSet? = nil
+    var _testAliasing: String? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _i = source._i
+      _recursive = source._recursive
+      _testAliasing = source._testAliasing
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._recursive, !v.isInitialized {return false}
+      return true
+    }
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 15: try decoder.decodeSingularInt32Field(value: &self._i)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 15: try decoder.decodeSingularInt32Field(value: &_storage._i)
+        case 16: try decoder.decodeSingularMessageField(value: &_storage._recursive)
+        case 17: try decoder.decodeSingularStringField(value: &_storage._testAliasing)
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._i {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._i {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
+      }
+      if let v = _storage._recursive {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+      }
+      if let v = _storage._testAliasing {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestMessageSetExtension1, rhs: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
-    if lhs._i != rhs._i {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._i != rhs_storage._i {return false}
+        if _storage._recursive != rhs_storage._recursive {return false}
+        if _storage._testAliasing != rhs_storage._testAliasing {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
