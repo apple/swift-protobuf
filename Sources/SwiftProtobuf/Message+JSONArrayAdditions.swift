@@ -91,14 +91,19 @@ extension Message {
     fromJSONUTF8Data jsonUTF8Data: Data,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
-    return try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+    return try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       var array = [Self]()
-      let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
-      var decoder = JSONDecoder(source: buffer, options: options)
-      try decoder.decodeRepeatedMessageField(value: &array)
-      if !decoder.scanner.complete {
-        throw JSONDecodingError.trailingGarbage
+
+      if let baseAddress = body.baseAddress, body.count > 0 {
+        let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
+        let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
+        var decoder = JSONDecoder(source: buffer, options: options)
+        try decoder.decodeRepeatedMessageField(value: &array)
+        if !decoder.scanner.complete {
+          throw JSONDecodingError.trailingGarbage
+        }
       }
+
       return array
     }
   }

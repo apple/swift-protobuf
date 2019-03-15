@@ -70,14 +70,17 @@ extension Message {
     self.init()
     if !textFormatString.isEmpty {
       if let data = textFormatString.data(using: String.Encoding.utf8) {
-        try data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-          var decoder = try TextFormatDecoder(messageType: Self.self,
-                                              utf8Pointer: bytes,
-                                              count: data.count,
-                                              extensions: extensions)
-          try decodeMessage(decoder: &decoder)
-          if !decoder.complete {
-            throw TextFormatDecodingError.trailingGarbage
+        try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+          if let baseAddress = body.baseAddress, body.count > 0 {
+            let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
+            var decoder = try TextFormatDecoder(messageType: Self.self,
+                                                utf8Pointer: bytes,
+                                                count: body.count,
+                                                extensions: extensions)
+            try decodeMessage(decoder: &decoder)
+            if !decoder.complete {
+              throw TextFormatDecodingError.trailingGarbage
+            }
           }
         }
       }

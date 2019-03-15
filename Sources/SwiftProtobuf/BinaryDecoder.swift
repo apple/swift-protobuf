@@ -876,13 +876,16 @@ internal struct BinaryDecoder: Decoder {
                 }
                 let fieldSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(bodySize)) + bodySize
                 var field = Data(count: fieldSize)
-                field.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                field.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
+                  if let baseAddress = body.baseAddress, body.count > 0 {
+                    let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
                     var encoder = BinaryEncoder(forWritingInto: pointer)
                     encoder.startField(tag: fieldTag)
                     encoder.putVarInt(value: Int64(bodySize))
                     for v in extras {
                         encoder.putVarInt(value: Int64(v))
                     }
+                  }
                 }
                 unknownOverride = field
             }
@@ -1204,9 +1207,11 @@ internal struct BinaryDecoder: Decoder {
                 // If there already was fieldData, decode it.
                 if let data = fieldData {
                     var wasDecoded = false
-                    try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
+                    try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+                      if let baseAddress = body.baseAddress, body.count > 0 {
+                        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
                         var extDecoder = BinaryDecoder(forReadingFrom: pointer,
-                                                       count: data.count,
+                                                       count: body.count,
                                                        parent: self)
                         // Prime the decode to be correct.
                         extDecoder.consumed = false
@@ -1216,6 +1221,7 @@ internal struct BinaryDecoder: Decoder {
                                                             fieldNumber: fieldNumber,
                                                             messageExtension: ext)
                         wasDecoded = extDecoder.consumed
+                      }
                     }
                     if !wasDecoded {
                         return .malformed
@@ -1245,9 +1251,12 @@ internal struct BinaryDecoder: Decoder {
                         // Save it as length delimited
                         let payloadSize = Varint.encodedSize(of: Int64(data.count)) + data.count
                         var payload = Data(count: payloadSize)
-                        payload.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                        payload.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
+                          if let baseAddress = body.baseAddress, body.count > 0 {
+                            let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
                             var encoder = BinaryEncoder(forWritingInto: pointer)
                             encoder.putBytesValue(value: data)
+                          }
                         }
                         fieldData = payload
                     } else {
