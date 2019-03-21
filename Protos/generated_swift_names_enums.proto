@@ -279,7 +279,6 @@ message GeneratedSwiftReservedEnums {
   enum isEqual { NONE_isEqual = 0; }
   enum isEqualTo { NONE_isEqualTo = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
-  enum it { NONE_it = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
   enum i_2166136261 { NONE_i_2166136261 = 0; }
   enum JSONDecoder { NONE_JSONDecoder = 0; }
@@ -369,7 +368,6 @@ message GeneratedSwiftReservedEnums {
   enum other { NONE_other = 0; }
   enum others { NONE_others = 0; }
   enum out { NONE_out = 0; }
-  enum output { NONE_output = 0; }
   enum p { NONE_p = 0; }
   enum packed { NONE_packed = 0; }
   enum PackedEnumExtensionField { NONE_PackedEnumExtensionField = 0; }
@@ -545,7 +543,6 @@ message GeneratedSwiftReservedEnums {
   enum updatedOptions { NONE_updatedOptions = 0; }
   enum url { NONE_url = 0; }
   enum utf8 { NONE_utf8 = 0; }
-  enum utf8Codec { NONE_utf8Codec = 0; }
   enum utf8ToDouble { NONE_utf8ToDouble = 0; }
   enum UTF8View { NONE_UTF8View = 0; }
   enum v { NONE_v = 0; }
