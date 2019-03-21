@@ -538,11 +538,11 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertRoundTripJSON {$0.optionalFloat = 1e-10}
         assertRoundTripJSON {$0.optionalFloat = 1e-20}
         assertRoundTripJSON {$0.optionalFloat = 1e-30}
-        assertRoundTripJSON {$0.optionalFloat = 1e-40}
-        assertRoundTripJSON {$0.optionalFloat = 1e-50}
-        assertRoundTripJSON {$0.optionalFloat = 1e-60}
-        assertRoundTripJSON {$0.optionalFloat = 1e-100}
-        assertRoundTripJSON {$0.optionalFloat = 1e-200}
+        assertRoundTripJSON {$0.optionalFloat = Float(1e-40)}
+        assertRoundTripJSON {$0.optionalFloat = Float(1e-50)}
+        assertRoundTripJSON {$0.optionalFloat = Float(1e-60)}
+        assertRoundTripJSON {$0.optionalFloat = Float(1e-100)}
+        assertRoundTripJSON {$0.optionalFloat = Float(1e-200)}
         assertRoundTripJSON {$0.optionalFloat = Float.pi}
         assertRoundTripJSON {$0.optionalFloat = 123456.789123456789123}
         assertRoundTripJSON {$0.optionalFloat = 1999.9999999999}
