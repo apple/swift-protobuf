@@ -20,9 +20,6 @@ import Foundation
   import Darwin.C
 #endif
 
-// Alias clib's write() so Stdout.write(bytes:) can call it.
-private let _write = write
-
 private func printToFd(_ s: String, fd: Int32, appendNewLine: Bool = true) {
   // Write UTF-8 bytes
   let bytes: [UInt8] = [UInt8](s.utf8)
