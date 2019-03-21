@@ -14,35 +14,13 @@
 // -----------------------------------------------------------------------------
 import Foundation
 
-#if os(Linux)
-  import Glibc
-#else
-  import Darwin.C
-#endif
-
-private func printToFd(_ s: String, fd: Int32, appendNewLine: Bool = true) {
-  // Write UTF-8 bytes
-  let bytes: [UInt8] = [UInt8](s.utf8)
-  bytes.withUnsafeBufferPointer { (bp: UnsafeBufferPointer<UInt8>) -> () in
-    write(fd, bp.baseAddress, bp.count)
-  }
-  if appendNewLine {
-    // Write trailing newline
-    [UInt8(10)].withUnsafeBufferPointer { (bp: UnsafeBufferPointer<UInt8>) -> () in
-      write(fd, bp.baseAddress, bp.count)
-    }
-  }
-}
-
 class Stderr {
   static func print(_ s: String) {
-    let out = "\(CommandLine.programName): " + s
-    printToFd(out, fd: 2)
+    let out = "\(CommandLine.programName): \(s)\n"
+    if let data = out.data(using: .utf8) {
+      FileHandle.standardError.write(data)
+    }
   }
-}
-
-class Stdout {
-  static func print(_ s: String) { printToFd(s, fd: 1) }
 }
 
 func readFileData(filename: String) throws -> Data {
