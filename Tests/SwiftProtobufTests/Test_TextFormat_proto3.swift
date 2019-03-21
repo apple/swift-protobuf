@@ -355,11 +355,11 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         // protobuf conformance requires subnormals to be handled
         assertTextFormatDecodeSucceeds("optional_float: 1.17549e-39\n") {
             (o: MessageTestType) in
-            return o.optionalFloat == 1.17549e-39
+            return o.optionalFloat == Float(1.17549e-39)
         }
         assertTextFormatDecodeSucceeds("optional_float: -1.17549e-39\n") {
             (o: MessageTestType) in
-            return o.optionalFloat == -1.17549e-39
+            return o.optionalFloat == Float(-1.17549e-39)
         }
         // protobuf conformance requires integer forms larger than Int64 to be accepted
         assertTextFormatDecodeSucceeds("optional_float: 18446744073709551616\n") {
@@ -420,17 +420,17 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertRoundTripText {$0.optionalFloat = 1e-10}
         assertRoundTripText {$0.optionalFloat = 1e-20}
         assertRoundTripText {$0.optionalFloat = 1e-30}
-        assertRoundTripText {$0.optionalFloat = 1e-40}
-        assertRoundTripText {$0.optionalFloat = 1e-50}
-        assertRoundTripText {$0.optionalFloat = 1e-60}
-        assertRoundTripText {$0.optionalFloat = 1e-100}
-        assertRoundTripText {$0.optionalFloat = 1e-200}
+        assertRoundTripText {$0.optionalFloat = Float(1e-40)}
+        assertRoundTripText {$0.optionalFloat = Float(1e-50)}
+        assertRoundTripText {$0.optionalFloat = Float(1e-60)}
+        assertRoundTripText {$0.optionalFloat = Float(1e-100)}
+        assertRoundTripText {$0.optionalFloat = Float(1e-200)}
         assertRoundTripText {$0.optionalFloat = Float.pi}
         assertRoundTripText {$0.optionalFloat = 123456.789123456789123}
         assertRoundTripText {$0.optionalFloat = 1999.9999999999}
         assertRoundTripText {$0.optionalFloat = 1999.9}
         assertRoundTripText {$0.optionalFloat = 1999.99}
-        assertRoundTripText {$0.optionalFloat = 1999.99}
+        assertRoundTripText {$0.optionalFloat = 1999.999}
         assertRoundTripText {$0.optionalFloat = 3.402823567e+38}
         assertRoundTripText {$0.optionalFloat = 1.1754944e-38}
     }
