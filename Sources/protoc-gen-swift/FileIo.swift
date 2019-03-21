@@ -68,7 +68,7 @@ class Stdin {
         if count > 0 {
           buff += fragment[0..<count]
         }
-        return Data(bytes: buff)
+        return Data(buff)
       }
       buff += fragment
     }

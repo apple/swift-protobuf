@@ -36,7 +36,7 @@ func readRequest() -> Data? {
     if read2 < count {
         return nil
     }
-    return Data(bytes: buff)
+    return Data(buff)
 }
 
 func writeResponse(data: Data) {

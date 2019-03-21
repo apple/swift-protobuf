@@ -61,7 +61,7 @@ class Test_Wrappers: XCTestCase {
         // Use object equality to verify decode
         XCTAssertEqual(m, try Google_Protobuf_DoubleValue(jsonString:"1.0"))
         XCTAssertEqual(m2, try Google_Protobuf_DoubleValue(jsonString:"2"))
-        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(serializedData: Data(bytes: [9,0,0,0,0,0,0,240,63])))
+        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(serializedData: Data([9,0,0,0,0,0,0,240,63])))
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_DoubleValue(jsonString:"1.0").hashValue)
@@ -97,7 +97,7 @@ class Test_Wrappers: XCTestCase {
         // Use object equality to verify decode
         XCTAssertEqual(m, try Google_Protobuf_FloatValue(jsonString:"1.0"))
         XCTAssertEqual(m2, try Google_Protobuf_FloatValue(jsonString:"2"))
-        XCTAssertEqual(m, try Google_Protobuf_FloatValue(serializedData: Data(bytes: [13,0,0,128,63])))
+        XCTAssertEqual(m, try Google_Protobuf_FloatValue(serializedData: Data([13,0,0,128,63])))
 
         XCTAssertThrowsError(try Google_Protobuf_FloatValue(jsonString:"-3.502823e+38"))
         XCTAssertThrowsError(try Google_Protobuf_FloatValue(jsonString:"3.502823e+38"))
@@ -236,7 +236,7 @@ class Test_Wrappers: XCTestCase {
     func testBytesValue() throws {
         var m = Google_Protobuf_BytesValue()
         XCTAssertEqual("\"\"", try m.jsonString())
-        m.value = Data(bytes: [0, 1, 2])
+        m.value = Data([0, 1, 2])
         XCTAssertEqual("\"AAEC\"", try m.jsonString())
         XCTAssertEqual([10,3,0,1,2], try m.serializedBytes())
         // TODO: More

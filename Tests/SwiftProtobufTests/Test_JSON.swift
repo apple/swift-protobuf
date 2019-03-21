@@ -36,7 +36,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         o.optionalDouble = 12
         o.optionalBool = true
         o.optionalString = "abc"
-        o.optionalBytes = Data(bytes: [65, 66])
+        o.optionalBytes = Data([65, 66])
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o.optionalNestedMessage = nested
@@ -65,7 +65,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         o.repeatedDouble = [23, 24]
         o.repeatedBool = [true, false]
         o.repeatedString = ["abc", "def"]
-        o.repeatedBytes = [Data(), Data(bytes: [65, 66])]
+        o.repeatedBytes = [Data(), Data([65, 66])]
         var nested2 = nested
         nested2.bb = -7
         o.repeatedNestedMessage = [nested, nested2]
@@ -661,56 +661,56 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         XCTAssertEqual(try a.jsonString(), "{}")
 
         assertJSONEncode("{\"optionalBytes\":\"AA==\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [0])
+            o.optionalBytes = Data([0])
         }
         assertJSONEncode("{\"optionalBytes\":\"AAA=\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [0, 0])
+            o.optionalBytes = Data([0, 0])
         }
         assertJSONEncode("{\"optionalBytes\":\"AAAA\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [0, 0, 0])
+            o.optionalBytes = Data([0, 0, 0])
         }
         assertJSONEncode("{\"optionalBytes\":\"/w==\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [255])
+            o.optionalBytes = Data([255])
         }
         assertJSONEncode("{\"optionalBytes\":\"//8=\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [255, 255])
+            o.optionalBytes = Data([255, 255])
         }
         assertJSONEncode("{\"optionalBytes\":\"////\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [255, 255, 255])
+            o.optionalBytes = Data([255, 255, 255])
         }
         assertJSONEncode("{\"optionalBytes\":\"QQ==\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [65])
+            o.optionalBytes = Data([65])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"QQ=\"}")
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"QQ\"}") {
-            $0.optionalBytes == Data(bytes: [65])
+            $0.optionalBytes == Data([65])
         }
         assertJSONEncode("{\"optionalBytes\":\"QUI=\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [65, 66])
+            o.optionalBytes = Data([65, 66])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUI\"}") {
-            $0.optionalBytes == Data(bytes: [65, 66])
+            $0.optionalBytes == Data([65, 66])
         }
         assertJSONEncode("{\"optionalBytes\":\"QUJD\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [65, 66, 67])
+            o.optionalBytes = Data([65, 66, 67])
         }
         assertJSONEncode("{\"optionalBytes\":\"QUJDRA==\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [65, 66, 67, 68])
+            o.optionalBytes = Data([65, 66, 67, 68])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA===\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA=\"}")
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUJDRA\"}") {
-            $0.optionalBytes == Data(bytes: [65, 66, 67, 68])
+            $0.optionalBytes == Data([65, 66, 67, 68])
         }
         assertJSONEncode("{\"optionalBytes\":\"QUJDREU=\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [65, 66, 67, 68, 69])
+            o.optionalBytes = Data([65, 66, 67, 68, 69])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREU==\"}")
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUJDREU\"}") {
-            $0.optionalBytes == Data(bytes: [65, 66, 67, 68, 69])
+            $0.optionalBytes == Data([65, 66, 67, 68, 69])
         }
         assertJSONEncode("{\"optionalBytes\":\"QUJDREVG\"}") {(o: inout MessageTestType) in
-            o.optionalBytes = Data(bytes: [65, 66, 67, 68, 69, 70])
+            o.optionalBytes = Data([65, 66, 67, 68, 69, 70])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG=\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG==\"}")
@@ -718,15 +718,15 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG====\"}")
         // Google's parser accepts and ignores spaces:
         assertJSONDecodeSucceeds("{\"optionalBytes\":\" Q U J D R E U \"}") {
-            $0.optionalBytes == Data(bytes: [65, 66, 67, 68, 69])
+            $0.optionalBytes == Data([65, 66, 67, 68, 69])
         }
         // Accept both RFC4648 Section 4 "base64" and Section 5
         // "URL-safe base64" variants, but reject mixed coding:
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"-_-_\"}") {
-            $0.optionalBytes == Data(bytes: [251, 255, 191])
+            $0.optionalBytes == Data([251, 255, 191])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"+/+/\"}") {
-            $0.optionalBytes == Data(bytes: [251, 255, 191])
+            $0.optionalBytes == Data([251, 255, 191])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"-_+/\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"-_+\\/\"}")
@@ -735,28 +735,28 @@ class Test_JSON: XCTestCase, PBTestHelpers {
     func testOptionalBytes_escapes() {
         // Many JSON encoders escape "/":
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/w==\"}") {
-            $0.optionalBytes == Data(bytes: [255])
+            $0.optionalBytes == Data([255])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/w\"}") {
-            $0.optionalBytes == Data(bytes: [255])
+            $0.optionalBytes == Data([255])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/\\/\"}") {
-            $0.optionalBytes == Data(bytes: [255])
+            $0.optionalBytes == Data([255])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"a\\/\"}") {
-            $0.optionalBytes == Data(bytes: [107])
+            $0.optionalBytes == Data([107])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"ab\\/\"}") {
-            $0.optionalBytes == Data(bytes: [105, 191])
+            $0.optionalBytes == Data([105, 191])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"abc\\/\"}") {
-            $0.optionalBytes == Data(bytes: [105, 183, 63])
+            $0.optionalBytes == Data([105, 183, 63])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/a\"}") {
-            $0.optionalBytes == Data(bytes: [253])
+            $0.optionalBytes == Data([253])
         }
         assertJSONDecodeSucceeds("{\"optionalBytes\":\"\\/\\/\\/\\/\"}") {
-            $0.optionalBytes == Data(bytes: [255, 255, 255])
+            $0.optionalBytes == Data([255, 255, 255])
         }
         // Most backslash escapes decode to values that are
         // not legal in base-64 encoded strings
@@ -774,7 +774,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testOptionalBytes_roundtrip() throws {
         for i in UInt8(0)...UInt8(255) {
-            let d = Data(bytes: [i])
+            let d = Data([i])
             let message = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = d }
             let text = try message.jsonString()
             let decoded = try Proto3Unittest_TestAllTypes(jsonString: text)

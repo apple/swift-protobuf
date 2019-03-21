@@ -25,7 +25,7 @@ class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_escapedBytes() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
-        XCTAssertEqual(m.escapedBytes, Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]))
+        XCTAssertEqual(m.escapedBytes, Data([0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]))
     }
 
     func test_largeUint32() {
@@ -145,7 +145,7 @@ class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_bytesWithZero() {
         let m = ProtobufUnittest_TestExtremeDefaultValues()
-        XCTAssertEqual(m.bytesWithZero, Data(bytes: [119, 111, 114, 0, 108, 100]))
+        XCTAssertEqual(m.bytesWithZero, Data([119, 111, 114, 0, 108, 100]))
     }
 
     func test_stringPieceWithZero() {

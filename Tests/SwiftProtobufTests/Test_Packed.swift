@@ -361,7 +361,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         
         // Unknown enums within packed become separate unknown entries
         do {
-            let decoded1 = try ProtobufUnittest_TestPackedTypes(serializedData: Data(bytes: [186, 6, 3, 4, 99, 6]))
+            let decoded1 = try ProtobufUnittest_TestPackedTypes(serializedData: Data([186, 6, 3, 4, 99, 6]))
             XCTAssertEqual(decoded1.packedEnum, [.foreignFoo, .foreignBaz])
             let recoded1 = try decoded1.serializedBytes()
             XCTAssertEqual(recoded1, [186, 6, 2, 4, 6, 186, 6, 1, 99])

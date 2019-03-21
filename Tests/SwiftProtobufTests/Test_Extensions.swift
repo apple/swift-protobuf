@@ -29,7 +29,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializedData()
-            XCTAssert(Data(bytes: expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(serializedData: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -43,7 +43,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func assertDecodeSucceeds(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
-            let decoded = try MessageTestType(serializedData: Data(bytes: bytes), extensions: extensions)
+            let decoded = try MessageTestType(serializedData: Data(bytes), extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             let encoded = try decoded.serializedData()
@@ -61,7 +61,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedData: Data(bytes: bytes), extensions: extensions)
+            let _ = try MessageTestType(serializedData: Data(bytes), extensions: extensions)
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch {
             // Yay!  It failed!
@@ -108,7 +108,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         assertDecodeFails([15, 0])
 
         // Decoded extension should correctly compare to a manually-set extension
-        let m1 = try ProtobufUnittest_TestAllExtensions(serializedData: Data(bytes: [8, 17]), extensions: extensions)
+        let m1 = try ProtobufUnittest_TestAllExtensions(serializedData: Data([8, 17]), extensions: extensions)
         var m2 = ProtobufUnittest_TestAllExtensions()
         m2.ProtobufUnittest_optionalInt32Extension = 17
         XCTAssertEqual(m1, m2)
@@ -127,11 +127,11 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         extensions.insert(ProtobufUnittest_Extensions_my_extension_int)
 
         // This should decode with optionalSint32Extension
-        let m1 = try ProtobufUnittest_TestAllExtensions(serializedData: Data(bytes: [40, 1]), extensions: extensions)
+        let m1 = try ProtobufUnittest_TestAllExtensions(serializedData: Data([40, 1]), extensions: extensions)
         XCTAssertEqual(m1.ProtobufUnittest_optionalSint32Extension, -1)
 
         // This should decode with myExtensionInt
-        let m2 = try ProtobufUnittest_TestFieldOrderings(serializedData: Data(bytes: [40, 1]), extensions: extensions)
+        let m2 = try ProtobufUnittest_TestFieldOrderings(serializedData: Data([40, 1]), extensions: extensions)
         XCTAssertEqual(m2.ProtobufUnittest_myExtensionInt, 1)
     }
 

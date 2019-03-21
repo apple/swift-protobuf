@@ -155,7 +155,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedData: Data(bytes: bytes))
+            let _ = try MessageTestType(serializedData: Data(bytes))
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch BinaryDecodingError.missingRequiredFields {
             // Correct error!
@@ -167,7 +167,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding partial succeeds.
     fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let msg = try MessageTestType(serializedData: Data(bytes: bytes), partial: true)
+            let msg = try MessageTestType(serializedData: Data(bytes), partial: true)
             var expected = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -241,7 +241,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
         var allBytesData = Data()
         var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytesData.append(Data(bytes:bytes))
+          allBytesData.append(Data(bytes))
           allTextFormattedField.append(textFormattedField)
           allTextFormattedField.append("\n")
         }
@@ -265,7 +265,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let data = try message.serializedData(partial: true)
-            XCTAssertEqual(data, Data(bytes:expectedBytes), "While encoding \(message)", file: file, line: line)
+            XCTAssertEqual(data, Data(expectedBytes), "While encoding \(message)", file: file, line: line)
         } catch let e {
             XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
         }
@@ -296,7 +296,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([97, 0, 0, 0, 0, 0, 0, 40, 64], { (m) in m.requiredDouble = 12 }),
             ([104, 1], { (m) in m.requiredBool = true }),
             ([114, 2, 49, 52], { (m) in m.requiredString = "14" }),
-            ([122, 1, 15], { (m) in m.requiredBytes = Data(bytes: [15]) }),
+            ([122, 1, 15], { (m) in m.requiredBytes = Data([15]) }),
             ([131, 1, 136, 1, 16, 132, 1], { (m) in m.requiredGroup.a = 16 }),
             ([146, 1, 2, 8, 18], { (m) in m.requiredNestedMessage.bb = 18 }),
             ([154, 1, 2, 8, 19], { (m) in m.requiredForeignMessage.c = 19 }),
@@ -322,7 +322,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([193, 4, 0, 0, 0, 0, 0, 0, 82, 64], { (m) in m.defaultDouble = 72 }),
             ([200, 4, 0], { (m) in m.defaultBool = false }),
             ([210, 4, 2, 55, 52], { (m) in m.defaultString = "74" }),
-            ([218, 4, 1, 75], { (m) in m.defaultBytes = Data(bytes: [75]) }),
+            ([218, 4, 1, 75], { (m) in m.defaultBytes = Data([75]) }),
             ([136, 5, 3], { (m) in m.defaultNestedEnum = .baz }),
             ([144, 5, 6], { (m) in m.defaultForeignEnum = .foreignBaz }),
             ([152, 5, 9], { (m) in m.defaultImportEnum = .importBaz }),
@@ -340,7 +340,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
         var allExpectedData = Data()
         msg = MessageTestType()
         for (expected, configure) in testInputs {
-            allExpectedData.append(Data(bytes:expected))
+            allExpectedData.append(Data(expected))
             configure(&msg)
         }
         let serialized = try msg.serializedData()
@@ -355,7 +355,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedData: Data(bytes: bytes))
+            let _ = try MessageTestType(serializedData: Data(bytes))
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch BinaryDecodingError.missingRequiredFields {
             // Correct error!
@@ -367,7 +367,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding partial succeeds.
     fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let msg = try MessageTestType(serializedData: Data(bytes: bytes), partial: true)
+            let msg = try MessageTestType(serializedData: Data(bytes), partial: true)
             var expected = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -401,7 +401,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
         var allBytesData = Data()
         var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytesData.append(Data(bytes:bytes))
+          allBytesData.append(Data(bytes))
           allTextFormattedField.append(textFormattedField)
           allTextFormattedField.append("\n")
         }
@@ -425,7 +425,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let data = try message.serializedData(partial: true)
-            XCTAssertEqual(data, Data(bytes:expectedBytes), "While encoding \(message)", file: file, line: line)
+            XCTAssertEqual(data, Data(expectedBytes), "While encoding \(message)", file: file, line: line)
         } catch let e {
             XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
         }
@@ -446,7 +446,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
             ([21, 0, 0, 0, 64], { (m) in m.requiredFloat = 2 }),
             ([24, 1], { (m) in m.requiredBool = true }),
             ([34, 1, 52], { (m) in m.requiredString = "4" }),
-            ([42, 1, 5], { (m) in m.requiredBytes = Data(bytes: [5]) }),
+            ([42, 1, 5], { (m) in m.requiredBytes = Data([5]) }),
             ([48, 1], { (m) in m.requiredNestedEnum = .foo }),
         ]
         for (expected, configure) in testInputs {
@@ -460,7 +460,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
         var allExpectedData = Data()
         msg = MessageTestType()
         for (expected, configure) in testInputs {
-            allExpectedData.append(Data(bytes:expected))
+            allExpectedData.append(Data(expected))
             configure(&msg)
         }
         let serialized = try msg.serializedData()

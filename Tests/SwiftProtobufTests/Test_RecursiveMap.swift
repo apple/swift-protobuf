@@ -25,7 +25,7 @@ class Test_RecursiveMap: XCTestCase {
 
         do {
             let encoded = try outer.serializedData()
-            XCTAssertEqual(encoded, Data(bytes: [10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0]))
+            XCTAssertEqual(encoded, Data([10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0]))
 
             let decodedOuter = try ProtobufUnittest_TestRecursiveMapMessage(serializedData: encoded)
             if let decodedMid = decodedOuter.a["2"] {
