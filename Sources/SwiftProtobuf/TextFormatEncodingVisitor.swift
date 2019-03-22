@@ -23,6 +23,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   private var nameMap: _NameMap?
   private var nameResolver: [Int:StaticString]
   private var extensions: ExtensionFieldValueSet?
+  private let options: TextFormatEncodingOptions
 
   /// The protobuf text produced by the visitor.
   var result: String {
@@ -31,13 +32,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format.
-  init(message: Message) {
-    self.init(message: message, encoder: TextFormatEncoder())
+  init(message: Message, options: TextFormatEncodingOptions) {
+    self.init(message: message, encoder: TextFormatEncoder(), options: options)
   }
 
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format, using an existing encoder.
-  private init(message: Message, encoder: TextFormatEncoder) {
+  private init(message: Message, encoder: TextFormatEncoder, options: TextFormatEncodingOptions) {
     let nameMap: _NameMap?
     if let nameProviding = message as? _ProtoNameProviding {
         nameMap = type(of: nameProviding)._protobuf_nameMap
@@ -45,14 +46,21 @@ internal struct TextFormatEncodingVisitor: Visitor {
         nameMap = nil
     }
     let extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
-    self.init(nameMap: nameMap, nameResolver: [:], extensions: extensions, encoder: encoder)
+    self.init(nameMap: nameMap, nameResolver: [:], extensions: extensions, encoder: encoder, options: options)
   }
 
-  private init(nameMap: _NameMap?, nameResolver: [Int:StaticString], extensions: ExtensionFieldValueSet?, encoder: TextFormatEncoder) {
+  private init(
+    nameMap: _NameMap?,
+    nameResolver: [Int:StaticString],
+    extensions: ExtensionFieldValueSet?,
+    encoder: TextFormatEncoder,
+    options: TextFormatEncodingOptions
+  ) {
     self.nameMap = nameMap
     self.nameResolver = nameResolver
     self.extensions = extensions
     self.encoder = encoder
+    self.options = options
   }
 
   private mutating func emitFieldName(lookingUp fieldNumber: Int) {
@@ -68,11 +76,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitUnknown(bytes: Data) throws {
-      try bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
-          var decoder = BinaryDecoder(forReadingFrom: p,
-                                      count: bytes.count,
-                                      options: BinaryDecodingOptions())
-          try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
+      if options.printUnknownFields {
+          try bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
+              var decoder = BinaryDecoder(forReadingFrom: p,
+                                          count: bytes.count,
+                                          options: BinaryDecodingOptions())
+              try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
+          }
       }
   }
 
@@ -204,7 +214,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
                                              fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startMessageField()
-      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
+      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder, options: options)
       if let any = value as? Google_Protobuf_Any {
           any.textTraverse(visitor: &visitor)
       } else {
@@ -220,7 +230,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   internal mutating func visitAnyVerbose(value: Message, typeURL: String) {
       encoder.emitExtensionFieldName(name: typeURL)
       encoder.startMessageField()
-      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
+      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder, options: options)
       if let any = value as? Google_Protobuf_Any {
           any.textTraverse(visitor: &visitor)
       } else {
@@ -358,7 +368,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
       for v in value {
           emitFieldName(lookingUp: fieldNumber)
           encoder.startMessageField()
-          var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
+          var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder, options: options)
           if let any = v as? Google_Protobuf_Any {
               any.textTraverse(visitor: &visitor)
           } else {
@@ -491,7 +501,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
       for (k,v) in map {
           emitFieldName(lookingUp: fieldNumber)
           encoder.startMessageField()
-          var visitor = TextFormatEncodingVisitor(nameMap: nil, nameResolver: mapNameResolver, extensions: nil, encoder: encoder)
+          var visitor = TextFormatEncodingVisitor(nameMap: nil, nameResolver: mapNameResolver, extensions: nil, encoder: encoder, options: options)
           try coder(&visitor, k, v)
           encoder = visitor.encoder
           encoder.endMessageField()
