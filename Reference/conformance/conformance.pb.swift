@@ -276,6 +276,13 @@ struct Conformance_ConformanceRequest {
   /// Clears the value of `jspbEncodingOptions`. Subsequent reads from it will return its default value.
   mutating func clearJspbEncodingOptions() {_uniqueStorage()._jspbEncodingOptions = nil}
 
+  /// This can be used in json and text format. If true, testee should print
+  /// unknown fields instead of ignore. This feature is optional.
+  var printUnknownFields: Bool {
+    get {return _storage._printUnknownFields}
+    set {_uniqueStorage()._printUnknownFields = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The payload (whether protobuf of JSON) is always for a
@@ -537,6 +544,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     4: .standard(proto: "message_type"),
     5: .standard(proto: "test_category"),
     6: .standard(proto: "jspb_encoding_options"),
+    9: .standard(proto: "print_unknown_fields"),
   ]
 
   fileprivate class _StorageClass {
@@ -545,6 +553,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     var _messageType: String = String()
     var _testCategory: Conformance_TestCategory = .unspecifiedTest
     var _jspbEncodingOptions: Conformance_JspbEncodingConfig? = nil
+    var _printUnknownFields: Bool = false
 
     static let defaultInstance = _StorageClass()
 
@@ -556,6 +565,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       _messageType = source._messageType
       _testCategory = source._testCategory
       _jspbEncodingOptions = source._jspbEncodingOptions
+      _printUnknownFields = source._printUnknownFields
     }
   }
 
@@ -595,6 +605,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
           var v: String?
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {_storage._payload = .textPayload(v)}
+        case 9: try decoder.decodeSingularBoolField(value: &_storage._printUnknownFields)
         default: break
         }
       }
@@ -631,6 +642,9 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       case nil: break
       default: break
       }
+      if _storage._printUnknownFields != false {
+        try visitor.visitSingularBoolField(value: _storage._printUnknownFields, fieldNumber: 9)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -645,6 +659,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
         if _storage._messageType != rhs_storage._messageType {return false}
         if _storage._testCategory != rhs_storage._testCategory {return false}
         if _storage._jspbEncodingOptions != rhs_storage._jspbEncodingOptions {return false}
+        if _storage._printUnknownFields != rhs_storage._printUnknownFields {return false}
         return true
       }
       if !storagesAreEqual {return false}
