@@ -51,7 +51,7 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
 fileprivate func asJSONObject(body: Data) -> Data {
   let asciiOpenCurlyBracket = UInt8(ascii: "{")
   let asciiCloseCurlyBracket = UInt8(ascii: "}")
-  var result = Data(bytes: [asciiOpenCurlyBracket])
+  var result = Data([asciiOpenCurlyBracket])
   result.append(body)
   result.append(asciiCloseCurlyBracket)
   return result

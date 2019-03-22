@@ -63,7 +63,7 @@ func escapedToDataLiteral(_ s: String) -> String {
   if s.isEmpty {
     return "SwiftProtobuf.Internal.emptyData"
   }
-  var out = "Data(bytes: ["
+  var out = "Data(["
   var separator = ""
   var escape = false
   var octal = 0

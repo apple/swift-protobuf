@@ -46,10 +46,10 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     func testBinaryPB() {
         func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try ProtobufUnittest_TestEmptyMessage(serializedData: Data(bytes: protobufBytes))
+                let empty = try ProtobufUnittest_TestEmptyMessage(serializedData: Data(protobufBytes))
                 do {
                     let pb = try empty.serializedData()
-                    XCTAssertEqual(Data(bytes: protobufBytes), pb, file: file, line: line)
+                    XCTAssertEqual(Data(protobufBytes), pb, file: file, line: line)
                 } catch {
                     XCTFail("Recoding empty failed", file: file, line: line)
                 }
@@ -58,7 +58,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(serializedData: Data(bytes: protobufBytes)), file: file, line: line)
+            XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(serializedData: Data(protobufBytes)), file: file, line: line)
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode
         assertFails([0]) // Invalid field number
@@ -162,14 +162,14 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
 
 
     func assertUnknownFields(_ message: Message, _ bytes: [UInt8], line: UInt = #line) {
-        XCTAssertEqual(message.unknownFields.data, Data(bytes: bytes), line: line)
+        XCTAssertEqual(message.unknownFields.data, Data(bytes), line: line)
     }
 
     func test_MessageNoStorageClass() throws {
         var msg1 = ProtobufUnittest_Msg2NoStorage()
         assertUnknownFields(msg1, [])
 
-        try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
+        try msg1.merge(serializedData: Data([24, 1]))  // Field 3, varint
         assertUnknownFields(msg1, [24, 1])
 
         var msg2 = msg1
@@ -189,7 +189,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         var msg1 = ProtobufUnittest_Msg2UsesStorage()
         assertUnknownFields(msg1, [])
 
-        try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
+        try msg1.merge(serializedData: Data([24, 1]))  // Field 3, varint
         assertUnknownFields(msg1, [24, 1])
 
         var msg2 = msg1

@@ -70,7 +70,7 @@ internal struct JSONEncoder {
 
     internal init() {}
 
-    internal var dataResult: Data { return Data(bytes: data) }
+    internal var dataResult: Data { return Data(data) }
 
     internal var stringResult: String {
         get {

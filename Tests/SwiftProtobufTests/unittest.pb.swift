@@ -1012,7 +1012,7 @@ struct ProtobufUnittest_TestAllTypes {
   mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
 
   var defaultBytes: Data {
-    get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
+    get {return _storage._defaultBytes ?? Data([119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
   /// Returns true if `defaultBytes` has been explicitly set.
@@ -2620,7 +2620,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   // methods supported on all messages.
 
   var escapedBytes: Data {
-    get {return _storage._escapedBytes ?? Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])}
+    get {return _storage._escapedBytes ?? Data([0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])}
     set {_uniqueStorage()._escapedBytes = newValue}
   }
   /// Returns true if `escapedBytes` has been explicitly set.
@@ -2839,7 +2839,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   mutating func clearStringWithZero() {_uniqueStorage()._stringWithZero = nil}
 
   var bytesWithZero: Data {
-    get {return _storage._bytesWithZero ?? Data(bytes: [119, 111, 114, 0, 108, 100])}
+    get {return _storage._bytesWithZero ?? Data([119, 111, 114, 0, 108, 100])}
     set {_uniqueStorage()._bytesWithZero = newValue}
   }
   /// Returns true if `bytesWithZero` has been explicitly set.
@@ -3376,7 +3376,7 @@ struct ProtobufUnittest_TestOneof2 {
   var barBytes: Data {
     get {
       if case .barBytes(let v)? = _storage._bar {return v}
-      return Data(bytes: [66, 89, 84, 69, 83])
+      return Data([66, 89, 84, 69, 83])
     }
     set {_uniqueStorage()._bar = .barBytes(newValue)}
   }
@@ -5466,7 +5466,7 @@ extension ProtobufUnittest_TestAllExtensions {
   }
 
   var ProtobufUnittest_defaultBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension) ?? Data(bytes: [119, 111, 114, 108, 100])}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension) ?? Data([119, 111, 114, 108, 100])}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_bytes_extension`

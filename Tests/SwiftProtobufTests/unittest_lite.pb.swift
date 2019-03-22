@@ -651,7 +651,7 @@ struct ProtobufUnittest_TestAllTypesLite {
   mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
 
   var defaultBytes: Data {
-    get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
+    get {return _storage._defaultBytes ?? Data([119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
   /// Returns true if `defaultBytes` has been explicitly set.
@@ -1508,7 +1508,7 @@ struct ProtobufUnittest_TestOneofParsingLite {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return Data(bytes: [100, 101, 102, 97, 117, 108, 116, 32, 98, 121, 116, 101, 115])
+      return Data([100, 101, 102, 97, 117, 108, 116, 32, 98, 121, 116, 101, 115])
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -1540,7 +1540,7 @@ struct ProtobufUnittest_TestOneofParsingLite {
   var oneofBytesStringPiece: Data {
     get {
       if case .oneofBytesStringPiece(let v)? = _storage._oneofField {return v}
-      return Data(bytes: [100, 101, 102, 97, 117, 108, 116, 32, 83, 116, 114, 105, 110, 103, 80, 105, 101, 99, 101])
+      return Data([100, 101, 102, 97, 117, 108, 116, 32, 83, 116, 114, 105, 110, 103, 80, 105, 101, 99, 101])
     }
     set {_uniqueStorage()._oneofField = .oneofBytesStringPiece(newValue)}
   }
@@ -2623,7 +2623,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
   }
 
   var ProtobufUnittest_defaultBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite) ?? Data(bytes: [119, 111, 114, 108, 100])}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite) ?? Data([119, 111, 114, 108, 100])}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_bytes_extension_lite`

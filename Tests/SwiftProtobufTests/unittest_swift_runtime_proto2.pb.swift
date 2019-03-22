@@ -425,7 +425,7 @@ struct ProtobufUnittest_Message2 {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._o {return v}
-      return Data(bytes: [100, 97, 116, 97])
+      return Data([100, 97, 116, 97])
     }
     set {_uniqueStorage()._o = .oneofBytes(newValue)}
   }

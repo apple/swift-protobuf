@@ -24,7 +24,7 @@ class Test_ReallyLargeTagNumber: XCTestCase {
 
         do {
             let encoded = try m.serializedData()
-            XCTAssertEqual(encoded, Data(bytes: [8, 1, 248, 255, 255, 255, 7, 2]))
+            XCTAssertEqual(encoded, Data([8, 1, 248, 255, 255, 255, 7, 2]))
 
             do {
                 let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(serializedData: encoded)
