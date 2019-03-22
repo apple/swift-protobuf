@@ -31,6 +31,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_fixed64() throws {
@@ -45,6 +50,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_lengthDelimited_string() throws {
@@ -59,6 +69,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_lengthDelimited_message() throws {
@@ -74,6 +89,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_lengthDelimited_notmessage() throws {
@@ -90,6 +110,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_lengthDelimited_nested_message() throws {
@@ -104,6 +129,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_group() throws {
@@ -118,6 +148,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_nested_group() throws {
@@ -132,6 +167,11 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 
     func test_unknown_fixed32() throws {
@@ -146,5 +186,10 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         } catch TextFormatDecodingError.unknownField {
             // This is what should have happened.
         }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
     }
 }
