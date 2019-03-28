@@ -127,7 +127,7 @@ build the protoc plugin:
 
 ```
 $ git checkout tags/[tag_name]
-$ swift build -c release -Xswiftc -static-stdlib
+$ swift build --static-swift-stdlib -c release
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/release`
