@@ -729,6 +729,11 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
+  var repeatedListValue: [SwiftProtobuf.Google_Protobuf_ListValue] {
+    get {return _storage._repeatedListValue}
+    set {_uniqueStorage()._repeatedListValue = newValue}
+  }
+
   /// Test field-name-to-JSON-name convention.
   /// (protobuf says names can be any valid C/C++ identifier.)
   var fieldname1: Int32 {
@@ -1104,6 +1109,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     324: .standard(proto: "repeated_struct"),
     315: .standard(proto: "repeated_any"),
     316: .standard(proto: "repeated_value"),
+    317: .standard(proto: "repeated_list_value"),
     401: .same(proto: "fieldname1"),
     402: .standard(proto: "field_name2"),
     403: .standard(proto: "_field_name3"),
@@ -1219,6 +1225,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _repeatedStruct: [SwiftProtobuf.Google_Protobuf_Struct] = []
     var _repeatedAny: [SwiftProtobuf.Google_Protobuf_Any] = []
     var _repeatedValue: [SwiftProtobuf.Google_Protobuf_Value] = []
+    var _repeatedListValue: [SwiftProtobuf.Google_Protobuf_ListValue] = []
     var _fieldname1: Int32 = 0
     var _fieldName2: Int32 = 0
     var _fieldName3: Int32 = 0
@@ -1337,6 +1344,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       _repeatedStruct = source._repeatedStruct
       _repeatedAny = source._repeatedAny
       _repeatedValue = source._repeatedValue
+      _repeatedListValue = source._repeatedListValue
       _fieldname1 = source._fieldname1
       _fieldName2 = source._fieldName2
       _fieldName3 = source._fieldName3
@@ -1510,6 +1518,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         case 313: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask)
         case 315: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAny)
         case 316: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedValue)
+        case 317: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedListValue)
         case 324: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct)
         case 401: try decoder.decodeSingularInt32Field(value: &_storage._fieldname1)
         case 402: try decoder.decodeSingularInt32Field(value: &_storage._fieldName2)
@@ -1834,6 +1843,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       if !_storage._repeatedValue.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedValue, fieldNumber: 316)
       }
+      if !_storage._repeatedListValue.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedListValue, fieldNumber: 317)
+      }
       if !_storage._repeatedStruct.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedStruct, fieldNumber: 324)
       }
@@ -1994,6 +2006,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         if _storage._repeatedStruct != rhs_storage._repeatedStruct {return false}
         if _storage._repeatedAny != rhs_storage._repeatedAny {return false}
         if _storage._repeatedValue != rhs_storage._repeatedValue {return false}
+        if _storage._repeatedListValue != rhs_storage._repeatedListValue {return false}
         if _storage._fieldname1 != rhs_storage._fieldname1 {return false}
         if _storage._fieldName2 != rhs_storage._fieldName2 {return false}
         if _storage._fieldName3 != rhs_storage._fieldName3 {return false}
