@@ -101,4 +101,86 @@ class Test_JSONEncodingOptions: XCTestCase {
 
   }
 
+  func testAlwaysPrintProtoFieldNames() {
+    var jsonNames = JSONEncodingOptions()
+    jsonNames.alwaysPrintProtoFieldNames = false
+    jsonNames.alwaysPrintEnumsAsInts = true
+    var protoNames = JSONEncodingOptions()
+    protoNames.alwaysPrintProtoFieldNames = true
+    protoNames.alwaysPrintEnumsAsInts = true
+
+    // Toplevel fields
+
+    let msg1 = ProtobufUnittest_Message3.with {
+      $0.optionalEnum = .bar
+    }
+    XCTAssertEqual(try msg1.jsonString(options: jsonNames), "{\"optionalEnum\":1}")
+    XCTAssertEqual(try msg1.jsonString(options: protoNames), "{\"optional_enum\":1}")
+
+    let msg2 = ProtobufUnittest_Message3.with {
+      $0.repeatedEnum = [.bar, .baz]
+    }
+    XCTAssertEqual(try msg2.jsonString(options: jsonNames), "{\"repeatedEnum\":[1,2]}")
+    XCTAssertEqual(try msg2.jsonString(options: protoNames), "{\"repeated_enum\":[1,2]}")
+
+    let msg3 = ProtobufUnittest_Message3.with {
+      $0.mapInt32Enum[42] = .baz
+    }
+    XCTAssertEqual(try msg3.jsonString(options: jsonNames), "{\"mapInt32Enum\":{\"42\":2}}")
+    XCTAssertEqual(try msg3.jsonString(options: protoNames), "{\"map_int32_enum\":{\"42\":2}}")
+
+    // The enum field nested down a level.
+
+    let msg4 = ProtobufUnittest_Message3.with {
+      $0.optionalMessage.optionalEnum = .bar
+    }
+    XCTAssertEqual(try msg4.jsonString(options: jsonNames),
+                   "{\"optionalMessage\":{\"optionalEnum\":1}}")
+    XCTAssertEqual(try msg4.jsonString(options: protoNames),
+                   "{\"optional_message\":{\"optional_enum\":1}}")
+
+    let msg5 = ProtobufUnittest_Message3.with {
+      $0.optionalMessage.repeatedEnum = [.bar, .baz]
+    }
+    XCTAssertEqual(try msg5.jsonString(options: jsonNames),
+                   "{\"optionalMessage\":{\"repeatedEnum\":[1,2]}}")
+    XCTAssertEqual(try msg5.jsonString(options: protoNames),
+                   "{\"optional_message\":{\"repeated_enum\":[1,2]}}")
+
+    let msg6 = ProtobufUnittest_Message3.with {
+      $0.optionalMessage.mapInt32Enum[42] = .baz
+    }
+    XCTAssertEqual(try msg6.jsonString(options: jsonNames),
+                   "{\"optionalMessage\":{\"mapInt32Enum\":{\"42\":2}}}")
+    XCTAssertEqual(try msg6.jsonString(options: protoNames),
+                   "{\"optional_message\":{\"map_int32_enum\":{\"42\":2}}}")
+
+    // The array additions
+
+    let msgArray = [msg1, msg2, msg3]
+    XCTAssertEqual(try ProtobufUnittest_Message3.jsonString(from: msgArray, options: jsonNames),
+                   "[" +
+                    "{\"optionalEnum\":1}" + "," +
+                    "{\"repeatedEnum\":[1,2]}" + "," +
+                    "{\"mapInt32Enum\":{\"42\":2}}" +
+                   "]")
+    XCTAssertEqual(try ProtobufUnittest_Message3.jsonString(from: msgArray, options: protoNames),
+                   "[" +
+                    "{\"optional_enum\":1}" + "," +
+                    "{\"repeated_enum\":[1,2]}" + "," +
+                    "{\"map_int32_enum\":{\"42\":2}}" +
+                   "]")
+
+    // Any
+
+    Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
+    let content = ProtobufUnittest_TestAllTypes.with {
+      $0.optionalNestedEnum = .neg
+    }
+    let msg7 = try! Google_Protobuf_Any(message: content)
+    XCTAssertEqual(try msg7.jsonString(options: jsonNames),
+                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalNestedEnum\":-1}")
+    XCTAssertEqual(try msg7.jsonString(options: protoNames),
+                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optional_nested_enum\":-1}")
+  }
 }
