@@ -385,6 +385,7 @@ message GeneratedSwiftReservedMessages {
   message pos { int32 pos = 1; }
   message prefix { int32 prefix = 1; }
   message preTraverse { int32 preTraverse = 1; }
+  message printUnknownFields { int32 printUnknownFields = 1; }
   message proto2 { int32 proto2 = 1; }
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
   message ProtobufAPIVersionCheck { int32 ProtobufAPIVersionCheck = 1; }
@@ -504,6 +505,7 @@ message GeneratedSwiftReservedMessages {
   message textDecoder { int32 textDecoder = 1; }
   message TextFormatDecoder { int32 TextFormatDecoder = 1; }
   message TextFormatDecodingError { int32 TextFormatDecodingError = 1; }
+  message TextFormatEncodingOptions { int32 TextFormatEncodingOptions = 1; }
   message TextFormatEncodingVisitor { int32 TextFormatEncodingVisitor = 1; }
   message textFormatString { int32 textFormatString = 1; }
   message throws { int32 throws = 1; }
