@@ -40,6 +40,8 @@
 //
 // - conformance tests
 
+// LINT: ALLOW_GROUPS
+
 import Foundation
 import SwiftProtobuf
 
@@ -968,6 +970,89 @@ struct ProtobufTestMessages_Proto2_ForeignMessageProto2 {
   init() {}
 
   fileprivate var _c: Int32? = nil
+}
+
+struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt32: Int32 {
+    get {return _storage._optionalInt32 ?? 0}
+    set {_uniqueStorage()._optionalInt32 = newValue}
+  }
+  /// Returns true if `optionalInt32` has been explicitly set.
+  var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
+  /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
+
+  var optionalString: String {
+    get {return _storage._optionalString ?? String()}
+    set {_uniqueStorage()._optionalString = newValue}
+  }
+  /// Returns true if `optionalString` has been explicitly set.
+  var hasOptionalString: Bool {return _storage._optionalString != nil}
+  /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
+
+  var nestedMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2 {
+    get {return _storage._nestedMessage ?? ProtobufTestMessages_Proto2_ForeignMessageProto2()}
+    set {_uniqueStorage()._nestedMessage = newValue}
+  }
+  /// Returns true if `nestedMessage` has been explicitly set.
+  var hasNestedMessage: Bool {return _storage._nestedMessage != nil}
+  /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearNestedMessage() {_uniqueStorage()._nestedMessage = nil}
+
+  var optionalGroup: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup {
+    get {return _storage._optionalGroup ?? ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup()}
+    set {_uniqueStorage()._optionalGroup = newValue}
+  }
+  /// Returns true if `optionalGroup` has been explicitly set.
+  var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
+  /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
+
+  var optionalBool: Bool {
+    get {return _storage._optionalBool ?? false}
+    set {_uniqueStorage()._optionalBool = newValue}
+  }
+  /// Returns true if `optionalBool` has been explicitly set.
+  var hasOptionalBool: Bool {return _storage._optionalBool != nil}
+  /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBool() {_uniqueStorage()._optionalBool = nil}
+
+  var repeatedInt32: [Int32] {
+    get {return _storage._repeatedInt32}
+    set {_uniqueStorage()._repeatedInt32 = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct OptionalGroup {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var a: Int32 {
+      get {return _a ?? 0}
+      set {_a = newValue}
+    }
+    /// Returns true if `a` has been explicitly set.
+    var hasA: Bool {return self._a != nil}
+    /// Clears the value of `a`. Subsequent reads from it will return its default value.
+    mutating func clearA() {self._a = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _a: Int32? = nil
+  }
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in test_messages_proto2.proto.
@@ -2094,6 +2179,136 @@ extension ProtobufTestMessages_Proto2_ForeignMessageProto2: SwiftProtobuf.Messag
 
   static func ==(lhs: ProtobufTestMessages_Proto2_ForeignMessageProto2, rhs: ProtobufTestMessages_Proto2_ForeignMessageProto2) -> Bool {
     if lhs._c != rhs._c {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".UnknownToTestAllTypes"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1001: .standard(proto: "optional_int32"),
+    1002: .standard(proto: "optional_string"),
+    1003: .standard(proto: "nested_message"),
+    1004: .unique(proto: "OptionalGroup", json: "optionalgroup"),
+    1006: .standard(proto: "optional_bool"),
+    1011: .standard(proto: "repeated_int32"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _optionalInt32: Int32? = nil
+    var _optionalString: String? = nil
+    var _nestedMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2? = nil
+    var _optionalGroup: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup? = nil
+    var _optionalBool: Bool? = nil
+    var _repeatedInt32: [Int32] = []
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalString = source._optionalString
+      _nestedMessage = source._nestedMessage
+      _optionalGroup = source._optionalGroup
+      _optionalBool = source._optionalBool
+      _repeatedInt32 = source._repeatedInt32
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1001: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
+        case 1002: try decoder.decodeSingularStringField(value: &_storage._optionalString)
+        case 1003: try decoder.decodeSingularMessageField(value: &_storage._nestedMessage)
+        case 1004: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
+        case 1006: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
+        case 1011: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._optionalInt32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1001)
+      }
+      if let v = _storage._optionalString {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1002)
+      }
+      if let v = _storage._nestedMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1003)
+      }
+      if let v = _storage._optionalGroup {
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 1004)
+      }
+      if let v = _storage._optionalBool {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 1006)
+      }
+      if !_storage._repeatedInt32.isEmpty {
+        try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 1011)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_UnknownToTestAllTypes, rhs: ProtobufTestMessages_Proto2_UnknownToTestAllTypes) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
+        if _storage._optionalString != rhs_storage._optionalString {return false}
+        if _storage._nestedMessage != rhs_storage._nestedMessage {return false}
+        if _storage._optionalGroup != rhs_storage._optionalGroup {return false}
+        if _storage._optionalBool != rhs_storage._optionalBool {return false}
+        if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufTestMessages_Proto2_UnknownToTestAllTypes.protoMessageName + ".OptionalGroup"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup, rhs: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup) -> Bool {
+    if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
