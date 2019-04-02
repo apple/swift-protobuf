@@ -384,6 +384,7 @@ message GeneratedSwiftReservedMessages {
   message pointer { int32 pointer = 1; }
   message pos { int32 pos = 1; }
   message prefix { int32 prefix = 1; }
+  message preserveProtoFieldNames { int32 preserveProtoFieldNames = 1; }
   message preTraverse { int32 preTraverse = 1; }
   message printUnknownFields { int32 printUnknownFields = 1; }
   message proto2 { int32 proto2 = 1; }
