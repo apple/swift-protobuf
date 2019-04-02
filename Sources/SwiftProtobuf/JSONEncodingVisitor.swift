@@ -337,7 +337,7 @@ internal struct JSONEncodingVisitor: Visitor {
   private mutating func startField(for number: Int) throws {
     let name: _NameMap.Name?
 
-    if options.alwaysPrintProtoFieldNames {
+    if options.preserveProtoFieldNames {
         name = nameMap.names(for: number)?.proto
     } else {
         name = nameMap.names(for: number)?.json

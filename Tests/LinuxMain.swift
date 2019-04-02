@@ -594,7 +594,7 @@ extension Test_JSONDecodingOptions {
 extension Test_JSONEncodingOptions {
     static var allTests = [
         ("testAlwaysPrintEnumsAsInts", testAlwaysPrintEnumsAsInts),
-        ("testAlwaysPrintProtoFieldNames", testAlwaysPrintProtoFieldNames)
+        ("testPreserveProtoFieldNames", testPreserveProtoFieldNames)
     ]
 }
 
