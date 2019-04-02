@@ -9530,6 +9530,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum preserveProtoFieldNames: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePreserveProtoFieldNames // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePreserveProtoFieldNames
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePreserveProtoFieldNames
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePreserveProtoFieldNames: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum preTraverse: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case nonePreTraverse // = 0
@@ -18095,6 +18120,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.prefix: CaseIter
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preserveProtoFieldNames: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preserveProtoFieldNames] = [
+    .nonePreserveProtoFieldNames,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preTraverse: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preTraverse] = [
@@ -22049,6 +22081,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pos: SwiftProtob
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.prefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_prefix"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preserveProtoFieldNames: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_preserveProtoFieldNames"),
   ]
 }
 

@@ -384,6 +384,7 @@ message GeneratedSwiftReservedEnums {
   enum pointer { NONE_pointer = 0; }
   enum pos { NONE_pos = 0; }
   enum prefix { NONE_prefix = 0; }
+  enum preserveProtoFieldNames { NONE_preserveProtoFieldNames = 0; }
   enum preTraverse { NONE_preTraverse = 0; }
   enum printUnknownFields { NONE_printUnknownFields = 0; }
   enum proto2 { NONE_proto2 = 0; }
