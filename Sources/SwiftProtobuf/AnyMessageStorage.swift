@@ -66,22 +66,26 @@ fileprivate func unpack(contentJSON: Data,
   }
 
   var value = String()
-  try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-    let buffer = UnsafeBufferPointer(start: bytes, count: contentJSON.count)
-    var scanner = JSONScanner(source: buffer,
-                              messageDepthLimit: options.messageDepthLimit,
-                              ignoreUnknownFields: options.ignoreUnknownFields)
-    let key = try scanner.nextQuotedString()
-    if key != "value" {
-      // The only thing within a WKT should be "value".
-      throw AnyUnpackError.malformedWellKnownTypeJSON
-    }
-    try scanner.skipRequiredColon()  // Can't fail
-    value = try scanner.skip()
-    if !scanner.complete {
-      // If that wasn't the end, then there was another key,
-      // and WKTs should only have the one.
-      throw AnyUnpackError.malformedWellKnownTypeJSON
+  try contentJSON.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+    if let baseAddress = body.baseAddress, body.count > 0 {
+      let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
+
+      let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
+      var scanner = JSONScanner(source: buffer,
+                                messageDepthLimit: options.messageDepthLimit,
+                                ignoreUnknownFields: options.ignoreUnknownFields)
+      let key = try scanner.nextQuotedString()
+      if key != "value" {
+        // The only thing within a WKT should be "value".
+        throw AnyUnpackError.malformedWellKnownTypeJSON
+      }
+      try scanner.skipRequiredColon()  // Can't fail
+      value = try scanner.skip()
+      if !scanner.complete {
+        // If that wasn't the end, then there was another key,
+        // and WKTs should only have the one.
+        throw AnyUnpackError.malformedWellKnownTypeJSON
+      }
     }
   }
   return try messageType.init(jsonString: value, options: options)

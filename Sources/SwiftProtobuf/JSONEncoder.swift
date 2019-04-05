@@ -333,10 +333,13 @@ internal struct JSONEncoder {
     internal mutating func putBytesValue(value: Data) {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
-            value.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
+            value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+              if let baseAddress = body.baseAddress, body.count > 0 {
+                let p = baseAddress.assumingMemoryBound(to: UInt8.self)
+
                 var t: Int = 0
                 var bytesInGroup: Int = 0
-                for i in 0..<value.count {
+                for i in 0..<body.count {
                     if bytesInGroup == 3 {
                         data.append(base64Digits[(t >> 18) & 63])
                         data.append(base64Digits[(t >> 12) & 63])
@@ -369,6 +372,7 @@ internal struct JSONEncoder {
                 default:
                     break
                 }
+              }
             }
         }
         data.append(asciiDoubleQuote)

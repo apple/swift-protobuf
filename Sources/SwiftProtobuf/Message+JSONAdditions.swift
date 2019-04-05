@@ -89,21 +89,25 @@ extension Message {
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     self.init()
-    try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-      let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
-      var decoder = JSONDecoder(source: buffer, options: options)
-      if !decoder.scanner.skipOptionalNull() {
-        try decoder.decodeFullObject(message: &self)
-      } else if Self.self is _CustomJSONCodable.Type {
-        if let message = try (Self.self as! _CustomJSONCodable.Type)
-          .decodedFromJSONNull() {
-          self = message as! Self
-        } else {
-          throw JSONDecodingError.illegalNull
+    try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      if let baseAddress = body.baseAddress, body.count > 0 {
+        let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
+
+        let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
+        var decoder = JSONDecoder(source: buffer, options: options)
+        if !decoder.scanner.skipOptionalNull() {
+          try decoder.decodeFullObject(message: &self)
+        } else if Self.self is _CustomJSONCodable.Type {
+          if let message = try (Self.self as! _CustomJSONCodable.Type)
+            .decodedFromJSONNull() {
+            self = message as! Self
+          } else {
+            throw JSONDecodingError.illegalNull
+          }
         }
-      }
-      if !decoder.scanner.complete {
-        throw JSONDecodingError.trailingGarbage
+        if !decoder.scanner.complete {
+          throw JSONDecodingError.trailingGarbage
+        }
       }
     }
   }

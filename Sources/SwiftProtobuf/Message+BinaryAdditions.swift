@@ -33,12 +33,16 @@ extension Message {
     }
     let requiredSize = try serializedDataSize()
     var data = Data(count: requiredSize)
-    try data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
-      var visitor = BinaryEncodingVisitor(forWritingInto: pointer)
-      try traverse(visitor: &visitor)
-      // Currently not exposing this from the api because it really would be
-      // an internal error in the library and should never happen.
-      assert(requiredSize == visitor.encoder.distance(pointer: pointer))
+    try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
+      if let baseAddress = body.baseAddress, body.count > 0 {
+        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
+
+        var visitor = BinaryEncodingVisitor(forWritingInto: pointer)
+        try traverse(visitor: &visitor)
+        // Currently not exposing this from the api because it really would be
+        // an internal error in the library and should never happen.
+        assert(requiredSize == visitor.encoder.distance(pointer: pointer))
+      }
     }
     return data
   }
@@ -104,12 +108,15 @@ extension Message {
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     if !data.isEmpty {
-      try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-        var decoder = BinaryDecoder(forReadingFrom: pointer,
-                                    count: data.count,
-                                    options: options,
-                                    extensions: extensions)
-        try decoder.decodeFullMessage(message: &self)
+      try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+        if let baseAddress = body.baseAddress, body.count > 0 {
+          let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
+          var decoder = BinaryDecoder(forReadingFrom: pointer,
+                                      count: body.count,
+                                      options: options,
+                                      extensions: extensions)
+          try decoder.decodeFullMessage(message: &self)
+        }
       }
     }
     if !partial && !isInitialized {

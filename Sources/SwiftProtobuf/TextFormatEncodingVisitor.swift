@@ -77,11 +77,14 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   mutating func visitUnknown(bytes: Data) throws {
       if options.printUnknownFields {
-          try bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
+          try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
+            if let baseAddress = body.baseAddress, body.count > 0 {
+              let p = baseAddress.assumingMemoryBound(to: UInt8.self)
               var decoder = BinaryDecoder(forReadingFrom: p,
-                                          count: bytes.count,
+                                          count: body.count,
                                           options: BinaryDecodingOptions())
               try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
+            }
           }
       }
   }
@@ -107,9 +110,12 @@ internal struct TextFormatEncodingVisitor: Visitor {
               encoder.emitFieldNumber(number: tag.fieldNumber)
               var bytes = Internal.emptyData
               try decoder.decodeSingularBytesField(value: &bytes)
-              bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
+              bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
+                if let baseAddress = body.baseAddress, body.count > 0 {
+                  let p = baseAddress.assumingMemoryBound(to: UInt8.self)
+
                   var testDecoder = BinaryDecoder(forReadingFrom: p,
-                                                  count: bytes.count,
+                                                  count: body.count,
                                                   parent: decoder)
                   do {
                       // Skip all the fields to test if it looks like a message
@@ -128,6 +134,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
                       encoder.putBytesValue(value: bytes)
                       encoder.endRegularField()
                   }
+                }
               }
           case .startGroup:
               encoder.emitFieldNumber(number: tag.fieldNumber)
