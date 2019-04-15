@@ -178,12 +178,12 @@ After copying the `.pb.swift` files into your project, you will need to add the
 project to support the generated code.
 If you are using the Swift Package Manager, add a dependency to your
 `Package.swift` file and import the `SwiftProtobuf` library into the desired
-targets.  Adjust the `"1.2.0"` here to match the `[tag_name]` you used to build
+targets.  Adjust the `"1.4.0"` here to match the `[tag_name]` you used to build
 the plugin above:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.2.0"),
+    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.4.0"),
 ],
 targets: [
     .target(name: "MyTarget", dependencies: ["SwiftProtobuf"]),
