@@ -24,9 +24,11 @@ message GeneratedSwiftReservedMessages {
   message as { int32 as = 1; }
   message asciiOpenCurlyBracket { int32 asciiOpenCurlyBracket = 1; }
   message asciiZero { int32 asciiZero = 1; }
+  message assumingMemoryBound { int32 assumingMemoryBound = 1; }
   message available { int32 available = 1; }
   message b { int32 b = 1; }
   message base64Values { int32 base64Values = 1; }
+  message baseAddress { int32 baseAddress = 1; }
   message BaseType { int32 BaseType = 1; }
   message binary { int32 binary = 1; }
   message BinaryDecoder { int32 BinaryDecoder = 1; }
@@ -39,6 +41,7 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingMessageSetVisitor { int32 BinaryEncodingMessageSetVisitor = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
+  message body { int32 body = 1; }
   message bodySize { int32 bodySize = 1; }
   message Bool { int32 Bool = 1; }
   message booleanLiteral { int32 booleanLiteral = 1; }
@@ -70,7 +73,6 @@ message GeneratedSwiftReservedMessages {
   message CustomDebugStringConvertible { int32 CustomDebugStringConvertible = 1; }
   message d { int32 d = 1; }
   message Data { int32 Data = 1; }
-  message dataPointer { int32 dataPointer = 1; }
   message dataResult { int32 dataResult = 1; }
   message dataSize { int32 dataSize = 1; }
   message date { int32 date = 1; }
@@ -450,6 +452,7 @@ message GeneratedSwiftReservedMessages {
   message responseStreaming { int32 responseStreaming = 1; }
   message responseTypeURL { int32 responseTypeURL = 1; }
   message result { int32 result = 1; }
+  message rethrows { int32 rethrows = 1; }
   message return { int32 return = 1; }
   message revision { int32 revision = 1; }
   message rhs { int32 rhs = 1; }
@@ -514,6 +517,7 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
+  message to { int32 to = 1; }
   message total { int32 total = 1; }
   message totalSize { int32 totalSize = 1; }
   message traverse { int32 traverse = 1; }
@@ -542,7 +546,9 @@ message GeneratedSwiftReservedMessages {
   message unpackTo { int32 unpackTo = 1; }
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
+  message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
   message UnsafePointer { int32 UnsafePointer = 1; }
+  message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message utf8 { int32 utf8 = 1; }
@@ -618,6 +624,8 @@ message GeneratedSwiftReservedMessages {
   message where { int32 where = 1; }
   message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
+  message withUnsafeBytes { int32 withUnsafeBytes = 1; }
+  message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message written { int32 written = 1; }
   message yday { int32 yday = 1; }
