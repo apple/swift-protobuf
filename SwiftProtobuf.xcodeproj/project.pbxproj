@@ -2106,6 +2106,9 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "arm64 arm64e armv7 armv7s";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -2121,6 +2124,9 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=iphoneos*]" = "arm64 arm64e armv7 armv7s";
+				"VALID_ARCHS[sdk=iphonesimulator*]" = "x86_64 i386";
 			};
 			name = Release;
 		};
@@ -2136,6 +2142,9 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=appletvos*]" = arm64;
+				"VALID_ARCHS[sdk=appletvsimulator*]" = "x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -2151,6 +2160,9 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=appletvos*]" = arm64;
+				"VALID_ARCHS[sdk=appletvsimulator*]" = "x86_64 i386";
 			};
 			name = Release;
 		};
@@ -2193,6 +2205,9 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = watchos;
 				TARGETED_DEVICE_FAMILY = 4;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=watchos*]" = "arm64_32 armv7k";
+				"VALID_ARCHS[sdk=watchsimulator*]" = "x86_64 i386";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
@@ -2208,6 +2223,9 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = watchos;
 				TARGETED_DEVICE_FAMILY = 4;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=watchos*]" = "arm64_32 armv7k";
+				"VALID_ARCHS[sdk=watchsimulator*]" = "x86_64 i386";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
@@ -2221,6 +2239,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=macosx*]" = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -2244,6 +2264,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
+				VALID_ARCHS = "";
+				"VALID_ARCHS[sdk=macosx*]" = "i386 x86_64";
 			};
 			name = Debug;
 		};
