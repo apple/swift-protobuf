@@ -104,6 +104,8 @@ extension Message {
           } else {
             throw JSONDecodingError.illegalNull
           }
+        } else {
+          throw JSONDecodingError.illegalNull
         }
         if !decoder.scanner.complete {
           throw JSONDecodingError.trailingGarbage
