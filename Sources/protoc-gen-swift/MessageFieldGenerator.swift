@@ -198,7 +198,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         let conditional: String
         if isRepeated {  // Also covers maps
-            conditional = "!\(varName).isEmpty"
+            conditional = "!\(varName).isEmpty || visitor.shouldIncludeDefault()"
         } else if hasFieldPresence {
             conditional = "let v = \(storedProperty)"
         } else {
@@ -207,13 +207,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             assert(fieldDescriptor.file.syntax == .proto3)
             switch fieldDescriptor.type {
             case .string, .bytes:
-                conditional = ("!\(varName).isEmpty")
+                conditional = ("!\(varName).isEmpty || visitor.shouldIncludeDefault()")
             default:
-                conditional = ("\(varName) != \(swiftDefaultValue)")
+                conditional = ("\(varName) != \(swiftDefaultValue) || visitor.shouldIncludeDefault()")
             }
         }
 
-        p.print("if \(conditional) {\n")
+        p.print("if \(conditional) || visitor.shouldIncludeDefault() {\n")
         p.indent()
         p.print("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))\n")
         p.outdent()
