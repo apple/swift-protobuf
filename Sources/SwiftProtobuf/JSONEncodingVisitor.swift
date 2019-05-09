@@ -331,6 +331,10 @@ internal struct JSONEncodingVisitor: Visitor {
   mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
     // JSON does not store extensions
   }
+    
+  mutating func shouldIncludeDefault() -> Bool {
+    return options.includeDefaultValue
+  }
 
   /// Helper function that throws an error if the field number could not be
   /// resolved.
