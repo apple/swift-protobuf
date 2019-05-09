@@ -693,7 +693,7 @@ extension Visitor {
     try fields.traverse(visitor: &self, start: start, end: end)
   }
     
-    func shouldIncludeDefault()->Bool {
+    func shouldIncludeDefault() -> Bool {
         return false
     }
 }
