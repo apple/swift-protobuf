@@ -213,7 +213,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             }
         }
 
-        p.print("if \(conditional) || visitor.shouldIncludeDefault() {\n")
+        p.print("if \(conditional) || shouldInlcudeDefault {\n")
         p.indent()
         p.print("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))\n")
         p.outdent()
