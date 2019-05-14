@@ -24,5 +24,6 @@ public struct JSONEncodingOptions {
 
   /// Wether to include proto field with default value
   public var includeDefaultValue: Bool = false
+    
   public init() {}
 }
