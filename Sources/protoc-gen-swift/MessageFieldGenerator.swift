@@ -182,6 +182,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty))\n")
     }
 
+    override func shouldGenerateIncludeDefault() -> Bool{
+        if isRepeated { return true}
+        return !hasFieldPresence
+    }
+
     func generateTraverse(printer p: inout CodePrinter) {
         let visitMethod: String
         let traitsArg: String
