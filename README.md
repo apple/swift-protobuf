@@ -127,13 +127,18 @@ build the protoc plugin:
 
 ```
 $ git checkout tags/[tag_name]
-$ swift build --static-swift-stdlib -c release
+$ swift build -c release
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/release`
 directory.
+
 To install, just copy this one executable into a directory that is
 part of your `PATH` environment variable.
+
+NOTE: The Swift runtime support is now included with macOS. If you are
+using old Xcode versions or are on older system versions, you might need
+to use also use `--static-swift-stdlib` with `swift build`.
 
 ### Alternatively install via Homebrew
 
