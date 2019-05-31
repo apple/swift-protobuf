@@ -66,7 +66,6 @@ private let hexDigits: [UInt8] = {
 internal struct JSONEncoder {
     private var data = [UInt8]()
     private var separator: UInt8?
-    private let doubleFormatter = DoubleFormatter()
 
     internal init() {}
 
@@ -179,12 +178,7 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            if let v = Int64(exactly: Double(value)) {
-                appendInt(value: v)
-            } else {
-                let formatted = doubleFormatter.floatToUtf8(value)
-                data.append(contentsOf: formatted)
-            }
+            data.append(contentsOf: value.debugDescription.utf8)
         }
     }
 
@@ -201,12 +195,7 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            if let v = Int64(exactly: value) {
-                appendInt(value: v)
-            } else {
-                let formatted = doubleFormatter.doubleToUtf8(value)
-                data.append(contentsOf: formatted)
-            }
+            data.append(contentsOf: value.debugDescription.utf8)
         }
     }
 

@@ -136,13 +136,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            if let v = Int64(exactly: Double(value)) {
-                appendInt(value: v)
-            } else {
-                let doubleFormatter = DoubleFormatter()
-                let formatted = doubleFormatter.floatToUtf8(value)
-                data.append(contentsOf: formatted)
-            }
+            data.append(contentsOf: value.debugDescription.utf8)
         }
     }
 
@@ -156,13 +150,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            if let v = Int64(exactly: value) {
-                appendInt(value: v)
-            } else {
-                let doubleFormatter = DoubleFormatter()
-                let formatted = doubleFormatter.doubleToUtf8(value)
-                data.append(contentsOf: formatted)
-            }
+            data.append(contentsOf: value.debugDescription.utf8)
         }
     }
 
