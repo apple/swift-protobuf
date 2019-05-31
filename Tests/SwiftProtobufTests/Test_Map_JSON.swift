@@ -211,7 +211,7 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             $0.mapInt32Float == [1: Float(1.0)]
         }
 
-        assertJSONEncode("{\"mapInt32Float\":{\"1\":1}}") {
+        assertJSONEncode("{\"mapInt32Float\":{\"1\":1.0}}") {
             $0.mapInt32Float[1] = Float(1.0)
         }
 
@@ -225,7 +225,7 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             $0.mapInt32Double == [1: Double(1.0)]
         }
 
-        assertJSONEncode("{\"mapInt32Double\":{\"1\":1}}") {
+        assertJSONEncode("{\"mapInt32Double\":{\"1\":1.0}}") {
             $0.mapInt32Double[1] = Double(1.0)
         }
 
