@@ -280,8 +280,7 @@ install: build
 	${INSTALL} ${PROTOC_GEN_SWIFT} ${BINDIR}
 
 clean:
-	-swift build --clean
-	-swift package clean
+	swift package clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT} DescriptorTestData.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
 	  docs build
