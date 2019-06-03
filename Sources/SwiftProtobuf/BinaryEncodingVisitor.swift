@@ -106,7 +106,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    let length = try value.serializedDataSize()
+    let length = try value.serializedBinarySize()
     encoder.putVarInt(value: length)
     try value.traverse(visitor: &self)
   }
@@ -344,7 +344,7 @@ extension BinaryEncodingVisitor {
 
       // Use a normal BinaryEncodingVisitor so any message fields end up in the
       // normal wire format (instead of MessageSet format).
-      let length = try value.serializedDataSize()
+      let length = try value.serializedBinarySize()
       encoder.putVarInt(value: length)
       // Create the sub encoder after writing the length.
       var subVisitor = BinaryEncodingVisitor(encoder: encoder)

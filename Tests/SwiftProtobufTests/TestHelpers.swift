@@ -42,6 +42,22 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             } catch {
                 XCTFail("Failed to decode protobuf: \(string(from: encoded))", file: file, line: line)
             }
+
+            let expectedSize = try configured.serializedBinarySize()
+            var encodedViaBuffer = Data(count: expectedSize)
+            let bytesWritten = try encodedViaBuffer.withUnsafeMutableBytes { body in
+                try configured.serializeBinary(into: body)
+            }
+
+            XCTAssertEqual(bytesWritten, expectedSize, "The number of bytes written did not equal the expected serialized size", file: file, line: line)
+            do {
+                let decoded = try encodedViaBuffer.withUnsafeBytes { body in
+                    try MessageTestType(body: body)
+                }
+                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+            } catch {
+                XCTFail("Failed to decode protobuf: \(string(from: encoded))", file: file, line: line)
+            }
         } catch let e {
             XCTFail("Failed to encode: \(e)\n    \(configured)", file: file, line: line)
         }
