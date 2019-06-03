@@ -41,6 +41,16 @@ function print_swift_set_field() {
       echo "      message.field$num.append(.foo)"
       echo "    }"
       ;;
+    repeated\ float)
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append($((200+num)).$((200+num)))"
+      echo "    }"
+      ;;
+    repeated\ double)
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append($((200+num)).$((200+num)))"
+      echo "    }"
+      ;;
     repeated\ *)
       echo "    for _ in 0..<repeatedCount {"
       echo "      message.field$num.append($((200+num)))"
@@ -57,6 +67,12 @@ function print_swift_set_field() {
       ;;
     enum)
       echo "    message.field$num = .foo"
+      ;;
+    float)
+      echo "    message.field$num = $((200+num)).$((200+num))"
+      ;;
+    double)
+      echo "    message.field$num = $((200+num)).$((200+num))"
       ;;
     *)
       echo "    message.field$num = $((200+num))"

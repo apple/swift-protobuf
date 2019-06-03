@@ -36,6 +36,16 @@ function print_cpp_set_field() {
       echo "    message.add_field$num(PerfMessage::FOO);"
       echo "  }"
       ;;
+    repeated\ float)
+      echo "  for (auto i = 0; i < repeated_count; i++) {"
+      echo "    message.add_field$num($((200+num)).$((200+num)));"
+      echo "  }"
+      ;;
+    repeated\ double)
+      echo "  for (auto i = 0; i < repeated_count; i++) {"
+      echo "    message.add_field$num($((200+num)).$((200+num)));"
+      echo "  }"
+      ;;
     repeated\ *)
       echo "  for (auto i = 0; i < repeated_count; i++) {"
       echo "    message.add_field$num($((200+num)));"
@@ -49,6 +59,12 @@ function print_cpp_set_field() {
       ;;
     enum)
       echo "  message.set_field$num(PerfMessage::FOO);"
+      ;;
+    float)
+      echo "  message.set_field$num($((200+num)).$((200+num)));"
+      ;;
+    double)
+      echo "  message.set_field$num($((200+num)).$((200+num)));"
       ;;
     *)
       echo "  message.set_field$num($((200+num)));"
