@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_TextFormat_proto3.swift - Exercise proto3 text format coding
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
