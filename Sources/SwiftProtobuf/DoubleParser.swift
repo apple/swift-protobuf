@@ -40,8 +40,8 @@ internal class DoubleParser {
     }
 
     func utf8ToDouble(bytes: UnsafePointer<UInt8>, count: Int) -> Double? {
-        // Reject unreasonably large UTF8 number
-        if work.count <= count {
+        // Reject unreasonably long or short UTF8 number
+        if work.count <= count || count < 1 {
             return nil
         }
         // Copy it to the work buffer and null-terminate it
