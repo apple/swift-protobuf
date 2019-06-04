@@ -16,6 +16,11 @@ import Foundation
 
 /// Support parsing float/double values from UTF-8
 internal class DoubleParser {
+    // Temporary buffer so we can null-terminate the UTF-8 string
+    // before calling the C standard libray to parse it.
+    // In theory, JSON writers should be able to represent any IEEE Double
+    // in at most 25 bytes, but many writers will emit more digits than
+    // necessary, so we size this generously.
     #if swift(>=4.1)
       private var work =
           UnsafeMutableRawBufferPointer.allocate(byteCount: 128,
