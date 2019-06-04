@@ -15,7 +15,7 @@
 import Foundation
 
 private func padded(_ input: String, to width: Int) -> String {
-  return input + String(repeating: " ", count: max(0, width - input.characters.count))
+  return input + String(repeating: " ", count: max(0, width - input.count))
 }
 
 /// It is expected that the generator will provide these in an extension.
