@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_TextFormat_proto3.swift - Exercise proto3 text format coding
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -286,9 +286,9 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.optionalFloat = 11
 
-        XCTAssertEqual("optional_float: 11\n", a.textFormatString())
+        XCTAssertEqual("optional_float: 11.0\n", a.textFormatString())
 
-        assertTextFormatEncode("optional_float: 11\n") {(o: inout MessageTestType) in
+        assertTextFormatEncode("optional_float: 11.0\n") {(o: inout MessageTestType) in
             o.optionalFloat = 11
         }
         assertTextFormatDecodeSucceeds("optional_float: 1.0f") {
@@ -439,9 +439,9 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.optionalDouble = 12
 
-        XCTAssertEqual("optional_double: 12\n", a.textFormatString())
+        XCTAssertEqual("optional_double: 12.0\n", a.textFormatString())
 
-        assertTextFormatEncode("optional_double: 12\n") {(o: inout MessageTestType) in o.optionalDouble = 12 }
+        assertTextFormatEncode("optional_double: 12.0\n") {(o: inout MessageTestType) in o.optionalDouble = 12 }
         assertTextFormatEncode("optional_double: inf\n") {(o: inout MessageTestType) in o.optionalDouble = Double.infinity}
         assertTextFormatEncode("optional_double: -inf\n") {(o: inout MessageTestType) in o.optionalDouble = -Double.infinity}
         let b = Proto3Unittest_TestAllTypes.with {$0.optionalDouble = Double.nan}
@@ -1023,7 +1023,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedFloat() {
-        assertTextFormatEncode("repeated_float: [21, 22]\n") {(o: inout MessageTestType) in
+        assertTextFormatEncode("repeated_float: [21.0, 22.0]\n") {(o: inout MessageTestType) in
             o.repeatedFloat = [21, 22]
         }
 
@@ -1031,7 +1031,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedDouble() {
-        assertTextFormatEncode("repeated_double: [23, 24]\n") {(o: inout MessageTestType) in
+        assertTextFormatEncode("repeated_double: [23.0, 24.0]\n") {(o: inout MessageTestType) in
             o.repeatedDouble = [23, 24]
         }
         assertTextFormatEncode("repeated_double: [2.25, 2.5]\n") {(o: inout MessageTestType) in
@@ -1345,8 +1345,8 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             + "optional_fixed64: 8\n"
             + "optional_sfixed32: 9\n"
             + "optional_sfixed64: 10\n"
-            + "optional_float: 11\n"
-            + "optional_double: 12\n"
+            + "optional_float: 11.0\n"
+            + "optional_double: 12.0\n"
             + "optional_bool: true\n"
             + "optional_string: \"abc\"\n"
             + "optional_bytes: \"AB\"\n"
@@ -1374,8 +1374,8 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             + "repeated_fixed64: [15, 16]\n"
             + "repeated_sfixed32: [17, 18]\n"
             + "repeated_sfixed64: [19, 20]\n"
-            + "repeated_float: [21, 22]\n"
-            + "repeated_double: [23, 24]\n"
+            + "repeated_float: [21.0, 22.0]\n"
+            + "repeated_double: [23.0, 24.0]\n"
             + "repeated_bool: [true, false]\n"
             + "repeated_string: \"abc\"\n"
             + "repeated_string: \"def\"\n"

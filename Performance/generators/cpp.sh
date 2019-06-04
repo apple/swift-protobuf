@@ -4,7 +4,7 @@
 #
 # This source file is part of the Swift.org open source project
 #
-# Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+# Copyright (c) 2014 - 2019 Apple Inc. and the Swift project authors
 # Licensed under Apache License v2.0 with Runtime Library Exception
 #
 # See http://swift.org/LICENSE.txt for license information
@@ -36,6 +36,16 @@ function print_cpp_set_field() {
       echo "    message.add_field$num(PerfMessage::FOO);"
       echo "  }"
       ;;
+    repeated\ float)
+      echo "  for (auto i = 0; i < repeated_count; i++) {"
+      echo "    message.add_field$num($((200+num)).$((200+num)));"
+      echo "  }"
+      ;;
+    repeated\ double)
+      echo "  for (auto i = 0; i < repeated_count; i++) {"
+      echo "    message.add_field$num($((200+num)).$((200+num)));"
+      echo "  }"
+      ;;
     repeated\ *)
       echo "  for (auto i = 0; i < repeated_count; i++) {"
       echo "    message.add_field$num($((200+num)));"
@@ -49,6 +59,12 @@ function print_cpp_set_field() {
       ;;
     enum)
       echo "  message.set_field$num(PerfMessage::FOO);"
+      ;;
+    float)
+      echo "  message.set_field$num($((200+num)).$((200+num)));"
+      ;;
+    double)
+      echo "  message.set_field$num($((200+num)).$((200+num)));"
       ;;
     *)
       echo "  message.set_field$num($((200+num)));"

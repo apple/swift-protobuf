@@ -1,6 +1,6 @@
 // Sources/SwiftProtobuf/JSONScanner.swift - JSON format decoding
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -374,7 +374,7 @@ private func decodeString(_ s: String) -> String? {
 internal struct JSONScanner {
   private let source: UnsafeBufferPointer<UInt8>
   private var index: UnsafeBufferPointer<UInt8>.Index
-  private var numberFormatter = DoubleFormatter()
+  private var numberParser = DoubleParser()
   internal var recursionLimit: Int
   internal var recursionBudget: Int
   private var ignoreUnknownFields: Bool
@@ -679,7 +679,7 @@ internal struct JSONScanner {
       while c >= asciiZero && c <= asciiNine {
         source.formIndex(after: &index)
         if index == end {
-          if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+          if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
             return d
           } else {
             throw JSONDecodingError.invalidUTF8
@@ -708,7 +708,7 @@ internal struct JSONScanner {
         while c >= asciiZero && c <= asciiNine {
           source.formIndex(after: &index)
           if index == end {
-            if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+            if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
               return d
             } else {
               throw JSONDecodingError.invalidUTF8
@@ -754,7 +754,7 @@ internal struct JSONScanner {
         while c >= asciiZero && c <= asciiNine {
           source.formIndex(after: &index)
           if index == end {
-            if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+            if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
               return d
             } else {
               throw JSONDecodingError.invalidUTF8
@@ -770,7 +770,7 @@ internal struct JSONScanner {
         throw JSONDecodingError.malformedNumber
       }
     }
-    if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+    if let d = numberParser.utf8ToDouble(bytes: source, start: start, end: index) {
       return d
     } else {
       throw JSONDecodingError.invalidUTF8

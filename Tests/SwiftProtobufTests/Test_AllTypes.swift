@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_AllTypes.swift - Basic encoding/decoding test
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -612,7 +612,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                 return false
             }
         }
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_float: 1\n") {(o: inout MessageTestType) in o.optionalFloat = 1.0}
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_float: 1.0\n") {
+            (o: inout MessageTestType) in o.optionalFloat = 1.0}
         assertDecodeFails([93, 0, 0, 0])
         assertDecodeFails([93, 0, 0])
         assertDecodeFails([93, 0])
@@ -663,7 +664,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertEncode([97, 0, 0, 0, 0, 0, 0, 224, 63]) {(o: inout MessageTestType) in o.optionalDouble = 0.5}
         assertEncode([97, 0, 0, 0, 0, 0, 0, 0, 64]) {(o: inout MessageTestType) in o.optionalDouble = 2.0}
         assertDecodeSucceeds([97, 0, 0, 0, 0, 0, 0, 224, 63]) {$0.optionalDouble == 0.5}
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_double: 1\n") {(o: inout MessageTestType) in o.optionalDouble = 1.0}
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_double: 1.0\n") {
+            (o: inout MessageTestType) in o.optionalDouble = 1.0}
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
         assertDecodeFails([96])
@@ -2100,7 +2102,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssertNotEqual(a, empty)
 
         XCTAssertEqual([193, 4, 0, 0, 0, 0, 0, 100, 233, 64], try a.serializedBytes())
-        XCTAssertEqual("{\"defaultDouble\":52000}", try a.jsonString())
+        XCTAssertEqual("{\"defaultDouble\":52000.0}", try a.jsonString())
 
         var b = MessageTestType()
         b.optionalInt32 = 1

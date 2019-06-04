@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_Map_JSON.swift - Verify JSON coding for maps
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -211,7 +211,7 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             $0.mapInt32Float == [1: Float(1.0)]
         }
 
-        assertJSONEncode("{\"mapInt32Float\":{\"1\":1}}") {
+        assertJSONEncode("{\"mapInt32Float\":{\"1\":1.0}}") {
             $0.mapInt32Float[1] = Float(1.0)
         }
 
@@ -225,7 +225,7 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             $0.mapInt32Double == [1: Double(1.0)]
         }
 
-        assertJSONEncode("{\"mapInt32Double\":{\"1\":1}}") {
+        assertJSONEncode("{\"mapInt32Double\":{\"1\":1.0}}") {
             $0.mapInt32Double[1] = Double(1.0)
         }
 

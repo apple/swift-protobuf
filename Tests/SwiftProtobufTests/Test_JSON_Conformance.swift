@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_JSON_Conformance.swift - Various JSON tests
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -138,7 +138,7 @@ class Test_JSON_Conformance: XCTestCase {
         }
         do {
             let recoded = try decoded.jsonString()
-            XCTAssertEqual(recoded, "{\"repeatedValue\":[1,null]}")
+            XCTAssertEqual(recoded, "{\"repeatedValue\":[1.0,null]}")
         } catch {
             XCTFail("Re-encode failed with error: \(repeatedValueWithNull)")
         }
@@ -161,7 +161,7 @@ class Test_JSON_Conformance: XCTestCase {
     }
 
     func testValueList() {
-        let start = "{\"optionalValue\":[0,\"hello\"]}"
+        let start = "{\"optionalValue\":[0.0,\"hello\"]}"
         let t: ProtobufTestMessages_Proto3_TestAllTypesProto3
         do {
             t = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)

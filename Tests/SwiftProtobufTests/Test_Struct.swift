@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_Struct.swift - Verify Struct well-known type
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -118,12 +118,12 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     }
 
     func testJSON() {
-        assertJSONEncode("[1,\"abc\",true]") { (o: inout MessageTestType) in
+        assertJSONEncode("[1.0,\"abc\",true]") { (o: inout MessageTestType) in
             o.values.append(Google_Protobuf_Value(numberValue: 1))
             o.values.append(Google_Protobuf_Value(stringValue: "abc"))
             o.values.append(Google_Protobuf_Value(boolValue: true))
         }
-        assertJSONEncode("[1,\"abc\",true,[1,null],[]]") { (o: inout MessageTestType) in
+        assertJSONEncode("[1.0,\"abc\",true,[1.0,null],[]]") { (o: inout MessageTestType) in
             o.values.append(Google_Protobuf_Value(numberValue: 1))
             o.values.append(Google_Protobuf_Value(stringValue: "abc"))
             o.values.append(Google_Protobuf_Value(boolValue: true))
@@ -220,7 +220,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         let twoFromFloatLiteral: Google_Protobuf_Value = 2.0
         XCTAssertEqual(oneFromIntegerLiteral, oneFromFloatLiteral)
         XCTAssertNotEqual(oneFromIntegerLiteral, twoFromFloatLiteral)
-        XCTAssertEqual("1", try oneFromIntegerLiteral.jsonString())
+        XCTAssertEqual("1.0", try oneFromIntegerLiteral.jsonString())
         XCTAssertEqual([17, 0, 0, 0, 0, 0, 0, 240, 63], try oneFromIntegerLiteral.serializedBytes())
         assertJSONEncode("3.25") {(o: inout MessageTestType) in
             o.numberValue = 3.25
@@ -229,7 +229,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("  3.25  ") {$0.numberValue == 3.25}
         assertJSONDecodeFails("3.2.5")
 
-        XCTAssertEqual(oneFromIntegerLiteral.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nnumber_value: 1\n")
+        XCTAssertEqual(oneFromIntegerLiteral.debugDescription, "SwiftProtobuf.Google_Protobuf_Value:\nnumber_value: 1.0\n")
     }
 
     func testValue_string() throws {
@@ -290,19 +290,19 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
     }
 
     func testValue_struct() throws {
-        assertJSONEncode("{\"a\":1}") {(o: inout MessageTestType) in
+        assertJSONEncode("{\"a\":1.0}") {(o: inout MessageTestType) in
             o.structValue = Google_Protobuf_Struct(fields:["a": Google_Protobuf_Value(numberValue: 1)])
         }
 
         let structValue = try Google_Protobuf_Value(jsonString: "{\"a\":1.0}")
         let d = structValue.debugDescription
-        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1\n    }\n  }\n}\n")
+        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1.0\n    }\n  }\n}\n")
     }
 
     func testValue_list() throws {
         let listValue = try Google_Protobuf_Value(jsonString: "[1, true, \"abc\"]")
         let d = listValue.debugDescription
-        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n")
+        XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1.0\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n")
 
     }
 

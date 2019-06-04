@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_JSON_Array.swift - Exercise JSON flat array coding
 //
-// Copyright (c) 2014 - 2017 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -99,8 +99,8 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
             + "\"optionalFixed64\":\"8\","
             + "\"optionalSfixed32\":9,"
             + "\"optionalSfixed64\":\"10\","
-            + "\"optionalFloat\":11,"
-            + "\"optionalDouble\":12,"
+            + "\"optionalFloat\":11.0,"
+            + "\"optionalDouble\":12.0,"
             + "\"optionalBool\":true,"
             + "\"optionalString\":\"abc\","
             + "\"optionalBytes\":\"QUI=\","
@@ -121,8 +121,8 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
             + "\"repeatedFixed64\":[\"15\",\"16\"],"
             + "\"repeatedSfixed32\":[17,18],"
             + "\"repeatedSfixed64\":[\"19\",\"20\"],"
-            + "\"repeatedFloat\":[21,22],"
-            + "\"repeatedDouble\":[23,24],"
+            + "\"repeatedFloat\":[21.0,22.0],"
+            + "\"repeatedDouble\":[23.0,24.0],"
             + "\"repeatedBool\":[true,false],"
             + "\"repeatedString\":[\"abc\",\"def\"],"
             + "\"repeatedBytes\":[\"\",\"QUI=\"],"

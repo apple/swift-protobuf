@@ -1,6 +1,6 @@
 // Sources/SwiftProtobuf/TextFormatScanner.swift - Text format decoding
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -177,7 +177,7 @@ internal struct TextFormatScanner {
     internal var extensions: ExtensionMap?
     private var p: UnsafePointer<UInt8>
     private var end: UnsafePointer<UInt8>
-    private var doubleFormatter = DoubleFormatter()
+    private var doubleParser = DoubleParser()
 
     internal var complete: Bool {
         mutating get {
@@ -710,7 +710,7 @@ internal struct TextFormatScanner {
                 p += 1
             case asciiLowerF: // f
                 // proto1 allowed floats to be suffixed with 'f'
-                let d = doubleFormatter.utf8ToDouble(bytes: start, count: p - start)
+                let d = doubleParser.utf8ToDouble(bytes: start, count: p - start)
                 // Just skip the 'f'
                 p += 1
                 skipWhitespace()
@@ -719,7 +719,7 @@ internal struct TextFormatScanner {
                 break loop
             }
         }
-        let d = doubleFormatter.utf8ToDouble(bytes: start, count: p - start)
+        let d = doubleParser.utf8ToDouble(bytes: start, count: p - start)
         skipWhitespace()
         return d
     }
