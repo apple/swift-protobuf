@@ -215,7 +215,7 @@ pod 'SwiftProtobuf', '~> 1.0'
 
 And run `pod install`.
 
-(Swift 3 frameworks require CocoaPods 1.1 or newer)
+NOTE: CocoaPods 1.7 or newer is required.
 
 ### ...using Carthage
 
