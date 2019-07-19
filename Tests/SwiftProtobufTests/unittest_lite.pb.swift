@@ -56,8 +56,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignLiteFoo // = 4
-  case foreignLiteBar // = 5
   case foreignLiteBaz // = 6
+  case foreignLiteBar // = 5
 
   init() {
     self = .foreignLiteFoo
@@ -1639,6 +1639,56 @@ struct ProtobufUnittest_NonPackedFixed32 {
 
   init() {}
 }
+
+/// Test an enum that has multiple values with the same number.
+struct ProtobufUnittest_DupEnum {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum TestEnumWithDupValueLite: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case foo1 // = 1
+    case bar1 // = 2
+    case baz // = 3
+    static let foo2 = foo1
+    static let bar2 = bar1
+
+    init() {
+      self = .foo1
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 1: self = .foo1
+      case 2: self = .bar1
+      case 3: self = .baz
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .foo1: return 1
+      case .bar1: return 2
+      case .baz: return 3
+      }
+    }
+
+  }
+
+  init() {}
+}
+
+#if swift(>=4.2)
+
+extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Extension support defined in unittest_lite.proto.
 
@@ -5740,4 +5790,31 @@ extension ProtobufUnittest_NonPackedFixed32: SwiftProtobuf.Message, SwiftProtobu
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_DupEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".DupEnum"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_DupEnum, rhs: ProtobufUnittest_DupEnum) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+    3: .same(proto: "BAZ"),
+  ]
 }

@@ -141,7 +141,6 @@ message GeneratedSwiftReservedMessages {
   message discardUnknownFields { int32 discardUnknownFields = 1; }
   message distance { int32 distance = 1; }
   message double { int32 double = 1; }
-  message doubleToUtf8 { int32 doubleToUtf8 = 1; }
   message DoubleValue { int32 DoubleValue = 1; }
   message Duration { int32 Duration = 1; }
   message E { int32 E = 1; }
@@ -179,7 +178,7 @@ message GeneratedSwiftReservedMessages {
   message ExtensionMap { int32 ExtensionMap = 1; }
   message extensions { int32 extensions = 1; }
   message extras { int32 extras = 1; }
-  message f { int32 f = 1; }
+  message F { int32 F = 1; }
   message false { int32 false = 1; }
   message field { int32 field = 1; }
   message fieldData { int32 fieldData = 1; }
@@ -200,7 +199,6 @@ message GeneratedSwiftReservedMessages {
   message float { int32 float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
   message FloatLiteralType { int32 FloatLiteralType = 1; }
-  message floatToUtf8 { int32 floatToUtf8 = 1; }
   message FloatValue { int32 FloatValue = 1; }
   message forMessageName { int32 forMessageName = 1; }
   message formUnion { int32 formUnion = 1; }
