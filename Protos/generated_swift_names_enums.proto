@@ -141,7 +141,6 @@ message GeneratedSwiftReservedEnums {
   enum discardUnknownFields { NONE_discardUnknownFields = 0; }
   enum distance { NONE_distance = 0; }
   enum double { NONE_double = 0; }
-  enum doubleToUtf8 { NONE_doubleToUtf8 = 0; }
   enum DoubleValue { NONE_DoubleValue = 0; }
   enum Duration { NONE_Duration = 0; }
   enum E { NONE_E = 0; }
@@ -179,7 +178,7 @@ message GeneratedSwiftReservedEnums {
   enum ExtensionMap { NONE_ExtensionMap = 0; }
   enum extensions { NONE_extensions = 0; }
   enum extras { NONE_extras = 0; }
-  enum f { NONE_f = 0; }
+  enum F { NONE_F = 0; }
   enum false { NONE_false = 0; }
   enum field { NONE_field = 0; }
   enum fieldData { NONE_fieldData = 0; }
@@ -200,7 +199,6 @@ message GeneratedSwiftReservedEnums {
   enum float { NONE_float = 0; }
   enum floatLiteral { NONE_floatLiteral = 0; }
   enum FloatLiteralType { NONE_FloatLiteralType = 0; }
-  enum floatToUtf8 { NONE_floatToUtf8 = 0; }
   enum FloatValue { NONE_FloatValue = 0; }
   enum forMessageName { NONE_forMessageName = 0; }
   enum formUnion { NONE_formUnion = 0; }

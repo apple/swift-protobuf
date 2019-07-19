@@ -3455,31 +3455,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum doubleToUtf8: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneDoubleToUtf8 // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneDoubleToUtf8
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneDoubleToUtf8
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneDoubleToUtf8: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum DoubleValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneDoubleValue // = 0
@@ -4405,7 +4380,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum f: SwiftProtobuf.Enum {
+  enum F: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneF // = 0
     case UNRECOGNIZED(Int)
@@ -4924,31 +4899,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneFloatLiteralType: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
-  enum floatToUtf8: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneFloatToUtf8 // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneFloatToUtf8
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneFloatToUtf8
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneFloatToUtf8: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -16619,13 +16569,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.double: CaseIter
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.doubleToUtf8: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.doubleToUtf8] = [
-    .noneDoubleToUtf8,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DoubleValue: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DoubleValue] = [
@@ -16885,9 +16828,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extras: CaseIter
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.f: CaseIterable {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.F: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.f] = [
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.F] = [
     .noneF,
   ]
 }
@@ -17029,13 +16972,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatLiteralType
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatLiteralType] = [
     .noneFloatLiteralType,
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatToUtf8: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatToUtf8] = [
-    .noneFloatToUtf8,
   ]
 }
 
@@ -20882,12 +20818,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.double: SwiftPro
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.doubleToUtf8: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_doubleToUtf8"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DoubleValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_DoubleValue"),
@@ -21110,9 +21040,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extras: SwiftPro
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.f: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.F: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_f"),
+    0: .same(proto: "NONE_F"),
   ]
 }
 
@@ -21233,12 +21163,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatLiteral: Sw
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_FloatLiteralType"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatToUtf8: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_floatToUtf8"),
   ]
 }
 

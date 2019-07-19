@@ -250,6 +250,7 @@ public struct Google_Protobuf_DescriptorProto {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// Inclusive.
     public var start: Int32 {
       get {return _storage._start ?? 0}
       set {_uniqueStorage()._start = newValue}
@@ -259,6 +260,7 @@ public struct Google_Protobuf_DescriptorProto {
     /// Clears the value of `start`. Subsequent reads from it will return its default value.
     public mutating func clearStart() {_uniqueStorage()._start = nil}
 
+    /// Exclusive.
     public var end: Int32 {
       get {return _storage._end ?? 0}
       set {_uniqueStorage()._end = newValue}
@@ -1093,8 +1095,8 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   public mutating func clearPhpNamespace() {_uniqueStorage()._phpNamespace = nil}
 
   /// Use this option to change the namespace of php generated metadata classes.
-  /// Default is empty. When this option is empty, the proto file name will be used
-  /// for determining the namespace.
+  /// Default is empty. When this option is empty, the proto file name will be
+  /// used for determining the namespace.
   public var phpMetadataNamespace: String {
     get {return _storage._phpMetadataNamespace ?? String()}
     set {_uniqueStorage()._phpMetadataNamespace = newValue}
