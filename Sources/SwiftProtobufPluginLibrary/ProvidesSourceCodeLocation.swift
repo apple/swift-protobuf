@@ -9,6 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 
 public protocol ProvidesSourceCodeLocation {
   var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? { get }

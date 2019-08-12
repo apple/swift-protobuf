@@ -85,7 +85,6 @@ TEST_PROTOS= \
 	Protos/generated_swift_names_fields.proto \
 	Protos/generated_swift_names_messages.proto \
 	Protos/google/protobuf/any_test.proto \
-	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/map_proto2_unittest.proto \
 	Protos/google/protobuf/map_unittest.proto \
 	Protos/google/protobuf/test_messages_proto3.proto \
@@ -144,6 +143,7 @@ TEST_PROTOS= \
 LIBRARY_PROTOS= \
 	Protos/google/protobuf/any.proto \
 	Protos/google/protobuf/api.proto \
+	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/duration.proto \
 	Protos/google/protobuf/empty.proto \
 	Protos/google/protobuf/field_mask.proto \
@@ -156,7 +156,6 @@ LIBRARY_PROTOS= \
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
-	Protos/google/protobuf/descriptor.proto \
 	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
 
 # Protos that are used by the conformance test runner.
