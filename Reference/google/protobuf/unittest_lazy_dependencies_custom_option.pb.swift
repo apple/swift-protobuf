@@ -78,7 +78,7 @@ struct ProtobufUnittest_LazyImports_LazyMessage {
 
 // MARK: - Extension support defined in unittest_lazy_dependencies_custom_option.proto.
 
-extension Google_Protobuf_MessageOptions {
+extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var ProtobufUnittest_LazyImports_lazyEnumOption: ProtobufUnittest_LazyImports_LazyEnum {
     get {return getExtensionValue(ext: ProtobufUnittest_LazyImports_Extensions_lazy_enum_option) ?? .lazyEnum1}
@@ -105,7 +105,7 @@ let ProtobufUnittest_LazyImports_UnittestLazyDependenciesCustomOption_Extensions
   ProtobufUnittest_LazyImports_Extensions_lazy_enum_option
 ]
 
-let ProtobufUnittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_LazyImports_LazyEnum>, Google_Protobuf_MessageOptions>(
+let ProtobufUnittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_LazyImports_LazyEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 138596335,
   fieldName: "protobuf_unittest.lazy_imports.lazy_enum_option"
 )

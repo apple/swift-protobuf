@@ -157,7 +157,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest {
   ///
   /// Type names of fields and extensions in the FileDescriptorProto are always
   /// fully qualified.
-  public var protoFile: [Google_Protobuf_FileDescriptorProto] {
+  public var protoFile: [SwiftProtobuf.Google_Protobuf_FileDescriptorProto] {
     get {return _storage._protoFile}
     set {_uniqueStorage()._protoFile = newValue}
   }
@@ -365,7 +365,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
   fileprivate class _StorageClass {
     var _fileToGenerate: [String] = []
     var _parameter: String? = nil
-    var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
+    var _protoFile: [SwiftProtobuf.Google_Protobuf_FileDescriptorProto] = []
     var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
 
     static let defaultInstance = _StorageClass()

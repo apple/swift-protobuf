@@ -269,8 +269,8 @@ struct SDTExternalRefs {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var desc: Google_Protobuf_DescriptorProto {
-    get {return _storage._desc ?? Google_Protobuf_DescriptorProto()}
+  var desc: SwiftProtobuf.Google_Protobuf_DescriptorProto {
+    get {return _storage._desc ?? SwiftProtobuf.Google_Protobuf_DescriptorProto()}
     set {_uniqueStorage()._desc = newValue}
   }
   /// Returns true if `desc` has been explicitly set.
@@ -306,7 +306,7 @@ struct SDTScoperForExt {
 
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
-extension Google_Protobuf_FieldOptions {
+extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var SDTextStr: String {
     get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
@@ -324,7 +324,7 @@ extension Google_Protobuf_FieldOptions {
   }
 }
 
-extension Google_Protobuf_MessageOptions {
+extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
     get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
@@ -368,19 +368,19 @@ let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SDTScoperForExt.Extensions.ext_msg
 ]
 
-let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_FieldOptions>(
+let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 90000,
   fieldName: "swift_descriptor_test.ext_str"
 )
 
 extension SDTScoperForExt {
   enum Extensions {
-    static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, Google_Protobuf_MessageOptions>(
+    static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99001,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_enum"
     )
 
-    static let ext_msg = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SDTTopLevelMessage2>, Google_Protobuf_MessageOptions>(
+    static let ext_msg = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SDTTopLevelMessage2>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99002,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_msg"
     )
@@ -674,7 +674,7 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   ]
 
   fileprivate class _StorageClass {
-    var _desc: Google_Protobuf_DescriptorProto? = nil
+    var _desc: SwiftProtobuf.Google_Protobuf_DescriptorProto? = nil
     var _ver: Google_Protobuf_Compiler_Version? = nil
 
     static let defaultInstance = _StorageClass()
