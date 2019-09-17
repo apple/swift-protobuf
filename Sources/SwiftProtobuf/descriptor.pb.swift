@@ -63,16 +63,11 @@ public struct Google_Protobuf_FileDescriptorSet {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var file: [Google_Protobuf_FileDescriptorProto] {
-    get {return _storage._file}
-    set {_uniqueStorage()._file = newValue}
-  }
+  public var file: [Google_Protobuf_FileDescriptorProto] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a complete .proto file.
@@ -83,102 +78,85 @@ public struct Google_Protobuf_FileDescriptorProto {
 
   /// file name, relative to root of source tree
   public var name: String {
-    get {return _storage._name ?? String()}
-    set {_uniqueStorage()._name = newValue}
+    get {return _name ?? String()}
+    set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  public var hasName: Bool {return _storage._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_uniqueStorage()._name = nil}
+  public mutating func clearName() {self._name = nil}
 
   /// e.g. "foo", "foo.bar", etc.
   public var package: String {
-    get {return _storage._package ?? String()}
-    set {_uniqueStorage()._package = newValue}
+    get {return _package ?? String()}
+    set {_package = newValue}
   }
   /// Returns true if `package` has been explicitly set.
-  public var hasPackage: Bool {return _storage._package != nil}
+  public var hasPackage: Bool {return self._package != nil}
   /// Clears the value of `package`. Subsequent reads from it will return its default value.
-  public mutating func clearPackage() {_uniqueStorage()._package = nil}
+  public mutating func clearPackage() {self._package = nil}
 
   /// Names of files imported by this file.
-  public var dependency: [String] {
-    get {return _storage._dependency}
-    set {_uniqueStorage()._dependency = newValue}
-  }
+  public var dependency: [String] = []
 
   /// Indexes of the public imported files in the dependency list above.
-  public var publicDependency: [Int32] {
-    get {return _storage._publicDependency}
-    set {_uniqueStorage()._publicDependency = newValue}
-  }
+  public var publicDependency: [Int32] = []
 
   /// Indexes of the weak imported files in the dependency list.
   /// For Google-internal migration only. Do not use.
-  public var weakDependency: [Int32] {
-    get {return _storage._weakDependency}
-    set {_uniqueStorage()._weakDependency = newValue}
-  }
+  public var weakDependency: [Int32] = []
 
   /// All top-level definitions in this file.
-  public var messageType: [Google_Protobuf_DescriptorProto] {
-    get {return _storage._messageType}
-    set {_uniqueStorage()._messageType = newValue}
-  }
+  public var messageType: [Google_Protobuf_DescriptorProto] = []
 
-  public var enumType: [Google_Protobuf_EnumDescriptorProto] {
-    get {return _storage._enumType}
-    set {_uniqueStorage()._enumType = newValue}
-  }
+  public var enumType: [Google_Protobuf_EnumDescriptorProto] = []
 
-  public var service: [Google_Protobuf_ServiceDescriptorProto] {
-    get {return _storage._service}
-    set {_uniqueStorage()._service = newValue}
-  }
+  public var service: [Google_Protobuf_ServiceDescriptorProto] = []
 
-  public var `extension`: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage._extension}
-    set {_uniqueStorage()._extension = newValue}
-  }
+  public var `extension`: [Google_Protobuf_FieldDescriptorProto] = []
 
   public var options: Google_Protobuf_FileOptions {
-    get {return _storage._options ?? Google_Protobuf_FileOptions()}
-    set {_uniqueStorage()._options = newValue}
+    get {return _options ?? Google_Protobuf_FileOptions()}
+    set {_options = newValue}
   }
   /// Returns true if `options` has been explicitly set.
-  public var hasOptions: Bool {return _storage._options != nil}
+  public var hasOptions: Bool {return self._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_uniqueStorage()._options = nil}
+  public mutating func clearOptions() {self._options = nil}
 
   /// This field contains optional information about the original source code.
   /// You may safely remove this entire field without harming runtime
   /// functionality of the descriptors -- the information is needed only by
   /// development tools.
   public var sourceCodeInfo: Google_Protobuf_SourceCodeInfo {
-    get {return _storage._sourceCodeInfo ?? Google_Protobuf_SourceCodeInfo()}
-    set {_uniqueStorage()._sourceCodeInfo = newValue}
+    get {return _sourceCodeInfo ?? Google_Protobuf_SourceCodeInfo()}
+    set {_sourceCodeInfo = newValue}
   }
   /// Returns true if `sourceCodeInfo` has been explicitly set.
-  public var hasSourceCodeInfo: Bool {return _storage._sourceCodeInfo != nil}
+  public var hasSourceCodeInfo: Bool {return self._sourceCodeInfo != nil}
   /// Clears the value of `sourceCodeInfo`. Subsequent reads from it will return its default value.
-  public mutating func clearSourceCodeInfo() {_uniqueStorage()._sourceCodeInfo = nil}
+  public mutating func clearSourceCodeInfo() {self._sourceCodeInfo = nil}
 
   /// The syntax of the proto file.
   /// The supported values are "proto2" and "proto3".
   public var syntax: String {
-    get {return _storage._syntax ?? String()}
-    set {_uniqueStorage()._syntax = newValue}
+    get {return _syntax ?? String()}
+    set {_syntax = newValue}
   }
   /// Returns true if `syntax` has been explicitly set.
-  public var hasSyntax: Bool {return _storage._syntax != nil}
+  public var hasSyntax: Bool {return self._syntax != nil}
   /// Clears the value of `syntax`. Subsequent reads from it will return its default value.
-  public mutating func clearSyntax() {_uniqueStorage()._syntax = nil}
+  public mutating func clearSyntax() {self._syntax = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _name: String? = nil
+  fileprivate var _package: String? = nil
+  fileprivate var _options: Google_Protobuf_FileOptions? = nil
+  fileprivate var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
+  fileprivate var _syntax: String? = nil
 }
 
 /// Describes a message type.
@@ -188,64 +166,40 @@ public struct Google_Protobuf_DescriptorProto {
   // methods supported on all messages.
 
   public var name: String {
-    get {return _storage._name ?? String()}
-    set {_uniqueStorage()._name = newValue}
+    get {return _name ?? String()}
+    set {_name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  public var hasName: Bool {return _storage._name != nil}
+  public var hasName: Bool {return self._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  public mutating func clearName() {_uniqueStorage()._name = nil}
+  public mutating func clearName() {self._name = nil}
 
-  public var field: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage._field}
-    set {_uniqueStorage()._field = newValue}
-  }
+  public var field: [Google_Protobuf_FieldDescriptorProto] = []
 
-  public var `extension`: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage._extension}
-    set {_uniqueStorage()._extension = newValue}
-  }
+  public var `extension`: [Google_Protobuf_FieldDescriptorProto] = []
 
-  public var nestedType: [Google_Protobuf_DescriptorProto] {
-    get {return _storage._nestedType}
-    set {_uniqueStorage()._nestedType = newValue}
-  }
+  public var nestedType: [Google_Protobuf_DescriptorProto] = []
 
-  public var enumType: [Google_Protobuf_EnumDescriptorProto] {
-    get {return _storage._enumType}
-    set {_uniqueStorage()._enumType = newValue}
-  }
+  public var enumType: [Google_Protobuf_EnumDescriptorProto] = []
 
-  public var extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] {
-    get {return _storage._extensionRange}
-    set {_uniqueStorage()._extensionRange = newValue}
-  }
+  public var extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] = []
 
-  public var oneofDecl: [Google_Protobuf_OneofDescriptorProto] {
-    get {return _storage._oneofDecl}
-    set {_uniqueStorage()._oneofDecl = newValue}
-  }
+  public var oneofDecl: [Google_Protobuf_OneofDescriptorProto] = []
 
   public var options: Google_Protobuf_MessageOptions {
-    get {return _storage._options ?? Google_Protobuf_MessageOptions()}
-    set {_uniqueStorage()._options = newValue}
+    get {return _options ?? Google_Protobuf_MessageOptions()}
+    set {_options = newValue}
   }
   /// Returns true if `options` has been explicitly set.
-  public var hasOptions: Bool {return _storage._options != nil}
+  public var hasOptions: Bool {return self._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  public mutating func clearOptions() {_uniqueStorage()._options = nil}
+  public mutating func clearOptions() {self._options = nil}
 
-  public var reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] {
-    get {return _storage._reservedRange}
-    set {_uniqueStorage()._reservedRange = newValue}
-  }
+  public var reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
 
   /// Reserved field names, which may not be used by fields in the same message.
   /// A given name may only be reserved once.
-  public var reservedName: [String] {
-    get {return _storage._reservedName}
-    set {_uniqueStorage()._reservedName = newValue}
-  }
+  public var reservedName: [String] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -330,7 +284,8 @@ public struct Google_Protobuf_DescriptorProto {
 
   public init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _name: String? = nil
+  fileprivate var _options: Google_Protobuf_MessageOptions? = nil
 }
 
 public struct Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.ExtensibleMessage {
@@ -2058,63 +2013,29 @@ extension Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftProtobu
     1: .same(proto: "file"),
   ]
 
-  fileprivate class _StorageClass {
-    var _file: [Google_Protobuf_FileDescriptorProto] = []
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _file = source._file
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public var isInitialized: Bool {
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._file) {return false}
-      return true
-    }
+    if !SwiftProtobuf.Internal.areAllInitialized(self.file) {return false}
+    return true
   }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeRepeatedMessageField(value: &_storage._file)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.file)
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_storage._file.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._file, fieldNumber: 1)
-      }
+    if !self.file.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_FileDescriptorSet, rhs: Google_Protobuf_FileDescriptorSet) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._file != rhs_storage._file {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.file != rhs.file {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2137,144 +2058,88 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     12: .same(proto: "syntax"),
   ]
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _package: String? = nil
-    var _dependency: [String] = []
-    var _publicDependency: [Int32] = []
-    var _weakDependency: [Int32] = []
-    var _messageType: [Google_Protobuf_DescriptorProto] = []
-    var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
-    var _service: [Google_Protobuf_ServiceDescriptorProto] = []
-    var _extension: [Google_Protobuf_FieldDescriptorProto] = []
-    var _options: Google_Protobuf_FileOptions? = nil
-    var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
-    var _syntax: String? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _package = source._package
-      _dependency = source._dependency
-      _publicDependency = source._publicDependency
-      _weakDependency = source._weakDependency
-      _messageType = source._messageType
-      _enumType = source._enumType
-      _service = source._service
-      _extension = source._extension
-      _options = source._options
-      _sourceCodeInfo = source._sourceCodeInfo
-      _syntax = source._syntax
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public var isInitialized: Bool {
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._messageType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._service) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension) {return false}
-      if let v = _storage._options, !v.isInitialized {return false}
-      return true
-    }
+    if !SwiftProtobuf.Internal.areAllInitialized(self.messageType) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.enumType) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.service) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.`extension`) {return false}
+    if let v = self._options, !v.isInitialized {return false}
+    return true
   }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-        case 2: try decoder.decodeSingularStringField(value: &_storage._package)
-        case 3: try decoder.decodeRepeatedStringField(value: &_storage._dependency)
-        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._messageType)
-        case 5: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
-        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._service)
-        case 7: try decoder.decodeRepeatedMessageField(value: &_storage._extension)
-        case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
-        case 9: try decoder.decodeSingularMessageField(value: &_storage._sourceCodeInfo)
-        case 10: try decoder.decodeRepeatedInt32Field(value: &_storage._publicDependency)
-        case 11: try decoder.decodeRepeatedInt32Field(value: &_storage._weakDependency)
-        case 12: try decoder.decodeSingularStringField(value: &_storage._syntax)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self._name)
+      case 2: try decoder.decodeSingularStringField(value: &self._package)
+      case 3: try decoder.decodeRepeatedStringField(value: &self.dependency)
+      case 4: try decoder.decodeRepeatedMessageField(value: &self.messageType)
+      case 5: try decoder.decodeRepeatedMessageField(value: &self.enumType)
+      case 6: try decoder.decodeRepeatedMessageField(value: &self.service)
+      case 7: try decoder.decodeRepeatedMessageField(value: &self.`extension`)
+      case 8: try decoder.decodeSingularMessageField(value: &self._options)
+      case 9: try decoder.decodeSingularMessageField(value: &self._sourceCodeInfo)
+      case 10: try decoder.decodeRepeatedInt32Field(value: &self.publicDependency)
+      case 11: try decoder.decodeRepeatedInt32Field(value: &self.weakDependency)
+      case 12: try decoder.decodeSingularStringField(value: &self._syntax)
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._name {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._package {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
-      if !_storage._dependency.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._dependency, fieldNumber: 3)
-      }
-      if !_storage._messageType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._messageType, fieldNumber: 4)
-      }
-      if !_storage._enumType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._enumType, fieldNumber: 5)
-      }
-      if !_storage._service.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._service, fieldNumber: 6)
-      }
-      if !_storage._extension.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._extension, fieldNumber: 7)
-      }
-      if let v = _storage._options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._sourceCodeInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }
-      if !_storage._publicDependency.isEmpty {
-        try visitor.visitRepeatedInt32Field(value: _storage._publicDependency, fieldNumber: 10)
-      }
-      if !_storage._weakDependency.isEmpty {
-        try visitor.visitRepeatedInt32Field(value: _storage._weakDependency, fieldNumber: 11)
-      }
-      if let v = _storage._syntax {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 12)
-      }
+    if let v = self._name {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    if let v = self._package {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    }
+    if !self.dependency.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.dependency, fieldNumber: 3)
+    }
+    if !self.messageType.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.messageType, fieldNumber: 4)
+    }
+    if !self.enumType.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.enumType, fieldNumber: 5)
+    }
+    if !self.service.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.service, fieldNumber: 6)
+    }
+    if !self.`extension`.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.`extension`, fieldNumber: 7)
+    }
+    if let v = self._options {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    }
+    if let v = self._sourceCodeInfo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    }
+    if !self.publicDependency.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.publicDependency, fieldNumber: 10)
+    }
+    if !self.weakDependency.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.weakDependency, fieldNumber: 11)
+    }
+    if let v = self._syntax {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 12)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_FileDescriptorProto, rhs: Google_Protobuf_FileDescriptorProto) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._package != rhs_storage._package {return false}
-        if _storage._dependency != rhs_storage._dependency {return false}
-        if _storage._publicDependency != rhs_storage._publicDependency {return false}
-        if _storage._weakDependency != rhs_storage._weakDependency {return false}
-        if _storage._messageType != rhs_storage._messageType {return false}
-        if _storage._enumType != rhs_storage._enumType {return false}
-        if _storage._service != rhs_storage._service {return false}
-        if _storage._extension != rhs_storage._extension {return false}
-        if _storage._options != rhs_storage._options {return false}
-        if _storage._sourceCodeInfo != rhs_storage._sourceCodeInfo {return false}
-        if _storage._syntax != rhs_storage._syntax {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._name != rhs._name {return false}
+    if lhs._package != rhs._package {return false}
+    if lhs.dependency != rhs.dependency {return false}
+    if lhs.publicDependency != rhs.publicDependency {return false}
+    if lhs.weakDependency != rhs.weakDependency {return false}
+    if lhs.messageType != rhs.messageType {return false}
+    if lhs.enumType != rhs.enumType {return false}
+    if lhs.service != rhs.service {return false}
+    if lhs.`extension` != rhs.`extension` {return false}
+    if lhs._options != rhs._options {return false}
+    if lhs._sourceCodeInfo != rhs._sourceCodeInfo {return false}
+    if lhs._syntax != rhs._syntax {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2295,132 +2160,80 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.
     10: .standard(proto: "reserved_name"),
   ]
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _field: [Google_Protobuf_FieldDescriptorProto] = []
-    var _extension: [Google_Protobuf_FieldDescriptorProto] = []
-    var _nestedType: [Google_Protobuf_DescriptorProto] = []
-    var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
-    var _extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] = []
-    var _oneofDecl: [Google_Protobuf_OneofDescriptorProto] = []
-    var _options: Google_Protobuf_MessageOptions? = nil
-    var _reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
-    var _reservedName: [String] = []
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _field = source._field
-      _extension = source._extension
-      _nestedType = source._nestedType
-      _enumType = source._enumType
-      _extensionRange = source._extensionRange
-      _oneofDecl = source._oneofDecl
-      _options = source._options
-      _reservedRange = source._reservedRange
-      _reservedName = source._reservedName
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public var isInitialized: Bool {
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._field) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._nestedType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extensionRange) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._oneofDecl) {return false}
-      if let v = _storage._options, !v.isInitialized {return false}
-      return true
-    }
+    if !SwiftProtobuf.Internal.areAllInitialized(self.field) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.`extension`) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.nestedType) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.enumType) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.extensionRange) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.oneofDecl) {return false}
+    if let v = self._options, !v.isInitialized {return false}
+    return true
   }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._field)
-        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._nestedType)
-        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
-        case 5: try decoder.decodeRepeatedMessageField(value: &_storage._extensionRange)
-        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension)
-        case 7: try decoder.decodeSingularMessageField(value: &_storage._options)
-        case 8: try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl)
-        case 9: try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange)
-        case 10: try decoder.decodeRepeatedStringField(value: &_storage._reservedName)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self._name)
+      case 2: try decoder.decodeRepeatedMessageField(value: &self.field)
+      case 3: try decoder.decodeRepeatedMessageField(value: &self.nestedType)
+      case 4: try decoder.decodeRepeatedMessageField(value: &self.enumType)
+      case 5: try decoder.decodeRepeatedMessageField(value: &self.extensionRange)
+      case 6: try decoder.decodeRepeatedMessageField(value: &self.`extension`)
+      case 7: try decoder.decodeSingularMessageField(value: &self._options)
+      case 8: try decoder.decodeRepeatedMessageField(value: &self.oneofDecl)
+      case 9: try decoder.decodeRepeatedMessageField(value: &self.reservedRange)
+      case 10: try decoder.decodeRepeatedStringField(value: &self.reservedName)
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._name {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      }
-      if !_storage._field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._field, fieldNumber: 2)
-      }
-      if !_storage._nestedType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._nestedType, fieldNumber: 3)
-      }
-      if !_storage._enumType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._enumType, fieldNumber: 4)
-      }
-      if !_storage._extensionRange.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._extensionRange, fieldNumber: 5)
-      }
-      if !_storage._extension.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._extension, fieldNumber: 6)
-      }
-      if let v = _storage._options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
-      if !_storage._oneofDecl.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._oneofDecl, fieldNumber: 8)
-      }
-      if !_storage._reservedRange.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._reservedRange, fieldNumber: 9)
-      }
-      if !_storage._reservedName.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._reservedName, fieldNumber: 10)
-      }
+    if let v = self._name {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    if !self.field.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.field, fieldNumber: 2)
+    }
+    if !self.nestedType.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.nestedType, fieldNumber: 3)
+    }
+    if !self.enumType.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.enumType, fieldNumber: 4)
+    }
+    if !self.extensionRange.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.extensionRange, fieldNumber: 5)
+    }
+    if !self.`extension`.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.`extension`, fieldNumber: 6)
+    }
+    if let v = self._options {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+    }
+    if !self.oneofDecl.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.oneofDecl, fieldNumber: 8)
+    }
+    if !self.reservedRange.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.reservedRange, fieldNumber: 9)
+    }
+    if !self.reservedName.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.reservedName, fieldNumber: 10)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_DescriptorProto, rhs: Google_Protobuf_DescriptorProto) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._name != rhs_storage._name {return false}
-        if _storage._field != rhs_storage._field {return false}
-        if _storage._extension != rhs_storage._extension {return false}
-        if _storage._nestedType != rhs_storage._nestedType {return false}
-        if _storage._enumType != rhs_storage._enumType {return false}
-        if _storage._extensionRange != rhs_storage._extensionRange {return false}
-        if _storage._oneofDecl != rhs_storage._oneofDecl {return false}
-        if _storage._options != rhs_storage._options {return false}
-        if _storage._reservedRange != rhs_storage._reservedRange {return false}
-        if _storage._reservedName != rhs_storage._reservedName {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._name != rhs._name {return false}
+    if lhs.field != rhs.field {return false}
+    if lhs.`extension` != rhs.`extension` {return false}
+    if lhs.nestedType != rhs.nestedType {return false}
+    if lhs.enumType != rhs.enumType {return false}
+    if lhs.extensionRange != rhs.extensionRange {return false}
+    if lhs.oneofDecl != rhs.oneofDecl {return false}
+    if lhs._options != rhs._options {return false}
+    if lhs.reservedRange != rhs.reservedRange {return false}
+    if lhs.reservedName != rhs.reservedName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

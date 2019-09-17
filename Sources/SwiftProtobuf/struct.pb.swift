@@ -104,16 +104,11 @@ public struct Google_Protobuf_Struct {
   // methods supported on all messages.
 
   /// Unordered map of dynamically typed values.
-  public var fields: Dictionary<String,Google_Protobuf_Value> {
-    get {return _storage._fields}
-    set {_uniqueStorage()._fields = newValue}
-  }
+  public var fields: Dictionary<String,Google_Protobuf_Value> = [:]
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// `Value` represents a dynamically typed value which can be either
@@ -128,63 +123,60 @@ public struct Google_Protobuf_Value {
   // methods supported on all messages.
 
   /// The kind of value.
-  public var kind: OneOf_Kind? {
-    get {return _storage._kind}
-    set {_uniqueStorage()._kind = newValue}
-  }
+  public var kind: Google_Protobuf_Value.OneOf_Kind? = nil
 
   /// Represents a null value.
   public var nullValue: Google_Protobuf_NullValue {
     get {
-      if case .nullValue(let v)? = _storage._kind {return v}
+      if case .nullValue(let v)? = kind {return v}
       return .nullValue
     }
-    set {_uniqueStorage()._kind = .nullValue(newValue)}
+    set {kind = .nullValue(newValue)}
   }
 
   /// Represents a double value.
   public var numberValue: Double {
     get {
-      if case .numberValue(let v)? = _storage._kind {return v}
+      if case .numberValue(let v)? = kind {return v}
       return 0
     }
-    set {_uniqueStorage()._kind = .numberValue(newValue)}
+    set {kind = .numberValue(newValue)}
   }
 
   /// Represents a string value.
   public var stringValue: String {
     get {
-      if case .stringValue(let v)? = _storage._kind {return v}
+      if case .stringValue(let v)? = kind {return v}
       return String()
     }
-    set {_uniqueStorage()._kind = .stringValue(newValue)}
+    set {kind = .stringValue(newValue)}
   }
 
   /// Represents a boolean value.
   public var boolValue: Bool {
     get {
-      if case .boolValue(let v)? = _storage._kind {return v}
+      if case .boolValue(let v)? = kind {return v}
       return false
     }
-    set {_uniqueStorage()._kind = .boolValue(newValue)}
+    set {kind = .boolValue(newValue)}
   }
 
   /// Represents a structured value.
   public var structValue: Google_Protobuf_Struct {
     get {
-      if case .structValue(let v)? = _storage._kind {return v}
+      if case .structValue(let v)? = kind {return v}
       return Google_Protobuf_Struct()
     }
-    set {_uniqueStorage()._kind = .structValue(newValue)}
+    set {kind = .structValue(newValue)}
   }
 
   /// Represents a repeated `Value`.
   public var listValue: Google_Protobuf_ListValue {
     get {
-      if case .listValue(let v)? = _storage._kind {return v}
+      if case .listValue(let v)? = kind {return v}
       return Google_Protobuf_ListValue()
     }
-    set {_uniqueStorage()._kind = .listValue(newValue)}
+    set {kind = .listValue(newValue)}
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -206,8 +198,6 @@ public struct Google_Protobuf_Value {
   }
 
   public init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// `ListValue` is a wrapper around a repeated field of values.
@@ -219,16 +209,11 @@ public struct Google_Protobuf_ListValue {
   // methods supported on all messages.
 
   /// Repeated field of dynamically typed values.
-  public var values: [Google_Protobuf_Value] {
-    get {return _storage._values}
-    set {_uniqueStorage()._values = newValue}
-  }
+  public var values: [Google_Protobuf_Value] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -247,56 +232,24 @@ extension Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     1: .same(proto: "fields"),
   ]
 
-  fileprivate class _StorageClass {
-    var _fields: Dictionary<String,Google_Protobuf_Value> = [:]
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _fields = source._fields
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &_storage._fields)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &self.fields)
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_storage._fields.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: _storage._fields, fieldNumber: 1)
-      }
+    if !self.fields.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: self.fields, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Struct, rhs: Google_Protobuf_Struct) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._fields != rhs_storage._fields {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.fields != rhs.fields {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -313,103 +266,71 @@ extension Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     6: .standard(proto: "list_value"),
   ]
 
-  fileprivate class _StorageClass {
-    var _kind: Google_Protobuf_Value.OneOf_Kind?
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _kind = source._kind
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1:
-          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
-          var v: Google_Protobuf_NullValue?
-          try decoder.decodeSingularEnumField(value: &v)
-          if let v = v {_storage._kind = .nullValue(v)}
-        case 2:
-          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
-          var v: Double?
-          try decoder.decodeSingularDoubleField(value: &v)
-          if let v = v {_storage._kind = .numberValue(v)}
-        case 3:
-          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._kind = .stringValue(v)}
-        case 4:
-          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
-          var v: Bool?
-          try decoder.decodeSingularBoolField(value: &v)
-          if let v = v {_storage._kind = .boolValue(v)}
-        case 5:
-          var v: Google_Protobuf_Struct?
-          if let current = _storage._kind {
-            try decoder.handleConflictingOneOf()
-            if case .structValue(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._kind = .structValue(v)}
-        case 6:
-          var v: Google_Protobuf_ListValue?
-          if let current = _storage._kind {
-            try decoder.handleConflictingOneOf()
-            if case .listValue(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._kind = .listValue(v)}
-        default: break
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1:
+        if self.kind != nil {try decoder.handleConflictingOneOf()}
+        var v: Google_Protobuf_NullValue?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.kind = .nullValue(v)}
+      case 2:
+        if self.kind != nil {try decoder.handleConflictingOneOf()}
+        var v: Double?
+        try decoder.decodeSingularDoubleField(value: &v)
+        if let v = v {self.kind = .numberValue(v)}
+      case 3:
+        if self.kind != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.kind = .stringValue(v)}
+      case 4:
+        if self.kind != nil {try decoder.handleConflictingOneOf()}
+        var v: Bool?
+        try decoder.decodeSingularBoolField(value: &v)
+        if let v = v {self.kind = .boolValue(v)}
+      case 5:
+        var v: Google_Protobuf_Struct?
+        if let current = self.kind {
+          try decoder.handleConflictingOneOf()
+          if case .structValue(let m) = current {v = m}
         }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.kind = .structValue(v)}
+      case 6:
+        var v: Google_Protobuf_ListValue?
+        if let current = self.kind {
+          try decoder.handleConflictingOneOf()
+          if case .listValue(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.kind = .listValue(v)}
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      switch _storage._kind {
-      case .nullValue(let v)?:
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-      case .numberValue(let v)?:
-        try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
-      case .stringValue(let v)?:
-        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-      case .boolValue(let v)?:
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
-      case .structValue(let v)?:
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      case .listValue(let v)?:
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      case nil: break
-      }
+    switch self.kind {
+    case .nullValue(let v)?:
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    case .numberValue(let v)?:
+      try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
+    case .stringValue(let v)?:
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    case .boolValue(let v)?:
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
+    case .structValue(let v)?:
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    case .listValue(let v)?:
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_Value, rhs: Google_Protobuf_Value) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._kind != rhs_storage._kind {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.kind != rhs.kind {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -421,56 +342,24 @@ extension Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._Messa
     1: .same(proto: "values"),
   ]
 
-  fileprivate class _StorageClass {
-    var _values: [Google_Protobuf_Value] = []
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _values = source._values
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeRepeatedMessageField(value: &_storage._values)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.values)
+      default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_storage._values.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._values, fieldNumber: 1)
-      }
+    if !self.values.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Google_Protobuf_ListValue, rhs: Google_Protobuf_ListValue) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._values != rhs_storage._values {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
