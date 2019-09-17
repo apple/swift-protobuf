@@ -207,19 +207,19 @@ struct ProtobufUnittest_TestMapSubmessage {
   // methods supported on all messages.
 
   var testMap: ProtobufUnittest_TestMap {
-    get {return _storage._testMap ?? ProtobufUnittest_TestMap()}
-    set {_uniqueStorage()._testMap = newValue}
+    get {return _testMap ?? ProtobufUnittest_TestMap()}
+    set {_testMap = newValue}
   }
   /// Returns true if `testMap` has been explicitly set.
-  var hasTestMap: Bool {return _storage._testMap != nil}
+  var hasTestMap: Bool {return self._testMap != nil}
   /// Clears the value of `testMap`. Subsequent reads from it will return its default value.
-  mutating func clearTestMap() {_uniqueStorage()._testMap = nil}
+  mutating func clearTestMap() {self._testMap = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _testMap: ProtobufUnittest_TestMap? = nil
 }
 
 struct ProtobufUnittest_TestMessageMap {
@@ -371,7 +371,10 @@ struct ProtobufUnittest_MessageContainingEnumCalledType {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var type: Dictionary<String,ProtobufUnittest_MessageContainingEnumCalledType> = [:]
+  var type: Dictionary<String,ProtobufUnittest_MessageContainingEnumCalledType> {
+    get {return _storage._type}
+    set {_uniqueStorage()._type = newValue}
+  }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -401,6 +404,8 @@ struct ProtobufUnittest_MessageContainingEnumCalledType {
   }
 
   init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=4.2)
@@ -432,11 +437,16 @@ struct ProtobufUnittest_TestRecursiveMapMessage {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var a: Dictionary<String,ProtobufUnittest_TestRecursiveMapMessage> = [:]
+  var a: Dictionary<String,ProtobufUnittest_TestRecursiveMapMessage> {
+    get {return _storage._a}
+    set {_uniqueStorage()._a = newValue}
+  }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -662,56 +672,24 @@ extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtob
     1: .standard(proto: "test_map"),
   ]
 
-  fileprivate class _StorageClass {
-    var _testMap: ProtobufUnittest_TestMap? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _testMap = source._testMap
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._testMap)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &self._testMap)
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._testMap {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
+    if let v = self._testMap {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestMapSubmessage, rhs: ProtobufUnittest_TestMapSubmessage) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._testMap != rhs_storage._testMap {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._testMap != rhs._testMap {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1018,24 +996,56 @@ extension ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Messag
     1: .same(proto: "type"),
   ]
 
+  fileprivate class _StorageClass {
+    var _type: Dictionary<String,ProtobufUnittest_MessageContainingEnumCalledType> = [:]
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _type = source._type
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_MessageContainingEnumCalledType>.self, value: &self.type)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_MessageContainingEnumCalledType>.self, value: &_storage._type)
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.type.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_MessageContainingEnumCalledType>.self, value: self.type, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._type.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_MessageContainingEnumCalledType>.self, value: _storage._type, fieldNumber: 1)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_MessageContainingEnumCalledType, rhs: ProtobufUnittest_MessageContainingEnumCalledType) -> Bool {
-    if lhs.type != rhs.type {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._type != rhs_storage._type {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1082,24 +1092,56 @@ extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, Swift
     1: .same(proto: "a"),
   ]
 
+  fileprivate class _StorageClass {
+    var _a: Dictionary<String,ProtobufUnittest_TestRecursiveMapMessage> = [:]
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: &self.a)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: &_storage._a)
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.a.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: self.a, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._a.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: _storage._a, fieldNumber: 1)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestRecursiveMapMessage, rhs: ProtobufUnittest_TestRecursiveMapMessage) -> Bool {
-    if lhs.a != rhs.a {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._a != rhs_storage._a {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

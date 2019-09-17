@@ -387,36 +387,33 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.ExtensibleMessage {
   // methods supported on all messages.
 
   var bar: ProtobufUnittest_ComplexOptionType1 {
-    get {return _storage._bar ?? ProtobufUnittest_ComplexOptionType1()}
-    set {_uniqueStorage()._bar = newValue}
+    get {return _bar ?? ProtobufUnittest_ComplexOptionType1()}
+    set {_bar = newValue}
   }
   /// Returns true if `bar` has been explicitly set.
-  var hasBar: Bool {return _storage._bar != nil}
+  var hasBar: Bool {return self._bar != nil}
   /// Clears the value of `bar`. Subsequent reads from it will return its default value.
-  mutating func clearBar() {_uniqueStorage()._bar = nil}
+  mutating func clearBar() {self._bar = nil}
 
   var baz: Int32 {
-    get {return _storage._baz ?? 0}
-    set {_uniqueStorage()._baz = newValue}
+    get {return _baz ?? 0}
+    set {_baz = newValue}
   }
   /// Returns true if `baz` has been explicitly set.
-  var hasBaz: Bool {return _storage._baz != nil}
+  var hasBaz: Bool {return self._baz != nil}
   /// Clears the value of `baz`. Subsequent reads from it will return its default value.
-  mutating func clearBaz() {_uniqueStorage()._baz = nil}
+  mutating func clearBaz() {self._baz = nil}
 
   var fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
-    get {return _storage._fred ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
-    set {_uniqueStorage()._fred = newValue}
+    get {return _fred ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
+    set {_fred = newValue}
   }
   /// Returns true if `fred` has been explicitly set.
-  var hasFred: Bool {return _storage._fred != nil}
+  var hasFred: Bool {return self._fred != nil}
   /// Clears the value of `fred`. Subsequent reads from it will return its default value.
-  mutating func clearFred() {_uniqueStorage()._fred = nil}
+  mutating func clearFred() {self._fred = nil}
 
-  var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] {
-    get {return _storage._barney}
-    set {_uniqueStorage()._barney = newValue}
-  }
+  var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -444,7 +441,9 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.ExtensibleMessage {
   init() {}
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _bar: ProtobufUnittest_ComplexOptionType1? = nil
+  fileprivate var _baz: Int32? = nil
+  fileprivate var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
 }
 
 struct ProtobufUnittest_ComplexOptionType3 {
@@ -453,22 +452,22 @@ struct ProtobufUnittest_ComplexOptionType3 {
   // methods supported on all messages.
 
   var qux: Int32 {
-    get {return _storage._qux ?? 0}
-    set {_uniqueStorage()._qux = newValue}
+    get {return _qux ?? 0}
+    set {_qux = newValue}
   }
   /// Returns true if `qux` has been explicitly set.
-  var hasQux: Bool {return _storage._qux != nil}
+  var hasQux: Bool {return self._qux != nil}
   /// Clears the value of `qux`. Subsequent reads from it will return its default value.
-  mutating func clearQux() {_uniqueStorage()._qux = nil}
+  mutating func clearQux() {self._qux = nil}
 
   var complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5 {
-    get {return _storage._complexOptionType5 ?? ProtobufUnittest_ComplexOptionType3.ComplexOptionType5()}
-    set {_uniqueStorage()._complexOptionType5 = newValue}
+    get {return _complexOptionType5 ?? ProtobufUnittest_ComplexOptionType3.ComplexOptionType5()}
+    set {_complexOptionType5 = newValue}
   }
   /// Returns true if `complexOptionType5` has been explicitly set.
-  var hasComplexOptionType5: Bool {return _storage._complexOptionType5 != nil}
+  var hasComplexOptionType5: Bool {return self._complexOptionType5 != nil}
   /// Clears the value of `complexOptionType5`. Subsequent reads from it will return its default value.
-  mutating func clearComplexOptionType5() {_uniqueStorage()._complexOptionType5 = nil}
+  mutating func clearComplexOptionType5() {self._complexOptionType5 = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -495,7 +494,8 @@ struct ProtobufUnittest_ComplexOptionType3 {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _qux: Int32? = nil
+  fileprivate var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
 }
 
 struct ProtobufUnittest_ComplexOpt6 {
@@ -2202,88 +2202,48 @@ extension ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProto
     4: .same(proto: "barney"),
   ]
 
-  fileprivate class _StorageClass {
-    var _bar: ProtobufUnittest_ComplexOptionType1? = nil
-    var _baz: Int32? = nil
-    var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
-    var _barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _bar = source._bar
-      _baz = source._baz
-      _fred = source._fred
-      _barney = source._barney
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._bar, !v.isInitialized {return false}
-      return true
-    }
+    if let v = self._bar, !v.isInitialized {return false}
+    return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._bar)
-        case 2: try decoder.decodeSingularInt32Field(value: &_storage._baz)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._fred)
-        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._barney)
-        case 100..<536870912:
-          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType2.self, fieldNumber: fieldNumber)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &self._bar)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._baz)
+      case 3: try decoder.decodeSingularMessageField(value: &self._fred)
+      case 4: try decoder.decodeRepeatedMessageField(value: &self.barney)
+      case 100..<536870912:
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType2.self, fieldNumber: fieldNumber)
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._bar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._baz {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._fred {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if !_storage._barney.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._barney, fieldNumber: 4)
-      }
-      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
+    if let v = self._bar {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
+    if let v = self._baz {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
+    if let v = self._fred {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }
+    if !self.barney.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.barney, fieldNumber: 4)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_ComplexOptionType2, rhs: ProtobufUnittest_ComplexOptionType2) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._bar != rhs_storage._bar {return false}
-        if _storage._baz != rhs_storage._baz {return false}
-        if _storage._fred != rhs_storage._fred {return false}
-        if _storage._barney != rhs_storage._barney {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._bar != rhs._bar {return false}
+    if lhs._baz != rhs._baz {return false}
+    if lhs._fred != rhs._fred {return false}
+    if lhs.barney != rhs.barney {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
@@ -2326,63 +2286,29 @@ extension ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProto
     2: .unique(proto: "ComplexOptionType5", json: "complexoptiontype5"),
   ]
 
-  fileprivate class _StorageClass {
-    var _qux: Int32? = nil
-    var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _qux = source._qux
-      _complexOptionType5 = source._complexOptionType5
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_storage._qux)
-        case 2: try decoder.decodeSingularGroupField(value: &_storage._complexOptionType5)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._qux)
+      case 2: try decoder.decodeSingularGroupField(value: &self._complexOptionType5)
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._qux {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._complexOptionType5 {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
-      }
+    if let v = self._qux {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._complexOptionType5 {
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_ComplexOptionType3, rhs: ProtobufUnittest_ComplexOptionType3) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._qux != rhs_storage._qux {return false}
-        if _storage._complexOptionType5 != rhs_storage._complexOptionType5 {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._qux != rhs._qux {return false}
+    if lhs._complexOptionType5 != rhs._complexOptionType5 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
