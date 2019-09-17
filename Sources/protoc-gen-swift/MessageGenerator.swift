@@ -53,7 +53,7 @@ class MessageGenerator {
     // when the message has one or more oneof{}s. As that will efficively
     // reduce the real number of fields and the message might not need heap
     // storage yet.
-    let useHeapStorage = isAnyMessage || descriptor.fields.count > 16 || hasRecursiveField(descriptor: descriptor)
+    let useHeapStorage = isAnyMessage || descriptor.fields.count > 16 || hasRecursiveSingularField(descriptor: descriptor)
 
     oneofs = descriptor.oneofs.map {
       return OneofGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer, usesHeapStorage: useHeapStorage)
@@ -506,11 +506,12 @@ fileprivate func hasSingleMessageField(descriptor: Descriptor) -> Bool {
   return result
 }
 
-fileprivate func hasRecursiveField(descriptor: Descriptor, visited: [Descriptor] = []) -> Bool {
+fileprivate func hasRecursiveSingularField(descriptor: Descriptor, visited: [Descriptor] = []) -> Bool {
   var visited = visited
   visited.append(descriptor)
   return descriptor.fields.contains {
-    if $0.type != .message {
+    // Repeated fields use heap storage already
+    if ($0.type != .message && $0.type != .group) || $0.label == .repeated {
       return false
     }
     guard let messageType = $0.messageType else {
@@ -518,7 +519,7 @@ fileprivate func hasRecursiveField(descriptor: Descriptor, visited: [Descriptor]
     }
     return visited.contains {
       $0 === messageType
-    } || hasRecursiveField(descriptor: messageType, visited: visited)
+    } || hasRecursiveSingularField(descriptor: messageType, visited: visited)
   }
 }
 
