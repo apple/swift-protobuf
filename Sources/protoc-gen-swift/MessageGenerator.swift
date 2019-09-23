@@ -517,9 +517,19 @@ fileprivate func hasRecursiveSingularField(descriptor: Descriptor, visited: [Des
     guard let messageType = $0.messageType else {
       return false
     }
-    return visited.contains {
-      $0 === messageType
-    } || hasRecursiveSingularField(descriptor: messageType, visited: visited)
+
+    // We only care if the message or sub-message recurses to the root message.
+    if messageType === visited[0] {
+      return true
+    }
+
+    // Skip other visited fields.
+    if (visited[1...].contains { $0 === messageType }) {
+      return false
+    }
+
+    // Examine sub-message.
+    return hasRecursiveSingularField(descriptor: messageType, visited: visited)
   }
 }
 
