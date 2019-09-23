@@ -498,14 +498,6 @@ class MessageGenerator {
   }
 }
 
-fileprivate func hasSingleMessageField(descriptor: Descriptor) -> Bool {
-  let result = descriptor.fields.contains {
-    // Repeated check also rules out maps.
-    ($0.type == .message || $0.type == .group) && $0.label != .repeated
-  }
-  return result
-}
-
 fileprivate func hasRecursiveSingularField(descriptor: Descriptor, visited: [Descriptor] = []) -> Bool {
   var visited = visited
   visited.append(descriptor)
