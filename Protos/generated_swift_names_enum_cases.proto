@@ -3,859 +3,856 @@
 // Swift compile errors are probably bugs in protoc-gen-swift
 syntax = "proto3";
 package protobuf_unittest_generated;
-enum GeneratedSwiftReservedEnum {
-  NONE = 0;
-  adjusted = 1;
-  aggregateValue = 2;
-  allCases = 3;
-  allocate = 4;
-  allowAlias = 5;
-  alwaysPrintEnumsAsInts = 6;
-  annotation = 7;
-  any = 8;
-  AnyExtensionField = 9;
-  AnyMessageExtension = 10;
-  AnyMessageStorage = 11;
-  AnyUnpackError = 12;
-  Api = 13;
-  appended = 14;
-  appendUIntHex = 15;
-  appendUnknown = 16;
-  areAllInitialized = 17;
-  array = 18;
-  arrayLiteral = 19;
-  arraySeparator = 20;
-  as = 21;
-  asciiOpenCurlyBracket = 22;
-  asciiZero = 23;
-  assumingMemoryBound = 24;
-  available = 25;
-  b = 26;
-  base64Values = 27;
-  baseAddress = 28;
-  BaseType = 29;
-  begin = 30;
-  binary = 31;
-  BinaryDecoder = 32;
-  BinaryDecodingError = 33;
-  BinaryDecodingOptions = 34;
-  BinaryDelimited = 35;
-  BinaryEncoder = 36;
-  BinaryEncodingError = 37;
-  BinaryEncodingMessageSetSizeVisitor = 38;
-  BinaryEncodingMessageSetVisitor = 39;
-  BinaryEncodingSizeVisitor = 40;
-  BinaryEncodingVisitor = 41;
-  body = 42;
-  bodySize = 43;
-  Bool = 44;
-  booleanLiteral = 45;
-  BooleanLiteralType = 46;
-  boolValue = 47;
-  buffer = 48;
-  bytes = 49;
-  bytesInGroup = 50;
-  bytesRead = 51;
-  BytesValue = 52;
-  c = 53;
-  capacity = 54;
-  capitalizeNext = 55;
-  cardinality = 56;
-  ccEnableArenas = 57;
-  ccGenericServices = 58;
-  Character = 59;
-  chars = 60;
-  class = 61;
-  clearAggregateValue = 62;
-  clearAllowAlias = 63;
-  clearBegin = 64;
-  clearCcEnableArenas = 65;
-  clearCcGenericServices = 66;
-  clearClientStreaming = 67;
-  clearCsharpNamespace = 68;
-  clearCtype = 69;
-  clearDefaultValue = 70;
-  clearDeprecated = 71;
-  clearDoubleValue = 72;
-  clearEnd = 73;
-  clearExtendee = 74;
-  clearExtensionValue = 75;
-  clearGoPackage = 76;
-  clearIdempotencyLevel = 77;
-  clearIdentifierValue = 78;
-  clearInputType = 79;
-  clearIsExtension = 80;
-  clearJavaGenerateEqualsAndHash = 81;
-  clearJavaGenericServices = 82;
-  clearJavaMultipleFiles = 83;
-  clearJavaOuterClassname = 84;
-  clearJavaPackage = 85;
-  clearJavaStringCheckUtf8 = 86;
-  clearJsonName = 87;
-  clearJstype = 88;
-  clearLabel = 89;
-  clearLazy = 90;
-  clearLeadingComments = 91;
-  clearMapEntry = 92;
-  clearMessageSetWireFormat = 93;
-  clearName = 94;
-  clearNamePart = 95;
-  clearNegativeIntValue = 96;
-  clearNoStandardDescriptorAccessor = 97;
-  clearNumber = 98;
-  clearObjcClassPrefix = 99;
-  clearOneofIndex = 100;
-  clearOptimizeFor = 101;
-  clearOptions = 102;
-  clearOutputType = 103;
-  clearPackage = 104;
-  clearPacked = 105;
-  clearPhpClassPrefix = 106;
-  clearPhpGenericServices = 107;
-  clearPhpMetadataNamespace = 108;
-  clearPhpNamespace = 109;
-  clearPositiveIntValue = 110;
-  clearPyGenericServices = 111;
-  clearRubyPackage = 112;
-  clearServerStreaming = 113;
-  clearSourceCodeInfo = 114;
-  clearSourceContext = 115;
-  clearSourceFile = 116;
-  clearStart = 117;
-  clearStringValue = 118;
-  clearSwiftPrefix = 119;
-  clearSyntax = 120;
-  clearTrailingComments = 121;
-  clearType = 122;
-  clearTypeName = 123;
-  clearValue = 124;
-  clearWeak = 125;
-  clientStreaming = 126;
-  codeUnits = 127;
-  Collection = 128;
-  com = 129;
-  comma = 130;
-  contentsOf = 131;
-  count = 132;
-  countVarintsInBuffer = 133;
-  csharpNamespace = 134;
-  ctype = 135;
-  customCodable = 136;
-  CustomDebugStringConvertible = 137;
-  d = 138;
-  Data = 139;
-  dataResult = 140;
-  dataSize = 141;
-  date = 142;
-  daySec = 143;
-  daysSinceEpoch = 144;
-  debugDescription = 145;
-  decoded = 146;
-  decodedFromJSONNull = 147;
-  decodeExtensionField = 148;
-  decodeExtensionFieldsAsMessageSet = 149;
-  decodeJSON = 150;
-  decodeMapField = 151;
-  decodeMessage = 152;
-  decoder = 153;
-  decodeRepeated = 154;
-  decodeRepeatedBoolField = 155;
-  decodeRepeatedBytesField = 156;
-  decodeRepeatedDoubleField = 157;
-  decodeRepeatedEnumField = 158;
-  decodeRepeatedFixed32Field = 159;
-  decodeRepeatedFixed64Field = 160;
-  decodeRepeatedFloatField = 161;
-  decodeRepeatedGroupField = 162;
-  decodeRepeatedInt32Field = 163;
-  decodeRepeatedInt64Field = 164;
-  decodeRepeatedMessageField = 165;
-  decodeRepeatedSFixed32Field = 166;
-  decodeRepeatedSFixed64Field = 167;
-  decodeRepeatedSInt32Field = 168;
-  decodeRepeatedSInt64Field = 169;
-  decodeRepeatedStringField = 170;
-  decodeRepeatedUInt32Field = 171;
-  decodeRepeatedUInt64Field = 172;
-  decodeSingular = 173;
-  decodeSingularBoolField = 174;
-  decodeSingularBytesField = 175;
-  decodeSingularDoubleField = 176;
-  decodeSingularEnumField = 177;
-  decodeSingularFixed32Field = 178;
-  decodeSingularFixed64Field = 179;
-  decodeSingularFloatField = 180;
-  decodeSingularGroupField = 181;
-  decodeSingularInt32Field = 182;
-  decodeSingularInt64Field = 183;
-  decodeSingularMessageField = 184;
-  decodeSingularSFixed32Field = 185;
-  decodeSingularSFixed64Field = 186;
-  decodeSingularSInt32Field = 187;
-  decodeSingularSInt64Field = 188;
-  decodeSingularStringField = 189;
-  decodeSingularUInt32Field = 190;
-  decodeSingularUInt64Field = 191;
-  decodeTextFormat = 192;
-  defaultAnyTypeURLPrefix = 193;
-  defaultValue = 194;
-  dependency = 195;
-  deprecated = 196;
-  description = 197;
-  DescriptorProto = 198;
-  Dictionary = 199;
-  dictionaryLiteral = 200;
-  digit = 201;
-  digit0 = 202;
-  digit1 = 203;
-  digitCount = 204;
-  digits = 205;
-  digitValue = 206;
-  discardableResult = 207;
-  discardUnknownFields = 208;
-  distance = 209;
-  double = 210;
-  doubleValue = 211;
-  Duration = 212;
-  E = 213;
-  Element = 214;
-  elements = 215;
-  emitExtensionFieldName = 216;
-  emitFieldName = 217;
-  emitFieldNumber = 218;
-  Empty = 219;
-  emptyData = 220;
-  encoded = 221;
-  encodedJSONString = 222;
-  encodedSize = 223;
-  encodeField = 224;
-  encoder = 225;
-  end = 226;
-  endArray = 227;
-  endMessageField = 228;
-  endObject = 229;
-  endRegularField = 230;
-  enum = 231;
-  EnumDescriptorProto = 232;
-  EnumOptions = 233;
-  EnumReservedRange = 234;
-  enumType = 235;
-  enumvalue = 236;
-  EnumValueDescriptorProto = 237;
-  EnumValueOptions = 238;
-  Equatable = 239;
-  Error = 240;
-  ExpressibleByArrayLiteral = 241;
-  ExpressibleByDictionaryLiteral = 242;
-  ext = 243;
-  extDecoder = 244;
-  extendedGraphemeClusterLiteral = 245;
-  ExtendedGraphemeClusterLiteralType = 246;
-  extendee = 247;
-  ExtensibleMessage = 248;
-  extension = 249;
-  ExtensionField = 250;
-  extensionFieldNumber = 251;
-  ExtensionFieldValueSet = 252;
-  ExtensionMap = 253;
-  extensionRange = 254;
-  ExtensionRangeOptions = 255;
-  extensions = 256;
-  extras = 257;
-  F = 258;
-  false = 259;
-  field = 260;
-  fieldData = 261;
-  FieldDescriptorProto = 262;
-  FieldMask = 263;
-  fieldName = 264;
-  fieldNameCount = 265;
-  fieldNum = 266;
-  fieldNumber = 267;
-  fieldNumberForProto = 268;
-  FieldOptions = 269;
-  fields = 270;
-  fieldSize = 271;
-  FieldTag = 272;
-  fieldType = 273;
-  fieldValue = 274;
-  file = 275;
-  FileDescriptorProto = 276;
-  FileDescriptorSet = 277;
-  fileName = 278;
-  FileOptions = 279;
-  filter = 280;
-  firstItem = 281;
-  float = 282;
-  floatLiteral = 283;
-  FloatLiteralType = 284;
-  FloatValue = 285;
-  forMessageName = 286;
-  formUnion = 287;
-  forReadingFrom = 288;
-  forTypeURL = 289;
-  ForwardParser = 290;
-  forWritingInto = 291;
-  from = 292;
-  fromAscii2 = 293;
-  fromAscii4 = 294;
-  fromHexDigit = 295;
-  func = 296;
-  G = 297;
-  GeneratedCodeInfo = 298;
-  get = 299;
-  getExtensionValue = 300;
-  googleapis = 301;
-  Google_Protobuf_Any = 302;
-  Google_Protobuf_Api = 303;
-  Google_Protobuf_BoolValue = 304;
-  Google_Protobuf_BytesValue = 305;
-  Google_Protobuf_DescriptorProto = 306;
-  Google_Protobuf_DoubleValue = 307;
-  Google_Protobuf_Duration = 308;
-  Google_Protobuf_Empty = 309;
-  Google_Protobuf_Enum = 310;
-  Google_Protobuf_EnumDescriptorProto = 311;
-  Google_Protobuf_EnumOptions = 312;
-  Google_Protobuf_EnumValue = 313;
-  Google_Protobuf_EnumValueDescriptorProto = 314;
-  Google_Protobuf_EnumValueOptions = 315;
-  Google_Protobuf_ExtensionRangeOptions = 316;
-  Google_Protobuf_Field = 317;
-  Google_Protobuf_FieldDescriptorProto = 318;
-  Google_Protobuf_FieldMask = 319;
-  Google_Protobuf_FieldOptions = 320;
-  Google_Protobuf_FileDescriptorProto = 321;
-  Google_Protobuf_FileDescriptorSet = 322;
-  Google_Protobuf_FileOptions = 323;
-  Google_Protobuf_FloatValue = 324;
-  Google_Protobuf_GeneratedCodeInfo = 325;
-  Google_Protobuf_Int32Value = 326;
-  Google_Protobuf_Int64Value = 327;
-  Google_Protobuf_ListValue = 328;
-  Google_Protobuf_MessageOptions = 329;
-  Google_Protobuf_Method = 330;
-  Google_Protobuf_MethodDescriptorProto = 331;
-  Google_Protobuf_MethodOptions = 332;
-  Google_Protobuf_Mixin = 333;
-  Google_Protobuf_NullValue = 334;
-  Google_Protobuf_OneofDescriptorProto = 335;
-  Google_Protobuf_OneofOptions = 336;
-  Google_Protobuf_Option = 337;
-  Google_Protobuf_ServiceDescriptorProto = 338;
-  Google_Protobuf_ServiceOptions = 339;
-  Google_Protobuf_SourceCodeInfo = 340;
-  Google_Protobuf_SourceContext = 341;
-  Google_Protobuf_StringValue = 342;
-  Google_Protobuf_Struct = 343;
-  Google_Protobuf_Syntax = 344;
-  Google_Protobuf_Timestamp = 345;
-  Google_Protobuf_Type = 346;
-  Google_Protobuf_UInt32Value = 347;
-  Google_Protobuf_UInt64Value = 348;
-  Google_Protobuf_UninterpretedOption = 349;
-  Google_Protobuf_Value = 350;
-  goPackage = 351;
-  group = 352;
-  groupSize = 353;
-  h = 354;
-  handleConflictingOneOf = 355;
-  hasAggregateValue = 356;
-  hasAllowAlias = 357;
-  hasBegin = 358;
-  hasCcEnableArenas = 359;
-  hasCcGenericServices = 360;
-  hasClientStreaming = 361;
-  hasCsharpNamespace = 362;
-  hasCtype = 363;
-  hasDefaultValue = 364;
-  hasDeprecated = 365;
-  hasDoubleValue = 366;
-  hasEnd = 367;
-  hasExtendee = 368;
-  hasExtensionValue = 369;
-  hasGoPackage = 370;
-  hash = 371;
-  Hashable = 372;
-  hasher = 373;
-  hashValue = 374;
-  HashVisitor = 375;
-  hasIdempotencyLevel = 376;
-  hasIdentifierValue = 377;
-  hasInputType = 378;
-  hasIsExtension = 379;
-  hasJavaGenerateEqualsAndHash = 380;
-  hasJavaGenericServices = 381;
-  hasJavaMultipleFiles = 382;
-  hasJavaOuterClassname = 383;
-  hasJavaPackage = 384;
-  hasJavaStringCheckUtf8 = 385;
-  hasJsonName = 386;
-  hasJstype = 387;
-  hasLabel = 388;
-  hasLazy = 389;
-  hasLeadingComments = 390;
-  hasMapEntry = 391;
-  hasMessageSetWireFormat = 392;
-  hasName = 393;
-  hasNamePart = 394;
-  hasNegativeIntValue = 395;
-  hasNoStandardDescriptorAccessor = 396;
-  hasNumber = 397;
-  hasObjcClassPrefix = 398;
-  hasOneofIndex = 399;
-  hasOptimizeFor = 400;
-  hasOptions = 401;
-  hasOutputType = 402;
-  hasPackage = 403;
-  hasPacked = 404;
-  hasPhpClassPrefix = 405;
-  hasPhpGenericServices = 406;
-  hasPhpMetadataNamespace = 407;
-  hasPhpNamespace = 408;
-  hasPositiveIntValue = 409;
-  hasPyGenericServices = 410;
-  hasRubyPackage = 411;
-  hasServerStreaming = 412;
-  hasSourceCodeInfo = 413;
-  hasSourceContext = 414;
-  hasSourceFile = 415;
-  hasStart = 416;
-  hasStringValue = 417;
-  hasSwiftPrefix = 418;
-  hasSyntax = 419;
-  hasTrailingComments = 420;
-  hasType = 421;
-  hasTypeName = 422;
-  hasValue = 423;
-  hasWeak = 424;
-  hour = 425;
-  i = 426;
-  idempotencyLevel = 427;
-  identifierValue = 428;
-  ignoreUnknownFields = 429;
-  index = 430;
-  init = 431;
-  inout = 432;
-  inputType = 433;
-  insert = 434;
-  Int = 435;
-  Int32 = 436;
-  Int32Value = 437;
-  Int64 = 438;
-  Int64Value = 439;
-  Int8 = 440;
-  integerLiteral = 441;
-  IntegerLiteralType = 442;
-  intern = 443;
-  Internal = 444;
-  InternalState = 445;
-  into = 446;
-  ints = 447;
-  isA = 448;
-  isEqual = 449;
-  isEqualTo = 450;
-  isExtension = 451;
-  isInitialized = 452;
-  itemTagsEncodedSize = 453;
-  i_2166136261 = 454;
-  javaGenerateEqualsAndHash = 455;
-  javaGenericServices = 456;
-  javaMultipleFiles = 457;
-  javaOuterClassname = 458;
-  javaPackage = 459;
-  javaStringCheckUtf8 = 460;
-  JSONDecoder = 461;
-  JSONDecodingError = 462;
-  JSONDecodingOptions = 463;
-  jsonEncoder = 464;
-  JSONEncodingError = 465;
-  JSONEncodingOptions = 466;
-  JSONEncodingVisitor = 467;
-  JSONMapEncodingVisitor = 468;
-  jsonName = 469;
-  jsonPath = 470;
-  jsonPaths = 471;
-  JSONScanner = 472;
-  jsonString = 473;
-  jsonText = 474;
-  jsonUTF8Data = 475;
-  jstype = 476;
-  k = 477;
-  Key = 478;
-  keyField = 479;
-  KeyType = 480;
-  kind = 481;
-  l = 482;
-  label = 483;
-  lazy = 484;
-  leadingComments = 485;
-  leadingDetachedComments = 486;
-  length = 487;
-  let = 488;
-  lhs = 489;
-  list = 490;
-  listOfMessages = 491;
-  listValue = 492;
-  littleEndian = 493;
-  littleEndianBytes = 494;
-  localHasher = 495;
-  location = 496;
-  M = 497;
-  major = 498;
-  makeIterator = 499;
-  mapEntry = 500;
-  mapHash = 501;
-  MapKeyType = 502;
-  mapNameResolver = 503;
-  mapToMessages = 504;
-  MapValueType = 505;
-  mapVisitor = 506;
-  mdayStart = 507;
-  merge = 508;
-  message = 509;
-  messageDepthLimit = 510;
-  MessageExtension = 511;
-  MessageImplementationBase = 512;
-  MessageOptions = 513;
-  MessageSet = 514;
-  messageSetWireFormat = 515;
-  messageType = 516;
-  Method = 517;
-  MethodDescriptorProto = 518;
-  MethodOptions = 519;
-  methods = 520;
-  minor = 521;
-  Mixin = 522;
-  mixins = 523;
-  month = 524;
-  msgExtension = 525;
-  mutating = 526;
-  n = 527;
-  name = 528;
-  NameDescription = 529;
-  NameMap = 530;
-  NamePart = 531;
-  nameResolver = 532;
-  names = 533;
-  nanos = 534;
-  nativeBytes = 535;
-  nativeEndianBytes = 536;
-  negativeIntValue = 537;
-  nestedType = 538;
-  newL = 539;
-  newList = 540;
-  newValue = 541;
-  nextByte = 542;
-  nextFieldNumber = 543;
-  nil = 544;
-  nilLiteral = 545;
-  noStandardDescriptorAccessor = 546;
-  nullValue = 547;
-  number = 548;
-  numberValue = 549;
-  objcClassPrefix = 550;
-  of = 551;
-  oneofDecl = 552;
-  OneofDescriptorProto = 553;
-  oneofIndex = 554;
-  OneofOptions = 555;
-  oneofs = 556;
-  OneOf_Kind = 557;
-  optimizeFor = 558;
-  OptimizeMode = 559;
-  Option = 560;
-  OptionalEnumExtensionField = 561;
-  OptionalExtensionField = 562;
-  OptionalGroupExtensionField = 563;
-  OptionalMessageExtensionField = 564;
-  options = 565;
-  other = 566;
-  others = 567;
-  out = 568;
-  outputType = 569;
-  p = 570;
-  package = 571;
-  packed = 572;
-  PackedEnumExtensionField = 573;
-  PackedExtensionField = 574;
-  packedSize = 575;
-  padding = 576;
-  parent = 577;
-  parse = 578;
-  partial = 579;
-  path = 580;
-  paths = 581;
-  payload = 582;
-  payloadSize = 583;
-  phpClassPrefix = 584;
-  phpGenericServices = 585;
-  phpMetadataNamespace = 586;
-  phpNamespace = 587;
-  pointer = 588;
-  pos = 589;
-  positiveIntValue = 590;
-  prefix = 591;
-  preserveProtoFieldNames = 592;
-  preTraverse = 593;
-  printUnknownFields = 594;
-  proto2 = 595;
-  proto3DefaultValue = 596;
-  ProtobufAPIVersionCheck = 597;
-  ProtobufAPIVersion_2 = 598;
-  ProtobufBool = 599;
-  ProtobufBytes = 600;
-  ProtobufDouble = 601;
-  ProtobufEnumMap = 602;
-  protobufExtension = 603;
-  ProtobufFixed32 = 604;
-  ProtobufFixed64 = 605;
-  ProtobufFloat = 606;
-  ProtobufInt32 = 607;
-  ProtobufInt64 = 608;
-  ProtobufMap = 609;
-  ProtobufMessageMap = 610;
-  ProtobufSFixed32 = 611;
-  ProtobufSFixed64 = 612;
-  ProtobufSInt32 = 613;
-  ProtobufSInt64 = 614;
-  ProtobufString = 615;
-  ProtobufUInt32 = 616;
-  ProtobufUInt64 = 617;
-  protobuf_extensionFieldValues = 618;
-  protobuf_fieldNumber = 619;
-  protobuf_generated_isEqualTo = 620;
-  protobuf_nameMap = 621;
-  protobuf_newField = 622;
-  protobuf_package = 623;
-  protocol = 624;
-  protoFieldName = 625;
-  protoMessageName = 626;
-  ProtoNameProviding = 627;
-  protoPaths = 628;
-  public = 629;
-  publicDependency = 630;
-  putBoolValue = 631;
-  putBytesValue = 632;
-  putDoubleValue = 633;
-  putEnumValue = 634;
-  putFixedUInt32 = 635;
-  putFixedUInt64 = 636;
-  putFloatValue = 637;
-  putInt64 = 638;
-  putStringValue = 639;
-  putUInt64 = 640;
-  putUInt64Hex = 641;
-  putVarInt = 642;
-  putZigZagVarInt = 643;
-  pyGenericServices = 644;
-  rawChars = 645;
-  RawRepresentable = 646;
-  RawValue = 647;
-  readBuffer = 648;
-  register = 649;
-  RepeatedEnumExtensionField = 650;
-  RepeatedExtensionField = 651;
-  RepeatedGroupExtensionField = 652;
-  RepeatedMessageExtensionField = 653;
-  requestStreaming = 654;
-  requestTypeURL = 655;
-  requiredSize = 656;
-  reservedName = 657;
-  reservedRange = 658;
-  responseStreaming = 659;
-  responseTypeURL = 660;
-  result = 661;
-  rethrows = 662;
-  return = 663;
-  revision = 664;
-  rhs = 665;
-  root = 666;
-  rubyPackage = 667;
-  s = 668;
-  sawBackslash = 669;
-  sawSection4Characters = 670;
-  sawSection5Characters = 671;
-  scanner = 672;
-  seconds = 673;
-  self = 674;
-  separator = 675;
-  serialize = 676;
-  serializedData = 677;
-  serializedSize = 678;
-  serverStreaming = 679;
-  service = 680;
-  ServiceDescriptorProto = 681;
-  ServiceOptions = 682;
-  set = 683;
-  setExtensionValue = 684;
-  shift = 685;
-  SimpleExtensionMap = 686;
-  sizer = 687;
-  source = 688;
-  sourceCodeInfo = 689;
-  sourceContext = 690;
-  sourceEncoding = 691;
-  sourceFile = 692;
-  span = 693;
-  split = 694;
-  start = 695;
-  startArray = 696;
-  startField = 697;
-  startIndex = 698;
-  startMessageField = 699;
-  startObject = 700;
-  startRegularField = 701;
-  state = 702;
-  static = 703;
-  StaticString = 704;
-  storage = 705;
-  String = 706;
-  stringLiteral = 707;
-  StringLiteralType = 708;
-  stringResult = 709;
-  stringValue = 710;
-  struct = 711;
-  structValue = 712;
-  subDecoder = 713;
-  subscript = 714;
-  subVisitor = 715;
-  Swift = 716;
-  swiftPrefix = 717;
-  SwiftProtobuf = 718;
-  syntax = 719;
-  T = 720;
-  tag = 721;
-  terminator = 722;
-  testDecoder = 723;
-  text = 724;
-  textDecoder = 725;
-  TextFormatDecoder = 726;
-  TextFormatDecodingError = 727;
-  TextFormatEncodingOptions = 728;
-  TextFormatEncodingVisitor = 729;
-  textFormatString = 730;
-  throws = 731;
-  timeInterval = 732;
-  timeIntervalSince1970 = 733;
-  timeIntervalSinceReferenceDate = 734;
-  Timestamp = 735;
-  to = 736;
-  total = 737;
-  totalSize = 738;
-  trailingComments = 739;
-  traverse = 740;
-  true = 741;
-  try = 742;
-  type = 743;
-  typealias = 744;
-  TypeEnum = 745;
-  typeName = 746;
-  typePrefix = 747;
-  typeStart = 748;
-  typeUnknown = 749;
-  typeURL = 750;
-  UInt32 = 751;
-  UInt32Value = 752;
-  UInt64 = 753;
-  UInt64Value = 754;
-  UInt8 = 755;
-  unicodeScalarLiteral = 756;
-  UnicodeScalarLiteralType = 757;
-  unicodeScalars = 758;
-  UnicodeScalarView = 759;
-  uninterpretedOption = 760;
-  union = 761;
-  uniqueStorage = 762;
-  unknown = 763;
-  unknownFields = 764;
-  UnknownStorage = 765;
-  unpackTo = 766;
-  UnsafeBufferPointer = 767;
-  UnsafeMutablePointer = 768;
-  UnsafeMutableRawBufferPointer = 769;
-  UnsafePointer = 770;
-  UnsafeRawBufferPointer = 771;
-  updatedOptions = 772;
-  url = 773;
-  utf8 = 774;
-  utf8ToDouble = 775;
-  UTF8View = 776;
-  v = 777;
-  value = 778;
-  valueField = 779;
-  values = 780;
-  ValueType = 781;
-  var = 782;
-  Version = 783;
-  versionString = 784;
-  visitExtensionFields = 785;
-  visitExtensionFieldsAsMessageSet = 786;
-  visitMapField = 787;
-  visitor = 788;
-  visitPacked = 789;
-  visitPackedBoolField = 790;
-  visitPackedDoubleField = 791;
-  visitPackedEnumField = 792;
-  visitPackedFixed32Field = 793;
-  visitPackedFixed64Field = 794;
-  visitPackedFloatField = 795;
-  visitPackedInt32Field = 796;
-  visitPackedInt64Field = 797;
-  visitPackedSFixed32Field = 798;
-  visitPackedSFixed64Field = 799;
-  visitPackedSInt32Field = 800;
-  visitPackedSInt64Field = 801;
-  visitPackedUInt32Field = 802;
-  visitPackedUInt64Field = 803;
-  visitRepeated = 804;
-  visitRepeatedBoolField = 805;
-  visitRepeatedBytesField = 806;
-  visitRepeatedDoubleField = 807;
-  visitRepeatedEnumField = 808;
-  visitRepeatedFixed32Field = 809;
-  visitRepeatedFixed64Field = 810;
-  visitRepeatedFloatField = 811;
-  visitRepeatedGroupField = 812;
-  visitRepeatedInt32Field = 813;
-  visitRepeatedInt64Field = 814;
-  visitRepeatedMessageField = 815;
-  visitRepeatedSFixed32Field = 816;
-  visitRepeatedSFixed64Field = 817;
-  visitRepeatedSInt32Field = 818;
-  visitRepeatedSInt64Field = 819;
-  visitRepeatedStringField = 820;
-  visitRepeatedUInt32Field = 821;
-  visitRepeatedUInt64Field = 822;
-  visitSingular = 823;
-  visitSingularBoolField = 824;
-  visitSingularBytesField = 825;
-  visitSingularDoubleField = 826;
-  visitSingularEnumField = 827;
-  visitSingularFixed32Field = 828;
-  visitSingularFixed64Field = 829;
-  visitSingularFloatField = 830;
-  visitSingularGroupField = 831;
-  visitSingularInt32Field = 832;
-  visitSingularInt64Field = 833;
-  visitSingularMessageField = 834;
-  visitSingularSFixed32Field = 835;
-  visitSingularSFixed64Field = 836;
-  visitSingularSInt32Field = 837;
-  visitSingularSInt64Field = 838;
-  visitSingularStringField = 839;
-  visitSingularUInt32Field = 840;
-  visitSingularUInt64Field = 841;
-  visitUnknown = 842;
-  wasDecoded = 843;
-  weak = 844;
-  weakDependency = 845;
-  where = 846;
-  wireFormat = 847;
-  with = 848;
-  withUnsafeBytes = 849;
-  withUnsafeMutableBytes = 850;
-  WrappedType = 851;
-  written = 852;
-  yday = 853;
-}
+enum GeneratedSwiftReservedEnum1 { NONE_1 = 0; adjusted = 1; }
+enum GeneratedSwiftReservedEnum2 { NONE_2 = 0; aggregateValue = 1; }
+enum GeneratedSwiftReservedEnum3 { NONE_3 = 0; allCases = 1; }
+enum GeneratedSwiftReservedEnum4 { NONE_4 = 0; allocate = 1; }
+enum GeneratedSwiftReservedEnum5 { NONE_5 = 0; allowAlias = 1; }
+enum GeneratedSwiftReservedEnum6 { NONE_6 = 0; alwaysPrintEnumsAsInts = 1; }
+enum GeneratedSwiftReservedEnum7 { NONE_7 = 0; annotation = 1; }
+enum GeneratedSwiftReservedEnum8 { NONE_8 = 0; any = 1; }
+enum GeneratedSwiftReservedEnum9 { NONE_9 = 0; AnyExtensionField = 1; }
+enum GeneratedSwiftReservedEnum10 { NONE_10 = 0; AnyMessageExtension = 1; }
+enum GeneratedSwiftReservedEnum11 { NONE_11 = 0; AnyMessageStorage = 1; }
+enum GeneratedSwiftReservedEnum12 { NONE_12 = 0; AnyUnpackError = 1; }
+enum GeneratedSwiftReservedEnum13 { NONE_13 = 0; Api = 1; }
+enum GeneratedSwiftReservedEnum14 { NONE_14 = 0; appended = 1; }
+enum GeneratedSwiftReservedEnum15 { NONE_15 = 0; appendUIntHex = 1; }
+enum GeneratedSwiftReservedEnum16 { NONE_16 = 0; appendUnknown = 1; }
+enum GeneratedSwiftReservedEnum17 { NONE_17 = 0; areAllInitialized = 1; }
+enum GeneratedSwiftReservedEnum18 { NONE_18 = 0; array = 1; }
+enum GeneratedSwiftReservedEnum19 { NONE_19 = 0; arrayLiteral = 1; }
+enum GeneratedSwiftReservedEnum20 { NONE_20 = 0; arraySeparator = 1; }
+enum GeneratedSwiftReservedEnum21 { NONE_21 = 0; as = 1; }
+enum GeneratedSwiftReservedEnum22 { NONE_22 = 0; asciiOpenCurlyBracket = 1; }
+enum GeneratedSwiftReservedEnum23 { NONE_23 = 0; asciiZero = 1; }
+enum GeneratedSwiftReservedEnum24 { NONE_24 = 0; assumingMemoryBound = 1; }
+enum GeneratedSwiftReservedEnum25 { NONE_25 = 0; available = 1; }
+enum GeneratedSwiftReservedEnum26 { NONE_26 = 0; b = 1; }
+enum GeneratedSwiftReservedEnum27 { NONE_27 = 0; base64Values = 1; }
+enum GeneratedSwiftReservedEnum28 { NONE_28 = 0; baseAddress = 1; }
+enum GeneratedSwiftReservedEnum29 { NONE_29 = 0; BaseType = 1; }
+enum GeneratedSwiftReservedEnum30 { NONE_30 = 0; begin = 1; }
+enum GeneratedSwiftReservedEnum31 { NONE_31 = 0; binary = 1; }
+enum GeneratedSwiftReservedEnum32 { NONE_32 = 0; BinaryDecoder = 1; }
+enum GeneratedSwiftReservedEnum33 { NONE_33 = 0; BinaryDecodingError = 1; }
+enum GeneratedSwiftReservedEnum34 { NONE_34 = 0; BinaryDecodingOptions = 1; }
+enum GeneratedSwiftReservedEnum35 { NONE_35 = 0; BinaryDelimited = 1; }
+enum GeneratedSwiftReservedEnum36 { NONE_36 = 0; BinaryEncoder = 1; }
+enum GeneratedSwiftReservedEnum37 { NONE_37 = 0; BinaryEncodingError = 1; }
+enum GeneratedSwiftReservedEnum38 { NONE_38 = 0; BinaryEncodingMessageSetSizeVisitor = 1; }
+enum GeneratedSwiftReservedEnum39 { NONE_39 = 0; BinaryEncodingMessageSetVisitor = 1; }
+enum GeneratedSwiftReservedEnum40 { NONE_40 = 0; BinaryEncodingSizeVisitor = 1; }
+enum GeneratedSwiftReservedEnum41 { NONE_41 = 0; BinaryEncodingVisitor = 1; }
+enum GeneratedSwiftReservedEnum42 { NONE_42 = 0; body = 1; }
+enum GeneratedSwiftReservedEnum43 { NONE_43 = 0; bodySize = 1; }
+enum GeneratedSwiftReservedEnum44 { NONE_44 = 0; Bool = 1; }
+enum GeneratedSwiftReservedEnum45 { NONE_45 = 0; booleanLiteral = 1; }
+enum GeneratedSwiftReservedEnum46 { NONE_46 = 0; BooleanLiteralType = 1; }
+enum GeneratedSwiftReservedEnum47 { NONE_47 = 0; boolValue = 1; }
+enum GeneratedSwiftReservedEnum48 { NONE_48 = 0; buffer = 1; }
+enum GeneratedSwiftReservedEnum49 { NONE_49 = 0; bytes = 1; }
+enum GeneratedSwiftReservedEnum50 { NONE_50 = 0; bytesInGroup = 1; }
+enum GeneratedSwiftReservedEnum51 { NONE_51 = 0; bytesRead = 1; }
+enum GeneratedSwiftReservedEnum52 { NONE_52 = 0; BytesValue = 1; }
+enum GeneratedSwiftReservedEnum53 { NONE_53 = 0; c = 1; }
+enum GeneratedSwiftReservedEnum54 { NONE_54 = 0; capacity = 1; }
+enum GeneratedSwiftReservedEnum55 { NONE_55 = 0; capitalizeNext = 1; }
+enum GeneratedSwiftReservedEnum56 { NONE_56 = 0; cardinality = 1; }
+enum GeneratedSwiftReservedEnum57 { NONE_57 = 0; ccEnableArenas = 1; }
+enum GeneratedSwiftReservedEnum58 { NONE_58 = 0; ccGenericServices = 1; }
+enum GeneratedSwiftReservedEnum59 { NONE_59 = 0; Character = 1; }
+enum GeneratedSwiftReservedEnum60 { NONE_60 = 0; chars = 1; }
+enum GeneratedSwiftReservedEnum61 { NONE_61 = 0; class = 1; }
+enum GeneratedSwiftReservedEnum62 { NONE_62 = 0; clearAggregateValue = 1; }
+enum GeneratedSwiftReservedEnum63 { NONE_63 = 0; clearAllowAlias = 1; }
+enum GeneratedSwiftReservedEnum64 { NONE_64 = 0; clearBegin = 1; }
+enum GeneratedSwiftReservedEnum65 { NONE_65 = 0; clearCcEnableArenas = 1; }
+enum GeneratedSwiftReservedEnum66 { NONE_66 = 0; clearCcGenericServices = 1; }
+enum GeneratedSwiftReservedEnum67 { NONE_67 = 0; clearClientStreaming = 1; }
+enum GeneratedSwiftReservedEnum68 { NONE_68 = 0; clearCsharpNamespace = 1; }
+enum GeneratedSwiftReservedEnum69 { NONE_69 = 0; clearCtype = 1; }
+enum GeneratedSwiftReservedEnum70 { NONE_70 = 0; clearDefaultValue = 1; }
+enum GeneratedSwiftReservedEnum71 { NONE_71 = 0; clearDeprecated = 1; }
+enum GeneratedSwiftReservedEnum72 { NONE_72 = 0; clearDoubleValue = 1; }
+enum GeneratedSwiftReservedEnum73 { NONE_73 = 0; clearEnd = 1; }
+enum GeneratedSwiftReservedEnum74 { NONE_74 = 0; clearExtendee = 1; }
+enum GeneratedSwiftReservedEnum75 { NONE_75 = 0; clearExtensionValue = 1; }
+enum GeneratedSwiftReservedEnum76 { NONE_76 = 0; clearGoPackage = 1; }
+enum GeneratedSwiftReservedEnum77 { NONE_77 = 0; clearIdempotencyLevel = 1; }
+enum GeneratedSwiftReservedEnum78 { NONE_78 = 0; clearIdentifierValue = 1; }
+enum GeneratedSwiftReservedEnum79 { NONE_79 = 0; clearInputType = 1; }
+enum GeneratedSwiftReservedEnum80 { NONE_80 = 0; clearIsExtension = 1; }
+enum GeneratedSwiftReservedEnum81 { NONE_81 = 0; clearJavaGenerateEqualsAndHash = 1; }
+enum GeneratedSwiftReservedEnum82 { NONE_82 = 0; clearJavaGenericServices = 1; }
+enum GeneratedSwiftReservedEnum83 { NONE_83 = 0; clearJavaMultipleFiles = 1; }
+enum GeneratedSwiftReservedEnum84 { NONE_84 = 0; clearJavaOuterClassname = 1; }
+enum GeneratedSwiftReservedEnum85 { NONE_85 = 0; clearJavaPackage = 1; }
+enum GeneratedSwiftReservedEnum86 { NONE_86 = 0; clearJavaStringCheckUtf8 = 1; }
+enum GeneratedSwiftReservedEnum87 { NONE_87 = 0; clearJsonName = 1; }
+enum GeneratedSwiftReservedEnum88 { NONE_88 = 0; clearJstype = 1; }
+enum GeneratedSwiftReservedEnum89 { NONE_89 = 0; clearLabel = 1; }
+enum GeneratedSwiftReservedEnum90 { NONE_90 = 0; clearLazy = 1; }
+enum GeneratedSwiftReservedEnum91 { NONE_91 = 0; clearLeadingComments = 1; }
+enum GeneratedSwiftReservedEnum92 { NONE_92 = 0; clearMapEntry = 1; }
+enum GeneratedSwiftReservedEnum93 { NONE_93 = 0; clearMessageSetWireFormat = 1; }
+enum GeneratedSwiftReservedEnum94 { NONE_94 = 0; clearName = 1; }
+enum GeneratedSwiftReservedEnum95 { NONE_95 = 0; clearNamePart = 1; }
+enum GeneratedSwiftReservedEnum96 { NONE_96 = 0; clearNegativeIntValue = 1; }
+enum GeneratedSwiftReservedEnum97 { NONE_97 = 0; clearNoStandardDescriptorAccessor = 1; }
+enum GeneratedSwiftReservedEnum98 { NONE_98 = 0; clearNumber = 1; }
+enum GeneratedSwiftReservedEnum99 { NONE_99 = 0; clearObjcClassPrefix = 1; }
+enum GeneratedSwiftReservedEnum100 { NONE_100 = 0; clearOneofIndex = 1; }
+enum GeneratedSwiftReservedEnum101 { NONE_101 = 0; clearOptimizeFor = 1; }
+enum GeneratedSwiftReservedEnum102 { NONE_102 = 0; clearOptions = 1; }
+enum GeneratedSwiftReservedEnum103 { NONE_103 = 0; clearOutputType = 1; }
+enum GeneratedSwiftReservedEnum104 { NONE_104 = 0; clearPackage = 1; }
+enum GeneratedSwiftReservedEnum105 { NONE_105 = 0; clearPacked = 1; }
+enum GeneratedSwiftReservedEnum106 { NONE_106 = 0; clearPhpClassPrefix = 1; }
+enum GeneratedSwiftReservedEnum107 { NONE_107 = 0; clearPhpGenericServices = 1; }
+enum GeneratedSwiftReservedEnum108 { NONE_108 = 0; clearPhpMetadataNamespace = 1; }
+enum GeneratedSwiftReservedEnum109 { NONE_109 = 0; clearPhpNamespace = 1; }
+enum GeneratedSwiftReservedEnum110 { NONE_110 = 0; clearPositiveIntValue = 1; }
+enum GeneratedSwiftReservedEnum111 { NONE_111 = 0; clearPyGenericServices = 1; }
+enum GeneratedSwiftReservedEnum112 { NONE_112 = 0; clearRubyPackage = 1; }
+enum GeneratedSwiftReservedEnum113 { NONE_113 = 0; clearServerStreaming = 1; }
+enum GeneratedSwiftReservedEnum114 { NONE_114 = 0; clearSourceCodeInfo = 1; }
+enum GeneratedSwiftReservedEnum115 { NONE_115 = 0; clearSourceContext = 1; }
+enum GeneratedSwiftReservedEnum116 { NONE_116 = 0; clearSourceFile = 1; }
+enum GeneratedSwiftReservedEnum117 { NONE_117 = 0; clearStart = 1; }
+enum GeneratedSwiftReservedEnum118 { NONE_118 = 0; clearStringValue = 1; }
+enum GeneratedSwiftReservedEnum119 { NONE_119 = 0; clearSwiftPrefix = 1; }
+enum GeneratedSwiftReservedEnum120 { NONE_120 = 0; clearSyntax = 1; }
+enum GeneratedSwiftReservedEnum121 { NONE_121 = 0; clearTrailingComments = 1; }
+enum GeneratedSwiftReservedEnum122 { NONE_122 = 0; clearType = 1; }
+enum GeneratedSwiftReservedEnum123 { NONE_123 = 0; clearTypeName = 1; }
+enum GeneratedSwiftReservedEnum124 { NONE_124 = 0; clearValue = 1; }
+enum GeneratedSwiftReservedEnum125 { NONE_125 = 0; clearWeak = 1; }
+enum GeneratedSwiftReservedEnum126 { NONE_126 = 0; clientStreaming = 1; }
+enum GeneratedSwiftReservedEnum127 { NONE_127 = 0; codeUnits = 1; }
+enum GeneratedSwiftReservedEnum128 { NONE_128 = 0; Collection = 1; }
+enum GeneratedSwiftReservedEnum129 { NONE_129 = 0; com = 1; }
+enum GeneratedSwiftReservedEnum130 { NONE_130 = 0; comma = 1; }
+enum GeneratedSwiftReservedEnum131 { NONE_131 = 0; contentsOf = 1; }
+enum GeneratedSwiftReservedEnum132 { NONE_132 = 0; count = 1; }
+enum GeneratedSwiftReservedEnum133 { NONE_133 = 0; countVarintsInBuffer = 1; }
+enum GeneratedSwiftReservedEnum134 { NONE_134 = 0; csharpNamespace = 1; }
+enum GeneratedSwiftReservedEnum135 { NONE_135 = 0; ctype = 1; }
+enum GeneratedSwiftReservedEnum136 { NONE_136 = 0; customCodable = 1; }
+enum GeneratedSwiftReservedEnum137 { NONE_137 = 0; CustomDebugStringConvertible = 1; }
+enum GeneratedSwiftReservedEnum138 { NONE_138 = 0; d = 1; }
+enum GeneratedSwiftReservedEnum139 { NONE_139 = 0; Data = 1; }
+enum GeneratedSwiftReservedEnum140 { NONE_140 = 0; dataResult = 1; }
+enum GeneratedSwiftReservedEnum141 { NONE_141 = 0; dataSize = 1; }
+enum GeneratedSwiftReservedEnum142 { NONE_142 = 0; date = 1; }
+enum GeneratedSwiftReservedEnum143 { NONE_143 = 0; daySec = 1; }
+enum GeneratedSwiftReservedEnum144 { NONE_144 = 0; daysSinceEpoch = 1; }
+enum GeneratedSwiftReservedEnum145 { NONE_145 = 0; debugDescription = 1; }
+enum GeneratedSwiftReservedEnum146 { NONE_146 = 0; decoded = 1; }
+enum GeneratedSwiftReservedEnum147 { NONE_147 = 0; decodedFromJSONNull = 1; }
+enum GeneratedSwiftReservedEnum148 { NONE_148 = 0; decodeExtensionField = 1; }
+enum GeneratedSwiftReservedEnum149 { NONE_149 = 0; decodeExtensionFieldsAsMessageSet = 1; }
+enum GeneratedSwiftReservedEnum150 { NONE_150 = 0; decodeJSON = 1; }
+enum GeneratedSwiftReservedEnum151 { NONE_151 = 0; decodeMapField = 1; }
+enum GeneratedSwiftReservedEnum152 { NONE_152 = 0; decodeMessage = 1; }
+enum GeneratedSwiftReservedEnum153 { NONE_153 = 0; decoder = 1; }
+enum GeneratedSwiftReservedEnum154 { NONE_154 = 0; decodeRepeated = 1; }
+enum GeneratedSwiftReservedEnum155 { NONE_155 = 0; decodeRepeatedBoolField = 1; }
+enum GeneratedSwiftReservedEnum156 { NONE_156 = 0; decodeRepeatedBytesField = 1; }
+enum GeneratedSwiftReservedEnum157 { NONE_157 = 0; decodeRepeatedDoubleField = 1; }
+enum GeneratedSwiftReservedEnum158 { NONE_158 = 0; decodeRepeatedEnumField = 1; }
+enum GeneratedSwiftReservedEnum159 { NONE_159 = 0; decodeRepeatedFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum160 { NONE_160 = 0; decodeRepeatedFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum161 { NONE_161 = 0; decodeRepeatedFloatField = 1; }
+enum GeneratedSwiftReservedEnum162 { NONE_162 = 0; decodeRepeatedGroupField = 1; }
+enum GeneratedSwiftReservedEnum163 { NONE_163 = 0; decodeRepeatedInt32Field = 1; }
+enum GeneratedSwiftReservedEnum164 { NONE_164 = 0; decodeRepeatedInt64Field = 1; }
+enum GeneratedSwiftReservedEnum165 { NONE_165 = 0; decodeRepeatedMessageField = 1; }
+enum GeneratedSwiftReservedEnum166 { NONE_166 = 0; decodeRepeatedSFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum167 { NONE_167 = 0; decodeRepeatedSFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum168 { NONE_168 = 0; decodeRepeatedSInt32Field = 1; }
+enum GeneratedSwiftReservedEnum169 { NONE_169 = 0; decodeRepeatedSInt64Field = 1; }
+enum GeneratedSwiftReservedEnum170 { NONE_170 = 0; decodeRepeatedStringField = 1; }
+enum GeneratedSwiftReservedEnum171 { NONE_171 = 0; decodeRepeatedUInt32Field = 1; }
+enum GeneratedSwiftReservedEnum172 { NONE_172 = 0; decodeRepeatedUInt64Field = 1; }
+enum GeneratedSwiftReservedEnum173 { NONE_173 = 0; decodeSingular = 1; }
+enum GeneratedSwiftReservedEnum174 { NONE_174 = 0; decodeSingularBoolField = 1; }
+enum GeneratedSwiftReservedEnum175 { NONE_175 = 0; decodeSingularBytesField = 1; }
+enum GeneratedSwiftReservedEnum176 { NONE_176 = 0; decodeSingularDoubleField = 1; }
+enum GeneratedSwiftReservedEnum177 { NONE_177 = 0; decodeSingularEnumField = 1; }
+enum GeneratedSwiftReservedEnum178 { NONE_178 = 0; decodeSingularFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum179 { NONE_179 = 0; decodeSingularFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum180 { NONE_180 = 0; decodeSingularFloatField = 1; }
+enum GeneratedSwiftReservedEnum181 { NONE_181 = 0; decodeSingularGroupField = 1; }
+enum GeneratedSwiftReservedEnum182 { NONE_182 = 0; decodeSingularInt32Field = 1; }
+enum GeneratedSwiftReservedEnum183 { NONE_183 = 0; decodeSingularInt64Field = 1; }
+enum GeneratedSwiftReservedEnum184 { NONE_184 = 0; decodeSingularMessageField = 1; }
+enum GeneratedSwiftReservedEnum185 { NONE_185 = 0; decodeSingularSFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum186 { NONE_186 = 0; decodeSingularSFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum187 { NONE_187 = 0; decodeSingularSInt32Field = 1; }
+enum GeneratedSwiftReservedEnum188 { NONE_188 = 0; decodeSingularSInt64Field = 1; }
+enum GeneratedSwiftReservedEnum189 { NONE_189 = 0; decodeSingularStringField = 1; }
+enum GeneratedSwiftReservedEnum190 { NONE_190 = 0; decodeSingularUInt32Field = 1; }
+enum GeneratedSwiftReservedEnum191 { NONE_191 = 0; decodeSingularUInt64Field = 1; }
+enum GeneratedSwiftReservedEnum192 { NONE_192 = 0; decodeTextFormat = 1; }
+enum GeneratedSwiftReservedEnum193 { NONE_193 = 0; defaultAnyTypeURLPrefix = 1; }
+enum GeneratedSwiftReservedEnum194 { NONE_194 = 0; defaultValue = 1; }
+enum GeneratedSwiftReservedEnum195 { NONE_195 = 0; dependency = 1; }
+enum GeneratedSwiftReservedEnum196 { NONE_196 = 0; deprecated = 1; }
+enum GeneratedSwiftReservedEnum197 { NONE_197 = 0; description = 1; }
+enum GeneratedSwiftReservedEnum198 { NONE_198 = 0; DescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum199 { NONE_199 = 0; Dictionary = 1; }
+enum GeneratedSwiftReservedEnum200 { NONE_200 = 0; dictionaryLiteral = 1; }
+enum GeneratedSwiftReservedEnum201 { NONE_201 = 0; digit = 1; }
+enum GeneratedSwiftReservedEnum202 { NONE_202 = 0; digit0 = 1; }
+enum GeneratedSwiftReservedEnum203 { NONE_203 = 0; digit1 = 1; }
+enum GeneratedSwiftReservedEnum204 { NONE_204 = 0; digitCount = 1; }
+enum GeneratedSwiftReservedEnum205 { NONE_205 = 0; digits = 1; }
+enum GeneratedSwiftReservedEnum206 { NONE_206 = 0; digitValue = 1; }
+enum GeneratedSwiftReservedEnum207 { NONE_207 = 0; discardableResult = 1; }
+enum GeneratedSwiftReservedEnum208 { NONE_208 = 0; discardUnknownFields = 1; }
+enum GeneratedSwiftReservedEnum209 { NONE_209 = 0; distance = 1; }
+enum GeneratedSwiftReservedEnum210 { NONE_210 = 0; double = 1; }
+enum GeneratedSwiftReservedEnum211 { NONE_211 = 0; doubleValue = 1; }
+enum GeneratedSwiftReservedEnum212 { NONE_212 = 0; Duration = 1; }
+enum GeneratedSwiftReservedEnum213 { NONE_213 = 0; E = 1; }
+enum GeneratedSwiftReservedEnum214 { NONE_214 = 0; Element = 1; }
+enum GeneratedSwiftReservedEnum215 { NONE_215 = 0; elements = 1; }
+enum GeneratedSwiftReservedEnum216 { NONE_216 = 0; emitExtensionFieldName = 1; }
+enum GeneratedSwiftReservedEnum217 { NONE_217 = 0; emitFieldName = 1; }
+enum GeneratedSwiftReservedEnum218 { NONE_218 = 0; emitFieldNumber = 1; }
+enum GeneratedSwiftReservedEnum219 { NONE_219 = 0; Empty = 1; }
+enum GeneratedSwiftReservedEnum220 { NONE_220 = 0; emptyData = 1; }
+enum GeneratedSwiftReservedEnum221 { NONE_221 = 0; encoded = 1; }
+enum GeneratedSwiftReservedEnum222 { NONE_222 = 0; encodedJSONString = 1; }
+enum GeneratedSwiftReservedEnum223 { NONE_223 = 0; encodedSize = 1; }
+enum GeneratedSwiftReservedEnum224 { NONE_224 = 0; encodeField = 1; }
+enum GeneratedSwiftReservedEnum225 { NONE_225 = 0; encoder = 1; }
+enum GeneratedSwiftReservedEnum226 { NONE_226 = 0; end = 1; }
+enum GeneratedSwiftReservedEnum227 { NONE_227 = 0; endArray = 1; }
+enum GeneratedSwiftReservedEnum228 { NONE_228 = 0; endMessageField = 1; }
+enum GeneratedSwiftReservedEnum229 { NONE_229 = 0; endObject = 1; }
+enum GeneratedSwiftReservedEnum230 { NONE_230 = 0; endRegularField = 1; }
+enum GeneratedSwiftReservedEnum231 { NONE_231 = 0; enum = 1; }
+enum GeneratedSwiftReservedEnum232 { NONE_232 = 0; EnumDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum233 { NONE_233 = 0; EnumOptions = 1; }
+enum GeneratedSwiftReservedEnum234 { NONE_234 = 0; EnumReservedRange = 1; }
+enum GeneratedSwiftReservedEnum235 { NONE_235 = 0; enumType = 1; }
+enum GeneratedSwiftReservedEnum236 { NONE_236 = 0; enumvalue = 1; }
+enum GeneratedSwiftReservedEnum237 { NONE_237 = 0; EnumValueDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum238 { NONE_238 = 0; EnumValueOptions = 1; }
+enum GeneratedSwiftReservedEnum239 { NONE_239 = 0; Equatable = 1; }
+enum GeneratedSwiftReservedEnum240 { NONE_240 = 0; Error = 1; }
+enum GeneratedSwiftReservedEnum241 { NONE_241 = 0; ExpressibleByArrayLiteral = 1; }
+enum GeneratedSwiftReservedEnum242 { NONE_242 = 0; ExpressibleByDictionaryLiteral = 1; }
+enum GeneratedSwiftReservedEnum243 { NONE_243 = 0; ext = 1; }
+enum GeneratedSwiftReservedEnum244 { NONE_244 = 0; extDecoder = 1; }
+enum GeneratedSwiftReservedEnum245 { NONE_245 = 0; extendedGraphemeClusterLiteral = 1; }
+enum GeneratedSwiftReservedEnum246 { NONE_246 = 0; ExtendedGraphemeClusterLiteralType = 1; }
+enum GeneratedSwiftReservedEnum247 { NONE_247 = 0; extendee = 1; }
+enum GeneratedSwiftReservedEnum248 { NONE_248 = 0; ExtensibleMessage = 1; }
+enum GeneratedSwiftReservedEnum249 { NONE_249 = 0; extension = 1; }
+enum GeneratedSwiftReservedEnum250 { NONE_250 = 0; ExtensionField = 1; }
+enum GeneratedSwiftReservedEnum251 { NONE_251 = 0; extensionFieldNumber = 1; }
+enum GeneratedSwiftReservedEnum252 { NONE_252 = 0; ExtensionFieldValueSet = 1; }
+enum GeneratedSwiftReservedEnum253 { NONE_253 = 0; ExtensionMap = 1; }
+enum GeneratedSwiftReservedEnum254 { NONE_254 = 0; extensionRange = 1; }
+enum GeneratedSwiftReservedEnum255 { NONE_255 = 0; ExtensionRangeOptions = 1; }
+enum GeneratedSwiftReservedEnum256 { NONE_256 = 0; extensions = 1; }
+enum GeneratedSwiftReservedEnum257 { NONE_257 = 0; extras = 1; }
+enum GeneratedSwiftReservedEnum258 { NONE_258 = 0; F = 1; }
+enum GeneratedSwiftReservedEnum259 { NONE_259 = 0; false = 1; }
+enum GeneratedSwiftReservedEnum260 { NONE_260 = 0; field = 1; }
+enum GeneratedSwiftReservedEnum261 { NONE_261 = 0; fieldData = 1; }
+enum GeneratedSwiftReservedEnum262 { NONE_262 = 0; FieldDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum263 { NONE_263 = 0; FieldMask = 1; }
+enum GeneratedSwiftReservedEnum264 { NONE_264 = 0; fieldName = 1; }
+enum GeneratedSwiftReservedEnum265 { NONE_265 = 0; fieldNameCount = 1; }
+enum GeneratedSwiftReservedEnum266 { NONE_266 = 0; fieldNum = 1; }
+enum GeneratedSwiftReservedEnum267 { NONE_267 = 0; fieldNumber = 1; }
+enum GeneratedSwiftReservedEnum268 { NONE_268 = 0; fieldNumberForProto = 1; }
+enum GeneratedSwiftReservedEnum269 { NONE_269 = 0; FieldOptions = 1; }
+enum GeneratedSwiftReservedEnum270 { NONE_270 = 0; fields = 1; }
+enum GeneratedSwiftReservedEnum271 { NONE_271 = 0; fieldSize = 1; }
+enum GeneratedSwiftReservedEnum272 { NONE_272 = 0; FieldTag = 1; }
+enum GeneratedSwiftReservedEnum273 { NONE_273 = 0; fieldType = 1; }
+enum GeneratedSwiftReservedEnum274 { NONE_274 = 0; fieldValue = 1; }
+enum GeneratedSwiftReservedEnum275 { NONE_275 = 0; file = 1; }
+enum GeneratedSwiftReservedEnum276 { NONE_276 = 0; FileDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum277 { NONE_277 = 0; FileDescriptorSet = 1; }
+enum GeneratedSwiftReservedEnum278 { NONE_278 = 0; fileName = 1; }
+enum GeneratedSwiftReservedEnum279 { NONE_279 = 0; FileOptions = 1; }
+enum GeneratedSwiftReservedEnum280 { NONE_280 = 0; filter = 1; }
+enum GeneratedSwiftReservedEnum281 { NONE_281 = 0; firstItem = 1; }
+enum GeneratedSwiftReservedEnum282 { NONE_282 = 0; float = 1; }
+enum GeneratedSwiftReservedEnum283 { NONE_283 = 0; floatLiteral = 1; }
+enum GeneratedSwiftReservedEnum284 { NONE_284 = 0; FloatLiteralType = 1; }
+enum GeneratedSwiftReservedEnum285 { NONE_285 = 0; FloatValue = 1; }
+enum GeneratedSwiftReservedEnum286 { NONE_286 = 0; forMessageName = 1; }
+enum GeneratedSwiftReservedEnum287 { NONE_287 = 0; formUnion = 1; }
+enum GeneratedSwiftReservedEnum288 { NONE_288 = 0; forReadingFrom = 1; }
+enum GeneratedSwiftReservedEnum289 { NONE_289 = 0; forTypeURL = 1; }
+enum GeneratedSwiftReservedEnum290 { NONE_290 = 0; ForwardParser = 1; }
+enum GeneratedSwiftReservedEnum291 { NONE_291 = 0; forWritingInto = 1; }
+enum GeneratedSwiftReservedEnum292 { NONE_292 = 0; from = 1; }
+enum GeneratedSwiftReservedEnum293 { NONE_293 = 0; fromAscii2 = 1; }
+enum GeneratedSwiftReservedEnum294 { NONE_294 = 0; fromAscii4 = 1; }
+enum GeneratedSwiftReservedEnum295 { NONE_295 = 0; fromHexDigit = 1; }
+enum GeneratedSwiftReservedEnum296 { NONE_296 = 0; func = 1; }
+enum GeneratedSwiftReservedEnum297 { NONE_297 = 0; G = 1; }
+enum GeneratedSwiftReservedEnum298 { NONE_298 = 0; GeneratedCodeInfo = 1; }
+enum GeneratedSwiftReservedEnum299 { NONE_299 = 0; get = 1; }
+enum GeneratedSwiftReservedEnum300 { NONE_300 = 0; getExtensionValue = 1; }
+enum GeneratedSwiftReservedEnum301 { NONE_301 = 0; googleapis = 1; }
+enum GeneratedSwiftReservedEnum302 { NONE_302 = 0; Google_Protobuf_Any = 1; }
+enum GeneratedSwiftReservedEnum303 { NONE_303 = 0; Google_Protobuf_Api = 1; }
+enum GeneratedSwiftReservedEnum304 { NONE_304 = 0; Google_Protobuf_BoolValue = 1; }
+enum GeneratedSwiftReservedEnum305 { NONE_305 = 0; Google_Protobuf_BytesValue = 1; }
+enum GeneratedSwiftReservedEnum306 { NONE_306 = 0; Google_Protobuf_DescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum307 { NONE_307 = 0; Google_Protobuf_DoubleValue = 1; }
+enum GeneratedSwiftReservedEnum308 { NONE_308 = 0; Google_Protobuf_Duration = 1; }
+enum GeneratedSwiftReservedEnum309 { NONE_309 = 0; Google_Protobuf_Empty = 1; }
+enum GeneratedSwiftReservedEnum310 { NONE_310 = 0; Google_Protobuf_Enum = 1; }
+enum GeneratedSwiftReservedEnum311 { NONE_311 = 0; Google_Protobuf_EnumDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum312 { NONE_312 = 0; Google_Protobuf_EnumOptions = 1; }
+enum GeneratedSwiftReservedEnum313 { NONE_313 = 0; Google_Protobuf_EnumValue = 1; }
+enum GeneratedSwiftReservedEnum314 { NONE_314 = 0; Google_Protobuf_EnumValueDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum315 { NONE_315 = 0; Google_Protobuf_EnumValueOptions = 1; }
+enum GeneratedSwiftReservedEnum316 { NONE_316 = 0; Google_Protobuf_ExtensionRangeOptions = 1; }
+enum GeneratedSwiftReservedEnum317 { NONE_317 = 0; Google_Protobuf_Field = 1; }
+enum GeneratedSwiftReservedEnum318 { NONE_318 = 0; Google_Protobuf_FieldDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum319 { NONE_319 = 0; Google_Protobuf_FieldMask = 1; }
+enum GeneratedSwiftReservedEnum320 { NONE_320 = 0; Google_Protobuf_FieldOptions = 1; }
+enum GeneratedSwiftReservedEnum321 { NONE_321 = 0; Google_Protobuf_FileDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum322 { NONE_322 = 0; Google_Protobuf_FileDescriptorSet = 1; }
+enum GeneratedSwiftReservedEnum323 { NONE_323 = 0; Google_Protobuf_FileOptions = 1; }
+enum GeneratedSwiftReservedEnum324 { NONE_324 = 0; Google_Protobuf_FloatValue = 1; }
+enum GeneratedSwiftReservedEnum325 { NONE_325 = 0; Google_Protobuf_GeneratedCodeInfo = 1; }
+enum GeneratedSwiftReservedEnum326 { NONE_326 = 0; Google_Protobuf_Int32Value = 1; }
+enum GeneratedSwiftReservedEnum327 { NONE_327 = 0; Google_Protobuf_Int64Value = 1; }
+enum GeneratedSwiftReservedEnum328 { NONE_328 = 0; Google_Protobuf_ListValue = 1; }
+enum GeneratedSwiftReservedEnum329 { NONE_329 = 0; Google_Protobuf_MessageOptions = 1; }
+enum GeneratedSwiftReservedEnum330 { NONE_330 = 0; Google_Protobuf_Method = 1; }
+enum GeneratedSwiftReservedEnum331 { NONE_331 = 0; Google_Protobuf_MethodDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum332 { NONE_332 = 0; Google_Protobuf_MethodOptions = 1; }
+enum GeneratedSwiftReservedEnum333 { NONE_333 = 0; Google_Protobuf_Mixin = 1; }
+enum GeneratedSwiftReservedEnum334 { NONE_334 = 0; Google_Protobuf_NullValue = 1; }
+enum GeneratedSwiftReservedEnum335 { NONE_335 = 0; Google_Protobuf_OneofDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum336 { NONE_336 = 0; Google_Protobuf_OneofOptions = 1; }
+enum GeneratedSwiftReservedEnum337 { NONE_337 = 0; Google_Protobuf_Option = 1; }
+enum GeneratedSwiftReservedEnum338 { NONE_338 = 0; Google_Protobuf_ServiceDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum339 { NONE_339 = 0; Google_Protobuf_ServiceOptions = 1; }
+enum GeneratedSwiftReservedEnum340 { NONE_340 = 0; Google_Protobuf_SourceCodeInfo = 1; }
+enum GeneratedSwiftReservedEnum341 { NONE_341 = 0; Google_Protobuf_SourceContext = 1; }
+enum GeneratedSwiftReservedEnum342 { NONE_342 = 0; Google_Protobuf_StringValue = 1; }
+enum GeneratedSwiftReservedEnum343 { NONE_343 = 0; Google_Protobuf_Struct = 1; }
+enum GeneratedSwiftReservedEnum344 { NONE_344 = 0; Google_Protobuf_Syntax = 1; }
+enum GeneratedSwiftReservedEnum345 { NONE_345 = 0; Google_Protobuf_Timestamp = 1; }
+enum GeneratedSwiftReservedEnum346 { NONE_346 = 0; Google_Protobuf_Type = 1; }
+enum GeneratedSwiftReservedEnum347 { NONE_347 = 0; Google_Protobuf_UInt32Value = 1; }
+enum GeneratedSwiftReservedEnum348 { NONE_348 = 0; Google_Protobuf_UInt64Value = 1; }
+enum GeneratedSwiftReservedEnum349 { NONE_349 = 0; Google_Protobuf_UninterpretedOption = 1; }
+enum GeneratedSwiftReservedEnum350 { NONE_350 = 0; Google_Protobuf_Value = 1; }
+enum GeneratedSwiftReservedEnum351 { NONE_351 = 0; goPackage = 1; }
+enum GeneratedSwiftReservedEnum352 { NONE_352 = 0; group = 1; }
+enum GeneratedSwiftReservedEnum353 { NONE_353 = 0; groupSize = 1; }
+enum GeneratedSwiftReservedEnum354 { NONE_354 = 0; h = 1; }
+enum GeneratedSwiftReservedEnum355 { NONE_355 = 0; handleConflictingOneOf = 1; }
+enum GeneratedSwiftReservedEnum356 { NONE_356 = 0; hasAggregateValue = 1; }
+enum GeneratedSwiftReservedEnum357 { NONE_357 = 0; hasAllowAlias = 1; }
+enum GeneratedSwiftReservedEnum358 { NONE_358 = 0; hasBegin = 1; }
+enum GeneratedSwiftReservedEnum359 { NONE_359 = 0; hasCcEnableArenas = 1; }
+enum GeneratedSwiftReservedEnum360 { NONE_360 = 0; hasCcGenericServices = 1; }
+enum GeneratedSwiftReservedEnum361 { NONE_361 = 0; hasClientStreaming = 1; }
+enum GeneratedSwiftReservedEnum362 { NONE_362 = 0; hasCsharpNamespace = 1; }
+enum GeneratedSwiftReservedEnum363 { NONE_363 = 0; hasCtype = 1; }
+enum GeneratedSwiftReservedEnum364 { NONE_364 = 0; hasDefaultValue = 1; }
+enum GeneratedSwiftReservedEnum365 { NONE_365 = 0; hasDeprecated = 1; }
+enum GeneratedSwiftReservedEnum366 { NONE_366 = 0; hasDoubleValue = 1; }
+enum GeneratedSwiftReservedEnum367 { NONE_367 = 0; hasEnd = 1; }
+enum GeneratedSwiftReservedEnum368 { NONE_368 = 0; hasExtendee = 1; }
+enum GeneratedSwiftReservedEnum369 { NONE_369 = 0; hasExtensionValue = 1; }
+enum GeneratedSwiftReservedEnum370 { NONE_370 = 0; hasGoPackage = 1; }
+enum GeneratedSwiftReservedEnum371 { NONE_371 = 0; hash = 1; }
+enum GeneratedSwiftReservedEnum372 { NONE_372 = 0; Hashable = 1; }
+enum GeneratedSwiftReservedEnum373 { NONE_373 = 0; hasher = 1; }
+enum GeneratedSwiftReservedEnum374 { NONE_374 = 0; hashValue = 1; }
+enum GeneratedSwiftReservedEnum375 { NONE_375 = 0; HashVisitor = 1; }
+enum GeneratedSwiftReservedEnum376 { NONE_376 = 0; hasIdempotencyLevel = 1; }
+enum GeneratedSwiftReservedEnum377 { NONE_377 = 0; hasIdentifierValue = 1; }
+enum GeneratedSwiftReservedEnum378 { NONE_378 = 0; hasInputType = 1; }
+enum GeneratedSwiftReservedEnum379 { NONE_379 = 0; hasIsExtension = 1; }
+enum GeneratedSwiftReservedEnum380 { NONE_380 = 0; hasJavaGenerateEqualsAndHash = 1; }
+enum GeneratedSwiftReservedEnum381 { NONE_381 = 0; hasJavaGenericServices = 1; }
+enum GeneratedSwiftReservedEnum382 { NONE_382 = 0; hasJavaMultipleFiles = 1; }
+enum GeneratedSwiftReservedEnum383 { NONE_383 = 0; hasJavaOuterClassname = 1; }
+enum GeneratedSwiftReservedEnum384 { NONE_384 = 0; hasJavaPackage = 1; }
+enum GeneratedSwiftReservedEnum385 { NONE_385 = 0; hasJavaStringCheckUtf8 = 1; }
+enum GeneratedSwiftReservedEnum386 { NONE_386 = 0; hasJsonName = 1; }
+enum GeneratedSwiftReservedEnum387 { NONE_387 = 0; hasJstype = 1; }
+enum GeneratedSwiftReservedEnum388 { NONE_388 = 0; hasLabel = 1; }
+enum GeneratedSwiftReservedEnum389 { NONE_389 = 0; hasLazy = 1; }
+enum GeneratedSwiftReservedEnum390 { NONE_390 = 0; hasLeadingComments = 1; }
+enum GeneratedSwiftReservedEnum391 { NONE_391 = 0; hasMapEntry = 1; }
+enum GeneratedSwiftReservedEnum392 { NONE_392 = 0; hasMessageSetWireFormat = 1; }
+enum GeneratedSwiftReservedEnum393 { NONE_393 = 0; hasName = 1; }
+enum GeneratedSwiftReservedEnum394 { NONE_394 = 0; hasNamePart = 1; }
+enum GeneratedSwiftReservedEnum395 { NONE_395 = 0; hasNegativeIntValue = 1; }
+enum GeneratedSwiftReservedEnum396 { NONE_396 = 0; hasNoStandardDescriptorAccessor = 1; }
+enum GeneratedSwiftReservedEnum397 { NONE_397 = 0; hasNumber = 1; }
+enum GeneratedSwiftReservedEnum398 { NONE_398 = 0; hasObjcClassPrefix = 1; }
+enum GeneratedSwiftReservedEnum399 { NONE_399 = 0; hasOneofIndex = 1; }
+enum GeneratedSwiftReservedEnum400 { NONE_400 = 0; hasOptimizeFor = 1; }
+enum GeneratedSwiftReservedEnum401 { NONE_401 = 0; hasOptions = 1; }
+enum GeneratedSwiftReservedEnum402 { NONE_402 = 0; hasOutputType = 1; }
+enum GeneratedSwiftReservedEnum403 { NONE_403 = 0; hasPackage = 1; }
+enum GeneratedSwiftReservedEnum404 { NONE_404 = 0; hasPacked = 1; }
+enum GeneratedSwiftReservedEnum405 { NONE_405 = 0; hasPhpClassPrefix = 1; }
+enum GeneratedSwiftReservedEnum406 { NONE_406 = 0; hasPhpGenericServices = 1; }
+enum GeneratedSwiftReservedEnum407 { NONE_407 = 0; hasPhpMetadataNamespace = 1; }
+enum GeneratedSwiftReservedEnum408 { NONE_408 = 0; hasPhpNamespace = 1; }
+enum GeneratedSwiftReservedEnum409 { NONE_409 = 0; hasPositiveIntValue = 1; }
+enum GeneratedSwiftReservedEnum410 { NONE_410 = 0; hasPyGenericServices = 1; }
+enum GeneratedSwiftReservedEnum411 { NONE_411 = 0; hasRubyPackage = 1; }
+enum GeneratedSwiftReservedEnum412 { NONE_412 = 0; hasServerStreaming = 1; }
+enum GeneratedSwiftReservedEnum413 { NONE_413 = 0; hasSourceCodeInfo = 1; }
+enum GeneratedSwiftReservedEnum414 { NONE_414 = 0; hasSourceContext = 1; }
+enum GeneratedSwiftReservedEnum415 { NONE_415 = 0; hasSourceFile = 1; }
+enum GeneratedSwiftReservedEnum416 { NONE_416 = 0; hasStart = 1; }
+enum GeneratedSwiftReservedEnum417 { NONE_417 = 0; hasStringValue = 1; }
+enum GeneratedSwiftReservedEnum418 { NONE_418 = 0; hasSwiftPrefix = 1; }
+enum GeneratedSwiftReservedEnum419 { NONE_419 = 0; hasSyntax = 1; }
+enum GeneratedSwiftReservedEnum420 { NONE_420 = 0; hasTrailingComments = 1; }
+enum GeneratedSwiftReservedEnum421 { NONE_421 = 0; hasType = 1; }
+enum GeneratedSwiftReservedEnum422 { NONE_422 = 0; hasTypeName = 1; }
+enum GeneratedSwiftReservedEnum423 { NONE_423 = 0; hasValue = 1; }
+enum GeneratedSwiftReservedEnum424 { NONE_424 = 0; hasWeak = 1; }
+enum GeneratedSwiftReservedEnum425 { NONE_425 = 0; hour = 1; }
+enum GeneratedSwiftReservedEnum426 { NONE_426 = 0; i = 1; }
+enum GeneratedSwiftReservedEnum427 { NONE_427 = 0; idempotencyLevel = 1; }
+enum GeneratedSwiftReservedEnum428 { NONE_428 = 0; identifierValue = 1; }
+enum GeneratedSwiftReservedEnum429 { NONE_429 = 0; ignoreUnknownFields = 1; }
+enum GeneratedSwiftReservedEnum430 { NONE_430 = 0; index = 1; }
+enum GeneratedSwiftReservedEnum431 { NONE_431 = 0; init = 1; }
+enum GeneratedSwiftReservedEnum432 { NONE_432 = 0; inout = 1; }
+enum GeneratedSwiftReservedEnum433 { NONE_433 = 0; inputType = 1; }
+enum GeneratedSwiftReservedEnum434 { NONE_434 = 0; insert = 1; }
+enum GeneratedSwiftReservedEnum435 { NONE_435 = 0; Int = 1; }
+enum GeneratedSwiftReservedEnum436 { NONE_436 = 0; Int32 = 1; }
+enum GeneratedSwiftReservedEnum437 { NONE_437 = 0; Int32Value = 1; }
+enum GeneratedSwiftReservedEnum438 { NONE_438 = 0; Int64 = 1; }
+enum GeneratedSwiftReservedEnum439 { NONE_439 = 0; Int64Value = 1; }
+enum GeneratedSwiftReservedEnum440 { NONE_440 = 0; Int8 = 1; }
+enum GeneratedSwiftReservedEnum441 { NONE_441 = 0; integerLiteral = 1; }
+enum GeneratedSwiftReservedEnum442 { NONE_442 = 0; IntegerLiteralType = 1; }
+enum GeneratedSwiftReservedEnum443 { NONE_443 = 0; intern = 1; }
+enum GeneratedSwiftReservedEnum444 { NONE_444 = 0; Internal = 1; }
+enum GeneratedSwiftReservedEnum445 { NONE_445 = 0; InternalState = 1; }
+enum GeneratedSwiftReservedEnum446 { NONE_446 = 0; into = 1; }
+enum GeneratedSwiftReservedEnum447 { NONE_447 = 0; ints = 1; }
+enum GeneratedSwiftReservedEnum448 { NONE_448 = 0; isA = 1; }
+enum GeneratedSwiftReservedEnum449 { NONE_449 = 0; isEqual = 1; }
+enum GeneratedSwiftReservedEnum450 { NONE_450 = 0; isEqualTo = 1; }
+enum GeneratedSwiftReservedEnum451 { NONE_451 = 0; isExtension = 1; }
+enum GeneratedSwiftReservedEnum452 { NONE_452 = 0; isInitialized = 1; }
+enum GeneratedSwiftReservedEnum453 { NONE_453 = 0; itemTagsEncodedSize = 1; }
+enum GeneratedSwiftReservedEnum454 { NONE_454 = 0; i_2166136261 = 1; }
+enum GeneratedSwiftReservedEnum455 { NONE_455 = 0; javaGenerateEqualsAndHash = 1; }
+enum GeneratedSwiftReservedEnum456 { NONE_456 = 0; javaGenericServices = 1; }
+enum GeneratedSwiftReservedEnum457 { NONE_457 = 0; javaMultipleFiles = 1; }
+enum GeneratedSwiftReservedEnum458 { NONE_458 = 0; javaOuterClassname = 1; }
+enum GeneratedSwiftReservedEnum459 { NONE_459 = 0; javaPackage = 1; }
+enum GeneratedSwiftReservedEnum460 { NONE_460 = 0; javaStringCheckUtf8 = 1; }
+enum GeneratedSwiftReservedEnum461 { NONE_461 = 0; JSONDecoder = 1; }
+enum GeneratedSwiftReservedEnum462 { NONE_462 = 0; JSONDecodingError = 1; }
+enum GeneratedSwiftReservedEnum463 { NONE_463 = 0; JSONDecodingOptions = 1; }
+enum GeneratedSwiftReservedEnum464 { NONE_464 = 0; jsonEncoder = 1; }
+enum GeneratedSwiftReservedEnum465 { NONE_465 = 0; JSONEncodingError = 1; }
+enum GeneratedSwiftReservedEnum466 { NONE_466 = 0; JSONEncodingOptions = 1; }
+enum GeneratedSwiftReservedEnum467 { NONE_467 = 0; JSONEncodingVisitor = 1; }
+enum GeneratedSwiftReservedEnum468 { NONE_468 = 0; JSONMapEncodingVisitor = 1; }
+enum GeneratedSwiftReservedEnum469 { NONE_469 = 0; jsonName = 1; }
+enum GeneratedSwiftReservedEnum470 { NONE_470 = 0; jsonPath = 1; }
+enum GeneratedSwiftReservedEnum471 { NONE_471 = 0; jsonPaths = 1; }
+enum GeneratedSwiftReservedEnum472 { NONE_472 = 0; JSONScanner = 1; }
+enum GeneratedSwiftReservedEnum473 { NONE_473 = 0; jsonString = 1; }
+enum GeneratedSwiftReservedEnum474 { NONE_474 = 0; jsonText = 1; }
+enum GeneratedSwiftReservedEnum475 { NONE_475 = 0; jsonUTF8Data = 1; }
+enum GeneratedSwiftReservedEnum476 { NONE_476 = 0; jstype = 1; }
+enum GeneratedSwiftReservedEnum477 { NONE_477 = 0; k = 1; }
+enum GeneratedSwiftReservedEnum478 { NONE_478 = 0; Key = 1; }
+enum GeneratedSwiftReservedEnum479 { NONE_479 = 0; keyField = 1; }
+enum GeneratedSwiftReservedEnum480 { NONE_480 = 0; KeyType = 1; }
+enum GeneratedSwiftReservedEnum481 { NONE_481 = 0; kind = 1; }
+enum GeneratedSwiftReservedEnum482 { NONE_482 = 0; l = 1; }
+enum GeneratedSwiftReservedEnum483 { NONE_483 = 0; label = 1; }
+enum GeneratedSwiftReservedEnum484 { NONE_484 = 0; lazy = 1; }
+enum GeneratedSwiftReservedEnum485 { NONE_485 = 0; leadingComments = 1; }
+enum GeneratedSwiftReservedEnum486 { NONE_486 = 0; leadingDetachedComments = 1; }
+enum GeneratedSwiftReservedEnum487 { NONE_487 = 0; length = 1; }
+enum GeneratedSwiftReservedEnum488 { NONE_488 = 0; let = 1; }
+enum GeneratedSwiftReservedEnum489 { NONE_489 = 0; lhs = 1; }
+enum GeneratedSwiftReservedEnum490 { NONE_490 = 0; list = 1; }
+enum GeneratedSwiftReservedEnum491 { NONE_491 = 0; listOfMessages = 1; }
+enum GeneratedSwiftReservedEnum492 { NONE_492 = 0; listValue = 1; }
+enum GeneratedSwiftReservedEnum493 { NONE_493 = 0; littleEndian = 1; }
+enum GeneratedSwiftReservedEnum494 { NONE_494 = 0; littleEndianBytes = 1; }
+enum GeneratedSwiftReservedEnum495 { NONE_495 = 0; localHasher = 1; }
+enum GeneratedSwiftReservedEnum496 { NONE_496 = 0; location = 1; }
+enum GeneratedSwiftReservedEnum497 { NONE_497 = 0; M = 1; }
+enum GeneratedSwiftReservedEnum498 { NONE_498 = 0; major = 1; }
+enum GeneratedSwiftReservedEnum499 { NONE_499 = 0; makeIterator = 1; }
+enum GeneratedSwiftReservedEnum500 { NONE_500 = 0; mapEntry = 1; }
+enum GeneratedSwiftReservedEnum501 { NONE_501 = 0; mapHash = 1; }
+enum GeneratedSwiftReservedEnum502 { NONE_502 = 0; MapKeyType = 1; }
+enum GeneratedSwiftReservedEnum503 { NONE_503 = 0; mapNameResolver = 1; }
+enum GeneratedSwiftReservedEnum504 { NONE_504 = 0; mapToMessages = 1; }
+enum GeneratedSwiftReservedEnum505 { NONE_505 = 0; MapValueType = 1; }
+enum GeneratedSwiftReservedEnum506 { NONE_506 = 0; mapVisitor = 1; }
+enum GeneratedSwiftReservedEnum507 { NONE_507 = 0; mdayStart = 1; }
+enum GeneratedSwiftReservedEnum508 { NONE_508 = 0; merge = 1; }
+enum GeneratedSwiftReservedEnum509 { NONE_509 = 0; message = 1; }
+enum GeneratedSwiftReservedEnum510 { NONE_510 = 0; messageDepthLimit = 1; }
+enum GeneratedSwiftReservedEnum511 { NONE_511 = 0; MessageExtension = 1; }
+enum GeneratedSwiftReservedEnum512 { NONE_512 = 0; MessageImplementationBase = 1; }
+enum GeneratedSwiftReservedEnum513 { NONE_513 = 0; MessageOptions = 1; }
+enum GeneratedSwiftReservedEnum514 { NONE_514 = 0; MessageSet = 1; }
+enum GeneratedSwiftReservedEnum515 { NONE_515 = 0; messageSetWireFormat = 1; }
+enum GeneratedSwiftReservedEnum516 { NONE_516 = 0; messageType = 1; }
+enum GeneratedSwiftReservedEnum517 { NONE_517 = 0; Method = 1; }
+enum GeneratedSwiftReservedEnum518 { NONE_518 = 0; MethodDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum519 { NONE_519 = 0; MethodOptions = 1; }
+enum GeneratedSwiftReservedEnum520 { NONE_520 = 0; methods = 1; }
+enum GeneratedSwiftReservedEnum521 { NONE_521 = 0; minor = 1; }
+enum GeneratedSwiftReservedEnum522 { NONE_522 = 0; Mixin = 1; }
+enum GeneratedSwiftReservedEnum523 { NONE_523 = 0; mixins = 1; }
+enum GeneratedSwiftReservedEnum524 { NONE_524 = 0; month = 1; }
+enum GeneratedSwiftReservedEnum525 { NONE_525 = 0; msgExtension = 1; }
+enum GeneratedSwiftReservedEnum526 { NONE_526 = 0; mutating = 1; }
+enum GeneratedSwiftReservedEnum527 { NONE_527 = 0; n = 1; }
+enum GeneratedSwiftReservedEnum528 { NONE_528 = 0; name = 1; }
+enum GeneratedSwiftReservedEnum529 { NONE_529 = 0; NameDescription = 1; }
+enum GeneratedSwiftReservedEnum530 { NONE_530 = 0; NameMap = 1; }
+enum GeneratedSwiftReservedEnum531 { NONE_531 = 0; NamePart = 1; }
+enum GeneratedSwiftReservedEnum532 { NONE_532 = 0; nameResolver = 1; }
+enum GeneratedSwiftReservedEnum533 { NONE_533 = 0; names = 1; }
+enum GeneratedSwiftReservedEnum534 { NONE_534 = 0; nanos = 1; }
+enum GeneratedSwiftReservedEnum535 { NONE_535 = 0; nativeBytes = 1; }
+enum GeneratedSwiftReservedEnum536 { NONE_536 = 0; nativeEndianBytes = 1; }
+enum GeneratedSwiftReservedEnum537 { NONE_537 = 0; negativeIntValue = 1; }
+enum GeneratedSwiftReservedEnum538 { NONE_538 = 0; nestedType = 1; }
+enum GeneratedSwiftReservedEnum539 { NONE_539 = 0; newL = 1; }
+enum GeneratedSwiftReservedEnum540 { NONE_540 = 0; newList = 1; }
+enum GeneratedSwiftReservedEnum541 { NONE_541 = 0; newValue = 1; }
+enum GeneratedSwiftReservedEnum542 { NONE_542 = 0; nextByte = 1; }
+enum GeneratedSwiftReservedEnum543 { NONE_543 = 0; nextFieldNumber = 1; }
+enum GeneratedSwiftReservedEnum544 { NONE_544 = 0; nil = 1; }
+enum GeneratedSwiftReservedEnum545 { NONE_545 = 0; nilLiteral = 1; }
+enum GeneratedSwiftReservedEnum546 { NONE_546 = 0; noStandardDescriptorAccessor = 1; }
+enum GeneratedSwiftReservedEnum547 { NONE_547 = 0; nullValue = 1; }
+enum GeneratedSwiftReservedEnum548 { NONE_548 = 0; number = 1; }
+enum GeneratedSwiftReservedEnum549 { NONE_549 = 0; numberValue = 1; }
+enum GeneratedSwiftReservedEnum550 { NONE_550 = 0; objcClassPrefix = 1; }
+enum GeneratedSwiftReservedEnum551 { NONE_551 = 0; of = 1; }
+enum GeneratedSwiftReservedEnum552 { NONE_552 = 0; oneofDecl = 1; }
+enum GeneratedSwiftReservedEnum553 { NONE_553 = 0; OneofDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum554 { NONE_554 = 0; oneofIndex = 1; }
+enum GeneratedSwiftReservedEnum555 { NONE_555 = 0; OneofOptions = 1; }
+enum GeneratedSwiftReservedEnum556 { NONE_556 = 0; oneofs = 1; }
+enum GeneratedSwiftReservedEnum557 { NONE_557 = 0; OneOf_Kind = 1; }
+enum GeneratedSwiftReservedEnum558 { NONE_558 = 0; optimizeFor = 1; }
+enum GeneratedSwiftReservedEnum559 { NONE_559 = 0; OptimizeMode = 1; }
+enum GeneratedSwiftReservedEnum560 { NONE_560 = 0; Option = 1; }
+enum GeneratedSwiftReservedEnum561 { NONE_561 = 0; OptionalEnumExtensionField = 1; }
+enum GeneratedSwiftReservedEnum562 { NONE_562 = 0; OptionalExtensionField = 1; }
+enum GeneratedSwiftReservedEnum563 { NONE_563 = 0; OptionalGroupExtensionField = 1; }
+enum GeneratedSwiftReservedEnum564 { NONE_564 = 0; OptionalMessageExtensionField = 1; }
+enum GeneratedSwiftReservedEnum565 { NONE_565 = 0; options = 1; }
+enum GeneratedSwiftReservedEnum566 { NONE_566 = 0; other = 1; }
+enum GeneratedSwiftReservedEnum567 { NONE_567 = 0; others = 1; }
+enum GeneratedSwiftReservedEnum568 { NONE_568 = 0; out = 1; }
+enum GeneratedSwiftReservedEnum569 { NONE_569 = 0; outputType = 1; }
+enum GeneratedSwiftReservedEnum570 { NONE_570 = 0; p = 1; }
+enum GeneratedSwiftReservedEnum571 { NONE_571 = 0; package = 1; }
+enum GeneratedSwiftReservedEnum572 { NONE_572 = 0; packed = 1; }
+enum GeneratedSwiftReservedEnum573 { NONE_573 = 0; PackedEnumExtensionField = 1; }
+enum GeneratedSwiftReservedEnum574 { NONE_574 = 0; PackedExtensionField = 1; }
+enum GeneratedSwiftReservedEnum575 { NONE_575 = 0; packedSize = 1; }
+enum GeneratedSwiftReservedEnum576 { NONE_576 = 0; padding = 1; }
+enum GeneratedSwiftReservedEnum577 { NONE_577 = 0; parent = 1; }
+enum GeneratedSwiftReservedEnum578 { NONE_578 = 0; parse = 1; }
+enum GeneratedSwiftReservedEnum579 { NONE_579 = 0; partial = 1; }
+enum GeneratedSwiftReservedEnum580 { NONE_580 = 0; path = 1; }
+enum GeneratedSwiftReservedEnum581 { NONE_581 = 0; paths = 1; }
+enum GeneratedSwiftReservedEnum582 { NONE_582 = 0; payload = 1; }
+enum GeneratedSwiftReservedEnum583 { NONE_583 = 0; payloadSize = 1; }
+enum GeneratedSwiftReservedEnum584 { NONE_584 = 0; phpClassPrefix = 1; }
+enum GeneratedSwiftReservedEnum585 { NONE_585 = 0; phpGenericServices = 1; }
+enum GeneratedSwiftReservedEnum586 { NONE_586 = 0; phpMetadataNamespace = 1; }
+enum GeneratedSwiftReservedEnum587 { NONE_587 = 0; phpNamespace = 1; }
+enum GeneratedSwiftReservedEnum588 { NONE_588 = 0; pointer = 1; }
+enum GeneratedSwiftReservedEnum589 { NONE_589 = 0; pos = 1; }
+enum GeneratedSwiftReservedEnum590 { NONE_590 = 0; positiveIntValue = 1; }
+enum GeneratedSwiftReservedEnum591 { NONE_591 = 0; prefix = 1; }
+enum GeneratedSwiftReservedEnum592 { NONE_592 = 0; preserveProtoFieldNames = 1; }
+enum GeneratedSwiftReservedEnum593 { NONE_593 = 0; preTraverse = 1; }
+enum GeneratedSwiftReservedEnum594 { NONE_594 = 0; printUnknownFields = 1; }
+enum GeneratedSwiftReservedEnum595 { NONE_595 = 0; proto2 = 1; }
+enum GeneratedSwiftReservedEnum596 { NONE_596 = 0; proto3DefaultValue = 1; }
+enum GeneratedSwiftReservedEnum597 { NONE_597 = 0; ProtobufAPIVersionCheck = 1; }
+enum GeneratedSwiftReservedEnum598 { NONE_598 = 0; ProtobufAPIVersion_2 = 1; }
+enum GeneratedSwiftReservedEnum599 { NONE_599 = 0; ProtobufBool = 1; }
+enum GeneratedSwiftReservedEnum600 { NONE_600 = 0; ProtobufBytes = 1; }
+enum GeneratedSwiftReservedEnum601 { NONE_601 = 0; ProtobufDouble = 1; }
+enum GeneratedSwiftReservedEnum602 { NONE_602 = 0; ProtobufEnumMap = 1; }
+enum GeneratedSwiftReservedEnum603 { NONE_603 = 0; protobufExtension = 1; }
+enum GeneratedSwiftReservedEnum604 { NONE_604 = 0; ProtobufFixed32 = 1; }
+enum GeneratedSwiftReservedEnum605 { NONE_605 = 0; ProtobufFixed64 = 1; }
+enum GeneratedSwiftReservedEnum606 { NONE_606 = 0; ProtobufFloat = 1; }
+enum GeneratedSwiftReservedEnum607 { NONE_607 = 0; ProtobufInt32 = 1; }
+enum GeneratedSwiftReservedEnum608 { NONE_608 = 0; ProtobufInt64 = 1; }
+enum GeneratedSwiftReservedEnum609 { NONE_609 = 0; ProtobufMap = 1; }
+enum GeneratedSwiftReservedEnum610 { NONE_610 = 0; ProtobufMessageMap = 1; }
+enum GeneratedSwiftReservedEnum611 { NONE_611 = 0; ProtobufSFixed32 = 1; }
+enum GeneratedSwiftReservedEnum612 { NONE_612 = 0; ProtobufSFixed64 = 1; }
+enum GeneratedSwiftReservedEnum613 { NONE_613 = 0; ProtobufSInt32 = 1; }
+enum GeneratedSwiftReservedEnum614 { NONE_614 = 0; ProtobufSInt64 = 1; }
+enum GeneratedSwiftReservedEnum615 { NONE_615 = 0; ProtobufString = 1; }
+enum GeneratedSwiftReservedEnum616 { NONE_616 = 0; ProtobufUInt32 = 1; }
+enum GeneratedSwiftReservedEnum617 { NONE_617 = 0; ProtobufUInt64 = 1; }
+enum GeneratedSwiftReservedEnum618 { NONE_618 = 0; protobuf_extensionFieldValues = 1; }
+enum GeneratedSwiftReservedEnum619 { NONE_619 = 0; protobuf_fieldNumber = 1; }
+enum GeneratedSwiftReservedEnum620 { NONE_620 = 0; protobuf_generated_isEqualTo = 1; }
+enum GeneratedSwiftReservedEnum621 { NONE_621 = 0; protobuf_nameMap = 1; }
+enum GeneratedSwiftReservedEnum622 { NONE_622 = 0; protobuf_newField = 1; }
+enum GeneratedSwiftReservedEnum623 { NONE_623 = 0; protobuf_package = 1; }
+enum GeneratedSwiftReservedEnum624 { NONE_624 = 0; protocol = 1; }
+enum GeneratedSwiftReservedEnum625 { NONE_625 = 0; protoFieldName = 1; }
+enum GeneratedSwiftReservedEnum626 { NONE_626 = 0; protoMessageName = 1; }
+enum GeneratedSwiftReservedEnum627 { NONE_627 = 0; ProtoNameProviding = 1; }
+enum GeneratedSwiftReservedEnum628 { NONE_628 = 0; protoPaths = 1; }
+enum GeneratedSwiftReservedEnum629 { NONE_629 = 0; public = 1; }
+enum GeneratedSwiftReservedEnum630 { NONE_630 = 0; publicDependency = 1; }
+enum GeneratedSwiftReservedEnum631 { NONE_631 = 0; putBoolValue = 1; }
+enum GeneratedSwiftReservedEnum632 { NONE_632 = 0; putBytesValue = 1; }
+enum GeneratedSwiftReservedEnum633 { NONE_633 = 0; putDoubleValue = 1; }
+enum GeneratedSwiftReservedEnum634 { NONE_634 = 0; putEnumValue = 1; }
+enum GeneratedSwiftReservedEnum635 { NONE_635 = 0; putFixedUInt32 = 1; }
+enum GeneratedSwiftReservedEnum636 { NONE_636 = 0; putFixedUInt64 = 1; }
+enum GeneratedSwiftReservedEnum637 { NONE_637 = 0; putFloatValue = 1; }
+enum GeneratedSwiftReservedEnum638 { NONE_638 = 0; putInt64 = 1; }
+enum GeneratedSwiftReservedEnum639 { NONE_639 = 0; putStringValue = 1; }
+enum GeneratedSwiftReservedEnum640 { NONE_640 = 0; putUInt64 = 1; }
+enum GeneratedSwiftReservedEnum641 { NONE_641 = 0; putUInt64Hex = 1; }
+enum GeneratedSwiftReservedEnum642 { NONE_642 = 0; putVarInt = 1; }
+enum GeneratedSwiftReservedEnum643 { NONE_643 = 0; putZigZagVarInt = 1; }
+enum GeneratedSwiftReservedEnum644 { NONE_644 = 0; pyGenericServices = 1; }
+enum GeneratedSwiftReservedEnum645 { NONE_645 = 0; rawChars = 1; }
+enum GeneratedSwiftReservedEnum646 { NONE_646 = 0; RawRepresentable = 1; }
+enum GeneratedSwiftReservedEnum647 { NONE_647 = 0; RawValue = 1; }
+enum GeneratedSwiftReservedEnum648 { NONE_648 = 0; readBuffer = 1; }
+enum GeneratedSwiftReservedEnum649 { NONE_649 = 0; register = 1; }
+enum GeneratedSwiftReservedEnum650 { NONE_650 = 0; RepeatedEnumExtensionField = 1; }
+enum GeneratedSwiftReservedEnum651 { NONE_651 = 0; RepeatedExtensionField = 1; }
+enum GeneratedSwiftReservedEnum652 { NONE_652 = 0; RepeatedGroupExtensionField = 1; }
+enum GeneratedSwiftReservedEnum653 { NONE_653 = 0; RepeatedMessageExtensionField = 1; }
+enum GeneratedSwiftReservedEnum654 { NONE_654 = 0; requestStreaming = 1; }
+enum GeneratedSwiftReservedEnum655 { NONE_655 = 0; requestTypeURL = 1; }
+enum GeneratedSwiftReservedEnum656 { NONE_656 = 0; requiredSize = 1; }
+enum GeneratedSwiftReservedEnum657 { NONE_657 = 0; reservedName = 1; }
+enum GeneratedSwiftReservedEnum658 { NONE_658 = 0; reservedRange = 1; }
+enum GeneratedSwiftReservedEnum659 { NONE_659 = 0; responseStreaming = 1; }
+enum GeneratedSwiftReservedEnum660 { NONE_660 = 0; responseTypeURL = 1; }
+enum GeneratedSwiftReservedEnum661 { NONE_661 = 0; result = 1; }
+enum GeneratedSwiftReservedEnum662 { NONE_662 = 0; rethrows = 1; }
+enum GeneratedSwiftReservedEnum663 { NONE_663 = 0; return = 1; }
+enum GeneratedSwiftReservedEnum664 { NONE_664 = 0; revision = 1; }
+enum GeneratedSwiftReservedEnum665 { NONE_665 = 0; rhs = 1; }
+enum GeneratedSwiftReservedEnum666 { NONE_666 = 0; root = 1; }
+enum GeneratedSwiftReservedEnum667 { NONE_667 = 0; rubyPackage = 1; }
+enum GeneratedSwiftReservedEnum668 { NONE_668 = 0; s = 1; }
+enum GeneratedSwiftReservedEnum669 { NONE_669 = 0; sawBackslash = 1; }
+enum GeneratedSwiftReservedEnum670 { NONE_670 = 0; sawSection4Characters = 1; }
+enum GeneratedSwiftReservedEnum671 { NONE_671 = 0; sawSection5Characters = 1; }
+enum GeneratedSwiftReservedEnum672 { NONE_672 = 0; scanner = 1; }
+enum GeneratedSwiftReservedEnum673 { NONE_673 = 0; seconds = 1; }
+enum GeneratedSwiftReservedEnum674 { NONE_674 = 0; self = 1; }
+enum GeneratedSwiftReservedEnum675 { NONE_675 = 0; separator = 1; }
+enum GeneratedSwiftReservedEnum676 { NONE_676 = 0; serialize = 1; }
+enum GeneratedSwiftReservedEnum677 { NONE_677 = 0; serializedData = 1; }
+enum GeneratedSwiftReservedEnum678 { NONE_678 = 0; serializedSize = 1; }
+enum GeneratedSwiftReservedEnum679 { NONE_679 = 0; serverStreaming = 1; }
+enum GeneratedSwiftReservedEnum680 { NONE_680 = 0; service = 1; }
+enum GeneratedSwiftReservedEnum681 { NONE_681 = 0; ServiceDescriptorProto = 1; }
+enum GeneratedSwiftReservedEnum682 { NONE_682 = 0; ServiceOptions = 1; }
+enum GeneratedSwiftReservedEnum683 { NONE_683 = 0; set = 1; }
+enum GeneratedSwiftReservedEnum684 { NONE_684 = 0; setExtensionValue = 1; }
+enum GeneratedSwiftReservedEnum685 { NONE_685 = 0; shift = 1; }
+enum GeneratedSwiftReservedEnum686 { NONE_686 = 0; SimpleExtensionMap = 1; }
+enum GeneratedSwiftReservedEnum687 { NONE_687 = 0; sizer = 1; }
+enum GeneratedSwiftReservedEnum688 { NONE_688 = 0; source = 1; }
+enum GeneratedSwiftReservedEnum689 { NONE_689 = 0; sourceCodeInfo = 1; }
+enum GeneratedSwiftReservedEnum690 { NONE_690 = 0; sourceContext = 1; }
+enum GeneratedSwiftReservedEnum691 { NONE_691 = 0; sourceEncoding = 1; }
+enum GeneratedSwiftReservedEnum692 { NONE_692 = 0; sourceFile = 1; }
+enum GeneratedSwiftReservedEnum693 { NONE_693 = 0; span = 1; }
+enum GeneratedSwiftReservedEnum694 { NONE_694 = 0; split = 1; }
+enum GeneratedSwiftReservedEnum695 { NONE_695 = 0; start = 1; }
+enum GeneratedSwiftReservedEnum696 { NONE_696 = 0; startArray = 1; }
+enum GeneratedSwiftReservedEnum697 { NONE_697 = 0; startField = 1; }
+enum GeneratedSwiftReservedEnum698 { NONE_698 = 0; startIndex = 1; }
+enum GeneratedSwiftReservedEnum699 { NONE_699 = 0; startMessageField = 1; }
+enum GeneratedSwiftReservedEnum700 { NONE_700 = 0; startObject = 1; }
+enum GeneratedSwiftReservedEnum701 { NONE_701 = 0; startRegularField = 1; }
+enum GeneratedSwiftReservedEnum702 { NONE_702 = 0; state = 1; }
+enum GeneratedSwiftReservedEnum703 { NONE_703 = 0; static = 1; }
+enum GeneratedSwiftReservedEnum704 { NONE_704 = 0; StaticString = 1; }
+enum GeneratedSwiftReservedEnum705 { NONE_705 = 0; storage = 1; }
+enum GeneratedSwiftReservedEnum706 { NONE_706 = 0; String = 1; }
+enum GeneratedSwiftReservedEnum707 { NONE_707 = 0; stringLiteral = 1; }
+enum GeneratedSwiftReservedEnum708 { NONE_708 = 0; StringLiteralType = 1; }
+enum GeneratedSwiftReservedEnum709 { NONE_709 = 0; stringResult = 1; }
+enum GeneratedSwiftReservedEnum710 { NONE_710 = 0; stringValue = 1; }
+enum GeneratedSwiftReservedEnum711 { NONE_711 = 0; struct = 1; }
+enum GeneratedSwiftReservedEnum712 { NONE_712 = 0; structValue = 1; }
+enum GeneratedSwiftReservedEnum713 { NONE_713 = 0; subDecoder = 1; }
+enum GeneratedSwiftReservedEnum714 { NONE_714 = 0; subscript = 1; }
+enum GeneratedSwiftReservedEnum715 { NONE_715 = 0; subVisitor = 1; }
+enum GeneratedSwiftReservedEnum716 { NONE_716 = 0; Swift = 1; }
+enum GeneratedSwiftReservedEnum717 { NONE_717 = 0; swiftPrefix = 1; }
+enum GeneratedSwiftReservedEnum718 { NONE_718 = 0; SwiftProtobuf = 1; }
+enum GeneratedSwiftReservedEnum719 { NONE_719 = 0; syntax = 1; }
+enum GeneratedSwiftReservedEnum720 { NONE_720 = 0; T = 1; }
+enum GeneratedSwiftReservedEnum721 { NONE_721 = 0; tag = 1; }
+enum GeneratedSwiftReservedEnum722 { NONE_722 = 0; terminator = 1; }
+enum GeneratedSwiftReservedEnum723 { NONE_723 = 0; testDecoder = 1; }
+enum GeneratedSwiftReservedEnum724 { NONE_724 = 0; text = 1; }
+enum GeneratedSwiftReservedEnum725 { NONE_725 = 0; textDecoder = 1; }
+enum GeneratedSwiftReservedEnum726 { NONE_726 = 0; TextFormatDecoder = 1; }
+enum GeneratedSwiftReservedEnum727 { NONE_727 = 0; TextFormatDecodingError = 1; }
+enum GeneratedSwiftReservedEnum728 { NONE_728 = 0; TextFormatEncodingOptions = 1; }
+enum GeneratedSwiftReservedEnum729 { NONE_729 = 0; TextFormatEncodingVisitor = 1; }
+enum GeneratedSwiftReservedEnum730 { NONE_730 = 0; textFormatString = 1; }
+enum GeneratedSwiftReservedEnum731 { NONE_731 = 0; throws = 1; }
+enum GeneratedSwiftReservedEnum732 { NONE_732 = 0; timeInterval = 1; }
+enum GeneratedSwiftReservedEnum733 { NONE_733 = 0; timeIntervalSince1970 = 1; }
+enum GeneratedSwiftReservedEnum734 { NONE_734 = 0; timeIntervalSinceReferenceDate = 1; }
+enum GeneratedSwiftReservedEnum735 { NONE_735 = 0; Timestamp = 1; }
+enum GeneratedSwiftReservedEnum736 { NONE_736 = 0; to = 1; }
+enum GeneratedSwiftReservedEnum737 { NONE_737 = 0; total = 1; }
+enum GeneratedSwiftReservedEnum738 { NONE_738 = 0; totalSize = 1; }
+enum GeneratedSwiftReservedEnum739 { NONE_739 = 0; trailingComments = 1; }
+enum GeneratedSwiftReservedEnum740 { NONE_740 = 0; traverse = 1; }
+enum GeneratedSwiftReservedEnum741 { NONE_741 = 0; true = 1; }
+enum GeneratedSwiftReservedEnum742 { NONE_742 = 0; try = 1; }
+enum GeneratedSwiftReservedEnum743 { NONE_743 = 0; type = 1; }
+enum GeneratedSwiftReservedEnum744 { NONE_744 = 0; typealias = 1; }
+enum GeneratedSwiftReservedEnum745 { NONE_745 = 0; TypeEnum = 1; }
+enum GeneratedSwiftReservedEnum746 { NONE_746 = 0; typeName = 1; }
+enum GeneratedSwiftReservedEnum747 { NONE_747 = 0; typePrefix = 1; }
+enum GeneratedSwiftReservedEnum748 { NONE_748 = 0; typeStart = 1; }
+enum GeneratedSwiftReservedEnum749 { NONE_749 = 0; typeUnknown = 1; }
+enum GeneratedSwiftReservedEnum750 { NONE_750 = 0; typeURL = 1; }
+enum GeneratedSwiftReservedEnum751 { NONE_751 = 0; UInt32 = 1; }
+enum GeneratedSwiftReservedEnum752 { NONE_752 = 0; UInt32Value = 1; }
+enum GeneratedSwiftReservedEnum753 { NONE_753 = 0; UInt64 = 1; }
+enum GeneratedSwiftReservedEnum754 { NONE_754 = 0; UInt64Value = 1; }
+enum GeneratedSwiftReservedEnum755 { NONE_755 = 0; UInt8 = 1; }
+enum GeneratedSwiftReservedEnum756 { NONE_756 = 0; unicodeScalarLiteral = 1; }
+enum GeneratedSwiftReservedEnum757 { NONE_757 = 0; UnicodeScalarLiteralType = 1; }
+enum GeneratedSwiftReservedEnum758 { NONE_758 = 0; unicodeScalars = 1; }
+enum GeneratedSwiftReservedEnum759 { NONE_759 = 0; UnicodeScalarView = 1; }
+enum GeneratedSwiftReservedEnum760 { NONE_760 = 0; uninterpretedOption = 1; }
+enum GeneratedSwiftReservedEnum761 { NONE_761 = 0; union = 1; }
+enum GeneratedSwiftReservedEnum762 { NONE_762 = 0; uniqueStorage = 1; }
+enum GeneratedSwiftReservedEnum763 { NONE_763 = 0; unknown = 1; }
+enum GeneratedSwiftReservedEnum764 { NONE_764 = 0; unknownFields = 1; }
+enum GeneratedSwiftReservedEnum765 { NONE_765 = 0; UnknownStorage = 1; }
+enum GeneratedSwiftReservedEnum766 { NONE_766 = 0; unpackTo = 1; }
+enum GeneratedSwiftReservedEnum767 { NONE_767 = 0; UnsafeBufferPointer = 1; }
+enum GeneratedSwiftReservedEnum768 { NONE_768 = 0; UnsafeMutablePointer = 1; }
+enum GeneratedSwiftReservedEnum769 { NONE_769 = 0; UnsafeMutableRawBufferPointer = 1; }
+enum GeneratedSwiftReservedEnum770 { NONE_770 = 0; UnsafePointer = 1; }
+enum GeneratedSwiftReservedEnum771 { NONE_771 = 0; UnsafeRawBufferPointer = 1; }
+enum GeneratedSwiftReservedEnum772 { NONE_772 = 0; updatedOptions = 1; }
+enum GeneratedSwiftReservedEnum773 { NONE_773 = 0; url = 1; }
+enum GeneratedSwiftReservedEnum774 { NONE_774 = 0; utf8 = 1; }
+enum GeneratedSwiftReservedEnum775 { NONE_775 = 0; utf8ToDouble = 1; }
+enum GeneratedSwiftReservedEnum776 { NONE_776 = 0; UTF8View = 1; }
+enum GeneratedSwiftReservedEnum777 { NONE_777 = 0; v = 1; }
+enum GeneratedSwiftReservedEnum778 { NONE_778 = 0; value = 1; }
+enum GeneratedSwiftReservedEnum779 { NONE_779 = 0; valueField = 1; }
+enum GeneratedSwiftReservedEnum780 { NONE_780 = 0; values = 1; }
+enum GeneratedSwiftReservedEnum781 { NONE_781 = 0; ValueType = 1; }
+enum GeneratedSwiftReservedEnum782 { NONE_782 = 0; var = 1; }
+enum GeneratedSwiftReservedEnum783 { NONE_783 = 0; Version = 1; }
+enum GeneratedSwiftReservedEnum784 { NONE_784 = 0; versionString = 1; }
+enum GeneratedSwiftReservedEnum785 { NONE_785 = 0; visitExtensionFields = 1; }
+enum GeneratedSwiftReservedEnum786 { NONE_786 = 0; visitExtensionFieldsAsMessageSet = 1; }
+enum GeneratedSwiftReservedEnum787 { NONE_787 = 0; visitMapField = 1; }
+enum GeneratedSwiftReservedEnum788 { NONE_788 = 0; visitor = 1; }
+enum GeneratedSwiftReservedEnum789 { NONE_789 = 0; visitPacked = 1; }
+enum GeneratedSwiftReservedEnum790 { NONE_790 = 0; visitPackedBoolField = 1; }
+enum GeneratedSwiftReservedEnum791 { NONE_791 = 0; visitPackedDoubleField = 1; }
+enum GeneratedSwiftReservedEnum792 { NONE_792 = 0; visitPackedEnumField = 1; }
+enum GeneratedSwiftReservedEnum793 { NONE_793 = 0; visitPackedFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum794 { NONE_794 = 0; visitPackedFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum795 { NONE_795 = 0; visitPackedFloatField = 1; }
+enum GeneratedSwiftReservedEnum796 { NONE_796 = 0; visitPackedInt32Field = 1; }
+enum GeneratedSwiftReservedEnum797 { NONE_797 = 0; visitPackedInt64Field = 1; }
+enum GeneratedSwiftReservedEnum798 { NONE_798 = 0; visitPackedSFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum799 { NONE_799 = 0; visitPackedSFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum800 { NONE_800 = 0; visitPackedSInt32Field = 1; }
+enum GeneratedSwiftReservedEnum801 { NONE_801 = 0; visitPackedSInt64Field = 1; }
+enum GeneratedSwiftReservedEnum802 { NONE_802 = 0; visitPackedUInt32Field = 1; }
+enum GeneratedSwiftReservedEnum803 { NONE_803 = 0; visitPackedUInt64Field = 1; }
+enum GeneratedSwiftReservedEnum804 { NONE_804 = 0; visitRepeated = 1; }
+enum GeneratedSwiftReservedEnum805 { NONE_805 = 0; visitRepeatedBoolField = 1; }
+enum GeneratedSwiftReservedEnum806 { NONE_806 = 0; visitRepeatedBytesField = 1; }
+enum GeneratedSwiftReservedEnum807 { NONE_807 = 0; visitRepeatedDoubleField = 1; }
+enum GeneratedSwiftReservedEnum808 { NONE_808 = 0; visitRepeatedEnumField = 1; }
+enum GeneratedSwiftReservedEnum809 { NONE_809 = 0; visitRepeatedFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum810 { NONE_810 = 0; visitRepeatedFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum811 { NONE_811 = 0; visitRepeatedFloatField = 1; }
+enum GeneratedSwiftReservedEnum812 { NONE_812 = 0; visitRepeatedGroupField = 1; }
+enum GeneratedSwiftReservedEnum813 { NONE_813 = 0; visitRepeatedInt32Field = 1; }
+enum GeneratedSwiftReservedEnum814 { NONE_814 = 0; visitRepeatedInt64Field = 1; }
+enum GeneratedSwiftReservedEnum815 { NONE_815 = 0; visitRepeatedMessageField = 1; }
+enum GeneratedSwiftReservedEnum816 { NONE_816 = 0; visitRepeatedSFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum817 { NONE_817 = 0; visitRepeatedSFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum818 { NONE_818 = 0; visitRepeatedSInt32Field = 1; }
+enum GeneratedSwiftReservedEnum819 { NONE_819 = 0; visitRepeatedSInt64Field = 1; }
+enum GeneratedSwiftReservedEnum820 { NONE_820 = 0; visitRepeatedStringField = 1; }
+enum GeneratedSwiftReservedEnum821 { NONE_821 = 0; visitRepeatedUInt32Field = 1; }
+enum GeneratedSwiftReservedEnum822 { NONE_822 = 0; visitRepeatedUInt64Field = 1; }
+enum GeneratedSwiftReservedEnum823 { NONE_823 = 0; visitSingular = 1; }
+enum GeneratedSwiftReservedEnum824 { NONE_824 = 0; visitSingularBoolField = 1; }
+enum GeneratedSwiftReservedEnum825 { NONE_825 = 0; visitSingularBytesField = 1; }
+enum GeneratedSwiftReservedEnum826 { NONE_826 = 0; visitSingularDoubleField = 1; }
+enum GeneratedSwiftReservedEnum827 { NONE_827 = 0; visitSingularEnumField = 1; }
+enum GeneratedSwiftReservedEnum828 { NONE_828 = 0; visitSingularFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum829 { NONE_829 = 0; visitSingularFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum830 { NONE_830 = 0; visitSingularFloatField = 1; }
+enum GeneratedSwiftReservedEnum831 { NONE_831 = 0; visitSingularGroupField = 1; }
+enum GeneratedSwiftReservedEnum832 { NONE_832 = 0; visitSingularInt32Field = 1; }
+enum GeneratedSwiftReservedEnum833 { NONE_833 = 0; visitSingularInt64Field = 1; }
+enum GeneratedSwiftReservedEnum834 { NONE_834 = 0; visitSingularMessageField = 1; }
+enum GeneratedSwiftReservedEnum835 { NONE_835 = 0; visitSingularSFixed32Field = 1; }
+enum GeneratedSwiftReservedEnum836 { NONE_836 = 0; visitSingularSFixed64Field = 1; }
+enum GeneratedSwiftReservedEnum837 { NONE_837 = 0; visitSingularSInt32Field = 1; }
+enum GeneratedSwiftReservedEnum838 { NONE_838 = 0; visitSingularSInt64Field = 1; }
+enum GeneratedSwiftReservedEnum839 { NONE_839 = 0; visitSingularStringField = 1; }
+enum GeneratedSwiftReservedEnum840 { NONE_840 = 0; visitSingularUInt32Field = 1; }
+enum GeneratedSwiftReservedEnum841 { NONE_841 = 0; visitSingularUInt64Field = 1; }
+enum GeneratedSwiftReservedEnum842 { NONE_842 = 0; visitUnknown = 1; }
+enum GeneratedSwiftReservedEnum843 { NONE_843 = 0; wasDecoded = 1; }
+enum GeneratedSwiftReservedEnum844 { NONE_844 = 0; weak = 1; }
+enum GeneratedSwiftReservedEnum845 { NONE_845 = 0; weakDependency = 1; }
+enum GeneratedSwiftReservedEnum846 { NONE_846 = 0; where = 1; }
+enum GeneratedSwiftReservedEnum847 { NONE_847 = 0; wireFormat = 1; }
+enum GeneratedSwiftReservedEnum848 { NONE_848 = 0; with = 1; }
+enum GeneratedSwiftReservedEnum849 { NONE_849 = 0; withUnsafeBytes = 1; }
+enum GeneratedSwiftReservedEnum850 { NONE_850 = 0; withUnsafeMutableBytes = 1; }
+enum GeneratedSwiftReservedEnum851 { NONE_851 = 0; WrappedType = 1; }
+enum GeneratedSwiftReservedEnum852 { NONE_852 = 0; written = 1; }
+enum GeneratedSwiftReservedEnum853 { NONE_853 = 0; yday = 1; }
