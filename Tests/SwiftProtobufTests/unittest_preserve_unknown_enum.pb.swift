@@ -178,16 +178,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage {
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
-      switch (lhs, rhs) {
-      case (.oneofE1(let l), .oneofE1(let r)): return l == r
-      case (.oneofE2(let l), .oneofE2(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
@@ -229,16 +219,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O) -> Bool {
-      switch (lhs, rhs) {
-      case (.oneofE1(let l), .oneofE1(let r)): return l == r
-      case (.oneofE2(let l), .oneofE2(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}

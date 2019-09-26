@@ -485,32 +485,6 @@ struct ProtobufUnittest_OneofWellKnownTypes {
     case boolField(SwiftProtobuf.Google_Protobuf_BoolValue)
     case stringField(SwiftProtobuf.Google_Protobuf_StringValue)
     case bytesField(SwiftProtobuf.Google_Protobuf_BytesValue)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField, rhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField) -> Bool {
-      switch (lhs, rhs) {
-      case (.anyField(let l), .anyField(let r)): return l == r
-      case (.apiField(let l), .apiField(let r)): return l == r
-      case (.durationField(let l), .durationField(let r)): return l == r
-      case (.emptyField(let l), .emptyField(let r)): return l == r
-      case (.fieldMaskField(let l), .fieldMaskField(let r)): return l == r
-      case (.sourceContextField(let l), .sourceContextField(let r)): return l == r
-      case (.structField(let l), .structField(let r)): return l == r
-      case (.timestampField(let l), .timestampField(let r)): return l == r
-      case (.typeField(let l), .typeField(let r)): return l == r
-      case (.doubleField(let l), .doubleField(let r)): return l == r
-      case (.floatField(let l), .floatField(let r)): return l == r
-      case (.int64Field(let l), .int64Field(let r)): return l == r
-      case (.uint64Field(let l), .uint64Field(let r)): return l == r
-      case (.int32Field(let l), .int32Field(let r)): return l == r
-      case (.uint32Field(let l), .uint32Field(let r)): return l == r
-      case (.boolField(let l), .boolField(let r)): return l == r
-      case (.stringField(let l), .stringField(let r)): return l == r
-      case (.bytesField(let l), .bytesField(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}

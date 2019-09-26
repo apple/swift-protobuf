@@ -980,23 +980,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     case oneofFloat(Float)
     case oneofDouble(Double)
     case oneofEnum(ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField, rhs: ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField) -> Bool {
-      switch (lhs, rhs) {
-      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-      case (.oneofString(let l), .oneofString(let r)): return l == r
-      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-      case (.oneofBool(let l), .oneofBool(let r)): return l == r
-      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
-      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
-      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
-      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {

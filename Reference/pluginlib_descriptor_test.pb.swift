@@ -139,18 +139,6 @@ struct SDTTopLevelMessage {
     case field4(SDTTopLevelMessage.SubEnum)
     case field5(SDTTopLevelMessage.SubMessage)
     case field6(SDTTopLevelMessage2)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: SDTTopLevelMessage.OneOf_O, rhs: SDTTopLevelMessage.OneOf_O) -> Bool {
-      switch (lhs, rhs) {
-      case (.field3(let l), .field3(let r)): return l == r
-      case (.field4(let l), .field4(let r)): return l == r
-      case (.field5(let l), .field5(let r)): return l == r
-      case (.field6(let l), .field6(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   enum SubEnum: SwiftProtobuf.Enum {

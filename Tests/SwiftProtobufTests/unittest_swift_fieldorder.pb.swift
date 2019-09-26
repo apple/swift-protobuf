@@ -120,18 +120,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
     case oneofBool(Bool)
     case oneofString(String)
     case oneofInt32(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options) -> Bool {
-      switch (lhs, rhs) {
-      case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
-      case (.oneofBool(let l), .oneofBool(let r)): return l == r
-      case (.oneofString(let l), .oneofString(let r)): return l == r
-      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   struct NestedMessage {
@@ -270,64 +258,24 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
   enum OneOf_OGood: Equatable {
     case a(Int32)
     case b(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood) -> Bool {
-      switch (lhs, rhs) {
-      case (.a(let l), .a(let r)): return l == r
-      case (.b(let l), .b(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Gaps with a field in the middle of the range.
   enum OneOf_OConflictField: Equatable {
     case a2(Int32)
     case b2(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField) -> Bool {
-      switch (lhs, rhs) {
-      case (.a2(let l), .a2(let r)): return l == r
-      case (.b2(let l), .b2(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Gaps with an extension range in the middle of the range.
   enum OneOf_OConflictExtensionsStart: Equatable {
     case a3(Int32)
     case b3(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart) -> Bool {
-      switch (lhs, rhs) {
-      case (.a3(let l), .a3(let r)): return l == r
-      case (.b3(let l), .b3(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Gaps with an extension range in the middle of the range.
   enum OneOf_OConflictExtensionsEnd: Equatable {
     case a4(Int32)
     case b4(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd) -> Bool {
-      switch (lhs, rhs) {
-      case (.a4(let l), .a4(let r)): return l == r
-      case (.b4(let l), .b4(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}

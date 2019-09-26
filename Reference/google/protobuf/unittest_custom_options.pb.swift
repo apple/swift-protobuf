@@ -150,14 +150,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions {
 
   enum OneOf_AnOneof: Equatable {
     case oneofField(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof, rhs: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof) -> Bool {
-      switch (lhs, rhs) {
-      case (.oneofField(let l), .oneofField(let r)): return l == r
-      }
-    }
-  #endif
   }
 
   enum AnEnum: SwiftProtobuf.Enum {
