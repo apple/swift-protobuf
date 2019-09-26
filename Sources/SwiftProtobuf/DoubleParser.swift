@@ -21,13 +21,9 @@ internal class DoubleParser {
     // In theory, JSON writers should be able to represent any IEEE Double
     // in at most 25 bytes, but many writers will emit more digits than
     // necessary, so we size this generously.
-    #if swift(>=4.1)
-      private var work =
-          UnsafeMutableRawBufferPointer.allocate(byteCount: 128,
-                                                 alignment: MemoryLayout<UInt8>.alignment)
-    #else
-      private var work = UnsafeMutableRawBufferPointer.allocate(count: 128)
-    #endif
+    private var work =
+        UnsafeMutableRawBufferPointer.allocate(byteCount: 128,
+                                               alignment: MemoryLayout<UInt8>.alignment)
 
     deinit {
         work.deallocate()
@@ -46,11 +42,7 @@ internal class DoubleParser {
         }
         // Copy it to the work buffer and null-terminate it
         let source = UnsafeRawBufferPointer(start: bytes, count: count)
-        #if swift(>=4.1)
-          work.copyMemory(from:source)
-        #else
-          work.copyBytes(from:source)
-        #endif
+        work.copyMemory(from:source)
         work[count] = 0
 
         // Use C library strtod() to parse it
