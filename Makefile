@@ -258,20 +258,8 @@ build:
 	@rm Tests/LinuxMain.swift.new
 	${SWIFT} build
 
-# This will get run by any other rule that tries to use the plugin, to
-# ensure that the protoc on the local system is 3.1 or later.
-# For details, see
-#   https://github.com/apple/swift-protobuf/issues/111
+# Anything that needs the plugin should do a build.
 ${PROTOC_GEN_SWIFT}: build
-	@if ${PROTOC} --version | grep 'libprotoc\ 3\.[1-9]\.' > /dev/null; then \
-	  true; \
-	else \
-	  echo "===================================================================================="; \
-	  echo "WARNING: Unexpected version of protoc: $(shell ${PROTOC} --version)"; \
-	  echo "WARNING: The JSON support in generated files may not be correct."; \
-	  echo "WARNING: Use a protoc that is 3.1.x or higher."; \
-	  echo "===================================================================================="; \
-	fi
 
 # Does it really make sense to install a debug build, or should this be forcing
 # a release build and then installing that instead?
