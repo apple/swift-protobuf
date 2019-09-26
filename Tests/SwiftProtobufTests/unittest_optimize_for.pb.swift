@@ -104,16 +104,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
   enum OneOf_Foo: Equatable {
     case integerField(Int32)
     case stringField(String)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo) -> Bool {
-      switch (lhs, rhs) {
-      case (.integerField(let l), .integerField(let r)): return l == r
-      case (.stringField(let l), .stringField(let r)): return l == r
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
