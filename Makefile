@@ -461,6 +461,7 @@ Protos/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
 	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
 	@echo 'syntax = "proto3";' >> $@
 	@echo 'package protobuf_unittest_generated;' >> $@
+	@#See https://github.com/apple/swift-protobuf/issues/904 for why this isn't one enum.
 	@#echo 'enum GeneratedSwiftReservedEnum {' >> $@
 	@#echo '  NONE = 0;' >> $@
 	@#cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
