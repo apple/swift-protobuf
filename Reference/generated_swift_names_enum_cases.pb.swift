@@ -2247,6 +2247,9 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .m: return 497
     case .major: return 498
     case .makeIterator: return 499
+    default: break
+    }
+    switch self {
     case .mapEntry: return 500
     case .mapHash: return 501
     case .mapKeyType: return 502
@@ -2602,7 +2605,12 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .written: return 852
     case .yday: return 853
     case .UNRECOGNIZED(let i): return i
+    default: break
     }
+
+    // Can't get here, all the cases are listed in the above switches.
+    // See https://github.com/apple/swift-protobuf/issues/904 for more details.
+    fatalError()
   }
 
 }

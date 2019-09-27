@@ -199,17 +199,58 @@ class EnumGenerator {
   private func generateRawValueProperty(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
+    // See https://github.com/apple/swift-protobuf/issues/904 for the full
+    // details on why the default has to get added even though the switch
+    // is complete.
+
+    // This is a "magic" value, currently picked based on the Swift 5.1
+    // compiler, it will need ensure the warning doesn't trigger on all
+    // versions of the compiler, meaning if the error starts to show up
+    // again, all one can do is lower the limit.
+    let maxCasesInSwitch = 500
+
+    let neededCases = mainEnumValueDescriptorsSorted.count +
+      (enumDescriptor.hasUnknownPreservingSemantics ? 1 : 0)
+    let useMultipleSwitches = neededCases > maxCasesInSwitch
+
     p.print("\(visibility)var rawValue: Int {\n")
     p.indent()
-    p.print("switch self {\n")
-    for v in mainEnumValueDescriptorsSorted {
-      let dottedName = namer.dottedRelativeName(enumValue: v)
-      p.print("case \(dottedName): return \(v.number)\n")
+
+    if useMultipleSwitches {
+      for (i, v) in mainEnumValueDescriptorsSorted.enumerated() {
+        if (i % maxCasesInSwitch) == 0 {
+          if i > 0 {
+            p.print(
+              "default: break\n",
+              "}\n")
+          }
+          p.print("switch self {\n")
+        }
+        let dottedName = namer.dottedRelativeName(enumValue: v)
+        p.print("case \(dottedName): return \(v.number)\n")
+      }
+      if enumDescriptor.hasUnknownPreservingSemantics {
+        p.print("case .\(unrecognizedCaseName)(let i): return i\n")
+      }
+      p.print(
+        "default: break\n",
+        "}\n",
+        "\n",
+        "// Can't get here, all the cases are listed in the above switches.\n",
+        "// See https://github.com/apple/swift-protobuf/issues/904 for more details.\n",
+        "fatalError()\n")
+    } else {
+      p.print("switch self {\n")
+      for v in mainEnumValueDescriptorsSorted {
+        let dottedName = namer.dottedRelativeName(enumValue: v)
+        p.print("case \(dottedName): return \(v.number)\n")
+      }
+      if enumDescriptor.hasUnknownPreservingSemantics {
+        p.print("case .\(unrecognizedCaseName)(let i): return i\n")
+      }
+      p.print("}\n")
     }
-    if enumDescriptor.hasUnknownPreservingSemantics {
-      p.print("case .\(unrecognizedCaseName)(let i): return i\n")
-    }
-    p.print("}\n")
+
     p.outdent()
     p.print("}\n")
   }
