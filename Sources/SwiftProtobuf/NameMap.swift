@@ -53,7 +53,12 @@ fileprivate class InternPool {
 
   deinit {
     for buff in interned {
-        buff.deallocate()
+        #if swift(>=4.1)
+          buff.deallocate()
+        #else
+          let p = UnsafeMutableRawPointer(mutating: buff.baseAddress)!
+          p.deallocate(bytes: buff.count, alignedTo: 1)
+        #endif
     }
   }
 }

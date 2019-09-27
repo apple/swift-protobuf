@@ -1111,6 +1111,18 @@ struct ProtobufUnittest_TestAllTypes {
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -1290,6 +1302,14 @@ struct ProtobufUnittest_TestDeprecatedFields {
 
   enum OneOf_OneofFields: Equatable {
     case deprecatedInt32InOneof(Int32)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields, rhs: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields) -> Bool {
+      switch (lhs, rhs) {
+      case (.deprecatedInt32InOneof(let l), .deprecatedInt32InOneof(let r)): return l == r
+      }
+    }
+  #endif
   }
 
   init() {}
@@ -3105,6 +3125,18 @@ struct ProtobufUnittest_TestOneof {
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestAllTypes)
     case fooGroup(ProtobufUnittest_TestOneof.FooGroup)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestOneof.OneOf_Foo, rhs: ProtobufUnittest_TestOneof.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.fooInt(let l), .fooInt(let r)): return l == r
+      case (.fooString(let l), .fooString(let r)): return l == r
+      case (.fooMessage(let l), .fooMessage(let r)): return l == r
+      case (.fooGroup(let l), .fooGroup(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   struct FooGroup {
@@ -3387,6 +3419,23 @@ struct ProtobufUnittest_TestOneof2 {
     case fooMessage(ProtobufUnittest_TestOneof2.NestedMessage)
     case fooGroup(ProtobufUnittest_TestOneof2.FooGroup)
     case fooLazyMessage(ProtobufUnittest_TestOneof2.NestedMessage)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Foo, rhs: ProtobufUnittest_TestOneof2.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.fooInt(let l), .fooInt(let r)): return l == r
+      case (.fooString(let l), .fooString(let r)): return l == r
+      case (.fooCord(let l), .fooCord(let r)): return l == r
+      case (.fooStringPiece(let l), .fooStringPiece(let r)): return l == r
+      case (.fooBytes(let l), .fooBytes(let r)): return l == r
+      case (.fooEnum(let l), .fooEnum(let r)): return l == r
+      case (.fooMessage(let l), .fooMessage(let r)): return l == r
+      case (.fooGroup(let l), .fooGroup(let r)): return l == r
+      case (.fooLazyMessage(let l), .fooLazyMessage(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   enum OneOf_Bar: Equatable {
@@ -3396,6 +3445,20 @@ struct ProtobufUnittest_TestOneof2 {
     case barStringPiece(String)
     case barBytes(Data)
     case barEnum(ProtobufUnittest_TestOneof2.NestedEnum)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest_TestOneof2.OneOf_Bar) -> Bool {
+      switch (lhs, rhs) {
+      case (.barInt(let l), .barInt(let r)): return l == r
+      case (.barString(let l), .barString(let r)): return l == r
+      case (.barCord(let l), .barCord(let r)): return l == r
+      case (.barStringPiece(let l), .barStringPiece(let r)): return l == r
+      case (.barBytes(let l), .barBytes(let r)): return l == r
+      case (.barEnum(let l), .barEnum(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -3534,6 +3597,17 @@ struct ProtobufUnittest_TestRequiredOneof {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.fooInt(let l), .fooInt(let r)): return l == r
+      case (.fooString(let l), .fooString(let r)): return l == r
+      case (.fooMessage(let l), .fooMessage(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   struct NestedMessage {
@@ -4266,6 +4340,18 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypes)
     case oneofString(String)
     case oneofBytes(Data)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofTestAllTypes(let l), .oneofTestAllTypes(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   struct OptionalGroup {

@@ -26,6 +26,12 @@ public struct UnknownStorage: Equatable {
   /// fields of a decoded message.
   public private(set) var data = Internal.emptyData
 
+#if !swift(>=4.1)
+  public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
+    return lhs.data == rhs.data
+  }
+#endif
+
   public init() {}
 
   internal mutating func append(protobufData: Data) {

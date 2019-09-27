@@ -415,6 +415,18 @@ struct Proto3Unittest_TestAllTypes {
     case oneofNestedMessage(Proto3Unittest_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: Proto3Unittest_TestAllTypes.OneOf_OneofField, rhs: Proto3Unittest_TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -645,6 +657,14 @@ struct Proto3Unittest_TestOneof2 {
 
   enum OneOf_Foo: Equatable {
     case fooEnum(Proto3Unittest_TestOneof2.NestedEnum)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: Proto3Unittest_TestOneof2.OneOf_Foo, rhs: Proto3Unittest_TestOneof2.OneOf_Foo) -> Bool {
+      switch (lhs, rhs) {
+      case (.fooEnum(let l), .fooEnum(let r)): return l == r
+      }
+    }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {

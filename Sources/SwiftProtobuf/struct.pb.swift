@@ -198,6 +198,20 @@ public struct Google_Protobuf_Value {
     case structValue(Google_Protobuf_Struct)
     /// Represents a repeated `Value`.
     case listValue(Google_Protobuf_ListValue)
+
+  #if !swift(>=4.1)
+    public static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
+      switch (lhs, rhs) {
+      case (.nullValue(let l), .nullValue(let r)): return l == r
+      case (.numberValue(let l), .numberValue(let r)): return l == r
+      case (.stringValue(let l), .stringValue(let r)): return l == r
+      case (.boolValue(let l), .boolValue(let r)): return l == r
+      case (.structValue(let l), .structValue(let r)): return l == r
+      case (.listValue(let l), .listValue(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   public init() {}

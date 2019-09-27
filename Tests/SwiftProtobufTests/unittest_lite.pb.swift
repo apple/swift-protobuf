@@ -769,6 +769,19 @@ struct ProtobufUnittest_TestAllTypesLite {
     case oneofString(String)
     case oneofBytes(Data)
     case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofLazyNestedMessage(let l), .oneofLazyNestedMessage(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -1417,6 +1430,18 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypesLite)
     case oneofString(String)
     case oneofBytes(Data)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofTestAllTypes(let l), .oneofTestAllTypes(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   struct OptionalGroup {
@@ -1540,6 +1565,23 @@ struct ProtobufUnittest_TestOneofParsingLite {
     case oneofStringStringPiece(String)
     case oneofBytesStringPiece(Data)
     case oneofEnum(ProtobufUnittest_V2EnumLite)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField, rhs: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
+      case (.oneofSubmessage(let l), .oneofSubmessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofStringCord(let l), .oneofStringCord(let r)): return l == r
+      case (.oneofBytesCord(let l), .oneofBytesCord(let r)): return l == r
+      case (.oneofStringStringPiece(let l), .oneofStringStringPiece(let r)): return l == r
+      case (.oneofBytesStringPiece(let l), .oneofBytesStringPiece(let r)): return l == r
+      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   init() {}

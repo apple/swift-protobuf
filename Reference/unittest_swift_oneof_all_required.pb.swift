@@ -140,6 +140,18 @@ struct ProtobufUnittest_OneOfContainer {
     case option2(ProtobufUnittest_OneOfOptionMessage2)
     case option3(ProtobufUnittest_OneOfContainer.Option3)
     case option4(Int32)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_OneOfContainer.OneOf_Option, rhs: ProtobufUnittest_OneOfContainer.OneOf_Option) -> Bool {
+      switch (lhs, rhs) {
+      case (.option1(let l), .option1(let r)): return l == r
+      case (.option2(let l), .option2(let r)): return l == r
+      case (.option3(let l), .option3(let r)): return l == r
+      case (.option4(let l), .option4(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   struct Option3 {

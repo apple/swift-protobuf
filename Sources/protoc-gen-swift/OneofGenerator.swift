@@ -210,7 +210,32 @@ class OneofGenerator {
                 "case \(f.swiftName)(\(f.swiftType))\n")
         }
 
+        // Equatable conformance
+        p.print("\n")
         p.outdent()
+        p.print("#if !swift(>=4.1)\n")
+        p.indent()
+        p.print(
+            "\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
+        p.indent()
+        p.print("switch (lhs, rhs) {\n")
+        for f in fields {
+            p.print("case (\(f.dottedSwiftName)(let l), \(f.dottedSwiftName)(let r)): return l == r\n")
+        }
+        if fields.count > 1 {
+            // A tricky edge case: If the oneof only has a single case, then
+            // the case pattern generated above is exhaustive and generating a
+            // default produces a compiler error. If there is more than one
+            // case, then the case patterns are not exhaustive (because we
+            // don't compare mismatched pairs), and we have to include a
+            // default.
+            p.print("default: return false\n")
+        }
+        p.print("}\n")
+        p.outdent()
+        p.print("}\n")
+        p.outdent()
+        p.print("#endif\n")
         p.print("}\n")
     }
 
