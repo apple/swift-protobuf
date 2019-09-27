@@ -22,7 +22,7 @@ public struct JSONEncodingOptions {
   /// By default they are converted to JSON(lowerCamelCase) names.
   public var preserveProtoFieldNames: Bool = false
 
-  /// Wether to include proto field with default value
+  /// Whether to include proto field with default value
   public var includeDefaultValue: Bool = false
     
   public init() {}
