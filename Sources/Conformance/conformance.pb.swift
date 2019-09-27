@@ -298,6 +298,18 @@ struct Conformance_ConformanceRequest {
     /// Google internal only.  Opensource testees just skip it.
     case jspbPayload(String)
     case textPayload(String)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
+      switch (lhs, rhs) {
+      case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
+      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
+      case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
+      case (.textPayload(let l), .textPayload(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   init() {}
@@ -432,6 +444,22 @@ struct Conformance_ConformanceResponse {
     /// If the input was successfully parsed and the requested output was
     /// TEXT_FORMAT, serialize to TEXT_FORMAT and set it in this field.
     case textPayload(String)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
+      switch (lhs, rhs) {
+      case (.parseError(let l), .parseError(let r)): return l == r
+      case (.serializeError(let l), .serializeError(let r)): return l == r
+      case (.runtimeError(let l), .runtimeError(let r)): return l == r
+      case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
+      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
+      case (.skipped(let l), .skipped(let r)): return l == r
+      case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
+      case (.textPayload(let l), .textPayload(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   init() {}

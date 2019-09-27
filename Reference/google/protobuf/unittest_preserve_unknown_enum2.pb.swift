@@ -130,6 +130,16 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage {
   enum OneOf_O: Equatable {
     case oneofE1(Proto2PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto2PreserveUnknownEnumUnittest_MyEnum)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O, rhs: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofE1(let l), .oneofE1(let r)): return l == r
+      case (.oneofE2(let l), .oneofE2(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   init() {}

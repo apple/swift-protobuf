@@ -488,6 +488,31 @@ struct ProtobufUnittest_Message3 {
     /// No 'group' in proto3.
     case oneofMessage(ProtobufUnittest_Message3)
     case oneofEnum(ProtobufUnittest_Message3.Enum)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: ProtobufUnittest_Message3.OneOf_O, rhs: ProtobufUnittest_Message3.OneOf_O) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
+      case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
+      case (.oneofSint32(let l), .oneofSint32(let r)): return l == r
+      case (.oneofSint64(let l), .oneofSint64(let r)): return l == r
+      case (.oneofFixed32(let l), .oneofFixed32(let r)): return l == r
+      case (.oneofFixed64(let l), .oneofFixed64(let r)): return l == r
+      case (.oneofSfixed32(let l), .oneofSfixed32(let r)): return l == r
+      case (.oneofSfixed64(let l), .oneofSfixed64(let r)): return l == r
+      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
+      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
+      case (.oneofBool(let l), .oneofBool(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofMessage(let l), .oneofMessage(let r)): return l == r
+      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
   }
 
   enum Enum: SwiftProtobuf.Enum {
