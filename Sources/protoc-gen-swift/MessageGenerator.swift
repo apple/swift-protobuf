@@ -328,6 +328,13 @@ class MessageGenerator {
 
       var ranges = descriptor.extensionRanges.makeIterator()
       var nextRange = ranges.next()
+      var shouldGenerateInclude = false
+      for f in fieldsSortedByNumber {
+        shouldGenerateInclude = shouldGenerateInclude || f.shouldGenerateIncludeDefault()
+      }
+      if shouldGenerateInclude {
+        p.print("let shouldIncludeDefault = visitor.shouldIncludeDefault()\n")
+      }
       for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {
           p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")

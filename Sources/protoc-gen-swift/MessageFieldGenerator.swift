@@ -182,6 +182,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty))\n")
     }
 
+    override func shouldGenerateIncludeDefault() -> Bool{
+        if isRepeated { return true}
+        return !hasFieldPresence
+    }
+
     func generateTraverse(printer p: inout CodePrinter) {
         let visitMethod: String
         let traitsArg: String
@@ -198,7 +203,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         let conditional: String
         if isRepeated {  // Also covers maps
-            conditional = "!\(varName).isEmpty"
+            conditional = "!\(varName).isEmpty || shouldIncludeDefault"
         } else if hasFieldPresence {
             conditional = "let v = \(storedProperty)"
         } else {
@@ -207,9 +212,9 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             assert(fieldDescriptor.file.syntax == .proto3)
             switch fieldDescriptor.type {
             case .string, .bytes:
-                conditional = ("!\(varName).isEmpty")
+                conditional = ("!\(varName).isEmpty || shouldIncludeDefault")
             default:
-                conditional = ("\(varName) != \(swiftDefaultValue)")
+                conditional = ("\(varName) != \(swiftDefaultValue) || shouldIncludeDefault")
             }
         }
 

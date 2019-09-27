@@ -443,6 +443,8 @@ public protocol Visitor {
 
   /// Called with the raw bytes that represent any unknown fields.
   mutating func visitUnknown(bytes: Data) throws
+    
+ func shouldIncludeDefault() -> Bool
 }
 
 /// Forwarding default implementations of some visitor methods, for convenience.
@@ -690,4 +692,8 @@ extension Visitor {
   public mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
     try fields.traverse(visitor: &self, start: start, end: end)
   }
+    
+    func shouldIncludeDefault() -> Bool {
+        return false
+    }
 }

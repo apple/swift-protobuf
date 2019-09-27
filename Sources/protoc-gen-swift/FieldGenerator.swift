@@ -51,6 +51,8 @@ protocol FieldGenerator {
   /// Generate any support needed to this field's value is initialized.
   /// The generated code should return false if it isn't set.
   func generateIsInitializedCheck(printer: inout CodePrinter)
+
+  func shouldGenerateIncludeDefault() -> Bool
 }
 
 /// Simple base class for FieldGenerators that also provides fieldMapNames.
@@ -92,5 +94,9 @@ class FieldGeneratorBase {
     precondition(!descriptor.isExtension)
     number = Int(descriptor.number)
     fieldDescriptor = descriptor
+  }
+
+  func shouldGenerateIncludeDefault() -> Bool {
+    return false
   }
 }
