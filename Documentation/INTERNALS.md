@@ -22,11 +22,20 @@ means if the current official release of Swift is `X.Y`, the library will
 support back to `X-1.Y`.  That is, when Swift 4.2 was released, the minimum
 for support got moved up to 3.2.
 
+NOTE: While things like Swift 4.1 existed from a packaging/install pov,
+`swiftc` does not support `4.1` as a value for `-swift-version`, so the minimum
+can't be made to something like _4.1_ because that can't be targeted. So when
+the minimum would move to a version like that, it instead says on the previous
+minimum that was targetable (4.0 in the 4.1 case).
+
 When the minimum Swift version gets updated, update:
 - The `README.md` in the root of the project
 - Audit all the `#if` directives in the code and tests that use at
   `swift(...)` to check the version being compiled against, and
   remove the ones that are no longer needed.
+- Update `Package.swift` and `SwiftProtobuf.podspec` files to list the
+  versions supported. Eventually the version specific `Package@*.swift`
+  files will go away.
 
 ## Field Storage
 
