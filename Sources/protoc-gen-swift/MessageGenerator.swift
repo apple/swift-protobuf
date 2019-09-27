@@ -516,7 +516,7 @@ fileprivate func hasRecursiveSingularField(descriptor: Descriptor, visited: [Des
     }
 
     // Skip other visited fields.
-    if (visited[1...].contains { $0 === messageType }) {
+    if (visited.contains { $0 === messageType }) {
       return false
     }
 
