@@ -502,10 +502,16 @@ fileprivate func hasRecursiveSingularField(descriptor: Descriptor, visited: [Des
   var visited = visited
   visited.append(descriptor)
   return descriptor.fields.contains {
-    // Repeated fields use heap storage already
-    if ($0.type != .message && $0.type != .group) || $0.label == .repeated {
+    // Ignore fields that aren’t messages or groups.
+    if $0.type != .message && $0.type != .group {
       return false
     }
+
+    // Repeated fields already use heap storage (for the array).
+    if $0.label == .repeated {
+      return false
+    }
+
     guard let messageType = $0.messageType else {
       return false
     }
