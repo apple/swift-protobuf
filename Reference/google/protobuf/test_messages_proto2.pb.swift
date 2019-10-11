@@ -1120,54 +1120,51 @@ struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
   // methods supported on all messages.
 
   var optionalInt32: Int32 {
-    get {return _storage._optionalInt32 ?? 0}
-    set {_uniqueStorage()._optionalInt32 = newValue}
+    get {return _optionalInt32 ?? 0}
+    set {_optionalInt32 = newValue}
   }
   /// Returns true if `optionalInt32` has been explicitly set.
-  var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
+  var hasOptionalInt32: Bool {return self._optionalInt32 != nil}
   /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
+  mutating func clearOptionalInt32() {self._optionalInt32 = nil}
 
   var optionalString: String {
-    get {return _storage._optionalString ?? String()}
-    set {_uniqueStorage()._optionalString = newValue}
+    get {return _optionalString ?? String()}
+    set {_optionalString = newValue}
   }
   /// Returns true if `optionalString` has been explicitly set.
-  var hasOptionalString: Bool {return _storage._optionalString != nil}
+  var hasOptionalString: Bool {return self._optionalString != nil}
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
+  mutating func clearOptionalString() {self._optionalString = nil}
 
   var nestedMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2 {
-    get {return _storage._nestedMessage ?? ProtobufTestMessages_Proto2_ForeignMessageProto2()}
-    set {_uniqueStorage()._nestedMessage = newValue}
+    get {return _nestedMessage ?? ProtobufTestMessages_Proto2_ForeignMessageProto2()}
+    set {_nestedMessage = newValue}
   }
   /// Returns true if `nestedMessage` has been explicitly set.
-  var hasNestedMessage: Bool {return _storage._nestedMessage != nil}
+  var hasNestedMessage: Bool {return self._nestedMessage != nil}
   /// Clears the value of `nestedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearNestedMessage() {_uniqueStorage()._nestedMessage = nil}
+  mutating func clearNestedMessage() {self._nestedMessage = nil}
 
   var optionalGroup: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup {
-    get {return _storage._optionalGroup ?? ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup()}
-    set {_uniqueStorage()._optionalGroup = newValue}
+    get {return _optionalGroup ?? ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup()}
+    set {_optionalGroup = newValue}
   }
   /// Returns true if `optionalGroup` has been explicitly set.
-  var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
+  var hasOptionalGroup: Bool {return self._optionalGroup != nil}
   /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalGroup() {_uniqueStorage()._optionalGroup = nil}
+  mutating func clearOptionalGroup() {self._optionalGroup = nil}
 
   var optionalBool: Bool {
-    get {return _storage._optionalBool ?? false}
-    set {_uniqueStorage()._optionalBool = newValue}
+    get {return _optionalBool ?? false}
+    set {_optionalBool = newValue}
   }
   /// Returns true if `optionalBool` has been explicitly set.
-  var hasOptionalBool: Bool {return _storage._optionalBool != nil}
+  var hasOptionalBool: Bool {return self._optionalBool != nil}
   /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
-  mutating func clearOptionalBool() {_uniqueStorage()._optionalBool = nil}
+  mutating func clearOptionalBool() {self._optionalBool = nil}
 
-  var repeatedInt32: [Int32] {
-    get {return _storage._repeatedInt32}
-    set {_uniqueStorage()._repeatedInt32 = newValue}
-  }
+  var repeatedInt32: [Int32] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1194,7 +1191,11 @@ struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _optionalInt32: Int32? = nil
+  fileprivate var _optionalString: String? = nil
+  fileprivate var _nestedMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2? = nil
+  fileprivate var _optionalGroup: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup? = nil
+  fileprivate var _optionalBool: Bool? = nil
 }
 
 // MARK: - Extension support defined in test_messages_proto2.proto.
@@ -2561,91 +2562,49 @@ extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes: SwiftProtobuf.Messa
     1011: .standard(proto: "repeated_int32"),
   ]
 
-  fileprivate class _StorageClass {
-    var _optionalInt32: Int32? = nil
-    var _optionalString: String? = nil
-    var _nestedMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2? = nil
-    var _optionalGroup: ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup? = nil
-    var _optionalBool: Bool? = nil
-    var _repeatedInt32: [Int32] = []
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalInt32 = source._optionalInt32
-      _optionalString = source._optionalString
-      _nestedMessage = source._nestedMessage
-      _optionalGroup = source._optionalGroup
-      _optionalBool = source._optionalBool
-      _repeatedInt32 = source._repeatedInt32
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1001: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
-        case 1002: try decoder.decodeSingularStringField(value: &_storage._optionalString)
-        case 1003: try decoder.decodeSingularMessageField(value: &_storage._nestedMessage)
-        case 1004: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
-        case 1006: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
-        case 1011: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1001: try decoder.decodeSingularInt32Field(value: &self._optionalInt32)
+      case 1002: try decoder.decodeSingularStringField(value: &self._optionalString)
+      case 1003: try decoder.decodeSingularMessageField(value: &self._nestedMessage)
+      case 1004: try decoder.decodeSingularGroupField(value: &self._optionalGroup)
+      case 1006: try decoder.decodeSingularBoolField(value: &self._optionalBool)
+      case 1011: try decoder.decodeRepeatedInt32Field(value: &self.repeatedInt32)
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._optionalInt32 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1001)
-      }
-      if let v = _storage._optionalString {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1002)
-      }
-      if let v = _storage._nestedMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1003)
-      }
-      if let v = _storage._optionalGroup {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 1004)
-      }
-      if let v = _storage._optionalBool {
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 1006)
-      }
-      if !_storage._repeatedInt32.isEmpty {
-        try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 1011)
-      }
+    if let v = self._optionalInt32 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1001)
+    }
+    if let v = self._optionalString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1002)
+    }
+    if let v = self._nestedMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1003)
+    }
+    if let v = self._optionalGroup {
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 1004)
+    }
+    if let v = self._optionalBool {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 1006)
+    }
+    if !self.repeatedInt32.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.repeatedInt32, fieldNumber: 1011)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufTestMessages_Proto2_UnknownToTestAllTypes, rhs: ProtobufTestMessages_Proto2_UnknownToTestAllTypes) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._optionalInt32 != rhs_storage._optionalInt32 {return false}
-        if _storage._optionalString != rhs_storage._optionalString {return false}
-        if _storage._nestedMessage != rhs_storage._nestedMessage {return false}
-        if _storage._optionalGroup != rhs_storage._optionalGroup {return false}
-        if _storage._optionalBool != rhs_storage._optionalBool {return false}
-        if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._optionalInt32 != rhs._optionalInt32 {return false}
+    if lhs._optionalString != rhs._optionalString {return false}
+    if lhs._nestedMessage != rhs._nestedMessage {return false}
+    if lhs._optionalGroup != rhs._optionalGroup {return false}
+    if lhs._optionalBool != rhs._optionalBool {return false}
+    if lhs.repeatedInt32 != rhs.repeatedInt32 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -207,19 +207,19 @@ struct ProtobufUnittest_TestMapSubmessage {
   // methods supported on all messages.
 
   var testMap: ProtobufUnittest_TestMap {
-    get {return _storage._testMap ?? ProtobufUnittest_TestMap()}
-    set {_uniqueStorage()._testMap = newValue}
+    get {return _testMap ?? ProtobufUnittest_TestMap()}
+    set {_testMap = newValue}
   }
   /// Returns true if `testMap` has been explicitly set.
-  var hasTestMap: Bool {return _storage._testMap != nil}
+  var hasTestMap: Bool {return self._testMap != nil}
   /// Clears the value of `testMap`. Subsequent reads from it will return its default value.
-  mutating func clearTestMap() {_uniqueStorage()._testMap = nil}
+  mutating func clearTestMap() {self._testMap = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _testMap: ProtobufUnittest_TestMap? = nil
 }
 
 struct ProtobufUnittest_TestMessageMap {
@@ -662,56 +662,24 @@ extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtob
     1: .standard(proto: "test_map"),
   ]
 
-  fileprivate class _StorageClass {
-    var _testMap: ProtobufUnittest_TestMap? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _testMap = source._testMap
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._testMap)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &self._testMap)
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._testMap {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
+    if let v = self._testMap {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestMapSubmessage, rhs: ProtobufUnittest_TestMapSubmessage) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._testMap != rhs_storage._testMap {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._testMap != rhs._testMap {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

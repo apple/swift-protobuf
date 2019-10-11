@@ -856,19 +856,19 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage {
   // methods supported on all messages.
 
   var arenaMessage: Proto2ArenaUnittest_ArenaMessage {
-    get {return _storage._arenaMessage ?? Proto2ArenaUnittest_ArenaMessage()}
-    set {_uniqueStorage()._arenaMessage = newValue}
+    get {return _arenaMessage ?? Proto2ArenaUnittest_ArenaMessage()}
+    set {_arenaMessage = newValue}
   }
   /// Returns true if `arenaMessage` has been explicitly set.
-  var hasArenaMessage: Bool {return _storage._arenaMessage != nil}
+  var hasArenaMessage: Bool {return self._arenaMessage != nil}
   /// Clears the value of `arenaMessage`. Subsequent reads from it will return its default value.
-  mutating func clearArenaMessage() {_uniqueStorage()._arenaMessage = nil}
+  mutating func clearArenaMessage() {self._arenaMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _arenaMessage: Proto2ArenaUnittest_ArenaMessage? = nil
 }
 
 struct ProtobufUnittestNoArena_OneString {
@@ -1708,56 +1708,24 @@ extension ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, Swi
     1: .standard(proto: "arena_message"),
   ]
 
-  fileprivate class _StorageClass {
-    var _arenaMessage: Proto2ArenaUnittest_ArenaMessage? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _arenaMessage = source._arenaMessage
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._arenaMessage)
-        default: break
-        }
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &self._arenaMessage)
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._arenaMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
+    if let v = self._arenaMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittestNoArena_TestNoArenaMessage, rhs: ProtobufUnittestNoArena_TestNoArenaMessage) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._arenaMessage != rhs_storage._arenaMessage {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs._arenaMessage != rhs._arenaMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
