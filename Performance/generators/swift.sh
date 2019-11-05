@@ -98,6 +98,10 @@ extension Harness {
         populateFields(of: &message)
       }
 
+      message = measureSubtask("Populate fields with with") {
+        return populateFieldsWithWith()
+      }
+
       // Exercise binary serialization.
       let data = try measureSubtask("Encode binary") {
         return try message.serializedData()
@@ -139,6 +143,20 @@ EOF
   fi
 
   cat >> "$gen_harness_path" <<EOF
+  }
+
+  private func populateFieldsWithWith() -> PerfMessage {
+    return PerfMessage.with { message in
+EOF
+
+  if [[ "$proto_type" == "homogeneous" ]]; then
+    generate_swift_homogenerous_populate_fields_body
+  else
+    generate_swift_heterogenerous_populate_fields_body
+  fi
+
+  cat >> "$gen_harness_path" <<EOF
+    }
   }
 }
 EOF
