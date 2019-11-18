@@ -80,8 +80,38 @@ extension Message {
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
+#if swift(>=5.0)
+    try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
+#else
     try merge(serializedData: data, extensions: extensions, partial: partial, options: options)
+#endif
   }
+
+#if swift(>=5.0)
+  /// Creates a new message by decoding the given `ContiguousBytes` value
+  /// containing a serialized message in Protocol Buffer binary format.
+  ///
+  /// - Parameters:
+  ///   - contiguousBytes: The binary-encoded message data to decode.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
+  ///   - options: The BinaryDecodingOptions to use.
+  /// - Throws: `BinaryDecodingError` if decoding fails.
+  public init(
+    contiguousBytes bytes: ContiguousBytes,
+    extensions: ExtensionMap? = nil,
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
+  ) throws {
+    self.init()
+    try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
+  }
+#endif // #if swift(>=5.0)
 
   /// Updates the message by decoding the given `Data` value containing a
   /// serialized message in Protocol Buffer binary format into the receiver.
@@ -107,6 +137,9 @@ extension Message {
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
+#if swift(>=5.0)
+    try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
+#else
     if !data.isEmpty {
       try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
         if let baseAddress = body.baseAddress, body.count > 0 {
@@ -122,5 +155,48 @@ extension Message {
     if !partial && !isInitialized {
       throw BinaryDecodingError.missingRequiredFields
     }
+#endif  // swift(>=5.0)
   }
+
+#if swift(>=5.0)
+  /// Updates the message by decoding the given `ContiguousBytes` value
+  /// containing a serialized message in Protocol Buffer binary format into the
+  /// receiver.
+  ///
+  /// - Note: If this method throws an error, the message may still have been
+  ///   partially mutated by the binary data that was decoded before the error
+  ///   occurred.
+  ///
+  /// - Parameters:
+  ///   - contiguousBytes: The binary-encoded message data to decode.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
+  ///   - options: The BinaryDecodingOptions to use.
+  /// - Throws: `BinaryDecodingError` if decoding fails.
+  public mutating func merge(
+    contiguousBytes bytes: ContiguousBytes,
+    extensions: ExtensionMap? = nil,
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
+  ) throws {
+    try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      if let baseAddress = body.baseAddress, body.count > 0 {
+        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
+        var decoder = BinaryDecoder(forReadingFrom: pointer,
+                                    count: body.count,
+                                    options: options,
+                                    extensions: extensions)
+        try decoder.decodeFullMessage(message: &self)
+      }
+    }
+    if !partial && !isInitialized {
+      throw BinaryDecodingError.missingRequiredFields
+    }
+  }
+#endif  // swift(>=5.0)
 }
