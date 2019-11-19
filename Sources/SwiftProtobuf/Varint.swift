@@ -91,14 +91,14 @@ internal enum Varint {
   }
 
   /// Counts the number of distinct varints in a packed byte buffer.
-  static func countVarintsInBuffer(start: UnsafePointer<UInt8>, count: Int) -> Int {
+  static func countVarintsInBuffer(start: UnsafeRawPointer, count: Int) -> Int {
     // We don't need to decode all the varints to count how many there
     // are.  Just observe that every varint has exactly one byte with
     // value < 128. So we just count those...
     var n = 0
     var ints = 0
     while n < count {
-      if start[n] < 128 {
+      if start.load(fromByteOffset: n, as: UInt8.self) < 128 {
         ints += 1
       }
       n += 1

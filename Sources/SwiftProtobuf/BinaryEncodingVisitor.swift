@@ -26,7 +26,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   /// - Precondition: `pointer` must point to an allocated block of memory that
   ///   is large enough to hold the entire encoded message. For performance
   ///   reasons, the encoder does not make any attempts to verify this.
-  init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
+  init(forWritingInto pointer: UnsafeMutableRawPointer) {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 

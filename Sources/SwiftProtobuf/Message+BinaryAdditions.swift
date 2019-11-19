@@ -35,13 +35,11 @@ extension Message {
     var data = Data(count: requiredSize)
     try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
-        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
-
-        var visitor = BinaryEncodingVisitor(forWritingInto: pointer)
+        var visitor = BinaryEncodingVisitor(forWritingInto: baseAddress)
         try traverse(visitor: &visitor)
         // Currently not exposing this from the api because it really would be
         // an internal error in the library and should never happen.
-        assert(requiredSize == visitor.encoder.distance(pointer: pointer))
+        assert(requiredSize == visitor.encoder.distance(pointer: baseAddress))
       }
     }
     return data
@@ -193,8 +191,7 @@ extension Message {
     options: BinaryDecodingOptions
   ) throws {
     if let baseAddress = body.baseAddress, body.count > 0 {
-      let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
-      var decoder = BinaryDecoder(forReadingFrom: pointer,
+      var decoder = BinaryDecoder(forReadingFrom: baseAddress,
                                   count: body.count,
                                   options: options,
                                   extensions: extensions)
