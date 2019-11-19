@@ -73,6 +73,7 @@ extension Message {
   ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
+  @inlinable
   public init(
     serializedData data: Data,
     extensions: ExtensionMap? = nil,
@@ -102,8 +103,9 @@ extension Message {
   ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
-  public init(
-    contiguousBytes bytes: ContiguousBytes,
+  @inlinable
+  public init<Bytes: ContiguousBytes>(
+    contiguousBytes bytes: Bytes,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
@@ -131,6 +133,7 @@ extension Message {
   ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
+  @inlinable
   public mutating func merge(
     serializedData data: Data,
     extensions: ExtensionMap? = nil,
@@ -140,20 +143,8 @@ extension Message {
 #if swift(>=5.0)
     try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
 #else
-    if !data.isEmpty {
-      try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-        if let baseAddress = body.baseAddress, body.count > 0 {
-          let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
-          var decoder = BinaryDecoder(forReadingFrom: pointer,
-                                      count: body.count,
-                                      options: options,
-                                      extensions: extensions)
-          try decoder.decodeFullMessage(message: &self)
-        }
-      }
-    }
-    if !partial && !isInitialized {
-      throw BinaryDecodingError.missingRequiredFields
+    try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
     }
 #endif  // swift(>=5.0)
   }
@@ -178,25 +169,39 @@ extension Message {
   ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
-  public mutating func merge(
-    contiguousBytes bytes: ContiguousBytes,
+  @inlinable
+  public mutating func merge<Bytes: ContiguousBytes>(
+    contiguousBytes bytes: Bytes,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      if let baseAddress = body.baseAddress, body.count > 0 {
-        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
-        var decoder = BinaryDecoder(forReadingFrom: pointer,
-                                    count: body.count,
-                                    options: options,
-                                    extensions: extensions)
-        try decoder.decodeFullMessage(message: &self)
-      }
+      try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
+    }
+  }
+#endif  // swift(>=5.0)
+
+  // Helper for `merge()`s to keep the Decoder internal to SwiftProtobuf while
+  // allowing the generic over ContiguousBytes to get better codegen from the
+  // compiler by being `@inlinable`.
+  @usableFromInline
+  internal mutating func _merge(
+    rawBuffer body: UnsafeRawBufferPointer,
+    extensions: ExtensionMap?,
+    partial: Bool,
+    options: BinaryDecodingOptions
+  ) throws {
+    if let baseAddress = body.baseAddress, body.count > 0 {
+      let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
+      var decoder = BinaryDecoder(forReadingFrom: pointer,
+                                  count: body.count,
+                                  options: options,
+                                  extensions: extensions)
+      try decoder.decodeFullMessage(message: &self)
     }
     if !partial && !isInitialized {
       throw BinaryDecodingError.missingRequiredFields
     }
   }
-#endif  // swift(>=5.0)
 }
