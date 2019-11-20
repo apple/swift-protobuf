@@ -21,6 +21,11 @@ function print_cpp_set_field() {
   type=$2
 
   case "$type" in
+    repeated\ message)
+      echo "  for (auto i = 0; i < repeated_count; i++) {"
+      echo "    message.add_field$num()->set_optional_int32($((200+num)));"
+      echo "  }"
+      ;;
     repeated\ string)
       echo "  for (auto i = 0; i < repeated_count; i++) {"
       echo "    message.add_field$num(\"$((200+num))\");"
@@ -50,6 +55,9 @@ function print_cpp_set_field() {
       echo "  for (auto i = 0; i < repeated_count; i++) {"
       echo "    message.add_field$num($((200+num)));"
       echo "  }"
+      ;;
+    message)
+      echo "  message.mutable_field$num()->set_optional_int32($((200+num)));"
       ;;
     string)
       echo "  message.set_field$num(\"$((200+num))\");"
