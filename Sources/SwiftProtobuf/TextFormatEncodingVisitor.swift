@@ -63,6 +63,23 @@ internal struct TextFormatEncodingVisitor: Visitor {
     self.options = options
   }
 
+  private func formatFieldName(lookingUp fieldNumber: Int) -> [UInt8] {
+      var bytes = [UInt8]()
+      if let protoName = nameMap?.names(for: fieldNumber)?.proto {
+          bytes.append(contentsOf: protoName.utf8Buffer)
+      } else if let protoName = nameResolver[fieldNumber] {
+          let buff = UnsafeBufferPointer(start: protoName.utf8Start, count: protoName.utf8CodeUnitCount)
+          bytes.append(contentsOf: buff)
+      } else if let extensionName = extensions?[fieldNumber]?.protobufExtension.fieldName {
+          bytes.append(UInt8(ascii: "["))
+          bytes.append(contentsOf: extensionName.utf8)
+          bytes.append(UInt8(ascii: "]"))
+      } else {
+          bytes.append(contentsOf: fieldNumber.description.utf8)
+      }
+      return bytes
+  }
+
   private mutating func emitFieldName(lookingUp fieldNumber: Int) {
       if let protoName = nameMap?.names(for: fieldNumber)?.proto {
           encoder.emitFieldName(name: protoName.utf8Buffer)
@@ -220,15 +237,27 @@ internal struct TextFormatEncodingVisitor: Visitor {
   mutating func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
+
+      // Cache old encoder state
+      let oldNameMap = self.nameMap
+      let oldNameResolver = self.nameResolver
+      let oldExtensions = self.extensions
+      // Update encoding state for new message
+      self.nameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap
+      self.nameResolver = [:]
+      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+      // Encode submessage
       encoder.startMessageField()
-      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder, options: options)
       if let any = value as? Google_Protobuf_Any {
-          any.textTraverse(visitor: &visitor)
+          any.textTraverse(visitor: &self)
       } else {
-          try! value.traverse(visitor: &visitor)
+          try! value.traverse(visitor: &self)
       }
-      encoder = visitor.encoder
       encoder.endMessageField()
+      // Restore state
+      self.extensions = oldExtensions
+      self.nameResolver = oldNameResolver
+      self.nameMap = oldNameMap
   }
 
   // Emit the full "verbose" form of an Any.  This writes the typeURL
@@ -372,18 +401,31 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // Messages and groups
   mutating func visitRepeatedMessageField<M: Message>(value: [M],
                                              fieldNumber: Int) throws {
+      // Look up field name against outer message encoding state
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
+      // Cache old encoder state
+      let oldNameMap = self.nameMap
+      let oldNameResolver = self.nameResolver
+      let oldExtensions = self.extensions
+      // Update encoding state for new message type
+      self.nameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap
+      self.nameResolver = [:]
+      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+      // Iterate and encode each message
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startMessageField()
-          var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder, options: options)
           if let any = v as? Google_Protobuf_Any {
-              any.textTraverse(visitor: &visitor)
+              any.textTraverse(visitor: &self)
           } else {
-              try! v.traverse(visitor: &visitor)
+              try! v.traverse(visitor: &self)
           }
-          encoder = visitor.encoder
           encoder.endMessageField()
       }
+      // Restore state
+      self.extensions = oldExtensions
+      self.nameResolver = oldNameResolver
+      self.nameMap = oldNameMap
   }
 
   // Google's C++ implementation of Text format supports two formats
