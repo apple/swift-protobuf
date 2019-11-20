@@ -292,8 +292,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // the name lookup once for the array, rather than once for each element:
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putFloatValue(value: v)
           encoder.endRegularField()
@@ -301,8 +302,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putDoubleValue(value: v)
           encoder.endRegularField()
@@ -310,8 +312,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putInt64(value: Int64(v))
           encoder.endRegularField()
@@ -319,8 +322,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putInt64(value: v)
           encoder.endRegularField()
@@ -328,8 +332,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putUInt64(value: UInt64(v))
           encoder.endRegularField()
@@ -337,8 +342,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putUInt64(value: v)
           encoder.endRegularField()
@@ -365,8 +371,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putBoolValue(value: v)
           encoder.endRegularField()
@@ -374,8 +381,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putStringValue(value: v)
           encoder.endRegularField()
@@ -383,8 +391,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putBytesValue(value: v)
           encoder.endRegularField()
@@ -392,8 +401,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+      let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
-          emitFieldName(lookingUp: fieldNumber)
+          encoder.emitFieldName(name: fieldName)
           encoder.startRegularField()
           encoder.putEnumValue(value: v)
           encoder.endRegularField()
