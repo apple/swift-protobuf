@@ -298,8 +298,11 @@ internal struct JSONEncodingVisitor: Visitor {
         encoder.append(text: json)
       }
     } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
+      // Install inner object's name map
       let oldNameMap = self.nameMap
       self.nameMap = newNameMap
+      // Restore outer object's name map before returning
+      defer { self.nameMap = oldNameMap }
       for v in value {
         if comma {
           encoder.comma()
@@ -309,7 +312,6 @@ internal struct JSONEncodingVisitor: Visitor {
         try v.traverse(visitor: &self)
         encoder.endObject()
       }
-      self.nameMap = oldNameMap
     } else {
       throw JSONEncodingError.missingFieldNames
     }
