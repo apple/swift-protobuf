@@ -154,6 +154,11 @@ internal struct JSONEncoder {
         separator = nil
     }
 
+    internal mutating func startNestedObject() {
+        data.append(asciiOpenCurlyBracket)
+        separator = nil
+    }
+
     /// Append a close curly brace `}` to the JSON.
     internal mutating func endObject() {
         data.append(asciiCloseCurlyBracket)
