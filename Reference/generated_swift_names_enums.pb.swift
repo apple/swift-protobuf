@@ -3305,6 +3305,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum ContiguousBytes: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneContiguousBytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneContiguousBytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneContiguousBytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneContiguousBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum count: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneCount // = 0
@@ -22277,6 +22302,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.contentsOf: Case
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ContiguousBytes: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ContiguousBytes] = [
+    .noneContiguousBytes,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.count: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.count] = [
@@ -28139,6 +28171,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.comma: SwiftProt
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.contentsOf: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_contentsOf"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ContiguousBytes: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ContiguousBytes"),
   ]
 }
 

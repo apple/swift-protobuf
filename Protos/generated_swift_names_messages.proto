@@ -135,6 +135,7 @@ message GeneratedSwiftReservedMessages {
   message com { int32 com = 1; }
   message comma { int32 comma = 1; }
   message contentsOf { int32 contentsOf = 1; }
+  message ContiguousBytes { int32 ContiguousBytes = 1; }
   message count { int32 count = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message csharpNamespace { int32 csharpNamespace = 1; }
