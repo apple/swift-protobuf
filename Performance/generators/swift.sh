@@ -21,6 +21,11 @@ function print_swift_set_field() {
   type=$2
 
   case "$type" in
+    repeated\ message)
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append(SubMessage.with { \$0.optionalInt32 = $((200+num)) })"
+      echo "    }"
+      ;;
     repeated\ bytes)
       echo "    for _ in 0..<repeatedCount {"
       echo "      message.field$num.append(Data(repeating:$((num)), count: 20))"
@@ -55,6 +60,9 @@ function print_swift_set_field() {
       echo "    for _ in 0..<repeatedCount {"
       echo "      message.field$num.append($((200+num)))"
       echo "    }"
+      ;;
+    message)
+      echo "    message.field$num = SubMessage.with { \$0.optionalInt32 = $((200+num)) }"
       ;;
     bytes)
       echo "    message.field$num = Data(repeating:$((num)), count: 20)"
