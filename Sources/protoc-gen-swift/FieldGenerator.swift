@@ -53,7 +53,7 @@ protocol FieldGenerator {
   func generateIsInitializedCheck(printer: inout CodePrinter)
 
   func shouldGenerateIncludeDefault() -> Bool
-  func shouldGenerateIncludeNestedProperties() -> Bool
+  func shouldGenerateExcludeNestedProperties() -> Bool
 }
 
 /// Simple base class for FieldGenerators that also provides fieldMapNames.
@@ -101,7 +101,7 @@ class FieldGeneratorBase {
     return false
   }
 
-  func shouldGenerateIncludeNestedProperties() -> Bool {
+  func shouldGenerateExcludeNestedProperties() -> Bool {
     return false
   }
 }
