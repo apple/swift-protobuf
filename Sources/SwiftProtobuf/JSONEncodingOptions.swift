@@ -24,6 +24,9 @@ public struct JSONEncodingOptions {
 
   /// Whether to include proto field with default value
   public var includeDefaultValue: Bool = false
+
+  /// Whether to exclude proto field with nested dictionaries
+  public var excludeNestedProperties: Bool = false
     
   public init() {}
 }

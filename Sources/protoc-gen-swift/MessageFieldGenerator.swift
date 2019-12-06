@@ -182,9 +182,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty))\n")
     }
 
-    override func shouldGenerateIncludeDefault() -> Bool{
-        if isRepeated { return true}
+    override func shouldGenerateIncludeDefault() -> Bool {
+        if isRepeated { return true }
         return !hasFieldPresence
+    }
+
+    override func shouldGenerateExcludeNestedProperties() -> Bool {
+        return hasFieldPresence 
     }
 
     func generateTraverse(printer p: inout CodePrinter) {
@@ -205,7 +209,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         if isRepeated {  // Also covers maps
             conditional = "!\(varName).isEmpty || shouldIncludeDefault"
         } else if hasFieldPresence {
-            conditional = "let v = \(storedProperty)"
+            conditional = "let v = \(storedProperty) && !shouldExcludeNestedProperties"
         } else {
             // At this point, the fields would be a primative type, and should only
             // be visted if it is the non default value.

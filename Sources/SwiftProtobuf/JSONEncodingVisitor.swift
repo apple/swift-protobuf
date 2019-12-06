@@ -335,6 +335,10 @@ internal struct JSONEncodingVisitor: Visitor {
   func shouldIncludeDefault() -> Bool {
     return options.includeDefaultValue
   }
+    
+  func shouldExcludeNestedProperties() -> Bool {
+    return options.excludeNestedProperties
+  }
 
   /// Helper function that throws an error if the field number could not be
   /// resolved.
