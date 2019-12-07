@@ -209,7 +209,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         if isRepeated {  // Also covers maps
             conditional = "!\(varName).isEmpty || shouldIncludeDefault"
         } else if hasFieldPresence {
-            conditional = "let v = \(storedProperty) && !shouldExcludeNestedProperties"
+            conditional = "let v = \(storedProperty), !shouldExcludeNestedProperties"
         } else {
             // At this point, the fields would be a primative type, and should only
             // be visted if it is the non default value.
