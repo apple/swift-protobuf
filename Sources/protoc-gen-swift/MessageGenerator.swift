@@ -328,12 +328,17 @@ class MessageGenerator {
 
       var ranges = descriptor.extensionRanges.makeIterator()
       var nextRange = ranges.next()
-      var shouldGenerateInclude = false
+      var shouldGenerateIncludeDefaultValue = false
+      var shouldGenerateExcludeNestedProperties = false
       for f in fieldsSortedByNumber {
-        shouldGenerateInclude = shouldGenerateInclude || f.shouldGenerateIncludeDefault()
+        shouldGenerateIncludeDefaultValue = shouldGenerateIncludeDefaultValue || f.shouldGenerateIncludeDefault()
+        shouldGenerateExcludeNestedProperties = shouldGenerateExcludeNestedProperties || f.shouldGenerateExcludeNestedProperties()
       }
-      if shouldGenerateInclude {
+      if shouldGenerateIncludeDefaultValue {
         p.print("let shouldIncludeDefault = visitor.shouldIncludeDefault()\n")
+      }
+      if shouldGenerateExcludeNestedProperties {
+        p.print("let shouldExcludeNestedProperties = visitor.shouldExcludeNestedProperties()\n")
       }
       for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {

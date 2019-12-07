@@ -444,7 +444,9 @@ public protocol Visitor {
   /// Called with the raw bytes that represent any unknown fields.
   mutating func visitUnknown(bytes: Data) throws
     
- func shouldIncludeDefault() -> Bool
+  func shouldIncludeDefault() -> Bool
+
+  func shouldExcludeNestedProperties() -> Bool
 }
 
 /// Forwarding default implementations of some visitor methods, for convenience.
@@ -694,6 +696,10 @@ extension Visitor {
   }
     
     func shouldIncludeDefault() -> Bool {
+        return false
+    }
+    
+    func shouldExcludeNestedProperties() -> Bool {
         return false
     }
 }
