@@ -144,6 +144,18 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault {
   init() {}
 }
 
+#if swift(>=4.2)
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend"

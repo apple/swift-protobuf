@@ -192,6 +192,9 @@ class MessageGenerator {
     for e in enums {
       e.generateCaseIterable(printer: &p, includeGuards: false)
     }
+    for m in messages {
+      m.generateEnumCaseIterable(printer: &p)
+    }
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {

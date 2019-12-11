@@ -16,6 +16,7 @@ import Foundation
 
 #if !swift(>=5.0)
 internal extension Data {
+    @usableFromInline
     func withUnsafeBytes<T>(_ body: (UnsafeRawBufferPointer) throws -> T) rethrows -> T {
         let c = count
         return try withUnsafeBytes { (p: UnsafePointer<UInt8>) throws -> T in

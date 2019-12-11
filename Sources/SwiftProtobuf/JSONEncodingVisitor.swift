@@ -166,8 +166,19 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    let json = try value.jsonUTF8Data(options: options)
-    encoder.append(utf8Data: json)
+    if let m = value as? _CustomJSONCodable {
+      let json = try m.encodedJSONString(options: options)
+      encoder.append(text: json)
+    } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
+      encoder.startNestedObject()
+      let oldNameMap = self.nameMap
+      self.nameMap = newNameMap
+      try value.traverse(visitor: &self)
+      self.nameMap = oldNameMap
+      endObject()
+    } else {
+      throw JSONEncodingError.missingFieldNames
+    }
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
@@ -274,12 +285,37 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
-    let localOptions = options
-    try _visitRepeated(value: value, fieldNumber: fieldNumber) {
-      (encoder: inout JSONEncoder, v: M) throws in
-      let json = try v.jsonUTF8Data(options: localOptions)
-      encoder.append(utf8Data: json)
+    try startField(for: fieldNumber)
+    var comma = false
+    encoder.startArray()
+    if let _ = M.self as? _CustomJSONCodable.Type {
+      for v in value {
+        if comma {
+          encoder.comma()
+        }
+        comma = true
+        let json = try v.jsonString(options: options)
+        encoder.append(text: json)
+      }
+    } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
+      // Install inner object's name map
+      let oldNameMap = self.nameMap
+      self.nameMap = newNameMap
+      // Restore outer object's name map before returning
+      defer { self.nameMap = oldNameMap }
+      for v in value {
+        if comma {
+          encoder.comma()
+        }
+        comma = true
+        encoder.startNestedObject()
+        try v.traverse(visitor: &self)
+        encoder.endObject()
+      }
+    } else {
+      throw JSONEncodingError.missingFieldNames
     }
+    encoder.endArray()
   }
 
   mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {

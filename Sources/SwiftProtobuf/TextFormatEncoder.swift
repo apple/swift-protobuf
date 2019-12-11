@@ -29,6 +29,7 @@ private let asciiNewline = UInt8(ascii: "\n")
 private let asciiUpperA = UInt8(ascii: "A")
 
 private let tabSize = 2
+private let tab = [UInt8](repeating: asciiSpace, count: tabSize)
 
 /// TextFormatEncoder has no public members.
 internal struct TextFormatEncoder {
@@ -49,6 +50,10 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: name.utf8Buffer)
     }
 
+    internal mutating func append(bytes: [UInt8]) {
+        data.append(contentsOf: bytes)
+    }
+
     private mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
@@ -67,6 +72,11 @@ internal struct TextFormatEncoder {
     mutating func emitFieldName(name: StaticString) {
         let buff = UnsafeRawBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
         emitFieldName(name: buff)
+    }
+
+    mutating func emitFieldName(name: [UInt8]) {
+        indent()
+        data.append(contentsOf: name)
     }
 
     mutating func emitExtensionFieldName(name: String) {
@@ -93,15 +103,11 @@ internal struct TextFormatEncoder {
     //    name_of_field {key: value key2: value2}
     mutating func startMessageField() {
         append(staticText: " {\n")
-        for _ in 1...tabSize {
-            indentString.append(asciiSpace)
-        }
+        indentString.append(contentsOf: tab)
     }
 
     mutating func endMessageField() {
-        for _ in 1...tabSize {
-            indentString.remove(at: indentString.count - 1)
-        }
+        indentString.removeLast(tabSize)
         indent()
         append(staticText: "}\n")
     }

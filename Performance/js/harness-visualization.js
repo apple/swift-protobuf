@@ -3,6 +3,7 @@
   // on the plot axis.
   var benchmarks = [
     'New message', 'Populate fields',
+    'Populate fields with with',
     'Encode binary', 'Decode binary',
     'Encode JSON', 'Decode JSON',
     'Encode text', 'Decode text',

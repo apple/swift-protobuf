@@ -135,6 +135,7 @@ message GeneratedSwiftReservedEnums {
   enum com { NONE_com = 0; }
   enum comma { NONE_comma = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
+  enum ContiguousBytes { NONE_ContiguousBytes = 0; }
   enum count { NONE_count = 0; }
   enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
   enum csharpNamespace { NONE_csharpNamespace = 0; }
