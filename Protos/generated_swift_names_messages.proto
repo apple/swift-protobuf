@@ -27,7 +27,6 @@ message GeneratedSwiftReservedMessages {
   message as { int32 as = 1; }
   message asciiOpenCurlyBracket { int32 asciiOpenCurlyBracket = 1; }
   message asciiZero { int32 asciiZero = 1; }
-  message assumingMemoryBound { int32 assumingMemoryBound = 1; }
   message available { int32 available = 1; }
   message b { int32 b = 1; }
   message base64Values { int32 base64Values = 1; }
@@ -45,13 +44,13 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingMessageSetVisitor { int32 BinaryEncodingMessageSetVisitor = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
+  message binaryOptions { int32 binaryOptions = 1; }
   message body { int32 body = 1; }
   message bodySize { int32 bodySize = 1; }
   message Bool { int32 Bool = 1; }
   message booleanLiteral { int32 booleanLiteral = 1; }
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
   message boolValue { int32 boolValue = 1; }
-  message buffer { int32 buffer = 1; }
   message bytes { int32 bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
   message bytesRead { int32 bytesRead = 1; }
@@ -299,6 +298,7 @@ message GeneratedSwiftReservedMessages {
   message from { int32 from = 1; }
   message fromAscii2 { int32 fromAscii2 = 1; }
   message fromAscii4 { int32 fromAscii4 = 1; }
+  message fromByteOffset { int32 fromByteOffset = 1; }
   message fromHexDigit { int32 fromHexDigit = 1; }
   message func { int32 func = 1; }
   message G { int32 G = 1; }
@@ -433,6 +433,7 @@ message GeneratedSwiftReservedMessages {
   message i { int32 i = 1; }
   message idempotencyLevel { int32 idempotencyLevel = 1; }
   message identifierValue { int32 identifierValue = 1; }
+  message if { int32 if = 1; }
   message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message index { int32 index = 1; }
   message init { int32 init = 1; }
@@ -499,6 +500,7 @@ message GeneratedSwiftReservedMessages {
   message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
   message littleEndianBytes { int32 littleEndianBytes = 1; }
+  message load { int32 load = 1; }
   message localHasher { int32 localHasher = 1; }
   message location { int32 location = 1; }
   message M { int32 M = 1; }
@@ -740,7 +742,6 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
-  message to { int32 to = 1; }
   message total { int32 total = 1; }
   message totalSize { int32 totalSize = 1; }
   message trailingComments { int32 trailingComments = 1; }
@@ -771,11 +772,11 @@ message GeneratedSwiftReservedMessages {
   message unknownFields { int32 unknownFields = 1; }
   message UnknownStorage { int32 UnknownStorage = 1; }
   message unpackTo { int32 unpackTo = 1; }
-  message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
-  message UnsafePointer { int32 UnsafePointer = 1; }
+  message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
+  message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message utf8 { int32 utf8 = 1; }
@@ -855,6 +856,7 @@ message GeneratedSwiftReservedMessages {
   message with { int32 with = 1; }
   message withUnsafeBytes { int32 withUnsafeBytes = 1; }
   message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
+  message work { int32 work = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message written { int32 written = 1; }
   message yday { int32 yday = 1; }
