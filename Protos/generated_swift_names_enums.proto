@@ -27,7 +27,6 @@ message GeneratedSwiftReservedEnums {
   enum as { NONE_as = 0; }
   enum asciiOpenCurlyBracket { NONE_asciiOpenCurlyBracket = 0; }
   enum asciiZero { NONE_asciiZero = 0; }
-  enum assumingMemoryBound { NONE_assumingMemoryBound = 0; }
   enum available { NONE_available = 0; }
   enum b { NONE_b = 0; }
   enum base64Values { NONE_base64Values = 0; }
@@ -45,13 +44,13 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncodingMessageSetVisitor { NONE_BinaryEncodingMessageSetVisitor = 0; }
   enum BinaryEncodingSizeVisitor { NONE_BinaryEncodingSizeVisitor = 0; }
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
+  enum binaryOptions { NONE_binaryOptions = 0; }
   enum body { NONE_body = 0; }
   enum bodySize { NONE_bodySize = 0; }
   enum Bool { NONE_Bool = 0; }
   enum booleanLiteral { NONE_booleanLiteral = 0; }
   enum BooleanLiteralType { NONE_BooleanLiteralType = 0; }
   enum boolValue { NONE_boolValue = 0; }
-  enum buffer { NONE_buffer = 0; }
   enum bytes { NONE_bytes = 0; }
   enum bytesInGroup { NONE_bytesInGroup = 0; }
   enum bytesRead { NONE_bytesRead = 0; }
@@ -299,6 +298,7 @@ message GeneratedSwiftReservedEnums {
   enum from { NONE_from = 0; }
   enum fromAscii2 { NONE_fromAscii2 = 0; }
   enum fromAscii4 { NONE_fromAscii4 = 0; }
+  enum fromByteOffset { NONE_fromByteOffset = 0; }
   enum fromHexDigit { NONE_fromHexDigit = 0; }
   enum func { NONE_func = 0; }
   enum G { NONE_G = 0; }
@@ -433,6 +433,7 @@ message GeneratedSwiftReservedEnums {
   enum i { NONE_i = 0; }
   enum idempotencyLevel { NONE_idempotencyLevel = 0; }
   enum identifierValue { NONE_identifierValue = 0; }
+  enum if { NONE_if = 0; }
   enum ignoreUnknownFields { NONE_ignoreUnknownFields = 0; }
   enum index { NONE_index = 0; }
   enum init { NONE_init = 0; }
@@ -499,6 +500,7 @@ message GeneratedSwiftReservedEnums {
   enum listValue { NONE_listValue = 0; }
   enum littleEndian { NONE_littleEndian = 0; }
   enum littleEndianBytes { NONE_littleEndianBytes = 0; }
+  enum load { NONE_load = 0; }
   enum localHasher { NONE_localHasher = 0; }
   enum location { NONE_location = 0; }
   enum M { NONE_M = 0; }
@@ -740,7 +742,6 @@ message GeneratedSwiftReservedEnums {
   enum timeIntervalSince1970 { NONE_timeIntervalSince1970 = 0; }
   enum timeIntervalSinceReferenceDate { NONE_timeIntervalSinceReferenceDate = 0; }
   enum Timestamp { NONE_Timestamp = 0; }
-  enum to { NONE_to = 0; }
   enum total { NONE_total = 0; }
   enum totalSize { NONE_totalSize = 0; }
   enum trailingComments { NONE_trailingComments = 0; }
@@ -771,11 +772,11 @@ message GeneratedSwiftReservedEnums {
   enum unknownFields { NONE_unknownFields = 0; }
   enum UnknownStorage { NONE_UnknownStorage = 0; }
   enum unpackTo { NONE_unpackTo = 0; }
-  enum UnsafeBufferPointer { NONE_UnsafeBufferPointer = 0; }
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
   enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }
-  enum UnsafePointer { NONE_UnsafePointer = 0; }
+  enum UnsafeMutableRawPointer { NONE_UnsafeMutableRawPointer = 0; }
   enum UnsafeRawBufferPointer { NONE_UnsafeRawBufferPointer = 0; }
+  enum UnsafeRawPointer { NONE_UnsafeRawPointer = 0; }
   enum updatedOptions { NONE_updatedOptions = 0; }
   enum url { NONE_url = 0; }
   enum utf8 { NONE_utf8 = 0; }
@@ -855,6 +856,7 @@ message GeneratedSwiftReservedEnums {
   enum with { NONE_with = 0; }
   enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
   enum withUnsafeMutableBytes { NONE_withUnsafeMutableBytes = 0; }
+  enum work { NONE_work = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
   enum written { NONE_written = 0; }
   enum yday { NONE_yday = 0; }

@@ -306,18 +306,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct assumingMemoryBound {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var assumingMemoryBound: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct available {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -522,6 +510,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct binaryOptions {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var binaryOptions: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct body {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -588,18 +588,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var boolValue: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct buffer {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var buffer: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3570,6 +3558,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct fromByteOffset {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var fromByteOffset: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct fromHexDigit {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -5178,6 +5178,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct ifMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var `if`: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct ignoreUnknownFields {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -5964,6 +5976,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var littleEndianBytes: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct load {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var load: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8862,18 +8886,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct to {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var to: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct total {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -9234,18 +9246,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeBufferPointer {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var unsafeBufferPointer: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct UnsafeMutablePointer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -9270,12 +9270,12 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafePointer {
+  struct UnsafeMutableRawPointer {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var unsafePointer: Int32 = 0
+    var unsafeMutableRawPointer: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9288,6 +9288,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var unsafeRawBufferPointer: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct UnsafeRawPointer {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unsafeRawPointer: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10242,6 +10254,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct work {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var work: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct WrappedType {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -10971,35 +10995,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.asciiZero: Sw
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.assumingMemoryBound: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".assumingMemoryBound"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "assumingMemoryBound"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.assumingMemoryBound)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.assumingMemoryBound != 0 {
-      try visitor.visitSingularInt32Field(value: self.assumingMemoryBound, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.assumingMemoryBound, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.assumingMemoryBound) -> Bool {
-    if lhs.assumingMemoryBound != rhs.assumingMemoryBound {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.available: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".available"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -11493,6 +11488,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.BinaryEncodin
   }
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".binaryOptions"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "binaryOptions"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.binaryOptions)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.binaryOptions != 0 {
+      try visitor.visitSingularInt32Field(value: self.binaryOptions, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions) -> Bool {
+    if lhs.binaryOptions != rhs.binaryOptions {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.body: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".body"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -11662,35 +11686,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.boolValue: Sw
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.boolValue, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.boolValue) -> Bool {
     if lhs.boolValue != rhs.boolValue {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.buffer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".buffer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "buffer"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.buffer)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.buffer != 0 {
-      try visitor.visitSingularInt32Field(value: self.buffer, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.buffer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.buffer) -> Bool {
-    if lhs.buffer != rhs.buffer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -18859,6 +18854,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.fromAscii4: S
   }
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.fromByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".fromByteOffset"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "fromByteOffset"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.fromByteOffset)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.fromByteOffset != 0 {
+      try visitor.visitSingularInt32Field(value: self.fromByteOffset, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.fromByteOffset, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.fromByteOffset) -> Bool {
+    if lhs.fromByteOffset != rhs.fromByteOffset {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.fromHexDigit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".fromHexDigit"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -22745,6 +22769,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.identifierVal
   }
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".if"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "if"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.`if`)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.`if` != 0 {
+      try visitor.visitSingularInt32Field(value: self.`if`, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ifMessage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ifMessage) -> Bool {
+    if lhs.`if` != rhs.`if` {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ignoreUnknownFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".ignoreUnknownFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -24654,6 +24707,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.littleEndianB
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.littleEndianBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.littleEndianBytes) -> Bool {
     if lhs.littleEndianBytes != rhs.littleEndianBytes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.load: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".load"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "load"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.load)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.load != 0 {
+      try visitor.visitSingularInt32Field(value: self.load, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.load, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.load) -> Bool {
+    if lhs.load != rhs.load {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -31648,35 +31730,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Timestamp: Sw
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.to: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".to"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "to"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.to)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.to != 0 {
-      try visitor.visitSingularInt32Field(value: self.to, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.to, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.to) -> Bool {
-    if lhs.to != rhs.to {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.total: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".total"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -32547,35 +32600,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.unpackTo: Swi
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeBufferPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeBufferPointer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "UnsafeBufferPointer"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.unsafeBufferPointer)
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.unsafeBufferPointer != 0 {
-      try visitor.visitSingularInt32Field(value: self.unsafeBufferPointer, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeBufferPointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeBufferPointer) -> Bool {
-    if lhs.unsafeBufferPointer != rhs.unsafeBufferPointer {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutablePointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeMutablePointer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -32634,30 +32658,30 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutable
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafePointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafePointer"
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeMutableRawPointer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "UnsafePointer"),
+    1: .same(proto: "UnsafeMutableRawPointer"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.unsafePointer)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.unsafeMutableRawPointer)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.unsafePointer != 0 {
-      try visitor.visitSingularInt32Field(value: self.unsafePointer, fieldNumber: 1)
+    if self.unsafeMutableRawPointer != 0 {
+      try visitor.visitSingularInt32Field(value: self.unsafeMutableRawPointer, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafePointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafePointer) -> Bool {
-    if lhs.unsafePointer != rhs.unsafePointer {return false}
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawPointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawPointer) -> Bool {
+    if lhs.unsafeMutableRawPointer != rhs.unsafeMutableRawPointer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -32687,6 +32711,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawBuff
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawBufferPointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawBufferPointer) -> Bool {
     if lhs.unsafeRawBufferPointer != rhs.unsafeRawBufferPointer {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawPointer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeRawPointer"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "UnsafeRawPointer"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.unsafeRawPointer)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.unsafeRawPointer != 0 {
+      try visitor.visitSingularInt32Field(value: self.unsafeRawPointer, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawPointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawPointer) -> Bool {
+    if lhs.unsafeRawPointer != rhs.unsafeRawPointer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -34978,6 +35031,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMut
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes) -> Bool {
     if lhs.withUnsafeMutableBytes != rhs.withUnsafeMutableBytes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.work: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".work"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "work"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.work)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.work != 0 {
+      try visitor.visitSingularInt32Field(value: self.work, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.work, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.work) -> Bool {
+    if lhs.work != rhs.work {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
