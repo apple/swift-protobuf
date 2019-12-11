@@ -97,9 +97,14 @@ internal struct TextFormatEncodingVisitor: Visitor {
           try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
             if let baseAddress = body.baseAddress, body.count > 0 {
               let p = baseAddress.assumingMemoryBound(to: UInt8.self)
+              // All fields will be directly handled, so there is no need for
+              // the unknown field buffering/collection (when scannings to see
+              // if something is a message, this would be extremely wasteful).
+              var binaryOptions = BinaryDecodingOptions()
+              binaryOptions.discardUnknownFields = true
               var decoder = BinaryDecoder(forReadingFrom: p,
                                           count: body.count,
-                                          options: BinaryDecodingOptions())
+                                          options: binaryOptions)
               try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
             }
           }
