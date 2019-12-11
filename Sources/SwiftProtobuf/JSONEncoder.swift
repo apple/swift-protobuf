@@ -328,9 +328,7 @@ internal struct JSONEncoder {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
             value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-              if let baseAddress = body.baseAddress, body.count > 0 {
-                let p = baseAddress.assumingMemoryBound(to: UInt8.self)
-
+              if let p = body.baseAddress, body.count > 0 {
                 var t: Int = 0
                 var bytesInGroup: Int = 0
                 for i in 0..<body.count {

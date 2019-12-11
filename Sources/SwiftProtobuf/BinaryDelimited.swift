@@ -57,8 +57,7 @@ public enum BinaryDelimited {
     var data = Data(count: totalSize)
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
-        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
-        var encoder = BinaryEncoder(forWritingInto: pointer)
+        var encoder = BinaryEncoder(forWritingInto: baseAddress)
         encoder.putBytesValue(value: serialized)
       }
     }
@@ -66,6 +65,9 @@ public enum BinaryDelimited {
     var written: Int = 0
     data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
+        // This assumingMemoryBound is technically unsafe, but without SR-11078
+        // (https://bugs.swift.org/browse/SR-11087) we don't have another option.
+        // It should be "safe enough".
         let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
         written = stream.write(pointer, maxLength: totalSize)
       }
@@ -162,6 +164,9 @@ public enum BinaryDelimited {
     var bytesRead: Int = 0
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
+        // This assumingMemoryBound is technically unsafe, but without SR-11078
+        // (https://bugs.swift.org/browse/SR-11087) we don't have another option.
+        // It should be "safe enough".
         let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
         bytesRead = stream.read(pointer, maxLength: length)
       }

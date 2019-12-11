@@ -64,13 +64,13 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    mutating func emitFieldName(name: UnsafeBufferPointer<UInt8>) {
+    mutating func emitFieldName(name: UnsafeRawBufferPointer) {
         indent()
         data.append(contentsOf: name)
     }
 
     mutating func emitFieldName(name: StaticString) {
-        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
+        let buff = UnsafeRawBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
         emitFieldName(name: buff)
     }
 
@@ -258,9 +258,7 @@ internal struct TextFormatEncoder {
     mutating func putBytesValue(value: Data) {
         data.append(asciiDoubleQuote)
         value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-          if let baseAddress = body.baseAddress, body.count > 0 {
-            let p = baseAddress.assumingMemoryBound(to: UInt8.self)
-
+          if let p = body.baseAddress, body.count > 0 {
             for i in 0..<body.count {
               let c = p[i]
               switch c {

@@ -33,7 +33,7 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    internal init(messageType: Message.Type, utf8Pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap?) throws {
+    internal init(messageType: Message.Type, utf8Pointer: UnsafeRawPointer, count: Int, extensions: ExtensionMap?) throws {
         scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, extensions: extensions)
         guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames

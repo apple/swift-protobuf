@@ -96,13 +96,12 @@ internal struct TextFormatEncodingVisitor: Visitor {
       if options.printUnknownFields {
           try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
             if let baseAddress = body.baseAddress, body.count > 0 {
-              let p = baseAddress.assumingMemoryBound(to: UInt8.self)
               // All fields will be directly handled, so there is no need for
               // the unknown field buffering/collection (when scannings to see
               // if something is a message, this would be extremely wasteful).
               var binaryOptions = BinaryDecodingOptions()
               binaryOptions.discardUnknownFields = true
-              var decoder = BinaryDecoder(forReadingFrom: p,
+              var decoder = BinaryDecoder(forReadingFrom: baseAddress,
                                           count: body.count,
                                           options: binaryOptions)
               try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
@@ -134,9 +133,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
               try decoder.decodeSingularBytesField(value: &bytes)
               bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
                 if let baseAddress = body.baseAddress, body.count > 0 {
-                  let p = baseAddress.assumingMemoryBound(to: UInt8.self)
-
-                  var testDecoder = BinaryDecoder(forReadingFrom: p,
+                  var testDecoder = BinaryDecoder(forReadingFrom: baseAddress,
                                                   count: body.count,
                                                   parent: decoder)
                   do {
@@ -144,7 +141,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
                       while let _ = try testDecoder.nextFieldNumber() {
                       }
                       // No error?  Output the message body.
-                      var subDecoder = BinaryDecoder(forReadingFrom: p,
+                      var subDecoder = BinaryDecoder(forReadingFrom: baseAddress,
                                                      count: bytes.count,
                                                      parent: decoder)
                       encoder.startMessageField()
