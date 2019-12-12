@@ -104,13 +104,34 @@ internal struct TextFormatEncodingVisitor: Visitor {
               var decoder = BinaryDecoder(forReadingFrom: baseAddress,
                                           count: body.count,
                                           options: binaryOptions)
-              try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
+              try visitUnknown(decoder: &decoder)
             }
           }
       }
   }
 
-  private mutating func visitUnknown(decoder: inout BinaryDecoder, groupFieldNumber: Int?) throws {
+  /// Helper for printing out unknowns.
+  ///
+  /// The implementation tries to be "helpful" and if a length delimited field
+  /// appears to be a submessage, it prints it as such. However, that opens the
+  /// door to someone sending a message with an unknown field that is a stack
+  /// bomb, i.e. - it causes this code to recurse, exhausing the stack and
+  /// thus opening up an attack vector. To keep this "help", but avoid the
+  /// attack, a limit is placed on how many times it will recurse before just
+  /// treating the length delimted fields as bytes and not trying to decode
+  /// them.
+  private mutating func visitUnknown(
+    decoder: inout BinaryDecoder,
+    recursionBudget: Int = 10
+  ) throws {
+      // This stack serves to avoid recursion for groups within groups within
+      // groups..., this avoid the stack attack that the message detection
+      // hits. No limit is placed on this because there is no stack risk with
+      // recursion, and because if a limit was hit, there is no other way to
+      // encode the group (the message field can just print as length
+      // delimited, groups don't have an option like that).
+      var groupFieldNumberStack: [Int] = []
+
       while let tag = try decoder.getTag() {
           switch tag.wireFormat {
           case .varint:
@@ -132,39 +153,48 @@ internal struct TextFormatEncodingVisitor: Visitor {
               var bytes = Internal.emptyData
               try decoder.decodeSingularBytesField(value: &bytes)
               bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
-                if let baseAddress = body.baseAddress, body.count > 0 {
-                  var testDecoder = BinaryDecoder(forReadingFrom: baseAddress,
-                                                  count: body.count,
-                                                  parent: decoder)
-                  do {
-                      // Skip all the fields to test if it looks like a message
-                      while let _ = try testDecoder.nextFieldNumber() {
+                  if let baseAddress = body.baseAddress, body.count > 0 {
+                      var encodeAsBytes: Bool
+                      if (recursionBudget > 0) {
+                          do {
+                              // Walk all the fields to test if it looks like a message
+                              var testDecoder = BinaryDecoder(forReadingFrom: baseAddress,
+                                                              count: body.count,
+                                                              parent: decoder)
+                              while let _ = try testDecoder.nextFieldNumber() {
+                              }
+                              // No error?  Output the message body.
+                              encodeAsBytes = false
+                              var subDecoder = BinaryDecoder(forReadingFrom: baseAddress,
+                                                             count: bytes.count,
+                                                             parent: decoder)
+                              encoder.startMessageField()
+                              try visitUnknown(decoder: &subDecoder,
+                                               recursionBudget: recursionBudget - 1)
+                              encoder.endMessageField()
+                          } catch {
+                              encodeAsBytes = true
+                          }
+                      } else {
+                          encodeAsBytes = true
                       }
-                      // No error?  Output the message body.
-                      var subDecoder = BinaryDecoder(forReadingFrom: baseAddress,
-                                                     count: bytes.count,
-                                                     parent: decoder)
-                      encoder.startMessageField()
-                      try visitUnknown(decoder: &subDecoder, groupFieldNumber: nil)
-                      encoder.endMessageField()
-                  } catch {
-                      // Field scan threw an error, so just dump it as a string.
-                      encoder.startRegularField()
-                      encoder.putBytesValue(value: bytes)
-                      encoder.endRegularField()
+                      if (encodeAsBytes) {
+                        encoder.startRegularField()
+                        encoder.putBytesValue(value: bytes)
+                        encoder.endRegularField()
+                      }
                   }
-                }
               }
           case .startGroup:
               encoder.emitFieldNumber(number: tag.fieldNumber)
               encoder.startMessageField()
-              try visitUnknown(decoder: &decoder, groupFieldNumber: tag.fieldNumber)
-              encoder.endMessageField()
+              groupFieldNumberStack.append(tag.fieldNumber)
           case .endGroup:
+              let groupFieldNumber = groupFieldNumberStack.popLast()
               // Unknown data is scanned and verified by the
               // binary parser, so this can never fail.
               assert(tag.fieldNumber == groupFieldNumber)
-              return
+              encoder.endMessageField()
           case .fixed32:
               encoder.emitFieldNumber(number: tag.fieldNumber)
               var value: UInt32 = 0
@@ -174,6 +204,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
               encoder.endRegularField()
           }
       }
+
+    // Unknown data is scanned and verified by the binary parser, so this can
+    // never fail.
+    assert(groupFieldNumberStack.isEmpty)
   }
 
   // Visitor.swift defines default versions for other singular field types
