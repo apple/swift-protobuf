@@ -484,6 +484,9 @@
 		F451074B23A288E400488257 /* UnsafeBufferPointer+Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451074523A288E400488257 /* UnsafeBufferPointer+Shims.swift */; };
 		F451074C23A288E400488257 /* UnsafeBufferPointer+Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451074523A288E400488257 /* UnsafeBufferPointer+Shims.swift */; };
 		F451074D23A288E400488257 /* UnsafeBufferPointer+Shims.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451074523A288E400488257 /* UnsafeBufferPointer+Shims.swift */; };
+		F451075823A2B9B500488257 /* Data+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451075723A2B9B500488257 /* Data+TestHelpers.swift */; };
+		F451075923A2B9B500488257 /* Data+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451075723A2B9B500488257 /* Data+TestHelpers.swift */; };
+		F451075A23A2B9B500488257 /* Data+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F451075723A2B9B500488257 /* Data+TestHelpers.swift */; };
 		F4539D261E688B030076251F /* Test_GroupWithGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4539D241E688B000076251F /* Test_GroupWithGroups.swift */; };
 		F4539D271E688B040076251F /* Test_GroupWithGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4539D241E688B000076251F /* Test_GroupWithGroups.swift */; };
 		F4539D281E688B050076251F /* Test_GroupWithGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4539D241E688B000076251F /* Test_GroupWithGroups.swift */; };
@@ -772,6 +775,7 @@
 		F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_MapFields_Access_Proto3.swift; sourceTree = "<group>"; };
 		F451074423A288E400488257 /* UnsafeRawPointer+Shims.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsafeRawPointer+Shims.swift"; sourceTree = "<group>"; };
 		F451074523A288E400488257 /* UnsafeBufferPointer+Shims.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsafeBufferPointer+Shims.swift"; sourceTree = "<group>"; };
+		F451075723A2B9B500488257 /* Data+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+TestHelpers.swift"; sourceTree = "<group>"; };
 		F4539D241E688B000076251F /* Test_GroupWithGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_GroupWithGroups.swift; sourceTree = "<group>"; };
 		F4539D291E6F5DC70076251F /* CustomJSONCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomJSONCodable.swift; sourceTree = "<group>"; };
 		F4584D391ECA4FB400803AB6 /* unittest_swift_oneof_merging.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_oneof_merging.pb.swift; sourceTree = "<group>"; };
@@ -1064,6 +1068,7 @@
 			children = (
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */,
+				F451075723A2B9B500488257 /* Data+TestHelpers.swift */,
 				9CC8CAA81EC512A0008EF45F /* generated_swift_names_enum_cases.pb.swift */,
 				9CC8CAA91EC512A0008EF45F /* generated_swift_names_enums.pb.swift */,
 				9CC8CAAA1EC512A0008EF45F /* generated_swift_names_fields.pb.swift */,
@@ -1408,6 +1413,7 @@
 				F44F943F1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift in Sources */,
 				F44F94441DBFE0BF00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				9C8CDA361D7A28F600E207CA /* Test_Packed.swift in Sources */,
+				F451075923A2B9B500488257 /* Data+TestHelpers.swift in Sources */,
 				F4539D271E688B040076251F /* Test_GroupWithGroups.swift in Sources */,
 				9C8CDA371D7A28F600E207CA /* Test_ParsingMerge.swift in Sources */,
 				9C60CBED1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
@@ -1703,6 +1709,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift in Sources */,
+				F451075823A2B9B500488257 /* Data+TestHelpers.swift in Sources */,
 				F4539D261E688B030076251F /* Test_GroupWithGroups.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Reserved.swift /* Test_Reserved.swift in Sources */,
@@ -1909,6 +1916,7 @@
 				F4F4F11A1E5633EA006C6CAD /* Test_Naming.swift in Sources */,
 				9CC8CAB71EC512A0008EF45F /* generated_swift_names_messages.pb.swift in Sources */,
 				F44F93D11DAEA8C900BC5B85 /* unittest_arena.pb.swift in Sources */,
+				F451075A23A2B9B500488257 /* Data+TestHelpers.swift in Sources */,
 				F44F93EC1DAEA8C900BC5B85 /* unittest_swift_enum_optional_default.pb.swift in Sources */,
 				F4539D281E688B050076251F /* Test_GroupWithGroups.swift in Sources */,
 				F44F93BB1DAEA8C900BC5B85 /* Test_ExtremeDefaultValues.swift in Sources */,

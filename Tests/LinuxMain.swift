@@ -952,8 +952,10 @@ extension Test_TextFormat_Unknown {
         ("test_unknown_lengthDelimited_message", test_unknown_lengthDelimited_message),
         ("test_unknown_lengthDelimited_notmessage", test_unknown_lengthDelimited_notmessage),
         ("test_unknown_lengthDelimited_nested_message", test_unknown_lengthDelimited_nested_message),
+        ("test_unknown_lengthDelimited_nested_message_recursion_limits", test_unknown_lengthDelimited_nested_message_recursion_limits),
         ("test_unknown_group", test_unknown_group),
         ("test_unknown_nested_group", test_unknown_nested_group),
+        ("test_unknown_nested_group_no_recursion_limits", test_unknown_nested_group_no_recursion_limits),
         ("test_unknown_fixed32", test_unknown_fixed32)
     ]
 }
