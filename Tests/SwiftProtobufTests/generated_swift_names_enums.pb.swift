@@ -5530,6 +5530,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum encodeAsBytes: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneEncodeAsBytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEncodeAsBytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEncodeAsBytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEncodeAsBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum encoded: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneEncoded // = 0
@@ -8849,6 +8874,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneGroup: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum groupFieldNumberStack: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneGroupFieldNumberStack // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneGroupFieldNumberStack
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneGroupFieldNumberStack
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneGroupFieldNumberStack: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -22975,6 +23025,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emptyData: CaseI
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeAsBytes: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeAsBytes] = [
+    .noneEncodeAsBytes,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoded: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoded] = [
@@ -23903,6 +23960,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.group: CaseItera
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.group] = [
     .noneGroup,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupFieldNumberStack: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupFieldNumberStack] = [
+    .noneGroupFieldNumberStack,
   ]
 }
 
@@ -28772,6 +28836,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emptyData: Swift
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeAsBytes: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_encodeAsBytes"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoded: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encoded"),
@@ -29567,6 +29637,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.goPackage: Swift
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.group: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_group"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupFieldNumberStack: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_groupFieldNumberStack"),
   ]
 }
 
