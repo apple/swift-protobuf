@@ -2670,6 +2670,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct encodeAsBytes {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var encodeAsBytes: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct encoded {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4260,6 +4272,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var group: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  struct groupFieldNumberStack {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var groupFieldNumberStack: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16708,6 +16732,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.emptyData: Sw
   }
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.encodeAsBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".encodeAsBytes"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "encodeAsBytes"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.encodeAsBytes)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.encodeAsBytes != 0 {
+      try visitor.visitSingularInt32Field(value: self.encodeAsBytes, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.encodeAsBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.encodeAsBytes) -> Bool {
+    if lhs.encodeAsBytes != rhs.encodeAsBytes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.encoded: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".encoded"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -20560,6 +20613,35 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.group: SwiftP
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.group, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.group) -> Bool {
     if lhs.group != rhs.group {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.groupFieldNumberStack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".groupFieldNumberStack"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "groupFieldNumberStack"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.groupFieldNumberStack)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.groupFieldNumberStack != 0 {
+      try visitor.visitSingularInt32Field(value: self.groupFieldNumberStack, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.groupFieldNumberStack, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.groupFieldNumberStack) -> Bool {
+    if lhs.groupFieldNumberStack != rhs.groupFieldNumberStack {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

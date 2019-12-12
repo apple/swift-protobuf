@@ -224,6 +224,7 @@ message GeneratedSwiftReservedMessages {
   message emitFieldNumber { int32 emitFieldNumber = 1; }
   message Empty { int32 Empty = 1; }
   message emptyData { int32 emptyData = 1; }
+  message encodeAsBytes { int32 encodeAsBytes = 1; }
   message encoded { int32 encoded = 1; }
   message encodedJSONString { int32 encodedJSONString = 1; }
   message encodedSize { int32 encodedSize = 1; }
@@ -357,6 +358,7 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_Value { int32 Google_Protobuf_Value = 1; }
   message goPackage { int32 goPackage = 1; }
   message group { int32 group = 1; }
+  message groupFieldNumberStack { int32 groupFieldNumberStack = 1; }
   message groupSize { int32 groupSize = 1; }
   message h { int32 h = 1; }
   message handleConflictingOneOf { int32 handleConflictingOneOf = 1; }

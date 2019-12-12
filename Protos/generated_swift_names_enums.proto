@@ -224,6 +224,7 @@ message GeneratedSwiftReservedEnums {
   enum emitFieldNumber { NONE_emitFieldNumber = 0; }
   enum Empty { NONE_Empty = 0; }
   enum emptyData { NONE_emptyData = 0; }
+  enum encodeAsBytes { NONE_encodeAsBytes = 0; }
   enum encoded { NONE_encoded = 0; }
   enum encodedJSONString { NONE_encodedJSONString = 0; }
   enum encodedSize { NONE_encodedSize = 0; }
@@ -357,6 +358,7 @@ message GeneratedSwiftReservedEnums {
   enum Google_Protobuf_Value { NONE_Google_Protobuf_Value = 0; }
   enum goPackage { NONE_goPackage = 0; }
   enum group { NONE_group = 0; }
+  enum groupFieldNumberStack { NONE_groupFieldNumberStack = 0; }
   enum groupSize { NONE_groupSize = 0; }
   enum h { NONE_h = 0; }
   enum handleConflictingOneOf { NONE_handleConflictingOneOf = 0; }
