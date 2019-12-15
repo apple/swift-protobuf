@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_Any.swift - Verify well-known Any type
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -415,7 +415,7 @@ class Test_Any: XCTestCase {
     }
 
     func test_Any_Struct_transcode() throws {
-        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1}}}"
+        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
             let protobuf = try decoded.serializedData()
@@ -491,7 +491,7 @@ class Test_Any: XCTestCase {
     }
 
     func test_Any_ListValue_transcode() throws {
-        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.ListValue\",\"value\":[1,\"abc\"]}}"
+        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.ListValue\",\"value\":[1.0,\"abc\"]}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
             let protobuf = try decoded.serializedData()
@@ -531,7 +531,7 @@ class Test_Any: XCTestCase {
     }
 
     func test_Any_Value_struct_transcode() throws {
-        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1}}}"
+        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
             let protobuf = try decoded.serializedData()
@@ -571,7 +571,7 @@ class Test_Any: XCTestCase {
     }
 
     func test_Any_Value_int_transcode() throws {
-        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":1}}"
+        let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":1.0}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
             let protobuf = try decoded.serializedData()

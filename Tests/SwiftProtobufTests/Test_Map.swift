@@ -32,7 +32,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
             while matched && !availableBlocks.isEmpty {
                 matched = false
                 for n in 0..<availableBlocks.count {
-                    var e = availableBlocks[n]
+                    let e = availableBlocks[n]
                     if (e.count == t.count && t == e[0..<e.count]) {
                         t = []
                         availableBlocks.remove(at:n)

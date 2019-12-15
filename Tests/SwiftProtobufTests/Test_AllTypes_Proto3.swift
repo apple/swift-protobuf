@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_AllTypes_Proto3.swift - Proto3 coding/decoding
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -469,7 +469,8 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Float = o.optionalFloat
             return t == 0
         }
-        assertDebugDescription("SwiftProtobufTests.Proto3Unittest_TestAllTypes:\noptional_float: 1\n") {(o: inout MessageTestType) in o.optionalFloat = 1.0}
+        assertDebugDescription("SwiftProtobufTests.Proto3Unittest_TestAllTypes:\noptional_float: 1.0\n") {
+            (o: inout MessageTestType) in o.optionalFloat = 1.0}
         assertDecodeFails([93, 0, 0, 0])
         assertDecodeFails([93, 0, 0])
         assertDecodeFails([93, 0])
@@ -508,7 +509,8 @@ class Test_AllTypes_Proto3: XCTestCase, PBTestHelpers {
             let t: Double = o.optionalDouble
             return t == 0.5
         }
-        assertDebugDescription("SwiftProtobufTests.Proto3Unittest_TestAllTypes:\noptional_double: 1\n") {(o: inout MessageTestType) in o.optionalDouble = 1.0}
+        assertDebugDescription("SwiftProtobufTests.Proto3Unittest_TestAllTypes:\noptional_double: 1.0\n") {
+            (o: inout MessageTestType) in o.optionalDouble = 1.0}
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
         assertDecodeFails([96])

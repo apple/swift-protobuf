@@ -14,7 +14,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobuf
+@testable import SwiftProtobuf
 
 class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestEmptyMessage
@@ -136,6 +136,47 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         XCTAssertEqual(textWithoutUnknowns, "")
     }
 
+    func test_unknown_lengthDelimited_nested_message_recursion_limits() throws {
+        let kNestingDepth = 10000
+        let kTag = FieldTag(fieldNumber: 1, wireFormat: .lengthDelimited)
+        let kTagSize = Int32(kTag.encodedSize)
+
+        var lengths: [Int32] = []
+        lengths.reserveCapacity(kNestingDepth)
+        lengths.append(0)
+        for _ in 0..<(kNestingDepth - 1) {
+            lengths.append(
+                kTagSize + Int32(Varint.encodedSize(of: lengths.last!)) + lengths.last!)
+        }
+
+        var bytes = Data()
+        for len in lengths.lazy.reversed() {
+            bytes.appendStartField(tag: kTag)
+            bytes.appendVarInt(value: len)
+        }
+
+        let msg = try MessageTestType(serializedData: bytes)
+        let text = msg.textFormatString()
+        // Internally, the limit is 10, so we'll get 10 objects and then a
+        // string for the bytes.
+        let expectedPrefix = "1 {\n  1 {\n    1 {\n      1 {\n        1 {\n          1 {\n            1 {\n              1 {\n                1 {\n                  1 {\n                    1: \""
+        let expectedSuffix = "\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n"
+        XCTAssertTrue(text.hasPrefix(expectedPrefix))
+        XCTAssertTrue(text.hasSuffix(expectedSuffix))
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
+    }
+
     func test_unknown_group() throws {
         let bytes = Data([8, 1, 19, 26, 2, 8, 1, 20])
         let msg = try MessageTestType(serializedData: bytes)
@@ -160,6 +201,56 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  3 {\n    1: 1\n  }\n  4 {\n    5: 7\n  }\n}\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
+
+        var options = TextFormatEncodingOptions()
+        options.printUnknownFields = false
+        let textWithoutUnknowns = msg.textFormatString(options: options)
+        XCTAssertEqual(textWithoutUnknowns, "")
+    }
+
+    func test_unknown_nested_group_no_recursion_limits() throws {
+        let kNestingDepth = 10000
+        let kFieldNum = 1
+        let kTagStart = FieldTag(fieldNumber: kFieldNum, wireFormat: .startGroup)
+        let kTagEnd = FieldTag(fieldNumber: kFieldNum, wireFormat: .endGroup)
+
+        var bytes = Data(capacity: kNestingDepth *
+          (Varint.encodedSize(of: kTagStart.rawValue) + Varint.encodedSize(of: kTagEnd.rawValue)))
+        for _ in 0..<kNestingDepth {
+            bytes.appendStartField(tag: kTagStart)
+        }
+        for _ in 0..<kNestingDepth {
+            bytes.appendStartField(tag: kTagEnd)
+        }
+
+        // If we try to parse `data`, the binary decode recursion budget will
+        // come into play, instead directly add the data into the unknown fields
+        // (via the @testable interface).
+        var msg = MessageTestType()
+        msg.unknownFields.append(protobufData: bytes)
+
+        let text = msg.textFormatString()
+        // Internally, groups don't use recursion, so this will be fully nested.
+        var expected = ""
+        var indent = ""
+        for _ in 0..<kNestingDepth {
+            expected.append(indent)
+            expected.append("1 {\n")
+            indent.append("  ")
+        }
+        for _ in 0..<kNestingDepth {
+            indent.removeLast(2)
+            expected.append(indent)
+            expected.append("}\n")
+        }
+        XCTAssertEqual(text, expected)
 
         do {
             let _ = try MessageTestType(textFormatString: text)

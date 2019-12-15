@@ -13,6 +13,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 
 /// Scope for helpers about the library.
 public enum SwiftProtobufInfo {
@@ -24,10 +25,10 @@ public enum SwiftProtobufInfo {
   public static let bundledProtoFiles: Set<String> = [
     "google/protobuf/any.proto",
     "google/protobuf/api.proto",
-    // "google/protobuf/descriptor.proto"
-    //    is not a WKT; and while it is used by generator, it does NOT ship
-    //    with the library, if the library ever wants to expose full
-    //    descriptors, that could change.
+    // Even though descriptor.proto is *not* a WKT, it is included in the
+    // library so developers trying to compile .proto files with message,
+    // field, or file extensions don't have to generate it.
+    "google/protobuf/descriptor.proto",
     "google/protobuf/duration.proto",
     "google/protobuf/empty.proto",
     "google/protobuf/field_mask.proto",

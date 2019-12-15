@@ -33,9 +33,9 @@ class Test_FieldNamingInitials: XCTestCase {
     _ = try msg.jsonUTF8Data()
     _ = try msg.jsonString()
 
-    let msg2 = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages()
+    let msg2 = SwiftUnittest_Names_MessageNames()
     // The submessage is a static type name:
-    _ = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedData()
+    _ = SwiftUnittest_Names_MessageNames.serializedData()
     // The method is an instance property:
     _ = try msg2.serializedData()
     _ = try msg2.jsonUTF8Data()

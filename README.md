@@ -127,13 +127,18 @@ build the protoc plugin:
 
 ```
 $ git checkout tags/[tag_name]
-$ swift build --static-swift-stdlib -c release
+$ swift build -c release
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/release`
 directory.
+
 To install, just copy this one executable into a directory that is
 part of your `PATH` environment variable.
+
+NOTE: The Swift runtime support is now included with macOS. If you are
+using old Xcode versions or are on older system versions, you might need
+to use also use `--static-swift-stdlib` with `swift build`.
 
 ### Alternatively install via Homebrew
 
@@ -178,12 +183,12 @@ After copying the `.pb.swift` files into your project, you will need to add the
 project to support the generated code.
 If you are using the Swift Package Manager, add a dependency to your
 `Package.swift` file and import the `SwiftProtobuf` library into the desired
-targets.  Adjust the `"1.4.0"` here to match the `[tag_name]` you used to build
+targets.  Adjust the `"1.6.0"` here to match the `[tag_name]` you used to build
 the plugin above:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.4.0"),
+    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
 ],
 targets: [
     .target(name: "MyTarget", dependencies: ["SwiftProtobuf"]),
@@ -210,7 +215,7 @@ pod 'SwiftProtobuf', '~> 1.0'
 
 And run `pod install`.
 
-(Swift 3 frameworks require CocoaPods 1.1 or newer)
+NOTE: CocoaPods 1.7 or newer is required.
 
 ### ...using Carthage
 

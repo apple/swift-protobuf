@@ -67,11 +67,8 @@ fileprivate func unpack(contentJSON: Data,
 
   var value = String()
   try contentJSON.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-    if let baseAddress = body.baseAddress, body.count > 0 {
-      let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-
-      let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-      var scanner = JSONScanner(source: buffer,
+    if body.count > 0 {
+      var scanner = JSONScanner(source: body,
                                 messageDepthLimit: options.messageDepthLimit,
                                 ignoreUnknownFields: options.ignoreUnknownFields)
       let key = try scanner.nextQuotedString()

@@ -90,11 +90,8 @@ extension Message {
   ) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      if let baseAddress = body.baseAddress, body.count > 0 {
-        let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-
-        let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-        var decoder = JSONDecoder(source: buffer, options: options)
+      if body.count > 0 {
+        var decoder = JSONDecoder(source: body, options: options)
         if !decoder.scanner.skipOptionalNull() {
           try decoder.decodeFullObject(message: &self)
         } else if Self.self is _CustomJSONCodable.Type {

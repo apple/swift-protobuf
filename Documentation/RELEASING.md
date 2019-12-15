@@ -50,16 +50,6 @@ When doing a release:
 
 1. Publish the CocoaPod
 
-   _Note:_ The `pod` binary is currently pushing the use of the `.swift-version` file to control
-   how a spec is checked for `spec lint` and `trunk push`. But the file isn't well documented and
-   there has been some questions around that net that seem to imply people interpret this as the
-   "version of Swift the pod supports". Since SwiftProtobuf supports multiple versions, a
-   `.swift-version` file currently isn't included. So you want the `spec lint` to pass with only
-   the warning about the file. And when doing the `trunk push` you'll want to include
-   `--allow-warnings` to let the push happen despite the warning. Even if you use
-   `--swift-version=#` to either commend, the `pod` binary still produces the warning, so it
-   doesn't work to avoid the warning.
-
    1. Do a final sanity check that CocoaPods is happy with the release you just made, in the project
       directory:
 
@@ -80,13 +70,10 @@ When doing a release:
    1. Publish the pod:
 
       ```
-      $ pod trunk push [--allow-warnings] SwiftProtobuf.podspec
+      $ pod trunk push SwiftProtobuf.podspec
       ```
 
       _Note:_ This uses that local copy of the podspec.
-
-      See the _Note_ at the start of this section about `.swift-version` and why you might
-      need `--allow-warnings`.
 
 1. Bump the version on _master_
 

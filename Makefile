@@ -85,7 +85,6 @@ TEST_PROTOS= \
 	Protos/generated_swift_names_fields.proto \
 	Protos/generated_swift_names_messages.proto \
 	Protos/google/protobuf/any_test.proto \
-	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/map_proto2_unittest.proto \
 	Protos/google/protobuf/map_unittest.proto \
 	Protos/google/protobuf/test_messages_proto3.proto \
@@ -144,6 +143,7 @@ TEST_PROTOS= \
 LIBRARY_PROTOS= \
 	Protos/google/protobuf/any.proto \
 	Protos/google/protobuf/api.proto \
+	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/duration.proto \
 	Protos/google/protobuf/empty.proto \
 	Protos/google/protobuf/field_mask.proto \
@@ -156,7 +156,6 @@ LIBRARY_PROTOS= \
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
-	Protos/google/protobuf/descriptor.proto \
 	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
 
 # Protos that are used by the conformance test runner.
@@ -259,20 +258,8 @@ build:
 	@rm Tests/LinuxMain.swift.new
 	${SWIFT} build
 
-# This will get run by any other rule that tries to use the plugin, to
-# ensure that the protoc on the local system is 3.1 or later.
-# For details, see
-#   https://github.com/apple/swift-protobuf/issues/111
+# Anything that needs the plugin should do a build.
 ${PROTOC_GEN_SWIFT}: build
-	@if ${PROTOC} --version | grep 'libprotoc\ 3\.[1-9]\.' > /dev/null; then \
-	  true; \
-	else \
-	  echo "===================================================================================="; \
-	  echo "WARNING: Unexpected version of protoc: $(shell ${PROTOC} --version)"; \
-	  echo "WARNING: The JSON support in generated files may not be correct."; \
-	  echo "WARNING: Use a protoc that is 3.1.x or higher."; \
-	  echo "===================================================================================="; \
-	fi
 
 # Does it really make sense to install a debug build, or should this be forcing
 # a release build and then installing that instead?
@@ -280,8 +267,7 @@ install: build
 	${INSTALL} ${PROTOC_GEN_SWIFT} ${BINDIR}
 
 clean:
-	-swift build --clean
-	-swift package clean
+	swift package clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT} DescriptorTestData.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
 	  docs build

@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_Wrappers.swift - Test well-known wrapper types
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -36,9 +36,9 @@ class Test_Wrappers: XCTestCase {
 
     func testDoubleValue() throws {
         var m = Google_Protobuf_DoubleValue()
-        XCTAssertEqual("0", try m.jsonString())
+        XCTAssertEqual("0.0", try m.jsonString())
         m.value = 1.0
-        XCTAssertEqual("1", try m.jsonString())
+        XCTAssertEqual("1.0", try m.jsonString())
         XCTAssertEqual([9,0,0,0,0,0,0,240,63], try m.serializedBytes())
 
         let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
@@ -74,9 +74,9 @@ class Test_Wrappers: XCTestCase {
 
     func testFloatValue() throws {
         var m = Google_Protobuf_FloatValue()
-        XCTAssertEqual("0", try m.jsonString())
+        XCTAssertEqual("0.0", try m.jsonString())
         m.value = 1.0
-        XCTAssertEqual("1", try m.jsonString())
+        XCTAssertEqual("1.0", try m.jsonString())
         XCTAssertEqual([13,0,0,128,63], try m.serializedBytes())
 
         let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(

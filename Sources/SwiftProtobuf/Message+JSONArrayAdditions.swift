@@ -94,10 +94,8 @@ extension Message {
     return try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       var array = [Self]()
 
-      if let baseAddress = body.baseAddress, body.count > 0 {
-        let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-        let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-        var decoder = JSONDecoder(source: buffer, options: options)
+      if body.count > 0 {
+        var decoder = JSONDecoder(source: body, options: options)
         try decoder.decodeRepeatedMessageField(value: &array)
         if !decoder.scanner.complete {
           throw JSONDecodingError.trailingGarbage

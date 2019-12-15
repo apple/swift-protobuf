@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_Required.swift - Test required field handling
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2019 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -195,8 +195,8 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([65, 8, 0, 0, 0, 0, 0, 0, 0], "required_fixed64: 8"),
             ([77, 9, 0, 0, 0], "required_sfixed32: 9"),
             ([81, 10, 0, 0, 0, 0, 0, 0, 0], "required_sfixed64: 10"),
-            ([93, 0, 0, 48, 65], "required_float: 11"),
-            ([97, 0, 0, 0, 0, 0, 0, 40, 64], "required_double: 12"),
+            ([93, 0, 0, 48, 65], "required_float: 11.0"),
+            ([97, 0, 0, 0, 0, 0, 0, 40, 64], "required_double: 12.0"),
             ([104, 1], "required_bool: true"),
             ([114, 2, 49, 52], "required_string: \"14\""),
             ([122, 1, 15], "required_bytes: \"\\017\""),
@@ -221,8 +221,8 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([161, 4, 68, 0, 0, 0, 0, 0, 0, 0], "default_fixed64: 68"),
             ([173, 4, 69, 0, 0, 0], "default_sfixed32: 69"),
             ([177, 4, 70, 0, 0, 0, 0, 0, 0, 0], "default_sfixed64: 70"),
-            ([189, 4, 0, 0, 142, 66], "default_float: 71"),
-            ([193, 4, 0, 0, 0, 0, 0, 0, 82, 64], "default_double: 72"),
+            ([189, 4, 0, 0, 142, 66], "default_float: 71.0"),
+            ([193, 4, 0, 0, 0, 0, 0, 0, 82, 64], "default_double: 72.0"),
             ([200, 4, 0], "default_bool: false"),
             ([210, 4, 2, 55, 52], "default_string: \"74\""),
             ([218, 4, 1, 75], "default_bytes: \"K\""),
@@ -386,7 +386,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
         // Test every field on its own.
         let testInputs: [([UInt8], String)] = [
             ([8, 1], "required_int32: 1"),
-            ([21, 0, 0, 0, 64], "required_float: 2"),
+            ([21, 0, 0, 0, 64], "required_float: 2.0"),
             ([24, 1], "required_bool: true"),
             ([34, 1, 52], "required_string: \"4\""),
             ([42, 1, 5], "required_bytes: \"\\005\""),
