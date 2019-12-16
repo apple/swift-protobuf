@@ -636,6 +636,21 @@ struct Proto3Unittest_TestEmptyMessage {
   init() {}
 }
 
+/// TestMessageWithDummy is also used to test behavior of unknown fields.
+struct Proto3Unittest_TestMessageWithDummy {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// This field is only here for triggering copy-on-write; it's not intended to
+  /// be serialized.
+  var dummy: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 /// Same layout as TestOneof2 in unittest.proto to test unknown enum value
 /// parsing behavior in oneof.
 struct Proto3Unittest_TestOneof2 {
@@ -1574,6 +1589,35 @@ extension Proto3Unittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   static func ==(lhs: Proto3Unittest_TestEmptyMessage, rhs: Proto3Unittest_TestEmptyMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto3Unittest_TestMessageWithDummy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageWithDummy"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    536870911: .same(proto: "dummy"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 536870911: try decoder.decodeSingularBoolField(value: &self.dummy)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.dummy != false {
+      try visitor.visitSingularBoolField(value: self.dummy, fieldNumber: 536870911)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3Unittest_TestMessageWithDummy, rhs: Proto3Unittest_TestMessageWithDummy) -> Bool {
+    if lhs.dummy != rhs.dummy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
