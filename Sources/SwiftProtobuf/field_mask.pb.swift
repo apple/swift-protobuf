@@ -246,7 +246,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// The implementation of any API method which has a FieldMask type field in the
 /// request should verify the included field paths, and return an
-/// `INVALID_ARGUMENT` error if any path is duplicated or unmappable.
+/// `INVALID_ARGUMENT` error if any path is unmappable.
 public struct Google_Protobuf_FieldMask {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

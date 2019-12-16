@@ -1042,19 +1042,46 @@ struct ProtobufUnittest_TestDeprecatedLite {
   // methods supported on all messages.
 
   var deprecatedField: Int32 {
-    get {return _deprecatedField ?? 0}
-    set {_deprecatedField = newValue}
+    get {return _storage._deprecatedField ?? 0}
+    set {_uniqueStorage()._deprecatedField = newValue}
   }
   /// Returns true if `deprecatedField` has been explicitly set.
-  var hasDeprecatedField: Bool {return self._deprecatedField != nil}
+  var hasDeprecatedField: Bool {return _storage._deprecatedField != nil}
   /// Clears the value of `deprecatedField`. Subsequent reads from it will return its default value.
-  mutating func clearDeprecatedField() {self._deprecatedField = nil}
+  mutating func clearDeprecatedField() {_uniqueStorage()._deprecatedField = nil}
+
+  var deprecatedField2: Int32 {
+    get {return _storage._deprecatedField2 ?? 0}
+    set {_uniqueStorage()._deprecatedField2 = newValue}
+  }
+  /// Returns true if `deprecatedField2` has been explicitly set.
+  var hasDeprecatedField2: Bool {return _storage._deprecatedField2 != nil}
+  /// Clears the value of `deprecatedField2`. Subsequent reads from it will return its default value.
+  mutating func clearDeprecatedField2() {_uniqueStorage()._deprecatedField2 = nil}
+
+  var deprecatedField3: String {
+    get {return _storage._deprecatedField3 ?? String()}
+    set {_uniqueStorage()._deprecatedField3 = newValue}
+  }
+  /// Returns true if `deprecatedField3` has been explicitly set.
+  var hasDeprecatedField3: Bool {return _storage._deprecatedField3 != nil}
+  /// Clears the value of `deprecatedField3`. Subsequent reads from it will return its default value.
+  mutating func clearDeprecatedField3() {_uniqueStorage()._deprecatedField3 = nil}
+
+  var deprecatedField4: ProtobufUnittest_TestDeprecatedLite {
+    get {return _storage._deprecatedField4 ?? ProtobufUnittest_TestDeprecatedLite()}
+    set {_uniqueStorage()._deprecatedField4 = newValue}
+  }
+  /// Returns true if `deprecatedField4` has been explicitly set.
+  var hasDeprecatedField4: Bool {return _storage._deprecatedField4 != nil}
+  /// Clears the value of `deprecatedField4`. Subsequent reads from it will return its default value.
+  mutating func clearDeprecatedField4() {_uniqueStorage()._deprecatedField4 = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _deprecatedField: Int32? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// See the comments of the same type in unittest.proto.
@@ -4748,26 +4775,90 @@ extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message, SwiftProto
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "deprecated_field"),
+    2: .standard(proto: "deprecated_field2"),
+    3: .standard(proto: "deprecated_field3"),
+    4: .standard(proto: "deprecated_field4"),
   ]
 
+  fileprivate class _StorageClass {
+    var _deprecatedField: Int32? = nil
+    var _deprecatedField2: Int32? = nil
+    var _deprecatedField3: String? = nil
+    var _deprecatedField4: ProtobufUnittest_TestDeprecatedLite? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _deprecatedField = source._deprecatedField
+      _deprecatedField2 = source._deprecatedField2
+      _deprecatedField3 = source._deprecatedField3
+      _deprecatedField4 = source._deprecatedField4
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._deprecatedField2 == nil {return false}
+      if let v = _storage._deprecatedField4, !v.isInitialized {return false}
+      return true
+    }
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self._deprecatedField)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._deprecatedField)
+        case 2: try decoder.decodeSingularInt32Field(value: &_storage._deprecatedField2)
+        case 3: try decoder.decodeSingularStringField(value: &_storage._deprecatedField3)
+        case 4: try decoder.decodeSingularMessageField(value: &_storage._deprecatedField4)
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._deprecatedField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._deprecatedField {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._deprecatedField2 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      }
+      if let v = _storage._deprecatedField3 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      }
+      if let v = _storage._deprecatedField4 {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestDeprecatedLite, rhs: ProtobufUnittest_TestDeprecatedLite) -> Bool {
-    if lhs._deprecatedField != rhs._deprecatedField {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._deprecatedField != rhs_storage._deprecatedField {return false}
+        if _storage._deprecatedField2 != rhs_storage._deprecatedField2 {return false}
+        if _storage._deprecatedField3 != rhs_storage._deprecatedField3 {return false}
+        if _storage._deprecatedField4 != rhs_storage._deprecatedField4 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -641,6 +641,41 @@ struct Proto3ArenaUnittest_TestEmptyMessage {
   init() {}
 }
 
+/// Needed for a Python test.
+struct Proto3ArenaUnittest_TestPickleNestedMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct NestedMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var bb: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    struct NestedNestedMessage {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      var cc: Int32 = 0
+
+      var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      init() {}
+    }
+
+    init() {}
+  }
+
+  init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto3_arena_unittest"
@@ -1505,6 +1540,83 @@ extension Proto3ArenaUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProt
   }
 
   static func ==(lhs: Proto3ArenaUnittest_TestEmptyMessage, rhs: Proto3ArenaUnittest_TestEmptyMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto3ArenaUnittest_TestPickleNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestPickleNestedMessage"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3ArenaUnittest_TestPickleNestedMessage, rhs: Proto3ArenaUnittest_TestPickleNestedMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto3ArenaUnittest_TestPickleNestedMessage.protoMessageName + ".NestedMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "bb"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.bb)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.bb != 0 {
+      try visitor.visitSingularInt32Field(value: self.bb, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage, rhs: Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage) -> Bool {
+    if lhs.bb != rhs.bb {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage.protoMessageName + ".NestedNestedMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "cc"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.cc)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.cc != 0 {
+      try visitor.visitSingularInt32Field(value: self.cc, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMessage, rhs: Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMessage) -> Bool {
+    if lhs.cc != rhs.cc {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
