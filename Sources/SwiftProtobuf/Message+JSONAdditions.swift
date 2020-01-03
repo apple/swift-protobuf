@@ -28,6 +28,9 @@ extension Message {
   public func jsonString(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> String {
+    if let m = self as? _CustomJSONCodable {
+      return try m.encodedJSONString(options: options)
+    }
     let data = try jsonUTF8Data(options: options)
     return String(data: data, encoding: String.Encoding.utf8)!
   }
@@ -92,17 +95,15 @@ extension Message {
     try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       if body.count > 0 {
         var decoder = JSONDecoder(source: body, options: options)
-        if !decoder.scanner.skipOptionalNull() {
-          try decoder.decodeFullObject(message: &self)
-        } else if Self.self is _CustomJSONCodable.Type {
-          if let message = try (Self.self as! _CustomJSONCodable.Type)
-            .decodedFromJSONNull() {
+        if decoder.scanner.skipOptionalNull() {
+          if let customCodable = Self.self as? _CustomJSONCodable.Type,
+             let message = try customCodable.decodedFromJSONNull() {
             self = message as! Self
           } else {
             throw JSONDecodingError.illegalNull
           }
         } else {
-          throw JSONDecodingError.illegalNull
+          try decoder.decodeFullObject(message: &self)
         }
         if !decoder.scanner.complete {
           throw JSONDecodingError.trailingGarbage
