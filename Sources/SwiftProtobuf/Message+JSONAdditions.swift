@@ -93,21 +93,22 @@ extension Message {
   ) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      if body.count > 0 {
-        var decoder = JSONDecoder(source: body, options: options)
-        if decoder.scanner.skipOptionalNull() {
-          if let customCodable = Self.self as? _CustomJSONCodable.Type,
-             let message = try customCodable.decodedFromJSONNull() {
-            self = message as! Self
-          } else {
-            throw JSONDecodingError.illegalNull
-          }
+      guard body.count > 0 else {
+        throw JSONDecodingError.truncated
+      }
+      var decoder = JSONDecoder(source: body, options: options)
+      if decoder.scanner.skipOptionalNull() {
+        if let customCodable = Self.self as? _CustomJSONCodable.Type,
+           let message = try customCodable.decodedFromJSONNull() {
+          self = message as! Self
         } else {
-          try decoder.decodeFullObject(message: &self)
+          throw JSONDecodingError.illegalNull
         }
-        if !decoder.scanner.complete {
-          throw JSONDecodingError.trailingGarbage
-        }
+      } else {
+        try decoder.decodeFullObject(message: &self)
+      }
+      if !decoder.scanner.complete {
+        throw JSONDecodingError.trailingGarbage
       }
     }
   }

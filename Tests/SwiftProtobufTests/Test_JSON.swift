@@ -874,6 +874,13 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"oneofUint32\":1,\"oneofString\":\"abc\"}")
         assertJSONDecodeFails("{\"oneofString\":\"abc\",\"oneofUint32\":1}")
     }
+
+    func testEmptyMessage() {
+        assertJSONDecodeSucceeds("{}") {MessageTestType -> Bool in true}
+        assertJSONDecodeFails("")
+        assertJSONDecodeFails("{")
+        assertJSONDecodeFails("}")
+    }
 }
 
 
