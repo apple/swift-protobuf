@@ -103,14 +103,7 @@ public final class SwiftProtobufNamer {
     var canidates = [String:[EnumValueDescriptor]]()
     for enumValue in e.values {
       let canidate = canidateName(enumValue)
-
-      if var existing = canidates[canidate] {
-        existing.append(enumValue)
-        canidates[canidate] = existing
-      } else {
-        canidates[canidate] = [enumValue]
-      }
-
+      canidates[canidate, default:[]].append(enumValue)
     }
 
     for (camelCased, enumValues) in canidates {
