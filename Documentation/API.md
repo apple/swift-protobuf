@@ -139,7 +139,7 @@ file that defined a different "User" and/or "Settings". Protocol buffers solved
 this by having the `package` in the first place, so by overriding that with a
 custom Swift prefix makes you that much more likely to have collisions in the
 future. If you are considering a prefix just to make the type names
-_shorter_/_nicer_, then instead consider using a Swift `typedef` within your
+_shorter_/_nicer_, then instead consider using a Swift `typealias` within your
 source to remap the names locally where they are used, but keeping the richer
 name for the full build to thus avoid the conflicts.
 
