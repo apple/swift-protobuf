@@ -93,6 +93,7 @@ extension Message {
   ) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      // Empty input is valid for binary, but not for JSON.
       guard body.count > 0 else {
         throw JSONDecodingError.truncated
       }

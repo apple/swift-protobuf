@@ -154,9 +154,9 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
         do {
             let encodedData = try configured.jsonUTF8Data()
-	    let encodedOptString = String(data: encodedData, encoding: String.Encoding.utf8)
-	    XCTAssertNotNil(encodedOptString)
-	    let encodedString = encodedOptString!
+            let encodedOptString = String(data: encodedData, encoding: String.Encoding.utf8)
+            XCTAssertNotNil(encodedOptString)
+            let encodedString = encodedOptString!
             XCTAssert(expected == encodedString, "Did not encode correctly: got \(encodedString)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(jsonUTF8Data: encodedData)
@@ -231,13 +231,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
 
         do {
-	    let jsonData = json.data(using: String.Encoding.utf8)!
+            let jsonData = json.data(using: String.Encoding.utf8)!
             let decoded: MessageTestType = try MessageTestType(jsonUTF8Data: jsonData)
             XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
 
             do {
                 let encoded = try decoded.jsonUTF8Data()
-		let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
+                let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
                 do {
                     let redecoded = try MessageTestType(jsonUTF8Data: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)
@@ -318,7 +318,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             // Yay! It failed!
         }
 
-	let jsonData = json.data(using: String.Encoding.utf8)!
+        let jsonData = json.data(using: String.Encoding.utf8)!
         do {
             let _ = try MessageTestType(jsonUTF8Data: jsonData, options: options)
             XCTFail("Swift decode should have failed for binary: \(json)", file: file, line: line)
