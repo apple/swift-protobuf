@@ -556,7 +556,8 @@ extension Test_JSON {
         ("testRepeatedInt32", testRepeatedInt32),
         ("testRepeatedString", testRepeatedString),
         ("testRepeatedNestedMessage", testRepeatedNestedMessage),
-        ("testOneof", testOneof)
+        ("testOneof", testOneof),
+        ("testEmptyMessage", testEmptyMessage)
     ]
 }
 
