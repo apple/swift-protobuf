@@ -213,7 +213,7 @@ fileprivate func isCharacterUppercase(_ s: String, index: Int) -> Bool {
     // it ended, so just say the next character wasn't uppercase.
     return false
   }
-  return scalars[start].isUppercase
+  return scalars[start].isASCUppercase
 }
 
 fileprivate func makeUnicodeScalarView(
@@ -224,7 +224,10 @@ fileprivate func makeUnicodeScalarView(
   return view
 }
 
-
+/// "Breaks" a protobuf identifier into segments. The breaks happen based on
+/// underscores and/or changes in case and/or use of digits. If underscores are
+/// repeated, they are the "extras" (past the first) are carried over into the
+/// segments.
 fileprivate func splitIdentifier(_ s: String) -> [String] {
   var out: [String.UnicodeScalarView] = []
   var current = String.UnicodeScalarView()
@@ -236,11 +239,11 @@ fileprivate func splitIdentifier(_ s: String) -> [String] {
   var lastIsLower = false
 
   for scalar in s.unicodeScalars {
-    let isUpper = scalar.isUppercase
-    let isLower = scalar.isLowercase
+    let isUpper = scalar.isASCUppercase
+    let isLower = scalar.isASCLowercase
 
-    if scalar.isDigit {
-      if last.isDigit {
+    if scalar.isASCDigit {
+      if last.isASCDigit {
         current.append(scalar)
       } else {
         out.append(current)
@@ -248,10 +251,10 @@ fileprivate func splitIdentifier(_ s: String) -> [String] {
       }
     } else if isUpper {
       if lastIsUpper {
-        current.append(scalar.lowercased())
+        current.append(scalar.ascLowercased())
       } else {
         out.append(current)
-        current = makeUnicodeScalarView(from: scalar.lowercased())
+        current = makeUnicodeScalarView(from: scalar.ascLowercased())
       }
     } else if isLower {
       if lastIsLower || lastIsUpper {
@@ -261,6 +264,7 @@ fileprivate func splitIdentifier(_ s: String) -> [String] {
         current = makeUnicodeScalarView(from: scalar)
       }
     } else if last == "_" {
+      assert(scalar == "_", "Got unexpected character in identifier: \(scalar)")
       out.append(current)
       current = makeUnicodeScalarView(from: last)
     }
@@ -275,7 +279,7 @@ fileprivate func splitIdentifier(_ s: String) -> [String] {
     out.append(makeUnicodeScalarView(from: last))
   }
 
-  // An empty string will always get inserted first, so drop it.
+  // An empty segment will always get inserted first, so drop it.
   let slice = out.dropFirst(1)
   return slice.map(String.init)
 }
@@ -320,13 +324,13 @@ public enum NamingUtils {
         makeUpper = true
         prefix.append("_")
       } else {
-        if prefix.isEmpty && c.isDigit {
+        if prefix.isEmpty && c.isASCDigit {
           // If the first character is going to be a digit, add an underscore
           // to ensure it is a valid Swift identifier.
           prefix.append("_")
         }
         if makeUpper {
-          prefix.append(c.uppercased())
+          prefix.append(c.ascUppercased())
           makeUpper = false
         } else {
           prefix.append(c)
@@ -452,11 +456,14 @@ public enum NamingUtils {
     }
   }
 
+  /// Forces the first character to be uppercase (if possible) and leaves
+  /// the rest of the characters in their existing case.
+  ///
   /// Use toUpperCamelCase() to get leading "HTTP", "URL", etc. correct.
   static func uppercaseFirstCharacter(_ s: String) -> String {
     let out = s.unicodeScalars
     if let first = out.first {
-      var result = makeUnicodeScalarView(from: first.uppercased())
+      var result = makeUnicodeScalarView(from: first.ascUppercased())
       result.append(
         contentsOf: out[out.index(after: out.startIndex)..<out.endIndex])
       return String(result)
@@ -465,7 +472,18 @@ public enum NamingUtils {
     }
   }
 
-  public static func toUpperCamelCase(_ s: String) -> String {
+  public static func toUpperCamelCase(nonIdentifier s: String) -> String {
+    // TODO(thomasvl): Fix this to deal with non identifier input.
+    //
+    // NOTE: If this happens now, it ends up dieing in the precondition checks
+    // for the UnicodeScalar helpers, so if this does get called it already
+    // would be dieing, fixing this just allows things that didn't already work
+    // but needs to be done in a way that doesn't change what was generated for
+    // the cases where the input was a valid identifier.
+    return toUpperCamelCase(s)
+  }
+
+  static func toUpperCamelCase(_ s: String) -> String {
     var out = ""
     let t = splitIdentifier(s)
     for word in t {
@@ -478,7 +496,7 @@ public enum NamingUtils {
     return out
   }
 
-  public static func toLowerCamelCase(_ s: String) -> String {
+  static func toLowerCamelCase(_ s: String) -> String {
     var out = ""
     let t = splitIdentifier(s)
     // Lowercase the first letter/word.
@@ -515,7 +533,7 @@ public enum NamingUtils {
       if c == "_" {
         capitalizeNext = true
       } else if capitalizeNext {
-        result.append(c.uppercased())
+        result.append(c.ascUppercased())
         capitalizeNext = false
       } else {
         result.append(c)

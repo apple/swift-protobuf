@@ -304,10 +304,10 @@ class Test_NamingUtils: XCTestCase {
       ( "FOO", "foo", "Foo" ),
       ( "foO", "foO", "FoO" ),
 
-      ( "foo.bar", "fooBar", "FooBar" ),
       ( "foo_bar", "fooBar", "FooBar" ),
-      ( "foo.bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
-      ( "foo_bAr.BaZ", "fooBArBaZ", "FooBArBaZ" ),
+      ( "foo_bar", "fooBar", "FooBar" ),
+      ( "foo_bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
+      ( "foo_bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
 
       ( "foo1bar", "foo1Bar", "Foo1Bar" ),
       ( "foo2bAr3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
