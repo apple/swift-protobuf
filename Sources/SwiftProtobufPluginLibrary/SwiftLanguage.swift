@@ -78,18 +78,6 @@ fileprivate func isValidSwiftLoneIdentifier(_ s: String) -> Bool {
     return false
 }
 
-fileprivate func isValidSwiftQuotedIdentifier(_ s: String) -> Bool {
-    var s = s
-    if s.hasPrefix("`") {
-        s.remove(at: s.startIndex)
-        if s.hasSuffix("`") {
-            s.remove(at: s.index(before: s.endIndex))
-            return isValidSwiftLoneIdentifier(s)
-        }
-    }
-    return false
-}
-
 /// Use this to check whether a generated identifier is actually
 /// valid for use in generated Swift code.
 ///
@@ -106,13 +94,22 @@ fileprivate func isValidSwiftQuotedIdentifier(_ s: String) -> Bool {
 /// the identifier is a Swift reserved word.  We do exclude implicit
 /// parameter identifiers ("$1", "$2", etc) and "_", though.
 ///
-public func isValidSwiftIdentifier(_ s: String) -> Bool {
-    // "_" is technically a valid identifier but is magic so we don't
-    // want to generate it.
+/// - Parameter s: The string to check.
+/// - Parameter allowQuoted: If the parameter to should allowed to be a quoted
+///     identifier.
+///
+public func isValidSwiftIdentifier(_ s: String, allowQuoted: Bool = false) -> Bool {
+    var s = s
+    if allowQuoted && s.hasPrefix("`") && s.hasSuffix("`") {
+        s.removeFirst()
+        s.removeLast()
+    }
+    // "_" is technically a valid identifier but is magic so we don't want to
+    // count it as valid.
     if s == "_" {
         return false
     }
-    return isValidSwiftLoneIdentifier(s) || isValidSwiftQuotedIdentifier(s)
+    return isValidSwiftLoneIdentifier(s)
 }
 
 /// These lists of keywords are taken directly from the Swift language
