@@ -292,27 +292,42 @@ public enum NamingUtils {
       return String()
     }
 
+    // NOTE: This code relies on the protoc validation of proto packages. Look
+    // at Parser::ParsePackage() to see the logic, it comes down to reading
+    // _identifiers_ joined by '.'.  And _identifier_ is defined (in
+    // Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
+    // any complex validation or handing of characters outside those ranges.
+    // It just has to deal with ended up with a leading digit after the pruning
+    // of '_'s.
+
     // Transforms:
     //  "package.name" -> "Package_Name"
     //  "package_name" -> "PackageName"
     //  "pacakge.some_name" -> "Package_SomeName"
+    var prefix = String.UnicodeScalarView()
     var makeUpper = true
-    var prefix = ""
-    for c in protoPackage {
+    for c in protoPackage.unicodeScalars {
       if c == "_" {
         makeUpper = true
       } else if c == "." {
         makeUpper = true
-        prefix += "_"
-      } else if makeUpper {
-        prefix += String(c).uppercased()
-        makeUpper = false
+        prefix.append("_")
       } else {
-        prefix += String(c)
+        if prefix.isEmpty && c.isDigit {
+          // If the first character is going to be a digit, add an underscore
+          // to ensure it is a valid Swift identifier.
+          prefix.append("_")
+        }
+        if makeUpper {
+          prefix.append(c.uppercased())
+          makeUpper = false
+        } else {
+          prefix.append(c)
+        }
       }
     }
     // End in an underscore to split off anything that gets added to it.
-    return prefix + "_"
+    return String(prefix) + "_"
   }
 
   /// Helper a proto prefix from strings.  A proto prefix means underscores
