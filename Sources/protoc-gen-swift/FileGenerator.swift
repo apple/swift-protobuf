@@ -50,6 +50,12 @@ class FileGenerator {
     /// Generate, if `errorString` gets filled in, then report error instead of using
     /// what written into `printer`.
     func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
+        guard fileDescriptor.fileOptions.swiftPrefix.isEmpty ||
+            isValidSwiftIdentifier(fileDescriptor.fileOptions.swiftPrefix,
+                                   allowQuoted: false) else {
+          errorString = "\(fileDescriptor.name) has an 'swift_prefix' that isn't a valid Swift identifier (\(fileDescriptor.fileOptions.swiftPrefix))."
+          return
+        }
         p.print(
             "// DO NOT EDIT.\n",
             "//\n",
