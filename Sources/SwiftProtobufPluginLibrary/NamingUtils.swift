@@ -180,6 +180,13 @@ fileprivate func isAllUnderscore(_ s: String) -> Bool {
 }
 
 fileprivate func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
+  // NOTE: This code relies on the protoc validation of _identifier_ is defined
+  // (in Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
+  // any complex validation or handing of characters outside those ranges. Since
+  // those rules prevent a leading digit; nothing needs to be done, and any
+  // explicitly use Message or Enum name will be valid. The one exception is
+  // this code is also used for determining the OneOf enums, but that code is
+  // responsible for dealing with the issues in the transforms it makes.
   if reservedTypeNames.contains(s) {
     return s + disambiguator
   } else if isAllUnderscore(s) {
