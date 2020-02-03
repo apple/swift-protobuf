@@ -28,10 +28,20 @@ class Test_NamingUtils: XCTestCase {
       ( "foo.bar.baz", nil, "Foo_Bar_Baz_" ),
       ( "foo_bar_baz", nil, "FooBarBaz_" ),
       ( "foo.bar_baz", nil, "Foo_BarBaz_" ),
+      ( "foo_bar__baz", nil, "FooBarBaz_" ),
+      ( "foo.bar_baz_", nil, "Foo_BarBaz_" ),
+      ( "foo._bar_baz", nil, "Foo_BarBaz_" ),
 
       ( "foo.BAR_baz", nil, "Foo_BARBaz_" ),
       ( "foo.bar_bAZ", nil, "Foo_BarBAZ_" ),
       ( "FOO.BAR_BAZ", nil, "FOO_BARBAZ_" ),
+
+      ( "_foo", nil, "Foo_" ),
+      ( "__foo", nil, "Foo_" ),
+      ( "_1foo", nil, "_1foo_" ),
+      ( "__1foo", nil, "_1foo_" ),
+      ( "_1foo.2bar._3baz", nil, "_1foo_2bar_3baz_" ),
+      ( "_1foo_2bar_3baz", nil, "_1foo2bar3baz_" ),
 
       ( "foo.bar.baz", "", "" ),
       ( "", "ABC", "ABC" ),
