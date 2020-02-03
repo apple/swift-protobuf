@@ -737,6 +737,12 @@ extension Test_MessageSet {
     ]
 }
 
+extension Test_PackageMapping {
+    static var allTests = [
+        ("testPackageStartingWithNumber", testPackageStartingWithNumber)
+    ]
+}
+
 extension Test_FieldNamingInitials {
     static var allTests = [
         ("testHidingFunctions", testHidingFunctions),
@@ -1154,6 +1160,7 @@ XCTMain(
         testCase(Test_Map_JSON.allTests),
         testCase(Test_Merge.allTests),
         testCase(Test_MessageSet.allTests),
+        testCase(Test_PackageMapping.allTests),
         testCase(Test_FieldNamingInitials.allTests),
         testCase(Test_ExtensionNamingInitials_MessageScoped.allTests),
         testCase(Test_ExtensionNamingInitials_GlobalScoped.allTests),

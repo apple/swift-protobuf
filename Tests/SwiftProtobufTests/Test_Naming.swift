@@ -23,6 +23,12 @@ import SwiftProtobuf
 
 // NOTE: If this code fails to compile, make sure the name changes make sense.
 
+class Test_PackageMapping: XCTestCase {
+  func testPackageStartingWithNumber() {
+    let _ = _4fun_Mumble_MyMessage()
+  }
+}
+
 class Test_FieldNamingInitials: XCTestCase {
   func testHidingFunctions() throws {
     // Check that we can access the standard `serializeData`, etc
