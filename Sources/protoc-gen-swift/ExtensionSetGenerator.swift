@@ -95,7 +95,7 @@ class ExtensionSetGenerator {
             let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
             let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
-            // ExtensionGenerator.Set provides the context to write out the properties.
+            // ExtensionSetGenerator provides the context to write out the properties.
 
             p.print(
               "\n",
