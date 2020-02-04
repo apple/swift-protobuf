@@ -312,6 +312,11 @@ class Test_NamingUtils: XCTestCase {
       ( "foo1bar", "foo1Bar", "Foo1Bar" ),
       ( "foo2bAr3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
 
+      ( "foo_1bar", "foo1Bar", "Foo1Bar" ),
+      ( "foo_2bAr_3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
+      ( "_0foo_1bar", "_0Foo1Bar", "_0Foo1Bar" ),
+      ( "_0foo_2bAr_3BaZ", "_0Foo2BAr3BaZ", "_0Foo2BAr3BaZ" ),
+
       ( "url", "url", "URL" ),
       ( "http", "http", "HTTP" ),
       ( "https", "https", "HTTPS" ),
