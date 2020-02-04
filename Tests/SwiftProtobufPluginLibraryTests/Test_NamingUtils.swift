@@ -89,6 +89,10 @@ class Test_NamingUtils: XCTestCase {
       ( "foo_bar", "foobar_bAZ", "bAZ" ),
       ( "_foo_bar", "foobar_bAZ", "bAZ" ),
       ( "foo__bar_", "_foo_bar__baz", "baz" ),
+
+      ( "FooBar", "foo_bar_1", nil ),
+      ( "FooBar", "foo_bar_1foo", nil ),
+      ( "FooBar", "foo_bar_foo1", "foo1" ),
     ]
     for (prefix, str, expected) in tests {
       let stripper = NamingUtils.PrefixStripper(prefix: prefix)
