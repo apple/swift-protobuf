@@ -13615,6 +13615,15 @@ struct SwiftUnittest_Names_ValidIdentifiers {
     set {_2Of = ._5Field(newValue)}
   }
 
+  var enumField: SwiftUnittest_Names_ValidIdentifiers.TestEnum {
+    get {return _enumField ?? .testEnum0}
+    set {_enumField = newValue}
+  }
+  /// Returns true if `enumField` has been explicitly set.
+  var hasEnumField: Bool {return self._enumField != nil}
+  /// Clears the value of `enumField`. Subsequent reads from it will return its default value.
+  mutating func clearEnumField() {self._enumField = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf__2Of: Equatable {
@@ -13632,12 +13641,61 @@ struct SwiftUnittest_Names_ValidIdentifiers {
   #endif
   }
 
+  enum TestEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+
+    /// Won't prefix strip
+    case testEnum0 // = 0
+
+    /// Will prefix strip
+    case first // = 1
+
+    /// Leading underscore & number, keeps that.
+    case _2 // = 2
+
+    /// Leading underscore & number, keeps that.
+    case _3Value // = 3
+
+    init() {
+      self = .testEnum0
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .testEnum0
+      case 1: self = .first
+      case 2: self = ._2
+      case 3: self = ._3Value
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .testEnum0: return 0
+      case .first: return 1
+      case ._2: return 2
+      case ._3Value: return 3
+      }
+    }
+
+  }
+
   init() {}
 
   fileprivate var __1Field: Int32? = nil
   fileprivate var _field: Int32? = nil
   fileprivate var __3Field3: Int32? = nil
+  fileprivate var _enumField: SwiftUnittest_Names_ValidIdentifiers.TestEnum? = nil
 }
+
+#if swift(>=4.2)
+
+extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Extension support defined in unittest_swift_naming.proto.
 
@@ -26049,6 +26107,7 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
     3: .standard(proto: "_3field_3"),
     4: .standard(proto: "_4"),
     5: .standard(proto: "_5field"),
+    6: .standard(proto: "enum_field"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -26067,6 +26126,7 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self._2Of = ._5Field(v)}
+      case 6: try decoder.decodeSingularEnumField(value: &self._enumField)
       default: break
       }
     }
@@ -26089,6 +26149,9 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
     case nil: break
     }
+    if let v = self._enumField {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -26097,7 +26160,17 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
     if lhs._field != rhs._field {return false}
     if lhs.__3Field3 != rhs.__3Field3 {return false}
     if lhs._2Of != rhs._2Of {return false}
+    if lhs._enumField != rhs._enumField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TEST_ENUM_0"),
+    1: .same(proto: "TEST_ENUM_FIRST"),
+    2: .same(proto: "_2"),
+    3: .same(proto: "_3_VALUE"),
+  ]
 }

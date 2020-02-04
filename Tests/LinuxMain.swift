@@ -779,7 +779,8 @@ extension Test_ExtensionNamingInitials_GlobalScoped_NoPrefix {
 extension Test_ValidIdentifiers {
     static var allTests = [
         ("testFieldNames", testFieldNames),
-        ("testOneofNames", testOneofNames)
+        ("testOneofNames", testOneofNames),
+        ("testEnumCaseNames", testEnumCaseNames)
     ]
 }
 
