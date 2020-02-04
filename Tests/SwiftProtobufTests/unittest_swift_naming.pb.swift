@@ -13565,6 +13565,80 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Extens
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
+struct SwiftUnittest_Names_ValidIdentifiers {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var _1Field: Int32 {
+    get {return __1Field ?? 0}
+    set {__1Field = newValue}
+  }
+  /// Returns true if `_1Field` has been explicitly set.
+  var has_1Field: Bool {return self.__1Field != nil}
+  /// Clears the value of `_1Field`. Subsequent reads from it will return its default value.
+  mutating func clear_1Field() {self.__1Field = nil}
+
+  var field: Int32 {
+    get {return _field ?? 0}
+    set {_field = newValue}
+  }
+  /// Returns true if `field` has been explicitly set.
+  var hasField: Bool {return self._field != nil}
+  /// Clears the value of `field`. Subsequent reads from it will return its default value.
+  mutating func clearField() {self._field = nil}
+
+  var _3Field3: Int32 {
+    get {return __3Field3 ?? 0}
+    set {__3Field3 = newValue}
+  }
+  /// Returns true if `_3Field3` has been explicitly set.
+  var has_3Field3: Bool {return self.__3Field3 != nil}
+  /// Clears the value of `_3Field3`. Subsequent reads from it will return its default value.
+  mutating func clear_3Field3() {self.__3Field3 = nil}
+
+  var _2Of: SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of? = nil
+
+  var _4: Int32 {
+    get {
+      if case ._4(let v)? = _2Of {return v}
+      return 0
+    }
+    set {_2Of = ._4(newValue)}
+  }
+
+  var _5Field: Int32 {
+    get {
+      if case ._5Field(let v)? = _2Of {return v}
+      return 0
+    }
+    set {_2Of = ._5Field(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf__2Of: Equatable {
+    case _4(Int32)
+    case _5Field(Int32)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of, rhs: SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of) -> Bool {
+      switch (lhs, rhs) {
+      case (._4(let l), ._4(let r)): return l == r
+      case (._5Field(let l), ._5Field(let r)): return l == r
+      default: return false
+      }
+    }
+  #endif
+  }
+
+  init() {}
+
+  fileprivate var __1Field: Int32? = nil
+  fileprivate var _field: Int32? = nil
+  fileprivate var __3Field3: Int32? = nil
+}
+
 // MARK: - Extension support defined in unittest_swift_naming.proto.
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
@@ -25963,6 +26037,67 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Mes
   static func ==(lhs: SwiftUnittest_Names_ExtensionNamingInitialsWordCase, rhs: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ValidIdentifiers"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "_1field"),
+    2: .standard(proto: "_field"),
+    3: .standard(proto: "_3field_3"),
+    4: .standard(proto: "_4"),
+    5: .standard(proto: "_5field"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.__1Field)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._field)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.__3Field3)
+      case 4:
+        if self._2Of != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self._2Of = ._4(v)}
+      case 5:
+        if self._2Of != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self._2Of = ._5Field(v)}
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self.__1Field {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._field {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
+    if let v = self.__3Field3 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    }
+    switch self._2Of {
+    case ._4(let v)?:
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    case ._5Field(let v)?:
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftUnittest_Names_ValidIdentifiers, rhs: SwiftUnittest_Names_ValidIdentifiers) -> Bool {
+    if lhs.__1Field != rhs.__1Field {return false}
+    if lhs._field != rhs._field {return false}
+    if lhs.__3Field3 != rhs.__3Field3 {return false}
+    if lhs._2Of != rhs._2Of {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
