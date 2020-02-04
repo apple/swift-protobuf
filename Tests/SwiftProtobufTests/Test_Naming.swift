@@ -878,3 +878,28 @@ class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
     msg.clearRequestID()
   }
 }
+
+class Test_ValidIdentifiers: XCTestCase {
+  func testFieldNames() {
+    let msg = SwiftUnittest_Names_ValidIdentifiers()
+    XCTAssertEqual(msg._1Field, 0)
+    XCTAssertFalse(msg.has_1Field)
+    XCTAssertEqual(msg.field, 0)
+    XCTAssertFalse(msg.hasField)
+    XCTAssertEqual(msg._3Field3, 0)
+    XCTAssertFalse(msg.has_3Field3)
+  }
+
+  func testOneofNames() {
+    var msg = SwiftUnittest_Names_ValidIdentifiers()
+    XCTAssertEqual(msg._2Of, nil)
+
+    XCTAssertEqual(msg._4, 0)
+    XCTAssertEqual(msg._5Field, 0)
+
+    msg._2Of = ._4(20)
+
+    XCTAssertEqual(msg._2Of, SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of._4(20))
+    XCTAssertEqual(msg._4, 20)
+  }
+}

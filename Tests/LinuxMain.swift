@@ -776,6 +776,13 @@ extension Test_ExtensionNamingInitials_GlobalScoped_NoPrefix {
     ]
 }
 
+extension Test_ValidIdentifiers {
+    static var allTests = [
+        ("testFieldNames", testFieldNames),
+        ("testOneofNames", testOneofNames)
+    ]
+}
+
 extension Test_OneofFields_Access_Proto2 {
     static var allTests = [
         ("testOneofInt32", testOneofInt32),
@@ -1165,6 +1172,7 @@ XCTMain(
         testCase(Test_ExtensionNamingInitials_MessageScoped.allTests),
         testCase(Test_ExtensionNamingInitials_GlobalScoped.allTests),
         testCase(Test_ExtensionNamingInitials_GlobalScoped_NoPrefix.allTests),
+        testCase(Test_ValidIdentifiers.allTests),
         testCase(Test_OneofFields_Access_Proto2.allTests),
         testCase(Test_OneofFields_Access_Proto3.allTests),
         testCase(Test_Packed.allTests),
