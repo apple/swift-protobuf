@@ -356,6 +356,10 @@ public enum NamingUtils {
 
   /// Helper a proto prefix from strings.  A proto prefix means underscores
   /// and letter case are ignored.
+  ///
+  /// NOTE: Since this is acting on proto enum names and enum cases, we know
+  /// the values must be _identifier_s which is defined (in Tokenizer::Next() as
+  /// `[a-zA-Z_][a-zA-Z0-9_]*`, so this code is based on that limited input.
   struct PrefixStripper {
     private let prefixChars: String.UnicodeScalarView
 
@@ -370,7 +374,6 @@ public enum NamingUtils {
       let prefixEnd = prefixChars.endIndex
 
       let fromChars = from.lowercased().unicodeScalars
-      precondition(fromChars.count == from.lengthOfBytes(using: .ascii))
       var fromIndex = fromChars.startIndex
       let fromEnd = fromChars.endIndex
 
@@ -402,6 +405,15 @@ public enum NamingUtils {
 
       if fromIndex == fromEnd {
         // They matched, can't strip.
+        return nil
+      }
+
+      guard fromChars[fromIndex].isASCLowercase else {
+        // Next character isn't a lowercase letter (it must be a digit
+        // (fromChars was lowercased)), that would mean to make an enum value it
+        // would have to get prefixed with an underscore which most folks
+        // wouldn't consider to be a better Swift naming, so don't strip the
+        // prefix.
         return nil
       }
 
