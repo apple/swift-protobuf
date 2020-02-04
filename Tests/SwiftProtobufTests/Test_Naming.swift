@@ -902,4 +902,12 @@ class Test_ValidIdentifiers: XCTestCase {
     XCTAssertEqual(msg._2Of, SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of._4(20))
     XCTAssertEqual(msg._4, 20)
   }
+
+  func testEnumCaseNames() {
+    var msg = SwiftUnittest_Names_ValidIdentifiers()
+    msg.enumField = .testEnum0
+    msg.enumField = .first
+    msg.enumField = ._2
+    msg.enumField = ._3Value
+  }
 }

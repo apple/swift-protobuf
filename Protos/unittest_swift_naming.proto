@@ -1162,4 +1162,12 @@ message ValidIdentifiers {
     int32 _4 = 4;
     int32 _5field = 5;
   }
+
+  enum TestEnum {
+    TEST_ENUM_0 = 0;  // Won't prefix strip
+    TEST_ENUM_FIRST = 1;  // Will prefix strip
+    _2 = 2;  // Leading underscore & number, keeps that.
+    _3_VALUE = 3;  // Leading underscore & number, keeps that.
+  }
+  optional TestEnum enum_field = 6;
 }
