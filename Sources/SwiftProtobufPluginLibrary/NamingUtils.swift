@@ -229,6 +229,14 @@ fileprivate func makeUnicodeScalarView(
 /// repeated, they are the "extras" (past the first) are carried over into the
 /// segments.
 fileprivate func splitIdentifier(_ s: String) -> [String] {
+  // NOTE: This code relies on the protoc validation of _identifier_ is defined
+  // (in Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
+  // any complex validation or handing of characters outside those ranges. Since
+  // leading underscores are removed, it does have to handle if things would
+  // have started with a digit. If that happens, then an underscore is added
+  // before it (which matches what the proto file would have had to have a
+  // valid identifier also).
+
   var out: [String.UnicodeScalarView] = []
   var current = String.UnicodeScalarView()
   // The exact value used to seed this doesn't matter (as long as it's not an
@@ -238,35 +246,40 @@ fileprivate func splitIdentifier(_ s: String) -> [String] {
   var lastIsUpper = false
   var lastIsLower = false
 
+  func addCurrent() {
+    if !current.isEmpty {
+      out.append(current)
+      current = String.UnicodeScalarView()
+    }
+  }
+
   for scalar in s.unicodeScalars {
     let isUpper = scalar.isASCUppercase
     let isLower = scalar.isASCLowercase
 
     if scalar.isASCDigit {
-      if last.isASCDigit {
-        current.append(scalar)
-      } else {
-        out.append(current)
-        current = makeUnicodeScalarView(from: scalar)
+      if !last.isASCDigit {
+        addCurrent()
       }
+      if out.isEmpty {
+        // Don't want to start with a number for the very first thing.
+        out.append(makeUnicodeScalarView(from: "_"))
+      }
+      current.append(scalar)
     } else if isUpper {
-      if lastIsUpper {
-        current.append(scalar.ascLowercased())
-      } else {
-        out.append(current)
-        current = makeUnicodeScalarView(from: scalar.ascLowercased())
+      if !lastIsUpper {
+        addCurrent()
       }
+      current.append(scalar.ascLowercased())
     } else if isLower {
-      if lastIsLower || lastIsUpper {
-        current.append(scalar)
-      } else {
-        out.append(current)
-        current = makeUnicodeScalarView(from: scalar)
+      if !lastIsLower && !lastIsUpper {
+        addCurrent()
       }
+      current.append(scalar)
     } else if last == "_" {
       assert(scalar == "_", "Got unexpected character in identifier: \(scalar)")
-      out.append(current)
-      current = makeUnicodeScalarView(from: last)
+      addCurrent()
+      current.append(last)
     }
 
     last = scalar
@@ -274,14 +287,14 @@ fileprivate func splitIdentifier(_ s: String) -> [String] {
     lastIsLower = isLower
   }
 
-  out.append(current)
+  if !current.isEmpty { out.append(current) }
+
+  // If things end in an underscore, add one also.
   if last == "_" {
     out.append(makeUnicodeScalarView(from: last))
   }
 
-  // An empty segment will always get inserted first, so drop it.
-  let slice = out.dropFirst(1)
-  return slice.map(String.init)
+  return out.map(String.init)
 }
 
 fileprivate let upperInitials: Set<String> = ["url", "http", "https", "id"]
