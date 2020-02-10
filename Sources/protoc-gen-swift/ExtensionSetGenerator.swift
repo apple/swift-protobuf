@@ -203,7 +203,7 @@ class ExtensionSetGenerator {
         guard !extensions.isEmpty else { return }
 
         let pathParts = splitPath(pathname: fileDescriptor.name)
-        let filenameAsIdentifer = NamingUtils.toUpperCamelCase(nonIdentifier: pathParts.base)
+        let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
         let filePrefix = namer.typePrefix(forFile: fileDescriptor)
         p.print(
           "\n",
