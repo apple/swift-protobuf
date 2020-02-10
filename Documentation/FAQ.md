@@ -7,27 +7,34 @@ issues/PRs.
 
 While there are a [_few_ options that control the generated
 files](https://github.com/apple/swift-protobuf/blob/master/Documentation/PLUGIN.md#how-to-specify-code-generation-options),
-the intent is not to add customization points like this.
+we prefer not to add customization points like this.
 
-The problem with generation options, especially if the change the generated PI
-surface, is it leads to problems where two pieces of code depend on the same
-`.proto` files. Once piece of code might decided they prefer the option set one
-way but the other might want it set differently. This means the two libraries
-can't share the generated code for the common .proto files.  Worse, they might
-not even be able to exist in the same library/binary.
+The problem with generation options, especially if the change the generated API
+surface, is it leads to problems if two pieces of code depend on the same
+`.proto` files. If the two pieces of code rely on different option settings, it
+may not be possible for them to work correctly together. This can prevent
+protobuf-using libraries from being used in the same program.
 
 ##  Why aren't there memberwise initializers?
 
 A `.proto` file does not consider the order the fields are listed in as
-important, they can be reorder, new fields add with updates in any order, etc.
+important, they can be reordered, new fields can be added in any order, etc.
 From a protocol buffers point of view, those aren't breaking changes as protocol
 buffers were design (especially the binary format) to support doing these things
 safely.
 
-If memberwise initializers are generated, then the problem becomes what order
-would the fields be listed in and how do we ensure that a future update to the
-`.proto` file doesn't suddenly break working code just because a new field got
-added? Or an older, no longer important field got moved to the end?
+This makes it possible for an updated `.proto` file to be incorporated into one
+piece of software while maintaining compatibility with other software that has
+not been updated. For example, this makes protocol buffers an excellent choice
+when you have mobile apps (that may get updated by users at different times)
+speaking to a. common server.
+
+This creates problems for member wise initializers. A large codebase taking
+advantage of such initializers would need widespread source changes if a new
+`.proto` definition changed the order of fields. In addition, member wise
+initializers are impractical with very large messages. Imposing an arbitrary
+limit on the size of such initializers would provide another avenue for source
+code breakage.
 
 Instead the library has standard support for a static `with` method for Messages
 that allows a trailing closure to configure the Message:
@@ -42,7 +49,7 @@ msg.myOtherField = 5  // error: msg is immutable
 ## Helpers for converting enum values to/from strings?
 
 While the library currently has this data, it is internal to the library. There
-are issues tracking adding this in the future (#326, #731), but it is currently
+are issues tracking exposing this in the future (#326, #731), but it is currently
 being deferred until a decision is made on how to model _Descriptors_ in the
 library. In other languages, the _Descriptor_ objects are what is used to
 capture the metadata about Messages and Enums; it allows access to the different
