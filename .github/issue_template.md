@@ -1,3 +1,9 @@
+Before opening a new issue, please double check the passed issues (both open and
+closed ones) so see if your problem has been discussed before and already
+contains an answer/solution. Likewise, check the FAQ in the Documentation folder
+for some common things.
+
+
 Please be sure to include:
 
 * what OS you are developing on (Linux or macOS, including the version)
