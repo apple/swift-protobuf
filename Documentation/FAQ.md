@@ -49,14 +49,14 @@ msg.myOtherField = 5  // error: msg is immutable
 ## Helpers for converting enum values to/from strings?
 
 While the library currently has this data, it is internal to the library. There
-are issues tracking exposing this in the future (#326, #731), but it is currently
-being deferred until a decision is made on how to model _Descriptors_ in the
-library. In other languages, the _Descriptor_ objects are what is used to
-capture the metadata about Messages and Enums; it allows access to the different
-Message, Field, Enum `options` (#761) as well as opening up options for working
-on a `Message` generically (where the calling code doesn't know the type at
-compile time). Most of this support is pending some design but also waiting to
-see how Swift decides to expose similar data publicly from the Swift Runtime.
+are issues tracking exposing this in the future (#326, #731), but it is
+currently being deferred until a decision is made on how to model _Descriptors_
+in the library. In other languages, the _Descriptor_ objects expose the metadata
+about Messages and Enums; it allows access to the different Message, Field, Enum
+`options` (#761) as well as opening up options for working on a `Message`
+generically (where the calling code doesn't know the type at compile time). Most
+of this support is pending some design but also waiting to see how Swift decides
+to expose similar data publicly from the Swift Runtime.
 
 
 ## Why are field names and enum case names mangled?
