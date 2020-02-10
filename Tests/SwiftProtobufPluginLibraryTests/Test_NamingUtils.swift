@@ -342,6 +342,16 @@ class Test_NamingUtils: XCTestCase {
       ( "the_id_number", "theIDNumber", "TheIDNumber" ),
 
       ( "url_foo_http_id", "urlFooHTTPID", "URLFooHTTPID"),
+
+      ( "göß", "göß", "Göß"),
+      ( "göo", "göO", "GöO"),
+      ( "gö_o", "göO", "GöO"),
+      ( "g_🎉_o", "g🎉O", "G🎉O"),
+      ( "g🎉o", "g🎉O", "G🎉O"),
+
+      ( "m\u{AB}n", "m_u171N", "M_u171N"),
+      ( "m\u{AB}_n", "m_u171N", "M_u171N"),
+      ( "m_\u{AB}_n", "m_u171N", "M_u171N"),
     ]
 
     for (input, expectedLower, expectedUppper) in tests {
