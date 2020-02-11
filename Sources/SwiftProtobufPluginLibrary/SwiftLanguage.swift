@@ -15,7 +15,11 @@
 import Swift
 import Foundation
 
-fileprivate func isSwiftIdentifierHeadCharacter(_ c: UnicodeScalar) -> Bool {
+/// Used to check if a character is a valid identifier head character.
+///
+/// This is mainly a building block for isValidSwiftIdentifier(), but is exposed
+/// within the plugin library so other parts of the library can use it.
+func isSwiftIdentifierHeadCharacter(_ c: UnicodeScalar) -> Bool {
     switch c.value {
     // identifier-head → Upper- or lowercase letter A through Z
     case 0x61...0x7a, 0x41...0x5a: return true
@@ -54,7 +58,11 @@ fileprivate func isSwiftIdentifierHeadCharacter(_ c: UnicodeScalar) -> Bool {
     }
 }
 
-fileprivate func isSwiftIdentifierCharacter(_ c: UnicodeScalar) -> Bool {
+/// Used to check if a character is a valid identifier character.
+///
+/// This is mainly a building block for isValidSwiftIdentifier(), but is exposed
+/// within the plugin library so other parts of the library can use it.
+func isSwiftIdentifierCharacter(_ c: UnicodeScalar) -> Bool {
     switch c.value {
     // identifier-character → Digit 0 through 9
     case 0x30...0x39: return true
@@ -63,19 +71,6 @@ fileprivate func isSwiftIdentifierCharacter(_ c: UnicodeScalar) -> Bool {
     // identifier-character → identifier-head
     default: return isSwiftIdentifierHeadCharacter(c)
     }
-}
-
-fileprivate func isValidSwiftLoneIdentifier(_ s: String) -> Bool {
-    var i = s.unicodeScalars.makeIterator()
-    if let first = i.next(), isSwiftIdentifierHeadCharacter(first) {
-        while let c = i.next() {
-            if !isSwiftIdentifierCharacter(c) {
-                return false
-            }
-        }
-        return true
-    }
-    return false
 }
 
 /// Use this to check whether a generated identifier is actually
@@ -109,7 +104,16 @@ public func isValidSwiftIdentifier(_ s: String, allowQuoted: Bool = false) -> Bo
     if s == "_" {
         return false
     }
-    return isValidSwiftLoneIdentifier(s)
+    var i = s.unicodeScalars.makeIterator()
+    guard let first = i.next(), isSwiftIdentifierHeadCharacter(first) else {
+        return false
+    }
+    while let c = i.next() {
+        if !isSwiftIdentifierCharacter(c) {
+            return false
+        }
+    }
+    return true
 }
 
 /// These lists of keywords are taken directly from the Swift language
