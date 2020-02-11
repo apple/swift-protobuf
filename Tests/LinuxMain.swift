@@ -780,7 +780,8 @@ extension Test_ValidIdentifiers {
     static var allTests = [
         ("testFieldNames", testFieldNames),
         ("testOneofNames", testOneofNames),
-        ("testEnumCaseNames", testEnumCaseNames)
+        ("testEnumCaseNames", testEnumCaseNames),
+        ("testExtensionMapNaming", testExtensionMapNaming)
     ]
 }
 
