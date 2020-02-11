@@ -910,4 +910,9 @@ class Test_ValidIdentifiers: XCTestCase {
     msg.enumField = ._2
     msg.enumField = ._3Value
   }
+
+  func testExtensionMapNaming() {
+    // Symbol should exist based on the unittest_swift_größ.proto name.
+    let _ = UnittestSwiftGröß_Extensions
+  }
 }
