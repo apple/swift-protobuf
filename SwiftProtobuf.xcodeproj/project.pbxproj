@@ -539,9 +539,6 @@
 		F48FDD281E4D18060061D5C1 /* Test_TextFormat_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_TextFormat_proto3.swift */; };
 		F48FDD291E4D18080061D5C1 /* Test_TextFormat_proto2_extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5890A51DFF5EC8001CFC34 /* Test_TextFormat_proto2_extensions.swift */; };
 		F48FDD2A1E4D18080061D5C1 /* Test_TextFormat_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_TextFormat_proto3.swift */; };
-		F498732323F307930077F336 /* unittest_swift_größ.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498732223F307930077F336 /* unittest_swift_größ.pb.swift */; };
-		F498732423F307930077F336 /* unittest_swift_größ.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498732223F307930077F336 /* unittest_swift_größ.pb.swift */; };
-		F498732523F307930077F336 /* unittest_swift_größ.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498732223F307930077F336 /* unittest_swift_größ.pb.swift */; };
 		F49B576B2252771700350FFD /* TextFormatEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B576A2252771700350FFD /* TextFormatEncodingOptions.swift */; };
 		F49B576C2252771700350FFD /* TextFormatEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B576A2252771700350FFD /* TextFormatEncodingOptions.swift */; };
 		F49B576D2252771700350FFD /* TextFormatEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49B576A2252771700350FFD /* TextFormatEncodingOptions.swift */; };
@@ -796,7 +793,6 @@
 		F482B6911E857BBC00A25EF8 /* unittest_swift_naming_no_prefix.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_naming_no_prefix.pb.swift; sourceTree = "<group>"; };
 		F482B6B21E89940E00A25EF8 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		F48769F723020B7D00D44224 /* descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptor.pb.swift; sourceTree = "<group>"; };
-		F498732223F307930077F336 /* unittest_swift_größ.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "unittest_swift_größ.pb.swift"; sourceTree = "<group>"; };
 		F49B576A2252771700350FFD /* TextFormatEncodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatEncodingOptions.swift; sourceTree = "<group>"; };
 		F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test_messages_proto3.pb.swift; sourceTree = "<group>"; };
 		F4A1A8AB1E65E2EA0022E078 /* map_proto2_unittest.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = map_proto2_unittest.pb.swift; sourceTree = "<group>"; };
@@ -1172,7 +1168,6 @@
 				F4D315441DEC8110005D4A80 /* unittest_swift_extension3.pb.swift */,
 				F4D315521DECA0E5005D4A80 /* unittest_swift_extension4.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_fieldorder.pb.swift /* unittest_swift_fieldorder.pb.swift */,
-				F498732223F307930077F336 /* unittest_swift_größ.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_swift_groups.pb.swift /* unittest_swift_groups.pb.swift */,
 				F482B6911E857BBC00A25EF8 /* unittest_swift_naming_no_prefix.pb.swift */,
 				F47CF9A023E88DD000C7B24C /* unittest_swift_naming_number_prefix.pb.swift */,
@@ -1432,7 +1427,6 @@
 				9C8CDA3A1D7A28F600E207CA /* Test_RecursiveMap.swift in Sources */,
 				9C60CBE91DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
 				9C8CDA3B1D7A28F600E207CA /* Test_Required.swift in Sources */,
-				F498732423F307930077F336 /* unittest_swift_größ.pb.swift in Sources */,
 				9C8CDA3C1D7A28F600E207CA /* Test_Reserved.swift in Sources */,
 				9C8CDA3D1D7A28F600E207CA /* Test_Struct.swift in Sources */,
 				9C8CDA3E1D7A28F600E207CA /* Test_Timestamp.swift in Sources */,
@@ -1730,7 +1724,6 @@
 				9C60CBEC1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
 				9C5890A71DFF5FFC001CFC34 /* Test_TextFormat_proto2_extensions.swift in Sources */,
 				BCCA0E7A1DB124B800957D74 /* Test_TextFormat_proto3.swift in Sources */,
-				F498732323F307930077F336 /* unittest_swift_größ.pb.swift in Sources */,
 				9CCD5F931E008203002D1940 /* Test_TextFormat_WKT_proto3.swift in Sources */,
 				F44F943A1DBFBB7400BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F44F94351DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
@@ -1939,7 +1932,6 @@
 				9C60CBEE1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
 				F44F93F81DAEA8C900BC5B85 /* unittest.pb.swift in Sources */,
 				F44F93E81DAEA8C900BC5B85 /* unittest_proto3_arena.pb.swift in Sources */,
-				F498732523F307930077F336 /* unittest_swift_größ.pb.swift in Sources */,
 				9C60CBEA1DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
 				F44F93F21DAEA8C900BC5B85 /* unittest_swift_performance.pb.swift in Sources */,
 				F44F93B41DAEA8C900BC5B85 /* Test_Api.swift in Sources */,
