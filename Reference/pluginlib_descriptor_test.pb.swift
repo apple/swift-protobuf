@@ -307,6 +307,13 @@ struct SDTScoperForExt {
 
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
 extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
   var SDTextStr: String {
@@ -359,6 +366,8 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
 }
 
+// MARK: - File's ExtensionMap: SDTPluginlibDescriptorTest_Extensions
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -368,6 +377,10 @@ let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SDTScoperForExt.Extensions.ext_enum,
   SDTScoperForExt.Extensions.ext_msg
 ]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
 
 let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 90000,

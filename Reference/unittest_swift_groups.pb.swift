@@ -266,6 +266,13 @@ struct SwiftTestNestingGroupsMessage {
 
 // MARK: - Extension support defined in unittest_swift_groups.proto.
 
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
 extension SwiftTestGroupExtensions {
 
   var extensionGroup: ExtensionGroup {
@@ -300,6 +307,8 @@ extension SwiftTestGroupExtensions {
 
 }
 
+// MARK: - File's ExtensionMap: UnittestSwiftGroups_Extensions
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -308,6 +317,10 @@ let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_ExtensionGroup,
   Extensions_RepeatedExtensionGroup
 ]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
 
 let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
   _protobuf_fieldNumber: 2,

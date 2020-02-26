@@ -1704,6 +1704,13 @@ extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: CaseIterable {
 
 // MARK: - Extension support defined in unittest_lite.proto.
 
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
 extension ProtobufUnittest_TestAllExtensionsLite {
 
   /// Singular
@@ -3116,6 +3123,8 @@ extension ProtobufUnittest_TestParsingMergeLite {
 
 }
 
+// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestLite_Extensions
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -3215,6 +3224,10 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext,
   ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext
 ]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
 
 /// Singular
 let ProtobufUnittest_Extensions_optional_int32_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
