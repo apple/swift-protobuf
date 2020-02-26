@@ -646,7 +646,7 @@ There are several pieces to the extension support:
 * **Extensible Messages** (such as `CanBeExtended` above) conform to
   [`ExtensibleMessage`](https://github.com/apple/swift-protobuf/blob/master/Sources/SwiftProtobuf/ExtensibleMessage.swift)
   and define some additional methods needed by the other components.  You
-  should _not_ need use these methods directly.
+  should _not_ need to use these methods directly.
 
 * **Extension objects** are opaque objects that define the extension itself,
   including storage and serialization details.  Because proto allows extension
@@ -669,11 +669,11 @@ There are several pieces to the extension support:
   defined proto extensions and included as a static global variable.  It is
   named based on the proto package, filename, and then ends in `_Extensions`,
   so the above file would be `Sample_Extensions`. These maps are then used
-  the the `Message` apis for parsing/merging binary data to provide the
-  additional data to parse out the extension fields; if a mapping isn't
-  found, the extension field ends up in the `unknownFields` on the message.
+  by the `Message` apis for parsing/merging extension fields in the binary
+  data; if a mapping isn't found, the extension field ends up in the
+  `unknownFields` on the message.
 
-  If you need handle extensions defined in multiple files, you can build up
+  If you need to handle extensions defined in multiple files, you can build up
   your own `ExtensionMap` will all the data by using
   [`SimpleExtensionMap`](https://github.com/apple/swift-protobuf/blob/master/Sources/SwiftProtobuf/SimpleExtensionMap.swift).
   The easiest way is to create a new `SimpleExtensionMap` passing in a list
