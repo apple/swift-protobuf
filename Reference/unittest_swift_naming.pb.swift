@@ -13699,6 +13699,13 @@ extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: CaseIterable {
 
 // MARK: - Extension support defined in unittest_swift_naming.proto.
 
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
 extension SwiftUnittest_Names_ExtensionNamingInitials {
 
   var SwiftUnittest_Names_Lowers_http: Int32 {
@@ -15245,6 +15252,8 @@ extension SwiftUnittest_Names_Foo {
 
 }
 
+// MARK: - File's ExtensionMap: SwiftUnittest_Names_UnittestSwiftNaming_Extensions
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -15353,6 +15362,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_WordCase.Extensions.TheIdNumber,
   SwiftUnittest_Names_WordCase.Extensions.RequestId
 ]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
 
 let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 1,

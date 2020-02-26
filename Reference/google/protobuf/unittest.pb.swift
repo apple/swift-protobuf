@@ -4508,6 +4508,13 @@ struct ProtobufUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessag
 
 // MARK: - Extension support defined in unittest.proto.
 
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
 extension ProtobufUnittest_TestAllExtensions {
 
   /// Singular
@@ -6311,6 +6318,8 @@ extension ProtobufUnittest_TestUnpackedExtensions {
 
 }
 
+// MARK: - File's ExtensionMap: ProtobufUnittest_Unittest_Extensions
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -6435,6 +6444,10 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestParsingMerge.Extensions.optional_ext,
   ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext
 ]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
 
 /// Singular
 let ProtobufUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensions>(

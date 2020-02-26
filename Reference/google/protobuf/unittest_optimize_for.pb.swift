@@ -164,6 +164,13 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize {
 
 // MARK: - Extension support defined in unittest_optimize_for.proto.
 
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
 extension ProtobufUnittest_TestOptimizedForSize {
 
   var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
@@ -198,6 +205,8 @@ extension ProtobufUnittest_TestOptimizedForSize {
 
 }
 
+// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestOptimizeFor_Extensions
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -206,6 +215,10 @@ let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensi
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension,
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
 ]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
 
 extension ProtobufUnittest_TestOptimizedForSize {
   enum Extensions {
