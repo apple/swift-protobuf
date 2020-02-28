@@ -37,3 +37,37 @@ extension ExtensibleMessage {
         _protobuf_extensionFieldValues[ext.fieldNumber] = nil
     }
 }
+
+// Additional specializations for the different types of repeated fields so
+// setting them to an empty array clears them from the map.
+extension ExtensibleMessage {
+    public mutating func setExtensionValue<T>(ext: MessageExtension<RepeatedExtensionField<T>, Self>, value: [T.BaseType]) {
+        _protobuf_extensionFieldValues[ext.fieldNumber] =
+            value.isEmpty ? nil : RepeatedExtensionField<T>(protobufExtension: ext, value: value)
+    }
+
+    public mutating func setExtensionValue<T>(ext: MessageExtension<PackedExtensionField<T>, Self>, value: [T.BaseType]) {
+        _protobuf_extensionFieldValues[ext.fieldNumber] =
+            value.isEmpty ? nil : PackedExtensionField<T>(protobufExtension: ext, value: value)
+    }
+
+    public mutating func setExtensionValue<E>(ext: MessageExtension<RepeatedEnumExtensionField<E>, Self>, value: [E]) {
+        _protobuf_extensionFieldValues[ext.fieldNumber] =
+            value.isEmpty ? nil : RepeatedEnumExtensionField<E>(protobufExtension: ext, value: value)
+    }
+
+    public mutating func setExtensionValue<E>(ext: MessageExtension<PackedEnumExtensionField<E>, Self>, value: [E]) {
+        _protobuf_extensionFieldValues[ext.fieldNumber] =
+            value.isEmpty ? nil : PackedEnumExtensionField<E>(protobufExtension: ext, value: value)
+    }
+
+    public mutating func setExtensionValue<M>(ext: MessageExtension<RepeatedMessageExtensionField<M>, Self>, value: [M]) {
+        _protobuf_extensionFieldValues[ext.fieldNumber] =
+            value.isEmpty ? nil : RepeatedMessageExtensionField<M>(protobufExtension: ext, value: value)
+    }
+
+    public mutating func setExtensionValue<M>(ext: MessageExtension<RepeatedGroupExtensionField<M>, Self>, value: [M]) {
+        _protobuf_extensionFieldValues[ext.fieldNumber] =
+            value.isEmpty ? nil : RepeatedGroupExtensionField<M>(protobufExtension: ext, value: value)
+    }
+}
