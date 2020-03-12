@@ -62,6 +62,7 @@ class ExtensionSetGenerator {
         }
 
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
+            let visibility = generatorOptions.visibilitySourceSnippet
             let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
             let traitsType = fieldDescriptor.traitsType(namer: namer)
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
@@ -80,7 +81,7 @@ class ExtensionSetGenerator {
 
             p.print(
               comments,
-              "\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
+              "\(visibility)\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
             p.indent()
             p.print(
               "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
@@ -250,6 +251,7 @@ class ExtensionSetGenerator {
           p.print("}\n")
       }
 
+      let visibility = generatorOptions.visibilitySourceSnippet
       var currentScope: Descriptor? = nil
       var addNewline = true
       for e in extensions {
@@ -261,7 +263,7 @@ class ExtensionSetGenerator {
             "\n",
             "extension \(scopeSwiftFullName) {\n")
           p.indent()
-          p.print("enum Extensions {\n")
+          p.print("\(visibility)enum Extensions {\n")
           p.indent()
           addNewline = false
         }
