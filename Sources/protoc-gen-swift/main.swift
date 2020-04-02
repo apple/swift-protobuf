@@ -239,7 +239,10 @@ struct GeneratorPlugin {
         Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                             content: printer.content))
     }
-    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles)
+    // TODO(thomasvl): Don't support proto3Optional just yet, but working on
+    // it and this let things generate in the mean time.
+    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
+                                                          supportedFeatures: [.proto3Optional])
   }
 
   private func auditProtoCVersion(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {
