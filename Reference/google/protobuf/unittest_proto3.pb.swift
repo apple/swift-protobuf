@@ -581,7 +581,7 @@ struct Proto3Unittest_TestUnpackedTypes {
   init() {}
 }
 
-/// This proto includes a recusively nested message.
+/// This proto includes a recursively nested message.
 struct Proto3Unittest_NestedTestAllTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
