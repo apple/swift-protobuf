@@ -198,9 +198,47 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
   /// Clears the value of `error`. Subsequent reads from it will return its default value.
   public mutating func clearError() {self._error = nil}
 
+  /// A bitmask of supported features that the code generator supports.
+  /// This is a bitwise "or" of values from the Feature enum.
+  public var supportedFeatures: UInt64 {
+    get {return _supportedFeatures ?? 0}
+    set {_supportedFeatures = newValue}
+  }
+  /// Returns true if `supportedFeatures` has been explicitly set.
+  public var hasSupportedFeatures: Bool {return self._supportedFeatures != nil}
+  /// Clears the value of `supportedFeatures`. Subsequent reads from it will return its default value.
+  public mutating func clearSupportedFeatures() {self._supportedFeatures = nil}
+
   public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  /// Sync with code_generator.h.
+  public enum Feature: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+    case none // = 0
+    case proto3Optional // = 1
+
+    public init() {
+      self = .none
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .none
+      case 1: self = .proto3Optional
+      default: return nil
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .none: return 0
+      case .proto3Optional: return 1
+      }
+    }
+
+  }
 
   /// Represents a single generated file.
   public struct File {
@@ -296,7 +334,16 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
   public init() {}
 
   fileprivate var _error: String? = nil
+  fileprivate var _supportedFeatures: UInt64? = nil
 }
+
+#if swift(>=4.2)
+
+extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -405,6 +452,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
+    2: .standard(proto: "supported_features"),
     15: .same(proto: "file"),
   ]
 
@@ -412,6 +460,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._error)
+      case 2: try decoder.decodeSingularUInt64Field(value: &self._supportedFeatures)
       case 15: try decoder.decodeRepeatedMessageField(value: &self.file)
       default: break
       }
@@ -422,6 +471,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
     if let v = self._error {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
+    if let v = self._supportedFeatures {
+      try visitor.visitSingularUInt64Field(value: v, fieldNumber: 2)
+    }
     if !self.file.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 15)
     }
@@ -430,10 +482,18 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
 
   public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
     if lhs._error != rhs._error {return false}
+    if lhs._supportedFeatures != rhs._supportedFeatures {return false}
     if lhs.file != rhs.file {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FEATURE_NONE"),
+    1: .same(proto: "FEATURE_PROTO3_OPTIONAL"),
+  ]
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

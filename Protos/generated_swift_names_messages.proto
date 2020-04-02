@@ -113,6 +113,7 @@ message GeneratedSwiftReservedMessages {
   message clearPhpMetadataNamespace { int32 clearPhpMetadataNamespace = 1; }
   message clearPhpNamespace { int32 clearPhpNamespace = 1; }
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
+  message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
   message clearRubyPackage { int32 clearRubyPackage = 1; }
   message clearServerStreaming { int32 clearServerStreaming = 1; }
@@ -416,6 +417,7 @@ message GeneratedSwiftReservedMessages {
   message hasPhpMetadataNamespace { int32 hasPhpMetadataNamespace = 1; }
   message hasPhpNamespace { int32 hasPhpNamespace = 1; }
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
+  message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
   message hasRubyPackage { int32 hasRubyPackage = 1; }
   message hasServerStreaming { int32 hasServerStreaming = 1; }
@@ -605,6 +607,7 @@ message GeneratedSwiftReservedMessages {
   message printUnknownFields { int32 printUnknownFields = 1; }
   message proto2 { int32 proto2 = 1; }
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
+  message proto3Optional { int32 proto3Optional = 1; }
   message ProtobufAPIVersionCheck { int32 ProtobufAPIVersionCheck = 1; }
   message ProtobufAPIVersion_2 { int32 ProtobufAPIVersion_2 = 1; }
   message ProtobufBool { int32 ProtobufBool = 1; }
