@@ -113,6 +113,7 @@ message GeneratedSwiftReservedEnums {
   enum clearPhpMetadataNamespace { NONE_clearPhpMetadataNamespace = 0; }
   enum clearPhpNamespace { NONE_clearPhpNamespace = 0; }
   enum clearPositiveIntValue { NONE_clearPositiveIntValue = 0; }
+  enum clearProto3Optional { NONE_clearProto3Optional = 0; }
   enum clearPyGenericServices { NONE_clearPyGenericServices = 0; }
   enum clearRubyPackage { NONE_clearRubyPackage = 0; }
   enum clearServerStreaming { NONE_clearServerStreaming = 0; }
@@ -416,6 +417,7 @@ message GeneratedSwiftReservedEnums {
   enum hasPhpMetadataNamespace { NONE_hasPhpMetadataNamespace = 0; }
   enum hasPhpNamespace { NONE_hasPhpNamespace = 0; }
   enum hasPositiveIntValue { NONE_hasPositiveIntValue = 0; }
+  enum hasProto3Optional { NONE_hasProto3Optional = 0; }
   enum hasPyGenericServices { NONE_hasPyGenericServices = 0; }
   enum hasRubyPackage { NONE_hasRubyPackage = 0; }
   enum hasServerStreaming { NONE_hasServerStreaming = 0; }
@@ -605,6 +607,7 @@ message GeneratedSwiftReservedEnums {
   enum printUnknownFields { NONE_printUnknownFields = 0; }
   enum proto2 { NONE_proto2 = 0; }
   enum proto3DefaultValue { NONE_proto3DefaultValue = 0; }
+  enum proto3Optional { NONE_proto3Optional = 0; }
   enum ProtobufAPIVersionCheck { NONE_ProtobufAPIVersionCheck = 0; }
   enum ProtobufAPIVersion_2 { NONE_ProtobufAPIVersion_2 = 0; }
   enum ProtobufBool { NONE_ProtobufBool = 0; }

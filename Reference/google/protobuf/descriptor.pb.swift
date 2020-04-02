@@ -420,6 +420,25 @@ struct Google_Protobuf_FieldDescriptorProto {
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
   mutating func clearOptions() {self._options = nil}
 
+  /// If true, this is a proto3 "optional". When a proto3 field is optional, it
+  /// tracks presence regardless of field type.
+  ///
+  /// For message fields this doesn't create any semantic change, since
+  /// non-repeated message fields always track presence. However it still
+  /// indicates the semantic detail of whether the user wrote "optional" or not.
+  /// This can be useful for round-tripping the .proto file.
+  ///
+  /// Proto2 optional fields do not set this flag, because they already indicate
+  /// optional with `LABEL_OPTIONAL`.
+  var proto3Optional: Bool {
+    get {return _proto3Optional ?? false}
+    set {_proto3Optional = newValue}
+  }
+  /// Returns true if `proto3Optional` has been explicitly set.
+  var hasProto3Optional: Bool {return self._proto3Optional != nil}
+  /// Clears the value of `proto3Optional`. Subsequent reads from it will return its default value.
+  mutating func clearProto3Optional() {self._proto3Optional = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum TypeEnum: SwiftProtobuf.Enum {
@@ -561,6 +580,7 @@ struct Google_Protobuf_FieldDescriptorProto {
   fileprivate var _oneofIndex: Int32? = nil
   fileprivate var _jsonName: String? = nil
   fileprivate var _options: Google_Protobuf_FieldOptions? = nil
+  fileprivate var _proto3Optional: Bool? = nil
 }
 
 #if swift(>=4.2)
@@ -998,7 +1018,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Enables the use of arenas for the proto messages in this file. This applies
   /// only to generated classes for C++.
   var ccEnableArenas: Bool {
-    get {return _storage._ccEnableArenas ?? false}
+    get {return _storage._ccEnableArenas ?? true}
     set {_uniqueStorage()._ccEnableArenas = newValue}
   }
   /// Returns true if `ccEnableArenas` has been explicitly set.
@@ -2373,6 +2393,7 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
     9: .standard(proto: "oneof_index"),
     10: .standard(proto: "json_name"),
     8: .same(proto: "options"),
+    17: .standard(proto: "proto3_optional"),
   ]
 
   public var isInitialized: Bool {
@@ -2393,6 +2414,7 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
       case 8: try decoder.decodeSingularMessageField(value: &self._options)
       case 9: try decoder.decodeSingularInt32Field(value: &self._oneofIndex)
       case 10: try decoder.decodeSingularStringField(value: &self._jsonName)
+      case 17: try decoder.decodeSingularBoolField(value: &self._proto3Optional)
       default: break
       }
     }
@@ -2429,6 +2451,9 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
     if let v = self._jsonName {
       try visitor.visitSingularStringField(value: v, fieldNumber: 10)
     }
+    if let v = self._proto3Optional {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2443,6 +2468,7 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
     if lhs._oneofIndex != rhs._oneofIndex {return false}
     if lhs._jsonName != rhs._jsonName {return false}
     if lhs._options != rhs._options {return false}
+    if lhs._proto3Optional != rhs._proto3Optional {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
