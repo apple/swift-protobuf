@@ -1,0 +1,55 @@
+// Protos/pluginlib_descriptor_test.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2020 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test proto for Tests/SwiftProtobufPluginLibraryTests/Test_Descriptor.swift
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto3";
+
+package swift_descriptor_test;
+
+message Proto3MessageForPresence {
+
+  enum SubEnum {
+    SUB_VALUE_0 = 0;
+    SUB_VALUE_1 = 1;
+    SUB_VALUE_2 = 2;
+  }
+
+  string str_field = 1;
+  int32 int32_field = 2;
+  SubEnum enum_field = 3;
+  OtherMessage message_field = 4;
+
+  optional string opt_str_field = 11;
+  optional int32 opt_int32_field = 12;
+  optional SubEnum opt_enum_field = 13;
+  optional OtherMessage opt_message_field = 14;
+
+  repeated string repeat_str_field = 21;
+  repeated int32 repeat_int32_field = 22;
+  repeated SubEnum repeat_enum_field = 23;
+  repeated OtherMessage repeat_message_field = 24;
+
+  oneof o {
+    string oneof_str_field = 31;
+    int32 oneof_int32_field = 32;
+    SubEnum oneof_enum_field = 33;
+    OtherMessage oneof_message_field = 34;
+  }
+
+}
+
+message OtherMessage {
+  string field = 1;
+}

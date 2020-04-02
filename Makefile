@@ -53,7 +53,8 @@ GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 # previously installed one), we use a custom output name (-tfiws_out).
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
-GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
+# Until the flag isn't needed, add the flag to enable proto3 optional.
+GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos --experimental_allow_proto3_optional
 
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
@@ -167,6 +168,7 @@ CONFORMANCE_PROTOS= \
 
 SWIFT_DESCRIPTOR_TEST_PROTOS= \
 	Protos/pluginlib_descriptor_test.proto \
+	Protos/pluginlib_descriptor_test2.proto \
 	${PLUGIN_PROTOS}
 
 XCODEBUILD_EXTRAS =
@@ -388,7 +390,9 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_e
 		${TEST_PROTOS}
 
 Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
+	# Until the flag isn't needed, add the flag to enable proto3 optional.
 	@${PROTOC} \
+		--experimental_allow_proto3_optional \
 		--include_imports \
 		--descriptor_set_out=DescriptorTestData.bin \
 		-I Protos \
