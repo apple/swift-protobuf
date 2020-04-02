@@ -1239,7 +1239,7 @@ extension ProtobufUnittest_TestAllTypes.NestedEnum: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-/// This proto includes a recusively nested message.
+/// This proto includes a recursively nested message.
 struct ProtobufUnittest_NestedTestAllTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
