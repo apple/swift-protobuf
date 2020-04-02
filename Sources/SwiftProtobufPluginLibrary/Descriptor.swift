@@ -165,6 +165,14 @@ public final class Descriptor {
   public let messages: [Descriptor]
   public let fields: [FieldDescriptor]
   public let oneofs: [OneofDescriptor]
+  /// Non synthetic oneofs.
+  ///
+  /// These always come first (enforced by the C++ Descriptor code). So this is always a
+  /// leading subset of `oneofs` (or the same if there are no synthetic entries).
+  public private(set) lazy var realOneofs: [OneofDescriptor] = {
+    // Lazy because `isSynthetic` can't be called until after `bind()`.
+    return self.oneofs.filter { !$0.isSynthetic }
+  }()
   public let extensions: [FieldDescriptor]
 
   public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
@@ -212,6 +220,17 @@ public final class Descriptor {
     self.fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }
     self.oneofs.forEach { $0.bind(registry: registry, containingType: self) }
     self.extensions.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+
+    // Synthetic oneofs come after normal oneofs. The C++ Descriptor enforces this, only
+    // here as a secondary validation because other code can rely on it.
+    var seenSynthetic = false
+    for o in self.oneofs {
+      if o.isSynthetic {
+        seenSynthetic = true
+      } else {
+        assert(!seenSynthetic)
+      }
+    }
   }
 }
 
@@ -303,6 +322,12 @@ public final class OneofDescriptor {
 
   public var name: String { return proto.name }
 
+  /// Returns whether this oneof was inserted by the compiler to wrap a proto3
+  /// optional field. If this returns true, code generators should *not* emit it.
+  public var isSynthetic: Bool {
+    return fields.count == 1 && fields.first!.proto3Optional
+  }
+
   public private(set) lazy var fields: [FieldDescriptor] = {
     let myIndex = Int32(self.index)
     return self.containingType.fields.filter { $0.oneofIndex == myIndex }
@@ -332,6 +357,30 @@ public final class FieldDescriptor {
   public var number: Int32 { return proto.number }
   public var label: Google_Protobuf_FieldDescriptorProto.Label { return proto.label }
   public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum { return proto.type }
+
+  var proto3Optional: Bool { return proto.proto3Optional }
+
+  /// Returns true if this field was syntactically written with "optional" in the
+  /// .proto file. Excludes singular proto3 fields that do not have a label.
+  public var hasOptionalKeyword: Bool {
+    return proto3Optional ||
+      (file.syntax == .proto2 && label == .optional && oneofIndex == nil)
+  }
+
+  /// Returns true if this field tracks presence, ie. does the field
+  /// distinguish between "unset" and "present with default value."
+  /// This includes required, optional, and oneof fields. It excludes maps,
+  /// repeated fields, and singular proto3 fields without "optional".
+  public var hasPresence: Bool {
+    guard label != .repeated else { return false }
+    switch type {
+    case .group, .message:
+      // Groups/messages always get field presence.
+      return true
+    default:
+      return file.syntax == .proto2 || oneofIndex != nil
+    }
+  }
 
   public var fullName: String {
     // Since the fullName isn't needed on Fields that often, compute it on demand.
@@ -387,11 +436,15 @@ public final class FieldDescriptor {
 
   /// The oneof this field is a member of.
   public var oneof: OneofDescriptor? {
-    if let oneofIndex = oneofIndex {
-      assert(!isExtension)
-      return containingType!.oneofs[Int(oneofIndex)]
-    }
-    return nil
+    guard let oneofIndex = oneofIndex else { return nil }
+    assert(!isExtension)
+    return containingType!.oneofs[Int(oneofIndex)]
+  }
+
+  /// The non synthetic oneof this field is a member of.
+  public var realOneof: OneofDescriptor? {
+    guard let oneof = oneof, !oneof.isSynthetic else { return nil }
+    return oneof
   }
 
   /// When this is a message field, the message's desciptor.
@@ -434,8 +487,9 @@ public final class FieldDescriptor {
       oneofIndex = proto.oneofIndex
     } else {
       oneofIndex = nil
+      // .proto3Optional requires being in a oneof, also enforced by C++ Descriptor.
+      assert(!proto.proto3Optional)
     }
-
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
