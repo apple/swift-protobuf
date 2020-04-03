@@ -518,12 +518,13 @@ update-proto-files: check-for-protobuf-checkout
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
 
 # Runs the conformance tests.
-test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt
+test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt Sources/Conformance/text_format_failure_list_swift.txt
 	( \
 		ABS_PBDIR=`cd ${GOOGLE_PROTOBUF_CHECKOUT}; pwd`; \
 		$${ABS_PBDIR}/conformance/conformance-test-runner \
 		  --enforce_recommended \
 		  --failure_list Sources/Conformance/failure_list_swift.txt \
+		  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt\
 		  $(SWIFT_CONFORMANCE_PLUGIN); \
 	)
 
