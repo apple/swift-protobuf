@@ -113,6 +113,7 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_preserve_unknown_enum2.proto \
 	Protos/google/protobuf/unittest_proto3.proto \
 	Protos/google/protobuf/unittest_proto3_arena.proto \
+	Protos/google/protobuf/unittest_proto3_optional.proto \
 	Protos/google/protobuf/unittest_well_known_types.proto \
 	Protos/unittest_swift_all_required_types.proto \
 	Protos/unittest_swift_cycle.proto \
