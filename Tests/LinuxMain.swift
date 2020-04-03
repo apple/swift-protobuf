@@ -212,6 +212,30 @@ extension Test_AllTypes_Proto3 {
     ]
 }
 
+extension Test_AllTypes_Proto3_Optional {
+    static var allTests = [
+        ("testEncoding_optionalInt32", testEncoding_optionalInt32),
+        ("testEncoding_optionalInt64", testEncoding_optionalInt64),
+        ("testEncoding_optionalUint32", testEncoding_optionalUint32),
+        ("testEncoding_optionalUint64", testEncoding_optionalUint64),
+        ("testEncoding_optionalSint32", testEncoding_optionalSint32),
+        ("testEncoding_optionalSint64", testEncoding_optionalSint64),
+        ("testEncoding_optionalFixed32", testEncoding_optionalFixed32),
+        ("testEncoding_optionalFixed64", testEncoding_optionalFixed64),
+        ("testEncoding_optionalSfixed32", testEncoding_optionalSfixed32),
+        ("testEncoding_optionalSfixed64", testEncoding_optionalSfixed64),
+        ("testEncoding_optionalFloat", testEncoding_optionalFloat),
+        ("testEncoding_optionalDouble", testEncoding_optionalDouble),
+        ("testEncoding_optionalBool", testEncoding_optionalBool),
+        ("testEncoding_optionalString", testEncoding_optionalString),
+        ("testEncoding_optionalBytes", testEncoding_optionalBytes),
+        ("testEncoding_optionalCord", testEncoding_optionalCord),
+        ("testEncoding_optionalNestedMessage", testEncoding_optionalNestedMessage),
+        ("testEncoding_lazyNestedMessage", testEncoding_lazyNestedMessage),
+        ("testEncoding_optionalNestedEnum", testEncoding_optionalNestedEnum)
+    ]
+}
+
 extension Test_Any {
     static var allTests = [
         ("test_Any", test_Any),
@@ -1137,6 +1161,7 @@ XCTMain(
         testCase(Test_SwiftProtobufNamer.allTests),
         testCase(Test_AllTypes.allTests),
         testCase(Test_AllTypes_Proto3.allTests),
+        testCase(Test_AllTypes_Proto3_Optional.allTests),
         testCase(Test_Any.allTests),
         testCase(Test_Api.allTests),
         testCase(Test_BasicFields_Access_Proto2.allTests),
