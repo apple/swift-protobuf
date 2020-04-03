@@ -55,7 +55,7 @@ class MessageGenerator {
     // storage yet.
     let useHeapStorage = isAnyMessage || descriptor.fields.count > 16 || hasRecursiveSingularField(descriptor: descriptor)
 
-    oneofs = descriptor.oneofs.map {
+    oneofs = descriptor.realOneofs.map {
       return OneofGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer, usesHeapStorage: useHeapStorage)
     }
 
@@ -553,13 +553,12 @@ fileprivate struct MessageFieldFactory {
   }
 
   func make(forFieldDescriptor field: FieldDescriptor) -> FieldGenerator {
-    if let oneofIndex = field.oneofIndex {
-      return oneofs[Int(oneofIndex)].fieldGenerator(forFieldNumber: Int(field.number))
-    } else {
-      return MessageFieldGenerator(descriptor: field,
-                                   generatorOptions: generatorOptions,
-                                   namer: namer,
-                                   usesHeapStorage: useHeapStorage)
+    guard field.realOneof == nil else {
+      return oneofs[Int(field.oneofIndex!)].fieldGenerator(forFieldNumber: Int(field.number))
     }
+    return MessageFieldGenerator(descriptor: field,
+                                 generatorOptions: generatorOptions,
+                                 namer: namer,
+                                 usesHeapStorage: useHeapStorage)
   }
 }
