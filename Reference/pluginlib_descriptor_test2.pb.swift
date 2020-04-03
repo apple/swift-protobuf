@@ -56,45 +56,41 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
   /// Clears the value of `messageField`. Subsequent reads from it will return its default value.
   mutating func clearMessageField() {self._messageField = nil}
 
-  var optStrField: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptStrField? = nil
-
   var optStrField: String {
-    get {
-      if case .optStrField(let v)? = optStrField {return v}
-      return String()
-    }
-    set {optStrField = .optStrField(newValue)}
+    get {return _optStrField ?? String()}
+    set {_optStrField = newValue}
   }
-
-  var optInt32Field: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptInt32Field? = nil
+  /// Returns true if `optStrField` has been explicitly set.
+  var hasOptStrField: Bool {return self._optStrField != nil}
+  /// Clears the value of `optStrField`. Subsequent reads from it will return its default value.
+  mutating func clearOptStrField() {self._optStrField = nil}
 
   var optInt32Field: Int32 {
-    get {
-      if case .optInt32Field(let v)? = optInt32Field {return v}
-      return 0
-    }
-    set {optInt32Field = .optInt32Field(newValue)}
+    get {return _optInt32Field ?? 0}
+    set {_optInt32Field = newValue}
   }
-
-  var optEnumField: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptEnumField? = nil
+  /// Returns true if `optInt32Field` has been explicitly set.
+  var hasOptInt32Field: Bool {return self._optInt32Field != nil}
+  /// Clears the value of `optInt32Field`. Subsequent reads from it will return its default value.
+  mutating func clearOptInt32Field() {self._optInt32Field = nil}
 
   var optEnumField: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum {
-    get {
-      if case .optEnumField(let v)? = optEnumField {return v}
-      return .subValue0
-    }
-    set {optEnumField = .optEnumField(newValue)}
+    get {return _optEnumField ?? .subValue0}
+    set {_optEnumField = newValue}
   }
-
-  var optMessageField: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptMessageField? = nil
+  /// Returns true if `optEnumField` has been explicitly set.
+  var hasOptEnumField: Bool {return self._optEnumField != nil}
+  /// Clears the value of `optEnumField`. Subsequent reads from it will return its default value.
+  mutating func clearOptEnumField() {self._optEnumField = nil}
 
   var optMessageField: SwiftDescriptorTest_OtherMessage {
-    get {
-      if case .optMessageField(let v)? = optMessageField {return v}
-      return SwiftDescriptorTest_OtherMessage()
-    }
-    set {optMessageField = .optMessageField(newValue)}
+    get {return _optMessageField ?? SwiftDescriptorTest_OtherMessage()}
+    set {_optMessageField = newValue}
   }
+  /// Returns true if `optMessageField` has been explicitly set.
+  var hasOptMessageField: Bool {return self._optMessageField != nil}
+  /// Clears the value of `optMessageField`. Subsequent reads from it will return its default value.
+  mutating func clearOptMessageField() {self._optMessageField = nil}
 
   var repeatStrField: [String] = []
 
@@ -159,54 +155,6 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
   #endif
   }
 
-  enum OneOf_OptStrField: Equatable {
-    case optStrField(String)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptStrField, rhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptStrField) -> Bool {
-      switch (lhs, rhs) {
-      case (.optStrField(let l), .optStrField(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptInt32Field: Equatable {
-    case optInt32Field(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptInt32Field, rhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptInt32Field) -> Bool {
-      switch (lhs, rhs) {
-      case (.optInt32Field(let l), .optInt32Field(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptEnumField: Equatable {
-    case optEnumField(SwiftDescriptorTest_Proto3MessageForPresence.SubEnum)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptEnumField, rhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptEnumField) -> Bool {
-      switch (lhs, rhs) {
-      case (.optEnumField(let l), .optEnumField(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptMessageField: Equatable {
-    case optMessageField(SwiftDescriptorTest_OtherMessage)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptMessageField, rhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_OptMessageField) -> Bool {
-      switch (lhs, rhs) {
-      case (.optMessageField(let l), .optMessageField(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
   enum SubEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case subValue0 // = 0
@@ -241,6 +189,10 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
   init() {}
 
   fileprivate var _messageField: SwiftDescriptorTest_OtherMessage? = nil
+  fileprivate var _optStrField: String? = nil
+  fileprivate var _optInt32Field: Int32? = nil
+  fileprivate var _optEnumField: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum? = nil
+  fileprivate var _optMessageField: SwiftDescriptorTest_OtherMessage? = nil
 }
 
 #if swift(>=4.2)
@@ -300,29 +252,10 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
       case 2: try decoder.decodeSingularInt32Field(value: &self.int32Field)
       case 3: try decoder.decodeSingularEnumField(value: &self.enumField)
       case 4: try decoder.decodeSingularMessageField(value: &self._messageField)
-      case 11:
-        if self.optStrField != nil {try decoder.handleConflictingOneOf()}
-        var v: String?
-        try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.optStrField = .optStrField(v)}
-      case 12:
-        if self.optInt32Field != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.optInt32Field = .optInt32Field(v)}
-      case 13:
-        if self.optEnumField != nil {try decoder.handleConflictingOneOf()}
-        var v: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.optEnumField = .optEnumField(v)}
-      case 14:
-        var v: SwiftDescriptorTest_OtherMessage?
-        if let current = self.optMessageField {
-          try decoder.handleConflictingOneOf()
-          if case .optMessageField(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.optMessageField = .optMessageField(v)}
+      case 11: try decoder.decodeSingularStringField(value: &self._optStrField)
+      case 12: try decoder.decodeSingularInt32Field(value: &self._optInt32Field)
+      case 13: try decoder.decodeSingularEnumField(value: &self._optEnumField)
+      case 14: try decoder.decodeSingularMessageField(value: &self._optMessageField)
       case 21: try decoder.decodeRepeatedStringField(value: &self.repeatStrField)
       case 22: try decoder.decodeRepeatedInt32Field(value: &self.repeatInt32Field)
       case 23: try decoder.decodeRepeatedEnumField(value: &self.repeatEnumField)
@@ -368,16 +301,16 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
     if let v = self._messageField {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }
-    if case .optStrField(let v)? = self.optStrField {
+    if let v = self._optStrField {
       try visitor.visitSingularStringField(value: v, fieldNumber: 11)
     }
-    if case .optInt32Field(let v)? = self.optInt32Field {
+    if let v = self._optInt32Field {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
     }
-    if case .optEnumField(let v)? = self.optEnumField {
+    if let v = self._optEnumField {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 13)
     }
-    if case .optMessageField(let v)? = self.optMessageField {
+    if let v = self._optMessageField {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
     }
     if !self.repeatStrField.isEmpty {
@@ -411,10 +344,10 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
     if lhs.int32Field != rhs.int32Field {return false}
     if lhs.enumField != rhs.enumField {return false}
     if lhs._messageField != rhs._messageField {return false}
-    if lhs.optStrField != rhs.optStrField {return false}
-    if lhs.optInt32Field != rhs.optInt32Field {return false}
-    if lhs.optEnumField != rhs.optEnumField {return false}
-    if lhs.optMessageField != rhs.optMessageField {return false}
+    if lhs._optStrField != rhs._optStrField {return false}
+    if lhs._optInt32Field != rhs._optInt32Field {return false}
+    if lhs._optEnumField != rhs._optEnumField {return false}
+    if lhs._optMessageField != rhs._optMessageField {return false}
     if lhs.repeatStrField != rhs.repeatStrField {return false}
     if lhs.repeatInt32Field != rhs.repeatInt32Field {return false}
     if lhs.repeatEnumField != rhs.repeatEnumField {return false}

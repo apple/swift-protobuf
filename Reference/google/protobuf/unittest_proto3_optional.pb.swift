@@ -55,484 +55,179 @@ struct ProtobufUnittest_TestProto3Optional {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var optionalInt32: OneOf_OptionalInt32? {
-    get {return _storage._optionalInt32}
-    set {_uniqueStorage()._optionalInt32 = newValue}
-  }
-
   /// Singular
   var optionalInt32: Int32 {
-    get {
-      if case .optionalInt32(let v)? = _storage._optionalInt32 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalInt32 = .optionalInt32(newValue)}
+    get {return _storage._optionalInt32 ?? 0}
+    set {_uniqueStorage()._optionalInt32 = newValue}
   }
-
-  var optionalInt64: OneOf_OptionalInt64? {
-    get {return _storage._optionalInt64}
-    set {_uniqueStorage()._optionalInt64 = newValue}
-  }
+  /// Returns true if `optionalInt32` has been explicitly set.
+  var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
+  /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32() {_uniqueStorage()._optionalInt32 = nil}
 
   var optionalInt64: Int64 {
-    get {
-      if case .optionalInt64(let v)? = _storage._optionalInt64 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalInt64 = .optionalInt64(newValue)}
+    get {return _storage._optionalInt64 ?? 0}
+    set {_uniqueStorage()._optionalInt64 = newValue}
   }
-
-  var optionalUint32: OneOf_OptionalUint32? {
-    get {return _storage._optionalUint32}
-    set {_uniqueStorage()._optionalUint32 = newValue}
-  }
+  /// Returns true if `optionalInt64` has been explicitly set.
+  var hasOptionalInt64: Bool {return _storage._optionalInt64 != nil}
+  /// Clears the value of `optionalInt64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt64() {_uniqueStorage()._optionalInt64 = nil}
 
   var optionalUint32: UInt32 {
-    get {
-      if case .optionalUint32(let v)? = _storage._optionalUint32 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalUint32 = .optionalUint32(newValue)}
+    get {return _storage._optionalUint32 ?? 0}
+    set {_uniqueStorage()._optionalUint32 = newValue}
   }
-
-  var optionalUint64: OneOf_OptionalUint64? {
-    get {return _storage._optionalUint64}
-    set {_uniqueStorage()._optionalUint64 = newValue}
-  }
+  /// Returns true if `optionalUint32` has been explicitly set.
+  var hasOptionalUint32: Bool {return _storage._optionalUint32 != nil}
+  /// Clears the value of `optionalUint32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint32() {_uniqueStorage()._optionalUint32 = nil}
 
   var optionalUint64: UInt64 {
-    get {
-      if case .optionalUint64(let v)? = _storage._optionalUint64 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalUint64 = .optionalUint64(newValue)}
+    get {return _storage._optionalUint64 ?? 0}
+    set {_uniqueStorage()._optionalUint64 = newValue}
   }
-
-  var optionalSint32: OneOf_OptionalSint32? {
-    get {return _storage._optionalSint32}
-    set {_uniqueStorage()._optionalSint32 = newValue}
-  }
+  /// Returns true if `optionalUint64` has been explicitly set.
+  var hasOptionalUint64: Bool {return _storage._optionalUint64 != nil}
+  /// Clears the value of `optionalUint64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint64() {_uniqueStorage()._optionalUint64 = nil}
 
   var optionalSint32: Int32 {
-    get {
-      if case .optionalSint32(let v)? = _storage._optionalSint32 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalSint32 = .optionalSint32(newValue)}
+    get {return _storage._optionalSint32 ?? 0}
+    set {_uniqueStorage()._optionalSint32 = newValue}
   }
-
-  var optionalSint64: OneOf_OptionalSint64? {
-    get {return _storage._optionalSint64}
-    set {_uniqueStorage()._optionalSint64 = newValue}
-  }
+  /// Returns true if `optionalSint32` has been explicitly set.
+  var hasOptionalSint32: Bool {return _storage._optionalSint32 != nil}
+  /// Clears the value of `optionalSint32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSint32() {_uniqueStorage()._optionalSint32 = nil}
 
   var optionalSint64: Int64 {
-    get {
-      if case .optionalSint64(let v)? = _storage._optionalSint64 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalSint64 = .optionalSint64(newValue)}
+    get {return _storage._optionalSint64 ?? 0}
+    set {_uniqueStorage()._optionalSint64 = newValue}
   }
-
-  var optionalFixed32: OneOf_OptionalFixed32? {
-    get {return _storage._optionalFixed32}
-    set {_uniqueStorage()._optionalFixed32 = newValue}
-  }
+  /// Returns true if `optionalSint64` has been explicitly set.
+  var hasOptionalSint64: Bool {return _storage._optionalSint64 != nil}
+  /// Clears the value of `optionalSint64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSint64() {_uniqueStorage()._optionalSint64 = nil}
 
   var optionalFixed32: UInt32 {
-    get {
-      if case .optionalFixed32(let v)? = _storage._optionalFixed32 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalFixed32 = .optionalFixed32(newValue)}
+    get {return _storage._optionalFixed32 ?? 0}
+    set {_uniqueStorage()._optionalFixed32 = newValue}
   }
-
-  var optionalFixed64: OneOf_OptionalFixed64? {
-    get {return _storage._optionalFixed64}
-    set {_uniqueStorage()._optionalFixed64 = newValue}
-  }
+  /// Returns true if `optionalFixed32` has been explicitly set.
+  var hasOptionalFixed32: Bool {return _storage._optionalFixed32 != nil}
+  /// Clears the value of `optionalFixed32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalFixed32() {_uniqueStorage()._optionalFixed32 = nil}
 
   var optionalFixed64: UInt64 {
-    get {
-      if case .optionalFixed64(let v)? = _storage._optionalFixed64 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalFixed64 = .optionalFixed64(newValue)}
+    get {return _storage._optionalFixed64 ?? 0}
+    set {_uniqueStorage()._optionalFixed64 = newValue}
   }
-
-  var optionalSfixed32: OneOf_OptionalSfixed32? {
-    get {return _storage._optionalSfixed32}
-    set {_uniqueStorage()._optionalSfixed32 = newValue}
-  }
+  /// Returns true if `optionalFixed64` has been explicitly set.
+  var hasOptionalFixed64: Bool {return _storage._optionalFixed64 != nil}
+  /// Clears the value of `optionalFixed64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalFixed64() {_uniqueStorage()._optionalFixed64 = nil}
 
   var optionalSfixed32: Int32 {
-    get {
-      if case .optionalSfixed32(let v)? = _storage._optionalSfixed32 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalSfixed32 = .optionalSfixed32(newValue)}
+    get {return _storage._optionalSfixed32 ?? 0}
+    set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
-
-  var optionalSfixed64: OneOf_OptionalSfixed64? {
-    get {return _storage._optionalSfixed64}
-    set {_uniqueStorage()._optionalSfixed64 = newValue}
-  }
+  /// Returns true if `optionalSfixed32` has been explicitly set.
+  var hasOptionalSfixed32: Bool {return _storage._optionalSfixed32 != nil}
+  /// Clears the value of `optionalSfixed32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSfixed32() {_uniqueStorage()._optionalSfixed32 = nil}
 
   var optionalSfixed64: Int64 {
-    get {
-      if case .optionalSfixed64(let v)? = _storage._optionalSfixed64 {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalSfixed64 = .optionalSfixed64(newValue)}
+    get {return _storage._optionalSfixed64 ?? 0}
+    set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
-
-  var optionalFloat: OneOf_OptionalFloat? {
-    get {return _storage._optionalFloat}
-    set {_uniqueStorage()._optionalFloat = newValue}
-  }
+  /// Returns true if `optionalSfixed64` has been explicitly set.
+  var hasOptionalSfixed64: Bool {return _storage._optionalSfixed64 != nil}
+  /// Clears the value of `optionalSfixed64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSfixed64() {_uniqueStorage()._optionalSfixed64 = nil}
 
   var optionalFloat: Float {
-    get {
-      if case .optionalFloat(let v)? = _storage._optionalFloat {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalFloat = .optionalFloat(newValue)}
+    get {return _storage._optionalFloat ?? 0}
+    set {_uniqueStorage()._optionalFloat = newValue}
   }
-
-  var optionalDouble: OneOf_OptionalDouble? {
-    get {return _storage._optionalDouble}
-    set {_uniqueStorage()._optionalDouble = newValue}
-  }
+  /// Returns true if `optionalFloat` has been explicitly set.
+  var hasOptionalFloat: Bool {return _storage._optionalFloat != nil}
+  /// Clears the value of `optionalFloat`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalFloat() {_uniqueStorage()._optionalFloat = nil}
 
   var optionalDouble: Double {
-    get {
-      if case .optionalDouble(let v)? = _storage._optionalDouble {return v}
-      return 0
-    }
-    set {_uniqueStorage()._optionalDouble = .optionalDouble(newValue)}
+    get {return _storage._optionalDouble ?? 0}
+    set {_uniqueStorage()._optionalDouble = newValue}
   }
-
-  var optionalBool: OneOf_OptionalBool? {
-    get {return _storage._optionalBool}
-    set {_uniqueStorage()._optionalBool = newValue}
-  }
+  /// Returns true if `optionalDouble` has been explicitly set.
+  var hasOptionalDouble: Bool {return _storage._optionalDouble != nil}
+  /// Clears the value of `optionalDouble`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalDouble() {_uniqueStorage()._optionalDouble = nil}
 
   var optionalBool: Bool {
-    get {
-      if case .optionalBool(let v)? = _storage._optionalBool {return v}
-      return false
-    }
-    set {_uniqueStorage()._optionalBool = .optionalBool(newValue)}
+    get {return _storage._optionalBool ?? false}
+    set {_uniqueStorage()._optionalBool = newValue}
   }
-
-  var optionalString: OneOf_OptionalString? {
-    get {return _storage._optionalString}
-    set {_uniqueStorage()._optionalString = newValue}
-  }
+  /// Returns true if `optionalBool` has been explicitly set.
+  var hasOptionalBool: Bool {return _storage._optionalBool != nil}
+  /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBool() {_uniqueStorage()._optionalBool = nil}
 
   var optionalString: String {
-    get {
-      if case .optionalString(let v)? = _storage._optionalString {return v}
-      return String()
-    }
-    set {_uniqueStorage()._optionalString = .optionalString(newValue)}
+    get {return _storage._optionalString ?? String()}
+    set {_uniqueStorage()._optionalString = newValue}
   }
-
-  var optionalBytes: OneOf_OptionalBytes? {
-    get {return _storage._optionalBytes}
-    set {_uniqueStorage()._optionalBytes = newValue}
-  }
+  /// Returns true if `optionalString` has been explicitly set.
+  var hasOptionalString: Bool {return _storage._optionalString != nil}
+  /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {
-      if case .optionalBytes(let v)? = _storage._optionalBytes {return v}
-      return SwiftProtobuf.Internal.emptyData
-    }
-    set {_uniqueStorage()._optionalBytes = .optionalBytes(newValue)}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    set {_uniqueStorage()._optionalBytes = newValue}
   }
-
-  var optionalCord: OneOf_OptionalCord? {
-    get {return _storage._optionalCord}
-    set {_uniqueStorage()._optionalCord = newValue}
-  }
+  /// Returns true if `optionalBytes` has been explicitly set.
+  var hasOptionalBytes: Bool {return _storage._optionalBytes != nil}
+  /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBytes() {_uniqueStorage()._optionalBytes = nil}
 
   var optionalCord: String {
-    get {
-      if case .optionalCord(let v)? = _storage._optionalCord {return v}
-      return String()
-    }
-    set {_uniqueStorage()._optionalCord = .optionalCord(newValue)}
+    get {return _storage._optionalCord ?? String()}
+    set {_uniqueStorage()._optionalCord = newValue}
   }
-
-  var optionalNestedMessage: OneOf_OptionalNestedMessage? {
-    get {return _storage._optionalNestedMessage}
-    set {_uniqueStorage()._optionalNestedMessage = newValue}
-  }
+  /// Returns true if `optionalCord` has been explicitly set.
+  var hasOptionalCord: Bool {return _storage._optionalCord != nil}
+  /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
 
   var optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage {
-    get {
-      if case .optionalNestedMessage(let v)? = _storage._optionalNestedMessage {return v}
-      return ProtobufUnittest_TestProto3Optional.NestedMessage()
-    }
-    set {_uniqueStorage()._optionalNestedMessage = .optionalNestedMessage(newValue)}
+    get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestProto3Optional.NestedMessage()}
+    set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-
-  var lazyNestedMessage: OneOf_LazyNestedMessage? {
-    get {return _storage._lazyNestedMessage}
-    set {_uniqueStorage()._lazyNestedMessage = newValue}
-  }
+  /// Returns true if `optionalNestedMessage` has been explicitly set.
+  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
   var lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage {
-    get {
-      if case .lazyNestedMessage(let v)? = _storage._lazyNestedMessage {return v}
-      return ProtobufUnittest_TestProto3Optional.NestedMessage()
-    }
-    set {_uniqueStorage()._lazyNestedMessage = .lazyNestedMessage(newValue)}
+    get {return _storage._lazyNestedMessage ?? ProtobufUnittest_TestProto3Optional.NestedMessage()}
+    set {_uniqueStorage()._lazyNestedMessage = newValue}
   }
-
-  var optionalNestedEnum: OneOf_OptionalNestedEnum? {
-    get {return _storage._optionalNestedEnum}
-    set {_uniqueStorage()._optionalNestedEnum = newValue}
-  }
+  /// Returns true if `lazyNestedMessage` has been explicitly set.
+  var hasLazyNestedMessage: Bool {return _storage._lazyNestedMessage != nil}
+  /// Clears the value of `lazyNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearLazyNestedMessage() {_uniqueStorage()._lazyNestedMessage = nil}
 
   var optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum {
-    get {
-      if case .optionalNestedEnum(let v)? = _storage._optionalNestedEnum {return v}
-      return .unspecified
-    }
-    set {_uniqueStorage()._optionalNestedEnum = .optionalNestedEnum(newValue)}
+    get {return _storage._optionalNestedEnum ?? .unspecified}
+    set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
+  /// Returns true if `optionalNestedEnum` has been explicitly set.
+  var hasOptionalNestedEnum: Bool {return _storage._optionalNestedEnum != nil}
+  /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalNestedEnum() {_uniqueStorage()._optionalNestedEnum = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum OneOf_OptionalInt32: Equatable {
-    /// Singular
-    case optionalInt32(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalInt32, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalInt32) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalInt32(let l), .optionalInt32(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalInt64: Equatable {
-    case optionalInt64(Int64)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalInt64, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalInt64) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalInt64(let l), .optionalInt64(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalUint32: Equatable {
-    case optionalUint32(UInt32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalUint32, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalUint32) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalUint32(let l), .optionalUint32(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalUint64: Equatable {
-    case optionalUint64(UInt64)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalUint64, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalUint64) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalUint64(let l), .optionalUint64(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalSint32: Equatable {
-    case optionalSint32(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSint32, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSint32) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalSint32(let l), .optionalSint32(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalSint64: Equatable {
-    case optionalSint64(Int64)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSint64, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSint64) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalSint64(let l), .optionalSint64(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalFixed32: Equatable {
-    case optionalFixed32(UInt32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFixed32, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFixed32) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalFixed32(let l), .optionalFixed32(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalFixed64: Equatable {
-    case optionalFixed64(UInt64)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFixed64, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFixed64) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalFixed64(let l), .optionalFixed64(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalSfixed32: Equatable {
-    case optionalSfixed32(Int32)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSfixed32, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSfixed32) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalSfixed32(let l), .optionalSfixed32(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalSfixed64: Equatable {
-    case optionalSfixed64(Int64)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSfixed64, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSfixed64) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalSfixed64(let l), .optionalSfixed64(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalFloat: Equatable {
-    case optionalFloat(Float)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFloat, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFloat) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalFloat(let l), .optionalFloat(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalDouble: Equatable {
-    case optionalDouble(Double)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalDouble, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalDouble) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalDouble(let l), .optionalDouble(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalBool: Equatable {
-    case optionalBool(Bool)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalBool, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalBool) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalBool(let l), .optionalBool(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalString: Equatable {
-    case optionalString(String)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalString, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalString) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalString(let l), .optionalString(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalBytes: Equatable {
-    case optionalBytes(Data)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalBytes, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalBytes) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalBytes(let l), .optionalBytes(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalCord: Equatable {
-    case optionalCord(String)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalCord, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalCord) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalCord(let l), .optionalCord(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalNestedMessage: Equatable {
-    case optionalNestedMessage(ProtobufUnittest_TestProto3Optional.NestedMessage)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalNestedMessage, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalNestedMessage) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalNestedMessage(let l), .optionalNestedMessage(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_LazyNestedMessage: Equatable {
-    case lazyNestedMessage(ProtobufUnittest_TestProto3Optional.NestedMessage)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_LazyNestedMessage, rhs: ProtobufUnittest_TestProto3Optional.OneOf_LazyNestedMessage) -> Bool {
-      switch (lhs, rhs) {
-      case (.lazyNestedMessage(let l), .lazyNestedMessage(let r)): return l == r
-      }
-    }
-  #endif
-  }
-
-  enum OneOf_OptionalNestedEnum: Equatable {
-    case optionalNestedEnum(ProtobufUnittest_TestProto3Optional.NestedEnum)
-
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalNestedEnum, rhs: ProtobufUnittest_TestProto3Optional.OneOf_OptionalNestedEnum) -> Bool {
-      switch (lhs, rhs) {
-      case (.optionalNestedEnum(let l), .optionalNestedEnum(let r)): return l == r
-      }
-    }
-  #endif
-  }
 
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
@@ -578,37 +273,23 @@ struct ProtobufUnittest_TestProto3Optional {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var bb: ProtobufUnittest_TestProto3Optional.NestedMessage.OneOf_Bb? = nil
-
     /// The field name "b" fails to compile in proto1 because it conflicts with
     /// a local variable named "b" in one of the generated methods.  Doh.
     /// This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 {
-      get {
-        if case .bb(let v)? = bb {return v}
-        return 0
-      }
-      set {bb = .bb(newValue)}
+      get {return _bb ?? 0}
+      set {_bb = newValue}
     }
+    /// Returns true if `bb` has been explicitly set.
+    var hasBb: Bool {return self._bb != nil}
+    /// Clears the value of `bb`. Subsequent reads from it will return its default value.
+    mutating func clearBb() {self._bb = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum OneOf_Bb: Equatable {
-      /// The field name "b" fails to compile in proto1 because it conflicts with
-      /// a local variable named "b" in one of the generated methods.  Doh.
-      /// This file needs to compile in proto1 to test backwards-compatibility.
-      case bb(Int32)
-
-    #if !swift(>=4.1)
-      static func ==(lhs: ProtobufUnittest_TestProto3Optional.NestedMessage.OneOf_Bb, rhs: ProtobufUnittest_TestProto3Optional.NestedMessage.OneOf_Bb) -> Bool {
-        switch (lhs, rhs) {
-        case (.bb(let l), .bb(let r)): return l == r
-        }
-      }
-    #endif
-    }
-
     init() {}
+
+    fileprivate var _bb: Int32? = nil
   }
 
   init() {}
@@ -660,25 +341,25 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
   ]
 
   fileprivate class _StorageClass {
-    var _optionalInt32: ProtobufUnittest_TestProto3Optional.OneOf_OptionalInt32?
-    var _optionalInt64: ProtobufUnittest_TestProto3Optional.OneOf_OptionalInt64?
-    var _optionalUint32: ProtobufUnittest_TestProto3Optional.OneOf_OptionalUint32?
-    var _optionalUint64: ProtobufUnittest_TestProto3Optional.OneOf_OptionalUint64?
-    var _optionalSint32: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSint32?
-    var _optionalSint64: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSint64?
-    var _optionalFixed32: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFixed32?
-    var _optionalFixed64: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFixed64?
-    var _optionalSfixed32: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSfixed32?
-    var _optionalSfixed64: ProtobufUnittest_TestProto3Optional.OneOf_OptionalSfixed64?
-    var _optionalFloat: ProtobufUnittest_TestProto3Optional.OneOf_OptionalFloat?
-    var _optionalDouble: ProtobufUnittest_TestProto3Optional.OneOf_OptionalDouble?
-    var _optionalBool: ProtobufUnittest_TestProto3Optional.OneOf_OptionalBool?
-    var _optionalString: ProtobufUnittest_TestProto3Optional.OneOf_OptionalString?
-    var _optionalBytes: ProtobufUnittest_TestProto3Optional.OneOf_OptionalBytes?
-    var _optionalCord: ProtobufUnittest_TestProto3Optional.OneOf_OptionalCord?
-    var _optionalNestedMessage: ProtobufUnittest_TestProto3Optional.OneOf_OptionalNestedMessage?
-    var _lazyNestedMessage: ProtobufUnittest_TestProto3Optional.OneOf_LazyNestedMessage?
-    var _optionalNestedEnum: ProtobufUnittest_TestProto3Optional.OneOf_OptionalNestedEnum?
+    var _optionalInt32: Int32? = nil
+    var _optionalInt64: Int64? = nil
+    var _optionalUint32: UInt32? = nil
+    var _optionalUint64: UInt64? = nil
+    var _optionalSint32: Int32? = nil
+    var _optionalSint64: Int64? = nil
+    var _optionalFixed32: UInt32? = nil
+    var _optionalFixed64: UInt64? = nil
+    var _optionalSfixed32: Int32? = nil
+    var _optionalSfixed64: Int64? = nil
+    var _optionalFloat: Float? = nil
+    var _optionalDouble: Double? = nil
+    var _optionalBool: Bool? = nil
+    var _optionalString: String? = nil
+    var _optionalBytes: Data? = nil
+    var _optionalCord: String? = nil
+    var _optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
+    var _lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
+    var _optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -719,107 +400,25 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1:
-          if _storage._optionalInt32 != nil {try decoder.handleConflictingOneOf()}
-          var v: Int32?
-          try decoder.decodeSingularInt32Field(value: &v)
-          if let v = v {_storage._optionalInt32 = .optionalInt32(v)}
-        case 2:
-          if _storage._optionalInt64 != nil {try decoder.handleConflictingOneOf()}
-          var v: Int64?
-          try decoder.decodeSingularInt64Field(value: &v)
-          if let v = v {_storage._optionalInt64 = .optionalInt64(v)}
-        case 3:
-          if _storage._optionalUint32 != nil {try decoder.handleConflictingOneOf()}
-          var v: UInt32?
-          try decoder.decodeSingularUInt32Field(value: &v)
-          if let v = v {_storage._optionalUint32 = .optionalUint32(v)}
-        case 4:
-          if _storage._optionalUint64 != nil {try decoder.handleConflictingOneOf()}
-          var v: UInt64?
-          try decoder.decodeSingularUInt64Field(value: &v)
-          if let v = v {_storage._optionalUint64 = .optionalUint64(v)}
-        case 5:
-          if _storage._optionalSint32 != nil {try decoder.handleConflictingOneOf()}
-          var v: Int32?
-          try decoder.decodeSingularSInt32Field(value: &v)
-          if let v = v {_storage._optionalSint32 = .optionalSint32(v)}
-        case 6:
-          if _storage._optionalSint64 != nil {try decoder.handleConflictingOneOf()}
-          var v: Int64?
-          try decoder.decodeSingularSInt64Field(value: &v)
-          if let v = v {_storage._optionalSint64 = .optionalSint64(v)}
-        case 7:
-          if _storage._optionalFixed32 != nil {try decoder.handleConflictingOneOf()}
-          var v: UInt32?
-          try decoder.decodeSingularFixed32Field(value: &v)
-          if let v = v {_storage._optionalFixed32 = .optionalFixed32(v)}
-        case 8:
-          if _storage._optionalFixed64 != nil {try decoder.handleConflictingOneOf()}
-          var v: UInt64?
-          try decoder.decodeSingularFixed64Field(value: &v)
-          if let v = v {_storage._optionalFixed64 = .optionalFixed64(v)}
-        case 9:
-          if _storage._optionalSfixed32 != nil {try decoder.handleConflictingOneOf()}
-          var v: Int32?
-          try decoder.decodeSingularSFixed32Field(value: &v)
-          if let v = v {_storage._optionalSfixed32 = .optionalSfixed32(v)}
-        case 10:
-          if _storage._optionalSfixed64 != nil {try decoder.handleConflictingOneOf()}
-          var v: Int64?
-          try decoder.decodeSingularSFixed64Field(value: &v)
-          if let v = v {_storage._optionalSfixed64 = .optionalSfixed64(v)}
-        case 11:
-          if _storage._optionalFloat != nil {try decoder.handleConflictingOneOf()}
-          var v: Float?
-          try decoder.decodeSingularFloatField(value: &v)
-          if let v = v {_storage._optionalFloat = .optionalFloat(v)}
-        case 12:
-          if _storage._optionalDouble != nil {try decoder.handleConflictingOneOf()}
-          var v: Double?
-          try decoder.decodeSingularDoubleField(value: &v)
-          if let v = v {_storage._optionalDouble = .optionalDouble(v)}
-        case 13:
-          if _storage._optionalBool != nil {try decoder.handleConflictingOneOf()}
-          var v: Bool?
-          try decoder.decodeSingularBoolField(value: &v)
-          if let v = v {_storage._optionalBool = .optionalBool(v)}
-        case 14:
-          if _storage._optionalString != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._optionalString = .optionalString(v)}
-        case 15:
-          if _storage._optionalBytes != nil {try decoder.handleConflictingOneOf()}
-          var v: Data?
-          try decoder.decodeSingularBytesField(value: &v)
-          if let v = v {_storage._optionalBytes = .optionalBytes(v)}
-        case 16:
-          if _storage._optionalCord != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._optionalCord = .optionalCord(v)}
-        case 18:
-          var v: ProtobufUnittest_TestProto3Optional.NestedMessage?
-          if let current = _storage._optionalNestedMessage {
-            try decoder.handleConflictingOneOf()
-            if case .optionalNestedMessage(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._optionalNestedMessage = .optionalNestedMessage(v)}
-        case 19:
-          var v: ProtobufUnittest_TestProto3Optional.NestedMessage?
-          if let current = _storage._lazyNestedMessage {
-            try decoder.handleConflictingOneOf()
-            if case .lazyNestedMessage(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._lazyNestedMessage = .lazyNestedMessage(v)}
-        case 21:
-          if _storage._optionalNestedEnum != nil {try decoder.handleConflictingOneOf()}
-          var v: ProtobufUnittest_TestProto3Optional.NestedEnum?
-          try decoder.decodeSingularEnumField(value: &v)
-          if let v = v {_storage._optionalNestedEnum = .optionalNestedEnum(v)}
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
+        case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
+        case 3: try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint32)
+        case 4: try decoder.decodeSingularUInt64Field(value: &_storage._optionalUint64)
+        case 5: try decoder.decodeSingularSInt32Field(value: &_storage._optionalSint32)
+        case 6: try decoder.decodeSingularSInt64Field(value: &_storage._optionalSint64)
+        case 7: try decoder.decodeSingularFixed32Field(value: &_storage._optionalFixed32)
+        case 8: try decoder.decodeSingularFixed64Field(value: &_storage._optionalFixed64)
+        case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._optionalSfixed32)
+        case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._optionalSfixed64)
+        case 11: try decoder.decodeSingularFloatField(value: &_storage._optionalFloat)
+        case 12: try decoder.decodeSingularDoubleField(value: &_storage._optionalDouble)
+        case 13: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
+        case 14: try decoder.decodeSingularStringField(value: &_storage._optionalString)
+        case 15: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
+        case 16: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
+        case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._lazyNestedMessage)
+        case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
         default: break
         }
       }
@@ -828,61 +427,61 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if case .optionalInt32(let v)? = _storage._optionalInt32 {
+      if let v = _storage._optionalInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if case .optionalInt64(let v)? = _storage._optionalInt64 {
+      if let v = _storage._optionalInt64 {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
-      if case .optionalUint32(let v)? = _storage._optionalUint32 {
+      if let v = _storage._optionalUint32 {
         try visitor.visitSingularUInt32Field(value: v, fieldNumber: 3)
       }
-      if case .optionalUint64(let v)? = _storage._optionalUint64 {
+      if let v = _storage._optionalUint64 {
         try visitor.visitSingularUInt64Field(value: v, fieldNumber: 4)
       }
-      if case .optionalSint32(let v)? = _storage._optionalSint32 {
+      if let v = _storage._optionalSint32 {
         try visitor.visitSingularSInt32Field(value: v, fieldNumber: 5)
       }
-      if case .optionalSint64(let v)? = _storage._optionalSint64 {
+      if let v = _storage._optionalSint64 {
         try visitor.visitSingularSInt64Field(value: v, fieldNumber: 6)
       }
-      if case .optionalFixed32(let v)? = _storage._optionalFixed32 {
+      if let v = _storage._optionalFixed32 {
         try visitor.visitSingularFixed32Field(value: v, fieldNumber: 7)
       }
-      if case .optionalFixed64(let v)? = _storage._optionalFixed64 {
+      if let v = _storage._optionalFixed64 {
         try visitor.visitSingularFixed64Field(value: v, fieldNumber: 8)
       }
-      if case .optionalSfixed32(let v)? = _storage._optionalSfixed32 {
+      if let v = _storage._optionalSfixed32 {
         try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 9)
       }
-      if case .optionalSfixed64(let v)? = _storage._optionalSfixed64 {
+      if let v = _storage._optionalSfixed64 {
         try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 10)
       }
-      if case .optionalFloat(let v)? = _storage._optionalFloat {
+      if let v = _storage._optionalFloat {
         try visitor.visitSingularFloatField(value: v, fieldNumber: 11)
       }
-      if case .optionalDouble(let v)? = _storage._optionalDouble {
+      if let v = _storage._optionalDouble {
         try visitor.visitSingularDoubleField(value: v, fieldNumber: 12)
       }
-      if case .optionalBool(let v)? = _storage._optionalBool {
+      if let v = _storage._optionalBool {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
       }
-      if case .optionalString(let v)? = _storage._optionalString {
+      if let v = _storage._optionalString {
         try visitor.visitSingularStringField(value: v, fieldNumber: 14)
       }
-      if case .optionalBytes(let v)? = _storage._optionalBytes {
+      if let v = _storage._optionalBytes {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
       }
-      if case .optionalCord(let v)? = _storage._optionalCord {
+      if let v = _storage._optionalCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 16)
       }
-      if case .optionalNestedMessage(let v)? = _storage._optionalNestedMessage {
+      if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
       }
-      if case .lazyNestedMessage(let v)? = _storage._lazyNestedMessage {
+      if let v = _storage._lazyNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      if case .optionalNestedEnum(let v)? = _storage._optionalNestedEnum {
+      if let v = _storage._optionalNestedEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
       }
     }
@@ -941,25 +540,21 @@ extension ProtobufUnittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Messa
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1:
-        if self.bb != nil {try decoder.handleConflictingOneOf()}
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.bb = .bb(v)}
+      case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .bb(let v)? = self.bb {
+    if let v = self._bb {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestProto3Optional.NestedMessage, rhs: ProtobufUnittest_TestProto3Optional.NestedMessage) -> Bool {
-    if lhs.bb != rhs.bb {return false}
+    if lhs._bb != rhs._bb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

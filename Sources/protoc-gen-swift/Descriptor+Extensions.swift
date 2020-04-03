@@ -16,11 +16,6 @@ extension FileDescriptor {
     return syntax == .proto3
   }
 
-  /// True of primative field types should have field presence.
-  var hasPrimativeFieldPresence: Bool {
-    return syntax == .proto2
-  }
-
   var isBundledProto: Bool {
     return SwiftProtobufInfo.isBundledProto(file: proto)
   }
@@ -100,25 +95,6 @@ extension Descriptor {
 }
 
 extension FieldDescriptor {
-  /// True if this field should have presence support
-  var hasFieldPresence: Bool {
-    if label == .repeated {  // Covers both Arrays and Maps
-      return false
-    }
-    if oneofIndex != nil {
-      // When in a oneof, no presence is provided.
-      return false
-    }
-    switch type {
-    case .group, .message:
-      // Groups/messages always get field presence.
-      return true
-    default:
-      // Depends on the context the message was declared in.
-      return file.hasPrimativeFieldPresence
-    }
-  }
-
   func swiftType(namer: SwiftProtobufNamer) -> String {
     if isMap {
       let mapDescriptor: Descriptor = messageType
@@ -163,7 +139,10 @@ extension FieldDescriptor {
     case .repeated:
       return swiftType
     case .optional, .required:
-      if hasFieldPresence {
+      guard realOneof == nil else {
+        return swiftType
+      }
+      if hasPresence {
         return "\(swiftType)?"
       } else {
         return swiftType

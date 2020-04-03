@@ -52,12 +52,12 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
          namer: SwiftProtobufNamer,
          usesHeapStorage: Bool)
     {
-        precondition(descriptor.oneofIndex == nil)
+        precondition(descriptor.realOneof == nil)
 
         self.generatorOptions = generatorOptions
         self.usesHeapStorage = usesHeapStorage
 
-        hasFieldPresence = descriptor.hasFieldPresence
+        hasFieldPresence = descriptor.hasPresence && descriptor.realOneof == nil
         let names = namer.messagePropertyNames(field: descriptor,
                                                prefixed: "_",
                                                includeHasAndClear: hasFieldPresence)
