@@ -26,30 +26,19 @@ jobs:
     - name: Test runtime
       working-directory: main
       run: make test-runtime
-    - name: Checkout protobuf repo
-      uses: actions/checkout@v2
-      with:
-        repository: protocolbuffers/protobuf
-        ref: ${{ matrix.protobuf_gitref }}
-        path: protobuf
-    - name: Get protobuf head ref
-      id: protobuf-head
-      working-directory: protobuf
-      # get exact commit hash for refs that can float like 'master'
-      run: echo "::set-output name=ref::$(git rev-parse --verify HEAD)"
     - name: Cache protobuf
       id: cache-protobuf
       uses: actions/cache@v1
       with:
         path: protobuf
-        key: ${{ runner.os }}-protobuf-${{ matrix.protobuf_gitref }}-${{ steps.protobuf-head.outputs.ref }}
-        restore-keys: |
-          ${{ runner.os }}-protobuf-${{ matrix.protobuf_gitref }}
+        # NOTE: for refs that can float like 'master' the cache might be out of date!
+        key: ${{ runner.os }}-protobuf-${{ matrix.protobuf_gitref }}
     - name: Update and install dependencies
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
       run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip
     - name: Checkout protobuf repo
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
       uses: actions/checkout@v2
       with:
         repository: protocolbuffers/protobuf
