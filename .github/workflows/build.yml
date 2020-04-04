@@ -14,6 +14,13 @@ jobs:
         swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
         # master as of 4/4/2020: cf601047ebf87cf7f443753ded41132eb689cb10
         protobuf_gitref: ["v3.11.4", "cf601047ebf87cf7f443753ded41132eb689cb10"]
+        include:
+          - swift: "5.2.1-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "5.1.5-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "4.2.4"
+            platform: "ubuntu-16.04"
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -33,7 +40,7 @@ jobs:
       with:
         path: protobuf
         # NOTE: for refs that can float like 'master' the cache might be out of date!
-        key: ${{ runner.os }}-protobuf-${{ matrix.protobuf_gitref }}
+        key: ${{ runner.os }}-${{ matrix.platform}}-protobuf-${{ matrix.protobuf_gitref }}
     - name: Update and install dependencies
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
