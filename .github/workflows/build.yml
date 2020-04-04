@@ -43,6 +43,8 @@ jobs:
       with:
         path: protobuf
         key: ${{ runner.os }}-protobuf-${{ matrix.protobuf_gitref }}-${{ steps.protobuf-head.outputs.ref }}
+        restore-keys: |
+          ${{ runner.os }}-protobuf-${{ matrix.protobuf_gitref }}
     - name: Update and install dependencies
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
