@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        swift: ["5.2", "5.1.5"]
-        protobuf_gitref: ["v3.11.4"]
+        swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
+        # master as of 4/4/2020: cf601047ebf87cf7f443753ded41132eb689cb10
+        protobuf_gitref: ["v3.11.4", "cf601047ebf87cf7f443753ded41132eb689cb10"]
     container:
-      image: swift:${{ matrix.swift }}-bionic
+      image: swift:${{ matrix.swift }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
