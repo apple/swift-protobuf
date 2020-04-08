@@ -195,7 +195,7 @@ public enum BinaryDelimited {
 internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
 
   // Buffer to reuse within nextByte.
-  var readBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
+  let readBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
   #if swift(>=4.1)
     defer { readBuffer.deallocate() }
   #else
