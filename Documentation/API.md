@@ -156,18 +156,16 @@ The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which ext
 `RawRepresentable` with a `RawValue` of `Int`.
 The generated Swift enum will have a case for each enum value in the proto file.
 
-If deserialization encounters an unknown value, that value is either
-ignored (JSON) or handled as an unknown field (protobuf binary),
-depending on the particular serialization.
-
 Proto3 enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
 an unrecognized value is parsed from protobuf serialization or from other
 serializations that store integer enum values.
 Proto2 enums lack this extra case.
-On decode, proto2 treats unrecognized enum values as if the entire
-field were unknown.
-JSON serialization can store named or numeric enum values.
-Unknown named values are always dropped when deserializing.
+
+If deserialization encounters an unknown value:
+-  For JSON, if the value was in _string_ form, it causes a parsing error as
+   it can't be mapped to a value. If the value was an integer value, then a
+   proto3 syntax enum can still capture it via the `UNRECOGNIZED(Int)` case.
+- For protobuf binary, the value is handled as an unknown field.
 
 ```swift
 public enum MyEnum: SwiftProtobuf.Enum {
