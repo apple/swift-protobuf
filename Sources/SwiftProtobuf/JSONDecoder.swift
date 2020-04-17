@@ -466,7 +466,7 @@ internal struct JSONDecoder: Decoder {
       value = nil
       return
     }
-    value = try scanner.nextEnumValue() as E
+    value = try scanner.nextEnumValue()
   }
 
   mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws
@@ -475,7 +475,7 @@ internal struct JSONDecoder: Decoder {
       value = E()
       return
     }
-    value = try scanner.nextEnumValue()
+    value = try scanner.nextEnumValue() ?? E()
   }
 
   mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws
@@ -488,8 +488,9 @@ internal struct JSONDecoder: Decoder {
       return
     }
     while true {
-      let e: E = try scanner.nextEnumValue()
-      value.append(e)
+      if let e: E = try scanner.nextEnumValue() {
+        value.append(e)
+      }
       if scanner.skipOptionalArrayEnd() {
         return
       }

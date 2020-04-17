@@ -16,6 +16,7 @@
 
 import Foundation
 import XCTest
+import SwiftProtobuf
 
 class Test_Enum: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3Unittest_TestAllTypes
@@ -37,6 +38,23 @@ class Test_Enum: XCTestCase, PBTestHelpers {
     func testJSONrepeated() {
         assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\",\"BAR\"]}") { (m: inout MessageTestType) in
             m.repeatedNestedEnum = [.foo, .bar]
+        }
+    }
+
+    func testJSONdecodingOptions() {
+
+        var options = JSONDecodingOptions()
+        options.ignoreUnknownFields = true
+
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":\"NEW_VALUE\"}", options: options) { (m: MessageTestType) -> Bool in
+            switch m.optionalNestedEnum {
+            case .zero: return true
+            default: return false
+            }
+        }
+
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":[\"FOO\",\"NEW_VALUE\"]}", options: options) { (m: MessageTestType) -> Bool in
+            m.repeatedNestedEnum == [.foo]
         }
     }
 
