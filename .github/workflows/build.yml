@@ -1,0 +1,68 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
+        # master as of 4/4/2020: cf601047ebf87cf7f443753ded41132eb689cb10
+        protobuf_gitref: ["v3.11.4", "cf601047ebf87cf7f443753ded41132eb689cb10"]
+        include:
+          - swift: "5.2.1-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "5.1.5-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "4.2.4"
+            platform: "ubuntu-16.04"
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: main
+    - name: Build
+      working-directory: main
+      run: make build
+    - name: Test runtime
+      working-directory: main
+      run: make test-runtime
+    - name: Cache protobuf
+      id: cache-protobuf
+      uses: actions/cache@v1
+      with:
+        path: protobuf
+        # NOTE: for refs that can float like 'master' the cache might be out of date!
+        key: ${{ runner.os }}-${{ matrix.platform}}-protobuf-${{ matrix.protobuf_gitref }}
+    - name: Update and install dependencies
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip
+    - name: Checkout protobuf repo
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      uses: actions/checkout@v2
+      with:
+        repository: protocolbuffers/protobuf
+        ref: ${{ matrix.protobuf_gitref }}
+        path: protobuf
+    - name: Build protobuf
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      working-directory: protobuf
+      run: |
+        ./autogen.sh
+        ./configure
+        make -C ./src
+        make -C ./conformance
+    - name: Test plugin
+      working-directory: main
+      run: make test-plugin PROTOC=../protobuf/src/protoc
+    - name: Test conformance
+      working-directory: main
+      run: make test-conformance
