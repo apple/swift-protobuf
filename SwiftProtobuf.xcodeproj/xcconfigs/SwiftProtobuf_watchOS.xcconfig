@@ -1,0 +1,18 @@
+// Architectures
+SDKROOT = watchos
+
+// Build Options
+APPLICATION_EXTENSION_API_ONLY = YES
+
+// Deployment
+TARGETED_DEVICE_FAMILY = 4
+WATCHOS_DEPLOYMENT_TARGET = 2.0
+
+// Linking
+DYLIB_COMPATIBILITY_VERSION = 1
+
+// Packaging
+INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist
+PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf
+PRODUCT_MODULE_NAME = SwiftProtobuf
+PRODUCT_NAME = SwiftProtobuf

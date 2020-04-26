@@ -1,0 +1,19 @@
+// Architectures
+SDKROOT = appletvos
+
+// Build Options
+APPLICATION_EXTENSION_API_ONLY = YES
+
+// Deployment
+TARGETED_DEVICE_FAMILY = 3
+TVOS_DEPLOYMENT_TARGET = 9.0
+
+// Linking
+DYLIB_COMPATIBILITY_VERSION = 1
+
+// Packaging
+INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist
+PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf
+PRODUCT_MODULE_NAME = SwiftProtobuf
+PRODUCT_NAME = SwiftProtobuf
+
