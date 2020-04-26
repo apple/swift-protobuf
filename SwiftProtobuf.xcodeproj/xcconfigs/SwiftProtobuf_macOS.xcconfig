@@ -1,8 +1,5 @@
-// Build Options
-APPLICATION_EXTENSION_API_ONLY = YES
-
-// Linking
-DYLIB_COMPATIBILITY_VERSION = 1
+// Architectures
+SDKROOT = macosx
 
 // Packaging
 INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist
