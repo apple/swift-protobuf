@@ -1,3 +1,6 @@
+// Architectures
+SDKROOT = macosx
+
 // Linking
 LD_RUNPATH_SEARCH_PATHS = @loader_path/../Frameworks
 
