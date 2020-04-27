@@ -101,7 +101,7 @@ struct GeneratorPlugin {
         + "In particular, if you have renamed this program, you will need to\n"
         + "adjust the protoc command-line option accordingly.\n"
         + "\n"
-        + "The generated Swift output requires the SwiftProtobuf \(SwiftProtobuf.Version.versionString)\n"
+        + "The generated Swift output requires the \(Version.moduleName) \(SwiftProtobuf.Version.versionString)\n"
         + "library be included in your project.\n"
         + "\n"
         + "If you use `swift build` to compile your project, add this to\n"

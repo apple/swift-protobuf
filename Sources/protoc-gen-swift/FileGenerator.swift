@@ -93,7 +93,7 @@ class FileGenerator {
         if !fileDescriptor.isBundledProto {
             // The well known types ship with the runtime, everything else needs
             // to import the runtime.
-            p.print("import SwiftProtobuf\n")
+            p.print("import \(Version.moduleName)\n")
         }
         if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
             p.print("\n")
@@ -190,10 +190,10 @@ class FileGenerator {
             "// incompatible with the version of SwiftProtobuf to which you are linking.\n",
             "// Please ensure that you are building against the same version of the API\n",
             "// that was used to generate this file.\n",
-            "fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {\n")
+            "fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(Version.moduleName).ProtobufAPIVersionCheck {\n")
         p.indent()
         p.print(
-            "struct _\(v): SwiftProtobuf.ProtobufAPIVersion_\(v) {}\n",
+            "struct _\(v): \(Version.moduleName).ProtobufAPIVersion_\(v) {}\n",
             "typealias Version = _\(v)\n")
         p.outdent()
         p.print("}\n")

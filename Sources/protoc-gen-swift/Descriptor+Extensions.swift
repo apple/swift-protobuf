@@ -214,7 +214,7 @@ extension FieldDescriptor {
     switch type {
     case .bool: return "false"
     case .string: return "String()"
-    case .bytes: return "SwiftProtobuf.Internal.emptyData"
+    case .bytes: return "\(Version.moduleName).Internal.emptyData"
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:
@@ -235,31 +235,31 @@ extension FieldDescriptor {
       let valueTraits = valueField.traitsType(namer: namer)
       switch valueField.type {
       case .message:  // Map's can't have a group as the value
-        return "SwiftProtobuf._ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
+        return "\(Version.moduleName)._ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
       case .enum:
-        return "SwiftProtobuf._ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
+        return "\(Version.moduleName)._ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
       default:
-        return "SwiftProtobuf._ProtobufMap<\(keyTraits),\(valueTraits)>"
+        return "\(Version.moduleName)._ProtobufMap<\(keyTraits),\(valueTraits)>"
       }
     }
     switch type {
-    case .double: return "SwiftProtobuf.ProtobufDouble"
-    case .float: return "SwiftProtobuf.ProtobufFloat"
-    case .int64: return "SwiftProtobuf.ProtobufInt64"
-    case .uint64: return "SwiftProtobuf.ProtobufUInt64"
-    case .int32: return "SwiftProtobuf.ProtobufInt32"
-    case .fixed64: return "SwiftProtobuf.ProtobufFixed64"
-    case .fixed32: return "SwiftProtobuf.ProtobufFixed32"
-    case .bool: return "SwiftProtobuf.ProtobufBool"
-    case .string: return "SwiftProtobuf.ProtobufString"
+    case .double: return "\(Version.moduleName).ProtobufDouble"
+    case .float: return "\(Version.moduleName).ProtobufFloat"
+    case .int64: return "\(Version.moduleName).ProtobufInt64"
+    case .uint64: return "\(Version.moduleName).ProtobufUInt64"
+    case .int32: return "\(Version.moduleName).ProtobufInt32"
+    case .fixed64: return "\(Version.moduleName).ProtobufFixed64"
+    case .fixed32: return "\(Version.moduleName).ProtobufFixed32"
+    case .bool: return "\(Version.moduleName).ProtobufBool"
+    case .string: return "\(Version.moduleName).ProtobufString"
     case .group, .message: return namer.fullName(message: messageType)
-    case .bytes: return "SwiftProtobuf.ProtobufBytes"
-    case .uint32: return "SwiftProtobuf.ProtobufUInt32"
+    case .bytes: return "\(Version.moduleName).ProtobufBytes"
+    case .uint32: return "\(Version.moduleName).ProtobufUInt32"
     case .enum: return namer.fullName(enum: enumType)
-    case .sfixed32: return "SwiftProtobuf.ProtobufSFixed32"
-    case .sfixed64: return "SwiftProtobuf.ProtobufSFixed64"
-    case .sint32: return "SwiftProtobuf.ProtobufSInt32"
-    case .sint64: return "SwiftProtobuf.ProtobufSInt64"
+    case .sfixed32: return "\(Version.moduleName).ProtobufSFixed32"
+    case .sfixed64: return "\(Version.moduleName).ProtobufSFixed64"
+    case .sint32: return "\(Version.moduleName).ProtobufSInt32"
+    case .sint64: return "\(Version.moduleName).ProtobufSInt64"
     }
   }
 }
