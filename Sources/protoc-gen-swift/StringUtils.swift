@@ -61,7 +61,7 @@ func trimWhitespace(_ s: String) -> String {
 ///  \n\r\t\\\'\" and three-digit octal escapes but nothing else.
 func escapedToDataLiteral(_ s: String) -> String {
   if s.isEmpty {
-    return "SwiftProtobuf.Internal.emptyData"
+    return "\(Version.moduleName).Internal.emptyData"
   }
   var out = "Data(["
   var separator = ""
