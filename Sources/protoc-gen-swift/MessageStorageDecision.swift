@@ -41,7 +41,7 @@ fileprivate enum FieldCost {
   static let singleMessageFieldUsingStorage = 1
 
   static func estimate(_ field: FieldDescriptor) -> Int {
-    guard field.label != .repeated else {
+    guard !field.isRepeated else {
       // Repeated fields don't count the exact types, just fixed costs.
       return field.isMap ? FieldCost.map : FieldCost.repeated
     }
@@ -109,7 +109,7 @@ fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
       var messageStack = messageStack
       messageStack.append(descriptor)
       return descriptor.fields.contains {
-        guard $0.label != .repeated else { return false }
+        guard !$0.isRepeated else { return false }
         // Ignore fields that aren’t messages or groups.
         guard $0.type == .message || $0.type == .group else { return false }
         guard let messageType = $0.messageType else { return false }

@@ -69,7 +69,7 @@ class EnumGenerator {
     p.print("\n")
     p.print("\(visibility)init() {\n")
     p.indent()
-    let dottedDefault = namer.dottedRelativeName(enumValue: enumDescriptor.defaultValue)
+    let dottedDefault = namer.dottedRelativeName(enumValue: enumDescriptor.values.first!)
     p.print("self = \(dottedDefault)\n")
     p.outdent()
     p.print("}\n")

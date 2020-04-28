@@ -11,11 +11,14 @@
 import Foundation
 import SwiftProtobuf
 
+/// Protocol that all the Descriptors conform to for original .proto file
+/// location lookup.
 public protocol ProvidesSourceCodeLocation {
+  /// Returns the Location of a given object (Descriptor).
   var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? { get }
 }
 
-// Default implementation for things that support ProvidesLocationPath.
+/// Default implementation for things that support ProvidesLocationPath.
 extension ProvidesSourceCodeLocation where Self: ProvidesLocationPath {
   public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
     var path = IndexPath()
@@ -24,14 +27,12 @@ extension ProvidesSourceCodeLocation where Self: ProvidesLocationPath {
   }
 }
 
-// Helper to get source comments out of ProvidesSourceCodeLocation
 extension ProvidesSourceCodeLocation {
+  /// Helper to get a source comments as a string.
   public func protoSourceComments(commentPrefix: String = "///",
                                   leadingDetachedPrefix: String? = nil) -> String {
-    if let loc = sourceCodeInfoLocation {
-      return loc.asSourceComment(commentPrefix: commentPrefix,
-                                 leadingDetachedPrefix: leadingDetachedPrefix)
-    }
-    return String()
+    guard let loc = sourceCodeInfoLocation else { return String() }
+    return loc.asSourceComment(commentPrefix: commentPrefix,
+                               leadingDetachedPrefix: leadingDetachedPrefix)
   }
 }

@@ -332,7 +332,7 @@ public final class SwiftProtobufNamer {
     }
 
     let result = NamingUtils.typePrefix(protoPackage: file.package,
-                                        fileOptions: file.fileOptions)
+                                        fileOptions: file.options)
     filePrefixCache[file.name] = result
     return result
   }

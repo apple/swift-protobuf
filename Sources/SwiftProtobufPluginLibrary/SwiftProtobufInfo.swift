@@ -15,7 +15,7 @@
 import Foundation
 import SwiftProtobuf
 
-/// Scope for helpers about the library.
+/// Helpers about the library.
 public enum SwiftProtobufInfo {
   /// Proto Files that ship with the library.
   public static let bundledProtoFiles: Set<String> = [
@@ -35,8 +35,14 @@ public enum SwiftProtobufInfo {
     "google/protobuf/wrappers.proto",
   ]
 
-  // Checks if a FileDescriptor is a library bundled proto file.
+  /// Checks if a `Google_Protobuf_FileDescriptorProto` is a library bundled proto file.
+  @available(*, deprecated, message: "Use the version that takes a FileDescriptor instead.")
   public static func isBundledProto(file: Google_Protobuf_FileDescriptorProto) -> Bool {
+    return file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
+  }
+
+  /// Checks if a `FileDescriptor` is a library bundled proto file.
+  public static func isBundledProto(file: FileDescriptor) -> Bool {
     return file.package == "google.protobuf" && bundledProtoFiles.contains(file.name)
   }
 }

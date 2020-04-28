@@ -15,6 +15,11 @@
 /// `service` messages). It is *not* the intent for these to eventually be used
 /// as part of some reflection or generate message api.
 ///
+/// Unlike the C++ Descriptors, the intent is for these to *only* be used within
+/// the context of a protoc plugin, meaning, the
+/// `Google_Protobuf_FileDescriptorSet` used to create these will be *always*
+/// be well formed by protoc and the guarentees it provides.
+///
 // -----------------------------------------------------------------------------
 
 // NOTES:
@@ -29,37 +34,63 @@
 import Foundation
 import SwiftProtobuf
 
+/// The front interface for building/getting descriptors. The objects
+/// vended from the here are different from the raw
+/// `Google_Protobuf_*Proto` types in that they have all the cross object
+/// references resolved or wired up, making for an easier to use object
+/// model.
+///
+/// This is like the `DescriptorPool` class in the C++ protobuf library.
 public final class DescriptorSet {
   public let files: [FileDescriptor]
   private let registry = Registry()
 
+  // Consturct out of a `Google_Protobuf_FileDescriptorSet` likely
+  // created by protoc.
   public convenience init(proto: Google_Protobuf_FileDescriptorSet) {
     self.init(protos: proto.file)
   }
 
+  /// Consturct out of a ordered list of
+  /// `Google_Protobuf_FileDescriptorProto`s likely created by protoc. Since
+  /// .proto files can import other .proto files, the imports have to be
+  /// listed before the things that use them so the graph can be
+  /// reconstructed.
   public init(protos: [Google_Protobuf_FileDescriptorProto]) {
     let registry = self.registry
     self.files = protos.map { return FileDescriptor(proto: $0, registry: registry) }
   }
 
+  /// Lookup a specific file. The names for files are what was captured in
+  /// the `Google_Protobuf_FileDescriptorProto` when it was created, protoc
+  /// uses the path name for how the file was found.
   public func lookupFileDescriptor(protoName name: String) -> FileDescriptor {
     return registry.fileDescriptor(name: name)
   }
+  /// Lookup a proto message. The name is a fully qualified name.
   public func lookupDescriptor(protoName name: String) -> Descriptor {
     return registry.descriptor(name: name)
   }
+  /// Lookup a proto enum. The name is a fully qualified name.
   public func lookupEnumDescriptor(protoName name: String) -> EnumDescriptor {
     return registry.enumDescriptor(name: name)
   }
+  /// Lookup a proto service. The name is a fully qualified name.
   public func lookupServiceDescriptor(protoName name: String) -> ServiceDescriptor {
     return registry.serviceDescriptor(name: name)
   }
 }
 
+/// Models a .proto file. `FileDescriptor`s are not directly created,
+/// instead they are constructed/fetched via the `DescriptorSet` or
+/// they are directly accessed via a `file` property on all the other
+/// types of descriptors.
 public final class FileDescriptor {
-  public enum Syntax: String {
+  /// Syntax of this file.
+  public enum Syntax: RawRepresentable {
     case proto2
     case proto3
+    case unknown(String)
 
     public init?(rawValue: String) {
       switch rawValue {
@@ -68,32 +99,59 @@ public final class FileDescriptor {
       case "proto3":
         self = .proto3
       default:
-        return nil
+        self = .unknown(rawValue)
       }
     }
+
+    public var rawValue: String {
+      switch self {
+      case .proto2:
+        return "proto2"
+      case .proto3:
+        return "proto3"
+      case .unknown(let value):
+        return value
+      }
+    }
+
+    /// The string form of the syntax.
+    public var name: String { return rawValue }
   }
 
-  public let proto: Google_Protobuf_FileDescriptorProto
-  public var name: String { return proto.name }
-  public var package: String { return proto.package }
+  /// The filename used with protoc.
+  public let name: String
+  /// The proto package.
+  public let package: String
 
+  /// Syntax of this file.
   public let syntax: Syntax
 
+  /// The imports for this file.
   public let dependencies: [FileDescriptor]
-  public var publicDependencies: [FileDescriptor] { return proto.publicDependency.map { dependencies[Int($0)] } }
-  public var weakDependencies: [FileDescriptor] { return proto.weakDependency.map { dependencies[Int($0)] } }
+  /// The subset of the imports that were declared `public`.
+  public let publicDependencies: [FileDescriptor]
+  /// The subset of the imports that were declared `weak`.
+  public let weakDependencies: [FileDescriptor]
 
+  /// The enum defintions at the file scope level.
   public let enums: [EnumDescriptor]
+  /// The message defintions at the file scope level.
   public let messages: [Descriptor]
+  /// The extension field defintions at the file scope level.
   public let extensions: [FieldDescriptor]
+  /// The service defintions at the file scope level.
   public let services: [ServiceDescriptor]
 
-  public var fileOptions: Google_Protobuf_FileOptions { return proto.options }
-  public var isDeprecated: Bool { return proto.options.deprecated }
+  /// The `Google_Protobuf_FileOptions` set on this file.
+  public let options: Google_Protobuf_FileOptions
+
+  private let sourceCodeInfo: Google_Protobuf_SourceCodeInfo
 
   fileprivate init(proto: Google_Protobuf_FileDescriptorProto, registry: Registry) {
-    self.proto = proto
+    self.name = proto.name
+    self.package = proto.package
     self.syntax = Syntax(rawValue: proto.syntax)!
+    self.options = proto.options
 
     let prefix: String
     let protoPackage = proto.package
@@ -119,7 +177,12 @@ public final class FileDescriptor {
     // The compiler ensures there aren't cycles between a file and dependencies, so
     // this doesn't run the risk of creating any retain cycles that would force these
     // to have to be weak.
-    self.dependencies = proto.dependency.map { return registry.fileDescriptor(name: $0) }
+    let dependencies = proto.dependency.map { return registry.fileDescriptor(name: $0) }
+    self.dependencies = dependencies
+    self.publicDependencies = proto.publicDependency.map { dependencies[Int($0)] }
+    self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
+
+    self.sourceCodeInfo = proto.sourceCodeInfo
 
     // Done initializing, register ourselves.
     registry.register(file: self)
@@ -132,6 +195,12 @@ public final class FileDescriptor {
     self.services.forEach { $0.bind(file: self, registry: registry) }
   }
 
+  /// Fetch the source information for a give path. For more details on the paths
+  /// and what this information is, see `Google_Protobuf_SourceCodeInfo`.
+  ///
+  /// For simpler access to the comments for give message, fields, enums; see
+  /// `Descriptor+Extensions.swift` and the `ProvidesLocationPath` and
+  /// `ProvidesSourceCodeLocation` protocols.
   public func sourceCodeInfoLocation(path: IndexPath) -> Google_Protobuf_SourceCodeInfo.Location? {
     guard let location = locationMap[path] else {
       return nil
@@ -143,7 +212,7 @@ public final class FileDescriptor {
   // comments during generation.
   private lazy var locationMap: [IndexPath:Google_Protobuf_SourceCodeInfo.Location] = {
     var result: [IndexPath:Google_Protobuf_SourceCodeInfo.Location] = [:]
-    for loc in self.proto.sourceCodeInfo.location {
+    for loc in sourceCodeInfo.location {
       let intList = loc.path.map { return Int($0) }
       result[IndexPath(indexes: intList)] = loc
     }
@@ -151,17 +220,80 @@ public final class FileDescriptor {
   }()
 }
 
+/// Describes a type of protocol message, or a particular group within a
+/// message. `Descriptor`s are not directly created, instead they are
+/// constructed/fetched via the `DescriptorSet` or they are directly accessed
+/// via a `messageType` property on `FieldDescriptor`s, etc.
 public final class Descriptor {
-  public let proto: Google_Protobuf_DescriptorProto
-  let index: Int
+  /// The type of this Message.
+  public enum WellKnownType: String {
+    /// An instance of google.protobuf.DoubleValue.
+    case doubleValue = "google.protobuf.DoubleValue"
+    /// An instance of google.protobuf.FloatValue.
+    case floatValue = "google.protobuf.FloatValue"
+    /// An instance of google.protobuf.Int64Value.
+    case int64Value = "google.protobuf.Int64Value"
+    /// An instance of google.protobuf.UInt64Value.
+    case uint64Value = "google.protobuf.UInt64Value"
+    /// An instance of google.protobuf.Int32Value.
+    case int32Value = "google.protobuf.Int32Value"
+    /// An instance of google.protobuf.UInt32Value.
+    case uint32Value = "google.protobuf.UInt32Value"
+    /// An instance of google.protobuf.StringValue.
+    case stringValue = "google.protobuf.StringValue"
+    /// An instance of google.protobuf.BytesValue.
+    case bytesValue = "google.protobuf.BytesValue"
+    /// An instance of google.protobuf.BoolValue.
+    case boolValue = "google.protobuf.BoolValue"
+
+    /// An instance of google.protobuf.Any.
+    case any = "google.protobuf.Any"
+    /// An instance of google.protobuf.FieldMask.
+    case fieldMask = "google.protobuf.FieldMask"
+    /// An instance of google.protobuf.Duration.
+    case duration = "google.protobuf.Duration"
+    /// An instance of google.protobuf.Timestamp.
+    case timestamp = "google.protobuf.Timestamp"
+    /// An instance of google.protobuf.Value.
+    case value = "google.protobuf.Value"
+    /// An instance of google.protobuf.ListValue.
+    case listValue = "google.protobuf.ListValue"
+    /// An instance of google.protobuf.Struct.
+    case `struct` = "google.protobuf.Struct"
+  }
+
+  /// The name of the message type, not including its scope.
+  public let name: String
+  /// The fully-qualified name of the message type, scope delimited by
+  /// periods.  For example, message type "Foo" which is declared in package
+  /// "bar" has full name "bar.Foo".  If a type "Baz" is nested within
+  /// Foo, Baz's `fullName` is "bar.Foo.Baz".  To get only the part that
+  /// comes after the last '.', use name().
   public let fullName: String
-  public var name: String { return proto.name }
+  /// Index of this descriptor within the file or containing type's message
+  /// type array.
+  public let index: Int
+
+  /// The .proto file in which this message type was defined.
   public private(set) weak var file: FileDescriptor!
+  /// If this Descriptor describes a nested type, this returns the type
+  /// in which it is nested.
   public private(set) weak var containingType: Descriptor?
 
+  /// The `Google_Protobuf_MessageOptions` set on this Message.
+  public let options: Google_Protobuf_MessageOptions
+
+  // If this descriptor represents a well known type, which type it is.
+  public let wellKnownType: WellKnownType?
+
+  /// The enum defintions under this message.
   public let enums: [EnumDescriptor]
+  /// The message defintions under this message. In the C++ Descriptor this
+  /// is `nested_type`.
   public let messages: [Descriptor]
+  /// The fields of this message.
   public let fields: [FieldDescriptor]
+  /// The oneofs in this message. This can include synthetic oneofs.
   public let oneofs: [OneofDescriptor]
   /// Non synthetic oneofs.
   ///
@@ -171,14 +303,19 @@ public final class Descriptor {
     // Lazy because `isSynthetic` can't be called until after `bind()`.
     return self.oneofs.filter { !$0.isSynthetic }
   }()
+  /// The extension field defintions under this message.
   public let extensions: [FieldDescriptor]
 
-  public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
-    return proto.extensionRange
-  }
+  /// The extension ranges declared for this message. They are returned in
+  /// the order they are defined in the .proto file.
+  public let extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]
+
   /// The `extensionRanges` are in the order they appear in the original .proto
   /// file; this orders them and then merges any ranges that are actually
   /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
+  ///
+  /// NOTE: The `options` are no longer valid to use as multiple ranges could
+  /// have been merged and nothing is done with their options.
   public private(set) lazy var normalizedExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
     var ordered = self.extensionRanges.sorted(by: { return $0.start < $1.start })
     if ordered.count > 1 {
@@ -196,6 +333,9 @@ public final class Descriptor {
   /// further in that any ranges that do _not_ have any fields inbetween them
   /// are also merged together. These can then be used in context where it is
   /// ok to include field numbers that have to be extension or unknown fields.
+  ///
+  /// NOTE: The `options` are no longer valid to use as multiple ranges could
+  /// have been merged and nothing is done with their options.
   public private(set) lazy var ambitiousExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
     var merged = self.normalizedExtensionRanges
     var sortedFields = self.fields.sorted {$0.number < $1.number}
@@ -224,27 +364,37 @@ public final class Descriptor {
     return merged
   }()
 
-  /// True/False if this Message is just for a `map<>` entry.
-  public var isMapEntry: Bool { return proto.options.mapEntry }
+  /// The reserved field number ranges for this message. These are returned
+  /// in the order they are defined in the .proto file.
+  public let reservedRanges: [Range<Int32>]
+  /// The reserved field names for this message. These are returned in the
+  /// order they are defined in the .proto file.
+  public let reservedNames: [String]
 
   /// Returns the `FieldDescriptor`s for the "key" and "value" fields. If
   /// this isn't a map entry field, returns nil.
+  ///
+  /// This is like the C++ Descriptor `map_key()` and `map_value()` methods.
   public var mapKeyAndValue: (key: FieldDescriptor, value: FieldDescriptor)? {
-    guard isMapEntry else { return nil }
+    guard options.mapEntry else { return nil }
     assert(fields.count == 2)
     return (key: fields[0], value: fields[1])
   }
-
-  public var useMessageSetWireFormat: Bool { return proto.options.messageSetWireFormat }
 
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
                    fullNamePrefix prefix: String) {
-    self.proto = proto
-    self.index = index
+    self.name = proto.name
     let fullName = "\(prefix).\(proto.name)"
     self.fullName = fullName
+    self.index = index
+    self.options = proto.options
+    assert(fullName.hasPrefix("."))
+    self.wellKnownType = WellKnownType(rawValue: String(fullName.dropFirst()))
+    self.extensionRanges = proto.extensionRange
+    self.reservedRanges = proto.reservedRange.map { return $0.start ..< $0.end }
+    self.reservedNames = proto.reservedName
 
     self.enums = proto.enumType.enumeratedMap {
       return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
@@ -288,22 +438,35 @@ public final class Descriptor {
   }
 }
 
+/// Describes a type of protocol enum. `EnumDescriptor`s are not directly
+/// created, instead they are constructed/fetched via the `DescriptorSet` or
+/// they are directly accessed via a `EnumType` property on `FieldDescriptor`s,
+/// etc.
 public final class EnumDescriptor {
-  public let proto: Google_Protobuf_EnumDescriptorProto
-  let index: Int
+  /// The name of this enum type in the containing scope.
+  public let name: String
+  /// The fully-qualified name of the enum type, scope delimited by periods.
   public let fullName: String
-  public var name: String { return proto.name }
+  /// Index of this enum within the file or containing message's enums.
+  public let index: Int
+
+  /// The .proto file in which this message type was defined.
   public private(set) weak var file: FileDescriptor!
+  /// If this Descriptor describes a nested type, this returns the type
+  /// in which it is nested.
   public private(set) weak var containingType: Descriptor?
 
-  // This is lazy so it is they are created only when needed, that way an
-  // import doesn't have to do all this work unless the enum is used by
-  // the importer.
+  /// The values defined for this enum. Guaranteed (by protoc) to be atleast
+  /// one item. These are returned in the order they were defined in the .proto
+  /// file.
   public private(set) lazy var values: [EnumValueDescriptor] = {
+    // This is lazy so it is they are created only when needed, that way an
+    // import doesn't have to do all this work unless the enum is used by
+    // the importer.
     var firstValues = [Int32:EnumValueDescriptor]()
     var result = [EnumValueDescriptor]()
     var i = 0
-    for p in self.proto.value {
+    for p in _values {
       let aliasing = firstValues[p.number]
       let d = EnumValueDescriptor(proto: p, index: i, enumType: self, aliasing: aliasing)
       result.append(d)
@@ -315,21 +478,32 @@ public final class EnumDescriptor {
         firstValues[d.number] = d
       }
     }
+    _values.removeAll()
     return result
   }()
+  private var _values: [Google_Protobuf_EnumValueDescriptorProto]
 
-  public var defaultValue: EnumValueDescriptor {
-    // The compiler requires the be atleast one value, so force unwrap is safe.
-    return values.first!
-  }
+  /// The `Google_Protobuf_MessageOptions` set on this enum.
+  public let options: Google_Protobuf_EnumOptions
+
+  /// The reserved value ranges for this enum. These are returned in the order
+  /// they are defined in the .proto file.
+  public let reservedRanges: [ClosedRange<Int32>]
+  /// The reserved value names for this enum. These are returned in the order
+  /// they are defined in the .proto file.
+  public let reservedNames: [String]
 
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
                    fullNamePrefix prefix: String) {
-    self.proto = proto
-    self.index = index
+    self.name = proto.name
     self.fullName = "\(prefix).\(proto.name)"
+    self.index = index
+    self.options = proto.options
+    self._values = proto.value
+    self.reservedRanges = proto.reservedRange.map { return $0.start ... $0.end }
+    self.reservedNames = proto.reservedName
 
     // Done initializing, register ourselves.
     registry.register(enum: self)
@@ -341,16 +515,35 @@ public final class EnumDescriptor {
   }
 }
 
+/// Describes an individual enum constant of a particular type. To get the
+/// `EnumValueDescriptor` for a given enum value, first get the `EnumDescriptor`
+/// for its type.
 public final class EnumValueDescriptor {
-  public let proto: Google_Protobuf_EnumValueDescriptorProto
-  let index: Int
-  public private(set) weak var enumType: EnumDescriptor!
+  /// Name of this enum constant.
+  public let name: String
+  /// The full_name of an enum value is a sibling symbol of the enum type.
+  /// e.g. the full name of FieldDescriptorProto::TYPE_INT32 is actually
+  /// "google.protobuf.FieldDescriptorProto.TYPE_INT32", NOT
+  /// "google.protobuf.FieldDescriptorProto.Type.TYPE_INT32". This is to conform
+  /// with C++ scoping rules for enums.
+  public let fullName: String
+  /// Index within the enums's `EnumDescriptor`.
+  public let index: Int
+  /// Numeric value of this enum constant.
+  public let number: Int32
+
+  /// The .proto file in which this message type was defined.
   public weak var file: FileDescriptor! { return enumType.file }
+  /// The type of this value.
+  public private(set) weak var enumType: EnumDescriptor!
 
-  public var name: String { return proto.name }
-  public var fullName: String
-  public var number: Int32 { return proto.number }
+  /// The `Google_Protobuf_EnumValueOptions` set on this value.
+  public let options: Google_Protobuf_EnumValueOptions
 
+  // TODO(TVL): These aren't really part of the C++ descriptor api, but the
+  // namer has apis around them, so figure out what's the right way  to deal
+  // with it, maybe moving it (and the naming support?) to the actual plugin
+  // directory.
   public private(set) weak var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
 
@@ -358,8 +551,10 @@ public final class EnumValueDescriptor {
                    index: Int,
                    enumType: EnumDescriptor,
                    aliasing: EnumValueDescriptor?) {
-    self.proto = proto
+    self.name = proto.name
     self.index = index
+    self.number = proto.number
+    self.options = proto.options
     self.enumType = enumType
     aliasOf = aliasing
 
@@ -368,13 +563,14 @@ public final class EnumValueDescriptor {
   }
 }
 
+/// Describes a oneof defined in a message type.
 public final class OneofDescriptor {
-  public let proto: Google_Protobuf_OneofDescriptorProto
-  let index: Int
-  public private(set) weak var containingType: Descriptor!
-  public weak var file: FileDescriptor! { return containingType.file }
-
-  public var name: String { return proto.name }
+  /// Name of this oneof.
+  public let name: String
+  /// Fully-qualified name of the oneof.
+  public var fullName: String { return "\(containingType.fullName).\(name)" }
+  /// Index of this oneof within the message's oneofs.
+  public let index: Int
 
   /// Returns whether this oneof was inserted by the compiler to wrap a proto3
   /// optional field. If this returns true, code generators should *not* emit it.
@@ -382,16 +578,27 @@ public final class OneofDescriptor {
     return fields.count == 1 && fields.first!.proto3Optional
   }
 
+  /// The .proto file in which this oneof type was defined.
+  public weak var file: FileDescriptor! { return containingType.file }
+  /// If this Descriptor of the message that defines this oneof.
+  public private(set) weak var containingType: Descriptor!
+
+  /// The `Google_Protobuf_OneofOptions` set on this oneof.
+  public let options: Google_Protobuf_OneofOptions
+
+  /// The members of this oneof, in the order in which they were declared in the
+  /// .proto file.
   public private(set) lazy var fields: [FieldDescriptor] = {
     let myIndex = Int32(self.index)
-    return self.containingType.fields.filter { $0.oneofIndex == myIndex }
+    return containingType.fields.filter { $0.oneofIndex == myIndex }
   }()
 
   fileprivate init(proto: Google_Protobuf_OneofDescriptorProto,
                    index: Int,
                    registry: Registry) {
-    self.proto = proto
+    self.name = proto.name
     self.index = index
+    self.options = proto.options
   }
 
   fileprivate func bind(registry: Registry, containingType: Descriptor) {
@@ -399,45 +606,17 @@ public final class OneofDescriptor {
   }
 }
 
+/// Describes a single field of a message. To get the descriptor for a given
+/// field, first get the `Descriptor` for the message in which it is defined,
+/// then find the field. To get a `FieldDescriptor` for an extension, get the
+/// `Descriptor` or `FileDescriptor` for its containing scope, find the
+/// extension.
 public final class FieldDescriptor {
-  public let proto: Google_Protobuf_FieldDescriptorProto
-  let index: Int
-  public private(set) weak var file: FileDescriptor!
-  /// The Descriptor of the message which this is a field of.  For extensions,
-  /// this is the extended type.
-  public private(set) weak var containingType: Descriptor!
-
-  public var name: String { return proto.name }
-  public var number: Int32 { return proto.number }
-  public var label: Google_Protobuf_FieldDescriptorProto.Label { return proto.label }
-  public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum { return proto.type }
-
-  var proto3Optional: Bool { return proto.proto3Optional }
-
-  /// Returns true if this field was syntactically written with "optional" in the
-  /// .proto file. Excludes singular proto3 fields that do not have a label.
-  public var hasOptionalKeyword: Bool {
-    return proto3Optional ||
-      (file.syntax == .proto2 && label == .optional && oneofIndex == nil)
-  }
-
-  /// Returns true if this field tracks presence, ie. does the field
-  /// distinguish between "unset" and "present with default value."
-  /// This includes required, optional, and oneof fields. It excludes maps,
-  /// repeated fields, and singular proto3 fields without "optional".
-  public var hasPresence: Bool {
-    guard label != .repeated else { return false }
-    switch type {
-    case .group, .message:
-      // Groups/messages always get field presence.
-      return true
-    default:
-      return file.syntax == .proto2 || oneofIndex != nil
-    }
-  }
-
+  /// Name of this field within the message.
+  public let name: String
+  /// Fully-qualified name of the field.
   public var fullName: String {
-    // Since the fullName isn't needed on Fields that often, compute it on demand.
+    // Since the fullName isn't needed on fields that often, compute it on demand.
     let prefix: String
     if isExtension {
       if let extensionScope = extensionScope {
@@ -453,72 +632,57 @@ public final class FieldDescriptor {
     } else {
       prefix = containingType.fullName
     }
-    return "\(prefix).\(proto.name)"
+    return "\(prefix).\(name)"
   }
-
+  /// JSON name of this field.
   public var jsonName: String? {
+    // TODO(TVL): Revisit, doesn't seem like we should have this fallback since
+    // protoc is always supposed to provide it.
     guard proto.hasJsonName else { return nil }
     return proto.jsonName
   }
 
-  /// The default value (string) set in the proto file.
-  public var explicitDefaultValue: String? {
-    if !proto.hasDefaultValue {
-      return nil
-    }
-    return proto.defaultValue
-  }
-
-  /// True if this field is a map.
-  public var isMap: Bool {
-    // Maps are releated messages.
-    if label != .repeated || type != .message {
-      return false
-    }
-    return messageType.isMapEntry
-  }
+  /// File in which this field was defined.
+  public private(set) weak var file: FileDescriptor!
 
   /// If this is an extension field.
   public let isExtension: Bool
-  /// Extensions can be declared within the scope of another message. If this
-  /// is an extension field, then this will be the scope it was declared in
-  /// nil if was declared at a global scope.
-  public private(set) weak var extensionScope: Descriptor?
+  /// The field number.
+  public let number: Int32
 
-  /// The index in a oneof this field is in.
-  public let oneofIndex: Int32?
+  /// Valid field numbers are positive integers up to kMaxNumber.
+  static let kMaxNumber: Int = (1 << 29) - 1
 
-  /// The oneof this field is a member of.
-  public var oneof: OneofDescriptor? {
-    guard let oneofIndex = oneofIndex else { return nil }
-    assert(!isExtension)
-    return containingType!.oneofs[Int(oneofIndex)]
+  /// First field number reserved for the protocol buffer library
+  /// implementation. Users may not declare fields that use reserved numbers.
+  static let kFirstReservedNumber: Int = 19000
+  /// Last field number reserved for the protocol buffer library implementation.
+  /// Users may not declare fields that use reserved numbers.
+  static let kLastReservedNumber: Int = 19999
+
+  /// Declared type of this field.
+  public let type: Google_Protobuf_FieldDescriptorProto.TypeEnum
+  /// optional/required/repeated
+  public let label: Google_Protobuf_FieldDescriptorProto.Label
+
+  /// Shorthand for `label` == `.required`.
+  ///
+  /// NOTE: This could also be a map as the are also repeated fields.
+  public var isRequired: Bool { return label == .required }
+  /// Shorthand for `label` == `.optional`
+  public var isOptional: Bool { return label == .optional }
+  /// Shorthand for `label` == `.repeated`
+  public var isRepeated: Bool { return label == .repeated }
+
+  /// Is this field packable.
+  public var isPackable: Bool {
+    // This logic comes from the C++ FieldDescriptor::is_packable() impl.
+    return label == .repeated && FieldDescriptor.isPackable(type: type)
   }
-
-  /// The non synthetic oneof this field is a member of.
-  public var realOneof: OneofDescriptor? {
-    guard let oneof = oneof, !oneof.isSynthetic else { return nil }
-    return oneof
-  }
-
-  /// When this is a message field, the message's desciptor.
-  public private(set) weak var messageType: Descriptor!
-  /// When this is a enum field, the enum's desciptor.
-  public private(set) weak var enumType: EnumDescriptor!
-
   /// Should this field be packed format.
   public var isPacked: Bool {
-    // NOTE: As of May 2017, the proto3 spec says:
-    //
-    // https://developers.google.com/protocol-buffers/docs/proto3#specifying-field-rules -
-    //   "In proto3, repeated fields of scalar numeric types use packed encoding by default."
-    //
-    // But this does not result in the field option for packed being set by protoc. Instead
-    // there is some interesting logic in the C++ desciptor classes that causes the field
-    // to be packed, but does leave the door open for it not to be backed.  So the logic
-    // here and in the helpers this cases duplicates that logic.
-
     // This logic comes from the C++ FieldDescriptor::is_packed() impl.
+    // NOTE: It does not match what is in the C++ header for is_packed().
     guard isPackable else { return false }
     if file.syntax == .proto2 {
       return proto.hasOptions && proto.options.packed
@@ -526,16 +690,99 @@ public final class FieldDescriptor {
       return !proto.hasOptions || !proto.options.hasPacked || proto.options.packed
     }
   }
+  /// True if this field is a map.
+  public var isMap: Bool {
+    // This logic comes from the C++ FieldDescriptor::is_map() impl.
+    return type == .message && messageType.options.mapEntry
+  }
 
-  public var options: Google_Protobuf_FieldOptions { return proto.options }
+  /// Returns true if this field was syntactically written with "optional" in the
+  /// .proto file. Excludes singular proto3 fields that do not have a label.
+  public var hasOptionalKeyword: Bool {
+    // This logic comes from the C++ FieldDescriptor::has_optional_keyword()
+    // impl.
+    return proto3Optional ||
+      (file.syntax == .proto2 && label == .optional && oneofIndex == nil)
+  }
+
+  /// Returns true if this field tracks presence, ie. does the field
+  /// distinguish between "unset" and "present with default value."
+  /// This includes required, optional, and oneof fields. It excludes maps,
+  /// repeated fields, and singular proto3 fields without "optional".
+  public var hasPresence: Bool {
+    // This logic comes from the C++ FieldDescriptor::has_presence() impl.
+    guard label != .repeated else { return false }
+    switch type {
+    case .group, .message:
+      // Groups/messages always get field presence.
+      return true
+    default:
+      return file.syntax == .proto2 || oneofIndex != nil
+    }
+  }
+
+  /// Index of this field within the message's fields, or the file or
+  /// extension scope's extensions.
+  public let index: Int
+
+  /// Does this field have an explicitly-declared default value?
+  public var hasDefaultValue: Bool { return proto.hasDefaultValue }
+  // TODO(TVL): C++ FieldDescriptor doesn't have explicitDefaultValue, instead
+  // it has a bunch of apis to do the transforms, should there be apis like
+  // that?
+  /// The default value (string) set in the proto file.
+  public var explicitDefaultValue: String? {
+    guard hasDefaultValue else { return nil }
+    return proto.defaultValue
+  }
+
+  /// The `Descriptor` of the message which this is a field of. For extensions,
+  /// this is the extended type.
+  public private(set) weak var containingType: Descriptor!
+
+  /// The oneof this field is a member of.
+  public var containingOneof: OneofDescriptor? {
+    guard let oneofIndex = oneofIndex else { return nil }
+    assert(!isExtension)
+    return containingType!.oneofs[Int(oneofIndex)]
+  }
+  /// The non synthetic oneof this field is a member of.
+  public var realContainingOneof: OneofDescriptor? {
+    guard let oneof = containingOneof, !oneof.isSynthetic else { return nil }
+    return oneof
+  }
+  /// The index in a oneof this field is in.
+  public let oneofIndex: Int32?
+
+  /// Extensions can be declared within the scope of another message. If this
+  /// is an extension field, then this will be the scope it was declared in
+  /// nil if was declared at a global scope.
+  public private(set) weak var extensionScope: Descriptor?
+
+  /// When this is a message field, the message's `Desciptor`.
+  public private(set) weak var messageType: Descriptor!
+  /// When this is a enum field, the enum's `EnumDesciptor`.
+  public private(set) weak var enumType: EnumDescriptor!
+
+  /// The FieldOptions for this field.
+  public var options: Google_Protobuf_FieldOptions
+
+  let proto: Google_Protobuf_FieldDescriptorProto
+  let proto3Optional: Bool
 
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
                    index: Int,
                    registry: Registry,
                    isExtension: Bool = false) {
-    self.proto = proto
+    self.name = proto.name
     self.index = index
     self.isExtension = isExtension
+    self.number = proto.number
+    self.type = proto.type
+    self.label = proto.label
+    self.options = proto.options
+    self.proto = proto
+    self.proto3Optional = proto.proto3Optional
     if proto.hasOneofIndex {
       assert(!isExtension)
       oneofIndex = proto.oneofIndex
@@ -573,23 +820,37 @@ public final class FieldDescriptor {
   }
 }
 
+/// Describes an RPC service.
+///
+/// SwiftProtobuf does *not* generate anything for these (or methods), but
+/// they are here to support things that generate based off RPCs defined in
+/// .proto file (gRPC, etc.).
 public final class ServiceDescriptor {
-  public let proto: Google_Protobuf_ServiceDescriptorProto
-  let index: Int
+  /// The name of the service, not including its containing scope.
+  public let name: String
+  /// The fully-qualified name of the service, scope delimited by periods.
   public let fullName: String
-  public var name: String { return proto.name }
+  /// Index of this service within the file's services.
+  public let index: Int
+
+  /// The .proto file in which this service was defined
   public private(set) weak var file: FileDescriptor!
 
+  /// Get `Google_Protobuf_ServiceOptions` for this service.
+  public let options: Google_Protobuf_ServiceOptions
+
+  /// The methods defined on this service. These are returned in the order they
+  /// were defined in the .proto file.
   public let methods: [MethodDescriptor]
 
   fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
                    index: Int,
                    registry: Registry,
                    fullNamePrefix prefix: String) {
-    self.proto = proto
+    self.name = proto.name
+    self.fullName = "\(prefix).\(proto.name)"
     self.index = index
-    let fullName = "\(prefix).\(proto.name)"
-    self.fullName = fullName
+    self.options = proto.options
 
     self.methods = proto.method.enumeratedMap {
       return MethodDescriptor(proto: $1, index: $0, registry: registry)
@@ -605,30 +866,49 @@ public final class ServiceDescriptor {
   }
 }
 
+/// Describes an individual service method.
+///
+/// SwiftProtobuf does *not* generate anything for these (or services), but
+/// they are here to support things that generate based off RPCs defined in
+/// .proto file (gRPC, etc.).
 public final class MethodDescriptor {
-  public let proto: Google_Protobuf_MethodDescriptorProto
-  let index: Int
-  public private(set) weak var service: ServiceDescriptor!
+  /// The name of the method, not including its containing scope.
+  public let name: String
+  /// The fully-qualified name of the method, scope delimited by periods.
+  public var fullName: String { return "\(service.fullName).\(name)" }
+  /// Index of this service within the file's services.
+  public let index: Int
+
+  /// The .proto file in which this service was defined
   public weak var file: FileDescriptor! { return service.file }
+  /// The service tha defines this method.
+  public private(set) weak var service: ServiceDescriptor!
 
-  public var name: String { return proto.name }
-
+  /// The type of protocol message which this method accepts as input.
   public private(set) var inputType: Descriptor!
+  /// The type of protocol message which this message produces as output.
   public private(set) var outputType: Descriptor!
+
+  /// Whether the client streams multiple requests.
+  public let clientStreaming: Bool
+  // Whether the server streams multiple responses.
+  public let serverStreaming: Bool
 
   fileprivate init(proto: Google_Protobuf_MethodDescriptorProto,
                    index: Int,
                    registry: Registry) {
-    self.proto = proto
+    self.name = proto.name
     self.index = index
+    self.clientStreaming = proto.clientStreaming
+    self.serverStreaming = proto.serverStreaming
+    // Can look these up because all the Descriptors are already registered
+    self.inputType = registry.descriptor(name: proto.inputType)
+    self.outputType = registry.descriptor(name: proto.outputType)
   }
 
   fileprivate func bind(service: ServiceDescriptor, registry: Registry) {
     self.service = service
-    inputType = registry.descriptor(name: proto.inputType)
-    outputType = registry.descriptor(name: proto.outputType)
   }
-
 }
 
 /// Helper used under the hood to build the mapping tables and look things up.
