@@ -85,12 +85,6 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     }
   }
 
-  /// Is this field packable.
-  var isPackable: Bool {
-    // This logic comes from the C++ FieldDescriptor::is_packable() impl.
-    return label == .repeated && FieldDescriptor.isPackable(type: type)
-  }
-
   /// Helper to return the name to as the "base" for naming of generated fields.
   ///
   /// Groups use the underlying message's name. The way groups are declared in

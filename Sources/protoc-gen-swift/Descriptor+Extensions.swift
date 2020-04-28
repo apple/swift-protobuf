@@ -17,17 +17,13 @@ extension FileDescriptor {
   }
 
   var isBundledProto: Bool {
-    return SwiftProtobufInfo.isBundledProto(file: proto)
+    return SwiftProtobufInfo.isBundledProto(file: self)
   }
 }
 
 extension Descriptor {
-  /// Returns True if this is the Any WKT
-  var isAnyMessage: Bool {
-    return (file.syntax == .proto3 &&
-      fullName == ".google.protobuf.Any" &&
-      file.name == "google/protobuf/any.proto")
-  }
+  /// Returns true if the message should use the message set wireformat.
+  var useMessageSetWireFormat: Bool { return options.messageSetWireFormat }
 
   /// Returns True if this message recurisvely contains a required field.
   /// This is a helper for generating isInitialized methods.
@@ -54,7 +50,7 @@ extension Descriptor {
       }
 
       for f in descriptor.fields {
-        if f.label == .required {
+        if f.isRequired {
           return true
         }
         switch f.type {
@@ -138,7 +134,7 @@ extension FieldDescriptor {
     case .repeated:
       return swiftType
     case .optional, .required:
-      guard realOneof == nil else {
+      guard realContainingOneof == nil else {
         return swiftType
       }
       if hasPresence {
@@ -217,7 +213,7 @@ extension FieldDescriptor {
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:
-      return namer.dottedRelativeName(enumValue: enumType.defaultValue)
+      return namer.dottedRelativeName(enumValue: enumType.values.first!)
     default:
       return "0"
     }

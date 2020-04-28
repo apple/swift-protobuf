@@ -70,14 +70,14 @@ class MessageGenerator {
       return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
     }
 
-    messages = descriptor.messages.filter { return !$0.isMapEntry }.map {
+    messages = descriptor.messages.filter { return !$0.options.mapEntry }.map {
       return MessageGenerator(descriptor: $0,
                               generatorOptions: generatorOptions,
                               namer: namer,
                               extensionSet: extensionSet)
     }
 
-    if descriptor.isAnyMessage {
+    if descriptor.wellKnownType == .any {
       precondition(useHeapStorage)
       storage = AnyMessageStorageClassGenerator(fields: fields)
     } else if useHeapStorage {
@@ -107,7 +107,7 @@ class MessageGenerator {
         errorString = "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is a non message extension field."
         return
       }
-      guard e.label == .optional else {
+      guard e.isOptional else {
         errorString = "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is not a \"optional\" extension field."
         return
       }
@@ -426,8 +426,8 @@ class MessageGenerator {
     // initialized.
 
     if descriptor.file.syntax == .proto2 {
-      // Only proto2 syntax can have field presence (required fields); ensure required
-      // fields have values.
+      // Only proto2 syntax can have required fields; ensure required fields
+      // have values.
       for f in fields {
         f.generateRequiredFieldCheck(printer: &fieldCheckPrinter)
       }
@@ -544,7 +544,7 @@ fileprivate struct MessageFieldFactory {
   }
 
   func make(forFieldDescriptor field: FieldDescriptor) -> FieldGenerator {
-    guard field.realOneof == nil else {
+    guard field.realContainingOneof == nil else {
       return oneofs[Int(field.oneofIndex!)].fieldGenerator(forFieldNumber: Int(field.number))
     }
     return MessageFieldGenerator(descriptor: field,

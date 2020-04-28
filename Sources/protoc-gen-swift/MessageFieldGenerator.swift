@@ -38,7 +38,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private var isPacked: Bool { return fieldDescriptor.isPacked }
 
     // Note: this could still be a map (since those are repeated message fields
-    private var isRepeated: Bool {return fieldDescriptor.label == .repeated}
+    private var isRepeated: Bool {return fieldDescriptor.isRepeated}
     private var isGroupOrMessage: Bool {
       switch fieldDescriptor.type {
       case .group, .message:
@@ -53,13 +53,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
          namer: SwiftProtobufNamer,
          usesHeapStorage: Bool)
     {
-        precondition(descriptor.realOneof == nil)
+        precondition(descriptor.realContainingOneof == nil)
 
         self.generatorOptions = generatorOptions
         self.usesHeapStorage = usesHeapStorage
         self.namer = namer
 
-        hasFieldPresence = descriptor.hasPresence && descriptor.realOneof == nil
+        hasFieldPresence = descriptor.hasPresence
         let names = namer.messagePropertyNames(field: descriptor,
                                                prefixed: "_",
                                                includeHasAndClear: hasFieldPresence)
@@ -155,7 +155,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     }
 
    func generateRequiredFieldCheck(printer p: inout CodePrinter) {
-       guard fieldDescriptor.label == .required else { return }
+       guard fieldDescriptor.isRequired else { return }
        p.print("if \(storedProperty) == nil {return false}\n")
     }
 
