@@ -96,14 +96,15 @@ extension Descriptor {
 
 extension FieldDescriptor {
   func swiftType(namer: SwiftProtobufNamer) -> String {
-    if let keyField = messageType.mapKey, let valueField = messageType.mapValue {
-      assert(isMap)
+    if isMap {
+      let mapDescriptor: Descriptor = messageType
+      let keyField = mapDescriptor.fields[0]
       let keyType = keyField.swiftType(namer: namer)
+      let valueField = mapDescriptor.fields[1]
       let valueType = valueField.swiftType(namer: namer)
       return "Dictionary<" + keyType + "," + valueType + ">"
     }
 
-    assert(!isMap)
     let result: String
     switch type {
     case .double: result = "Double"
@@ -226,9 +227,11 @@ extension FieldDescriptor {
   /// Calculates the traits type used for maps and extensions, they
   /// are used in decoding and visiting.
   func traitsType(namer: SwiftProtobufNamer) -> String {
-    if let keyField = messageType.mapKey, let valueField = messageType.mapValue {
-      assert(isMap)
+    if isMap {
+      let mapDescriptor: Descriptor = messageType
+      let keyField = mapDescriptor.fields[0]
       let keyTraits = keyField.traitsType(namer: namer)
+      let valueField = mapDescriptor.fields[1]
       let valueTraits = valueField.traitsType(namer: namer)
       switch valueField.type {
       case .message:  // Map's can't have a group as the value
@@ -239,7 +242,6 @@ extension FieldDescriptor {
         return "\(Version.moduleName)._ProtobufMap<\(keyTraits),\(valueTraits)>"
       }
     }
-    assert(!isMap)
     switch type {
     case .double: return "\(Version.moduleName).ProtobufDouble"
     case .float: return "\(Version.moduleName).ProtobufFloat"
