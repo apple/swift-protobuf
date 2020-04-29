@@ -159,6 +159,8 @@ public final class Descriptor {
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
+  public let isMapEntry: Bool
+
   public let enums: [EnumDescriptor]
   public let messages: [Descriptor]
   public let fields: [FieldDescriptor]
@@ -177,25 +179,6 @@ public final class Descriptor {
     return proto.extensionRange
   }
 
-  /// True/False if this Message is just for a `map<>` entry.
-  public var isMapEntry: Bool { return proto.options.mapEntry }
-
-  /// Returns the `FieldDescriptor` for the "key" field. If this isn't a map
-  /// entry field, returns nil.
-  public var mapKey: FieldDescriptor? {
-    guard isMapEntry else { return nil }
-    assert(fields.count == 2)
-    return fields[0]
-  }
-
-  /// Returns the `FieldDescriptor` for the "value" field. If this isn't a map
-  /// entry field, returns nil.
-  public var mapValue: FieldDescriptor? {
-    guard isMapEntry else { return nil }
-    assert(fields.count == 2)
-    return fields[1]
-  }
-
   public var useMessageSetWireFormat: Bool { return proto.options.messageSetWireFormat }
 
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
@@ -206,6 +189,8 @@ public final class Descriptor {
     self.index = index
     let fullName = "\(prefix).\(proto.name)"
     self.fullName = fullName
+
+    isMapEntry = proto.options.mapEntry
 
     self.enums = proto.enumType.enumeratedMap {
       return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
