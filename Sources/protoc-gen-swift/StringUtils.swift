@@ -9,6 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobufPluginLibrary
 
 func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   var dir = ""
