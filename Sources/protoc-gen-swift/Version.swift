@@ -27,8 +27,5 @@ struct Version {
     // or API-changing).
     static let compatibilityVersion = 2
 
-    // Name of the SwiftProtobuf module
-    static let moduleName = "SwiftProtobuf"
-
     static let copyright = "Copyright (C) 2014-2017 Apple Inc. and the project authors"
 }

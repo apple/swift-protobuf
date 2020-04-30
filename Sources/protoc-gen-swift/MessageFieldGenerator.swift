@@ -161,7 +161,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         guard isGroupOrMessage && fieldDescriptor.messageType.hasRequiredFields() else { return }
 
         if isRepeated {  // Map or Array
-            p.print("if !\(Version.moduleName).Internal.areAllInitialized(\(storedProperty)) {return false}\n")
+            p.print("if !\(SwiftProtobufInfo.name).Internal.areAllInitialized(\(storedProperty)) {return false}\n")
         } else {
             p.print("if let v = \(storedProperty), !v.isInitialized {return false}\n")
         }
