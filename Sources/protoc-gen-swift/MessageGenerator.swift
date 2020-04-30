@@ -118,7 +118,7 @@ class MessageGenerator {
 
     let conformances: String
     if isExtensible {
-      conformances = ": \(Version.moduleName).ExtensibleMessage"
+      conformances = ": \(SwiftProtobufInfo.name).ExtensibleMessage"
     } else {
       conformances = ""
     }
@@ -127,7 +127,7 @@ class MessageGenerator {
         descriptor.protoSourceComments(),
         "\(visibility)struct \(swiftRelativeName)\(conformances) {\n")
     p.indent()
-    p.print("// \(Version.moduleName).Message conformance is added in an extension below. See the\n",
+    p.print("// \(SwiftProtobufInfo.name).Message conformance is added in an extension below. See the\n",
             "// `Message` and `Message+*Additions` files in the SwiftProtobuf library for\n",
             "// methods supported on all messages.\n")
 
@@ -137,7 +137,7 @@ class MessageGenerator {
 
     p.print(
         "\n",
-        "\(visibility)var unknownFields = \(Version.moduleName).UnknownStorage()\n")
+        "\(visibility)var unknownFields = \(SwiftProtobufInfo.name).UnknownStorage()\n")
 
     for o in oneofs {
       o.generateMainEnum(printer: &p)
@@ -164,7 +164,7 @@ class MessageGenerator {
     if isExtensible {
       p.print(
           "\n",
-          "\(visibility)var _protobuf_extensionFieldValues = \(Version.moduleName).ExtensionFieldValueSet()\n")
+          "\(visibility)var _protobuf_extensionFieldValues = \(SwiftProtobufInfo.name).ExtensionFieldValueSet()\n")
     }
     if let storage = storage {
       if !isExtensible {
@@ -200,7 +200,7 @@ class MessageGenerator {
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print(
         "\n",
-        "extension \(swiftFullName): \(Version.moduleName).Message, \(Version.moduleName)._MessageImplementationBase, \(Version.moduleName)._ProtoNameProviding {\n")
+        "extension \(swiftFullName): \(SwiftProtobufInfo.name).Message, \(SwiftProtobufInfo.name)._MessageImplementationBase, \(SwiftProtobufInfo.name)._ProtoNameProviding {\n")
     p.indent()
 
     if let parent = parent {
@@ -239,9 +239,9 @@ class MessageGenerator {
 
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     if fields.isEmpty {
-      p.print("\(visibility)static let _protobuf_nameMap = \(Version.moduleName)._NameMap()\n")
+      p.print("\(visibility)static let _protobuf_nameMap = \(SwiftProtobufInfo.name)._NameMap()\n")
     } else {
-      p.print("\(visibility)static let _protobuf_nameMap: \(Version.moduleName)._NameMap = [\n")
+      p.print("\(visibility)static let _protobuf_nameMap: \(SwiftProtobufInfo.name)._NameMap = [\n")
       p.indent()
       for f in fields {
         p.print("\(f.number): \(f.fieldMapNames),\n")
@@ -256,7 +256,7 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func decodeMessage<D: \(Version.moduleName).Decoder>(decoder: inout D) throws {\n")
+    p.print("\(visibility)mutating func decodeMessage<D: \(SwiftProtobufInfo.name).Decoder>(decoder: inout D) throws {\n")
     p.indent()
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")
@@ -319,7 +319,7 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func traverse<V: \(Version.moduleName).Visitor>(visitor: inout V) throws {\n")
+    p.print("\(visibility)func traverse<V: \(SwiftProtobufInfo.name).Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
       if let storage = storage {
