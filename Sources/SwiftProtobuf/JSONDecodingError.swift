@@ -44,9 +44,9 @@ public enum JSONDecodingError: Error {
     /// We hit the end of the JSON string and expected something more...
     case truncated
     /// A JSON Duration could not be parsed
-    case malformedDuration
+    case malformed(duration: String)
     /// A JSON Timestamp could not be parsed
-    case malformedTimestamp
+    case malformed(timestamp: String)
     /// A FieldMask could not be parsed
     case malformedFieldMask
     /// Extraneous data remained after decoding should have been complete
