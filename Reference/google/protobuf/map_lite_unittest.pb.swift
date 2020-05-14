@@ -356,11 +356,6 @@ struct ProtobufUnittest_TestArenaMapLite {
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-  var mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> {
-    get {return _storage._mapInt32ForeignMessageNoArena}
-    set {_uniqueStorage()._mapInt32ForeignMessageNoArena = newValue}
-  }
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -729,7 +724,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
     15: .standard(proto: "map_int32_bytes"),
     16: .standard(proto: "map_int32_enum"),
     17: .standard(proto: "map_int32_foreign_message"),
-    18: .standard(proto: "map_int32_foreign_message_no_arena"),
   ]
 
   fileprivate class _StorageClass {
@@ -750,7 +744,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
     var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> = [:]
-    var _mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> = [:]
 
     static let defaultInstance = _StorageClass()
 
@@ -774,7 +767,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
       _mapInt32Bytes = source._mapInt32Bytes
       _mapInt32Enum = source._mapInt32Enum
       _mapInt32ForeignMessage = source._mapInt32ForeignMessage
-      _mapInt32ForeignMessageNoArena = source._mapInt32ForeignMessageNoArena
     }
   }
 
@@ -807,7 +799,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
         case 15: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapInt32Bytes)
         case 16: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_MapEnumLite>.self, value: &_storage._mapInt32Enum)
         case 17: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_ForeignMessageArenaLite>.self, value: &_storage._mapInt32ForeignMessage)
-        case 18: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: &_storage._mapInt32ForeignMessageNoArena)
         default: break
         }
       }
@@ -867,9 +858,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
       if !_storage._mapInt32ForeignMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_ForeignMessageArenaLite>.self, value: _storage._mapInt32ForeignMessage, fieldNumber: 17)
       }
-      if !_storage._mapInt32ForeignMessageNoArena.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: _storage._mapInt32ForeignMessageNoArena, fieldNumber: 18)
-      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -896,7 +884,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
         if _storage._mapInt32Bytes != rhs_storage._mapInt32Bytes {return false}
         if _storage._mapInt32Enum != rhs_storage._mapInt32Enum {return false}
         if _storage._mapInt32ForeignMessage != rhs_storage._mapInt32ForeignMessage {return false}
-        if _storage._mapInt32ForeignMessageNoArena != rhs_storage._mapInt32ForeignMessageNoArena {return false}
         return true
       }
       if !storagesAreEqual {return false}
