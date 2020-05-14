@@ -10,6 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     strategy:
+      fail-fast: false
       matrix:
         swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
         # "v3.11.4" not listed as that release doesn't support --experimental_allow_proto3_optional
