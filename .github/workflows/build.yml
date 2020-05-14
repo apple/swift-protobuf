@@ -12,9 +12,11 @@ jobs:
     strategy:
       matrix:
         swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
-        # "v3.11.4" not listed as that release doesn't support --experimental_allow_proto3_optional
-        # master as of 5/14/2020: 6935eae45c99926a000ecbef0be20dfd3d159e71
-        protobuf_gitref: ["6935eae45c99926a000ecbef0be20dfd3d159e71"]
+        # protobuf_git can reference a commit, tag, or branch
+        # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
+        # tag: "ref/tags/v3.11.4"
+        # branch: "ref/heads/master"
+        protobuf_git: ["ref/heads/master"]
         include:
           - swift: "5.2.1-bionic"
             platform: "ubuntu-18.04"
@@ -29,6 +31,23 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: main
+    - name: Update and install dependencies
+      # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+      # this step is run before get-sha because we need curl and jq for get-sha
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
+    - name: Get Protobuf Commit SHA
+      id: get-sha
+      run: |
+        set -eu
+        url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
+        case ${{ matrix.protobuf_git }} in
+        ref/*)
+          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )
+          ;;
+        commits/*)
+          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
+          ;;
+        esac
     - name: Build
       working-directory: main
       run: make build
@@ -41,17 +60,13 @@ jobs:
       with:
         path: protobuf
         # NOTE: for refs that can float like 'master' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.platform}}-protobuf-${{ matrix.protobuf_gitref }}
-    - name: Update and install dependencies
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
-      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip
+        key: ${{ runner.os }}-${{ matrix.platform}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       uses: actions/checkout@v2
       with:
         repository: protocolbuffers/protobuf
-        ref: ${{ matrix.protobuf_gitref }}
+        ref: ${{ steps.get-sha.outputs.sha }}
         path: protobuf
     - name: Build protobuf
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
