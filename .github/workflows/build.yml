@@ -10,11 +10,12 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     strategy:
+      fail-fast: false
       matrix:
         swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
         # "v3.11.4" not listed as that release doesn't support --experimental_allow_proto3_optional
-        # master as of 4/4/2020: cf601047ebf87cf7f443753ded41132eb689cb10
-        protobuf_gitref: ["cf601047ebf87cf7f443753ded41132eb689cb10"]
+        # master as of 5/14/2020: 6935eae45c99926a000ecbef0be20dfd3d159e71
+        protobuf_gitref: ["6935eae45c99926a000ecbef0be20dfd3d159e71"]
         include:
           - swift: "5.2.1-bionic"
             platform: "ubuntu-18.04"

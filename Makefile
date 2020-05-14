@@ -103,9 +103,6 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_lite_imports_nonlite.proto \
 	Protos/google/protobuf/unittest_mset.proto \
 	Protos/google/protobuf/unittest_mset_wire_format.proto \
-	Protos/google/protobuf/unittest_no_arena.proto \
-	Protos/google/protobuf/unittest_no_arena_import.proto \
-	Protos/google/protobuf/unittest_no_arena_lite.proto \
 	Protos/google/protobuf/unittest_no_field_presence.proto \
 	Protos/google/protobuf/unittest_no_generic_services.proto \
 	Protos/google/protobuf/unittest_optimize_for.proto \
@@ -366,6 +363,7 @@ regenerate: \
 
 # Rebuild just the protos included in the runtime library
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
+	find Sources/SwiftProtobuf -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
@@ -374,6 +372,7 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
 
 # Rebuild just the protos used by the plugin
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
+	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
@@ -385,6 +384,7 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_enums.proto Protos/generated_swift_names_enum_cases.proto Protos/generated_swift_names_fields.proto Protos/generated_swift_names_messages.proto
+	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
@@ -498,6 +498,7 @@ Protos/generated_swift_names_enums.proto: Protos/mined_words.txt
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
+	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \

@@ -1,1 +1,2 @@
-# No known failures
+# Tracking in https://github.com/apple/swift-protobuf/issues/993
+Recommended.Proto2.JsonInput.FieldNameExtension.Validator

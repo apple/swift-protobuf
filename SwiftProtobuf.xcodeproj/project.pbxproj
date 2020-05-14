@@ -168,9 +168,6 @@
 		9C8CDA501D7A28F600E207CA /* unittest_lite_imports_nonlite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */; };
 		9C8CDA511D7A28F600E207CA /* unittest_mset.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */; };
 		9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */; };
-		9C8CDA531D7A28F600E207CA /* unittest_no_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift */; };
-		9C8CDA541D7A28F600E207CA /* unittest_no_arena_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift */; };
-		9C8CDA551D7A28F600E207CA /* unittest_no_arena_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift */; };
 		9C8CDA561D7A28F600E207CA /* unittest_no_field_presence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */; };
 		9C8CDA571D7A28F600E207CA /* unittest_no_generic_services.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */; };
 		9C8CDA581D7A28F600E207CA /* unittest_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */; };
@@ -416,9 +413,6 @@
 		F44F93DD1DAEA8C900BC5B85 /* unittest_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */; };
 		F44F93DE1DAEA8C900BC5B85 /* unittest_mset_wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */; };
 		F44F93DF1DAEA8C900BC5B85 /* unittest_mset.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */; };
-		F44F93E01DAEA8C900BC5B85 /* unittest_no_arena_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift */; };
-		F44F93E11DAEA8C900BC5B85 /* unittest_no_arena_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift */; };
-		F44F93E21DAEA8C900BC5B85 /* unittest_no_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift */; };
 		F44F93E31DAEA8C900BC5B85 /* unittest_no_field_presence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */; };
 		F44F93E41DAEA8C900BC5B85 /* unittest_no_generic_services.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */; };
 		F44F93E51DAEA8C900BC5B85 /* unittest_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */; };
@@ -659,9 +653,6 @@
 		__src_cc_ref_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */; };
@@ -899,9 +890,6 @@
 		__PBXFileRef_Tests/ProtobufTests/unittest_lite_imports_nonlite.pb.swift /* unittest_lite_imports_nonlite.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_lite_imports_nonlite.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_mset.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_mset_wire_format.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_arena.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_arena_import.pb.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_arena_lite.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_field_presence.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_no_generic_services.pb.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unittest_optimize_for.pb.swift; sourceTree = "<group>"; };
@@ -1182,9 +1170,6 @@
 				__PBXFileRef_Tests/ProtobufTests/unittest_lite.pb.swift /* unittest_lite.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_mset.pb.swift /* unittest_mset.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift */,
-				__PBXFileRef_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/unittest_optimize_for.pb.swift /* unittest_optimize_for.pb.swift */,
@@ -1494,10 +1479,7 @@
 				9C8CDA641D7A28F600E207CA /* unittest_swift_naming.pb.swift in Sources */,
 				F4A07B2D1E4A3E630035678A /* test_messages_proto3.pb.swift in Sources */,
 				9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */,
-				9C8CDA531D7A28F600E207CA /* unittest_no_arena.pb.swift in Sources */,
 				F47C42B62437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
-				9C8CDA541D7A28F600E207CA /* unittest_no_arena_import.pb.swift in Sources */,
-				9C8CDA551D7A28F600E207CA /* unittest_no_arena_lite.pb.swift in Sources */,
 				9C8CDA561D7A28F600E207CA /* unittest_no_field_presence.pb.swift in Sources */,
 				F47C42C32437A73000C08579 /* Test_AllTypes_Proto3_Optional.swift in Sources */,
 				9C8CDA571D7A28F600E207CA /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1792,9 +1774,6 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */,
 				F4584D3B1ECA4FC600803AB6 /* unittest_swift_oneof_merging.pb.swift in Sources */,
 				9C60CBE81DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena.pb.swift /* unittest_no_arena.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_import.pb.swift /* unittest_no_arena_import.pb.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/unittest_no_arena_lite.pb.swift /* unittest_no_arena_lite.pb.swift in Sources */,
 				F47C42B52437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1936,14 +1915,12 @@
 				F44F93C11DAEA8C900BC5B85 /* Test_JSON.swift in Sources */,
 				F482B6951E857BC200A25EF8 /* unittest_swift_naming_no_prefix.pb.swift in Sources */,
 				9CCD5F951E008203002D1940 /* Test_TextFormat_WKT_proto3.swift in Sources */,
-				F44F93E21DAEA8C900BC5B85 /* unittest_no_arena.pb.swift in Sources */,
 				F44F93EB1DAEA8C900BC5B85 /* unittest_swift_cycle.pb.swift in Sources */,
 				F44F93C81DAEA8C900BC5B85 /* Test_RecursiveMap.swift in Sources */,
 				9CC8CAB41EC512A0008EF45F /* generated_swift_names_fields.pb.swift in Sources */,
 				F44F93D81DAEA8C900BC5B85 /* unittest_import_public_lite.pb.swift in Sources */,
 				6583D6E6246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */,
 				F4151F791EFAD85C00EEA00B /* Test_BinaryDelimited.swift in Sources */,
-				F44F93E01DAEA8C900BC5B85 /* unittest_no_arena_import.pb.swift in Sources */,
 				F44F93B81DAEA8C900BC5B85 /* Test_Empty.swift in Sources */,
 				F44F93B11DAEA8C900BC5B85 /* Test_AllTypes_Proto3.swift in Sources */,
 				F44F94451DBFE0C000BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
@@ -1984,7 +1961,6 @@
 				F48FDD2A1E4D18080061D5C1 /* Test_TextFormat_proto3.swift in Sources */,
 				F44F93D61DAEA8C900BC5B85 /* unittest_import_lite.pb.swift in Sources */,
 				F44F93BE1DAEA8C900BC5B85 /* Test_JSON_Conformance.swift in Sources */,
-				F44F93E11DAEA8C900BC5B85 /* unittest_no_arena_lite.pb.swift in Sources */,
 				F48FDD291E4D18080061D5C1 /* Test_TextFormat_proto2_extensions.swift in Sources */,
 				F44F93CA1DAEA8C900BC5B85 /* Test_Reserved.swift in Sources */,
 				F44F93BF1DAEA8C900BC5B85 /* Test_JSON_Group.swift in Sources */,
