@@ -227,6 +227,17 @@ struct ProtobufUnittest_TestProto3Optional {
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedEnum() {_uniqueStorage()._optionalNestedEnum = nil}
 
+  /// Add some non-optional fields to verify we can mix them.
+  var singularInt32: Int32 {
+    get {return _storage._singularInt32}
+    set {_uniqueStorage()._singularInt32 = newValue}
+  }
+
+  var singularInt64: Int64 {
+    get {return _storage._singularInt64}
+    set {_uniqueStorage()._singularInt64 = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -338,6 +349,8 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     18: .standard(proto: "optional_nested_message"),
     19: .standard(proto: "lazy_nested_message"),
     21: .standard(proto: "optional_nested_enum"),
+    22: .standard(proto: "singular_int32"),
+    23: .standard(proto: "singular_int64"),
   ]
 
   fileprivate class _StorageClass {
@@ -360,6 +373,8 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     var _optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
     var _lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
     var _optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum? = nil
+    var _singularInt32: Int32 = 0
+    var _singularInt64: Int64 = 0
 
     static let defaultInstance = _StorageClass()
 
@@ -385,6 +400,8 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
       _optionalNestedMessage = source._optionalNestedMessage
       _lazyNestedMessage = source._lazyNestedMessage
       _optionalNestedEnum = source._optionalNestedEnum
+      _singularInt32 = source._singularInt32
+      _singularInt64 = source._singularInt64
     }
   }
 
@@ -419,6 +436,8 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
         case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
         case 19: try decoder.decodeSingularMessageField(value: &_storage._lazyNestedMessage)
         case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
+        case 22: try decoder.decodeSingularInt32Field(value: &_storage._singularInt32)
+        case 23: try decoder.decodeSingularInt64Field(value: &_storage._singularInt64)
         default: break
         }
       }
@@ -484,6 +503,12 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
       if let v = _storage._optionalNestedEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 21)
       }
+      if _storage._singularInt32 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._singularInt32, fieldNumber: 22)
+      }
+      if _storage._singularInt64 != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._singularInt64, fieldNumber: 23)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -512,6 +537,8 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
         if _storage._optionalNestedMessage != rhs_storage._optionalNestedMessage {return false}
         if _storage._lazyNestedMessage != rhs_storage._lazyNestedMessage {return false}
         if _storage._optionalNestedEnum != rhs_storage._optionalNestedEnum {return false}
+        if _storage._singularInt32 != rhs_storage._singularInt32 {return false}
+        if _storage._singularInt64 != rhs_storage._singularInt64 {return false}
         return true
       }
       if !storagesAreEqual {return false}

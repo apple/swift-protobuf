@@ -78,8 +78,6 @@ struct Proto2ArenaUnittest_ArenaMessage {
 
   var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
 
-  var repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = []
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -122,14 +120,12 @@ extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf
   static let protoMessageName: String = _protobuf_package + ".ArenaMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "repeated_nested_message"),
-    2: .standard(proto: "repeated_import_no_arena_message"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeRepeatedMessageField(value: &self.repeatedNestedMessage)
-      case 2: try decoder.decodeRepeatedMessageField(value: &self.repeatedImportNoArenaMessage)
       default: break
       }
     }
@@ -139,15 +135,11 @@ extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf
     if !self.repeatedNestedMessage.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.repeatedNestedMessage, fieldNumber: 1)
     }
-    if !self.repeatedImportNoArenaMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.repeatedImportNoArenaMessage, fieldNumber: 2)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Proto2ArenaUnittest_ArenaMessage, rhs: Proto2ArenaUnittest_ArenaMessage) -> Bool {
     if lhs.repeatedNestedMessage != rhs.repeatedNestedMessage {return false}
-    if lhs.repeatedImportNoArenaMessage != rhs.repeatedImportNoArenaMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
