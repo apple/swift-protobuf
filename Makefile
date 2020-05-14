@@ -103,9 +103,6 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_lite_imports_nonlite.proto \
 	Protos/google/protobuf/unittest_mset.proto \
 	Protos/google/protobuf/unittest_mset_wire_format.proto \
-	Protos/google/protobuf/unittest_no_arena.proto \
-	Protos/google/protobuf/unittest_no_arena_import.proto \
-	Protos/google/protobuf/unittest_no_arena_lite.proto \
 	Protos/google/protobuf/unittest_no_field_presence.proto \
 	Protos/google/protobuf/unittest_no_generic_services.proto \
 	Protos/google/protobuf/unittest_optimize_for.proto \
