@@ -128,6 +128,18 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
+    /// Begin a new extension field
+    internal mutating func startExtensionField(name: String) {
+        if let s = separator {
+            data.append(s)
+        }
+        data.append(asciiDoubleQuote)
+        data.append(asciiOpenSquareBracket)
+        data.append(contentsOf: name.utf8)
+        append(staticText: "]\":")
+        separator = asciiComma
+    }
+
     /// Append an open square bracket `[` to the JSON.
     internal mutating func startArray() {
         data.append(asciiOpenSquareBracket)

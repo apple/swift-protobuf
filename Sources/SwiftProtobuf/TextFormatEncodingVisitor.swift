@@ -63,6 +63,12 @@ internal struct TextFormatEncodingVisitor: Visitor {
     self.options = options
   }
 
+  // TODO: This largely duplicates emitFieldName() below.
+  // But, it's slower so we don't want to just have emitFieldName() use
+  // formatFieldName().  Also, we need to measure whether the optimization
+  // this provides to repeated fields is worth the effort; consider just
+  // removing this and having repeated fields just re-run emitFieldName()
+  // for each item.
   private func formatFieldName(lookingUp fieldNumber: Int) -> [UInt8] {
       var bytes = [UInt8]()
       if let protoName = nameMap?.names(for: fieldNumber)?.proto {

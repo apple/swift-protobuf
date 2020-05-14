@@ -1,3 +1,4 @@
+
 // Sources/SwiftProtobuf/Message+JSONAdditions.swift - JSON format primitive types
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
@@ -79,6 +80,28 @@ extension Message {
     }
   }
 
+  /// Creates a new message by decoding the given string containing a
+  /// serialized message in JSON format.
+  ///
+  /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter extensions: An ExtensionMap
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public init(
+    jsonString: String,
+    extensions: ExtensionMap?,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws {
+    if jsonString.isEmpty {
+      throw JSONDecodingError.truncated
+    }
+    if let data = jsonString.data(using: String.Encoding.utf8) {
+      try self.init(jsonUTF8Data: data, extensions: extensions, options: options)
+    } else {
+      throw JSONDecodingError.truncated
+    }
+  }
+
   /// Creates a new message by decoding the given `Data` containing a
   /// serialized message in JSON format, interpreting the data as UTF-8 encoded
   /// text.
@@ -98,6 +121,44 @@ extension Message {
         throw JSONDecodingError.truncated
       }
       var decoder = JSONDecoder(source: body, options: options)
+      if decoder.scanner.skipOptionalNull() {
+        if let customCodable = Self.self as? _CustomJSONCodable.Type,
+           let message = try customCodable.decodedFromJSONNull() {
+          self = message as! Self
+        } else {
+          throw JSONDecodingError.illegalNull
+        }
+      } else {
+        try decoder.decodeFullObject(message: &self)
+      }
+      if !decoder.scanner.complete {
+        throw JSONDecodingError.trailingGarbage
+      }
+    }
+  }
+
+  /// Creates a new message by decoding the given `Data` containing a
+  /// serialized message in JSON format, interpreting the data as UTF-8 encoded
+  /// text.
+  ///
+  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  ///   as UTF-8 encoded text.
+  /// - Parameter extensions: The extension map to use with this decode
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public init(
+    jsonUTF8Data: Data,
+    extensions: ExtensionMap?,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws {
+    self.init()
+    try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+      // Empty input is valid for binary, but not for JSON.
+      guard body.count > 0 else {
+        throw JSONDecodingError.truncated
+      }
+      var decoder = JSONDecoder(source: body, options: options,
+                                messageType: Self.self, extensions: extensions)
       if decoder.scanner.skipOptionalNull() {
         if let customCodable = Self.self as? _CustomJSONCodable.Type,
            let message = try customCodable.decodedFromJSONNull() {

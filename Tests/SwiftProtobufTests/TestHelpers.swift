@@ -134,7 +134,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     }
 
-    func assertJSONEncode(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertJSONEncode(_ expected: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -143,7 +143,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             let encoded = try configured.jsonString()
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(jsonString: encoded)
+                let decoded = try MessageTestType(jsonString: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
                 XCTFail("Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)", file: file, line: line)
@@ -159,7 +159,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             let encodedString = encodedOptString!
             XCTAssert(expected == encodedString, "Did not encode correctly: got \(encodedString)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(jsonUTF8Data: encodedData)
+                let decoded = try MessageTestType(jsonUTF8Data: encodedData, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
                 XCTFail("Encode/decode cycle should not throw error decoding: \(encodedString), but it threw \(error)", file: file, line: line)
@@ -208,15 +208,15 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONDecodeSucceeds(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertJSONDecodeSucceeds(_ json: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
-            let decoded: MessageTestType = try MessageTestType(jsonString: json)
+            let decoded: MessageTestType = try MessageTestType(jsonString: json, extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
                 let encoded = try decoded.jsonString()
                 do {
-                    let redecoded = try MessageTestType(jsonString: encoded)
+                    let redecoded = try MessageTestType(jsonString: encoded, extensions: extensions)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from \(encoded)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
@@ -232,14 +232,14 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
         do {
             let jsonData = json.data(using: String.Encoding.utf8)!
-            let decoded: MessageTestType = try MessageTestType(jsonUTF8Data: jsonData)
+            let decoded: MessageTestType = try MessageTestType(jsonUTF8Data: jsonData, extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
 
             do {
                 let encoded = try decoded.jsonUTF8Data()
                 let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
                 do {
-                    let redecoded = try MessageTestType(jsonUTF8Data: encoded)
+                    let redecoded = try MessageTestType(jsonUTF8Data: encoded, extensions: extensions)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
@@ -307,12 +307,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONDecodeFails(
         _ json: String,
+        extensions: ExtensionMap? = nil,
         options: JSONDecodingOptions = JSONDecodingOptions(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
     ) {
         do {
-            let _ = try MessageTestType(jsonString: json, options: options)
+            let _ = try MessageTestType(jsonString: json, extensions: extensions, options: options)
             XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
         } catch {
             // Yay! It failed!
@@ -320,7 +321,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
         let jsonData = json.data(using: String.Encoding.utf8)!
         do {
-            let _ = try MessageTestType(jsonUTF8Data: jsonData, options: options)
+            let _ = try MessageTestType(jsonUTF8Data: jsonData, extensions: extensions, options: options)
             XCTFail("Swift decode should have failed for binary: \(json)", file: file, line: line)
         } catch {
             // Yay! It failed again!

@@ -19,6 +19,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   private var encoder = JSONEncoder()
   private var nameMap: _NameMap
+  private var extensions: ExtensionFieldValueSet?
   private let options: JSONEncodingOptions
 
   /// The JSON text produced by the visitor, as raw UTF8 bytes.
@@ -49,6 +50,7 @@ internal struct JSONEncodingVisitor: Visitor {
     } else {
       throw JSONEncodingError.missingFieldNames
     }
+    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
     self.options = options
   }
 
@@ -363,11 +365,6 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
-  /// Called for each extension range.
-  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    // JSON does not store extensions
-  }
-
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private mutating func startField(for number: Int) throws {
@@ -379,8 +376,10 @@ internal struct JSONEncodingVisitor: Visitor {
         name = nameMap.names(for: number)?.json
     }
 
-    if let nm = name {
-        encoder.startField(name: nm)
+    if let name = name {
+        encoder.startField(name: name)
+    } else if let name = extensions?[number]?.protobufExtension.fieldName {
+        encoder.startExtensionField(name: name)
     } else {
         throw JSONEncodingError.missingFieldNames
     }

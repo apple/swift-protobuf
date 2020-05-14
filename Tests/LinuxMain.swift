@@ -643,6 +643,12 @@ extension Test_JSON_Conformance {
     ]
 }
 
+extension Test_JSON_Extensions {
+    static var allTests = [
+        ("test_optionalInt32Extension", test_optionalInt32Extension)
+    ]
+}
+
 extension Test_JSON_Group {
     static var allTests = [
         ("testOptionalGroup", testOptionalGroup),
@@ -1186,6 +1192,7 @@ XCTMain(
         testCase(Test_JSONEncodingOptions.allTests),
         testCase(Test_JSON_Array.allTests),
         testCase(Test_JSON_Conformance.allTests),
+        testCase(Test_JSON_Extensions.allTests),
         testCase(Test_JSON_Group.allTests),
         testCase(Test_Map.allTests),
         testCase(Test_MapFields_Access_Proto2.allTests),

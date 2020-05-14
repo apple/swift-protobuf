@@ -17,6 +17,8 @@ import Foundation
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
   internal var options: JSONDecodingOptions
+  internal var extensions: ExtensionMap?
+  internal var messageType: Message.Type?
   private var fieldCount = 0
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
@@ -32,10 +34,21 @@ internal struct JSONDecoder: Decoder {
                                ignoreUnknownFields: self.options.ignoreUnknownFields)
   }
 
+  internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
+                messageType: Message.Type, extensions: ExtensionMap?) {
+    self.options = options
+    self.scanner = JSONScanner(source: source,
+                               messageDepthLimit: self.options.messageDepthLimit,
+                               ignoreUnknownFields: self.options.ignoreUnknownFields)
+    self.messageType = messageType
+    self.extensions = extensions
+  }
+
   private init(decoder: JSONDecoder) {
     // The scanner is copied over along with the options.
     scanner = decoder.scanner
     options = decoder.options
+    extensions = decoder.extensions
   }
 
   mutating func nextFieldNumber() throws -> Int? {
@@ -45,7 +58,10 @@ internal struct JSONDecoder: Decoder {
     if fieldCount > 0 {
       try scanner.skipRequiredComma()
     }
-    if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
+    let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!,
+                                                  messageType: messageType,
+                                                  extensionMap: extensions)
+    if let fieldNumber = fieldNumber {
       fieldCount += 1
       return fieldNumber
     }
@@ -697,6 +713,19 @@ internal struct JSONDecoder: Decoder {
     messageType: Message.Type,
     fieldNumber: Int
   ) throws {
-    throw JSONDecodingError.schemaMismatch
+    if let ext = extensions?[messageType, fieldNumber] {
+      var fieldValue = values[fieldNumber]
+      if fieldValue != nil {
+        try fieldValue!.decodeExtensionField(decoder: &self)
+      } else {
+        fieldValue = try ext._protobuf_newField(decoder: &self)
+      }
+      if fieldValue != nil {
+        values[fieldNumber] = fieldValue
+      } else {
+        // This most likely indicates a bug in our extension support.
+        throw TextFormatDecodingError.internalExtensionError
+      }
+    }
   }
 }
