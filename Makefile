@@ -197,6 +197,7 @@ endif
 	build \
 	check \
 	check-for-protobuf-checkout \
+	check-proto-files \
 	check-version-numbers \
 	clean \
 	conformance-host \
@@ -514,7 +515,7 @@ check-for-protobuf-checkout:
 	fi
 
 #
-# Helper to update the .proto files copied from the google/protobuf distro.
+# Helper to update the .proto files copied from the protocolbuffers/protobuf distro.
 #
 update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/conformance && mkdir Protos/conformance
@@ -522,6 +523,20 @@ update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
+
+#
+# Helper to see if update-proto-files should be done
+#
+check-proto-files: check-for-protobuf-checkout
+	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto`; do \
+		diff -u "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" "Protos/$$p" || exit 1; \
+	done
+	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test`; do \
+		diff -u "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" "Protos/$$p" || exit 1; \
+	done
+	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
+		diff -u "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" "Protos/$$p" || exit 1; \
+	done
 
 # Runs the conformance tests.
 test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt Sources/Conformance/text_format_failure_list_swift.txt
