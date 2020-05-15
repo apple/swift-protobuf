@@ -228,10 +228,6 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
 
   mutating func visitPackedEnumField<E: Enum>(value: [E],
                                      fieldNumber: Int) throws {
-    guard !value.isEmpty else {
-      return
-    }
-
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .varint).encodedSize
     serializedSize += tagSize
