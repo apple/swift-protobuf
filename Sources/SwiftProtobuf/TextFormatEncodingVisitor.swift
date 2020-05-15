@@ -328,6 +328,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // the name lookup once for the array, rather than once for each element:
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -338,6 +339,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -348,6 +350,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -358,6 +361,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -368,6 +372,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -378,6 +383,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -407,6 +413,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -417,6 +424,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -427,6 +435,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -437,6 +446,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {
           encoder.emitFieldName(name: fieldName)
@@ -449,6 +459,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // Messages and groups
   mutating func visitRepeatedMessageField<M: Message>(value: [M],
                                              fieldNumber: Int) throws {
+      assert(!value.isEmpty)
       // Look up field name against outer message encoding state
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       // Cache old encoder state
@@ -493,6 +504,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     value: [T], fieldNumber: Int,
     encode: (T, inout TextFormatEncoder) -> ()
   ) throws {
+      assert(!value.isEmpty)
       emitFieldName(lookingUp: fieldNumber)
       encoder.startRegularField()
       var firstItem = true
