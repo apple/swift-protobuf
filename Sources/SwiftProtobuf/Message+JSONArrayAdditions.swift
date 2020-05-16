@@ -95,7 +95,8 @@ extension Message {
       var array = [Self]()
 
       if body.count > 0 {
-        var decoder = JSONDecoder(source: body, options: options)
+        var decoder = JSONDecoder(source: body, options: options,
+                                  messageType: Self.self, extensions: nil)
         try decoder.decodeRepeatedMessageField(value: &array)
         if !decoder.scanner.complete {
           throw JSONDecodingError.trailingGarbage

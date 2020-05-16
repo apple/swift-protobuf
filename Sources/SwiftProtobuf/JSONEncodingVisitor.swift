@@ -173,10 +173,17 @@ internal struct JSONEncodingVisitor: Visitor {
       encoder.append(text: json)
     } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
       encoder.startNestedObject()
+      // Preserve outer object's name and extension maps; restore them before returning
       let oldNameMap = self.nameMap
+      let oldExtensions = self.extensions
+      defer {
+        self.nameMap = oldNameMap
+        self.extensions = oldExtensions
+      }
+      // Install inner object's name and extension maps
       self.nameMap = newNameMap
+      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
       try value.traverse(visitor: &self)
-      self.nameMap = oldNameMap
       endObject()
     } else {
       throw JSONEncodingError.missingFieldNames
@@ -300,17 +307,22 @@ internal struct JSONEncodingVisitor: Visitor {
         encoder.append(text: json)
       }
     } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
-      // Install inner object's name map
+      // Preserve name and extension maps for outer object
       let oldNameMap = self.nameMap
+      let oldExtensions = self.extensions
+      // Restore outer object's name and extension maps before returning
+      defer {
+        self.nameMap = oldNameMap
+        self.extensions = oldExtensions
+      }
       self.nameMap = newNameMap
-      // Restore outer object's name map before returning
-      defer { self.nameMap = oldNameMap }
       for v in value {
         if comma {
           encoder.comma()
         }
         comma = true
         encoder.startNestedObject()
+        self.extensions = (v as? ExtensibleMessage)?._protobuf_extensionFieldValues
         try v.traverse(visitor: &self)
         encoder.endObject()
       }

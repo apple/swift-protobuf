@@ -53,6 +53,7 @@ message Msg2 {
 
 extend Msg1 {
   optional int32 a_b = 1;
+  optional Msg2 m2 = 2;
 }
 
 extend Msg2 {

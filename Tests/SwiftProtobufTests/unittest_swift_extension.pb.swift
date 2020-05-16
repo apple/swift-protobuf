@@ -236,6 +236,21 @@ extension ProtobufUnittest_Extend_Msg1 {
   mutating func clearProtobufUnittest_Extend_aB() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b)
   }
+
+  var ProtobufUnittest_Extend_m2: ProtobufUnittest_Extend_Msg2 {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_m2) ?? ProtobufUnittest_Extend_Msg2()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_m2, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_m2`
+  /// has been explicitly set.
+  var hasProtobufUnittest_Extend_m2: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_m2)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_m2`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_Extend_m2() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_m2)
+  }
 }
 
 extension ProtobufUnittest_Extend_Msg2 {
@@ -333,6 +348,7 @@ let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.Sim
   ProtobufUnittest_Extend_Extensions_b,
   ProtobufUnittest_Extend_Extensions_C,
   ProtobufUnittest_Extend_Extensions_a_b,
+  ProtobufUnittest_Extend_Extensions_m2,
   ProtobufUnittest_Extend_Extensions_aB,
   ProtobufUnittest_Extend_Extensions_ext_a,
   ProtobufUnittest_Extend_Extensions_ext_b,
@@ -357,6 +373,11 @@ let ProtobufUnittest_Extend_Extensions_C = SwiftProtobuf.MessageExtension<SwiftP
 let ProtobufUnittest_Extend_Extensions_a_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg1>(
   _protobuf_fieldNumber: 1,
   fieldName: "protobuf_unittest.extend.a_b"
+)
+
+let ProtobufUnittest_Extend_Extensions_m2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Extend_Msg2>, ProtobufUnittest_Extend_Msg1>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "protobuf_unittest.extend.m2"
 )
 
 let ProtobufUnittest_Extend_Extensions_aB = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg2>(

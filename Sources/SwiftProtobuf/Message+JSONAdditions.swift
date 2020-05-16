@@ -70,14 +70,7 @@ extension Message {
     jsonString: String,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
-    if jsonString.isEmpty {
-      throw JSONDecodingError.truncated
-    }
-    if let data = jsonString.data(using: String.Encoding.utf8) {
-      try self.init(jsonUTF8Data: data, options: options)
-    } else {
-      throw JSONDecodingError.truncated
-    }
+    try self.init(jsonString: jsonString, extensions: nil, options: options)
   }
 
   /// Creates a new message by decoding the given string containing a
@@ -114,27 +107,7 @@ extension Message {
     jsonUTF8Data: Data,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
-    self.init()
-    try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      // Empty input is valid for binary, but not for JSON.
-      guard body.count > 0 else {
-        throw JSONDecodingError.truncated
-      }
-      var decoder = JSONDecoder(source: body, options: options)
-      if decoder.scanner.skipOptionalNull() {
-        if let customCodable = Self.self as? _CustomJSONCodable.Type,
-           let message = try customCodable.decodedFromJSONNull() {
-          self = message as! Self
-        } else {
-          throw JSONDecodingError.illegalNull
-        }
-      } else {
-        try decoder.decodeFullObject(message: &self)
-      }
-      if !decoder.scanner.complete {
-        throw JSONDecodingError.trailingGarbage
-      }
-    }
+    try self.init(jsonUTF8Data: jsonUTF8Data, extensions: nil, options: options)
   }
 
   /// Creates a new message by decoding the given `Data` containing a

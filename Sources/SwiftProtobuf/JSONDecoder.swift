@@ -27,13 +27,6 @@ internal struct JSONDecoder: Decoder {
     throw JSONDecodingError.conflictingOneOf
   }
 
-  internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions) {
-    self.options = options
-    self.scanner = JSONScanner(source: source,
-                               messageDepthLimit: self.options.messageDepthLimit,
-                               ignoreUnknownFields: self.options.ignoreUnknownFields)
-  }
-
   internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
                 messageType: Message.Type, extensions: ExtensionMap?) {
     self.options = options
@@ -44,11 +37,12 @@ internal struct JSONDecoder: Decoder {
     self.extensions = extensions
   }
 
-  private init(decoder: JSONDecoder) {
+  private init(decoder: JSONDecoder, messageType: Message.Type) {
     // The scanner is copied over along with the options.
-    scanner = decoder.scanner
-    options = decoder.options
-    extensions = decoder.extensions
+    self.scanner = decoder.scanner
+    self.options = decoder.options
+    self.extensions = decoder.extensions
+    self.messageType = messageType
   }
 
   mutating func nextFieldNumber() throws -> Int? {
@@ -545,7 +539,7 @@ internal struct JSONDecoder: Decoder {
     if value == nil {
       value = M()
     }
-    var subDecoder = JSONDecoder(decoder: self)
+    var subDecoder = JSONDecoder(decoder: self, messageType: M.self)
     try subDecoder.decodeFullObject(message: &value!)
     assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
     scanner = subDecoder.scanner
@@ -576,7 +570,7 @@ internal struct JSONDecoder: Decoder {
         }
       } else {
         var message = M()
-        var subDecoder = JSONDecoder(decoder: self)
+        var subDecoder = JSONDecoder(decoder: self, messageType: M.self)
         try subDecoder.decodeFullObject(message: &message)
         value.append(message)
         assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
@@ -713,19 +707,20 @@ internal struct JSONDecoder: Decoder {
     messageType: Message.Type,
     fieldNumber: Int
   ) throws {
-    if let ext = extensions?[messageType, fieldNumber] {
-      var fieldValue = values[fieldNumber]
-      if fieldValue != nil {
-        try fieldValue!.decodeExtensionField(decoder: &self)
-      } else {
-        fieldValue = try ext._protobuf_newField(decoder: &self)
-      }
-      if fieldValue != nil {
-        values[fieldNumber] = fieldValue
-      } else {
-        // This most likely indicates a bug in our extension support.
-        throw TextFormatDecodingError.internalExtensionError
-      }
+    guard let ext = extensions?[messageType, fieldNumber] else {
+      return
+    }
+    var fieldValue = values[fieldNumber]
+    if fieldValue != nil {
+      try fieldValue!.decodeExtensionField(decoder: &self)
+    } else {
+      fieldValue = try ext._protobuf_newField(decoder: &self)
+    }
+    if fieldValue != nil {
+      values[fieldNumber] = fieldValue
+    } else {
+      // This most likely indicates a bug in our extension support.
+      throw TextFormatDecodingError.internalExtensionError
     }
   }
 }
