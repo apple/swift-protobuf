@@ -1,6 +1,7 @@
 //
 // GENERATED FILE
 // DO NOT EDIT
+// swift-format-ignore-file
 //
 
 import XCTest
