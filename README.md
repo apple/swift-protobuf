@@ -16,6 +16,8 @@ necessary for using the generated code.
 After using the protoc plugin to generate Swift code from your .proto
 files, you will need to add this library to your project.
 
+[![Build and Test](https://github.com/apple/swift-protobuf/workflows/Build%20and%20Test/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Build+and+Test%22)
+[![Check Upstream Protos](https://github.com/apple/swift-protobuf/workflows/Check%20Upstream%20Proto%20Files/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Check+Upstream+Proto+Files%22)
 
 # Features of SwiftProtobuf
 
