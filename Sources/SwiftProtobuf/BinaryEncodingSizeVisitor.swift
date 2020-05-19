@@ -104,6 +104,136 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
+  // The default impls for visitRepeated*Field would work, but by implementing
+  // these directly, the calculation for the tag overhead can be optimized and
+  // the fixed width fields can be simple multiplication.
+
+  mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed32).encodedSize
+    serializedSize += tagSize * value.count + MemoryLayout<Float>.size * value.count
+  }
+
+  mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed64).encodedSize
+    serializedSize += tagSize * value.count + MemoryLayout<Double>.size * value.count
+  }
+
+  mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: v)
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: v)
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: v)
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: v)
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: ZigZag.encoded(v))
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    var dataSize = 0
+    for v in value {
+      dataSize += Varint.encodedSize(of: ZigZag.encoded(v))
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed32).encodedSize
+    serializedSize += tagSize * value.count + MemoryLayout<UInt32>.size * value.count
+  }
+
+  mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed64).encodedSize
+    serializedSize += tagSize * value.count + MemoryLayout<UInt64>.size * value.count
+  }
+
+  mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed32).encodedSize
+    serializedSize += tagSize * value.count + MemoryLayout<Int32>.size * value.count
+  }
+
+  mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed64).encodedSize
+    serializedSize += tagSize * value.count + MemoryLayout<Int64>.size * value.count
+  }
+
+  mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
+    serializedSize += tagSize * value.count + 1 * value.count
+  }
+
+  mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
+    var dataSize = 0
+    for v in value {
+      let count = v.utf8.count
+      dataSize += Varint.encodedSize(of: Int64(count)) + count
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+    let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
+    var dataSize = 0
+    for v in value {
+      let count = v.count
+      dataSize += Varint.encodedSize(of: Int64(count)) + count
+    }
+    serializedSize += tagSize * value.count + dataSize
+  }
+
+  // Packed field handling.
+
   mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
