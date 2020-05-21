@@ -139,9 +139,5 @@ public struct ProtoFileToModuleMappings {
 
 // Used to seed the mappings, the wkt are all part of the main library.
 private let wktMappings: [String:String] = {
-  var result = [String:String]()
-  for x in SwiftProtobufInfo.bundledProtoFiles {
-    result[x] = SwiftProtobufInfo.name
-  }
-  return result
+  return SwiftProtobufInfo.bundledProtoFiles.reduce(into: [:]) { $0[$1] = SwiftProtobufInfo.name }
 }()
