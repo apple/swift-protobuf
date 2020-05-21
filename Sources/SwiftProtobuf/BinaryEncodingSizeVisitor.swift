@@ -123,60 +123,42 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize += tagSize * value.count + dataSize
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize += tagSize * value.count + dataSize
   }
 
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize += tagSize * value.count + dataSize
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize += tagSize * value.count + dataSize
   }
 
   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: ZigZag.encoded(v))
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     serializedSize += tagSize * value.count + dataSize
   }
 
   mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: ZigZag.encoded(v))
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     serializedSize += tagSize * value.count + dataSize
   }
 
@@ -213,10 +195,9 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      let count = v.utf8.count
-      dataSize += Varint.encodedSize(of: Int64(count)) + count
+    let dataSize = value.reduce(0) {
+      let count = $1.utf8.count
+      return $0 + Varint.encodedSize(of: Int64(count)) + count
     }
     serializedSize += tagSize * value.count + dataSize
   }
@@ -224,10 +205,9 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      let count = v.count
-      dataSize += Varint.encodedSize(of: Int64(count)) + count
+    let dataSize = value.reduce(0) {
+      let count = $1.count
+      return $0 + Varint.encodedSize(of: Int64(count)) + count
     }
     serializedSize += tagSize * value.count + dataSize
   }
@@ -251,10 +231,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize +=
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -262,10 +239,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize +=
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -273,10 +247,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: ZigZag.encoded(v))
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     serializedSize +=
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -284,10 +255,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: ZigZag.encoded(v))
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     serializedSize +=
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -295,10 +263,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize +=
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -306,10 +271,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: v)
-    }
+    let dataSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     serializedSize +=
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -364,10 +326,10 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .varint).encodedSize
     serializedSize += value.count * tagSize
-    for v in value {
-      let dataSize = Varint.encodedSize(of: Int32(truncatingIfNeeded: v.rawValue))
-      serializedSize += dataSize
+    let dataSize = value.reduce(0) {
+      $0 + Varint.encodedSize(of: Int32(truncatingIfNeeded: $1.rawValue))
     }
+    serializedSize += dataSize
   }
 
   mutating func visitPackedEnumField<E: Enum>(value: [E],
@@ -376,9 +338,8 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .varint).encodedSize
     serializedSize += tagSize
-    var dataSize = 0
-    for v in value {
-      dataSize += Varint.encodedSize(of: Int32(truncatingIfNeeded: v.rawValue))
+    let dataSize = value.reduce(0) {
+      $0 + Varint.encodedSize(of: Int32(truncatingIfNeeded: $1.rawValue))
     }
     serializedSize += Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
@@ -398,11 +359,11 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .lengthDelimited).encodedSize
     serializedSize += value.count * tagSize
-    for v in value {
-      let messageSize = try v.serializedDataSize()
-      serializedSize +=
-        Varint.encodedSize(of: UInt64(messageSize)) + messageSize
+    let dataSize = try value.reduce(0) {
+      let messageSize = try $1.serializedDataSize()
+      return $0 + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
     }
+    serializedSize += dataSize
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {

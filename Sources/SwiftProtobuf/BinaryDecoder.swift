@@ -870,10 +870,7 @@ internal struct BinaryDecoder: Decoder {
             }
             if let extras = extras {
                 let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-                var bodySize = 0
-                for v in extras {
-                    bodySize += Varint.encodedSize(of: Int64(v))
-                }
+                let bodySize = extras.reduce(0) { $0 + Varint.encodedSize(of: Int64($1)) }
                 let fieldSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(bodySize)) + bodySize
                 var field = Data(count: fieldSize)
                 field.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in

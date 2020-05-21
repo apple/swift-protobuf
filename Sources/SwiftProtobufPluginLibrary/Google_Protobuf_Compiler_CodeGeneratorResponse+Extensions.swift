@@ -31,9 +31,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse {
   ) {
     self.init()
     self.file = files
-    for feature in supportedFeatures {
-      self.supportedFeatures |= UInt64(feature.rawValue)
-    }
+    self.supportedFeatures = supportedFeatures.reduce(0) { $0 | UInt64($1.rawValue) }
   }
 }
 

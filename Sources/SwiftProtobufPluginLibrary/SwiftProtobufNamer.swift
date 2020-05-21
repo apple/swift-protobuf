@@ -97,10 +97,8 @@ public final class SwiftProtobufNamer {
     }
 
     // Bucketed based on candidate names to check for duplicates.
-    var candidates = [String:[EnumValueDescriptor]]()
-    for enumValue in e.values {
-      let candidate = candidateName(enumValue)
-      candidates[candidate, default:[]].append(enumValue)
+    let candidates :[String:[EnumValueDescriptor]] = e.values.reduce(into: [:]) {
+      $0[candidateName($1), default:[]].append($1)
     }
 
     for (camelCased, enumValues) in candidates {

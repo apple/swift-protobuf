@@ -143,10 +143,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-        packedSize += Varint.encodedSize(of: v)
-    }
+    let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
         encoder.putVarInt(value: Int64(v))
@@ -156,10 +153,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-        packedSize += Varint.encodedSize(of: v)
-    }
+    let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
         encoder.putVarInt(value: v)
@@ -169,10 +163,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-        packedSize += Varint.encodedSize(of: ZigZag.encoded(v))
-    }
+    let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     encoder.putVarInt(value: packedSize)
     for v in value {
         encoder.putZigZagVarInt(value: Int64(v))
@@ -182,10 +173,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-        packedSize += Varint.encodedSize(of: ZigZag.encoded(v))
-    }
+    let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     encoder.putVarInt(value: packedSize)
     for v in value {
         encoder.putZigZagVarInt(value: v)
@@ -195,10 +183,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-        packedSize += Varint.encodedSize(of: v)
-    }
+    let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
         encoder.putVarInt(value: UInt64(v))
@@ -208,10 +193,7 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-        packedSize += Varint.encodedSize(of: v)
-    }
+    let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
         encoder.putVarInt(value: v)
@@ -266,9 +248,8 @@ internal struct BinaryEncodingVisitor: Visitor {
   mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    var packedSize = 0
-    for v in value {
-      packedSize += Varint.encodedSize(of: Int32(truncatingIfNeeded: v.rawValue))
+    let packedSize = value.reduce(0) {
+      $0 + Varint.encodedSize(of: Int32(truncatingIfNeeded: $1.rawValue))
     }
     encoder.putVarInt(value: packedSize)
     for v in value {
