@@ -707,20 +707,15 @@ internal struct JSONDecoder: Decoder {
     messageType: Message.Type,
     fieldNumber: Int
   ) throws {
-    guard let ext = extensions?[messageType, fieldNumber] else {
-      return
-    }
+    // Force-unwrap: we can only get here if the extension exists.
+    let ext = extensions![messageType, fieldNumber]!
+
     var fieldValue = values[fieldNumber]
     if fieldValue != nil {
       try fieldValue!.decodeExtensionField(decoder: &self)
     } else {
       fieldValue = try ext._protobuf_newField(decoder: &self)
     }
-    if fieldValue != nil {
-      values[fieldNumber] = fieldValue
-    } else {
-      // This most likely indicates a bug in our extension support.
-      throw TextFormatDecodingError.internalExtensionError
-    }
+    values[fieldNumber] = fieldValue!
   }
 }
