@@ -21,8 +21,19 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse {
 
   /// Helper to make a response with a set of files
   public init(files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File]) {
+    self.init(files: files, supportedFeatures: [])
+  }
+
+  /// Helper to make a response with a set of files and supported features.
+  public init(
+    files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File],
+    supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] = []
+  ) {
     self.init()
     self.file = files
+    for feature in supportedFeatures {
+      self.supportedFeatures |= UInt64(feature.rawValue)
+    }
   }
 }
 

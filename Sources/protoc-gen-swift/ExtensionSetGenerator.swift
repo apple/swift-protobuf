@@ -47,7 +47,7 @@ class ExtensionSetGenerator {
             default: modifier = ""
             }
 
-            return "SwiftProtobuf.\(label)\(modifier)ExtensionField"
+            return "\(SwiftProtobufInfo.name).\(label)\(modifier)ExtensionField"
         }
 
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
@@ -62,6 +62,7 @@ class ExtensionSetGenerator {
         }
 
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
+            let visibility = generatorOptions.visibilitySourceSnippet
             let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
             let traitsType = fieldDescriptor.traitsType(namer: namer)
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
@@ -80,7 +81,7 @@ class ExtensionSetGenerator {
 
             p.print(
               comments,
-              "\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
+              "\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(SwiftProtobufInfo.name).MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
             p.indent()
             p.print(
               "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
@@ -95,7 +96,7 @@ class ExtensionSetGenerator {
             let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
             let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
-            // ExtensionGenerator.Set provides the context to write out the properties.
+            // ExtensionSetGenerator provides the context to write out the properties.
 
             p.print(
               "\n",
@@ -159,6 +160,15 @@ class ExtensionSetGenerator {
     func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
         guard !extensions.isEmpty else { return }
 
+        p.print(
+            "\n",
+            "// MARK: - Extension Properties\n",
+            "\n",
+            "// Swift Extensions on the exteneded Messages to add easy access to the declared\n",
+            "// extension fields. The names are based on the extension field name from the proto\n",
+            "// declaration. To avoid naming collisions, the names are prefixed with the name of\n",
+            "// the scope where the extend directive occurs.\n")
+
         // Reorder the list so they are grouped by the Message being extended, but
         // maintaining the order they were within the file within those groups.
         let grouped: [ExtensionGenerator] = extensions.enumerated().sorted {
@@ -207,11 +217,13 @@ class ExtensionSetGenerator {
         let filePrefix = namer.typePrefix(forFile: fileDescriptor)
         p.print(
           "\n",
+          "// MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifer)_Extensions\n",
+          "\n",
           "/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n",
           "/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n",
           "/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n",
           "/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n",
-          "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
+          "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(SwiftProtobufInfo.name).SimpleExtensionMap = [\n")
         p.indent()
         var separator = ""
         for e in extensions {
@@ -226,6 +238,12 @@ class ExtensionSetGenerator {
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
       guard !extensions.isEmpty else { return }
 
+      p.print(
+          "\n",
+          "// Extension Objects - The only reason these might be needed is when manually\n",
+          "// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_\n",
+          "// accessors for the extension fields on the messages directly.\n")
+
       func endScope() {
           p.outdent()
           p.print("}\n")
@@ -233,6 +251,7 @@ class ExtensionSetGenerator {
           p.print("}\n")
       }
 
+      let visibility = generatorOptions.visibilitySourceSnippet
       var currentScope: Descriptor? = nil
       var addNewline = true
       for e in extensions {
@@ -244,7 +263,7 @@ class ExtensionSetGenerator {
             "\n",
             "extension \(scopeSwiftFullName) {\n")
           p.indent()
-          p.print("enum Extensions {\n")
+          p.print("\(visibility)enum Extensions {\n")
           p.indent()
           addNewline = false
         }

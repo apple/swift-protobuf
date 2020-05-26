@@ -52,12 +52,12 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
          namer: SwiftProtobufNamer,
          usesHeapStorage: Bool)
     {
-        precondition(descriptor.oneofIndex == nil)
+        precondition(descriptor.realOneof == nil)
 
         self.generatorOptions = generatorOptions
         self.usesHeapStorage = usesHeapStorage
 
-        hasFieldPresence = descriptor.hasFieldPresence
+        hasFieldPresence = descriptor.hasPresence && descriptor.realOneof == nil
         let names = namer.messagePropertyNames(field: descriptor,
                                                prefixed: "_",
                                                includeHasAndClear: hasFieldPresence)
@@ -161,7 +161,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         guard isGroupOrMessage && fieldDescriptor.messageType.hasRequiredFields() else { return }
 
         if isRepeated {  // Map or Array
-            p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(storedProperty)) {return false}\n")
+            p.print("if !\(SwiftProtobufInfo.name).Internal.areAllInitialized(\(storedProperty)) {return false}\n")
         } else {
             p.print("if let v = \(storedProperty), !v.isInitialized {return false}\n")
         }

@@ -80,3 +80,29 @@ service SomeService {
   rpc Foo(google.protobuf.DescriptorProto) returns (google.protobuf.compiler.Version);
   rpc Bar(TopLevelMessage) returns (TopLevelMessage2);
 }
+
+message Proto2MessageForPresence {
+
+  required string req_str_field = 1;
+  required int32 req_int32_field = 2;
+  required TopLevelEnum req_enum_field = 3;
+  required TopLevelMessage req_message_field = 4;
+
+  optional string opt_str_field = 11;
+  optional int32 opt_int32_field = 12;
+  optional TopLevelEnum opt_enum_field = 13;
+  optional TopLevelMessage opt_message_field = 14;
+
+  repeated string repeat_str_field = 21;
+  repeated int32 repeat_int32_field = 22;
+  repeated TopLevelEnum repeat_enum_field = 23;
+  repeated TopLevelMessage repeat_message_field = 24;
+
+  oneof o {
+    string oneof_str_field = 31;
+    int32 oneof_int32_field = 32;
+    TopLevelEnum oneof_enum_field = 33;
+    TopLevelMessage oneof_message_field = 34;
+  }
+
+}

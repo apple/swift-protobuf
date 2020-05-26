@@ -18,13 +18,14 @@ class Test_Descriptor: XCTestCase {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedData: fileDescriptorSetData)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
-    XCTAssertEqual(descriptorSet.files.count, 4)
+    XCTAssertEqual(descriptorSet.files.count, 5)
     // descriptor.proto documents the protoc will order the files based on the import
     // from plugin on descriptor.
     XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
     XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
-    XCTAssertEqual(descriptorSet.files[3].name, "SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto")
+    XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
+    XCTAssertEqual(descriptorSet.files[4].name, "SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
 
@@ -173,6 +174,131 @@ class Test_Descriptor: XCTestCase {
     XCTAssertEqual(externalRefs.fields[1].name, "ver")
     XCTAssertTrue(externalRefs.fields[0].messageType === googleProtobufDescriptorProto)
     XCTAssertTrue(externalRefs.fields[1].messageType === googleProtobufCompilerVersion)
+
+    // Proto2 Presence
+
+    let proto2ForPresence = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.Proto2MessageForPresence")
+
+    XCTAssertEqual(proto2ForPresence.fields.count, 16)
+    XCTAssertEqual(proto2ForPresence.fields[0].name, "req_str_field")
+    XCTAssertEqual(proto2ForPresence.fields[1].name, "req_int32_field")
+    XCTAssertEqual(proto2ForPresence.fields[2].name, "req_enum_field")
+    XCTAssertEqual(proto2ForPresence.fields[3].name, "req_message_field")
+    XCTAssertEqual(proto2ForPresence.fields[4].name, "opt_str_field")
+    XCTAssertEqual(proto2ForPresence.fields[5].name, "opt_int32_field")
+    XCTAssertEqual(proto2ForPresence.fields[6].name, "opt_enum_field")
+    XCTAssertEqual(proto2ForPresence.fields[7].name, "opt_message_field")
+    XCTAssertEqual(proto2ForPresence.fields[8].name, "repeat_str_field")
+    XCTAssertEqual(proto2ForPresence.fields[9].name, "repeat_int32_field")
+    XCTAssertEqual(proto2ForPresence.fields[10].name, "repeat_enum_field")
+    XCTAssertEqual(proto2ForPresence.fields[11].name, "repeat_message_field")
+    XCTAssertEqual(proto2ForPresence.fields[12].name, "oneof_str_field")
+    XCTAssertEqual(proto2ForPresence.fields[13].name, "oneof_int32_field")
+    XCTAssertEqual(proto2ForPresence.fields[14].name, "oneof_enum_field")
+    XCTAssertEqual(proto2ForPresence.fields[15].name, "oneof_message_field")
+
+    XCTAssertFalse(proto2ForPresence.fields[0].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[1].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[2].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[3].hasOptionalKeyword)
+    XCTAssertTrue(proto2ForPresence.fields[4].hasOptionalKeyword)
+    XCTAssertTrue(proto2ForPresence.fields[5].hasOptionalKeyword)
+    XCTAssertTrue(proto2ForPresence.fields[6].hasOptionalKeyword)
+    XCTAssertTrue(proto2ForPresence.fields[7].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[8].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[9].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[10].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[11].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[12].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[13].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[14].hasOptionalKeyword)
+    XCTAssertFalse(proto2ForPresence.fields[15].hasOptionalKeyword)
+
+    XCTAssertTrue(proto2ForPresence.fields[0].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[1].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[2].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[3].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[4].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[5].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[6].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[7].hasPresence)
+    XCTAssertFalse(proto2ForPresence.fields[8].hasPresence)
+    XCTAssertFalse(proto2ForPresence.fields[9].hasPresence)
+    XCTAssertFalse(proto2ForPresence.fields[10].hasPresence)
+    XCTAssertFalse(proto2ForPresence.fields[11].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[12].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[13].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[14].hasPresence)
+    XCTAssertTrue(proto2ForPresence.fields[15].hasPresence)
+
+    // No synthetic oneof in proto2 syntax, so the lists should be the same.
+    XCTAssertEqual(proto2ForPresence.oneofs.count, proto2ForPresence.realOneofs.count)
+    for (i, o) in proto2ForPresence.realOneofs.enumerated() {
+      XCTAssert(o === proto2ForPresence.oneofs[i])
+    }
+
+    // Proto3 Presence
+
+    let proto3ForPresence = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.Proto3MessageForPresence")
+    XCTAssertEqual(proto3ForPresence.fields.count, 16)
+    XCTAssertEqual(proto3ForPresence.fields[0].name, "str_field")
+    XCTAssertEqual(proto3ForPresence.fields[1].name, "int32_field")
+    XCTAssertEqual(proto3ForPresence.fields[2].name, "enum_field")
+    XCTAssertEqual(proto3ForPresence.fields[3].name, "message_field")
+    XCTAssertEqual(proto3ForPresence.fields[4].name, "opt_str_field")
+    XCTAssertEqual(proto3ForPresence.fields[5].name, "opt_int32_field")
+    XCTAssertEqual(proto3ForPresence.fields[6].name, "opt_enum_field")
+    XCTAssertEqual(proto3ForPresence.fields[7].name, "opt_message_field")
+    XCTAssertEqual(proto3ForPresence.fields[8].name, "repeat_str_field")
+    XCTAssertEqual(proto3ForPresence.fields[9].name, "repeat_int32_field")
+    XCTAssertEqual(proto3ForPresence.fields[10].name, "repeat_enum_field")
+    XCTAssertEqual(proto3ForPresence.fields[11].name, "repeat_message_field")
+    XCTAssertEqual(proto3ForPresence.fields[12].name, "oneof_str_field")
+    XCTAssertEqual(proto3ForPresence.fields[13].name, "oneof_int32_field")
+    XCTAssertEqual(proto3ForPresence.fields[14].name, "oneof_enum_field")
+    XCTAssertEqual(proto3ForPresence.fields[15].name, "oneof_message_field")
+
+    XCTAssertFalse(proto3ForPresence.fields[0].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[1].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[2].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[3].hasOptionalKeyword)
+    XCTAssertTrue(proto3ForPresence.fields[4].hasOptionalKeyword)
+    XCTAssertTrue(proto3ForPresence.fields[5].hasOptionalKeyword)
+    XCTAssertTrue(proto3ForPresence.fields[6].hasOptionalKeyword)
+    XCTAssertTrue(proto3ForPresence.fields[7].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[8].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[9].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[10].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[11].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[12].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[13].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[14].hasOptionalKeyword)
+    XCTAssertFalse(proto3ForPresence.fields[15].hasOptionalKeyword)
+
+    XCTAssertFalse(proto3ForPresence.fields[0].hasPresence)
+    XCTAssertFalse(proto3ForPresence.fields[1].hasPresence)
+    XCTAssertFalse(proto3ForPresence.fields[2].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[3].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[4].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[5].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[6].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[7].hasPresence)
+    XCTAssertFalse(proto3ForPresence.fields[8].hasPresence)
+    XCTAssertFalse(proto3ForPresence.fields[9].hasPresence)
+    XCTAssertFalse(proto3ForPresence.fields[10].hasPresence)
+    XCTAssertFalse(proto3ForPresence.fields[11].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[12].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[13].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[14].hasPresence)
+    XCTAssertTrue(proto3ForPresence.fields[15].hasPresence)
+
+    // Synthetic oneof in proto3 syntax for the 'optional' fields, so
+    // the lists should NOTE be the same, `realOneofs` one should be a
+    // prefix of `oneofs`.
+    XCTAssertTrue(proto3ForPresence.oneofs.count > proto3ForPresence.realOneofs.count)
+    for (i, o) in proto2ForPresence.realOneofs.enumerated() {
+      XCTAssert(o === proto2ForPresence.oneofs[i])
+    }
   }
 
   func testExtensions() throws {

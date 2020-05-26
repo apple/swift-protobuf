@@ -23,6 +23,12 @@ import SwiftProtobuf
 
 // NOTE: If this code fails to compile, make sure the name changes make sense.
 
+class Test_PackageMapping: XCTestCase {
+  func testPackageStartingWithNumber() {
+    let _ = _4fun_Mumble_MyMessage()
+  }
+}
+
 class Test_FieldNamingInitials: XCTestCase {
   func testHidingFunctions() throws {
     // Check that we can access the standard `serializeData`, etc
@@ -870,5 +876,38 @@ class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
     msg.requestID = 1
     XCTAssertTrue(msg.hasRequestID)
     msg.clearRequestID()
+  }
+}
+
+class Test_ValidIdentifiers: XCTestCase {
+  func testFieldNames() {
+    let msg = SwiftUnittest_Names_ValidIdentifiers()
+    XCTAssertEqual(msg._1Field, 0)
+    XCTAssertFalse(msg.has_1Field)
+    XCTAssertEqual(msg.field, 0)
+    XCTAssertFalse(msg.hasField)
+    XCTAssertEqual(msg._3Field3, 0)
+    XCTAssertFalse(msg.has_3Field3)
+  }
+
+  func testOneofNames() {
+    var msg = SwiftUnittest_Names_ValidIdentifiers()
+    XCTAssertEqual(msg._2Of, nil)
+
+    XCTAssertEqual(msg._4, 0)
+    XCTAssertEqual(msg._5Field, 0)
+
+    msg._2Of = ._4(20)
+
+    XCTAssertEqual(msg._2Of, SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of._4(20))
+    XCTAssertEqual(msg._4, 20)
+  }
+
+  func testEnumCaseNames() {
+    var msg = SwiftUnittest_Names_ValidIdentifiers()
+    msg.enumField = .testEnum0
+    msg.enumField = .first
+    msg.enumField = ._2
+    msg.enumField = ._3Value
   }
 }

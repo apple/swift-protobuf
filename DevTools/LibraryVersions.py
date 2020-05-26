@@ -20,7 +20,7 @@ _VERSION_RE = re.compile(r'^(?P<major>\d+)\.(?P<minor>\d+)(.(?P<revision>\d+))?$
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _PODSPEC_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobuf.podspec')
 _VERSION_SWIFT_PATH = os.path.join(_PROJECT_ROOT, 'Sources/SwiftProtobuf/Version.swift')
-_XCODE_PROJECT_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobuf.xcodeproj/project.pbxproj')
+_XCCONFIG_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobuf.xcodeproj/xcconfigs/Base.xcconfig')
 
 def Fail(message):
   sys.stderr.write('Error: %s\n' % message)
@@ -51,12 +51,11 @@ def ValidateFiles():
   if not had_major or not had_minor or not had_revision:
     Fail('Version in Sources/SwiftProtobuf/Version.swift did not match SwiftProtobuf.podspec')
 
-  # Test SwiftProtobuf.xcodeproj/project.pbxproj
-  xcode_project_content = open(_XCODE_PROJECT_PATH).read()
-  matches = re.findall(r'CURRENT_PROJECT_VERSION = %s\.%s\.%s;' % (major, minor, revision),
-                       xcode_project_content)
-  if len(matches) != 2:
-    Fail('Version in SwiftProtobuf.xcodeproj/project.pbxproj did not match SwiftProtobuf.podspec')
+  # Test SwiftProtobuf.xcodeproj/xcconfigs/Base.xcconfig
+  xcconfig_content = open(_XCCONFIG_PATH).read()
+  current_version_line = 'CURRENT_PROJECT_VERSION = %s.%s.%s' % (major, minor, revision)
+  if current_version_line not in  xcconfig_content:
+    Fail('Version in SwiftProtobuf.xcodeproj/xcconfigs/Base.xcconfig did not match SwiftProtobuf.podspec')
 
 
 def UpdateFiles(version_string):
@@ -82,12 +81,12 @@ def UpdateFiles(version_string):
                                  version_swift_content)
   open(_VERSION_SWIFT_PATH, 'w').write(version_swift_content)
 
-  # Update SwiftProtobuf.xcodeproj/project.pbxproj
-  xcode_project_content = open(_XCODE_PROJECT_PATH).read()
-  xcode_project_content = re.sub(r'CURRENT_PROJECT_VERSION = \d+\.\d+\.\d+',
-                                 'CURRENT_PROJECT_VERSION = %s.%s.%s' % (major, minor, revision),
-                                 xcode_project_content)
-  open(_XCODE_PROJECT_PATH, 'w').write(xcode_project_content)
+  # Update SwiftProtobuf.xcodeproj/xcconfigs/Base.xcconfig
+  xcconfig_content = open(_XCCONFIG_PATH).read()
+  xcconfig_content = re.sub(r'CURRENT_PROJECT_VERSION = \d+\.\d+\.\d+',
+                            'CURRENT_PROJECT_VERSION = %s.%s.%s' % (major, minor, revision),
+                            xcconfig_content)
+  open(_XCCONFIG_PATH, 'w').write(xcconfig_content)
 
 
 def main(args):

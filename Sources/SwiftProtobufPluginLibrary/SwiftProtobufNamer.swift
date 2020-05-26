@@ -86,34 +86,24 @@ public final class SwiftProtobufNamer {
   private func computeRelativeNames(enum e: EnumDescriptor) {
     let stripper = NamingUtils.PrefixStripper(prefix: e.name)
 
-    /// Determine the initial canidate name for the name before
+    /// Determine the initial candidate name for the name before
     /// doing duplicate checks.
-    func canidateName(_ enumValue: EnumValueDescriptor) -> String {
+    func candidateName(_ enumValue: EnumValueDescriptor) -> String {
       let baseName = enumValue.name
       if let stripped = stripper.strip(from: baseName) {
-        let camelCased = NamingUtils.toLowerCamelCase(stripped)
-        if isValidSwiftIdentifier(camelCased) {
-          return camelCased
-        }
+        return NamingUtils.toLowerCamelCase(stripped)
       }
       return NamingUtils.toLowerCamelCase(baseName)
     }
 
     // Bucketed based on candidate names to check for duplicates.
-    var canidates = [String:[EnumValueDescriptor]]()
+    var candidates = [String:[EnumValueDescriptor]]()
     for enumValue in e.values {
-      let canidate = canidateName(enumValue)
-
-      if var existing = canidates[canidate] {
-        existing.append(enumValue)
-        canidates[canidate] = existing
-      } else {
-        canidates[canidate] = [enumValue]
-      }
-
+      let candidate = candidateName(enumValue)
+      candidates[candidate, default:[]].append(enumValue)
     }
 
-    for (camelCased, enumValues) in canidates {
+    for (camelCased, enumValues) in candidates {
       // If there is only one, sanitize and cache it.
       guard enumValues.count > 1 else {
         enumValueRelativeNameCache[enumValues.first!.fullName] =

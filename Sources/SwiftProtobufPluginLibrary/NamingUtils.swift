@@ -180,6 +180,13 @@ fileprivate func isAllUnderscore(_ s: String) -> Bool {
 }
 
 fileprivate func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
+  // NOTE: This code relies on the protoc validation of _identifier_ is defined
+  // (in Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
+  // any complex validation or handing of characters outside those ranges. Since
+  // those rules prevent a leading digit; nothing needs to be done, and any
+  // explicitly use Message or Enum name will be valid. The one exception is
+  // this code is also used for determining the OneOf enums, but that code is
+  // responsible for dealing with the issues in the transforms it makes.
   if reservedTypeNames.contains(s) {
     return s + disambiguator
   } else if isAllUnderscore(s) {
@@ -206,7 +213,7 @@ fileprivate func isCharacterUppercase(_ s: String, index: Int) -> Bool {
     // it ended, so just say the next character wasn't uppercase.
     return false
   }
-  return scalars[start].isUppercase
+  return scalars[start].isASCUppercase
 }
 
 fileprivate func makeUnicodeScalarView(
@@ -217,63 +224,123 @@ fileprivate func makeUnicodeScalarView(
   return view
 }
 
+fileprivate enum CamelCaser {
+  // Abbreviation that should be all uppercase when camelcasing. Used in
+  // camelCased(:initialUpperCase:).
+  static let appreviations: Set<String> = ["url", "http", "https", "id"]
 
-fileprivate func splitIdentifier(_ s: String) -> [String] {
-  var out: [String.UnicodeScalarView] = []
-  var current = String.UnicodeScalarView()
-  // The exact value used to seed this doesn't matter (as long as it's not an
-  // underscore); we use it to avoid an extra optional unwrap in every loop
-  // iteration.
-  var last: UnicodeScalar = "\0"
-  var lastIsUpper = false
-  var lastIsLower = false
+  // The diffent "classes" a character can belong in for segmenting.
+  enum CharClass {
+    case digit
+    case lower
+    case upper
+    case underscore
+    case other
 
-  for scalar in s.unicodeScalars {
-    let isUpper = scalar.isUppercase
-    let isLower = scalar.isLowercase
+    init(_ from: UnicodeScalar) {
+      switch from {
+      case "0"..."9":
+        self = .digit
+      case "a"..."z":
+        self = .lower
+      case "A"..."Z":
+        self = .upper
+      case "_":
+        self = .underscore
+      default:
+        self = .other
+      }
+    }
+  }
 
-    if scalar.isDigit {
-      if last.isDigit {
-        current.append(scalar)
-      } else {
-        out.append(current)
-        current = makeUnicodeScalarView(from: scalar)
+  /// Transforms the input into a camelcase name that is a valid Swift
+  /// identifier. The input is assumed to be a protocol buffer identifier (or
+  /// something like that), meaning that it is a "snake_case_name" and the
+  /// underscores and be used to split into segements and then capitalize as
+  /// needed. The splits happen based on underscores and/or changes in case
+  /// and/or use of digits. If underscores are repeated, then the "extras"
+  /// (past the first) are carried over into the output.
+  ///
+  /// NOTE: protoc validation of an _identifier_ is defined (in Tokenizer::Next()
+  /// as `[a-zA-Z_][a-zA-Z0-9_]*`, Since leading underscores are removed, it does
+  /// have to handle if things would have started with a digit. If that happens,
+  /// then an underscore is added before it (which matches what the proto file
+  /// would have had to have a valid identifier also).
+  static func transform(_ s: String, initialUpperCase: Bool) -> String {
+    var result = String()
+    var current = String.UnicodeScalarView()  // Collects in lowercase.
+    var lastClass = CharClass("\0")
+
+    func addCurrent() {
+      guard !current.isEmpty else {
+        return
       }
-    } else if isUpper {
-      if lastIsUpper {
-        current.append(scalar.lowercased())
+      var currentAsString = String(current)
+      if result.isEmpty && !initialUpperCase {
+        // Nothing, want it to stay lowercase.
+      } else if appreviations.contains(currentAsString) {
+        currentAsString = currentAsString.uppercased()
       } else {
-        out.append(current)
-        current = makeUnicodeScalarView(from: scalar.lowercased())
+        currentAsString = NamingUtils.uppercaseFirstCharacter(currentAsString)
       }
-    } else if isLower {
-      if lastIsLower || lastIsUpper {
-        current.append(scalar)
-      } else {
-        out.append(current)
-        current = makeUnicodeScalarView(from: scalar)
-      }
-    } else if last == "_" {
-      out.append(current)
-      current = makeUnicodeScalarView(from: last)
+      result += String(currentAsString)
+      current = String.UnicodeScalarView()
     }
 
-    last = scalar
-    lastIsUpper = isUpper
-    lastIsLower = isLower
-  }
+    for scalar in s.unicodeScalars {
+      let scalarClass = CharClass(scalar)
+      switch scalarClass {
+      case .digit:
+        if lastClass != .digit {
+          addCurrent()
+        }
+        if result.isEmpty {
+          // Don't want to start with a number for the very first thing.
+          result += "_"
+        }
+        current.append(scalar)
+      case .upper:
+        if lastClass != .upper {
+          addCurrent()
+        }
+        current.append(scalar.ascLowercased())
+      case .lower:
+        if lastClass != .lower && lastClass != .upper {
+          addCurrent()
+        }
+        current.append(scalar)
+      case .underscore:
+        addCurrent()
+        if lastClass == .underscore {
+          result += "_"
+        }
+      case .other:
+        addCurrent()
+        let escapeIt =
+          result.isEmpty
+            ? !isSwiftIdentifierHeadCharacter(scalar)
+            : !isSwiftIdentifierCharacter(scalar)
+        if escapeIt {
+          result.append("_u\(scalar.value)")
+        } else {
+          current.append(scalar)
+        }
+      }
 
-  out.append(current)
-  if last == "_" {
-    out.append(makeUnicodeScalarView(from: last))
-  }
+      lastClass = scalarClass
+    }
 
-  // An empty string will always get inserted first, so drop it.
-  let slice = out.dropFirst(1)
-  return slice.map(String.init)
+    // Add the last segment collected.
+    addCurrent()
+
+    // If things end in an underscore, add one also.
+    if lastClass == .underscore {
+      result += "_"
+    }
+
+    return result
+  }
 }
-
-fileprivate let upperInitials: Set<String> = ["url", "http", "https", "id"]
 
 fileprivate let backtickCharacterSet = CharacterSet(charactersIn: "`")
 
@@ -292,31 +359,50 @@ public enum NamingUtils {
       return String()
     }
 
+    // NOTE: This code relies on the protoc validation of proto packages. Look
+    // at Parser::ParsePackage() to see the logic, it comes down to reading
+    // _identifiers_ joined by '.'.  And _identifier_ is defined (in
+    // Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
+    // any complex validation or handing of characters outside those ranges.
+    // It just has to deal with ended up with a leading digit after the pruning
+    // of '_'s.
+
     // Transforms:
     //  "package.name" -> "Package_Name"
     //  "package_name" -> "PackageName"
     //  "pacakge.some_name" -> "Package_SomeName"
+    var prefix = String.UnicodeScalarView()
     var makeUpper = true
-    var prefix = ""
-    for c in protoPackage {
+    for c in protoPackage.unicodeScalars {
       if c == "_" {
         makeUpper = true
       } else if c == "." {
         makeUpper = true
-        prefix += "_"
-      } else if makeUpper {
-        prefix += String(c).uppercased()
-        makeUpper = false
+        prefix.append("_")
       } else {
-        prefix += String(c)
+        if prefix.isEmpty && c.isASCDigit {
+          // If the first character is going to be a digit, add an underscore
+          // to ensure it is a valid Swift identifier.
+          prefix.append("_")
+        }
+        if makeUpper {
+          prefix.append(c.ascUppercased())
+          makeUpper = false
+        } else {
+          prefix.append(c)
+        }
       }
     }
     // End in an underscore to split off anything that gets added to it.
-    return prefix + "_"
+    return String(prefix) + "_"
   }
 
   /// Helper a proto prefix from strings.  A proto prefix means underscores
   /// and letter case are ignored.
+  ///
+  /// NOTE: Since this is acting on proto enum names and enum cases, we know
+  /// the values must be _identifier_s which is defined (in Tokenizer::Next() as
+  /// `[a-zA-Z_][a-zA-Z0-9_]*`, so this code is based on that limited input.
   struct PrefixStripper {
     private let prefixChars: String.UnicodeScalarView
 
@@ -331,7 +417,6 @@ public enum NamingUtils {
       let prefixEnd = prefixChars.endIndex
 
       let fromChars = from.lowercased().unicodeScalars
-      precondition(fromChars.count == from.lengthOfBytes(using: .ascii))
       var fromIndex = fromChars.startIndex
       let fromEnd = fromChars.endIndex
 
@@ -363,6 +448,15 @@ public enum NamingUtils {
 
       if fromIndex == fromEnd {
         // They matched, can't strip.
+        return nil
+      }
+
+      guard fromChars[fromIndex].isASCLowercase else {
+        // Next character isn't a lowercase letter (it must be a digit
+        // (fromChars was lowercased)), that would mean to make an enum value it
+        // would have to get prefixed with an underscore which most folks
+        // wouldn't consider to be a better Swift naming, so don't strip the
+        // prefix.
         return nil
       }
 
@@ -430,11 +524,14 @@ public enum NamingUtils {
     }
   }
 
+  /// Forces the first character to be uppercase (if possible) and leaves
+  /// the rest of the characters in their existing case.
+  ///
   /// Use toUpperCamelCase() to get leading "HTTP", "URL", etc. correct.
   static func uppercaseFirstCharacter(_ s: String) -> String {
     let out = s.unicodeScalars
     if let first = out.first {
-      var result = makeUnicodeScalarView(from: first.uppercased())
+      var result = makeUnicodeScalarView(from: first.ascUppercased())
       result.append(
         contentsOf: out[out.index(after: out.startIndex)..<out.endIndex])
       return String(result)
@@ -443,35 +540,18 @@ public enum NamingUtils {
     }
   }
 
+  /// Accepts any inputs and tranforms form it into a leading
+  /// UpperCaseCamelCased Swift identifier. It follows the same conventions as
+  /// that are used for mapping field names into the Message property names.
   public static func toUpperCamelCase(_ s: String) -> String {
-    var out = ""
-    let t = splitIdentifier(s)
-    for word in t {
-      if upperInitials.contains(word) {
-        out.append(word.uppercased())
-      } else {
-        out.append(uppercaseFirstCharacter(word))
-      }
-    }
-    return out
+    return CamelCaser.transform(s, initialUpperCase: true)
   }
 
+  /// Accepts any inputs and tranforms form it into a leading
+  /// lowerCaseCamelCased Swift identifier. It follows the same conventions as
+  /// that are used for mapping field names into the Message property names.
   public static func toLowerCamelCase(_ s: String) -> String {
-    var out = ""
-    let t = splitIdentifier(s)
-    // Lowercase the first letter/word.
-    var forceLower = true
-    for word in t {
-      if forceLower {
-        out.append(word.lowercased())
-      } else if upperInitials.contains(word) {
-        out.append(word.uppercased())
-      } else {
-        out.append(uppercaseFirstCharacter(word))
-      }
-      forceLower = false
-    }
-    return out
+    return CamelCaser.transform(s, initialUpperCase: false)
   }
 
   static func trimBackticks(_ s: String) -> String {
@@ -493,7 +573,7 @@ public enum NamingUtils {
       if c == "_" {
         capitalizeNext = true
       } else if capitalizeNext {
-        result.append(c.uppercased())
+        result.append(c.ascUppercased())
         capitalizeNext = false
       } else {
         result.append(c)

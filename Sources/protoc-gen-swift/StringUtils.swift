@@ -9,6 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobufPluginLibrary
 
 func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   var dir = ""
@@ -61,7 +62,7 @@ func trimWhitespace(_ s: String) -> String {
 ///  \n\r\t\\\'\" and three-digit octal escapes but nothing else.
 func escapedToDataLiteral(_ s: String) -> String {
   if s.isEmpty {
-    return "SwiftProtobuf.Internal.emptyData"
+    return "\(SwiftProtobufInfo.name).Internal.emptyData"
   }
   var out = "Data(["
   var separator = ""

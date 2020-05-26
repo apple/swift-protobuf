@@ -1,0 +1,85 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
+        # protobuf_git can reference a commit, tag, or branch
+        # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
+        # tag: "ref/tags/v3.11.4"
+        # branch: "ref/heads/master"
+        protobuf_git: ["ref/heads/master"]
+        include:
+          - swift: "5.2.1-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "5.1.5-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "4.2.4"
+            platform: "ubuntu-16.04"
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: main
+    - name: Update and install dependencies
+      # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+      # this step is run before get-sha because we need curl and jq for get-sha
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
+    - name: Get Protobuf Commit SHA
+      id: get-sha
+      run: |
+        set -eu
+        url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
+        case ${{ matrix.protobuf_git }} in
+        ref/*)
+          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )
+          ;;
+        commits/*)
+          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
+          ;;
+        esac
+    - name: Build
+      working-directory: main
+      run: make build
+    - name: Test runtime
+      working-directory: main
+      run: make test-runtime
+    - name: Cache protobuf
+      id: cache-protobuf
+      uses: actions/cache@v1
+      with:
+        path: protobuf
+        # NOTE: for refs that can float like 'master' the cache might be out of date!
+        key: ${{ runner.os }}-${{ matrix.platform}}-protobuf-${{ steps.get-sha.outputs.sha }}
+    - name: Checkout protobuf repo
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      uses: actions/checkout@v2
+      with:
+        repository: protocolbuffers/protobuf
+        ref: ${{ steps.get-sha.outputs.sha }}
+        path: protobuf
+    - name: Build protobuf
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      working-directory: protobuf
+      run: |
+        ./autogen.sh
+        ./configure
+        make -C ./src
+        make -C ./conformance
+    - name: Test plugin
+      working-directory: main
+      run: make test-plugin PROTOC=../protobuf/src/protoc
+    - name: Test conformance
+      working-directory: main
+      run: make test-conformance

@@ -151,6 +151,22 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         } catch let e {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
         }
+
+        do {
+            let encodedData = try configured.jsonUTF8Data()
+            let encodedOptString = String(data: encodedData, encoding: String.Encoding.utf8)
+            XCTAssertNotNil(encodedOptString)
+            let encodedString = encodedOptString!
+            XCTAssert(expected == encodedString, "Did not encode correctly: got \(encodedString)", file: file, line: line)
+            do {
+                let decoded = try MessageTestType(jsonUTF8Data: encodedData)
+                XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
+            } catch {
+                XCTFail("Encode/decode cycle should not throw error decoding: \(encodedString), but it threw \(error)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+        }
     }
 
     /// Verify the preferred encoding/decoding of a particular object.
@@ -200,11 +216,34 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             do {
                 let encoded = try decoded.jsonString()
                 do {
-                    let redecoded = try MessageTestType(jsonString: json)
-                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
+                    let redecoded = try MessageTestType(jsonString: encoded)
+                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from \(encoded)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
                     XCTFail("Swift should have recoded/redecoded without error: \(encoded)", file: file, line: line)
+                }
+            } catch let e {
+                XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Swift should have decoded without error but got \(e): \(json)", file: file, line: line)
+            return
+        }
+
+        do {
+            let jsonData = json.data(using: String.Encoding.utf8)!
+            let decoded: MessageTestType = try MessageTestType(jsonUTF8Data: jsonData)
+            XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
+
+            do {
+                let encoded = try decoded.jsonUTF8Data()
+                let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
+                do {
+                    let redecoded = try MessageTestType(jsonUTF8Data: encoded)
+                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch {
+                    XCTFail("Swift should have recoded/redecoded without error: \(encodedString)", file: file, line: line)
                 }
             } catch let e {
                 XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
@@ -277,6 +316,14 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             XCTFail("Swift decode should have failed: \(json)", file: file, line: line)
         } catch {
             // Yay! It failed!
+        }
+
+        let jsonData = json.data(using: String.Encoding.utf8)!
+        do {
+            let _ = try MessageTestType(jsonUTF8Data: jsonData, options: options)
+            XCTFail("Swift decode should have failed for binary: \(json)", file: file, line: line)
+        } catch {
+            // Yay! It failed again!
         }
     }
 

@@ -101,7 +101,7 @@ struct GeneratorPlugin {
         + "In particular, if you have renamed this program, you will need to\n"
         + "adjust the protoc command-line option accordingly.\n"
         + "\n"
-        + "The generated Swift output requires the SwiftProtobuf \(SwiftProtobuf.Version.versionString)\n"
+        + "The generated Swift output requires the \(SwiftProtobufInfo.name) \(SwiftProtobuf.Version.versionString)\n"
         + "library be included in your project.\n"
         + "\n"
         + "If you use `swift build` to compile your project, add this to\n"
@@ -239,7 +239,8 @@ struct GeneratorPlugin {
         Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                             content: printer.content))
     }
-    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles)
+    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
+                                                          supportedFeatures: [.proto3Optional])
   }
 
   private func auditProtoCVersion(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {

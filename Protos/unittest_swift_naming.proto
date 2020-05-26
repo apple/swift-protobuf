@@ -1149,3 +1149,25 @@ extend ExtensionNamingInitialsWordCase {
   optional int32 TheIdNumber = 43;
   optional int32 RequestId = 44;
 }
+
+// Validations around leading underscores especially when followed by numbers
+// to ensure valid Swift is always generated.
+
+message ValidIdentifiers {
+  optional int32 _1field = 1;
+  optional int32 _field = 2;
+  optional int32 _3field_3 = 3;
+
+  oneof _2of {
+    int32 _4 = 4;
+    int32 _5field = 5;
+  }
+
+  enum TestEnum {
+    TEST_ENUM_0 = 0;  // Won't prefix strip
+    TEST_ENUM_FIRST = 1;  // Will prefix strip
+    _2 = 2;  // Leading underscore & number, keeps that.
+    _3_VALUE = 3;  // Leading underscore & number, keeps that.
+  }
+  optional TestEnum enum_field = 6;
+}

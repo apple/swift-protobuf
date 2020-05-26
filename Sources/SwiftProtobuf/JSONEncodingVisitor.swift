@@ -142,6 +142,7 @@ internal struct JSONEncodingVisitor: Visitor {
     fieldNumber: Int,
     encode: (inout JSONEncoder, T) throws -> ()
   ) throws {
+    assert(!value.isEmpty)
     try startField(for: fieldNumber)
     var comma = false
     encoder.startArray()
@@ -285,6 +286,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
     try startField(for: fieldNumber)
     var comma = false
     encoder.startArray()
@@ -319,6 +321,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
     // Google does not serialize groups into JSON
   }
 

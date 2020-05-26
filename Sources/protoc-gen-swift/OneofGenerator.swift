@@ -120,6 +120,7 @@ class OneofGenerator {
     private let storedProperty: String
 
     init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, usesHeapStorage: Bool) {
+        precondition(!descriptor.isSynthetic)
         self.oneofDescriptor = descriptor
         self.generatorOptions = generatorOptions
         self.namer = namer

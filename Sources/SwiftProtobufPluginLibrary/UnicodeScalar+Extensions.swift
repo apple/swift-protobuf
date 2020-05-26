@@ -19,28 +19,19 @@
 extension UnicodeScalar {
 
   /// True if the receiver is a numeric digit.
-  ///
-  /// - Precondition: The receiver is 7-bit ASCII.
-  var isDigit: Bool {
-    precondition(value < 0x80, "Scalar must be 7-bit ASCII")
+  var isASCDigit: Bool {
     if case "0"..."9" = self { return true }
     return false
   }
 
   /// True if the receiver is a lowercase character.
-  ///
-  /// - Precondition: The receiver is 7-bit ASCII.
-  var isLowercase: Bool {
-    precondition(value < 0x80, "Scalar must be 7-bit ASCII")
+  var isASCLowercase: Bool {
     if case "a"..."z" = self { return true }
     return false
   }
 
   /// True if the receiver is an uppercase character.
-  ///
-  /// - Precondition: The receiver is 7-bit ASCII.
-  var isUppercase: Bool {
-    precondition(value < 0x80, "Scalar must be 7-bit ASCII")
+  var isASCUppercase: Bool {
     if case "A"..."Z" = self { return true }
     return false
   }
@@ -50,8 +41,8 @@ extension UnicodeScalar {
   ///
   /// - Precondition: The receiver is 7-bit ASCII.
   /// - Returns: The lowercased version of the receiver, or `self`.
-  func lowercased() -> UnicodeScalar {
-    if isUppercase { return UnicodeScalar(value + 0x20)! }
+  func ascLowercased() -> UnicodeScalar {
+    if isASCUppercase { return UnicodeScalar(value + 0x20)! }
     return self
   }
 
@@ -60,8 +51,8 @@ extension UnicodeScalar {
   ///
   /// - Precondition: The receiver is 7-bit ASCII.
   /// - Returns: The uppercased version of the receiver, or `self`.
-  func uppercased() -> UnicodeScalar {
-    if isLowercase { return UnicodeScalar(value - 0x20)! }
+  func ascUppercased() -> UnicodeScalar {
+    if isASCLowercase { return UnicodeScalar(value - 0x20)! }
     return self
   }
 }
