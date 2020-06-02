@@ -646,7 +646,8 @@ extension Test_JSON_Conformance {
 
 extension Test_JSON_Extensions {
     static var allTests = [
-        ("test_optionalInt32Extension", test_optionalInt32Extension)
+        ("test_optionalInt32Extension", test_optionalInt32Extension),
+        ("test_ArrayWithExtensions", test_ArrayWithExtensions)
     ]
 }
 

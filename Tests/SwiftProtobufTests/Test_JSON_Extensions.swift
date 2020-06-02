@@ -52,6 +52,28 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
             o.append(o1)
         }
     }
+
+   func test_ArrayWithExtensions() throws {
+        assertJSONArrayEncode(
+            "["
+              + "{\"[protobuf_unittest.optional_int32_extension]\":17},"
+              + "{},"
+              + "{\"[protobuf_unittest.optional_double_extension]\":1.23}"
+            + "]",
+            extensions: extensions)
+        {
+            (o: inout [MessageTestType]) in
+            let o1 = MessageTestType.with {
+                $0.ProtobufUnittest_optionalInt32Extension = 17
+            }
+            o.append(o1)
+            o.append(MessageTestType())
+            let o3 = MessageTestType.with {
+                $0.ProtobufUnittest_optionalDoubleExtension = 1.23
+            }
+            o.append(o3)
+        }
+    }
 }
 
 class Test_JSON_RecursiveNested_Extensions: XCTestCase, PBTestHelpers {
