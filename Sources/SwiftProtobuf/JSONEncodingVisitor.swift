@@ -43,17 +43,6 @@ internal struct JSONEncodingVisitor: Visitor {
     self.options = options
   }
 
-  /// Creates a new visitor that serializes the given message to JSON format.
-  init(message: Message, options: JSONEncodingOptions) throws {
-    if let nameProviding = message as? _ProtoNameProviding {
-      self.nameMap = type(of: nameProviding)._protobuf_nameMap
-    } else {
-      throw JSONEncodingError.missingFieldNames
-    }
-    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
-    self.options = options
-  }
-
   mutating func startArray() {
     encoder.startArray()
   }
@@ -62,8 +51,14 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.endArray()
   }
 
-  mutating func startObject() {
+  mutating func startObject(message: Message) {
+    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
     encoder.startObject()
+  }
+
+  mutating func startArrayObject(message: Message) {
+    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+    encoder.startArrayObject()
   }
 
   mutating func endObject() {
@@ -172,7 +167,6 @@ internal struct JSONEncodingVisitor: Visitor {
       let json = try m.encodedJSONString(options: options)
       encoder.append(text: json)
     } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
-      encoder.startNestedObject()
       // Preserve outer object's name and extension maps; restore them before returning
       let oldNameMap = self.nameMap
       let oldExtensions = self.extensions
@@ -182,7 +176,7 @@ internal struct JSONEncodingVisitor: Visitor {
       }
       // Install inner object's name and extension maps
       self.nameMap = newNameMap
-      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+      startObject(message: value)
       try value.traverse(visitor: &self)
       endObject()
     } else {
@@ -317,12 +311,7 @@ internal struct JSONEncodingVisitor: Visitor {
       }
       self.nameMap = newNameMap
       for v in value {
-        if comma {
-          encoder.comma()
-        }
-        comma = true
-        encoder.startNestedObject()
-        self.extensions = (v as? ExtensibleMessage)?._protobuf_extensionFieldValues
+        startArrayObject(message: v)
         try v.traverse(visitor: &self)
         encoder.endObject()
       }

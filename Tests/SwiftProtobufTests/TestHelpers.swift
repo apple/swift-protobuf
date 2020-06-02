@@ -134,7 +134,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     }
 
-    func assertJSONEncode(_ expected: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -173,7 +173,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     /// This uses the provided block to initialize the object, then:
     /// * Encodes the object and checks that the result is the expected result
     /// * Decodes it again and verifies that the round-trip gives an equal object
-    func assertTextFormatEncode(_ expected: String, extensions: SimpleExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertTextFormatEncode(_ expected: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -189,7 +189,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONArrayEncode(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout [MessageTestType]) -> Void) {
+    func assertJSONArrayEncode(
+        _ expected: String,
+        extensions: ExtensionMap = SimpleExtensionMap(),
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        configure: (inout [MessageTestType]) -> Void
+    ) {
         let empty = [MessageTestType]()
         var configured = empty
         configure(&configured)
@@ -198,7 +204,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             let encoded = try MessageTestType.jsonString(from: configured)
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType.array(fromJSONString: encoded)
+                let decoded = try MessageTestType.array(fromJSONString: encoded,
+                                                 extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
                 XCTFail("Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)", file: file, line: line)
@@ -208,7 +215,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONDecodeSucceeds(_ json: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertJSONDecodeSucceeds(
+        _ json: String,
+        extensions: ExtensionMap = SimpleExtensionMap(),
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: (MessageTestType) -> Bool
+    ) {
         do {
             let decoded: MessageTestType = try MessageTestType(jsonString: json, extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
@@ -282,7 +295,12 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONArrayDecodeSucceeds(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line, check: ([MessageTestType]) -> Bool) {
+    func assertJSONArrayDecodeSucceeds(
+        _ json: String,
+        file: XCTestFileArgType = #file,
+        line: UInt = #line,
+        check: ([MessageTestType]) -> Bool
+    ) {
         do {
             let decoded: [MessageTestType] = try MessageTestType.array(fromJSONString: json)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
@@ -307,7 +325,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONDecodeFails(
         _ json: String,
-        extensions: ExtensionMap? = nil,
+        extensions: ExtensionMap = SimpleExtensionMap(),
         options: JSONDecodingOptions = JSONDecodingOptions(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
@@ -337,7 +355,12 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertJSONArrayDecodeFails(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertJSONArrayDecodeFails(
+        _ json: String,
+        extensions: ExtensionMap = SimpleExtensionMap(),
+        file: XCTestFileArgType = #file,
+        line: UInt = #line
+    ) {
         do {
             let _ = try MessageTestType.array(fromJSONString: json)
             XCTFail("Swift decode should have failed: \(json)", file: file, line: line)

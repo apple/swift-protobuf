@@ -645,6 +645,42 @@ class Test_Any: XCTestCase {
       XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
     }
 
+    func test_Any_JSON_Extensions() throws {
+      var content = ProtobufUnittest_TestAllExtensions()
+      content.ProtobufUnittest_optionalInt32Extension = 17
+
+      var msg = ProtobufUnittest_TestAny()
+      msg.anyValue = try Google_Protobuf_Any(message: content)
+
+      let json = try msg.jsonString()
+      XCTAssertEqual(json, "{\"anyValue\":{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllExtensions\",\"[protobuf_unittest.optional_int32_extension]\":17}}")
+
+      // Decode the outer message without any extension knowledge
+      let decoded = try ProtobufUnittest_TestAny(jsonString: json)
+      // Decoding the inner content fails without extension info
+      XCTAssertThrowsError(try ProtobufUnittest_TestAllExtensions(unpackingAny: decoded.anyValue))
+      // Succeeds if you do provide extension info
+      let decodedContent = try ProtobufUnittest_TestAllExtensions(unpackingAny: decoded.anyValue,
+        extensions: ProtobufUnittest_Unittest_Extensions)
+      XCTAssertEqual(content, decodedContent)
+
+      // Transcoding should fail without extension info
+      XCTAssertThrowsError(try decoded.serializedData())
+
+      // Decode the outer message with extension information
+      let decodedWithExtensions = try ProtobufUnittest_TestAny(jsonString: json,
+        extensions: ProtobufUnittest_Unittest_Extensions)
+      // Still fails; the Any doesn't record extensions that were in effect when the outer Any was decoded
+      XCTAssertThrowsError(try ProtobufUnittest_TestAllExtensions(unpackingAny: decodedWithExtensions.anyValue))
+      let decodedWithExtensionsContent = try ProtobufUnittest_TestAllExtensions(unpackingAny: decodedWithExtensions.anyValue,
+        extensions: ProtobufUnittest_Unittest_Extensions)
+      XCTAssertEqual(content, decodedWithExtensionsContent)
+
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllExtensions.self))
+      // Throws because the extensions can't be implicitly transcoded
+      XCTAssertThrowsError(try decodedWithExtensions.serializedData())
+  }
+
     func test_IsA() {
       var msg = Google_Protobuf_Any()
 
@@ -666,7 +702,7 @@ class Test_Any: XCTestCase {
       XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
     }
 
-    func test_Any_Registery() {
+    func test_Any_Registry() {
       // Registering the same type multiple times is ok.
       XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittestImport_ImportMessage.self))
       XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittestImport_ImportMessage.self))

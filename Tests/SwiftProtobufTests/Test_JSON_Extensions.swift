@@ -40,6 +40,17 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
             (o: inout MessageTestType) in
             o.ProtobufUnittest_optionalInt32Extension = 17
         }
+
+        assertJSONDecodeFails("{\"[protobuf_unittest.XXoptional_int32_extensionXX]\":17}",
+                         extensions: extensions)
+
+        assertJSONArrayEncode("[{\"[protobuf_unittest.optional_int32_extension]\":17}]",
+                         extensions: extensions) {
+            (o: inout [MessageTestType]) in
+            var o1 = MessageTestType()
+            o1.ProtobufUnittest_optionalInt32Extension = 17
+            o.append(o1)
+        }
     }
 }
 

@@ -17,7 +17,7 @@ import Foundation
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
   internal var options: JSONDecodingOptions
-  internal var extensions: ExtensionMap?
+  internal var extensions: ExtensionMap
   internal var messageType: Message.Type?
   private var fieldCount = 0
   private var isMapKey = false
@@ -28,7 +28,7 @@ internal struct JSONDecoder: Decoder {
   }
 
   internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
-                messageType: Message.Type, extensions: ExtensionMap?) {
+                messageType: Message.Type, extensions: ExtensionMap) {
     self.options = options
     self.scanner = JSONScanner(source: source,
                                messageDepthLimit: self.options.messageDepthLimit,
@@ -708,7 +708,7 @@ internal struct JSONDecoder: Decoder {
     fieldNumber: Int
   ) throws {
     // Force-unwrap: we can only get here if the extension exists.
-    let ext = extensions![messageType, fieldNumber]!
+    let ext = extensions[messageType, fieldNumber]!
 
     var fieldValue = values[fieldNumber]
     if fieldValue != nil {

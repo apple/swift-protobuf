@@ -158,7 +158,8 @@ internal struct JSONEncoder {
     }
 
     /// Append an open curly brace `{` to the JSON.
-    internal mutating func startObject() {
+    /// Assumes this object is part of an array of objects.
+    internal mutating func startArrayObject() {
         if let s = separator {
             data.append(s)
         }
@@ -166,7 +167,8 @@ internal struct JSONEncoder {
         separator = nil
     }
 
-    internal mutating func startNestedObject() {
+    /// Append an open curly brace `{` to the JSON.
+    internal mutating func startObject() {
         data.append(asciiOpenCurlyBracket)
         separator = nil
     }
