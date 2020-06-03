@@ -68,7 +68,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonString: String,
-    extensions: ExtensionMap = SimpleExtensionMap(),
+    extensions: ExtensionMap? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     if jsonString.isEmpty {
@@ -92,7 +92,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonUTF8Data: Data,
-    extensions: ExtensionMap = SimpleExtensionMap(),
+    extensions: ExtensionMap? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     self.init()

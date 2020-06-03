@@ -402,14 +402,14 @@ internal struct JSONScanner {
   internal init(
     source: UnsafeRawBufferPointer,
     options: JSONDecodingOptions,
-    extensions: ExtensionMap
+    extensions: ExtensionMap?
   ) {
     self.source = source
     self.index = source.startIndex
     self.recursionLimit = options.messageDepthLimit
     self.recursionBudget = options.messageDepthLimit
     self.options = options
-    self.extensions = extensions
+    self.extensions = extensions ?? SimpleExtensionMap()
   }
 
   private mutating func incrementRecursionDepth() throws {

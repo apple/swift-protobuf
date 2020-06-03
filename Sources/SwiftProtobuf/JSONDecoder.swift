@@ -28,7 +28,7 @@ internal struct JSONDecoder: Decoder {
   }
 
   internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
-                messageType: Message.Type, extensions: ExtensionMap) {
+                messageType: Message.Type, extensions: ExtensionMap?) {
     let scanner = JSONScanner(source: source,
                                options: options,
                                extensions: extensions)
