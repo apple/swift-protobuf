@@ -85,7 +85,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     }
 
     let msgType: SwiftProtobuf.Message.Type
-    let extensions: SwiftProtobuf.SimpleExtensionMap
+    let extensions: SwiftProtobuf.ExtensionMap
     switch request.messageType {
     case "":
         // Note: This case is here to cover using a old version of the conformance test
