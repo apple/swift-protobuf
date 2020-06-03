@@ -206,21 +206,20 @@ internal class AnyMessageStorage {
       break
 
     case .contentJSON(let contentJSON, let options):
+      // contentJSON requires we have the type available for decoding
+      guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+          throw BinaryEncodingError.anyTranscodeFailure
+      }
       do {
-        guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-            throw BinaryEncodingError.anyTranscodeFailure
-        }
+        // Decodes the full JSON and then discard the result.
+        // The regular traversal will decode this again by querying the
+        // `value` field, but that has no way to fail.  As a result,
+        // we need this to accurately handle decode errors.
         _ = try unpack(contentJSON: contentJSON,
                        extensions: SimpleExtensionMap(),
                        options: options,
                        as: messageType)
       } catch {
-        throw BinaryEncodingError.anyTranscodeFailure
-      }
-      // contentJSON requires a good URL and our ability to look up
-      // the message type to transcode.
-      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
-        // Isn't registered, we can't transform it for binary.
         throw BinaryEncodingError.anyTranscodeFailure
       }
     }
