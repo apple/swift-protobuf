@@ -133,8 +133,7 @@ internal struct JSONEncoder {
         if let s = separator {
             data.append(s)
         }
-        data.append(asciiDoubleQuote)
-        data.append(asciiOpenSquareBracket)
+        append(staticText: "\"[")
         data.append(contentsOf: name.utf8)
         append(staticText: "]\":")
         separator = asciiComma
