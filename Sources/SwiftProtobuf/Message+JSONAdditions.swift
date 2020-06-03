@@ -1,4 +1,3 @@
-
 // Sources/SwiftProtobuf/Message+JSONAdditions.swift - JSON format primitive types
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
