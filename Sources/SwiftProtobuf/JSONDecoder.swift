@@ -21,7 +21,9 @@ internal struct JSONDecoder: Decoder {
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
 
-  internal var options: JSONDecodingOptions { scanner.options }
+  internal var options: JSONDecodingOptions {
+    return scanner.options
+  }
 
   mutating func handleConflictingOneOf() throws {
     throw JSONDecodingError.conflictingOneOf
