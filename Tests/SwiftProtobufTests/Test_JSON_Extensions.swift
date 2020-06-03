@@ -53,7 +53,52 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
         }
     }
 
-   func test_ArrayWithExtensions() throws {
+    func test_optionalMessageExtension() throws {
+        assertJSONEncode("{\"[protobuf_unittest.optional_nested_message_extension]\":{\"bb\":12}}",
+            extensions: extensions)
+        {
+            (o: inout MessageTestType) in
+            o.ProtobufUnittest_optionalNestedMessageExtension =
+                ProtobufUnittest_TestAllTypes.NestedMessage.with {
+                    $0.bb = 12
+                }
+        }
+    }
+
+    func test_repeatedInt32Extension() throws {
+        assertJSONEncode("{\"[protobuf_unittest.repeated_int32_extension]\":[1,2,3,17]}",
+                         extensions: extensions) {
+            (o: inout MessageTestType) in
+            o.ProtobufUnittest_repeatedInt32Extension = [1,2,3,17]
+        }
+    }
+
+    func test_repeatedMessageExtension() throws {
+        assertJSONEncode("{\"[protobuf_unittest.repeated_nested_message_extension]\":[{\"bb\":12},{}]}",
+            extensions: extensions)
+        {
+            (o: inout MessageTestType) in
+            o.ProtobufUnittest_repeatedNestedMessageExtension =
+                [
+                    ProtobufUnittest_TestAllTypes.NestedMessage.with { $0.bb = 12 },
+                    ProtobufUnittest_TestAllTypes.NestedMessage()
+                ]
+        }
+    }
+
+    func test_optionalStringExtensionWithDefault() throws {
+        assertJSONEncode("{\"[protobuf_unittest.default_string_extension]\":\"hi\"}", extensions: extensions)
+        {
+            (o: inout MessageTestType) in
+            o.ProtobufUnittest_defaultStringExtension = "hi"
+        }
+
+        assertJSONDecodeSucceeds("{}", extensions: extensions) {
+            $0.ProtobufUnittest_defaultStringExtension == "hello"
+        }
+    }
+
+    func test_ArrayWithExtensions() throws {
         assertJSONArrayEncode(
             "["
               + "{\"[protobuf_unittest.optional_int32_extension]\":17},"
