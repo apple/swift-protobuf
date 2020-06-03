@@ -1248,8 +1248,9 @@ internal struct JSONScanner {
   /// and return the corresponding field number.
   ///
   /// Throws if field name cannot be parsed.
-  /// If it encounters an unknown field name, it silently skips
-  /// the value and looks at the following field name.
+  /// If it encounters an unknown field name, it throws
+  /// unless `ignoreUnknownFields` is set, in which case
+  /// it silently skips it.
   internal mutating func nextFieldNumber(
     names: _NameMap,
     messageType: Message.Type?,
