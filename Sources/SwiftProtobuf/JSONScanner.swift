@@ -374,9 +374,10 @@ internal struct JSONScanner {
   private let source: UnsafeRawBufferPointer
   private var index: UnsafeRawBufferPointer.Index
   private var numberParser = DoubleParser()
+  internal var options: JSONDecodingOptions
+  internal var extensions: ExtensionMap
   internal var recursionLimit: Int
   internal var recursionBudget: Int
-  private var ignoreUnknownFields: Bool
 
   /// True if the scanner has read all of the data from the source, with the
   /// exception of any trailing whitespace (which is consumed by reading this
@@ -400,14 +401,15 @@ internal struct JSONScanner {
 
   internal init(
     source: UnsafeRawBufferPointer,
-    messageDepthLimit: Int,
-    ignoreUnknownFields: Bool
+    options: JSONDecodingOptions,
+    extensions: ExtensionMap
   ) {
     self.source = source
     self.index = source.startIndex
-    self.recursionLimit = messageDepthLimit
-    self.recursionBudget = messageDepthLimit
-    self.ignoreUnknownFields = ignoreUnknownFields
+    self.recursionLimit = options.messageDepthLimit
+    self.recursionBudget = options.messageDepthLimit
+    self.options = options
+    self.extensions = extensions
   }
 
   private mutating func incrementRecursionDepth() throws {
@@ -1249,12 +1251,11 @@ internal struct JSONScanner {
   ///
   /// Throws if field name cannot be parsed.
   /// If it encounters an unknown field name, it throws
-  /// unless `ignoreUnknownFields` is set, in which case
+  /// unless `options.ignoreUnknownFields` is set, in which case
   /// it silently skips it.
   internal mutating func nextFieldNumber(
     names: _NameMap,
-    messageType: Message.Type,
-    extensionMap: ExtensionMap?
+    messageType: Message.Type
   ) throws -> Int? {
     while true {
       var fieldName: String
@@ -1273,8 +1274,7 @@ internal struct JSONScanner {
           return fieldNumber
         }
       }
-      if let extensions = extensionMap,
-         let first = fieldName.first, first == "[",
+      if let first = fieldName.first, first == "[",
          let last = fieldName.last, last == "]"
       {
         fieldName.removeFirst()
@@ -1283,7 +1283,7 @@ internal struct JSONScanner {
           return fieldNumber
         }
       }
-      if !ignoreUnknownFields {
+      if !options.ignoreUnknownFields {
         throw JSONDecodingError.unknownField(fieldName)
       }
       // Unknown field, skip it and try to parse the next field name

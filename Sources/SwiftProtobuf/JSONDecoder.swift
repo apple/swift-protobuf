@@ -16,12 +16,12 @@ import Foundation
 
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
-  internal var options: JSONDecodingOptions
-  internal var extensions: ExtensionMap
   internal var messageType: Message.Type
   private var fieldCount = 0
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
+
+  internal var options: JSONDecodingOptions { scanner.options }
 
   mutating func handleConflictingOneOf() throws {
     throw JSONDecodingError.conflictingOneOf
@@ -29,19 +29,14 @@ internal struct JSONDecoder: Decoder {
 
   internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
                 messageType: Message.Type, extensions: ExtensionMap) {
-    self.options = options
-    self.scanner = JSONScanner(source: source,
-                               messageDepthLimit: self.options.messageDepthLimit,
-                               ignoreUnknownFields: self.options.ignoreUnknownFields)
-    self.messageType = messageType
-    self.extensions = extensions
+    let scanner = JSONScanner(source: source,
+                               options: options,
+                               extensions: extensions)
+    self.init(scanner: scanner, messageType: messageType)
   }
 
-  private init(decoder: JSONDecoder, messageType: Message.Type) {
-    // The scanner is copied over along with the options.
-    self.scanner = decoder.scanner
-    self.options = decoder.options
-    self.extensions = decoder.extensions
+  private init(scanner: JSONScanner, messageType: Message.Type) {
+    self.scanner = scanner
     self.messageType = messageType
   }
 
@@ -53,8 +48,7 @@ internal struct JSONDecoder: Decoder {
       try scanner.skipRequiredComma()
     }
     let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!,
-                                                  messageType: messageType,
-                                                  extensionMap: extensions)
+                                                  messageType: messageType)
     if let fieldNumber = fieldNumber {
       fieldCount += 1
       return fieldNumber
@@ -539,7 +533,7 @@ internal struct JSONDecoder: Decoder {
     if value == nil {
       value = M()
     }
-    var subDecoder = JSONDecoder(decoder: self, messageType: M.self)
+    var subDecoder = JSONDecoder(scanner: scanner, messageType: M.self)
     try subDecoder.decodeFullObject(message: &value!)
     assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
     scanner = subDecoder.scanner
@@ -570,7 +564,7 @@ internal struct JSONDecoder: Decoder {
         }
       } else {
         var message = M()
-        var subDecoder = JSONDecoder(decoder: self, messageType: M.self)
+        var subDecoder = JSONDecoder(scanner: scanner, messageType: M.self)
         try subDecoder.decodeFullObject(message: &message)
         value.append(message)
         assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
@@ -708,7 +702,7 @@ internal struct JSONDecoder: Decoder {
     fieldNumber: Int
   ) throws {
     // Force-unwrap: we can only get here if the extension exists.
-    let ext = extensions[messageType, fieldNumber]!
+    let ext = scanner.extensions[messageType, fieldNumber]!
 
     var fieldValue = values[fieldNumber]
     if fieldValue != nil {
