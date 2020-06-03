@@ -1253,7 +1253,7 @@ internal struct JSONScanner {
   /// it silently skips it.
   internal mutating func nextFieldNumber(
     names: _NameMap,
-    messageType: Message.Type?,
+    messageType: Message.Type,
     extensionMap: ExtensionMap?
   ) throws -> Int? {
     while true {
@@ -1274,7 +1274,6 @@ internal struct JSONScanner {
         }
       }
       if let extensions = extensionMap,
-         let messageType = messageType,
          let first = fieldName.first, first == "[",
          let last = fieldName.last, last == "]"
       {

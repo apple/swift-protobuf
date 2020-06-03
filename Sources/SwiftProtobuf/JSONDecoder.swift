@@ -18,7 +18,7 @@ internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
   internal var options: JSONDecodingOptions
   internal var extensions: ExtensionMap
-  internal var messageType: Message.Type?
+  internal var messageType: Message.Type
   private var fieldCount = 0
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
