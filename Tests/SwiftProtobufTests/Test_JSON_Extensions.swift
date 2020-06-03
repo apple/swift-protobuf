@@ -41,7 +41,17 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
             o.ProtobufUnittest_optionalInt32Extension = 17
         }
 
-        assertJSONDecodeFails("{\"[protobuf_unittest.XXoptional_int32_extensionXX]\":17}",
+        assertJSONDecodeFails("{\"[protobuf_unittest.UNKNOWN_EXTENSION]\":17}",
+                         extensions: extensions)
+        assertJSONDecodeFails("{\"[UNKNOWN_PACKAGE.optional_int32_extension]\":17}",
+                         extensions: extensions)
+        assertJSONDecodeFails("{\"[protobuf_unittest.optional_int32_extension\":17}",
+                         extensions: extensions)
+        assertJSONDecodeFails("{\"protobuf_unittest.optional_int32_extension]\":17}",
+                         extensions: extensions)
+        assertJSONDecodeFails("{\"[optional_int32_extension\":17}",
+                         extensions: extensions)
+        assertJSONDecodeFails("{\"protobuf_unittest.optional_int32_extension\":17}",
                          extensions: extensions)
 
         assertJSONArrayEncode("[{\"[protobuf_unittest.optional_int32_extension]\":17}]",
