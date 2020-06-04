@@ -128,6 +128,17 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
+    /// Begin a new extension field
+    internal mutating func startExtensionField(name: String) {
+        if let s = separator {
+            data.append(s)
+        }
+        append(staticText: "\"[")
+        data.append(contentsOf: name.utf8)
+        append(staticText: "]\":")
+        separator = asciiComma
+    }
+
     /// Append an open square bracket `[` to the JSON.
     internal mutating func startArray() {
         data.append(asciiOpenSquareBracket)
@@ -146,7 +157,8 @@ internal struct JSONEncoder {
     }
 
     /// Append an open curly brace `{` to the JSON.
-    internal mutating func startObject() {
+    /// Assumes this object is part of an array of objects.
+    internal mutating func startArrayObject() {
         if let s = separator {
             data.append(s)
         }
@@ -154,7 +166,8 @@ internal struct JSONEncoder {
         separator = nil
     }
 
-    internal mutating func startNestedObject() {
+    /// Append an open curly brace `{` to the JSON.
+    internal mutating func startObject() {
         data.append(asciiOpenCurlyBracket)
         separator = nil
     }

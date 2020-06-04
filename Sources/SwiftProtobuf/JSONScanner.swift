@@ -374,9 +374,10 @@ internal struct JSONScanner {
   private let source: UnsafeRawBufferPointer
   private var index: UnsafeRawBufferPointer.Index
   private var numberParser = DoubleParser()
+  internal var options: JSONDecodingOptions
+  internal var extensions: ExtensionMap
   internal var recursionLimit: Int
   internal var recursionBudget: Int
-  private var ignoreUnknownFields: Bool
 
   /// True if the scanner has read all of the data from the source, with the
   /// exception of any trailing whitespace (which is consumed by reading this
@@ -400,14 +401,15 @@ internal struct JSONScanner {
 
   internal init(
     source: UnsafeRawBufferPointer,
-    messageDepthLimit: Int,
-    ignoreUnknownFields: Bool
+    options: JSONDecodingOptions,
+    extensions: ExtensionMap?
   ) {
     self.source = source
     self.index = source.startIndex
-    self.recursionLimit = messageDepthLimit
-    self.recursionBudget = messageDepthLimit
-    self.ignoreUnknownFields = ignoreUnknownFields
+    self.recursionLimit = options.messageDepthLimit
+    self.recursionBudget = options.messageDepthLimit
+    self.options = options
+    self.extensions = extensions ?? SimpleExtensionMap()
   }
 
   private mutating func incrementRecursionDepth() throws {
@@ -1248,30 +1250,41 @@ internal struct JSONScanner {
   /// and return the corresponding field number.
   ///
   /// Throws if field name cannot be parsed.
-  /// If it encounters an unknown field name, it silently skips
-  /// the value and looks at the following field name.
-  internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
+  /// If it encounters an unknown field name, it throws
+  /// unless `options.ignoreUnknownFields` is set, in which case
+  /// it silently skips it.
+  internal mutating func nextFieldNumber(
+    names: _NameMap,
+    messageType: Message.Type
+  ) throws -> Int? {
     while true {
+      var fieldName: String
       if let key = try nextOptionalKey() {
         // Fast path:  We parsed it as UTF8 bytes...
         try skipRequiredCharacter(asciiColon) // :
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
         }
-        if !ignoreUnknownFields {
-          let fieldName = utf8ToString(bytes: key.baseAddress!, count: key.count)!
-          throw JSONDecodingError.unknownField(fieldName)
-        }
+        fieldName = utf8ToString(bytes: key.baseAddress!, count: key.count)!
       } else {
         // Slow path:  We parsed a String; lookups from String are slower.
-        let key = try nextQuotedString()
+        fieldName = try nextQuotedString()
         try skipRequiredCharacter(asciiColon) // :
-        if let fieldNumber = names.number(forJSONName: key) {
+        if let fieldNumber = names.number(forJSONName: fieldName) {
           return fieldNumber
         }
-        if !ignoreUnknownFields {
-          throw JSONDecodingError.unknownField(key)
+      }
+      if let first = fieldName.first, first == "[",
+         let last = fieldName.last, last == "]"
+      {
+        fieldName.removeFirst()
+        fieldName.removeLast()
+        if let fieldNumber = extensions.fieldNumberForProto(messageType: messageType, protoFieldName: fieldName) {
+          return fieldNumber
         }
+      }
+      if !options.ignoreUnknownFields {
+        throw JSONDecodingError.unknownField(fieldName)
       }
       // Unknown field, skip it and try to parse the next field name
       try skipValue()

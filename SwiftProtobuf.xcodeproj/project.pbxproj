@@ -10,6 +10,9 @@
 		0353A1CE1E81623B00067996 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
 		0353A1CF1E81624F00067996 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
 		0353A1D01E81625400067996 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
+		6583D6E4246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */; };
+		6583D6E5246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */; };
+		6583D6E6246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */; };
 		8DC1CA0D1E54B80800CA8A26 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0C1E54B80800CA8A26 /* MathUtils.swift */; };
 		8DC1CA0F1E54B81400CA8A26 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0E1E54B81400CA8A26 /* TimeUtils.swift */; };
 		9C0B366B1E5FAB910094E128 /* JSONMapEncodingVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0B366A1E5FAB910094E128 /* JSONMapEncodingVisitor.swift */; };
@@ -708,6 +711,7 @@
 		5A82E34B2455D26900EB0A70 /* SwiftProtobufTestSuite_iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SwiftProtobufTestSuite_iOS.xcconfig; path = SwiftProtobuf.xcodeproj/xcconfigs/SwiftProtobufTestSuite_iOS.xcconfig; sourceTree = "<group>"; };
 		5A82E34C2455D71400EB0A70 /* Base_Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base_Debug.xcconfig; path = SwiftProtobuf.xcodeproj/xcconfigs/Base_Debug.xcconfig; sourceTree = "<group>"; };
 		5A82E34D2455D71400EB0A70 /* Base_Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base_Release.xcconfig; path = SwiftProtobuf.xcodeproj/xcconfigs/Base_Release.xcconfig; sourceTree = "<group>"; };
+		6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_JSON_Extensions.swift; sourceTree = "<group>"; };
 		8DC1CA0C1E54B80800CA8A26 /* MathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathUtils.swift; sourceTree = "<group>"; };
 		8DC1CA0E1E54B81400CA8A26 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		9C0B366A1E5FAB910094E128 /* JSONMapEncodingVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONMapEncodingVisitor.swift; sourceTree = "<group>"; };
@@ -1118,6 +1122,7 @@
 				F4539D241E688B000076251F /* Test_GroupWithGroups.swift */,
 				DB2E0AF91EB24C7600F59319 /* Test_JSON_Array.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_JSON_Conformance.swift /* Test_JSON_Conformance.swift */,
+				6583D6E3246E04A200353AF4 /* Test_JSON_Extensions.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_JSON_Group.swift /* Test_JSON_Group.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_JSON.swift /* Test_JSON.swift */,
 				F4584DB21EDDC9D400803AB6 /* Test_JSONDecodingOptions.swift */,
@@ -1410,6 +1415,7 @@
 				9CC8CAB31EC512A0008EF45F /* generated_swift_names_fields.pb.swift in Sources */,
 				F44F943B1DBFBB7500BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F4151F781EFAD85B00EEA00B /* Test_BinaryDelimited.swift in Sources */,
+				6583D6E5246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */,
 				9C8CDA271D7A28F600E207CA /* Test_Conformance.swift in Sources */,
 				9C8CDA291D7A28F600E207CA /* Test_Duration.swift in Sources */,
 				9C8CDA2A1D7A28F600E207CA /* Test_Empty.swift in Sources */,
@@ -1706,6 +1712,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Duration.swift /* Test_Duration.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Empty.swift /* Test_Empty.swift in Sources */,
 				F4151F771EFAD85A00EEA00B /* Test_BinaryDelimited.swift in Sources */,
+				6583D6E4246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */,
 				F44F94431DBFE0BE00BC5B85 /* Test_OneofFields_Access_Proto3.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Enum.swift /* Test_Enum.swift in Sources */,
 				AA6CF6F51DB6D227007DF26B /* Test_Enum_Proto2.swift in Sources */,
@@ -1912,6 +1919,7 @@
 				F44F93C81DAEA8C900BC5B85 /* Test_RecursiveMap.swift in Sources */,
 				9CC8CAB41EC512A0008EF45F /* generated_swift_names_fields.pb.swift in Sources */,
 				F44F93D81DAEA8C900BC5B85 /* unittest_import_public_lite.pb.swift in Sources */,
+				6583D6E6246E04A200353AF4 /* Test_JSON_Extensions.swift in Sources */,
 				F4151F791EFAD85C00EEA00B /* Test_BinaryDelimited.swift in Sources */,
 				F44F93B81DAEA8C900BC5B85 /* Test_Empty.swift in Sources */,
 				F44F93B11DAEA8C900BC5B85 /* Test_AllTypes_Proto3.swift in Sources */,

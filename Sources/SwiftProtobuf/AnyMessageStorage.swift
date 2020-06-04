@@ -25,8 +25,8 @@ fileprivate func serializeAnyJSON(
   typeURL: String,
   options: JSONEncodingOptions
 ) throws -> String {
-  var visitor = try JSONEncodingVisitor(message: message, options: options)
-  visitor.startObject()
+  var visitor = try JSONEncodingVisitor(type: type(of: message), options: options)
+  visitor.startObject(message: message)
   visitor.encodeField(name: "@type", stringValue: typeURL)
   if let m = message as? _CustomJSONCodable {
     let value = try m.encodedJSONString(options: options)
@@ -58,19 +58,18 @@ fileprivate func asJSONObject(body: Data) -> Data {
 }
 
 fileprivate func unpack(contentJSON: Data,
+                        extensions: ExtensionMap,
                         options: JSONDecodingOptions,
                         as messageType: Message.Type) throws -> Message {
   guard messageType is _CustomJSONCodable.Type else {
     let contentJSONAsObject = asJSONObject(body: contentJSON)
-    return try messageType.init(jsonUTF8Data: contentJSONAsObject, options: options)
+    return try messageType.init(jsonUTF8Data: contentJSONAsObject, extensions: extensions, options: options)
   }
 
   var value = String()
   try contentJSON.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
     if body.count > 0 {
-      var scanner = JSONScanner(source: body,
-                                messageDepthLimit: options.messageDepthLimit,
-                                ignoreUnknownFields: options.ignoreUnknownFields)
+      var scanner = JSONScanner(source: body, options: options, extensions: extensions)
       let key = try scanner.nextQuotedString()
       if key != "value" {
         // The only thing within a WKT should be "value".
@@ -85,7 +84,7 @@ fileprivate func unpack(contentJSON: Data,
       }
     }
   }
-  return try messageType.init(jsonString: value, options: options)
+  return try messageType.init(jsonString: value, extensions: extensions, options: options)
 }
 
 internal class AnyMessageStorage {
@@ -109,6 +108,7 @@ internal class AnyMessageStorage {
         }
         do {
           let m = try unpack(contentJSON: contentJSON,
+                             extensions: SimpleExtensionMap(),
                              options: options,
                              as: messageType)
           return try m.serializedData(partial: true)
@@ -154,7 +154,7 @@ internal class AnyMessageStorage {
     return encodedType == M.protoMessageName
   }
 
-  // This is only ever called with the expactation that target will be fully
+  // This is only ever called with the expectation that target will be fully
   // replaced during the unpacking and never as a merge.
   func unpackTo<M: Message>(
     target: inout M,
@@ -181,6 +181,7 @@ internal class AnyMessageStorage {
 
     case .contentJSON(let contentJSON, let options):
       target = try unpack(contentJSON: contentJSON,
+                          extensions: extensions ?? SimpleExtensionMap(),
                           options: options,
                           as: M.self) as! M
     }
@@ -202,11 +203,21 @@ internal class AnyMessageStorage {
       // never inserted.
       break
 
-    case .contentJSON:
-      // contentJSON requires a good URL and our ability to look up
-      // the message type to transcode.
-      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
-        // Isn't registered, we can't transform it for binary.
+    case .contentJSON(let contentJSON, let options):
+      // contentJSON requires we have the type available for decoding
+      guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+          throw BinaryEncodingError.anyTranscodeFailure
+      }
+      do {
+        // Decodes the full JSON and then discard the result.
+        // The regular traversal will decode this again by querying the
+        // `value` field, but that has no way to fail.  As a result,
+        // we need this to accurately handle decode errors.
+        _ = try unpack(contentJSON: contentJSON,
+                       extensions: SimpleExtensionMap(),
+                       options: options,
+                       as: messageType)
+      } catch {
         throw BinaryEncodingError.anyTranscodeFailure
       }
     }
@@ -271,6 +282,7 @@ extension AnyMessageStorage {
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         do {
           let m = try unpack(contentJSON: contentJSON,
+                             extensions: SimpleExtensionMap(),
                              options: options,
                              as: messageType)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)

@@ -51,7 +51,7 @@ extension Message {
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startArray()
     for message in collection {
-        visitor.startObject()
+        visitor.startArrayObject(message: message)
         try message.traverse(visitor: &visitor)
         visitor.endObject()
     }
@@ -67,13 +67,14 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
+    extensions: ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      return try array(fromJSONUTF8Data: data, options: options)
+      return try array(fromJSONUTF8Data: data, extensions: extensions, options: options)
     } else {
       throw JSONDecodingError.truncated
     }
@@ -89,13 +90,15 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONUTF8Data jsonUTF8Data: Data,
+    extensions: ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     return try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       var array = [Self]()
 
       if body.count > 0 {
-        var decoder = JSONDecoder(source: body, options: options)
+        var decoder = JSONDecoder(source: body, options: options,
+          messageType: Self.self, extensions: extensions)
         try decoder.decodeRepeatedMessageField(value: &array)
         if !decoder.scanner.complete {
           throw JSONDecodingError.trailingGarbage

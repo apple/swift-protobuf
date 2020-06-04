@@ -52,8 +52,8 @@ extension Message {
       let data = string.data(using: String.Encoding.utf8)! // Cannot fail!
       return data
     }
-    var visitor = try JSONEncodingVisitor(message: self, options: options)
-    visitor.startObject()
+    var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
+    visitor.startObject(message: self)
     try traverse(visitor: &visitor)
     visitor.endObject()
     return visitor.dataResult
@@ -63,17 +63,19 @@ extension Message {
   /// serialized message in JSON format.
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter extensions: An ExtensionMap for looking up extensions by name
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonString: String,
+    extensions: ExtensionMap? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      try self.init(jsonUTF8Data: data, options: options)
+      try self.init(jsonUTF8Data: data, extensions: extensions, options: options)
     } else {
       throw JSONDecodingError.truncated
     }
@@ -85,10 +87,12 @@ extension Message {
   ///
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
+  /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonUTF8Data: Data,
+    extensions: ExtensionMap? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     self.init()
@@ -97,7 +101,8 @@ extension Message {
       guard body.count > 0 else {
         throw JSONDecodingError.truncated
       }
-      var decoder = JSONDecoder(source: body, options: options)
+      var decoder = JSONDecoder(source: body, options: options,
+                                messageType: Self.self, extensions: extensions)
       if decoder.scanner.skipOptionalNull() {
         if let customCodable = Self.self as? _CustomJSONCodable.Type,
            let message = try customCodable.decodedFromJSONNull() {

@@ -267,8 +267,9 @@ extension Test_Any {
         ("test_Any_Value_string_transcode", test_Any_Value_string_transcode),
         ("test_Any_OddTypeURL_FromValue", test_Any_OddTypeURL_FromValue),
         ("test_Any_OddTypeURL_FromMessage", test_Any_OddTypeURL_FromMessage),
+        ("test_Any_JSON_Extensions", test_Any_JSON_Extensions),
         ("test_IsA", test_IsA),
-        ("test_Any_Registery", test_Any_Registery)
+        ("test_Any_Registry", test_Any_Registry)
     ]
 }
 
@@ -641,6 +642,23 @@ extension Test_JSON_Conformance {
         ("testNullConformance", testNullConformance),
         ("testValueList", testValueList),
         ("testNestedAny", testNestedAny)
+    ]
+}
+
+extension Test_JSON_Extensions {
+    static var allTests = [
+        ("test_optionalInt32Extension", test_optionalInt32Extension),
+        ("test_optionalMessageExtension", test_optionalMessageExtension),
+        ("test_repeatedInt32Extension", test_repeatedInt32Extension),
+        ("test_repeatedMessageExtension", test_repeatedMessageExtension),
+        ("test_optionalStringExtensionWithDefault", test_optionalStringExtensionWithDefault),
+        ("test_ArrayWithExtensions", test_ArrayWithExtensions)
+    ]
+}
+
+extension Test_JSON_RecursiveNested_Extensions {
+    static var allTests = [
+        ("test_nestedMessage", test_nestedMessage)
     ]
 }
 
@@ -1187,6 +1205,8 @@ XCTMain(
         testCase(Test_JSONEncodingOptions.allTests),
         testCase(Test_JSON_Array.allTests),
         testCase(Test_JSON_Conformance.allTests),
+        testCase(Test_JSON_Extensions.allTests),
+        testCase(Test_JSON_RecursiveNested_Extensions.allTests),
         testCase(Test_JSON_Group.allTests),
         testCase(Test_Map.allTests),
         testCase(Test_MapFields_Access_Proto2.allTests),
