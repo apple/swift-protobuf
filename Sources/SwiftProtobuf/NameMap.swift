@@ -55,6 +55,19 @@ fileprivate class InternPool {
     return immutable
   }
 
+  func intern(utf8Ptr: UnsafeBufferPointer<UInt8>) -> UnsafeRawBufferPointer {
+    #if swift(>=4.1)
+    let mutable = UnsafeMutableRawBufferPointer.allocate(byteCount: utf8Ptr.count,
+                                                         alignment: MemoryLayout<UInt8>.alignment)
+    #else
+    let mutable = UnsafeMutableRawBufferPointer.allocate(count: utf8.count)
+    #endif
+    mutable.copyBytes(from: utf8Ptr)
+    let immutable = UnsafeRawBufferPointer(mutable)
+    interned.append(immutable)
+    return immutable
+  }
+
   deinit {
     for buff in interned {
         #if swift(>=4.1)
@@ -91,10 +104,17 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   /// has to be computed, it caches the UTF-8 bytes in an
   /// unmovable and immutable heap area.
   internal struct Name: Hashable, CustomStringConvertible {
-    // This is safe to use elsewhere in this library
-    internal init(staticString: StaticString) {
+    // This should not be used outside of this file, as it requires
+    // coordinating the lifecycle with the lifecycle of the pool
+    // where the raw UTF8 gets interned.
+    fileprivate init(staticString: StaticString, pool: InternPool) {
         self.nameString = .staticString(staticString)
-        self.utf8Buffer = UnsafeRawBufferPointer(start: staticString.utf8Start, count: staticString.utf8CodeUnitCount)
+        if staticString.hasPointerRepresentation {
+            self.utf8Buffer = UnsafeRawBufferPointer(start: staticString.utf8Start,
+                                                     count: staticString.utf8CodeUnitCount)
+        } else {
+            self.utf8Buffer = staticString.withUTF8Buffer { pool.intern(utf8Ptr: $0) }
+        }
     }
 
     // This should not be used outside of this file, as it requires
@@ -202,14 +222,14 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch description {
 
       case .same(proto: let p):
-        let protoName = Name(staticString: p)
+        let protoName = Name(staticString: p, pool: internPool)
         let names = Names(json: protoName, proto: protoName)
         numberToNameMap[number] = names
         protoToNumberMap[protoName] = number
         jsonToNumberMap[protoName] = number
 
       case .standard(proto: let p):
-        let protoName = Name(staticString: p)
+        let protoName = Name(staticString: p, pool: internPool)
         let jsonString = toJsonFieldName(protoName.description)
         let jsonName = Name(string: jsonString, pool: internPool)
         let names = Names(json: jsonName, proto: protoName)
@@ -219,8 +239,8 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         jsonToNumberMap[jsonName] = number
 
       case .unique(proto: let p, json: let j):
-        let jsonName = Name(staticString: j)
-        let protoName = Name(staticString: p)
+        let jsonName = Name(staticString: j, pool: internPool)
+        let protoName = Name(staticString: p, pool: internPool)
         let names = Names(json: jsonName, proto: protoName)
         numberToNameMap[number] = names
         protoToNumberMap[protoName] = number
@@ -228,13 +248,13 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         jsonToNumberMap[jsonName] = number
 
       case .aliased(proto: let p, aliases: let aliases):
-        let protoName = Name(staticString: p)
+        let protoName = Name(staticString: p, pool: internPool)
         let names = Names(json: protoName, proto: protoName)
         numberToNameMap[number] = names
         protoToNumberMap[protoName] = number
         jsonToNumberMap[protoName] = number
         for alias in aliases {
-            let protoName = Name(staticString: alias)
+            let protoName = Name(staticString: alias, pool: internPool)
             protoToNumberMap[protoName] = number
             jsonToNumberMap[protoName] = number
         }
