@@ -199,7 +199,7 @@ extension FieldDescriptor {
       case .string:
         return stringToEscapedStringLiteral(defaultValue)
       case .bytes:
-        return escapedToDataLiteral(defaultValue)
+        return escapedToDataLiteral(defaultValue, with: namer)
       case .enum:
         let enumValue = enumType.value(named: defaultValue)!
         return namer.dottedRelativeName(enumValue: enumValue)
@@ -211,7 +211,7 @@ extension FieldDescriptor {
     switch type {
     case .bool: return "false"
     case .string: return "String()"
-    case .bytes: return "\(SwiftProtobufInfo.name).Internal.emptyData"
+    case .bytes: return "\(namer.swiftProtobufModuleName).Internal.emptyData"
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:
@@ -229,31 +229,31 @@ extension FieldDescriptor {
       let valueTraits = valueField.traitsType(namer: namer)
       switch valueField.type {
       case .message:  // Map's can't have a group as the value
-        return "\(SwiftProtobufInfo.name)._ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
+        return "\(namer.swiftProtobufModuleName)._ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
       case .enum:
-        return "\(SwiftProtobufInfo.name)._ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
+        return "\(namer.swiftProtobufModuleName)._ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
       default:
-        return "\(SwiftProtobufInfo.name)._ProtobufMap<\(keyTraits),\(valueTraits)>"
+        return "\(namer.swiftProtobufModuleName)._ProtobufMap<\(keyTraits),\(valueTraits)>"
       }
     }
     switch type {
-    case .double: return "\(SwiftProtobufInfo.name).ProtobufDouble"
-    case .float: return "\(SwiftProtobufInfo.name).ProtobufFloat"
-    case .int64: return "\(SwiftProtobufInfo.name).ProtobufInt64"
-    case .uint64: return "\(SwiftProtobufInfo.name).ProtobufUInt64"
-    case .int32: return "\(SwiftProtobufInfo.name).ProtobufInt32"
-    case .fixed64: return "\(SwiftProtobufInfo.name).ProtobufFixed64"
-    case .fixed32: return "\(SwiftProtobufInfo.name).ProtobufFixed32"
-    case .bool: return "\(SwiftProtobufInfo.name).ProtobufBool"
-    case .string: return "\(SwiftProtobufInfo.name).ProtobufString"
+    case .double: return "\(namer.swiftProtobufModuleName).ProtobufDouble"
+    case .float: return "\(namer.swiftProtobufModuleName).ProtobufFloat"
+    case .int64: return "\(namer.swiftProtobufModuleName).ProtobufInt64"
+    case .uint64: return "\(namer.swiftProtobufModuleName).ProtobufUInt64"
+    case .int32: return "\(namer.swiftProtobufModuleName).ProtobufInt32"
+    case .fixed64: return "\(namer.swiftProtobufModuleName).ProtobufFixed64"
+    case .fixed32: return "\(namer.swiftProtobufModuleName).ProtobufFixed32"
+    case .bool: return "\(namer.swiftProtobufModuleName).ProtobufBool"
+    case .string: return "\(namer.swiftProtobufModuleName).ProtobufString"
     case .group, .message: return namer.fullName(message: messageType)
-    case .bytes: return "\(SwiftProtobufInfo.name).ProtobufBytes"
-    case .uint32: return "\(SwiftProtobufInfo.name).ProtobufUInt32"
+    case .bytes: return "\(namer.swiftProtobufModuleName).ProtobufBytes"
+    case .uint32: return "\(namer.swiftProtobufModuleName).ProtobufUInt32"
     case .enum: return namer.fullName(enum: enumType)
-    case .sfixed32: return "\(SwiftProtobufInfo.name).ProtobufSFixed32"
-    case .sfixed64: return "\(SwiftProtobufInfo.name).ProtobufSFixed64"
-    case .sint32: return "\(SwiftProtobufInfo.name).ProtobufSInt32"
-    case .sint64: return "\(SwiftProtobufInfo.name).ProtobufSInt64"
+    case .sfixed32: return "\(namer.swiftProtobufModuleName).ProtobufSFixed32"
+    case .sfixed64: return "\(namer.swiftProtobufModuleName).ProtobufSFixed64"
+    case .sint32: return "\(namer.swiftProtobufModuleName).ProtobufSInt32"
+    case .sint64: return "\(namer.swiftProtobufModuleName).ProtobufSInt64"
     }
   }
 }

@@ -72,7 +72,7 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
       }
 
       do {
-        let mapper = try ProtoFileToModuleMappings(moduleMappingsProto: config)
+        let mapper = try ProtoFileToModuleMappings(moduleMappingsProto: config, swiftProtobufModuleName: nil)
         XCTAssertEqual(mapper.mappings.count, expectMappings + baselineEntries, "Index: \(idx)")
         XCTAssertEqual(Set(mapper.mappings.values).count, expectedModules + baselineModules, "Index: \(idx)")
       } catch let error {
@@ -130,7 +130,7 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
       }
 
       do {
-        let _ = try ProtoFileToModuleMappings(moduleMappingsProto: config)
+        let _ = try ProtoFileToModuleMappings(moduleMappingsProto: config, swiftProtobufModuleName: nil)
         XCTFail("Shouldn't have gotten here, index \(idx)")
       } catch let error as ProtoFileToModuleMappings.LoadError {
         XCTAssertEqual(error, expected, "Index \(idx)")
@@ -149,7 +149,7 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
     ].joined(separator: "\n")
 
     let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
-    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config, swiftProtobufModuleName: nil)
 
     let tests: [(String, String?)] = [
       ( "file", "foo" ),
@@ -177,7 +177,7 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
       ].joined(separator: "\n")
 
     let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
-    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config, swiftProtobufModuleName: nil)
 
     let fileProtos = [
       FileDescriptorProto(name: "file"),
@@ -267,7 +267,7 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
     ].joined(separator: "\n")
 
     let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
-    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config, swiftProtobufModuleName: nil)
 
     let fileProtos = [
       FileDescriptorProto(name: "a.proto"),

@@ -61,7 +61,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
       SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+                         protoFileToModuleMappings: ProtoFileToModuleMappings(swiftProtobufModuleName: nil),
+                         swiftProtobufModuleName: nil)
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
@@ -125,7 +126,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
       SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+                         protoFileToModuleMappings: ProtoFileToModuleMappings(swiftProtobufModuleName: nil),
+                         swiftProtobufModuleName: nil)
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
@@ -208,7 +210,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
       SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+                         protoFileToModuleMappings: ProtoFileToModuleMappings(swiftProtobufModuleName: nil),
+                         swiftProtobufModuleName: nil)
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
@@ -294,7 +297,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
       SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+                         protoFileToModuleMappings: ProtoFileToModuleMappings(swiftProtobufModuleName: nil),
+                         swiftProtobufModuleName: nil)
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".AliasedEnum")
     let values = e.values

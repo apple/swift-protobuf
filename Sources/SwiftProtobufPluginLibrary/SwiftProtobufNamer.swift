@@ -19,29 +19,28 @@ public final class SwiftProtobufNamer {
   var enumValueRelativeNameCache = [String:String]()
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
-
-  /// Initializes a a new namer, assuming everything will be in the same Swift module.
-  public convenience init() {
-    self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
-  }
+  public var swiftProtobufModuleName: String
 
   /// Initializes a a new namer.  All names will be generated as from the pov of the
   /// given file using the provided file to module mapper.
   public convenience init(
     currentFile file: FileDescriptor,
-    protoFileToModuleMappings mappings: ProtoFileToModuleMappings
+    protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
+    swiftProtobufModuleName: String?
   ) {
     let targetModule = mappings.moduleName(forFile: file) ?? ""
-    self.init(protoFileToModuleMappings: mappings, targetModule: targetModule)
+    self.init(protoFileToModuleMappings: mappings, targetModule: targetModule, swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
   /// Internal initializer.
   init(
     protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
-    targetModule: String
+    targetModule: String,
+    swiftProtobufModuleName: String? = nil
   ) {
     self.mappings = mappings
     self.targetModule = targetModule
+    self.swiftProtobufModuleName = swiftProtobufModuleName ?? SwiftProtobufInfo.name
   }
 
   /// Calculate the relative name for the given message.

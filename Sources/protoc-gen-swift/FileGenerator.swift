@@ -44,7 +44,8 @@ class FileGenerator {
         self.fileDescriptor = fileDescriptor
         self.generatorOptions = generatorOptions
         namer = SwiftProtobufNamer(currentFile: fileDescriptor,
-                                   protoFileToModuleMappings: generatorOptions.protoToModuleMappings)
+                                   protoFileToModuleMappings: generatorOptions.protoToModuleMappings,
+                                   swiftProtobufModuleName: generatorOptions.swiftProtobufModuleName)
     }
 
     /// Generate, if `errorString` gets filled in, then report error instead of using
@@ -93,7 +94,7 @@ class FileGenerator {
         if !fileDescriptor.isBundledProto {
             // The well known types ship with the runtime, everything else needs
             // to import the runtime.
-            p.print("import \(SwiftProtobufInfo.name)\n")
+            p.print("import \(namer.swiftProtobufModuleName)\n")
         }
         if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
             p.print("\n")
@@ -190,10 +191,10 @@ class FileGenerator {
             "// incompatible with the version of SwiftProtobuf to which you are linking.\n",
             "// Please ensure that you are building against the same version of the API\n",
             "// that was used to generate this file.\n",
-            "fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(SwiftProtobufInfo.name).ProtobufAPIVersionCheck {\n")
+            "fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(namer.swiftProtobufModuleName).ProtobufAPIVersionCheck {\n")
         p.indent()
         p.print(
-            "struct _\(v): \(SwiftProtobufInfo.name).ProtobufAPIVersion_\(v) {}\n",
+            "struct _\(v): \(namer.swiftProtobufModuleName).ProtobufAPIVersion_\(v) {}\n",
             "typealias Version = _\(v)\n")
         p.outdent()
         p.print("}\n")

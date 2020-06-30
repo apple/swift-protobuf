@@ -25,14 +25,16 @@ class GeneratorOptions {
   let outputNaming: OutputNaming
   let protoToModuleMappings: ProtoFileToModuleMappings
   let visibility: Visibility
+  let swiftProtobufModuleName: String?
 
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
 
   init(parameter: String?) throws {
     var outputNaming: OutputNaming = .FullPath
-    var protoFileToModule: ProtoFileToModuleMappings?
+    var moduleMapPath: String?
     var visibility: Visibility = .Internal
+    var swiftProtobufModuleName: String? = nil
 
     for pair in parseParameter(string:parameter) {
       switch pair.key {
@@ -45,17 +47,18 @@ class GeneratorOptions {
         }
       case "ProtoPathModuleMappings":
         if !pair.value.isEmpty {
-          do {
-            protoFileToModule = try ProtoFileToModuleMappings(path: pair.value)
-          } catch let e {
-            throw GenerationError.wrappedError(
-              message: "Parameter 'ProtoPathModuleMappings=\(pair.value)'",
-              error: e)
-          }
+          moduleMapPath = pair.value
         }
       case "Visibility":
         if let value = Visibility(rawValue: pair.value) {
           visibility = value
+        } else {
+          throw GenerationError.invalidParameterValue(name: pair.key,
+                                                      value: pair.value)
+        }
+      case "SwiftProtobufModuleName":
+        if isValidSwiftIdentifier(pair.value) {
+          swiftProtobufModuleName = pair.value
         } else {
           throw GenerationError.invalidParameterValue(name: pair.key,
                                                       value: pair.value)
@@ -65,9 +68,21 @@ class GeneratorOptions {
       }
     }
 
+    if let moduleMapPath = moduleMapPath {
+      do {
+        self.protoToModuleMappings = try ProtoFileToModuleMappings(path: moduleMapPath, swiftProtobufModuleName: swiftProtobufModuleName)
+      } catch let e {
+        throw GenerationError.wrappedError(
+          message: "Parameter 'ProtoPathModuleMappings=\(moduleMapPath)'",
+          error: e)
+      }
+    } else {
+      self.protoToModuleMappings = ProtoFileToModuleMappings(swiftProtobufModuleName: swiftProtobufModuleName)
+    }
+
     self.outputNaming = outputNaming
-    self.protoToModuleMappings = protoFileToModule ?? ProtoFileToModuleMappings()
     self.visibility = visibility
+    self.swiftProtobufModuleName = swiftProtobufModuleName
 
     switch visibility {
     case .Internal:
