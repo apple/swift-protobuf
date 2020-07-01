@@ -16,6 +16,10 @@
 
 import Foundation
 
+#if compiler(<4.2)
+  #error "SwiftProtobuf requires a 4.2 or later Swift toolchain."
+#endif
+
 /// Functions that are public only because they are used by generated message
 /// implementations. NOT INTENDED TO BE CALLED BY CLIENTS.
 public enum Internal {

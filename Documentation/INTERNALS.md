@@ -15,7 +15,7 @@ As a result, this document is probably already out of date;
 pull requests that correct this document to better match the actual
 behavior are always appreciated.
 
-## Swift Language Support
+## Swift Toolchain and Swift Language Support
 
 The goal is to always support "one full major version”, which basically
 means if the current official release of Swift is `X.Y`, the library will
@@ -36,6 +36,8 @@ When the minimum Swift version gets updated, update:
 - Update `Package.swift` and `SwiftProtobuf.podspec` files to list the
   versions supported. Eventually the version specific `Package@*.swift`
   files will go away.
+- Update the `#if compiler(<###)` check in
+  `Sources/SwiftProtobuf/Internal.swift` to the new minimum.
 
 ## Field Storage
 
