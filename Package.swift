@@ -31,5 +31,5 @@ let package = Package(
     .testTarget(name: "SwiftProtobufPluginLibraryTests",
                 dependencies: ["SwiftProtobufPluginLibrary"]),
   ],
-  swiftLanguageVersions: [.v3, .v4, .v4_2, .version("5")]
+  swiftLanguageVersions: [.v4, .v4_2, .version("5")]
 )
