@@ -14,6 +14,8 @@
 
 import Foundation
 
+private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
+
 /// Handles the mapping of proto files to the modules they will be compiled into.
 public struct ProtoFileToModuleMappings {
 
@@ -38,7 +40,7 @@ public struct ProtoFileToModuleMappings {
 
   /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
   /// We expect to find the WKTs in the module named here.
-  let swiftProtobufModuleName: String
+  public let swiftProtobufModuleName: String
 
   /// Loads and parses the given module mapping from disk.  Raises LoadError
   /// or TextFormatDecodingError.
@@ -56,7 +58,7 @@ public struct ProtoFileToModuleMappings {
 
   /// Parses the given module mapping.  Raises LoadError.
   public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings, swiftProtobufModuleName: String?) throws {
-    self.swiftProtobufModuleName = swiftProtobufModuleName ?? SwiftProtobufInfo.name
+    self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
     var builder = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
     for (idx, mapping) in mappings.mapping.lazy.enumerated() {
       if mapping.moduleName.isEmpty {
@@ -82,7 +84,7 @@ public struct ProtoFileToModuleMappings {
   }
 
   public init(swiftProtobufModuleName: String?) {
-    self.swiftProtobufModuleName = swiftProtobufModuleName ?? SwiftProtobufInfo.name
+    self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
     self.mappings = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
   }
 

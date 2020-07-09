@@ -19,37 +19,35 @@ public final class SwiftProtobufNamer {
   var enumValueRelativeNameCache = [String:String]()
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
-  public var swiftProtobufModuleName: String
+
+  public var swiftProtobufModuleName: String { mappings.swiftProtobufModuleName }
 
   /// Initializes a a new namer.  All names will be generated as from the pov of the
   /// given file using the provided file to module mapper.
   public convenience init(
     currentFile file: FileDescriptor,
-    protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
-    swiftProtobufModuleName: String?
+    protoFileToModuleMappings mappings: ProtoFileToModuleMappings
   ) {
     let targetModule = mappings.moduleName(forFile: file) ?? ""
-    self.init(protoFileToModuleMappings: mappings, targetModule: targetModule, swiftProtobufModuleName: swiftProtobufModuleName)
+    self.init(protoFileToModuleMappings: mappings, targetModule: targetModule)
   }
 
   /// Internal initializer.
   init(
     protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
-    targetModule: String,
-    swiftProtobufModuleName: String? = nil
+    targetModule: String
   ) {
     self.mappings = mappings
     self.targetModule = targetModule
-    self.swiftProtobufModuleName = swiftProtobufModuleName ?? SwiftProtobufInfo.name
   }
 
   /// Calculate the relative name for the given message.
   public func relativeName(message: Descriptor) -> String {
     if message.containingType != nil {
-      return NamingUtils.sanitize(messageName: message.name)
+      return NamingUtils.sanitize(messageName: message.name, namer: self)
     } else {
       let prefix = typePrefix(forFile: message.file)
-      return NamingUtils.sanitize(messageName: prefix + message.name)
+      return NamingUtils.sanitize(messageName: prefix + message.name, namer: self)
     }
   }
 
@@ -65,10 +63,10 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given enum.
   public func relativeName(enum e: EnumDescriptor) -> String {
     if e.containingType != nil {
-      return NamingUtils.sanitize(enumName: e.name)
+      return NamingUtils.sanitize(enumName: e.name, namer: self)
     } else {
       let prefix = typePrefix(forFile: e.file)
-      return NamingUtils.sanitize(enumName: prefix + e.name)
+      return NamingUtils.sanitize(enumName: prefix + e.name, namer: self)
     }
   }
 
@@ -190,7 +188,7 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given oneof.
   public func relativeName(oneof: OneofDescriptor) -> String {
     let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
-    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)")
+    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)", namer: self)
   }
 
   /// Calculate the full name for the given oneof.

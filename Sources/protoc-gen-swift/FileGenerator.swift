@@ -44,8 +44,7 @@ class FileGenerator {
         self.fileDescriptor = fileDescriptor
         self.generatorOptions = generatorOptions
         namer = SwiftProtobufNamer(currentFile: fileDescriptor,
-                                   protoFileToModuleMappings: generatorOptions.protoToModuleMappings,
-                                   swiftProtobufModuleName: generatorOptions.swiftProtobufModuleName)
+                                   protoFileToModuleMappings: generatorOptions.protoToModuleMappings)
     }
 
     /// Generate, if `errorString` gets filled in, then report error instead of using
