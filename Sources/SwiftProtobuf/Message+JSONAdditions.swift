@@ -63,6 +63,19 @@ extension Message {
   /// serialized message in JSON format.
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+    public init(
+    jsonString: String,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws {
+    try self.init(jsonString: jsonString, extensions: nil, options: options)
+  }
+
+  /// Creates a new message by decoding the given string containing a
+  /// serialized message in JSON format.
+  ///
+  /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Parameter extensions: An ExtensionMap for looking up extensions by name
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
@@ -79,6 +92,21 @@ extension Message {
     } else {
       throw JSONDecodingError.truncated
     }
+  }
+
+  /// Creates a new message by decoding the given `Data` containing a
+  /// serialized message in JSON format, interpreting the data as UTF-8 encoded
+  /// text.
+  ///
+  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  ///   as UTF-8 encoded text.
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public init(
+    jsonUTF8Data: Data,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws {
+    try self.init(jsonUTF8Data: jsonUTF8Data, extensions: nil, options: options)
   }
 
   /// Creates a new message by decoding the given `Data` containing a
