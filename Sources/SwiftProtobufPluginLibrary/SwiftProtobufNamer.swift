@@ -20,7 +20,7 @@ public final class SwiftProtobufNamer {
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
 
-  public var swiftProtobufModuleName: String { mappings.swiftProtobufModuleName }
+  public var swiftProtobufModuleName: String { return mappings.swiftProtobufModuleName }
 
   /// Initializes a a new namer.  All names will be generated as from the pov of the
   /// given file using the provided file to module mapper.
