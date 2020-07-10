@@ -67,6 +67,22 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws -> [Self] {
+    return try self.array(fromJSONString: jsonString,
+                          extensions: SimpleExtensionMap(),
+                          options: options)
+  }
+
+  /// Creates a new array of messages by decoding the given string containing a
+  /// serialized array of messages in JSON format.
+  ///
+  /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter extensions: The extension map to use with this decode
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public static func array(
+    fromJSONString jsonString: String,
     extensions: ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
@@ -86,6 +102,24 @@ extension Message {
   ///
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public static func array(
+    fromJSONUTF8Data jsonUTF8Data: Data,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws -> [Self] {
+    return try self.array(fromJSONUTF8Data: jsonUTF8Data,
+                          extensions: SimpleExtensionMap(),
+                          options: options)
+  }
+
+  /// Creates a new array of messages by decoding the given `Data` containing a
+  /// serialized array of messages in JSON format, interpreting the data as
+  /// UTF-8 encoded text.
+  ///
+  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  ///   as UTF-8 encoded text.
+  /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
