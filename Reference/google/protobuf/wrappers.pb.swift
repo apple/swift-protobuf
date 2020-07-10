@@ -196,7 +196,7 @@ struct Google_Protobuf_BytesValue {
   // methods supported on all messages.
 
   /// The bytes value.
-  var value: Data = SwiftProtobuf.Internal.emptyData
+  var value: Data = Data()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

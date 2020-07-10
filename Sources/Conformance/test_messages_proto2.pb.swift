@@ -233,7 +233,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -680,7 +680,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }

@@ -651,7 +651,7 @@ struct ProtobufUnittest_TestAllTypes {
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -1099,7 +1099,7 @@ struct ProtobufUnittest_TestAllTypes {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -2985,7 +2985,7 @@ struct ProtobufUnittest_OneBytes {
   // methods supported on all messages.
 
   var data: Data {
-    get {return _data ?? SwiftProtobuf.Internal.emptyData}
+    get {return _data ?? Data()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -3340,7 +3340,7 @@ struct ProtobufUnittest_TestOneof2 {
   var fooBytes: Data {
     get {
       if case .fooBytes(let v)? = _storage._foo {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._foo = .fooBytes(newValue)}
   }
@@ -4289,7 +4289,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   mutating func clearOptionalString() {self._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _optionalBytes ?? Data()}
     set {_optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -4346,7 +4346,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {oneofField = .oneofBytes(newValue)}
   }
@@ -4730,7 +4730,7 @@ extension ProtobufUnittest_TestAllExtensions {
   }
 
   var ProtobufUnittest_optionalBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? SwiftProtobuf.Internal.emptyData}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_extension`
@@ -5633,7 +5633,7 @@ extension ProtobufUnittest_TestAllExtensions {
   }
 
   var ProtobufUnittest_oneofBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? SwiftProtobuf.Internal.emptyData}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_oneof_bytes_extension`

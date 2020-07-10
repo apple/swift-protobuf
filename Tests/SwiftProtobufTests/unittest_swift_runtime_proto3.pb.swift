@@ -350,7 +350,7 @@ struct ProtobufUnittest_Message3 {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._o {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._o = .oneofBytes(newValue)}
   }
@@ -739,7 +739,7 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalBytes: Data = Data()
     var _optionalMessage: ProtobufUnittest_Message3? = nil
     var _optionalEnum: ProtobufUnittest_Message3.Enum = .foo
     var _repeatedInt32: [Int32] = []

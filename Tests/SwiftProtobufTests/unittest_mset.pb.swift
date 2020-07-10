@@ -165,7 +165,7 @@ struct ProtobufUnittest_RawMessageSet {
     mutating func clearTypeID() {self._typeID = nil}
 
     var message: Data {
-      get {return _message ?? SwiftProtobuf.Internal.emptyData}
+      get {return _message ?? Data()}
       set {_message = newValue}
     }
     /// Returns true if `message` has been explicitly set.

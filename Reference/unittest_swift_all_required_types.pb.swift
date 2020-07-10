@@ -185,7 +185,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   mutating func clearRequiredString() {_uniqueStorage()._requiredString = nil}
 
   var requiredBytes: Data {
-    get {return _storage._requiredBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _storage._requiredBytes ?? Data()}
     set {_uniqueStorage()._requiredBytes = newValue}
   }
   /// Returns true if `requiredBytes` has been explicitly set.
@@ -507,7 +507,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -669,7 +669,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes {
   mutating func clearRequiredString() {self._requiredString = nil}
 
   var requiredBytes: Data {
-    get {return _requiredBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _requiredBytes ?? Data()}
     set {_requiredBytes = newValue}
   }
   /// Returns true if `requiredBytes` has been explicitly set.
