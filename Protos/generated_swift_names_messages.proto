@@ -7,7 +7,6 @@ message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
   message aggregateValue { int32 aggregateValue = 1; }
   message allCases { int32 allCases = 1; }
-  message allocate { int32 allocate = 1; }
   message allowAlias { int32 allowAlias = 1; }
   message alwaysPrintEnumsAsInts { int32 alwaysPrintEnumsAsInts = 1; }
   message annotation { int32 annotation = 1; }
@@ -46,7 +45,6 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
   message binaryOptions { int32 binaryOptions = 1; }
   message body { int32 body = 1; }
-  message bodySize { int32 bodySize = 1; }
   message Bool { int32 Bool = 1; }
   message booleanLiteral { int32 booleanLiteral = 1; }
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
@@ -56,7 +54,6 @@ message GeneratedSwiftReservedMessages {
   message bytesRead { int32 bytesRead = 1; }
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
-  message capacity { int32 capacity = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
   message cardinality { int32 cardinality = 1; }
   message ccEnableArenas { int32 ccEnableArenas = 1; }
@@ -145,7 +142,6 @@ message GeneratedSwiftReservedMessages {
   message d { int32 d = 1; }
   message Data { int32 Data = 1; }
   message dataResult { int32 dataResult = 1; }
-  message dataSize { int32 dataSize = 1; }
   message date { int32 date = 1; }
   message daySec { int32 daySec = 1; }
   message daysSinceEpoch { int32 daysSinceEpoch = 1; }
@@ -585,7 +581,6 @@ message GeneratedSwiftReservedMessages {
   message packed { int32 packed = 1; }
   message PackedEnumExtensionField { int32 PackedEnumExtensionField = 1; }
   message PackedExtensionField { int32 PackedExtensionField = 1; }
-  message packedSize { int32 packedSize = 1; }
   message padding { int32 padding = 1; }
   message parent { int32 parent = 1; }
   message parse { int32 parse = 1; }
@@ -659,7 +654,6 @@ message GeneratedSwiftReservedMessages {
   message rawChars { int32 rawChars = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
-  message readBuffer { int32 readBuffer = 1; }
   message register { int32 register = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
@@ -708,6 +702,7 @@ message GeneratedSwiftReservedMessages {
   message split { int32 split = 1; }
   message start { int32 start = 1; }
   message startArray { int32 startArray = 1; }
+  message startArrayObject { int32 startArrayObject = 1; }
   message startField { int32 startField = 1; }
   message startIndex { int32 startIndex = 1; }
   message startMessageField { int32 startMessageField = 1; }
@@ -777,6 +772,7 @@ message GeneratedSwiftReservedMessages {
   message unknownFields { int32 unknownFields = 1; }
   message UnknownStorage { int32 UnknownStorage = 1; }
   message unpackTo { int32 unpackTo = 1; }
+  message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
   message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
@@ -785,6 +781,7 @@ message GeneratedSwiftReservedMessages {
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message utf8 { int32 utf8 = 1; }
+  message utf8Ptr { int32 utf8Ptr = 1; }
   message utf8ToDouble { int32 utf8ToDouble = 1; }
   message UTF8View { int32 UTF8View = 1; }
   message v { int32 v = 1; }

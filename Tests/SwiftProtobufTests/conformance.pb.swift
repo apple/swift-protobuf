@@ -212,7 +212,7 @@ struct Conformance_ConformanceRequest {
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = payload {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {payload = .protobufPayload(newValue)}
   }
@@ -351,7 +351,7 @@ struct Conformance_ConformanceResponse {
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = result {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {result = .protobufPayload(newValue)}
   }

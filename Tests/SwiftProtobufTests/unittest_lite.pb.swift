@@ -290,7 +290,7 @@ struct ProtobufUnittest_TestAllTypesLite {
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -738,7 +738,7 @@ struct ProtobufUnittest_TestAllTypesLite {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -1373,7 +1373,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   mutating func clearOptionalString() {self._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _optionalBytes ?? Data()}
     set {_optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -1430,7 +1430,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {oneofField = .oneofBytes(newValue)}
   }
@@ -1539,7 +1539,7 @@ struct ProtobufUnittest_TestOneofParsingLite {
   var oneofBytesCord: Data {
     get {
       if case .oneofBytesCord(let v)? = oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {oneofField = .oneofBytesCord(newValue)}
   }
@@ -1926,7 +1926,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
   }
 
   var ProtobufUnittest_optionalBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? SwiftProtobuf.Internal.emptyData}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_extension_lite`
@@ -2829,7 +2829,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
   }
 
   var ProtobufUnittest_oneofBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? SwiftProtobuf.Internal.emptyData}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_oneof_bytes_extension_lite`

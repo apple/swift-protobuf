@@ -1338,7 +1338,7 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
   }
 
   var ProtobufUnittest_bytesOpt: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? SwiftProtobuf.Internal.emptyData}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? Data()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_bytes_opt`

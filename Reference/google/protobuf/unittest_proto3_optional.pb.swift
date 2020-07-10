@@ -183,7 +183,7 @@ struct ProtobufUnittest_TestProto3Optional {
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
+    get {return _storage._optionalBytes ?? Data()}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.

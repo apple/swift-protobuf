@@ -72,7 +72,7 @@ struct SwiftUnittest_TestMessage {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {oneofField = .oneofBytes(newValue)}
   }

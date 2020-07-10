@@ -1733,7 +1733,7 @@ public struct Google_Protobuf_UninterpretedOption {
   public mutating func clearDoubleValue() {self._doubleValue = nil}
 
   public var stringValue: Data {
-    get {return _stringValue ?? SwiftProtobuf.Internal.emptyData}
+    get {return _stringValue ?? Data()}
     set {_stringValue = newValue}
   }
   /// Returns true if `stringValue` has been explicitly set.

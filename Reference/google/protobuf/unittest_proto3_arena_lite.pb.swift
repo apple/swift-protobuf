@@ -395,7 +395,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -712,7 +712,7 @@ extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProt
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3ArenaLiteUnittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
