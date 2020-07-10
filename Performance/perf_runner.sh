@@ -46,6 +46,7 @@ readonly script_dir="."
 # Change this if your checkout of github.com/protocolbuffers/protobuf is in a
 # different location.
 readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../../protobuf"}
+readonly PROTOC=${PROTOC:-"${GOOGLE_PROTOBUF_CHECKOUT}/src/protoc"}
 
 function usage() {
   cat >&2 <<EOF
@@ -296,7 +297,7 @@ for comparison in "${comparisons[@]}"; do
     echo "==== Building/running C++ harness ===================="
     echo
 
-    protoc --cpp_out="$script_dir" "$gen_message_path"
+    ${PROTOC} --cpp_out="$script_dir" "$gen_message_path"
 
     harness_cpp="$script_dir/_generated/harness_cpp"
     run_cpp_harness "$harness_cpp"
@@ -319,7 +320,7 @@ for comparison in "${comparisons[@]}"; do
       mkdir "$tmp_checkout/Performance/_generated"
 
       build_swift_packages "$tmp_checkout" "ForRev"
-      protoc --plugin="$tmp_checkout/.build/release/protoc-gen-swiftForRev" \
+      ${PROTOC} --plugin="$tmp_checkout/.build/release/protoc-gen-swiftForRev" \
           --swiftForRev_out=FileNaming=DropPath:"$tmp_checkout/Performance/_generated" \
           "$gen_message_path"
 
@@ -340,7 +341,7 @@ echo "==== Building/running Swift harness (working tree) ===================="
 echo
 
 build_swift_packages "$script_dir/.." "ForWorkTree"
-protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForWorkTree" \
+${PROTOC} --plugin="$script_dir/../.build/release/protoc-gen-swiftForWorkTree" \
     --swiftForWorkTree_out=FileNaming=DropPath:"$script_dir/_generated" \
     --cpp_out="$script_dir" \
     "$gen_message_path"
