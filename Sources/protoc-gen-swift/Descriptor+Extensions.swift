@@ -211,7 +211,7 @@ extension FieldDescriptor {
     switch type {
     case .bool: return "false"
     case .string: return "String()"
-    case .bytes: return "\(SwiftProtobufInfo.name).Internal.emptyData"
+    case .bytes: return "Data()"
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:

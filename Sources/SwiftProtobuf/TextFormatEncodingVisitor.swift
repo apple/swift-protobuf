@@ -156,7 +156,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
               encoder.endRegularField()
           case .lengthDelimited:
               encoder.emitFieldNumber(number: tag.fieldNumber)
-              var bytes = Internal.emptyData
+              var bytes = Data()
               try decoder.decodeSingularBytesField(value: &bytes)
               bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
                   if let baseAddress = body.baseAddress, body.count > 0 {
