@@ -44,6 +44,12 @@ public struct ProtoFileToModuleMappings {
 
   /// Loads and parses the given module mapping from disk.  Raises LoadError
   /// or TextFormatDecodingError.
+  public init(path: String) throws {
+    try self.init(path: path, swiftProtobufModuleName: nil)
+  }
+
+  /// Loads and parses the given module mapping from disk.  Raises LoadError
+  /// or TextFormatDecodingError.
   public init(path: String, swiftProtobufModuleName: String?) throws {
     let content: String
     do {
@@ -54,6 +60,11 @@ public struct ProtoFileToModuleMappings {
 
     let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
     try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
+  }
+
+  /// Parses the given module mapping.  Raises LoadError.
+  public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
+    try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
   }
 
   /// Parses the given module mapping.  Raises LoadError.
@@ -83,9 +94,12 @@ public struct ProtoFileToModuleMappings {
     self.mappings = builder
   }
 
+  public init() {
+    try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: nil)
+  }
+
   public init(swiftProtobufModuleName: String?) {
-    self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
-    self.mappings = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
+    try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
   /// Looks up the module a given file is in.
