@@ -281,7 +281,7 @@ extension Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalBytes: Data = Data()
     var _repeatedRecursiveMessage: [Swift_Performance_TestAllTypes] = []
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []

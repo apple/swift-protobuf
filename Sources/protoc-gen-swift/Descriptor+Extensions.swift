@@ -199,7 +199,7 @@ extension FieldDescriptor {
       case .string:
         return stringToEscapedStringLiteral(defaultValue)
       case .bytes:
-        return escapedToDataLiteral(defaultValue, with: namer)
+        return escapedToDataLiteral(defaultValue)
       case .enum:
         let enumValue = enumType.value(named: defaultValue)!
         return namer.dottedRelativeName(enumValue: enumValue)
@@ -211,7 +211,7 @@ extension FieldDescriptor {
     switch type {
     case .bool: return "false"
     case .string: return "String()"
-    case .bytes: return "\(namer.swiftProtobufModuleName).Internal.emptyData"
+    case .bytes: return "Data()"
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:

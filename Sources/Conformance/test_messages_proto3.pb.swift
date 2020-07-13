@@ -616,7 +616,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   var oneofBytes: Data {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return SwiftProtobuf.Internal.emptyData
+      return Data()
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -1316,7 +1316,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalBytes: Data = Data()
     var _optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage? = nil
     var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum = .foo

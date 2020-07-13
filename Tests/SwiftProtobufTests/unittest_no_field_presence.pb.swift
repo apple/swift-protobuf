@@ -592,7 +592,7 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, Swi
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalBytes: Data = Data()
     var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
     var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil

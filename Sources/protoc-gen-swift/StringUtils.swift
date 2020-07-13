@@ -60,9 +60,9 @@ func trimWhitespace(_ s: String) -> String {
 /// The protoc parser emits byte literals using an escaped C convention.
 /// Fortunately, it uses only a limited subset of the C escapse:
 ///  \n\r\t\\\'\" and three-digit octal escapes but nothing else.
-func escapedToDataLiteral(_ s: String, with namer: SwiftProtobufNamer) -> String {
+func escapedToDataLiteral(_ s: String) -> String {
   if s.isEmpty {
-    return "\(namer.swiftProtobufModuleName).Internal.emptyData"
+    return "Data()"
   }
   var out = "Data(["
   var separator = ""
