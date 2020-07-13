@@ -25,7 +25,7 @@ class GeneratorOptions {
   let outputNaming: OutputNaming
   let protoToModuleMappings: ProtoFileToModuleMappings
   let visibility: Visibility
-  let swiftProtobufModuleName: String?
+  let swiftProtobufModuleName: String
 
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
@@ -57,6 +57,8 @@ class GeneratorOptions {
                                                       value: pair.value)
         }
       case "SwiftProtobufModuleName":
+        // This option is not documented in PLUGIN.md, because it's a feature
+        // that would ordinarily not be required for a given adopter.
         if isValidSwiftIdentifier(pair.value) {
           swiftProtobufModuleName = pair.value
         } else {
@@ -82,7 +84,7 @@ class GeneratorOptions {
 
     self.outputNaming = outputNaming
     self.visibility = visibility
-    self.swiftProtobufModuleName = swiftProtobufModuleName
+    self.swiftProtobufModuleName = protoToModuleMappings.swiftProtobufModuleName
 
     switch visibility {
     case .Internal:
