@@ -25,7 +25,6 @@ class GeneratorOptions {
   let outputNaming: OutputNaming
   let protoToModuleMappings: ProtoFileToModuleMappings
   let visibility: Visibility
-  let swiftProtobufModuleName: String
 
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
@@ -84,7 +83,6 @@ class GeneratorOptions {
 
     self.outputNaming = outputNaming
     self.visibility = visibility
-    self.swiftProtobufModuleName = protoToModuleMappings.swiftProtobufModuleName
 
     switch visibility {
     case .Internal:
