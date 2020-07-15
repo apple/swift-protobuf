@@ -14,6 +14,8 @@
 
 import Foundation
 
+private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
+
 /// Handles the mapping of proto files to the modules they will be compiled into.
 public struct ProtoFileToModuleMappings {
 
@@ -36,9 +38,19 @@ public struct ProtoFileToModuleMappings {
   /// access it to verify things.
   let mappings: [String:String]
 
+  /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
+  /// We expect to find the WKTs in the module named here.
+  public let swiftProtobufModuleName: String
+
   /// Loads and parses the given module mapping from disk.  Raises LoadError
   /// or TextFormatDecodingError.
   public init(path: String) throws {
+    try self.init(path: path, swiftProtobufModuleName: nil)
+  }
+
+  /// Loads and parses the given module mapping from disk.  Raises LoadError
+  /// or TextFormatDecodingError.
+  public init(path: String, swiftProtobufModuleName: String?) throws {
     let content: String
     do {
       content = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -47,12 +59,18 @@ public struct ProtoFileToModuleMappings {
     }
 
     let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
-    try self.init(moduleMappingsProto: mappingsProto)
+    try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
   /// Parses the given module mapping.  Raises LoadError.
   public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings) throws {
-    var builder = wktMappings
+    try self.init(moduleMappingsProto: mappings, swiftProtobufModuleName: nil)
+  }
+
+  /// Parses the given module mapping.  Raises LoadError.
+  public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings, swiftProtobufModuleName: String?) throws {
+    self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
+    var builder = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
     for (idx, mapping) in mappings.mapping.lazy.enumerated() {
       if mapping.moduleName.isEmpty {
         throw LoadError.entryMissingModuleName(mappingIndex: idx)
@@ -77,7 +95,11 @@ public struct ProtoFileToModuleMappings {
   }
 
   public init() {
-    mappings = wktMappings
+    try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: nil)
+  }
+
+  public init(swiftProtobufModuleName: String?) {
+    try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
   /// Looks up the module a given file is in.
@@ -127,7 +149,7 @@ public struct ProtoFileToModuleMappings {
     }
 
     // The library itself (happens if the import one of the WKTs).
-    collector.remove(SwiftProtobufInfo.name)
+    collector.remove(self.swiftProtobufModuleName)
 
     if collector.isEmpty {
       return nil
@@ -138,6 +160,6 @@ public struct ProtoFileToModuleMappings {
 }
 
 // Used to seed the mappings, the wkt are all part of the main library.
-private let wktMappings: [String:String] = {
-  return SwiftProtobufInfo.bundledProtoFiles.reduce(into: [:]) { $0[$1] = SwiftProtobufInfo.name }
-}()
+private func wktMappings(swiftProtobufModuleName: String) -> [String:String] {
+  return SwiftProtobufInfo.bundledProtoFiles.reduce(into: [:]) { $0[$1] = swiftProtobufModuleName }
+}

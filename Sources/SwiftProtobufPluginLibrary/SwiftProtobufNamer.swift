@@ -20,6 +20,8 @@ public final class SwiftProtobufNamer {
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
 
+  public var swiftProtobufModuleName: String { return mappings.swiftProtobufModuleName }
+
   /// Initializes a a new namer, assuming everything will be in the same Swift module.
   public convenience init() {
     self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
@@ -47,10 +49,10 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given message.
   public func relativeName(message: Descriptor) -> String {
     if message.containingType != nil {
-      return NamingUtils.sanitize(messageName: message.name)
+      return NamingUtils.sanitize(messageName: message.name, namer: self)
     } else {
       let prefix = typePrefix(forFile: message.file)
-      return NamingUtils.sanitize(messageName: prefix + message.name)
+      return NamingUtils.sanitize(messageName: prefix + message.name, namer: self)
     }
   }
 
@@ -66,10 +68,10 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given enum.
   public func relativeName(enum e: EnumDescriptor) -> String {
     if e.containingType != nil {
-      return NamingUtils.sanitize(enumName: e.name)
+      return NamingUtils.sanitize(enumName: e.name, namer: self)
     } else {
       let prefix = typePrefix(forFile: e.file)
-      return NamingUtils.sanitize(enumName: prefix + e.name)
+      return NamingUtils.sanitize(enumName: prefix + e.name, namer: self)
     }
   }
 
@@ -191,7 +193,7 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given oneof.
   public func relativeName(oneof: OneofDescriptor) -> String {
     let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
-    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)")
+    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)", namer: self)
   }
 
   /// Calculate the full name for the given oneof.

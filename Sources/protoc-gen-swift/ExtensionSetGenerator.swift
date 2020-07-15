@@ -47,7 +47,7 @@ class ExtensionSetGenerator {
             default: modifier = ""
             }
 
-            return "\(SwiftProtobufInfo.name).\(label)\(modifier)ExtensionField"
+            return "\(namer.swiftProtobufModuleName).\(label)\(modifier)ExtensionField"
         }
 
         init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
@@ -81,7 +81,7 @@ class ExtensionSetGenerator {
 
             p.print(
               comments,
-              "\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(SwiftProtobufInfo.name).MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
+              "\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModuleName).MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
             p.indent()
             p.print(
               "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
@@ -223,7 +223,7 @@ class ExtensionSetGenerator {
           "/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n",
           "/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n",
           "/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n",
-          "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(SwiftProtobufInfo.name).SimpleExtensionMap = [\n")
+          "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(namer.swiftProtobufModuleName).SimpleExtensionMap = [\n")
         p.indent()
         var separator = ""
         for e in extensions {
