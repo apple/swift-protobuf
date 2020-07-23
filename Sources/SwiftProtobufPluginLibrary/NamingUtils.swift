@@ -179,7 +179,7 @@ fileprivate func isAllUnderscore(_ s: String) -> Bool {
   return true
 }
 
-fileprivate func sanitizeTypeName(_ s: String, disambiguator: String, namer: SwiftProtobufNamer) -> String {
+fileprivate func sanitizeTypeName(_ s: String, disambiguator: String, forbiddenTypeNames: Set<String>) -> String {
   // NOTE: This code relies on the protoc validation of _identifier_ is defined
   // (in Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
   // any complex validation or handing of characters outside those ranges. Since
@@ -200,12 +200,15 @@ fileprivate func sanitizeTypeName(_ s: String, disambiguator: String, namer: Swi
     // disambiguator:
     let e = s.index(s.endIndex, offsetBy: -disambiguator.count)
     let truncated = String(s[..<e])
-    return sanitizeTypeName(truncated, disambiguator: disambiguator, namer: namer) + disambiguator
-  } else if s == namer.swiftProtobufModuleName {
-    // NOTE: It is important that this case runs after the hasSuffix case. The
-    // SwiftProtobuf module name is unknown to us, and it may be something like
-    // "FooMessage". If s is also "FooMessage" and the disambiguator is "Message"
-    // then we prefer to run the code above, not here.
+    return sanitizeTypeName(truncated, disambiguator: disambiguator, forbiddenTypeNames: forbiddenTypeNames) + disambiguator
+  } else if forbiddenTypeNames.contains(s) {
+    // NOTE: It is important that this case runs after the hasSuffix case.
+    // This set of forbidden type names is not fixed, and may contain something
+    // like "FooMessage". If it does, and if s is "FooMessage with a
+    // disambiguator of "Message", then we want to sanitize on the basis of
+    // the suffix rather simply appending the disambiguator.
+    // We use this for module imports that are configurable (like SwiftProtobuf
+    // renaming).
     return s + disambiguator
   } else {
     return s
@@ -472,16 +475,16 @@ public enum NamingUtils {
     }
   }
 
-  static func sanitize(messageName s: String, namer: SwiftProtobufNamer) -> String {
-    return sanitizeTypeName(s, disambiguator: "Message", namer: namer)
+  static func sanitize(messageName s: String, forbiddenTypeNames: Set<String>) -> String {
+    return sanitizeTypeName(s, disambiguator: "Message", forbiddenTypeNames: forbiddenTypeNames)
   }
 
-  static func sanitize(enumName s: String, namer: SwiftProtobufNamer) -> String {
-    return sanitizeTypeName(s, disambiguator: "Enum", namer: namer)
+  static func sanitize(enumName s: String, forbiddenTypeNames: Set<String>) -> String {
+    return sanitizeTypeName(s, disambiguator: "Enum", forbiddenTypeNames: forbiddenTypeNames)
   }
 
-  static func sanitize(oneofName s: String, namer: SwiftProtobufNamer) -> String {
-    return sanitizeTypeName(s, disambiguator: "Oneof", namer: namer)
+  static func sanitize(oneofName s: String, forbiddenTypeNames: Set<String>) -> String {
+    return sanitizeTypeName(s, disambiguator: "Oneof", forbiddenTypeNames: forbiddenTypeNames)
   }
 
   static func sanitize(fieldName s: String, basedOn: String) -> String {
