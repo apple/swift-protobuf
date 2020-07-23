@@ -14,8 +14,6 @@ import SwiftProtobuf
 
 class Test_NamingUtils: XCTestCase {
 
-  let namer = SwiftProtobufNamer(protoFileToModuleMappings: ProtoFileToModuleMappings(swiftProtobufModuleName: "RenamedSwiftProtobuf"), targetModule: "Target")
-
   func testTypePrefix() throws {
     // package, swiftPrefix, expected
     let tests: [(String, String?, String)] = [
@@ -132,7 +130,7 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "___Message" ),
     ]
     for (input, expected) in tests {
-      XCTAssertEqual(NamingUtils.sanitize(messageName: input, namer: namer), expected)
+      XCTAssertEqual(NamingUtils.sanitize(messageName: input, forbiddenTypeNames: ["RenamedSwiftProtobuf"]), expected)
     }
   }
 
@@ -165,7 +163,7 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "___Enum" ),
     ]
     for (input, expected) in tests {
-      XCTAssertEqual(NamingUtils.sanitize(enumName: input, namer: namer), expected)
+      XCTAssertEqual(NamingUtils.sanitize(enumName: input, forbiddenTypeNames: ["RenamedSwiftProtobuf"]), expected)
     }
   }
 
@@ -197,7 +195,7 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "___Oneof" ),
     ]
     for (input, expected) in tests {
-      XCTAssertEqual(NamingUtils.sanitize(oneofName: input, namer: namer), expected)
+      XCTAssertEqual(NamingUtils.sanitize(oneofName: input, forbiddenTypeNames: ["RenamedSwiftProtobuf"]), expected)
     }
   }
 
