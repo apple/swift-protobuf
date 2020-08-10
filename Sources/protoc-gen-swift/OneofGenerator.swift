@@ -355,9 +355,12 @@ class OneofGenerator {
                 p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
                 p.outdent()
             }
-            p.print("case nil: break\n")  // Cover not being set.
-            if fieldSortedGrouped.count > 1 {
-                p.print("default: break\n")  // Multiple groups, cover other cases.
+            if fieldSortedGrouped.count == 1 {
+                // Cover not being set.
+                p.print("case nil: break\n")
+            } else {
+                // Multiple groups, cover other cases (or not being set).
+                p.print("default: break\n")
             }
         }
         p.print("}\n")
