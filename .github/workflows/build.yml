@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ["5.2.4-bionic", "5.1.5-bionic", "4.2.4"]
+        swift: ["5.2.4-bionic", "5.1.5-bionic", "5.0.3-bionic", "4.2.4"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
@@ -22,6 +22,8 @@ jobs:
           - swift: "5.2.4-bionic"
             platform: "ubuntu-18.04"
           - swift: "5.1.5-bionic"
+            platform: "ubuntu-18.04"
+          - swift: "5.0.3-bionic"
             platform: "ubuntu-18.04"
           - swift: "4.2.4"
             platform: "ubuntu-16.04"
@@ -35,7 +37,9 @@ jobs:
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
-      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
+      # NOTE: zlib1g-dev is added to fix the Swift 5.0.x builds, when those builds aren't needed
+      # that dep likely can be removed.
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq zlib1g-dev
     - name: Get Protobuf Commit SHA
       id: get-sha
       run: |
