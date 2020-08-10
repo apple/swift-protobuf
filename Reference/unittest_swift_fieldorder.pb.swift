@@ -471,7 +471,6 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
       try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
     case .oneofInt32(let v)?:
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-    case nil: break
     default: break
     }
     if let v = self._myString {

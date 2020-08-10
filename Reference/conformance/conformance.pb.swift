@@ -572,7 +572,6 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
     case .jsonPayload(let v)?:
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case nil: break
     default: break
     }
     if self.requestedOutputFormat != .unspecified {
@@ -592,7 +591,6 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       try visitor.visitSingularStringField(value: v, fieldNumber: 7)
     case .textPayload(let v)?:
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
-    case nil: break
     default: break
     }
     if self.printUnknownFields != false {
