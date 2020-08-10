@@ -12,14 +12,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ["5.2.1-bionic", "5.1.5-bionic", "4.2.4"]
+        swift: ["5.2.4-bionic", "5.1.5-bionic", "4.2.4"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/master"
         protobuf_git: ["ref/heads/master"]
         include:
-          - swift: "5.2.1-bionic"
+          - swift: "5.2.4-bionic"
             platform: "ubuntu-18.04"
           - swift: "5.1.5-bionic"
             platform: "ubuntu-18.04"
