@@ -1115,11 +1115,26 @@ struct ProtobufUnittest_TestAllTypes {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-      case (.oneofString(let l), .oneofString(let r)): return l == r
-      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofUint32, .oneofUint32): return {
+        guard case .oneofUint32(let l) = lhs, case .oneofUint32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofNestedMessage, .oneofNestedMessage): return {
+        guard case .oneofNestedMessage(let l) = lhs, case .oneofNestedMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofString, .oneofString): return {
+        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofBytes, .oneofBytes): return {
+        guard case .oneofBytes(let l) = lhs, case .oneofBytes(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -1306,8 +1321,14 @@ struct ProtobufUnittest_TestDeprecatedFields {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields, rhs: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.deprecatedInt32InOneof(let l), .deprecatedInt32InOneof(let r)): return l == r
+      case (.deprecatedInt32InOneof, .deprecatedInt32InOneof): return {
+        guard case .deprecatedInt32InOneof(let l) = lhs, case .deprecatedInt32InOneof(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       }
     }
   #endif
@@ -3168,11 +3189,26 @@ struct ProtobufUnittest_TestOneof {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestOneof.OneOf_Foo, rhs: ProtobufUnittest_TestOneof.OneOf_Foo) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.fooInt(let l), .fooInt(let r)): return l == r
-      case (.fooString(let l), .fooString(let r)): return l == r
-      case (.fooMessage(let l), .fooMessage(let r)): return l == r
-      case (.fooGroup(let l), .fooGroup(let r)): return l == r
+      case (.fooInt, .fooInt): return {
+        guard case .fooInt(let l) = lhs, case .fooInt(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooString, .fooString): return {
+        guard case .fooString(let l) = lhs, case .fooString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooMessage, .fooMessage): return {
+        guard case .fooMessage(let l) = lhs, case .fooMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooGroup, .fooGroup): return {
+        guard case .fooGroup(let l) = lhs, case .fooGroup(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -3463,16 +3499,46 @@ struct ProtobufUnittest_TestOneof2 {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Foo, rhs: ProtobufUnittest_TestOneof2.OneOf_Foo) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.fooInt(let l), .fooInt(let r)): return l == r
-      case (.fooString(let l), .fooString(let r)): return l == r
-      case (.fooCord(let l), .fooCord(let r)): return l == r
-      case (.fooStringPiece(let l), .fooStringPiece(let r)): return l == r
-      case (.fooBytes(let l), .fooBytes(let r)): return l == r
-      case (.fooEnum(let l), .fooEnum(let r)): return l == r
-      case (.fooMessage(let l), .fooMessage(let r)): return l == r
-      case (.fooGroup(let l), .fooGroup(let r)): return l == r
-      case (.fooLazyMessage(let l), .fooLazyMessage(let r)): return l == r
+      case (.fooInt, .fooInt): return {
+        guard case .fooInt(let l) = lhs, case .fooInt(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooString, .fooString): return {
+        guard case .fooString(let l) = lhs, case .fooString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooCord, .fooCord): return {
+        guard case .fooCord(let l) = lhs, case .fooCord(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooStringPiece, .fooStringPiece): return {
+        guard case .fooStringPiece(let l) = lhs, case .fooStringPiece(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooBytes, .fooBytes): return {
+        guard case .fooBytes(let l) = lhs, case .fooBytes(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooEnum, .fooEnum): return {
+        guard case .fooEnum(let l) = lhs, case .fooEnum(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooMessage, .fooMessage): return {
+        guard case .fooMessage(let l) = lhs, case .fooMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooGroup, .fooGroup): return {
+        guard case .fooGroup(let l) = lhs, case .fooGroup(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooLazyMessage, .fooLazyMessage): return {
+        guard case .fooLazyMessage(let l) = lhs, case .fooLazyMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -3489,13 +3555,34 @@ struct ProtobufUnittest_TestOneof2 {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest_TestOneof2.OneOf_Bar) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.barInt(let l), .barInt(let r)): return l == r
-      case (.barString(let l), .barString(let r)): return l == r
-      case (.barCord(let l), .barCord(let r)): return l == r
-      case (.barStringPiece(let l), .barStringPiece(let r)): return l == r
-      case (.barBytes(let l), .barBytes(let r)): return l == r
-      case (.barEnum(let l), .barEnum(let r)): return l == r
+      case (.barInt, .barInt): return {
+        guard case .barInt(let l) = lhs, case .barInt(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barString, .barString): return {
+        guard case .barString(let l) = lhs, case .barString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barCord, .barCord): return {
+        guard case .barCord(let l) = lhs, case .barCord(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barStringPiece, .barStringPiece): return {
+        guard case .barStringPiece(let l) = lhs, case .barStringPiece(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barBytes, .barBytes): return {
+        guard case .barBytes(let l) = lhs, case .barBytes(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barEnum, .barEnum): return {
+        guard case .barEnum(let l) = lhs, case .barEnum(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -3643,10 +3730,22 @@ struct ProtobufUnittest_TestRequiredOneof {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.fooInt(let l), .fooInt(let r)): return l == r
-      case (.fooString(let l), .fooString(let r)): return l == r
-      case (.fooMessage(let l), .fooMessage(let r)): return l == r
+      case (.fooInt, .fooInt): return {
+        guard case .fooInt(let l) = lhs, case .fooInt(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooString, .fooString): return {
+        guard case .fooString(let l) = lhs, case .fooString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fooMessage, .fooMessage): return {
+        guard case .fooMessage(let l) = lhs, case .fooMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -4366,11 +4465,26 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-      case (.oneofTestAllTypes(let l), .oneofTestAllTypes(let r)): return l == r
-      case (.oneofString(let l), .oneofString(let r)): return l == r
-      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofUint32, .oneofUint32): return {
+        guard case .oneofUint32(let l) = lhs, case .oneofUint32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofTestAllTypes, .oneofTestAllTypes): return {
+        guard case .oneofTestAllTypes(let l) = lhs, case .oneofTestAllTypes(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofString, .oneofString): return {
+        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofBytes, .oneofBytes): return {
+        guard case .oneofBytes(let l) = lhs, case .oneofBytes(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }

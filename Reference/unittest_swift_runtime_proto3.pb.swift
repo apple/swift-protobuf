@@ -492,24 +492,78 @@ struct ProtobufUnittest_Message3 {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_Message3.OneOf_O, rhs: ProtobufUnittest_Message3.OneOf_O) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
-      case (.oneofInt64(let l), .oneofInt64(let r)): return l == r
-      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
-      case (.oneofSint32(let l), .oneofSint32(let r)): return l == r
-      case (.oneofSint64(let l), .oneofSint64(let r)): return l == r
-      case (.oneofFixed32(let l), .oneofFixed32(let r)): return l == r
-      case (.oneofFixed64(let l), .oneofFixed64(let r)): return l == r
-      case (.oneofSfixed32(let l), .oneofSfixed32(let r)): return l == r
-      case (.oneofSfixed64(let l), .oneofSfixed64(let r)): return l == r
-      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
-      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
-      case (.oneofBool(let l), .oneofBool(let r)): return l == r
-      case (.oneofString(let l), .oneofString(let r)): return l == r
-      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-      case (.oneofMessage(let l), .oneofMessage(let r)): return l == r
-      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      case (.oneofInt32, .oneofInt32): return {
+        guard case .oneofInt32(let l) = lhs, case .oneofInt32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofInt64, .oneofInt64): return {
+        guard case .oneofInt64(let l) = lhs, case .oneofInt64(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofUint32, .oneofUint32): return {
+        guard case .oneofUint32(let l) = lhs, case .oneofUint32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofUint64, .oneofUint64): return {
+        guard case .oneofUint64(let l) = lhs, case .oneofUint64(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofSint32, .oneofSint32): return {
+        guard case .oneofSint32(let l) = lhs, case .oneofSint32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofSint64, .oneofSint64): return {
+        guard case .oneofSint64(let l) = lhs, case .oneofSint64(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofFixed32, .oneofFixed32): return {
+        guard case .oneofFixed32(let l) = lhs, case .oneofFixed32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofFixed64, .oneofFixed64): return {
+        guard case .oneofFixed64(let l) = lhs, case .oneofFixed64(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofSfixed32, .oneofSfixed32): return {
+        guard case .oneofSfixed32(let l) = lhs, case .oneofSfixed32(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofSfixed64, .oneofSfixed64): return {
+        guard case .oneofSfixed64(let l) = lhs, case .oneofSfixed64(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofFloat, .oneofFloat): return {
+        guard case .oneofFloat(let l) = lhs, case .oneofFloat(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofDouble, .oneofDouble): return {
+        guard case .oneofDouble(let l) = lhs, case .oneofDouble(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofBool, .oneofBool): return {
+        guard case .oneofBool(let l) = lhs, case .oneofBool(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofString, .oneofString): return {
+        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofBytes, .oneofBytes): return {
+        guard case .oneofBytes(let l) = lhs, case .oneofBytes(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofMessage, .oneofMessage): return {
+        guard case .oneofMessage(let l) = lhs, case .oneofMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofEnum, .oneofEnum): return {
+        guard case .oneofEnum(let l) = lhs, case .oneofEnum(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }

@@ -489,25 +489,82 @@ struct ProtobufUnittest_OneofWellKnownTypes {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField, rhs: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.anyField(let l), .anyField(let r)): return l == r
-      case (.apiField(let l), .apiField(let r)): return l == r
-      case (.durationField(let l), .durationField(let r)): return l == r
-      case (.emptyField(let l), .emptyField(let r)): return l == r
-      case (.fieldMaskField(let l), .fieldMaskField(let r)): return l == r
-      case (.sourceContextField(let l), .sourceContextField(let r)): return l == r
-      case (.structField(let l), .structField(let r)): return l == r
-      case (.timestampField(let l), .timestampField(let r)): return l == r
-      case (.typeField(let l), .typeField(let r)): return l == r
-      case (.doubleField(let l), .doubleField(let r)): return l == r
-      case (.floatField(let l), .floatField(let r)): return l == r
-      case (.int64Field(let l), .int64Field(let r)): return l == r
-      case (.uint64Field(let l), .uint64Field(let r)): return l == r
-      case (.int32Field(let l), .int32Field(let r)): return l == r
-      case (.uint32Field(let l), .uint32Field(let r)): return l == r
-      case (.boolField(let l), .boolField(let r)): return l == r
-      case (.stringField(let l), .stringField(let r)): return l == r
-      case (.bytesField(let l), .bytesField(let r)): return l == r
+      case (.anyField, .anyField): return {
+        guard case .anyField(let l) = lhs, case .anyField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.apiField, .apiField): return {
+        guard case .apiField(let l) = lhs, case .apiField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.durationField, .durationField): return {
+        guard case .durationField(let l) = lhs, case .durationField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.emptyField, .emptyField): return {
+        guard case .emptyField(let l) = lhs, case .emptyField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.fieldMaskField, .fieldMaskField): return {
+        guard case .fieldMaskField(let l) = lhs, case .fieldMaskField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.sourceContextField, .sourceContextField): return {
+        guard case .sourceContextField(let l) = lhs, case .sourceContextField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.structField, .structField): return {
+        guard case .structField(let l) = lhs, case .structField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.timestampField, .timestampField): return {
+        guard case .timestampField(let l) = lhs, case .timestampField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.typeField, .typeField): return {
+        guard case .typeField(let l) = lhs, case .typeField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.doubleField, .doubleField): return {
+        guard case .doubleField(let l) = lhs, case .doubleField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.floatField, .floatField): return {
+        guard case .floatField(let l) = lhs, case .floatField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.int64Field, .int64Field): return {
+        guard case .int64Field(let l) = lhs, case .int64Field(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.uint64Field, .uint64Field): return {
+        guard case .uint64Field(let l) = lhs, case .uint64Field(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.int32Field, .int32Field): return {
+        guard case .int32Field(let l) = lhs, case .int32Field(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.uint32Field, .uint32Field): return {
+        guard case .uint32Field(let l) = lhs, case .uint32Field(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.boolField, .boolField): return {
+        guard case .boolField(let l) = lhs, case .boolField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.stringField, .stringField): return {
+        guard case .stringField(let l) = lhs, case .stringField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.bytesField, .bytesField): return {
+        guard case .bytesField(let l) = lhs, case .bytesField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
