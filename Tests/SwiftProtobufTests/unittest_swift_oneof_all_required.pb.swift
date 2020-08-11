@@ -139,6 +139,15 @@ struct ProtobufUnittest_OneOfContainer {
     case option3(ProtobufUnittest_OneOfContainer.Option3)
     case option4(Int32)
 
+    fileprivate var isInitialized: Bool {
+      switch self {
+      case .option1(let v): return v.isInitialized
+      case .option2(let v): return v.isInitialized
+      case .option3(let v): return v.isInitialized
+      default: return true
+      }
+    }
+
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_OneOfContainer.OneOf_Option, rhs: ProtobufUnittest_OneOfContainer.OneOf_Option) -> Bool {
       switch (lhs, rhs) {
@@ -268,12 +277,7 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
   ]
 
   public var isInitialized: Bool {
-    switch self.option {
-    case .option1(let v)?: if !v.isInitialized {return false}
-    case .option2(let v)?: if !v.isInitialized {return false}
-    case .option3(let v)?: if !v.isInitialized {return false}
-    default: break
-    }
+    if let v = self.option, !v.isInitialized {return false}
     return true
   }
 
