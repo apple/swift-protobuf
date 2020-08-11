@@ -911,6 +911,11 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
     case oneofDouble(Double)
     case oneofEnum(ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum)
 
+    fileprivate var isInitialized: Bool {
+      guard case .oneofNestedMessage(let v) = self else {return true}
+      return v.isInitialized
+    }
+
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.OneOf_OneofField, rhs: ProtobufTestMessages_Proto2_TestAllTypesProto2.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
@@ -1678,7 +1683,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       if let v = _storage._recursiveMessage, !v.isInitialized {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedNestedMessage) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapStringNestedMessage) {return false}
-      if case .oneofNestedMessage(let v)? = _storage._oneofField, !v.isInitialized {return false}
+      if let v = _storage._oneofField, !v.isInitialized {return false}
       return true
     }
   }

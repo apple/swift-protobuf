@@ -521,6 +521,11 @@ struct ProtobufUnittest_TestAllRequiredTypes {
     case oneofString(String)
     case oneofBytes(Data)
 
+    fileprivate var isInitialized: Bool {
+      guard case .oneofNestedMessage(let v) = self else {return true}
+      return v.isInitialized
+    }
+
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField, rhs: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
@@ -950,7 +955,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
       if let v = _storage._requiredGroup, !v.isInitialized {return false}
       if let v = _storage._requiredNestedMessage, !v.isInitialized {return false}
       if let v = _storage._requiredLazyMessage, !v.isInitialized {return false}
-      if case .oneofNestedMessage(let v)? = _storage._oneofField, !v.isInitialized {return false}
+      if let v = _storage._oneofField, !v.isInitialized {return false}
       return true
     }
   }

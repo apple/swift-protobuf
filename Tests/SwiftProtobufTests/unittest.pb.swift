@@ -3636,6 +3636,11 @@ struct ProtobufUnittest_TestRequiredOneof {
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
 
+    fileprivate var isInitialized: Bool {
+      guard case .fooMessage(let v) = self else {return true}
+      return v.isInitialized
+    }
+
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo, rhs: ProtobufUnittest_TestRequiredOneof.OneOf_Foo) -> Bool {
       switch (lhs, rhs) {
@@ -10999,7 +11004,7 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtob
   ]
 
   public var isInitialized: Bool {
-    if case .fooMessage(let v)? = self.foo, !v.isInitialized {return false}
+    if let v = self.foo, !v.isInitialized {return false}
     return true
   }
 
