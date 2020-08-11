@@ -249,8 +249,11 @@ extension Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &self.fields)
+      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &self.fields) }()
       default: break
       }
     }
@@ -283,28 +286,35 @@ extension Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1:
+      case 1: try {
         if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: Google_Protobuf_NullValue?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.kind = .nullValue(v)}
-      case 2:
+      }()
+      case 2: try {
         if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: Double?
         try decoder.decodeSingularDoubleField(value: &v)
         if let v = v {self.kind = .numberValue(v)}
-      case 3:
+      }()
+      case 3: try {
         if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.kind = .stringValue(v)}
-      case 4:
+      }()
+      case 4: try {
         if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: Bool?
         try decoder.decodeSingularBoolField(value: &v)
         if let v = v {self.kind = .boolValue(v)}
-      case 5:
+      }()
+      case 5: try {
         var v: Google_Protobuf_Struct?
         if let current = self.kind {
           try decoder.handleConflictingOneOf()
@@ -312,7 +322,8 @@ extension Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {self.kind = .structValue(v)}
-      case 6:
+      }()
+      case 6: try {
         var v: Google_Protobuf_ListValue?
         if let current = self.kind {
           try decoder.handleConflictingOneOf()
@@ -320,6 +331,7 @@ extension Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {self.kind = .listValue(v)}
+      }()
       default: break
       }
     }
@@ -359,8 +371,11 @@ extension Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedMessageField(value: &self.values)
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.values) }()
       default: break
       }
     }

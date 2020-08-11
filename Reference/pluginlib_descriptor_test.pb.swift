@@ -604,20 +604,25 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_storage._field1)
-        case 2: try decoder.decodeSingularInt32Field(value: &_storage._field2)
-        case 3:
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._field1) }()
+        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._field2) }()
+        case 3: try {
           if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: SDTTopLevelEnum?
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {_storage._o = .field3(v)}
-        case 4:
+        }()
+        case 4: try {
           if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: SDTTopLevelMessage.SubEnum?
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {_storage._o = .field4(v)}
-        case 5:
+        }()
+        case 5: try {
           var v: SDTTopLevelMessage.SubMessage?
           if let current = _storage._o {
             try decoder.handleConflictingOneOf()
@@ -625,7 +630,8 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
           }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._o = .field5(v)}
-        case 6:
+        }()
+        case 6: try {
           var v: SDTTopLevelMessage2?
           if let current = _storage._o {
             try decoder.handleConflictingOneOf()
@@ -633,6 +639,7 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
           }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._o = .field6(v)}
+        }()
         default: break
         }
       }
@@ -722,10 +729,13 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_storage._field1)
-        case 2: try decoder.decodeSingularStringField(value: &_storage._field2)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._field3)
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._field1) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._field2) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._field3) }()
         default: break
         }
       }
@@ -796,9 +806,12 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._left)
-        case 2: try decoder.decodeSingularMessageField(value: &_storage._right)
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._left) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._right) }()
         default: break
         }
       }
@@ -847,9 +860,12 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &self._desc)
-      case 2: try decoder.decodeSingularMessageField(value: &self._ver)
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._desc) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._ver) }()
       default: break
       }
     }
@@ -923,35 +939,41 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self._reqStrField)
-      case 2: try decoder.decodeSingularInt32Field(value: &self._reqInt32Field)
-      case 3: try decoder.decodeSingularEnumField(value: &self._reqEnumField)
-      case 4: try decoder.decodeSingularMessageField(value: &self._reqMessageField)
-      case 11: try decoder.decodeSingularStringField(value: &self._optStrField)
-      case 12: try decoder.decodeSingularInt32Field(value: &self._optInt32Field)
-      case 13: try decoder.decodeSingularEnumField(value: &self._optEnumField)
-      case 14: try decoder.decodeSingularMessageField(value: &self._optMessageField)
-      case 21: try decoder.decodeRepeatedStringField(value: &self.repeatStrField)
-      case 22: try decoder.decodeRepeatedInt32Field(value: &self.repeatInt32Field)
-      case 23: try decoder.decodeRepeatedEnumField(value: &self.repeatEnumField)
-      case 24: try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField)
-      case 31:
+      case 1: try { try decoder.decodeSingularStringField(value: &self._reqStrField) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._reqInt32Field) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._reqEnumField) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._reqMessageField) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self._optStrField) }()
+      case 12: try { try decoder.decodeSingularInt32Field(value: &self._optInt32Field) }()
+      case 13: try { try decoder.decodeSingularEnumField(value: &self._optEnumField) }()
+      case 14: try { try decoder.decodeSingularMessageField(value: &self._optMessageField) }()
+      case 21: try { try decoder.decodeRepeatedStringField(value: &self.repeatStrField) }()
+      case 22: try { try decoder.decodeRepeatedInt32Field(value: &self.repeatInt32Field) }()
+      case 23: try { try decoder.decodeRepeatedEnumField(value: &self.repeatEnumField) }()
+      case 24: try { try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField) }()
+      case 31: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.o = .oneofStrField(v)}
-      case 32:
+      }()
+      case 32: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.o = .oneofInt32Field(v)}
-      case 33:
+      }()
+      case 33: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: SDTTopLevelEnum?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.o = .oneofEnumField(v)}
-      case 34:
+      }()
+      case 34: try {
         var v: SDTTopLevelMessage?
         if let current = self.o {
           try decoder.handleConflictingOneOf()
@@ -959,6 +981,7 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {self.o = .oneofMessageField(v)}
+      }()
       default: break
       }
     }

@@ -360,11 +360,14 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self._major)
-      case 2: try decoder.decodeSingularInt32Field(value: &self._minor)
-      case 3: try decoder.decodeSingularInt32Field(value: &self._patch)
-      case 4: try decoder.decodeSingularStringField(value: &self._suffix)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._major) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._minor) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._patch) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self._suffix) }()
       default: break
       }
     }
@@ -412,11 +415,14 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedStringField(value: &self.fileToGenerate)
-      case 2: try decoder.decodeSingularStringField(value: &self._parameter)
-      case 3: try decoder.decodeSingularMessageField(value: &self._compilerVersion)
-      case 15: try decoder.decodeRepeatedMessageField(value: &self.protoFile)
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.fileToGenerate) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._parameter) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._compilerVersion) }()
+      case 15: try { try decoder.decodeRepeatedMessageField(value: &self.protoFile) }()
       default: break
       }
     }
@@ -458,10 +464,13 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self._error)
-      case 2: try decoder.decodeSingularUInt64Field(value: &self._supportedFeatures)
-      case 15: try decoder.decodeRepeatedMessageField(value: &self.file)
+      case 1: try { try decoder.decodeSingularStringField(value: &self._error) }()
+      case 2: try { try decoder.decodeSingularUInt64Field(value: &self._supportedFeatures) }()
+      case 15: try { try decoder.decodeRepeatedMessageField(value: &self.file) }()
       default: break
       }
     }
@@ -506,10 +515,13 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self._name)
-      case 2: try decoder.decodeSingularStringField(value: &self._insertionPoint)
-      case 15: try decoder.decodeSingularStringField(value: &self._content)
+      case 1: try { try decoder.decodeSingularStringField(value: &self._name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._insertionPoint) }()
+      case 15: try { try decoder.decodeSingularStringField(value: &self._content) }()
       default: break
       }
     }

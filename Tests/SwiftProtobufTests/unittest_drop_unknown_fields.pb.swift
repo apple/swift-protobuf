@@ -185,9 +185,12 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._M
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
-      case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.int32Value) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.enumValue) }()
       default: break
       }
     }
@@ -229,10 +232,13 @@ extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, S
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
-      case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
-      case 3: try decoder.decodeSingularInt32Field(value: &self.extraInt32Value)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.int32Value) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.enumValue) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.extraInt32Value) }()
       default: break
       }
     }

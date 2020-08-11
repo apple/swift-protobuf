@@ -498,8 +498,11 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedStringField(value: &self.failure)
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.failure) }()
       default: break
       }
     }
@@ -535,32 +538,39 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1:
+      case 1: try {
         if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {self.payload = .protobufPayload(v)}
-      case 2:
+      }()
+      case 2: try {
         if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.payload = .jsonPayload(v)}
-      case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
-      case 4: try decoder.decodeSingularStringField(value: &self.messageType)
-      case 5: try decoder.decodeSingularEnumField(value: &self.testCategory)
-      case 6: try decoder.decodeSingularMessageField(value: &self._jspbEncodingOptions)
-      case 7:
+      }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.messageType) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self.testCategory) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._jspbEncodingOptions) }()
+      case 7: try {
         if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.payload = .jspbPayload(v)}
-      case 8:
+      }()
+      case 8: try {
         if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.payload = .textPayload(v)}
-      case 9: try decoder.decodeSingularBoolField(value: &self.printUnknownFields)
+      }()
+      case 9: try { try decoder.decodeSingularBoolField(value: &self.printUnknownFields) }()
       default: break
       }
     }
@@ -626,47 +636,58 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1:
+      case 1: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .parseError(v)}
-      case 2:
+      }()
+      case 2: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .runtimeError(v)}
-      case 3:
+      }()
+      case 3: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {self.result = .protobufPayload(v)}
-      case 4:
+      }()
+      case 4: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .jsonPayload(v)}
-      case 5:
+      }()
+      case 5: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .skipped(v)}
-      case 6:
+      }()
+      case 6: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .serializeError(v)}
-      case 7:
+      }()
+      case 7: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .jspbPayload(v)}
-      case 8:
+      }()
+      case 8: try {
         if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.result = .textPayload(v)}
+      }()
       default: break
       }
     }
@@ -710,8 +731,11 @@ extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularBoolField(value: &self.useJspbArrayAnyFormat)
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.useJspbArrayAnyFormat) }()
       default: break
       }
     }

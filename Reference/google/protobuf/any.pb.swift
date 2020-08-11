@@ -202,9 +202,12 @@ extension Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_storage._typeURL)
-        case 2: try decoder.decodeSingularBytesField(value: &_storage._value)
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._typeURL) }()
+        case 2: try { try decoder.decodeSingularBytesField(value: &_storage._value) }()
         default: break
         }
       }

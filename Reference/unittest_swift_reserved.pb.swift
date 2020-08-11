@@ -569,15 +569,18 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtob
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 10: try decoder.decodeSingularInt32Field(value: &self._protoMessageName)
-      case 11: try decoder.decodeSingularInt32Field(value: &self._protoPackageName)
-      case 12: try decoder.decodeSingularInt32Field(value: &self._anyTypePrefix)
-      case 13: try decoder.decodeSingularInt32Field(value: &self._anyTypeURL)
-      case 20: try decoder.decodeSingularStringField(value: &self._isInitialized_p)
-      case 21: try decoder.decodeSingularStringField(value: &self._hashValue_p)
-      case 22: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
-      case 30: try decoder.decodeSingularInt32Field(value: &self._requiredInt)
+      case 10: try { try decoder.decodeSingularInt32Field(value: &self._protoMessageName) }()
+      case 11: try { try decoder.decodeSingularInt32Field(value: &self._protoPackageName) }()
+      case 12: try { try decoder.decodeSingularInt32Field(value: &self._anyTypePrefix) }()
+      case 13: try { try decoder.decodeSingularInt32Field(value: &self._anyTypeURL) }()
+      case 20: try { try decoder.decodeSingularStringField(value: &self._isInitialized_p) }()
+      case 21: try { try decoder.decodeSingularStringField(value: &self._hashValue_p) }()
+      case 22: try { try decoder.decodeSingularInt32Field(value: &self._debugDescription_p) }()
+      case 30: try { try decoder.decodeSingularInt32Field(value: &self._requiredInt) }()
       default: break
       }
     }
