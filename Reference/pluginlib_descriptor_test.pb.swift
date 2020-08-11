@@ -684,15 +684,26 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
       if let v = _storage._field2 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._o {
-      case .field3(let v)?:
+      case .field3?: try {
+        guard case .field3(let v)? = _storage._o else { preconditionFailure() }
         try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
-      case .field4(let v)?:
+      }()
+      case .field4?: try {
+        guard case .field4(let v)? = _storage._o else { preconditionFailure() }
         try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-      case .field5(let v)?:
+      }()
+      case .field5?: try {
+        guard case .field5(let v)? = _storage._o else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      case .field6(let v)?:
+      }()
+      case .field6?: try {
+        guard case .field6(let v)? = _storage._o else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      }()
       case nil: break
       }
     }
@@ -1054,15 +1065,26 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if !self.repeatMessageField.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.repeatMessageField, fieldNumber: 24)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.o {
-    case .oneofStrField(let v)?:
+    case .oneofStrField?: try {
+      guard case .oneofStrField(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 31)
-    case .oneofInt32Field(let v)?:
+    }()
+    case .oneofInt32Field?: try {
+      guard case .oneofInt32Field(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
-    case .oneofEnumField(let v)?:
+    }()
+    case .oneofEnumField?: try {
+      guard case .oneofEnumField(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 33)
-    case .oneofMessageField(let v)?:
+    }()
+    case .oneofMessageField?: try {
+      guard case .oneofMessageField(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 34)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)

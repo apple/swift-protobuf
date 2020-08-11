@@ -619,11 +619,18 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.payload {
-    case .protobufPayload(let v)?:
+    case .protobufPayload?: try {
+      guard case .protobufPayload(let v)? = self.payload else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
-    case .jsonPayload(let v)?:
+    }()
+    case .jsonPayload?: try {
+      guard case .jsonPayload(let v)? = self.payload else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    }()
     default: break
     }
     if self.requestedOutputFormat != .unspecified {
@@ -638,11 +645,18 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     if let v = self._jspbEncodingOptions {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.payload {
-    case .jspbPayload(let v)?:
+    case .jspbPayload?: try {
+      guard case .jspbPayload(let v)? = self.payload else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-    case .textPayload(let v)?:
+    }()
+    case .textPayload?: try {
+      guard case .textPayload(let v)? = self.payload else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+    }()
     default: break
     }
     if self.printUnknownFields != false {
@@ -736,23 +750,42 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.result {
-    case .parseError(let v)?:
+    case .parseError?: try {
+      guard case .parseError(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    case .runtimeError(let v)?:
+    }()
+    case .runtimeError?: try {
+      guard case .runtimeError(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case .protobufPayload(let v)?:
+    }()
+    case .protobufPayload?: try {
+      guard case .protobufPayload(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
-    case .jsonPayload(let v)?:
+    }()
+    case .jsonPayload?: try {
+      guard case .jsonPayload(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-    case .skipped(let v)?:
+    }()
+    case .skipped?: try {
+      guard case .skipped(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-    case .serializeError(let v)?:
+    }()
+    case .serializeError?: try {
+      guard case .serializeError(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-    case .jspbPayload(let v)?:
+    }()
+    case .jspbPayload?: try {
+      guard case .jspbPayload(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-    case .textPayload(let v)?:
+    }()
+    case .textPayload?: try {
+      guard case .textPayload(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)

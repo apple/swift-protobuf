@@ -4377,17 +4377,30 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       if let v = _storage._defaultCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._oneofField {
-      case .oneofUint32(let v)?:
+      case .oneofUint32?: try {
+        guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-      case .oneofNestedMessage(let v)?:
+      }()
+      case .oneofNestedMessage?: try {
+        guard case .oneofNestedMessage(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-      case .oneofString(let v)?:
+      }()
+      case .oneofString?: try {
+        guard case .oneofString(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-      case .oneofBytes(let v)?:
+      }()
+      case .oneofBytes?: try {
+        guard case .oneofBytes(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      case .oneofLazyNestedMessage(let v)?:
+      }()
+      case .oneofLazyNestedMessage?: try {
+        guard case .oneofLazyNestedMessage(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
+      }()
       case nil: break
       }
       if let v = _storage._deceptivelyNamedList {
@@ -5475,15 +5488,26 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, Swif
     if !self.stringStringMap.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.stringStringMap, fieldNumber: 536870010)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.oneofField {
-    case .oneofUint32(let v)?:
+    case .oneofUint32?: try {
+      guard case .oneofUint32(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
-    case .oneofTestAllTypes(let v)?:
+    }()
+    case .oneofTestAllTypes?: try {
+      guard case .oneofTestAllTypes(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
-    case .oneofString(let v)?:
+    }()
+    case .oneofString?: try {
+      guard case .oneofString(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
-    case .oneofBytes(let v)?:
+    }()
+    case .oneofBytes?: try {
+      guard case .oneofBytes(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -5622,25 +5646,46 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.oneofField {
-    case .oneofInt32(let v)?:
+    case .oneofInt32?: try {
+      guard case .oneofInt32(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    case .oneofSubmessage(let v)?:
+    }()
+    case .oneofSubmessage?: try {
+      guard case .oneofSubmessage(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    case .oneofString(let v)?:
+    }()
+    case .oneofString?: try {
+      guard case .oneofString(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    case .oneofBytes(let v)?:
+    }()
+    case .oneofBytes?: try {
+      guard case .oneofBytes(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 4)
-    case .oneofStringCord(let v)?:
+    }()
+    case .oneofStringCord?: try {
+      guard case .oneofStringCord(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-    case .oneofBytesCord(let v)?:
+    }()
+    case .oneofBytesCord?: try {
+      guard case .oneofBytesCord(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 6)
-    case .oneofStringStringPiece(let v)?:
+    }()
+    case .oneofStringStringPiece?: try {
+      guard case .oneofStringStringPiece(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-    case .oneofBytesStringPiece(let v)?:
+    }()
+    case .oneofBytesStringPiece?: try {
+      guard case .oneofBytesStringPiece(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 8)
-    case .oneofEnum(let v)?:
+    }()
+    case .oneofEnum?: try {
+      guard case .oneofEnum(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)

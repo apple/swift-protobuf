@@ -2116,25 +2116,46 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       if !_storage._unpackedNestedEnum.isEmpty {
         try visitor.visitRepeatedEnumField(value: _storage._unpackedNestedEnum, fieldNumber: 102)
       }
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._oneofField {
-      case .oneofUint32(let v)?:
+      case .oneofUint32?: try {
+        guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-      case .oneofNestedMessage(let v)?:
+      }()
+      case .oneofNestedMessage?: try {
+        guard case .oneofNestedMessage(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-      case .oneofString(let v)?:
+      }()
+      case .oneofString?: try {
+        guard case .oneofString(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-      case .oneofBytes(let v)?:
+      }()
+      case .oneofBytes?: try {
+        guard case .oneofBytes(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      case .oneofBool(let v)?:
+      }()
+      case .oneofBool?: try {
+        guard case .oneofBool(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularBoolField(value: v, fieldNumber: 115)
-      case .oneofUint64(let v)?:
+      }()
+      case .oneofUint64?: try {
+        guard case .oneofUint64(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularUInt64Field(value: v, fieldNumber: 116)
-      case .oneofFloat(let v)?:
+      }()
+      case .oneofFloat?: try {
+        guard case .oneofFloat(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularFloatField(value: v, fieldNumber: 117)
-      case .oneofDouble(let v)?:
+      }()
+      case .oneofDouble?: try {
+        guard case .oneofDouble(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularDoubleField(value: v, fieldNumber: 118)
-      case .oneofEnum(let v)?:
+      }()
+      case .oneofEnum?: try {
+        guard case .oneofEnum(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
+      }()
       case nil: break
       }
       if let v = _storage._optionalBoolWrapper {

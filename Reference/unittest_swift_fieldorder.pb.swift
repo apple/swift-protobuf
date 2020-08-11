@@ -524,11 +524,18 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 9)
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.options {
-    case .oneofBool(let v)?:
+    case .oneofBool?: try {
+      guard case .oneofBool(let v)? = self.options else { preconditionFailure() }
       try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
-    case .oneofInt32(let v)?:
+    }()
+    case .oneofInt32?: try {
+      guard case .oneofInt32(let v)? = self.options else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+    }()
     default: break
     }
     if let v = self._myString {
@@ -682,11 +689,18 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.oGood {
-    case .a(let v)?:
+    case .a?: try {
+      guard case .a(let v)? = self.oGood else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    case .b(let v)?:
+    }()
+    case .b?: try {
+      guard case .b(let v)? = self.oGood else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
+    }()
     case nil: break
     }
     if case .a2(let v)? = self.oConflictField {

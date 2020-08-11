@@ -7897,15 +7897,26 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
       if let v = _storage._defaultCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._oneofField {
-      case .oneofUint32(let v)?:
+      case .oneofUint32?: try {
+        guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-      case .oneofNestedMessage(let v)?:
+      }()
+      case .oneofNestedMessage?: try {
+        guard case .oneofNestedMessage(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-      case .oneofString(let v)?:
+      }()
+      case .oneofString?: try {
+        guard case .oneofString(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-      case .oneofBytes(let v)?:
+      }()
+      case .oneofBytes?: try {
+        guard case .oneofBytes(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+      }()
       case nil: break
       }
     }
@@ -10848,15 +10859,26 @@ extension ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.foo {
-    case .fooInt(let v)?:
+    case .fooInt?: try {
+      guard case .fooInt(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    case .fooString(let v)?:
+    }()
+    case .fooString?: try {
+      guard case .fooString(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case .fooMessage(let v)?:
+    }()
+    case .fooMessage?: try {
+      guard case .fooMessage(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    case .fooGroup(let v)?:
+    }()
+    case .fooGroup?: try {
+      guard case .fooGroup(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -11159,40 +11181,76 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._foo {
-      case .fooInt(let v)?:
+      case .fooInt?: try {
+        guard case .fooInt(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      case .fooString(let v)?:
+      }()
+      case .fooString?: try {
+        guard case .fooString(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      case .fooCord(let v)?:
+      }()
+      case .fooCord?: try {
+        guard case .fooCord(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-      case .fooStringPiece(let v)?:
+      }()
+      case .fooStringPiece?: try {
+        guard case .fooStringPiece(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-      case .fooBytes(let v)?:
+      }()
+      case .fooBytes?: try {
+        guard case .fooBytes(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
-      case .fooEnum(let v)?:
+      }()
+      case .fooEnum?: try {
+        guard case .fooEnum(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-      case .fooMessage(let v)?:
+      }()
+      case .fooMessage?: try {
+        guard case .fooMessage(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      case .fooGroup(let v)?:
+      }()
+      case .fooGroup?: try {
+        guard case .fooGroup(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
-      case .fooLazyMessage(let v)?:
+      }()
+      case .fooLazyMessage?: try {
+        guard case .fooLazyMessage(let v)? = _storage._foo else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      }()
       case nil: break
       }
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._bar {
-      case .barInt(let v)?:
+      case .barInt?: try {
+        guard case .barInt(let v)? = _storage._bar else { preconditionFailure() }
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      case .barString(let v)?:
+      }()
+      case .barString?: try {
+        guard case .barString(let v)? = _storage._bar else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 13)
-      case .barCord(let v)?:
+      }()
+      case .barCord?: try {
+        guard case .barCord(let v)? = _storage._bar else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-      case .barStringPiece(let v)?:
+      }()
+      case .barStringPiece?: try {
+        guard case .barStringPiece(let v)? = _storage._bar else { preconditionFailure() }
         try visitor.visitSingularStringField(value: v, fieldNumber: 15)
-      case .barBytes(let v)?:
+      }()
+      case .barBytes?: try {
+        guard case .barBytes(let v)? = _storage._bar else { preconditionFailure() }
         try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
-      case .barEnum(let v)?:
+      }()
+      case .barEnum?: try {
+        guard case .barEnum(let v)? = _storage._bar else { preconditionFailure() }
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+      }()
       case nil: break
       }
       if let v = _storage._bazInt {
@@ -11353,13 +11411,22 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtob
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.foo {
-    case .fooInt(let v)?:
+    case .fooInt?: try {
+      guard case .fooInt(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    case .fooString(let v)?:
+    }()
+    case .fooString?: try {
+      guard case .fooString(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case .fooMessage(let v)?:
+    }()
+    case .fooMessage?: try {
+      guard case .fooMessage(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -12433,15 +12500,26 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftPro
     if !self.stringStringMap.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.stringStringMap, fieldNumber: 536870010)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.oneofField {
-    case .oneofUint32(let v)?:
+    case .oneofUint32?: try {
+      guard case .oneofUint32(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
-    case .oneofTestAllTypes(let v)?:
+    }()
+    case .oneofTestAllTypes?: try {
+      guard case .oneofTestAllTypes(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
-    case .oneofString(let v)?:
+    }()
+    case .oneofString?: try {
+      guard case .oneofString(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
-    case .oneofBytes(let v)?:
+    }()
+    case .oneofBytes?: try {
+      guard case .oneofBytes(let v)? = self.oneofField else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
