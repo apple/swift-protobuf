@@ -390,12 +390,18 @@ class OneofGenerator {
             p.print("try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))\n")
             p.outdent()
         } else {
-            p.print("switch \(storedProperty) {\n")
+            p.print(
+                "// The use of inline closures is to circumvent an issue where the compiler\n",
+                "// allocates stack space for every case branch when no optimizations are\n",
+                "// enabled. https://github.com/apple/swift-protobuf/issues/1034\n",
+                "switch \(storedProperty) {\n")
             for f in group {
-                p.print("case \(f.dottedSwiftName)(let v)?:\n")
+                p.print("case \(f.dottedSwiftName)?: try {\n")
                 p.indent()
+                p.print("guard case \(f.dottedSwiftName)(let v)? = \(storedProperty) else { preconditionFailure() }\n")
                 p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
                 p.outdent()
+                p.print("}()\n")
             }
             if fieldSortedGrouped.count == 1 {
                 // Cover not being set.
