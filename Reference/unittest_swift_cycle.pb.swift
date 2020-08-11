@@ -205,10 +205,13 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
-        case 2: try decoder.decodeSingularMessageField(value: &_storage._aBar)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._aFoo) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._aBar) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._aBaz) }()
         default: break
         }
       }
@@ -282,10 +285,13 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._aBar)
-        case 2: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._aBar) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._aBaz) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._aFoo) }()
         default: break
         }
       }
@@ -359,10 +365,13 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Messa
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
-        case 2: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._aBar)
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._aBaz) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._aFoo) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._aBar) }()
         default: break
         }
       }

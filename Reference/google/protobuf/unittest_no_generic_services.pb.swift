@@ -175,10 +175,13 @@ extension ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Mess
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }

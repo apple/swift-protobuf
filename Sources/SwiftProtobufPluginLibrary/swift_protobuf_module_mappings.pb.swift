@@ -79,8 +79,11 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedMessageField(value: &self.mapping)
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.mapping) }()
       default: break
       }
     }
@@ -109,9 +112,12 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, Sw
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.moduleName)
-      case 2: try decoder.decodeRepeatedStringField(value: &self.protoFilePath)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.moduleName) }()
+      case 2: try { try decoder.decodeRepeatedStringField(value: &self.protoFilePath) }()
       default: break
       }
     }

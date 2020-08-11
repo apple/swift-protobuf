@@ -247,35 +247,41 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.strField)
-      case 2: try decoder.decodeSingularInt32Field(value: &self.int32Field)
-      case 3: try decoder.decodeSingularEnumField(value: &self.enumField)
-      case 4: try decoder.decodeSingularMessageField(value: &self._messageField)
-      case 11: try decoder.decodeSingularStringField(value: &self._optStrField)
-      case 12: try decoder.decodeSingularInt32Field(value: &self._optInt32Field)
-      case 13: try decoder.decodeSingularEnumField(value: &self._optEnumField)
-      case 14: try decoder.decodeSingularMessageField(value: &self._optMessageField)
-      case 21: try decoder.decodeRepeatedStringField(value: &self.repeatStrField)
-      case 22: try decoder.decodeRepeatedInt32Field(value: &self.repeatInt32Field)
-      case 23: try decoder.decodeRepeatedEnumField(value: &self.repeatEnumField)
-      case 24: try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField)
-      case 31:
+      case 1: try { try decoder.decodeSingularStringField(value: &self.strField) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.int32Field) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.enumField) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._messageField) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self._optStrField) }()
+      case 12: try { try decoder.decodeSingularInt32Field(value: &self._optInt32Field) }()
+      case 13: try { try decoder.decodeSingularEnumField(value: &self._optEnumField) }()
+      case 14: try { try decoder.decodeSingularMessageField(value: &self._optMessageField) }()
+      case 21: try { try decoder.decodeRepeatedStringField(value: &self.repeatStrField) }()
+      case 22: try { try decoder.decodeRepeatedInt32Field(value: &self.repeatInt32Field) }()
+      case 23: try { try decoder.decodeRepeatedEnumField(value: &self.repeatEnumField) }()
+      case 24: try { try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField) }()
+      case 31: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.o = .oneofStrField(v)}
-      case 32:
+      }()
+      case 32: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.o = .oneofInt32Field(v)}
-      case 33:
+      }()
+      case 33: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.o = .oneofEnumField(v)}
-      case 34:
+      }()
+      case 34: try {
         var v: SwiftDescriptorTest_OtherMessage?
         if let current = self.o {
           try decoder.handleConflictingOneOf()
@@ -283,6 +289,7 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
         }
         try decoder.decodeSingularMessageField(value: &v)
         if let v = v {self.o = .oneofMessageField(v)}
+      }()
       default: break
       }
     }
@@ -374,8 +381,11 @@ extension SwiftDescriptorTest_OtherMessage: SwiftProtobuf.Message, SwiftProtobuf
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.field)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.field) }()
       default: break
       }
     }

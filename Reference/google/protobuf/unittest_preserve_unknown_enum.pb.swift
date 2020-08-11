@@ -279,21 +279,26 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &self.e)
-      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
-      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
-      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
-      case 5:
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.e) }()
+      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedE) }()
+      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE) }()
+      case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
+      case 5: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.o = .oneofE1(v)}
-      case 6:
+      }()
+      case 6: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.o = .oneofE2(v)}
+      }()
       default: break
       }
     }
@@ -346,21 +351,26 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &self.e)
-      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
-      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
-      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
-      case 5:
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.e) }()
+      case 2: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedE) }()
+      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE) }()
+      case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
+      case 5: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.o = .oneofE1(v)}
-      case 6:
+      }()
+      case 6: try {
         if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {self.o = .oneofE2(v)}
+      }()
       default: break
       }
     }

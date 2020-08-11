@@ -429,33 +429,40 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &self._myInt)
-      case 9:
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self._myInt) }()
+      case 9: try {
         if self.options != nil {try decoder.handleConflictingOneOf()}
         var v: Bool?
         try decoder.decodeSingularBoolField(value: &v)
         if let v = v {self.options = .oneofBool(v)}
-      case 10:
+      }()
+      case 10: try {
         if self.options != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.options = .oneofInt32(v)}
-      case 11: try decoder.decodeSingularStringField(value: &self._myString)
-      case 60:
+      }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self._myString) }()
+      case 60: try {
         if self.options != nil {try decoder.handleConflictingOneOf()}
         var v: Int64?
         try decoder.decodeSingularInt64Field(value: &v)
         if let v = v {self.options = .oneofInt64(v)}
-      case 101: try decoder.decodeSingularFloatField(value: &self._myFloat)
-      case 150:
+      }()
+      case 101: try { try decoder.decodeSingularFloatField(value: &self._myFloat) }()
+      case 150: try {
         if self.options != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.options = .oneofString(v)}
-      case 200: try decoder.decodeSingularMessageField(value: &self._optionalNestedMessage)
+      }()
+      case 200: try { try decoder.decodeSingularMessageField(value: &self._optionalNestedMessage) }()
       case 2..<9, 12..<56:
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -513,9 +520,12 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
-      case 2: try decoder.decodeSingularInt64Field(value: &self._oo)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._bb) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self._oo) }()
       default: break
       }
     }
@@ -560,50 +570,61 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1:
+      case 1: try {
         if self.oGood != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oGood = .a(v)}
-      case 26:
+      }()
+      case 26: try {
         if self.oGood != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oGood = .b(v)}
-      case 101:
+      }()
+      case 101: try {
         if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictField = .a2(v)}
-      case 113: try decoder.decodeSingularInt32Field(value: &self._m)
-      case 126:
+      }()
+      case 113: try { try decoder.decodeSingularInt32Field(value: &self._m) }()
+      case 126: try {
         if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictField = .b2(v)}
-      case 201:
+      }()
+      case 201: try {
         if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictExtensionsStart = .a3(v)}
-      case 226:
+      }()
+      case 226: try {
         if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictExtensionsStart = .b3(v)}
-      case 301:
+      }()
+      case 301: try {
         if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictExtensionsEnd = .a4(v)}
-      case 326:
+      }()
+      case 326: try {
         if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictExtensionsEnd = .b4(v)}
+      }()
       case 202..<203, 325..<326:
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber)
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
