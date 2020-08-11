@@ -283,14 +283,19 @@ class MessageGenerator {
         p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
         p.indent()
         if !fields.isEmpty {
-          p.print("switch fieldNumber {\n")
+
+          p.print(
+              "// The use of inline closures is to circumvent an issue where the compiler\n",
+              "// allocates stack space for every case branch when no optimizations are\n",
+              "// enabled. https://github.com/apple/swift-protobuf/issues/1034\n",
+              "switch fieldNumber {\n")
           for f in fieldsSortedByNumber {
             f.generateDecodeFieldCase(printer: &p)
           }
           if isExtensible {
             p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
             p.indent()
-            p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)\n")
+            p.print("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()\n")
             p.outdent()
           }
           p.print("default: break\n")

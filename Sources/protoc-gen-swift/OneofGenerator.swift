@@ -339,7 +339,7 @@ class OneofGenerator {
     }
 
     func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
-        p.print("case \(field.number):\n")
+        p.print("case \(field.number): try {\n")
         p.indent()
 
         if field.isGroupOrMessage {
@@ -364,6 +364,7 @@ class OneofGenerator {
           "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
           "if let v = v {\(storedProperty) = \(field.dottedSwiftName)(v)}\n")
         p.outdent()
+        p.print("}()\n")
     }
 
     func generateTraverse(printer p: inout CodePrinter, field: MemberFieldGenerator) {
