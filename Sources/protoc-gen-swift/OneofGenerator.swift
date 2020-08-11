@@ -211,6 +211,35 @@ class OneofGenerator {
                 "case \(f.swiftName)(\(f.swiftType))\n")
         }
 
+        // A helper for isInitialized
+        let fieldsToCheck = fields.filter {
+            $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
+        }
+        if !fieldsToCheck.isEmpty {
+          p.print(
+              "\n",
+              "fileprivate var isInitialized: Bool {\n")
+          p.indent()
+          if fieldsToCheck.count == 1 {
+              let f = fieldsToCheck.first!
+              p.print(
+                  "guard case \(f.dottedSwiftName)(let v) = self else {return true}\n",
+                  "return v.isInitialized\n")
+          } else if fieldsToCheck.count > 1 {
+              p.print("switch self {\n")
+              for f in fieldsToCheck {
+                  p.print("case \(f.dottedSwiftName)(let v): return v.isInitialized\n")
+              }
+              // If there were other cases, add a default.
+              if fieldsToCheck.count != fields.count {
+                  p.print("default: return true\n")
+              }
+              p.print("}\n")
+          }
+          p.outdent()
+          p.print("}\n")
+        }
+
         // Equatable conformance
         p.print("\n")
         p.outdent()
@@ -387,21 +416,12 @@ class OneofGenerator {
         // First field causes the output.
         guard field === fields.first else { return }
 
-        let fieldsToCheck = fields.filter {
+        // Confirm there is message field with required fields.
+        let firstRequired = fields.first {
             $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
         }
-        if fieldsToCheck.count == 1 {
-            let f = fieldsToCheck.first!
-            p.print("if case \(f.dottedSwiftName)(let v)? = \(storedProperty), !v.isInitialized {return false}\n")
-        } else if fieldsToCheck.count > 1 {
-            p.print("switch \(storedProperty) {\n")
-            for f in fieldsToCheck {
-                p.print("case \(f.dottedSwiftName)(let v)?: if !v.isInitialized {return false}\n")
-            }
-            // Covers other cases or if the oneof wasn't set (was nil).
-            p.print(
-              "default: break\n",
-              "}\n")
-        }
+        guard firstRequired != nil else { return }
+
+        p.print("if let v = \(storedProperty), !v.isInitialized {return false}\n")
     }
 }
