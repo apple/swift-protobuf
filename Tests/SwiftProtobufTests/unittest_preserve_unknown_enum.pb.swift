@@ -335,11 +335,18 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
     if !self.repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.o {
-    case .oneofE1(let v)?:
+    case .oneofE1?: try {
+      guard case .oneofE1(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    case .oneofE2(let v)?:
+    }()
+    case .oneofE2?: try {
+      guard case .oneofE2(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -407,11 +414,18 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
     if !self.repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.o {
-    case .oneofE1(let v)?:
+    case .oneofE1?: try {
+      guard case .oneofE1(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    case .oneofE2(let v)?:
+    }()
+    case .oneofE2?: try {
+      guard case .oneofE2(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)

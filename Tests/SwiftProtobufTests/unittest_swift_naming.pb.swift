@@ -26824,11 +26824,18 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
     if let v = self.__3Field3 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self._2Of {
-    case ._4(let v)?:
+    case ._4?: try {
+      guard case ._4(let v)? = self._2Of else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-    case ._5Field(let v)?:
+    }()
+    case ._5Field?: try {
+      guard case ._5Field(let v)? = self._2Of else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
+    }()
     case nil: break
     }
     if let v = self._enumField {

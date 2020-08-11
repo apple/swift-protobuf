@@ -347,15 +347,26 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
     if !self.repeatMessageField.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.repeatMessageField, fieldNumber: 24)
     }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.o {
-    case .oneofStrField(let v)?:
+    case .oneofStrField?: try {
+      guard case .oneofStrField(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 31)
-    case .oneofInt32Field(let v)?:
+    }()
+    case .oneofInt32Field?: try {
+      guard case .oneofInt32Field(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
-    case .oneofEnumField(let v)?:
+    }()
+    case .oneofEnumField?: try {
+      guard case .oneofEnumField(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 33)
-    case .oneofMessageField(let v)?:
+    }()
+    case .oneofMessageField?: try {
+      guard case .oneofMessageField(let v)? = self.o else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 34)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)

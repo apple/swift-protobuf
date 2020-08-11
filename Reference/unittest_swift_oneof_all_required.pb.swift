@@ -343,15 +343,26 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.option {
-    case .option1(let v)?:
+    case .option1?: try {
+      guard case .option1(let v)? = self.option else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    case .option2(let v)?:
+    }()
+    case .option2?: try {
+      guard case .option2(let v)? = self.option else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    case .option3(let v)?:
+    }()
+    case .option3?: try {
+      guard case .option3(let v)? = self.option else { preconditionFailure() }
       try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
-    case .option4(let v)?:
+    }()
+    case .option4?: try {
+      guard case .option4(let v)? = self.option else { preconditionFailure() }
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
