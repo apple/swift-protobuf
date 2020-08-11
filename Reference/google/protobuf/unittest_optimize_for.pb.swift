@@ -105,9 +105,18 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo, rhs: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.integerField(let l), .integerField(let r)): return l == r
-      case (.stringField(let l), .stringField(let r)): return l == r
+      case (.integerField, .integerField): return {
+        guard case .integerField(let l) = lhs, case .integerField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.stringField, .stringField): return {
+        guard case .stringField(let l) = lhs, case .stringField(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }

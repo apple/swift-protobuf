@@ -287,11 +287,26 @@ struct Conformance_ConformanceRequest {
 
   #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceRequest.OneOf_Payload, rhs: Conformance_ConformanceRequest.OneOf_Payload) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
-      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
-      case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
-      case (.textPayload(let l), .textPayload(let r)): return l == r
+      case (.protobufPayload, .protobufPayload): return {
+        guard case .protobufPayload(let l) = lhs, case .protobufPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.jsonPayload, .jsonPayload): return {
+        guard case .jsonPayload(let l) = lhs, case .jsonPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.jspbPayload, .jspbPayload): return {
+        guard case .jspbPayload(let l) = lhs, case .jspbPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.textPayload, .textPayload): return {
+        guard case .textPayload(let l) = lhs, case .textPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -433,15 +448,42 @@ struct Conformance_ConformanceResponse {
 
   #if !swift(>=4.1)
     static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.parseError(let l), .parseError(let r)): return l == r
-      case (.serializeError(let l), .serializeError(let r)): return l == r
-      case (.runtimeError(let l), .runtimeError(let r)): return l == r
-      case (.protobufPayload(let l), .protobufPayload(let r)): return l == r
-      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
-      case (.skipped(let l), .skipped(let r)): return l == r
-      case (.jspbPayload(let l), .jspbPayload(let r)): return l == r
-      case (.textPayload(let l), .textPayload(let r)): return l == r
+      case (.parseError, .parseError): return {
+        guard case .parseError(let l) = lhs, case .parseError(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.serializeError, .serializeError): return {
+        guard case .serializeError(let l) = lhs, case .serializeError(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.runtimeError, .runtimeError): return {
+        guard case .runtimeError(let l) = lhs, case .runtimeError(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.protobufPayload, .protobufPayload): return {
+        guard case .protobufPayload(let l) = lhs, case .protobufPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.jsonPayload, .jsonPayload): return {
+        guard case .jsonPayload(let l) = lhs, case .jsonPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.skipped, .skipped): return {
+        guard case .skipped(let l) = lhs, case .skipped(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.jspbPayload, .jspbPayload): return {
+        guard case .jspbPayload(let l) = lhs, case .jspbPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.textPayload, .textPayload): return {
+        guard case .textPayload(let l) = lhs, case .textPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
