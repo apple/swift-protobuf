@@ -73,6 +73,36 @@ extension Descriptor {
     return helper(self)
   }
 
+  /// Returns True if this message recurisvely contains itself as a singular
+  /// field.
+  func containsRecursiveSingularField() -> Bool {
+    func helper(_ descriptor: Descriptor, messageStack: [Descriptor]) -> Bool {
+      var messageStack = messageStack
+      messageStack.append(descriptor)
+      return descriptor.fields.contains {
+        guard $0.label != .repeated else { return false }
+        // Ignore fields that aren’t messages or groups.
+        guard $0.type == .message || $0.type == .group else { return false }
+        guard let messageType = $0.messageType else { return false }
+
+        // We only care if the message or sub-message recurses to the root message.
+        if messageType === messageStack[0] {
+          return true
+        }
+
+        // Skip other messages already messageStack.
+        if (messageStack.contains { $0 === messageType }) {
+          return false
+        }
+
+        // Examine sub-message.
+        return helper(messageType, messageStack: messageStack)
+      }
+    }
+
+    return helper(self, messageStack: [])
+  }
+
   /// A `String` containing a comma-delimited list of Swift range expressions
   /// covering the extension ranges for this message.
   ///
