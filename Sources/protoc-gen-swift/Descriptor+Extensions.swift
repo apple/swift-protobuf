@@ -85,13 +85,15 @@ extension Descriptor {
         guard $0.type == .message || $0.type == .group else { return false }
         guard let messageType = $0.messageType else { return false }
 
-        // We only care if the message or sub-message recurses to the root message.
-        if messageType === messageStack[0] {
-          return true
-        }
+        // Did things recurse?
+        if let first = messageStack.firstIndex(where: { $0 === messageType }) {
+          // Yes, to the message being checked.
+          if first == messageStack.startIndex {
+            return true
+          }
 
-        // Skip other messages already messageStack.
-        if (messageStack.contains { $0 === messageType }) {
+          // It recursed to something lower in the graph, so no need to
+          // process it again.
           return false
         }
 
