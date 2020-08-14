@@ -213,7 +213,7 @@ class OneofGenerator {
 
         // A helper for isInitialized
         let fieldsToCheck = fields.filter {
-            $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
+            $0.isGroupOrMessage && $0.messageType.containsRequiredFields()
         }
         if !fieldsToCheck.isEmpty {
           p.print(
@@ -446,7 +446,7 @@ class OneofGenerator {
 
         // Confirm there is message field with required fields.
         let firstRequired = fields.first {
-            $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
+            $0.isGroupOrMessage && $0.messageType.containsRequiredFields()
         }
         guard firstRequired != nil else { return }
 

@@ -34,18 +34,20 @@ extension Descriptor {
   ///
   /// The logic for this check comes from google/protobuf; the C++ and Java
   /// generators specificly.
-  func hasRequiredFields() -> Bool {
+  func containsRequiredFields() -> Bool {
     var alreadySeen = Set<String>()
 
-    func hasRequiredFieldsInner(_ descriptor: Descriptor) -> Bool {
+    func helper(_ descriptor: Descriptor) -> Bool {
       if alreadySeen.contains(descriptor.fullName) {
         // First required thing found causes this to return true, so one can
-        // assume if it is already visited, it didn't have required fields.
+        // assume if it is already visited and and wasn't cached, it is part
+        // of a recursive cycle, so return false without caching to allow
+        // the evalutation to continue on other fields of the message.
         return false
       }
       alreadySeen.insert(descriptor.fullName)
 
-      // If it can support extensions, then return true as the extension could
+      // If it can support extensions, then return true as an extension could
       // have a required field.
       if !descriptor.extensionRanges.isEmpty {
         return true
@@ -57,7 +59,7 @@ extension Descriptor {
         }
         switch f.type {
         case .group, .message:
-          if hasRequiredFieldsInner(f.messageType) {
+          if helper(f.messageType) {
             return true
           }
         default:
@@ -68,7 +70,7 @@ extension Descriptor {
       return false
     }
 
-    return hasRequiredFieldsInner(self)
+    return helper(self)
   }
 
   /// A `String` containing a comma-delimited list of Swift range expressions
