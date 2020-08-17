@@ -115,7 +115,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   case jsonTest // = 2
 
   /// Similar to JSON_TEST. However, during parsing json, testee should ignore
-  /// unknown fields. This feature is optional. Each implementation can descide
+  /// unknown fields. This feature is optional. Each implementation can decide
   /// whether to support it.  See
   /// https://developers.google.com/protocol-buffers/docs/proto3#json_options
   /// for more detail.
@@ -251,7 +251,7 @@ struct Conformance_ConformanceRequest {
   var messageType: String = String()
 
   /// Each test is given a specific test category. Some category may need
-  /// spedific support in testee programs. Refer to the definition of TestCategory
+  /// specific support in testee programs. Refer to the definition of TestCategory
   /// for more information.
   var testCategory: Conformance_TestCategory = .unspecifiedTest
 
