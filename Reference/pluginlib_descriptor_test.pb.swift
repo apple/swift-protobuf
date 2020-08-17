@@ -286,29 +286,28 @@ struct SDTExternalRefs {
   // methods supported on all messages.
 
   var desc: SwiftProtobuf.Google_Protobuf_DescriptorProto {
-    get {return _desc ?? SwiftProtobuf.Google_Protobuf_DescriptorProto()}
-    set {_desc = newValue}
+    get {return _storage._desc ?? SwiftProtobuf.Google_Protobuf_DescriptorProto()}
+    set {_uniqueStorage()._desc = newValue}
   }
   /// Returns true if `desc` has been explicitly set.
-  var hasDesc: Bool {return self._desc != nil}
+  var hasDesc: Bool {return _storage._desc != nil}
   /// Clears the value of `desc`. Subsequent reads from it will return its default value.
-  mutating func clearDesc() {self._desc = nil}
+  mutating func clearDesc() {_uniqueStorage()._desc = nil}
 
   var ver: Google_Protobuf_Compiler_Version {
-    get {return _ver ?? Google_Protobuf_Compiler_Version()}
-    set {_ver = newValue}
+    get {return _storage._ver ?? Google_Protobuf_Compiler_Version()}
+    set {_uniqueStorage()._ver = newValue}
   }
   /// Returns true if `ver` has been explicitly set.
-  var hasVer: Bool {return self._ver != nil}
+  var hasVer: Bool {return _storage._ver != nil}
   /// Clears the value of `ver`. Subsequent reads from it will return its default value.
-  mutating func clearVer() {self._ver = nil}
+  mutating func clearVer() {_uniqueStorage()._ver = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _desc: SwiftProtobuf.Google_Protobuf_DescriptorProto? = nil
-  fileprivate var _ver: Google_Protobuf_Compiler_Version? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct SDTScoperForExt {
@@ -894,37 +893,73 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     2: .same(proto: "ver"),
   ]
 
+  fileprivate class _StorageClass {
+    var _desc: SwiftProtobuf.Google_Protobuf_DescriptorProto? = nil
+    var _ver: Google_Protobuf_Compiler_Version? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _desc = source._desc
+      _ver = source._ver
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public var isInitialized: Bool {
-    if let v = self._desc, !v.isInitialized {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._desc, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._desc) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._ver) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._desc) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._ver) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._desc {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }
-    if let v = self._ver {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._desc {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._ver {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: SDTExternalRefs, rhs: SDTExternalRefs) -> Bool {
-    if lhs._desc != rhs._desc {return false}
-    if lhs._ver != rhs._ver {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._desc != rhs_storage._desc {return false}
+        if _storage._ver != rhs_storage._ver {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

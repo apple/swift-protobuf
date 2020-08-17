@@ -316,153 +316,150 @@ struct ProtobufUnittest_OneofWellKnownTypes {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {_uniqueStorage()._oneofField = newValue}
-  }
+  var oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField? = nil
 
   var anyField: SwiftProtobuf.Google_Protobuf_Any {
     get {
-      if case .anyField(let v)? = _storage._oneofField {return v}
+      if case .anyField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Any()
     }
-    set {_uniqueStorage()._oneofField = .anyField(newValue)}
+    set {oneofField = .anyField(newValue)}
   }
 
   var apiField: SwiftProtobuf.Google_Protobuf_Api {
     get {
-      if case .apiField(let v)? = _storage._oneofField {return v}
+      if case .apiField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Api()
     }
-    set {_uniqueStorage()._oneofField = .apiField(newValue)}
+    set {oneofField = .apiField(newValue)}
   }
 
   var durationField: SwiftProtobuf.Google_Protobuf_Duration {
     get {
-      if case .durationField(let v)? = _storage._oneofField {return v}
+      if case .durationField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Duration()
     }
-    set {_uniqueStorage()._oneofField = .durationField(newValue)}
+    set {oneofField = .durationField(newValue)}
   }
 
   var emptyField: SwiftProtobuf.Google_Protobuf_Empty {
     get {
-      if case .emptyField(let v)? = _storage._oneofField {return v}
+      if case .emptyField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Empty()
     }
-    set {_uniqueStorage()._oneofField = .emptyField(newValue)}
+    set {oneofField = .emptyField(newValue)}
   }
 
   var fieldMaskField: SwiftProtobuf.Google_Protobuf_FieldMask {
     get {
-      if case .fieldMaskField(let v)? = _storage._oneofField {return v}
+      if case .fieldMaskField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_FieldMask()
     }
-    set {_uniqueStorage()._oneofField = .fieldMaskField(newValue)}
+    set {oneofField = .fieldMaskField(newValue)}
   }
 
   var sourceContextField: SwiftProtobuf.Google_Protobuf_SourceContext {
     get {
-      if case .sourceContextField(let v)? = _storage._oneofField {return v}
+      if case .sourceContextField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_SourceContext()
     }
-    set {_uniqueStorage()._oneofField = .sourceContextField(newValue)}
+    set {oneofField = .sourceContextField(newValue)}
   }
 
   var structField: SwiftProtobuf.Google_Protobuf_Struct {
     get {
-      if case .structField(let v)? = _storage._oneofField {return v}
+      if case .structField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Struct()
     }
-    set {_uniqueStorage()._oneofField = .structField(newValue)}
+    set {oneofField = .structField(newValue)}
   }
 
   var timestampField: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {
-      if case .timestampField(let v)? = _storage._oneofField {return v}
+      if case .timestampField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Timestamp()
     }
-    set {_uniqueStorage()._oneofField = .timestampField(newValue)}
+    set {oneofField = .timestampField(newValue)}
   }
 
   var typeField: SwiftProtobuf.Google_Protobuf_Type {
     get {
-      if case .typeField(let v)? = _storage._oneofField {return v}
+      if case .typeField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Type()
     }
-    set {_uniqueStorage()._oneofField = .typeField(newValue)}
+    set {oneofField = .typeField(newValue)}
   }
 
   var doubleField: SwiftProtobuf.Google_Protobuf_DoubleValue {
     get {
-      if case .doubleField(let v)? = _storage._oneofField {return v}
+      if case .doubleField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_DoubleValue()
     }
-    set {_uniqueStorage()._oneofField = .doubleField(newValue)}
+    set {oneofField = .doubleField(newValue)}
   }
 
   var floatField: SwiftProtobuf.Google_Protobuf_FloatValue {
     get {
-      if case .floatField(let v)? = _storage._oneofField {return v}
+      if case .floatField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_FloatValue()
     }
-    set {_uniqueStorage()._oneofField = .floatField(newValue)}
+    set {oneofField = .floatField(newValue)}
   }
 
   var int64Field: SwiftProtobuf.Google_Protobuf_Int64Value {
     get {
-      if case .int64Field(let v)? = _storage._oneofField {return v}
+      if case .int64Field(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Int64Value()
     }
-    set {_uniqueStorage()._oneofField = .int64Field(newValue)}
+    set {oneofField = .int64Field(newValue)}
   }
 
   var uint64Field: SwiftProtobuf.Google_Protobuf_UInt64Value {
     get {
-      if case .uint64Field(let v)? = _storage._oneofField {return v}
+      if case .uint64Field(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_UInt64Value()
     }
-    set {_uniqueStorage()._oneofField = .uint64Field(newValue)}
+    set {oneofField = .uint64Field(newValue)}
   }
 
   var int32Field: SwiftProtobuf.Google_Protobuf_Int32Value {
     get {
-      if case .int32Field(let v)? = _storage._oneofField {return v}
+      if case .int32Field(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_Int32Value()
     }
-    set {_uniqueStorage()._oneofField = .int32Field(newValue)}
+    set {oneofField = .int32Field(newValue)}
   }
 
   var uint32Field: SwiftProtobuf.Google_Protobuf_UInt32Value {
     get {
-      if case .uint32Field(let v)? = _storage._oneofField {return v}
+      if case .uint32Field(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_UInt32Value()
     }
-    set {_uniqueStorage()._oneofField = .uint32Field(newValue)}
+    set {oneofField = .uint32Field(newValue)}
   }
 
   var boolField: SwiftProtobuf.Google_Protobuf_BoolValue {
     get {
-      if case .boolField(let v)? = _storage._oneofField {return v}
+      if case .boolField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_BoolValue()
     }
-    set {_uniqueStorage()._oneofField = .boolField(newValue)}
+    set {oneofField = .boolField(newValue)}
   }
 
   var stringField: SwiftProtobuf.Google_Protobuf_StringValue {
     get {
-      if case .stringField(let v)? = _storage._oneofField {return v}
+      if case .stringField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_StringValue()
     }
-    set {_uniqueStorage()._oneofField = .stringField(newValue)}
+    set {oneofField = .stringField(newValue)}
   }
 
   var bytesField: SwiftProtobuf.Google_Protobuf_BytesValue {
     get {
-      if case .bytesField(let v)? = _storage._oneofField {return v}
+      if case .bytesField(let v)? = oneofField {return v}
       return SwiftProtobuf.Google_Protobuf_BytesValue()
     }
-    set {_uniqueStorage()._oneofField = .bytesField(newValue)}
+    set {oneofField = .bytesField(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -572,8 +569,6 @@ struct ProtobufUnittest_OneofWellKnownTypes {
   }
 
   init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A map field for each well-known type. We only
@@ -1116,295 +1111,263 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     18: .standard(proto: "bytes_field"),
   ]
 
-  fileprivate class _StorageClass {
-    var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _oneofField = source._oneofField
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try {
-          var v: SwiftProtobuf.Google_Protobuf_Any?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .anyField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .anyField(v)}
-        }()
-        case 2: try {
-          var v: SwiftProtobuf.Google_Protobuf_Api?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .apiField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .apiField(v)}
-        }()
-        case 3: try {
-          var v: SwiftProtobuf.Google_Protobuf_Duration?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .durationField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .durationField(v)}
-        }()
-        case 4: try {
-          var v: SwiftProtobuf.Google_Protobuf_Empty?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .emptyField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .emptyField(v)}
-        }()
-        case 5: try {
-          var v: SwiftProtobuf.Google_Protobuf_FieldMask?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .fieldMaskField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .fieldMaskField(v)}
-        }()
-        case 6: try {
-          var v: SwiftProtobuf.Google_Protobuf_SourceContext?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .sourceContextField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .sourceContextField(v)}
-        }()
-        case 7: try {
-          var v: SwiftProtobuf.Google_Protobuf_Struct?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .structField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .structField(v)}
-        }()
-        case 8: try {
-          var v: SwiftProtobuf.Google_Protobuf_Timestamp?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .timestampField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .timestampField(v)}
-        }()
-        case 9: try {
-          var v: SwiftProtobuf.Google_Protobuf_Type?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .typeField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .typeField(v)}
-        }()
-        case 10: try {
-          var v: SwiftProtobuf.Google_Protobuf_DoubleValue?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .doubleField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .doubleField(v)}
-        }()
-        case 11: try {
-          var v: SwiftProtobuf.Google_Protobuf_FloatValue?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .floatField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .floatField(v)}
-        }()
-        case 12: try {
-          var v: SwiftProtobuf.Google_Protobuf_Int64Value?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .int64Field(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .int64Field(v)}
-        }()
-        case 13: try {
-          var v: SwiftProtobuf.Google_Protobuf_UInt64Value?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .uint64Field(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .uint64Field(v)}
-        }()
-        case 14: try {
-          var v: SwiftProtobuf.Google_Protobuf_Int32Value?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .int32Field(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .int32Field(v)}
-        }()
-        case 15: try {
-          var v: SwiftProtobuf.Google_Protobuf_UInt32Value?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .uint32Field(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .uint32Field(v)}
-        }()
-        case 16: try {
-          var v: SwiftProtobuf.Google_Protobuf_BoolValue?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .boolField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .boolField(v)}
-        }()
-        case 17: try {
-          var v: SwiftProtobuf.Google_Protobuf_StringValue?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .stringField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .stringField(v)}
-        }()
-        case 18: try {
-          var v: SwiftProtobuf.Google_Protobuf_BytesValue?
-          if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
-            if case .bytesField(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .bytesField(v)}
-        }()
-        default: break
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        var v: SwiftProtobuf.Google_Protobuf_Any?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .anyField(let m) = current {v = m}
         }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .anyField(v)}
+      }()
+      case 2: try {
+        var v: SwiftProtobuf.Google_Protobuf_Api?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .apiField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .apiField(v)}
+      }()
+      case 3: try {
+        var v: SwiftProtobuf.Google_Protobuf_Duration?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .durationField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .durationField(v)}
+      }()
+      case 4: try {
+        var v: SwiftProtobuf.Google_Protobuf_Empty?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .emptyField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .emptyField(v)}
+      }()
+      case 5: try {
+        var v: SwiftProtobuf.Google_Protobuf_FieldMask?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .fieldMaskField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .fieldMaskField(v)}
+      }()
+      case 6: try {
+        var v: SwiftProtobuf.Google_Protobuf_SourceContext?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .sourceContextField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .sourceContextField(v)}
+      }()
+      case 7: try {
+        var v: SwiftProtobuf.Google_Protobuf_Struct?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .structField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .structField(v)}
+      }()
+      case 8: try {
+        var v: SwiftProtobuf.Google_Protobuf_Timestamp?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .timestampField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .timestampField(v)}
+      }()
+      case 9: try {
+        var v: SwiftProtobuf.Google_Protobuf_Type?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .typeField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .typeField(v)}
+      }()
+      case 10: try {
+        var v: SwiftProtobuf.Google_Protobuf_DoubleValue?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .doubleField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .doubleField(v)}
+      }()
+      case 11: try {
+        var v: SwiftProtobuf.Google_Protobuf_FloatValue?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .floatField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .floatField(v)}
+      }()
+      case 12: try {
+        var v: SwiftProtobuf.Google_Protobuf_Int64Value?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .int64Field(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .int64Field(v)}
+      }()
+      case 13: try {
+        var v: SwiftProtobuf.Google_Protobuf_UInt64Value?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .uint64Field(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .uint64Field(v)}
+      }()
+      case 14: try {
+        var v: SwiftProtobuf.Google_Protobuf_Int32Value?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .int32Field(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .int32Field(v)}
+      }()
+      case 15: try {
+        var v: SwiftProtobuf.Google_Protobuf_UInt32Value?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .uint32Field(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .uint32Field(v)}
+      }()
+      case 16: try {
+        var v: SwiftProtobuf.Google_Protobuf_BoolValue?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .boolField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .boolField(v)}
+      }()
+      case 17: try {
+        var v: SwiftProtobuf.Google_Protobuf_StringValue?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .stringField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .stringField(v)}
+      }()
+      case 18: try {
+        var v: SwiftProtobuf.Google_Protobuf_BytesValue?
+        if let current = self.oneofField {
+          try decoder.handleConflictingOneOf()
+          if case .bytesField(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.oneofField = .bytesField(v)}
+      }()
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch _storage._oneofField {
-      case .anyField?: try {
-        guard case .anyField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }()
-      case .apiField?: try {
-        guard case .apiField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }()
-      case .durationField?: try {
-        guard case .durationField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }()
-      case .emptyField?: try {
-        guard case .emptyField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      }()
-      case .fieldMaskField?: try {
-        guard case .fieldMaskField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }()
-      case .sourceContextField?: try {
-        guard case .sourceContextField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      }()
-      case .structField?: try {
-        guard case .structField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }()
-      case .timestampField?: try {
-        guard case .timestampField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }()
-      case .typeField?: try {
-        guard case .typeField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }()
-      case .doubleField?: try {
-        guard case .doubleField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-      }()
-      case .floatField?: try {
-        guard case .floatField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      }()
-      case .int64Field?: try {
-        guard case .int64Field(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-      }()
-      case .uint64Field?: try {
-        guard case .uint64Field(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-      }()
-      case .int32Field?: try {
-        guard case .int32Field(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-      }()
-      case .uint32Field?: try {
-        guard case .uint32Field(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-      }()
-      case .boolField?: try {
-        guard case .boolField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-      }()
-      case .stringField?: try {
-        guard case .stringField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-      }()
-      case .bytesField?: try {
-        guard case .bytesField(let v)? = _storage._oneofField else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      }()
-      case nil: break
-      }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    switch self.oneofField {
+    case .anyField?: try {
+      guard case .anyField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }()
+    case .apiField?: try {
+      guard case .apiField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }()
+    case .durationField?: try {
+      guard case .durationField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case .emptyField?: try {
+      guard case .emptyField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    }()
+    case .fieldMaskField?: try {
+      guard case .fieldMaskField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    }()
+    case .sourceContextField?: try {
+      guard case .sourceContextField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    }()
+    case .structField?: try {
+      guard case .structField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+    }()
+    case .timestampField?: try {
+      guard case .timestampField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    }()
+    case .typeField?: try {
+      guard case .typeField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    }()
+    case .doubleField?: try {
+      guard case .doubleField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+    }()
+    case .floatField?: try {
+      guard case .floatField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    }()
+    case .int64Field?: try {
+      guard case .int64Field(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+    }()
+    case .uint64Field?: try {
+      guard case .uint64Field(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+    }()
+    case .int32Field?: try {
+      guard case .int32Field(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+    }()
+    case .uint32Field?: try {
+      guard case .uint32Field(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+    }()
+    case .boolField?: try {
+      guard case .boolField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+    }()
+    case .stringField?: try {
+      guard case .stringField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
+    }()
+    case .bytesField?: try {
+      guard case .bytesField(let v)? = self.oneofField else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
+    }()
+    case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_OneofWellKnownTypes, rhs: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._oneofField != rhs_storage._oneofField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
