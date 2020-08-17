@@ -73,44 +73,6 @@ extension Descriptor {
     return helper(self)
   }
 
-  /// Returns True if this message recurisvely contains itself as a singular
-  /// field.
-  func containsRecursiveSingularField() -> Bool {
-    let initialFile = self.file!
-
-    func helper(_ descriptor: Descriptor, messageStack: [Descriptor]) -> Bool {
-      var messageStack = messageStack
-      messageStack.append(descriptor)
-      return descriptor.fields.contains {
-        guard $0.label != .repeated else { return false }
-        // Ignore fields that aren’t messages or groups.
-        guard $0.type == .message || $0.type == .group else { return false }
-        guard let messageType = $0.messageType else { return false }
-
-        // Proto files are a graph without cycles, to be recursive, the messages
-        // in the cycle must be defined in the same file.
-        guard messageType.file === initialFile else { return false }
-
-        // Did things recurse?
-        if let first = messageStack.firstIndex(where: { $0 === messageType }) {
-          // Yes, to the message being checked.
-          if first == messageStack.startIndex {
-            return true
-          }
-
-          // It recursed to something lower in the graph, so no need to
-          // process it again.
-          return false
-        }
-
-        // Examine sub-message.
-        return helper(messageType, messageStack: messageStack)
-      }
-    }
-
-    return helper(self, messageStack: [])
-  }
-
   /// A `String` containing a comma-delimited list of Swift range expressions
   /// covering the extension ranges for this message.
   ///

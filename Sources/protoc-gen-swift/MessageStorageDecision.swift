@@ -102,8 +102,49 @@ fileprivate func analyse(descriptor: Descriptor) -> AnalyseResult {
     return analysis
   }
 
+  func containsRecursiveSingularField(_ descriptor: Descriptor) -> Bool {
+    let initialFile = descriptor.file!
+
+    func recursionHelper(_ descriptor: Descriptor, messageStack: [Descriptor]) -> Bool {
+      var messageStack = messageStack
+      messageStack.append(descriptor)
+      return descriptor.fields.contains {
+        guard $0.label != .repeated else { return false }
+        // Ignore fields that aren’t messages or groups.
+        guard $0.type == .message || $0.type == .group else { return false }
+        guard let messageType = $0.messageType else { return false }
+
+        // Proto files are a graph without cycles, to be recursive, the messages
+        // in the cycle must be defined in the same file.
+        guard messageType.file === initialFile else { return false }
+
+        // Did things recurse?
+        if let first = messageStack.firstIndex(where: { $0 === messageType }) {
+          // Mark all those in the loop as using storage.
+          for msg in messageStack[first..<messageStack.endIndex] {
+            analysisCache[msg.fullName] = .useStorage
+          }
+
+          // And it was the top message, so return the result.
+          if first == messageStack.startIndex {
+            return true
+          }
+
+          // It recursed to something lower in the graph, so no need to
+          // process it again.
+          return false
+        }
+
+        // Examine sub-message.
+        return recursionHelper(messageType, messageStack: messageStack)
+      }
+    }
+
+    return recursionHelper(descriptor, messageStack: [])
+  }
+
   func helper(_ descriptor: Descriptor) -> AnalyseResult {
-    if descriptor.containsRecursiveSingularField() {
+    if containsRecursiveSingularField(descriptor) {
       return .useStorage
     }
 
