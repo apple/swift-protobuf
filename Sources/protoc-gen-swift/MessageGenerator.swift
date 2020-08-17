@@ -48,12 +48,8 @@ class MessageGenerator {
     swiftRelativeName = namer.relativeName(message: descriptor)
     swiftFullName = namer.fullName(message: descriptor)
 
-    let isAnyMessage = descriptor.isAnyMessage
-    // NOTE: This check for fields.count likely isn't completely correct
-    // when the message has one or more oneof{}s. As that will efficively
-    // reduce the real number of fields and the message might not need heap
-    // storage yet.
-    let useHeapStorage = isAnyMessage || descriptor.fields.count > 16 || descriptor.containsRecursiveSingularField()
+    let useHeapStorage =
+      MessageStorageDecision.shouldUseHeapStorage(descriptor: descriptor)
 
     oneofs = descriptor.realOneofs.map {
       return OneofGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer, usesHeapStorage: useHeapStorage)
@@ -81,7 +77,8 @@ class MessageGenerator {
                               extensionSet: extensionSet)
     }
 
-    if isAnyMessage {
+    if descriptor.isAnyMessage {
+      precondition(useHeapStorage)
       storage = AnyMessageStorageClassGenerator(fields: fields)
     } else if useHeapStorage {
       storage = MessageStorageClassGenerator(fields: fields)

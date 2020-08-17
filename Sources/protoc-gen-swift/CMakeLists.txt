@@ -14,6 +14,7 @@ add_executable(protoc-gen-swift
   MessageFieldGenerator.swift
   MessageGenerator.swift
   MessageStorageClassGenerator.swift
+  MessageStorageDecision.swift
   OneofGenerator.swift
   StringUtils.swift
   Version.swift)
