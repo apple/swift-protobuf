@@ -3336,153 +3336,147 @@ struct ProtobufUnittest_TestOneof2 {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {_uniqueStorage()._foo = newValue}
-  }
+  var foo: ProtobufUnittest_TestOneof2.OneOf_Foo? = nil
 
   var fooInt: Int32 {
     get {
-      if case .fooInt(let v)? = _storage._foo {return v}
+      if case .fooInt(let v)? = foo {return v}
       return 0
     }
-    set {_uniqueStorage()._foo = .fooInt(newValue)}
+    set {foo = .fooInt(newValue)}
   }
 
   var fooString: String {
     get {
-      if case .fooString(let v)? = _storage._foo {return v}
+      if case .fooString(let v)? = foo {return v}
       return String()
     }
-    set {_uniqueStorage()._foo = .fooString(newValue)}
+    set {foo = .fooString(newValue)}
   }
 
   var fooCord: String {
     get {
-      if case .fooCord(let v)? = _storage._foo {return v}
+      if case .fooCord(let v)? = foo {return v}
       return String()
     }
-    set {_uniqueStorage()._foo = .fooCord(newValue)}
+    set {foo = .fooCord(newValue)}
   }
 
   var fooStringPiece: String {
     get {
-      if case .fooStringPiece(let v)? = _storage._foo {return v}
+      if case .fooStringPiece(let v)? = foo {return v}
       return String()
     }
-    set {_uniqueStorage()._foo = .fooStringPiece(newValue)}
+    set {foo = .fooStringPiece(newValue)}
   }
 
   var fooBytes: Data {
     get {
-      if case .fooBytes(let v)? = _storage._foo {return v}
+      if case .fooBytes(let v)? = foo {return v}
       return Data()
     }
-    set {_uniqueStorage()._foo = .fooBytes(newValue)}
+    set {foo = .fooBytes(newValue)}
   }
 
   var fooEnum: ProtobufUnittest_TestOneof2.NestedEnum {
     get {
-      if case .fooEnum(let v)? = _storage._foo {return v}
+      if case .fooEnum(let v)? = foo {return v}
       return .foo
     }
-    set {_uniqueStorage()._foo = .fooEnum(newValue)}
+    set {foo = .fooEnum(newValue)}
   }
 
   var fooMessage: ProtobufUnittest_TestOneof2.NestedMessage {
     get {
-      if case .fooMessage(let v)? = _storage._foo {return v}
+      if case .fooMessage(let v)? = foo {return v}
       return ProtobufUnittest_TestOneof2.NestedMessage()
     }
-    set {_uniqueStorage()._foo = .fooMessage(newValue)}
+    set {foo = .fooMessage(newValue)}
   }
 
   var fooGroup: ProtobufUnittest_TestOneof2.FooGroup {
     get {
-      if case .fooGroup(let v)? = _storage._foo {return v}
+      if case .fooGroup(let v)? = foo {return v}
       return ProtobufUnittest_TestOneof2.FooGroup()
     }
-    set {_uniqueStorage()._foo = .fooGroup(newValue)}
+    set {foo = .fooGroup(newValue)}
   }
 
   var fooLazyMessage: ProtobufUnittest_TestOneof2.NestedMessage {
     get {
-      if case .fooLazyMessage(let v)? = _storage._foo {return v}
+      if case .fooLazyMessage(let v)? = foo {return v}
       return ProtobufUnittest_TestOneof2.NestedMessage()
     }
-    set {_uniqueStorage()._foo = .fooLazyMessage(newValue)}
+    set {foo = .fooLazyMessage(newValue)}
   }
 
-  var bar: OneOf_Bar? {
-    get {return _storage._bar}
-    set {_uniqueStorage()._bar = newValue}
-  }
+  var bar: ProtobufUnittest_TestOneof2.OneOf_Bar? = nil
 
   var barInt: Int32 {
     get {
-      if case .barInt(let v)? = _storage._bar {return v}
+      if case .barInt(let v)? = bar {return v}
       return 5
     }
-    set {_uniqueStorage()._bar = .barInt(newValue)}
+    set {bar = .barInt(newValue)}
   }
 
   var barString: String {
     get {
-      if case .barString(let v)? = _storage._bar {return v}
+      if case .barString(let v)? = bar {return v}
       return "STRING"
     }
-    set {_uniqueStorage()._bar = .barString(newValue)}
+    set {bar = .barString(newValue)}
   }
 
   var barCord: String {
     get {
-      if case .barCord(let v)? = _storage._bar {return v}
+      if case .barCord(let v)? = bar {return v}
       return "CORD"
     }
-    set {_uniqueStorage()._bar = .barCord(newValue)}
+    set {bar = .barCord(newValue)}
   }
 
   var barStringPiece: String {
     get {
-      if case .barStringPiece(let v)? = _storage._bar {return v}
+      if case .barStringPiece(let v)? = bar {return v}
       return "SPIECE"
     }
-    set {_uniqueStorage()._bar = .barStringPiece(newValue)}
+    set {bar = .barStringPiece(newValue)}
   }
 
   var barBytes: Data {
     get {
-      if case .barBytes(let v)? = _storage._bar {return v}
+      if case .barBytes(let v)? = bar {return v}
       return Data([66, 89, 84, 69, 83])
     }
-    set {_uniqueStorage()._bar = .barBytes(newValue)}
+    set {bar = .barBytes(newValue)}
   }
 
   var barEnum: ProtobufUnittest_TestOneof2.NestedEnum {
     get {
-      if case .barEnum(let v)? = _storage._bar {return v}
+      if case .barEnum(let v)? = bar {return v}
       return .bar
     }
-    set {_uniqueStorage()._bar = .barEnum(newValue)}
+    set {bar = .barEnum(newValue)}
   }
 
   var bazInt: Int32 {
-    get {return _storage._bazInt ?? 0}
-    set {_uniqueStorage()._bazInt = newValue}
+    get {return _bazInt ?? 0}
+    set {_bazInt = newValue}
   }
   /// Returns true if `bazInt` has been explicitly set.
-  var hasBazInt: Bool {return _storage._bazInt != nil}
+  var hasBazInt: Bool {return self._bazInt != nil}
   /// Clears the value of `bazInt`. Subsequent reads from it will return its default value.
-  mutating func clearBazInt() {_uniqueStorage()._bazInt = nil}
+  mutating func clearBazInt() {self._bazInt = nil}
 
   var bazString: String {
-    get {return _storage._bazString ?? "BAZ"}
-    set {_uniqueStorage()._bazString = newValue}
+    get {return _bazString ?? "BAZ"}
+    set {_bazString = newValue}
   }
   /// Returns true if `bazString` has been explicitly set.
-  var hasBazString: Bool {return _storage._bazString != nil}
+  var hasBazString: Bool {return self._bazString != nil}
   /// Clears the value of `bazString`. Subsequent reads from it will return its default value.
-  mutating func clearBazString() {_uniqueStorage()._bazString = nil}
+  mutating func clearBazString() {self._bazString = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3674,7 +3668,8 @@ struct ProtobufUnittest_TestOneof2 {
 
   init() {}
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+  fileprivate var _bazInt: Int32? = nil
+  fileprivate var _bazString: String? = nil
 }
 
 #if swift(>=4.2)
@@ -11039,243 +11034,205 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
     19: .standard(proto: "baz_string"),
   ]
 
-  fileprivate class _StorageClass {
-    var _foo: ProtobufUnittest_TestOneof2.OneOf_Foo?
-    var _bar: ProtobufUnittest_TestOneof2.OneOf_Bar?
-    var _bazInt: Int32? = nil
-    var _bazString: String? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _foo = source._foo
-      _bar = source._bar
-      _bazInt = source._bazInt
-      _bazString = source._bazString
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try {
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
-          var v: Int32?
-          try decoder.decodeSingularInt32Field(value: &v)
-          if let v = v {_storage._foo = .fooInt(v)}
-        }()
-        case 2: try {
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._foo = .fooString(v)}
-        }()
-        case 3: try {
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._foo = .fooCord(v)}
-        }()
-        case 4: try {
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._foo = .fooStringPiece(v)}
-        }()
-        case 5: try {
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
-          var v: Data?
-          try decoder.decodeSingularBytesField(value: &v)
-          if let v = v {_storage._foo = .fooBytes(v)}
-        }()
-        case 6: try {
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
-          var v: ProtobufUnittest_TestOneof2.NestedEnum?
-          try decoder.decodeSingularEnumField(value: &v)
-          if let v = v {_storage._foo = .fooEnum(v)}
-        }()
-        case 7: try {
-          var v: ProtobufUnittest_TestOneof2.NestedMessage?
-          if let current = _storage._foo {
-            try decoder.handleConflictingOneOf()
-            if case .fooMessage(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._foo = .fooMessage(v)}
-        }()
-        case 8: try {
-          var v: ProtobufUnittest_TestOneof2.FooGroup?
-          if let current = _storage._foo {
-            try decoder.handleConflictingOneOf()
-            if case .fooGroup(let m) = current {v = m}
-          }
-          try decoder.decodeSingularGroupField(value: &v)
-          if let v = v {_storage._foo = .fooGroup(v)}
-        }()
-        case 11: try {
-          var v: ProtobufUnittest_TestOneof2.NestedMessage?
-          if let current = _storage._foo {
-            try decoder.handleConflictingOneOf()
-            if case .fooLazyMessage(let m) = current {v = m}
-          }
-          try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._foo = .fooLazyMessage(v)}
-        }()
-        case 12: try {
-          if _storage._bar != nil {try decoder.handleConflictingOneOf()}
-          var v: Int32?
-          try decoder.decodeSingularInt32Field(value: &v)
-          if let v = v {_storage._bar = .barInt(v)}
-        }()
-        case 13: try {
-          if _storage._bar != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._bar = .barString(v)}
-        }()
-        case 14: try {
-          if _storage._bar != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._bar = .barCord(v)}
-        }()
-        case 15: try {
-          if _storage._bar != nil {try decoder.handleConflictingOneOf()}
-          var v: String?
-          try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._bar = .barStringPiece(v)}
-        }()
-        case 16: try {
-          if _storage._bar != nil {try decoder.handleConflictingOneOf()}
-          var v: Data?
-          try decoder.decodeSingularBytesField(value: &v)
-          if let v = v {_storage._bar = .barBytes(v)}
-        }()
-        case 17: try {
-          if _storage._bar != nil {try decoder.handleConflictingOneOf()}
-          var v: ProtobufUnittest_TestOneof2.NestedEnum?
-          try decoder.decodeSingularEnumField(value: &v)
-          if let v = v {_storage._bar = .barEnum(v)}
-        }()
-        case 18: try { try decoder.decodeSingularInt32Field(value: &_storage._bazInt) }()
-        case 19: try { try decoder.decodeSingularStringField(value: &_storage._bazString) }()
-        default: break
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.foo = .fooInt(v)}
+      }()
+      case 2: try {
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.foo = .fooString(v)}
+      }()
+      case 3: try {
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.foo = .fooCord(v)}
+      }()
+      case 4: try {
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.foo = .fooStringPiece(v)}
+      }()
+      case 5: try {
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {self.foo = .fooBytes(v)}
+      }()
+      case 6: try {
+        if self.foo != nil {try decoder.handleConflictingOneOf()}
+        var v: ProtobufUnittest_TestOneof2.NestedEnum?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.foo = .fooEnum(v)}
+      }()
+      case 7: try {
+        var v: ProtobufUnittest_TestOneof2.NestedMessage?
+        if let current = self.foo {
+          try decoder.handleConflictingOneOf()
+          if case .fooMessage(let m) = current {v = m}
         }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.foo = .fooMessage(v)}
+      }()
+      case 8: try {
+        var v: ProtobufUnittest_TestOneof2.FooGroup?
+        if let current = self.foo {
+          try decoder.handleConflictingOneOf()
+          if case .fooGroup(let m) = current {v = m}
+        }
+        try decoder.decodeSingularGroupField(value: &v)
+        if let v = v {self.foo = .fooGroup(v)}
+      }()
+      case 11: try {
+        var v: ProtobufUnittest_TestOneof2.NestedMessage?
+        if let current = self.foo {
+          try decoder.handleConflictingOneOf()
+          if case .fooLazyMessage(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {self.foo = .fooLazyMessage(v)}
+      }()
+      case 12: try {
+        if self.bar != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.bar = .barInt(v)}
+      }()
+      case 13: try {
+        if self.bar != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.bar = .barString(v)}
+      }()
+      case 14: try {
+        if self.bar != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.bar = .barCord(v)}
+      }()
+      case 15: try {
+        if self.bar != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.bar = .barStringPiece(v)}
+      }()
+      case 16: try {
+        if self.bar != nil {try decoder.handleConflictingOneOf()}
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {self.bar = .barBytes(v)}
+      }()
+      case 17: try {
+        if self.bar != nil {try decoder.handleConflictingOneOf()}
+        var v: ProtobufUnittest_TestOneof2.NestedEnum?
+        try decoder.decodeSingularEnumField(value: &v)
+        if let v = v {self.bar = .barEnum(v)}
+      }()
+      case 18: try { try decoder.decodeSingularInt32Field(value: &self._bazInt) }()
+      case 19: try { try decoder.decodeSingularStringField(value: &self._bazString) }()
+      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch _storage._foo {
-      case .fooInt?: try {
-        guard case .fooInt(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }()
-      case .fooString?: try {
-        guard case .fooString(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }()
-      case .fooCord?: try {
-        guard case .fooCord(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-      }()
-      case .fooStringPiece?: try {
-        guard case .fooStringPiece(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-      }()
-      case .fooBytes?: try {
-        guard case .fooBytes(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
-      }()
-      case .fooEnum?: try {
-        guard case .fooEnum(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-      }()
-      case .fooMessage?: try {
-        guard case .fooMessage(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }()
-      case .fooGroup?: try {
-        guard case .fooGroup(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
-      }()
-      case .fooLazyMessage?: try {
-        guard case .fooLazyMessage(let v)? = _storage._foo else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      }()
-      case nil: break
-      }
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch _storage._bar {
-      case .barInt?: try {
-        guard case .barInt(let v)? = _storage._bar else { preconditionFailure() }
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      }()
-      case .barString?: try {
-        guard case .barString(let v)? = _storage._bar else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 13)
-      }()
-      case .barCord?: try {
-        guard case .barCord(let v)? = _storage._bar else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-      }()
-      case .barStringPiece?: try {
-        guard case .barStringPiece(let v)? = _storage._bar else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 15)
-      }()
-      case .barBytes?: try {
-        guard case .barBytes(let v)? = _storage._bar else { preconditionFailure() }
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
-      }()
-      case .barEnum?: try {
-        guard case .barEnum(let v)? = _storage._bar else { preconditionFailure() }
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-      }()
-      case nil: break
-      }
-      if let v = _storage._bazInt {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
-      }
-      if let v = _storage._bazString {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 19)
-      }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    switch self.foo {
+    case .fooInt?: try {
+      guard case .fooInt(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }()
+    case .fooString?: try {
+      guard case .fooString(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    }()
+    case .fooCord?: try {
+      guard case .fooCord(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    }()
+    case .fooStringPiece?: try {
+      guard case .fooStringPiece(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+    }()
+    case .fooBytes?: try {
+      guard case .fooBytes(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
+    }()
+    case .fooEnum?: try {
+      guard case .fooEnum(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+    }()
+    case .fooMessage?: try {
+      guard case .fooMessage(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+    }()
+    case .fooGroup?: try {
+      guard case .fooGroup(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
+    }()
+    case .fooLazyMessage?: try {
+      guard case .fooLazyMessage(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    }()
+    case nil: break
+    }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    switch self.bar {
+    case .barInt?: try {
+      guard case .barInt(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+    }()
+    case .barString?: try {
+      guard case .barString(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 13)
+    }()
+    case .barCord?: try {
+      guard case .barCord(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 14)
+    }()
+    case .barStringPiece?: try {
+      guard case .barStringPiece(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 15)
+    }()
+    case .barBytes?: try {
+      guard case .barBytes(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
+    }()
+    case .barEnum?: try {
+      guard case .barEnum(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+    }()
+    case nil: break
+    }
+    if let v = self._bazInt {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
+    }
+    if let v = self._bazString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 19)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestOneof2, rhs: ProtobufUnittest_TestOneof2) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._foo != rhs_storage._foo {return false}
-        if _storage._bar != rhs_storage._bar {return false}
-        if _storage._bazInt != rhs_storage._bazInt {return false}
-        if _storage._bazString != rhs_storage._bazString {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
+    if lhs.foo != rhs.foo {return false}
+    if lhs.bar != rhs.bar {return false}
+    if lhs._bazInt != rhs._bazInt {return false}
+    if lhs._bazString != rhs._bazString {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

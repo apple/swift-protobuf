@@ -311,42 +311,42 @@ struct Google_Protobuf_FieldDescriptorProto {
   // methods supported on all messages.
 
   var name: String {
-    get {return _name ?? String()}
-    set {_name = newValue}
+    get {return _storage._name ?? String()}
+    set {_uniqueStorage()._name = newValue}
   }
   /// Returns true if `name` has been explicitly set.
-  var hasName: Bool {return self._name != nil}
+  var hasName: Bool {return _storage._name != nil}
   /// Clears the value of `name`. Subsequent reads from it will return its default value.
-  mutating func clearName() {self._name = nil}
+  mutating func clearName() {_uniqueStorage()._name = nil}
 
   var number: Int32 {
-    get {return _number ?? 0}
-    set {_number = newValue}
+    get {return _storage._number ?? 0}
+    set {_uniqueStorage()._number = newValue}
   }
   /// Returns true if `number` has been explicitly set.
-  var hasNumber: Bool {return self._number != nil}
+  var hasNumber: Bool {return _storage._number != nil}
   /// Clears the value of `number`. Subsequent reads from it will return its default value.
-  mutating func clearNumber() {self._number = nil}
+  mutating func clearNumber() {_uniqueStorage()._number = nil}
 
   var label: Google_Protobuf_FieldDescriptorProto.Label {
-    get {return _label ?? .optional}
-    set {_label = newValue}
+    get {return _storage._label ?? .optional}
+    set {_uniqueStorage()._label = newValue}
   }
   /// Returns true if `label` has been explicitly set.
-  var hasLabel: Bool {return self._label != nil}
+  var hasLabel: Bool {return _storage._label != nil}
   /// Clears the value of `label`. Subsequent reads from it will return its default value.
-  mutating func clearLabel() {self._label = nil}
+  mutating func clearLabel() {_uniqueStorage()._label = nil}
 
   /// If type_name is set, this need not be set.  If both this and type_name
   /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
   var type: Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {return _type ?? .double}
-    set {_type = newValue}
+    get {return _storage._type ?? .double}
+    set {_uniqueStorage()._type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
-  var hasType: Bool {return self._type != nil}
+  var hasType: Bool {return _storage._type != nil}
   /// Clears the value of `type`. Subsequent reads from it will return its default value.
-  mutating func clearType() {self._type = nil}
+  mutating func clearType() {_uniqueStorage()._type = nil}
 
   /// For message and enum types, this is the name of the type.  If the name
   /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
@@ -354,24 +354,24 @@ struct Google_Protobuf_FieldDescriptorProto {
   /// message are searched, then within the parent, on up to the root
   /// namespace).
   var typeName: String {
-    get {return _typeName ?? String()}
-    set {_typeName = newValue}
+    get {return _storage._typeName ?? String()}
+    set {_uniqueStorage()._typeName = newValue}
   }
   /// Returns true if `typeName` has been explicitly set.
-  var hasTypeName: Bool {return self._typeName != nil}
+  var hasTypeName: Bool {return _storage._typeName != nil}
   /// Clears the value of `typeName`. Subsequent reads from it will return its default value.
-  mutating func clearTypeName() {self._typeName = nil}
+  mutating func clearTypeName() {_uniqueStorage()._typeName = nil}
 
   /// For extensions, this is the name of the type being extended.  It is
   /// resolved in the same manner as type_name.
   var extendee: String {
-    get {return _extendee ?? String()}
-    set {_extendee = newValue}
+    get {return _storage._extendee ?? String()}
+    set {_uniqueStorage()._extendee = newValue}
   }
   /// Returns true if `extendee` has been explicitly set.
-  var hasExtendee: Bool {return self._extendee != nil}
+  var hasExtendee: Bool {return _storage._extendee != nil}
   /// Clears the value of `extendee`. Subsequent reads from it will return its default value.
-  mutating func clearExtendee() {self._extendee = nil}
+  mutating func clearExtendee() {_uniqueStorage()._extendee = nil}
 
   /// For numeric types, contains the original text representation of the value.
   /// For booleans, "true" or "false".
@@ -379,46 +379,46 @@ struct Google_Protobuf_FieldDescriptorProto {
   /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
   /// TODO(kenton):  Base-64 encode?
   var defaultValue: String {
-    get {return _defaultValue ?? String()}
-    set {_defaultValue = newValue}
+    get {return _storage._defaultValue ?? String()}
+    set {_uniqueStorage()._defaultValue = newValue}
   }
   /// Returns true if `defaultValue` has been explicitly set.
-  var hasDefaultValue: Bool {return self._defaultValue != nil}
+  var hasDefaultValue: Bool {return _storage._defaultValue != nil}
   /// Clears the value of `defaultValue`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultValue() {self._defaultValue = nil}
+  mutating func clearDefaultValue() {_uniqueStorage()._defaultValue = nil}
 
   /// If set, gives the index of a oneof in the containing type's oneof_decl
   /// list.  This field is a member of that oneof.
   var oneofIndex: Int32 {
-    get {return _oneofIndex ?? 0}
-    set {_oneofIndex = newValue}
+    get {return _storage._oneofIndex ?? 0}
+    set {_uniqueStorage()._oneofIndex = newValue}
   }
   /// Returns true if `oneofIndex` has been explicitly set.
-  var hasOneofIndex: Bool {return self._oneofIndex != nil}
+  var hasOneofIndex: Bool {return _storage._oneofIndex != nil}
   /// Clears the value of `oneofIndex`. Subsequent reads from it will return its default value.
-  mutating func clearOneofIndex() {self._oneofIndex = nil}
+  mutating func clearOneofIndex() {_uniqueStorage()._oneofIndex = nil}
 
   /// JSON name of this field. The value is set by protocol compiler. If the
   /// user has set a "json_name" option on this field, that option's value
   /// will be used. Otherwise, it's deduced from the field's name by converting
   /// it to camelCase.
   var jsonName: String {
-    get {return _jsonName ?? String()}
-    set {_jsonName = newValue}
+    get {return _storage._jsonName ?? String()}
+    set {_uniqueStorage()._jsonName = newValue}
   }
   /// Returns true if `jsonName` has been explicitly set.
-  var hasJsonName: Bool {return self._jsonName != nil}
+  var hasJsonName: Bool {return _storage._jsonName != nil}
   /// Clears the value of `jsonName`. Subsequent reads from it will return its default value.
-  mutating func clearJsonName() {self._jsonName = nil}
+  mutating func clearJsonName() {_uniqueStorage()._jsonName = nil}
 
   var options: Google_Protobuf_FieldOptions {
-    get {return _options ?? Google_Protobuf_FieldOptions()}
-    set {_options = newValue}
+    get {return _storage._options ?? Google_Protobuf_FieldOptions()}
+    set {_uniqueStorage()._options = newValue}
   }
   /// Returns true if `options` has been explicitly set.
-  var hasOptions: Bool {return self._options != nil}
+  var hasOptions: Bool {return _storage._options != nil}
   /// Clears the value of `options`. Subsequent reads from it will return its default value.
-  mutating func clearOptions() {self._options = nil}
+  mutating func clearOptions() {_uniqueStorage()._options = nil}
 
   /// If true, this is a proto3 "optional". When a proto3 field is optional, it
   /// tracks presence regardless of field type.
@@ -442,13 +442,13 @@ struct Google_Protobuf_FieldDescriptorProto {
   /// Proto2 optional fields do not set this flag, because they already indicate
   /// optional with `LABEL_OPTIONAL`.
   var proto3Optional: Bool {
-    get {return _proto3Optional ?? false}
-    set {_proto3Optional = newValue}
+    get {return _storage._proto3Optional ?? false}
+    set {_uniqueStorage()._proto3Optional = newValue}
   }
   /// Returns true if `proto3Optional` has been explicitly set.
-  var hasProto3Optional: Bool {return self._proto3Optional != nil}
+  var hasProto3Optional: Bool {return _storage._proto3Optional != nil}
   /// Clears the value of `proto3Optional`. Subsequent reads from it will return its default value.
-  mutating func clearProto3Optional() {self._proto3Optional = nil}
+  mutating func clearProto3Optional() {_uniqueStorage()._proto3Optional = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -581,17 +581,7 @@ struct Google_Protobuf_FieldDescriptorProto {
 
   init() {}
 
-  fileprivate var _name: String? = nil
-  fileprivate var _number: Int32? = nil
-  fileprivate var _label: Google_Protobuf_FieldDescriptorProto.Label? = nil
-  fileprivate var _type: Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
-  fileprivate var _typeName: String? = nil
-  fileprivate var _extendee: String? = nil
-  fileprivate var _defaultValue: String? = nil
-  fileprivate var _oneofIndex: Int32? = nil
-  fileprivate var _jsonName: String? = nil
-  fileprivate var _options: Google_Protobuf_FieldOptions? = nil
-  fileprivate var _proto3Optional: Bool? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=4.2)
@@ -2425,82 +2415,136 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
     17: .standard(proto: "proto3_optional"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _number: Int32? = nil
+    var _label: Google_Protobuf_FieldDescriptorProto.Label? = nil
+    var _type: Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
+    var _typeName: String? = nil
+    var _extendee: String? = nil
+    var _defaultValue: String? = nil
+    var _oneofIndex: Int32? = nil
+    var _jsonName: String? = nil
+    var _options: Google_Protobuf_FieldOptions? = nil
+    var _proto3Optional: Bool? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _number = source._number
+      _label = source._label
+      _type = source._type
+      _typeName = source._typeName
+      _extendee = source._extendee
+      _defaultValue = source._defaultValue
+      _oneofIndex = source._oneofIndex
+      _jsonName = source._jsonName
+      _options = source._options
+      _proto3Optional = source._proto3Optional
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public var isInitialized: Bool {
-    if let v = self._options, !v.isInitialized {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._options, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self._name) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self._extendee) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self._number) }()
-      case 4: try { try decoder.decodeSingularEnumField(value: &self._label) }()
-      case 5: try { try decoder.decodeSingularEnumField(value: &self._type) }()
-      case 6: try { try decoder.decodeSingularStringField(value: &self._typeName) }()
-      case 7: try { try decoder.decodeSingularStringField(value: &self._defaultValue) }()
-      case 8: try { try decoder.decodeSingularMessageField(value: &self._options) }()
-      case 9: try { try decoder.decodeSingularInt32Field(value: &self._oneofIndex) }()
-      case 10: try { try decoder.decodeSingularStringField(value: &self._jsonName) }()
-      case 17: try { try decoder.decodeSingularBoolField(value: &self._proto3Optional) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._extendee) }()
+        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._number) }()
+        case 4: try { try decoder.decodeSingularEnumField(value: &_storage._label) }()
+        case 5: try { try decoder.decodeSingularEnumField(value: &_storage._type) }()
+        case 6: try { try decoder.decodeSingularStringField(value: &_storage._typeName) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._defaultValue) }()
+        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._options) }()
+        case 9: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex) }()
+        case 10: try { try decoder.decodeSingularStringField(value: &_storage._jsonName) }()
+        case 17: try { try decoder.decodeSingularBoolField(value: &_storage._proto3Optional) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if let v = self._extendee {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }
-    if let v = self._number {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    }
-    if let v = self._label {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-    }
-    if let v = self._type {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    }
-    if let v = self._typeName {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-    }
-    if let v = self._defaultValue {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-    }
-    if let v = self._options {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-    }
-    if let v = self._oneofIndex {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
-    }
-    if let v = self._jsonName {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 10)
-    }
-    if let v = self._proto3Optional {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._name {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._extendee {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+      if let v = _storage._number {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+      }
+      if let v = _storage._label {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+      }
+      if let v = _storage._type {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      }
+      if let v = _storage._typeName {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 6)
+      }
+      if let v = _storage._defaultValue {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+      }
+      if let v = _storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      }
+      if let v = _storage._oneofIndex {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
+      }
+      if let v = _storage._jsonName {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 10)
+      }
+      if let v = _storage._proto3Optional {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Protobuf_FieldDescriptorProto, rhs: Google_Protobuf_FieldDescriptorProto) -> Bool {
-    if lhs._name != rhs._name {return false}
-    if lhs._number != rhs._number {return false}
-    if lhs._label != rhs._label {return false}
-    if lhs._type != rhs._type {return false}
-    if lhs._typeName != rhs._typeName {return false}
-    if lhs._extendee != rhs._extendee {return false}
-    if lhs._defaultValue != rhs._defaultValue {return false}
-    if lhs._oneofIndex != rhs._oneofIndex {return false}
-    if lhs._jsonName != rhs._jsonName {return false}
-    if lhs._options != rhs._options {return false}
-    if lhs._proto3Optional != rhs._proto3Optional {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._number != rhs_storage._number {return false}
+        if _storage._label != rhs_storage._label {return false}
+        if _storage._type != rhs_storage._type {return false}
+        if _storage._typeName != rhs_storage._typeName {return false}
+        if _storage._extendee != rhs_storage._extendee {return false}
+        if _storage._defaultValue != rhs_storage._defaultValue {return false}
+        if _storage._oneofIndex != rhs_storage._oneofIndex {return false}
+        if _storage._jsonName != rhs_storage._jsonName {return false}
+        if _storage._options != rhs_storage._options {return false}
+        if _storage._proto3Optional != rhs_storage._proto3Optional {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
