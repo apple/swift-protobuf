@@ -85,7 +85,7 @@ fileprivate struct AnalyseResult {
 
   /// The message should use storage.
   static let useStorage =
-    Self(usesStorage: true, costAsField: FieldCost.singleMessageFieldUsingStorage)
+    AnalyseResult(usesStorage: true, costAsField: FieldCost.singleMessageFieldUsingStorage)
 }
 
 /// Cache for the `analyse(descriptor:)` results to avoid doing them multiple
