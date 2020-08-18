@@ -58,7 +58,7 @@ fileprivate enum FieldCost {
     case .bytes:
       return FieldCost.singleBytes
     case .group, .message:
-      return analyse(descriptor: field.messageType!).costAsField
+      return analyze(descriptor: field.messageType!).costAsField
     }
   }
 }
@@ -68,7 +68,7 @@ fileprivate let totalFieldCostRequiringStorage = 17
 
 /// The result of analysis, if the message should use heap storage and the
 /// cost of the message when used as a field in other messages.
-fileprivate struct AnalyseResult {
+fileprivate struct AnalyzeResult {
   let usesStorage: Bool
   let costAsField: Int
 
@@ -85,19 +85,19 @@ fileprivate struct AnalyseResult {
 
   /// The message should use storage.
   static let useStorage =
-    AnalyseResult(usesStorage: true, costAsField: FieldCost.singleMessageFieldUsingStorage)
+    AnalyzeResult(usesStorage: true, costAsField: FieldCost.singleMessageFieldUsingStorage)
 }
 
-/// Cache for the `analyse(descriptor:)` results to avoid doing them multiple
+/// Cache for the `analyze(descriptor:)` results to avoid doing them multiple
 /// times.
-fileprivate var analysisCache: Dictionary<String,AnalyseResult> = [
+fileprivate var analysisCache: Dictionary<String,AnalyzeResult> = [
   // google.protobuf.Any can be seeded.
   ".google.protobuf.Any": .useStorage,
 ]
 
-/// Analyse the given descriptor to decide if it should use storage and what
+/// Analyze the given descriptor to decide if it should use storage and what
 /// the cost of it will be when appearing as a single field in another message.
-fileprivate func analyse(descriptor: Descriptor) -> AnalyseResult {
+fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
   if let analysis = analysisCache[descriptor.fullName] {
     return analysis
   }
@@ -143,7 +143,7 @@ fileprivate func analyse(descriptor: Descriptor) -> AnalyseResult {
     return recursionHelper(descriptor, messageStack: [])
   }
 
-  func helper(_ descriptor: Descriptor) -> AnalyseResult {
+  func helper(_ descriptor: Descriptor) -> AnalyzeResult {
     if containsRecursiveSingularField(descriptor) {
       return .useStorage
     }
@@ -172,7 +172,7 @@ fileprivate func analyse(descriptor: Descriptor) -> AnalyseResult {
     }
     assert(fieldsCost <= totalFieldCostRequiringStorage)
 
-    return AnalyseResult(fieldsCost)
+    return AnalyzeResult(fieldsCost)
   }
 
   let result = helper(descriptor)
@@ -185,6 +185,6 @@ fileprivate func analyse(descriptor: Descriptor) -> AnalyseResult {
 enum MessageStorageDecision {
   /// Compute if a message should use heap based sortage or not.
   static func shouldUseHeapStorage(descriptor: Descriptor) -> Bool {
-    return analyse(descriptor: descriptor).usesStorage
+    return analyze(descriptor: descriptor).usesStorage
   }
 }
