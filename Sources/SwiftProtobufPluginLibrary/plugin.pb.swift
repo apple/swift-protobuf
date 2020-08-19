@@ -322,6 +322,18 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
     /// Clears the value of `content`. Subsequent reads from it will return its default value.
     public mutating func clearContent() {self._content = nil}
 
+    /// Information describing the file content being inserted. If an insertion
+    /// point is used, this information will be appropriately offset and inserted
+    /// into the code generation metadata for the generated files.
+    public var generatedCodeInfo: SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo {
+      get {return _generatedCodeInfo ?? SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo()}
+      set {_generatedCodeInfo = newValue}
+    }
+    /// Returns true if `generatedCodeInfo` has been explicitly set.
+    public var hasGeneratedCodeInfo: Bool {return self._generatedCodeInfo != nil}
+    /// Clears the value of `generatedCodeInfo`. Subsequent reads from it will return its default value.
+    public mutating func clearGeneratedCodeInfo() {self._generatedCodeInfo = nil}
+
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
@@ -329,6 +341,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
     fileprivate var _name: String? = nil
     fileprivate var _insertionPoint: String? = nil
     fileprivate var _content: String? = nil
+    fileprivate var _generatedCodeInfo: SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo? = nil
   }
 
   public init() {}
@@ -511,6 +524,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     1: .same(proto: "name"),
     2: .standard(proto: "insertion_point"),
     15: .same(proto: "content"),
+    16: .standard(proto: "generated_code_info"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -522,6 +536,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
       case 1: try { try decoder.decodeSingularStringField(value: &self._name) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self._insertionPoint) }()
       case 15: try { try decoder.decodeSingularStringField(value: &self._content) }()
+      case 16: try { try decoder.decodeSingularMessageField(value: &self._generatedCodeInfo) }()
       default: break
       }
     }
@@ -537,6 +552,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     if let v = self._content {
       try visitor.visitSingularStringField(value: v, fieldNumber: 15)
     }
+    if let v = self._generatedCodeInfo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -544,6 +562,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     if lhs._name != rhs._name {return false}
     if lhs._insertionPoint != rhs._insertionPoint {return false}
     if lhs._content != rhs._content {return false}
+    if lhs._generatedCodeInfo != rhs._generatedCodeInfo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

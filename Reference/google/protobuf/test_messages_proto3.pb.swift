@@ -661,6 +661,14 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
 
+  var oneofNullValue: SwiftProtobuf.Google_Protobuf_NullValue {
+    get {
+      if case .oneofNullValue(let v)? = _storage._oneofField {return v}
+      return .nullValue
+    }
+    set {_uniqueStorage()._oneofField = .oneofNullValue(newValue)}
+  }
+
   /// Well-known types
   var optionalBoolWrapper: SwiftProtobuf.Google_Protobuf_BoolValue {
     get {return _storage._optionalBoolWrapper ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
@@ -842,6 +850,11 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Clears the value of `optionalValue`. Subsequent reads from it will return its default value.
   mutating func clearOptionalValue() {_uniqueStorage()._optionalValue = nil}
 
+  var optionalNullValue: SwiftProtobuf.Google_Protobuf_NullValue {
+    get {return _storage._optionalNullValue}
+    set {_uniqueStorage()._optionalNullValue = newValue}
+  }
+
   var repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] {
     get {return _storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
@@ -981,6 +994,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     case oneofFloat(Float)
     case oneofDouble(Double)
     case oneofEnum(ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum)
+    case oneofNullValue(SwiftProtobuf.Google_Protobuf_NullValue)
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField, rhs: ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField) -> Bool {
@@ -1022,6 +1036,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
       }()
       case (.oneofEnum, .oneofEnum): return {
         guard case .oneofEnum(let l) = lhs, case .oneofEnum(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofNullValue, .oneofNullValue): return {
+        guard case .oneofNullValue(let l) = lhs, case .oneofNullValue(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -1280,6 +1298,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     117: .standard(proto: "oneof_float"),
     118: .standard(proto: "oneof_double"),
     119: .standard(proto: "oneof_enum"),
+    120: .standard(proto: "oneof_null_value"),
     201: .standard(proto: "optional_bool_wrapper"),
     202: .standard(proto: "optional_int32_wrapper"),
     203: .standard(proto: "optional_int64_wrapper"),
@@ -1304,6 +1323,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     304: .standard(proto: "optional_struct"),
     305: .standard(proto: "optional_any"),
     306: .standard(proto: "optional_value"),
+    307: .standard(proto: "optional_null_value"),
     311: .standard(proto: "repeated_duration"),
     312: .standard(proto: "repeated_timestamp"),
     313: .standard(proto: "repeated_fieldmask"),
@@ -1448,6 +1468,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _optionalStruct: SwiftProtobuf.Google_Protobuf_Struct? = nil
     var _optionalAny: SwiftProtobuf.Google_Protobuf_Any? = nil
     var _optionalValue: SwiftProtobuf.Google_Protobuf_Value? = nil
+    var _optionalNullValue: SwiftProtobuf.Google_Protobuf_NullValue = .nullValue
     var _repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] = []
     var _repeatedTimestamp: [SwiftProtobuf.Google_Protobuf_Timestamp] = []
     var _repeatedFieldmask: [SwiftProtobuf.Google_Protobuf_FieldMask] = []
@@ -1595,6 +1616,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       _optionalStruct = source._optionalStruct
       _optionalAny = source._optionalAny
       _optionalValue = source._optionalValue
+      _optionalNullValue = source._optionalNullValue
       _repeatedDuration = source._repeatedDuration
       _repeatedTimestamp = source._repeatedTimestamp
       _repeatedFieldmask = source._repeatedFieldmask
@@ -1786,6 +1808,12 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {_storage._oneofField = .oneofEnum(v)}
         }()
+        case 120: try {
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: SwiftProtobuf.Google_Protobuf_NullValue?
+          try decoder.decodeSingularEnumField(value: &v)
+          if let v = v {_storage._oneofField = .oneofNullValue(v)}
+        }()
         case 201: try { try decoder.decodeSingularMessageField(value: &_storage._optionalBoolWrapper) }()
         case 202: try { try decoder.decodeSingularMessageField(value: &_storage._optionalInt32Wrapper) }()
         case 203: try { try decoder.decodeSingularMessageField(value: &_storage._optionalInt64Wrapper) }()
@@ -1810,6 +1838,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         case 304: try { try decoder.decodeSingularMessageField(value: &_storage._optionalStruct) }()
         case 305: try { try decoder.decodeSingularMessageField(value: &_storage._optionalAny) }()
         case 306: try { try decoder.decodeSingularMessageField(value: &_storage._optionalValue) }()
+        case 307: try { try decoder.decodeSingularEnumField(value: &_storage._optionalNullValue) }()
         case 311: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDuration) }()
         case 312: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedTimestamp) }()
         case 313: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask) }()
@@ -2156,6 +2185,10 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         guard case .oneofEnum(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
       }()
+      case .oneofNullValue?: try {
+        guard case .oneofNullValue(let v)? = _storage._oneofField else { preconditionFailure() }
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 120)
+      }()
       case nil: break
       }
       if let v = _storage._optionalBoolWrapper {
@@ -2229,6 +2262,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
       }
       if let v = _storage._optionalValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 306)
+      }
+      if _storage._optionalNullValue != .nullValue {
+        try visitor.visitSingularEnumField(value: _storage._optionalNullValue, fieldNumber: 307)
       }
       if !_storage._repeatedDuration.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedDuration, fieldNumber: 311)
@@ -2430,6 +2466,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         if _storage._optionalStruct != rhs_storage._optionalStruct {return false}
         if _storage._optionalAny != rhs_storage._optionalAny {return false}
         if _storage._optionalValue != rhs_storage._optionalValue {return false}
+        if _storage._optionalNullValue != rhs_storage._optionalNullValue {return false}
         if _storage._repeatedDuration != rhs_storage._repeatedDuration {return false}
         if _storage._repeatedTimestamp != rhs_storage._repeatedTimestamp {return false}
         if _storage._repeatedFieldmask != rhs_storage._repeatedFieldmask {return false}

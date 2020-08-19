@@ -751,6 +751,14 @@ struct ProtobufUnittest_TestAllTypesLite {
     set {_uniqueStorage()._oneofField = .oneofLazyNestedMessage(newValue)}
   }
 
+  var oneofNestedMessage2: ProtobufUnittest_TestAllTypesLite.NestedMessage2 {
+    get {
+      if case .oneofNestedMessage2(let v)? = _storage._oneofField {return v}
+      return ProtobufUnittest_TestAllTypesLite.NestedMessage2()
+    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage2(newValue)}
+  }
+
   /// Tests toString for non-repeated fields with a list suffix
   var deceptivelyNamedList: Int32 {
     get {return _storage._deceptivelyNamedList ?? 0}
@@ -770,6 +778,7 @@ struct ProtobufUnittest_TestAllTypesLite {
     case oneofString(String)
     case oneofBytes(Data)
     case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
+    case oneofNestedMessage2(ProtobufUnittest_TestAllTypesLite.NestedMessage2)
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField) -> Bool {
@@ -795,6 +804,10 @@ struct ProtobufUnittest_TestAllTypesLite {
       }()
       case (.oneofLazyNestedMessage, .oneofLazyNestedMessage): return {
         guard case .oneofLazyNestedMessage(let l) = lhs, case .oneofLazyNestedMessage(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.oneofNestedMessage2, .oneofNestedMessage2): return {
+        guard case .oneofNestedMessage2(let l) = lhs, case .oneofNestedMessage2(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -861,6 +874,27 @@ struct ProtobufUnittest_TestAllTypesLite {
 
     fileprivate var _bb: Int32? = nil
     fileprivate var _cc: Int64? = nil
+  }
+
+  struct NestedMessage2 {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var dd: Int32 {
+      get {return _dd ?? 0}
+      set {_dd = newValue}
+    }
+    /// Returns true if `dd` has been explicitly set.
+    var hasDd: Bool {return self._dd != nil}
+    /// Clears the value of `dd`. Subsequent reads from it will return its default value.
+    mutating func clearDd() {self._dd = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _dd: Int32? = nil
   }
 
   struct OptionalGroup {
@@ -3874,6 +3908,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     113: .standard(proto: "oneof_string"),
     114: .standard(proto: "oneof_bytes"),
     115: .standard(proto: "oneof_lazy_nested_message"),
+    117: .standard(proto: "oneof_nested_message2"),
     116: .standard(proto: "deceptively_named_list"),
   ]
 
@@ -4156,6 +4191,15 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
           if let v = v {_storage._oneofField = .oneofLazyNestedMessage(v)}
         }()
         case 116: try { try decoder.decodeSingularInt32Field(value: &_storage._deceptivelyNamedList) }()
+        case 117: try {
+          var v: ProtobufUnittest_TestAllTypesLite.NestedMessage2?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofNestedMessage2(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._oneofField = .oneofNestedMessage2(v)}
+        }()
         default: break
         }
       }
@@ -4401,10 +4445,13 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         guard case .oneofLazyNestedMessage(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
       }()
-      case nil: break
+      default: break
       }
       if let v = _storage._deceptivelyNamedList {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
+      }
+      if case .oneofNestedMessage2(let v)? = _storage._oneofField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 117)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4538,6 +4585,38 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf.Message
   static func ==(lhs: ProtobufUnittest_TestAllTypesLite.NestedMessage, rhs: ProtobufUnittest_TestAllTypesLite.NestedMessage) -> Bool {
     if lhs._bb != rhs._bb {return false}
     if lhs._cc != rhs._cc {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".NestedMessage2"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "dd"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._dd) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._dd {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestAllTypesLite.NestedMessage2, rhs: ProtobufUnittest_TestAllTypesLite.NestedMessage2) -> Bool {
+    if lhs._dd != rhs._dd {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
