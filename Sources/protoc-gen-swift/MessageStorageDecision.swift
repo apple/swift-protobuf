@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/MessageGenerator.swift - Per-message logic
+// Sources/protoc-gen-swift/MessageStorageDecision.swift
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
