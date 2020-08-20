@@ -155,7 +155,10 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    if !options.alwaysPrintEnumsAsInts, let n = value.name {
+    if let e = value as? _CustomJSONCodable {
+      let json = try e.encodedJSONString(options: options)
+      encoder.append(text: json)
+    } else if !options.alwaysPrintEnumsAsInts, let n = value.name {
       encoder.appendQuoted(name: n)
     } else {
       encoder.putEnumInt(value: value.rawValue)

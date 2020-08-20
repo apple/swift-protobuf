@@ -1,2 +1,0 @@
-Recommended.Proto3.JsonInput.NullValueInOtherOneofNewFormat.Validator
-Recommended.Proto3.JsonInput.NullValueInOtherOneofOldFormat.Validator
