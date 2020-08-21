@@ -1,21 +1,29 @@
-name: Build and Test
+name: Run Conformance Tests
+
+# This workflow is a subset of the build.yml. It *only* try to run the
+# conformance checks. It is triggered weekly on a cron to catch when new
+# conformance tests are added and they don't pass.
+#
+# Without this workflow the new tests wouldn't be noticed until a PR was made.
+#
+# This workflow shares the caching logic with build.yml. It should serve to
+# update a subset of the caches for when things do land on trunk. If that
+# is deemed not worth it in the future, this can be simplify.
 
 # NOTE: If making changes to most of the steps, please also look to update
-# regular_conformance.yml also.
+# build.yml also.
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  schedule:
+    # Every Sunday at 5am.
+    - cron: '0 5 * * 0'
 
 jobs:
   build:
     runs-on: ubuntu-18.04
     strategy:
-      fail-fast: false
       matrix:
-        swift: ["5.2.5-bionic", "5.1.5-bionic", "5.0.3-bionic", "4.2.4"]
+        swift: ["5.2.5-bionic"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
@@ -31,13 +39,7 @@ jobs:
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
-      # NOTE: zlib1g-dev is added to fix the Swift 5.0.x builds, when those builds aren't needed
-      # that dep likely can be removed.
-      run: |
-        set -eu
-        apt-get update
-        apt-get install -y autoconf automake libtool curl make g++ unzip jq
-        [ \"${{ matrix.swift }}\" != \"5.0.3-bionic\" ] || apt-get install zlib1g-dev
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
     - name: Get Protobuf Commit SHA
       id: get-sha
       run: |
@@ -51,12 +53,6 @@ jobs:
           echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
           ;;
         esac
-    - name: Build
-      working-directory: main
-      run: make build
-    - name: Test runtime
-      working-directory: main
-      run: make test-runtime
     - name: Cache protobuf
       id: cache-protobuf
       uses: actions/cache@v1
@@ -79,9 +75,6 @@ jobs:
         ./configure
         make -C ./src
         make -C ./conformance
-    - name: Test plugin
-      working-directory: main
-      run: make test-plugin PROTOC=../protobuf/src/protoc
     - name: Test conformance
       working-directory: main
       run: make test-conformance
