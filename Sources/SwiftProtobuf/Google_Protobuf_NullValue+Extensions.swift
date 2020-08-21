@@ -23,7 +23,6 @@ extension Google_Protobuf_NullValue: _CustomJSONCodable {
     }
   }
   static func decodedFromJSONNull() -> Google_Protobuf_NullValue? {
-    print("Decoding Google_Protobuf_NullValue from null")
     return .nullValue
   }
 }
