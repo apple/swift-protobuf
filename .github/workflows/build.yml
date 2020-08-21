@@ -18,15 +18,6 @@ jobs:
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/master"
         protobuf_git: ["ref/heads/master"]
-        include:
-          - swift: "5.2.4-bionic"
-            platform: "ubuntu-18.04"
-          - swift: "5.1.5-bionic"
-            platform: "ubuntu-18.04"
-          - swift: "5.0.3-bionic"
-            platform: "ubuntu-18.04"
-          - swift: "4.2.4"
-            platform: "ubuntu-16.04"
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -65,7 +56,7 @@ jobs:
       with:
         path: protobuf
         # NOTE: for refs that can float like 'master' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.platform}}-protobuf-${{ steps.get-sha.outputs.sha }}
+        key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
       uses: actions/checkout@v2
