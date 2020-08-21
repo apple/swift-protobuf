@@ -200,6 +200,26 @@ class Test_JSON_Conformance: XCTestCase {
         }
     }
 
+    func testNullSupport_repeatedNullValue() throws {
+        let valueNull = "{\"repeatedNullValue\": [0, \"NULL_VALUE\", null]}"
+        let decoded: ProtobufUnittest_SwiftJSONTest
+        do {
+            decoded = try ProtobufUnittest_SwiftJSONTest(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, ProtobufUnittest_SwiftJSONTest())
+            XCTAssertEqual(3, decoded.repeatedNullValue.count)
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+
+        do {
+            let recoded = try decoded.jsonString()
+            XCTAssertEqual(recoded, "{\"repeatedNullValue\":[null,null,null]}")
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+    }
+
     func testNullSupport_Repeated() throws {
         // Nulls within repeated lists are errors
         let json1 = "{\"repeatedBoolWrapper\":[true, null, false]}"

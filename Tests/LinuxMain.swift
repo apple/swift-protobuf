@@ -641,6 +641,7 @@ extension Test_JSON_Conformance {
         ("testNullSupport_oneofNullValue", testNullSupport_oneofNullValue),
         ("testNullSupport_oneofNullValue_alternate", testNullSupport_oneofNullValue_alternate),
         ("testNullSupport_oneofNullValue_numeric", testNullSupport_oneofNullValue_numeric),
+        ("testNullSupport_repeatedNullValue", testNullSupport_repeatedNullValue),
         ("testNullSupport_Repeated", testNullSupport_Repeated),
         ("testNullSupport_RepeatedValue", testNullSupport_RepeatedValue),
         ("testNullConformance", testNullConformance),

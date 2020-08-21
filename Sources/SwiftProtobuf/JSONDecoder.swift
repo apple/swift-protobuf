@@ -502,7 +502,8 @@ internal struct JSONDecoder: Decoder {
       return
     }
     while true {
-      let e: E = try scanner.nextEnumValue()
+      var e = E()
+      try decodeSingularEnumField(value: &e)
       value.append(e)
       if scanner.skipOptionalArrayEnd() {
         return
