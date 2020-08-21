@@ -876,6 +876,26 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testRepeatedEnum() {
+        assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\"]}") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.foo]
+        }
+        assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\",\"BAR\"]}") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.foo, .bar]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":[\"FOO\",0,1,\"BAR\",-1]}") {(o:MessageTestType) in
+            o.repeatedNestedEnum == [.foo, .zero, .foo, .bar, .neg]
+        }
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[null]}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":\"FOO\"}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":0}")
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":null}") {(o:MessageTestType) in
+            o.repeatedNestedEnum == []
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":[]}") {(o:MessageTestType) in
+            o.repeatedNestedEnum == []
+        }
+    }
 
     // TODO: Test other repeated field types
 

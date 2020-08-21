@@ -501,10 +501,19 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let maybeCustomDecodable = E.self as? _CustomJSONCodable.Type
     while true {
-      var e = E()
-      try decodeSingularEnumField(value: &e)
-      value.append(e)
+      if scanner.skipOptionalNull() {
+        if let customDecodable = maybeCustomDecodable {
+          let e = try customDecodable.decodedFromJSONNull() as! E
+          value.append(e)
+        } else {
+          throw JSONDecodingError.illegalNull
+        }
+      } else {
+        let e: E = try scanner.nextEnumValue()
+        value.append(e)
+      }
       if scanner.skipOptionalArrayEnd() {
         return
       }
