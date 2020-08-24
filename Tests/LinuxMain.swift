@@ -582,6 +582,7 @@ extension Test_JSON {
         ("testRepeatedInt32", testRepeatedInt32),
         ("testRepeatedString", testRepeatedString),
         ("testRepeatedNestedMessage", testRepeatedNestedMessage),
+        ("testRepeatedEnum", testRepeatedEnum),
         ("testOneof", testOneof),
         ("testEmptyMessage", testEmptyMessage)
     ]
@@ -637,6 +638,11 @@ extension Test_JSON_Conformance {
         ("testNullSupport_regularTypes", testNullSupport_regularTypes),
         ("testNullSupport_wellKnownTypes", testNullSupport_wellKnownTypes),
         ("testNullSupport_Value", testNullSupport_Value),
+        ("testNullSupport_optionalNullValue", testNullSupport_optionalNullValue),
+        ("testNullSupport_oneofNullValue", testNullSupport_oneofNullValue),
+        ("testNullSupport_oneofNullValue_alternate", testNullSupport_oneofNullValue_alternate),
+        ("testNullSupport_oneofNullValue_numeric", testNullSupport_oneofNullValue_numeric),
+        ("testNullSupport_repeatedNullValue", testNullSupport_repeatedNullValue),
         ("testNullSupport_Repeated", testNullSupport_Repeated),
         ("testNullSupport_RepeatedValue", testNullSupport_RepeatedValue),
         ("testNullConformance", testNullConformance),

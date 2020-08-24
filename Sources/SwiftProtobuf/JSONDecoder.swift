@@ -469,6 +469,10 @@ internal struct JSONDecoder: Decoder {
   mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
+      if let customDecodable = E.self as? _CustomJSONCodable.Type {
+        value = try customDecodable.decodedFromJSONNull() as? E
+        return
+      }
       value = nil
       return
     }
@@ -478,6 +482,10 @@ internal struct JSONDecoder: Decoder {
   mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
+      if let customDecodable = E.self as? _CustomJSONCodable.Type {
+        value = try customDecodable.decodedFromJSONNull() as! E
+        return
+      }
       value = E()
       return
     }
@@ -493,9 +501,19 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let maybeCustomDecodable = E.self as? _CustomJSONCodable.Type
     while true {
-      let e: E = try scanner.nextEnumValue()
-      value.append(e)
+      if scanner.skipOptionalNull() {
+        if let customDecodable = maybeCustomDecodable {
+          let e = try customDecodable.decodedFromJSONNull() as! E
+          value.append(e)
+        } else {
+          throw JSONDecodingError.illegalNull
+        }
+      } else {
+        let e: E = try scanner.nextEnumValue()
+        value.append(e)
+      }
       if scanner.skipOptionalArrayEnd() {
         return
       }

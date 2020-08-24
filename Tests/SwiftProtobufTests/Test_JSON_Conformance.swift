@@ -111,6 +111,115 @@ class Test_JSON_Conformance: XCTestCase {
         }
     }
 
+    func testNullSupport_optionalNullValue() throws {
+        // BUT: NullValue fields treat null as a regular value
+        let valueNull = "{\"optionalNullValue\": null}"
+        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        do {
+            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
+            // Since NullValue is a single-value enum, the decoded
+            // value is already the default...
+            XCTAssertEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+
+        // Recoding doesn't encode the default value...
+        do {
+            let recoded = try decoded.jsonString()
+            XCTAssertEqual(recoded, "{}")
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+
+        do {
+            let protobuf = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [])
+        } catch let e {
+            XCTFail("Protobuf encode failed with error: \(e)")
+        }
+    }
+
+    func testNullSupport_oneofNullValue() throws {
+        // In a oneof, parsing a null value changes the oneof,
+        // so there are observable effects...
+        let valueNull = "{\"oneofNullValue\": null}"
+        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        do {
+            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            XCTAssertNotNil(decoded.oneofNullValue)
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+
+        do {
+            let recoded = try decoded.jsonString()
+            XCTAssertEqual(recoded, "{\"oneofNullValue\":null}")
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+
+        do {
+            let protobuf = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [192, 7, 0])
+        } catch let e {
+            XCTFail("Protobuf encode failed with error: \(e)")
+        }
+    }
+
+    func testNullSupport_oneofNullValue_alternate() throws {
+        // As above, except verify that we decode the enum
+        // value name like any other enum.
+        let valueNull = "{\"oneofNullValue\": \"NULL_VALUE\"}"
+        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        do {
+            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            XCTAssertNotNil(decoded.oneofNullValue)
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+    }
+
+    func testNullSupport_oneofNullValue_numeric() throws {
+        // As above, except verify that we decode the enum
+        // numeric value like any other enum.
+        let valueNull = "{\"oneofNullValue\": 0}"
+        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        do {
+            decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3())
+            XCTAssertNotNil(decoded.oneofNullValue)
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+    }
+
+    func testNullSupport_repeatedNullValue() throws {
+        let valueNull = "{\"repeatedNullValue\": [0, \"NULL_VALUE\", null]}"
+        let decoded: ProtobufUnittest_SwiftJSONTest
+        do {
+            decoded = try ProtobufUnittest_SwiftJSONTest(jsonString: valueNull)
+            XCTAssertNotEqual(decoded, ProtobufUnittest_SwiftJSONTest())
+            XCTAssertEqual(3, decoded.repeatedNullValue.count)
+        } catch let e {
+            XCTFail("Decode failed with error \(e): \(valueNull)")
+            return
+        }
+
+        do {
+            let recoded = try decoded.jsonString()
+            XCTAssertEqual(recoded, "{\"repeatedNullValue\":[null,null,null]}")
+        } catch let e {
+            XCTFail("JSON encode failed with error: \(e)")
+        }
+    }
+
     func testNullSupport_Repeated() throws {
         // Nulls within repeated lists are errors
         let json1 = "{\"repeatedBoolWrapper\":[true, null, false]}"

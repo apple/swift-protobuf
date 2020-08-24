@@ -31,6 +31,7 @@ add_library(SwiftProtobuf
   Google_Protobuf_Duration+Extensions.swift
   Google_Protobuf_FieldMask+Extensions.swift
   Google_Protobuf_ListValue+Extensions.swift
+  Google_Protobuf_NullValue+Extensions.swift
   Google_Protobuf_Struct+Extensions.swift
   Google_Protobuf_Timestamp+Extensions.swift
   Google_Protobuf_Value+Extensions.swift

@@ -123,6 +123,7 @@ TEST_PROTOS= \
 	Protos/unittest_swift_extension4.proto \
 	Protos/unittest_swift_fieldorder.proto \
 	Protos/unittest_swift_groups.proto \
+	Protos/unittest_swift_json.proto \
 	Protos/unittest_swift_naming.proto \
 	Protos/unittest_swift_naming_no_prefix.proto \
 	Protos/unittest_swift_naming_number_prefix.proto \
