@@ -20,6 +20,9 @@ files, you will need to add this library to your project.
 [![Check Upstream Protos](https://github.com/apple/swift-protobuf/workflows/Check%20Upstream%20Proto%20Files/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Check+Upstream+Proto+Files%22)
 [![Run Conformance Tests](https://github.com/apple/swift-protobuf/workflows/Run%20Conformance%20Tests/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Run+Conformance+Tests%22)
 
+[![Swift Package Index: Swift Versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fapple%2Fswift-protobuf%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/apple/swift-protobuf)
+[![Swift Package Index: Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fapple%2Fswift-protobuf%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/apple/swift-protobuf)
+
 # Features of SwiftProtobuf
 
 SwiftProtobuf offers many advantages over alternative serialization
