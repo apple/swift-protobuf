@@ -280,17 +280,23 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    let options = self.options
-    let alwaysPrintEnumsAsInts = options.alwaysPrintEnumsAsInts
-    try _visitRepeated(value: value, fieldNumber: fieldNumber) {
-      (encoder: inout JSONEncoder, v: E) throws in
-      if let e = v as? _CustomJSONCodable {
+    if let _ = E.self as? _CustomJSONCodable.Type {
+      let options = self.options
+      try _visitRepeated(value: value, fieldNumber: fieldNumber) {
+        (encoder: inout JSONEncoder, v: E) throws in
+        let e = v as! _CustomJSONCodable
         let json = try e.encodedJSONString(options: options)
         encoder.append(text: json)
-      } else if !alwaysPrintEnumsAsInts, let n = v.name {
-        encoder.appendQuoted(name: n)
-      } else {
-        encoder.putEnumInt(value: v.rawValue)
+      }
+    } else {
+      let alwaysPrintEnumsAsInts = options.alwaysPrintEnumsAsInts
+      try _visitRepeated(value: value, fieldNumber: fieldNumber) {
+        (encoder: inout JSONEncoder, v: E) throws in
+        if !alwaysPrintEnumsAsInts, let n = v.name {
+          encoder.appendQuoted(name: n)
+        } else {
+          encoder.putEnumInt(value: v.rawValue)
+        }
       }
     }
   }
