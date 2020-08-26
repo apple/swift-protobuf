@@ -32,6 +32,14 @@ protocol ProtobufWrapper {
   init(_ value: WrappedType.BaseType)
 }
 
+extension ProtobufWrapper {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+    var v: WrappedType.BaseType?
+    try WrappedType.decodeSingular(value: &v, from: &decoder)
+    value = v ?? WrappedType.proto3DefaultValue
+  }
+}
+
 extension Google_Protobuf_DoubleValue:
   ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable {
 
@@ -48,15 +56,16 @@ extension Google_Protobuf_DoubleValue:
   }
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var encoder = JSONEncoder()
-    encoder.putDoubleValue(value: value)
-    return encoder.stringResult
-  }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
+    if value.isFinite {
+      // Swift 4.2 and later guarantees that this is accurate
+      // enough to parse back to the exact value on the other end.
+      return value.description
+    } else {
+      // Protobuf-specific handling of NaN and infinities
+      var encoder = JSONEncoder()
+      encoder.putDoubleValue(value: value)
+      return encoder.stringResult
+    }
   }
 }
 
@@ -76,15 +85,16 @@ extension Google_Protobuf_FloatValue:
   }
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var encoder = JSONEncoder()
-    encoder.putFloatValue(value: value)
-    return encoder.stringResult
-  }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
+    if value.isFinite {
+      // Swift 4.2 and later guarantees that this is accurate
+      // enough to parse back to the exact value on the other end.
+      return value.description
+    } else {
+      // Protobuf-specific handling of NaN and infinities
+      var encoder = JSONEncoder()
+      encoder.putFloatValue(value: value)
+      return encoder.stringResult
+    }
   }
 }
 
@@ -104,15 +114,7 @@ extension Google_Protobuf_Int64Value:
   }
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var encoder = JSONEncoder()
-    encoder.putInt64(value: value)
-    return encoder.stringResult
-  }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
+    return "\"" + String(value) + "\""
   }
 }
 
@@ -132,15 +134,7 @@ extension Google_Protobuf_UInt64Value:
   }
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var encoder = JSONEncoder()
-    encoder.putUInt64(value: value)
-    return encoder.stringResult
-  }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
+    return "\"" + String(value) + "\""
   }
 }
 
@@ -162,12 +156,6 @@ extension Google_Protobuf_Int32Value:
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return String(value)
   }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
-  }
 }
 
 extension Google_Protobuf_UInt32Value:
@@ -188,12 +176,6 @@ extension Google_Protobuf_UInt32Value:
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return String(value)
   }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
-  }
 }
 
 extension Google_Protobuf_BoolValue:
@@ -213,12 +195,6 @@ extension Google_Protobuf_BoolValue:
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return value ? "true" : "false"
-  }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
   }
 }
 
@@ -252,12 +228,6 @@ extension Google_Protobuf_StringValue:
     encoder.putStringValue(value: value)
     return encoder.stringResult
   }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
-  }
 }
 
 extension Google_Protobuf_BytesValue: ProtobufWrapper, _CustomJSONCodable {
@@ -273,11 +243,5 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper, _CustomJSONCodable {
     var encoder = JSONEncoder()
     encoder.putBytesValue(value: value)
     return encoder.stringResult
-  }
-
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
   }
 }
