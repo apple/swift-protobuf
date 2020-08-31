@@ -193,16 +193,9 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 
   let dateString = "\(fourDigit(YY))-\(twoDigit(MM))-\(twoDigit(DD))"
   let timeString = "\(twoDigit(hh)):\(twoDigit(mm)):\(twoDigit(ss))"
+  let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
 
-  if nanos == 0 {
-    return "\(dateString)T\(timeString)Z"
-  } else if nanos % 1000000 == 0 {
-    return "\(dateString)T\(timeString).\(threeDigit(nanos / 1000000))Z"
-  } else if nanos % 1000 == 0 {
-    return "\(dateString)T\(timeString).\(sixDigit(nanos / 1000))Z"
-  } else {
-    return "\(dateString)T\(timeString).\(nineDigit(nanos))Z"
-  }
+  return "\(dateString)T\(timeString)\(nanosString)Z"
 }
 
 extension Google_Protobuf_Timestamp {
