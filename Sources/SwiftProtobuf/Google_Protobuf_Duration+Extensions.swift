@@ -94,6 +94,16 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
   throw JSONDecodingError.malformedDuration
 }
 
+private func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
+  let s = String(value)
+  if s.count >= digits {
+    return s
+  } else {
+    let pad = String(repeating: "0", count: digits - s.count)
+    return pad + s
+  }
+}
+
 private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
   let (seconds, nanos) = normalizeForDuration(seconds: seconds, nanos: nanos)
   guard seconds >= minDurationSeconds && seconds <= maxDurationSeconds else {
@@ -101,13 +111,13 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
   }
 
   if nanos == 0 {
-    return String(format: "%llds", seconds)
+    return String(seconds) + "s"
   } else if nanos % 1000000 == 0 {
-    return String(format: "%lld.%03ds", seconds, abs(nanos) / 1000000)
+    return "\(seconds).\(formatZeroPaddedInt(abs(nanos) / 1000000, digits: 3))s"
   } else if nanos % 1000 == 0 {
-    return String(format: "%lld.%06ds", seconds, abs(nanos) / 1000)
+    return "\(seconds).\(formatZeroPaddedInt(abs(nanos) / 1000, digits: 6))s"
   } else {
-    return String(format: "%lld.%09ds", seconds, abs(nanos))
+    return "\(seconds).\(formatZeroPaddedInt(abs(nanos), digits: 9))s"
   }
 }
 
