@@ -30,6 +30,7 @@ import Foundation
 // universally available.
 
 fileprivate func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
+  precondition(value >= 0)
   let s = String(value)
   if s.count >= digits {
     return s
