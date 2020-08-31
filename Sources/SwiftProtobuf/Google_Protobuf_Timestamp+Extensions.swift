@@ -182,37 +182,6 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
   return (seconds, nanos)
 }
 
-private func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
-  let s = String(value)
-  if s.count >= digits {
-    return s
-  } else {
-    let pad = String(repeating: "0", count: digits - s.count)
-    return pad + s
-  }
-}
-
-private func twoDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 2)
-}
-
-private func threeDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 3)
-}
-
-private func fourDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 4)
-}
-
-private func sixDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 6)
-}
-
-private func nineDigit(_ value: Int32) -> String {
-  return formatZeroPaddedInt(value, digits: 9)
-}
-
-
 private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
   let (seconds, nanos) = normalizeForTimestamp(seconds: seconds, nanos: nanos)
   guard seconds >= minTimestampSeconds && seconds <= maxTimestampSeconds else {
