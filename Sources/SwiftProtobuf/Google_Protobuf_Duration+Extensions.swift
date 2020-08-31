@@ -99,16 +99,8 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
   guard seconds >= minDurationSeconds && seconds <= maxDurationSeconds else {
     return nil
   }
-
-  if nanos == 0 {
-    return String(format: "%llds", seconds)
-  } else if nanos % 1000000 == 0 {
-    return String(format: "%lld.%03ds", seconds, abs(nanos) / 1000000)
-  } else if nanos % 1000 == 0 {
-    return String(format: "%lld.%06ds", seconds, abs(nanos) / 1000)
-  } else {
-    return String(format: "%lld.%09ds", seconds, abs(nanos))
-  }
+  let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
+  return "\(seconds)\(nanosString)s"
 }
 
 extension Google_Protobuf_Duration {

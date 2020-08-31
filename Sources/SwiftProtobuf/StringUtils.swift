@@ -20,6 +20,42 @@
 
 import Foundation
 
+/*
+  Note: Once our minimum support version is at least Swift 5.3, we
+  should probably recast the following to use
+  String(unsafeUninitializedCapacity:)
+*/
+
+// Note: We're trying to avoid Foundation's String(format:) since that's not
+// universally available.
+
+fileprivate func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
+  precondition(value >= 0)
+  let s = String(value)
+  if s.count >= digits {
+    return s
+  } else {
+    let pad = String(repeating: "0", count: digits - s.count)
+    return pad + s
+  }
+}
+
+internal func twoDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 2)
+}
+internal func threeDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 3)
+}
+internal func fourDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 4)
+}
+internal func sixDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 6)
+}
+internal func nineDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 9)
+}
+
 // Wrapper that takes a buffer and start/end offsets
 internal func utf8ToString(
   bytes: UnsafeRawBufferPointer,

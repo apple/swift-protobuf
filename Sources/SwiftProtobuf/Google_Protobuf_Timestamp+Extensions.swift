@@ -191,19 +191,11 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
   let (hh, mm, ss) = timeOfDayFromSecondsSince1970(seconds: seconds)
   let (YY, MM, DD) = gregorianDateFromSecondsSince1970(seconds: seconds)
 
-  if nanos == 0 {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02dZ",
-                  YY, MM, DD, hh, mm, ss)
-  } else if nanos % 1000000 == 0 {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ",
-                  YY, MM, DD, hh, mm, ss, nanos / 1000000)
-  } else if nanos % 1000 == 0 {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%06dZ",
-                  YY, MM, DD, hh, mm, ss, nanos / 1000)
-  } else {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%09dZ",
-                  YY, MM, DD, hh, mm, ss, nanos)
-  }
+  let dateString = "\(fourDigit(YY))-\(twoDigit(MM))-\(twoDigit(DD))"
+  let timeString = "\(twoDigit(hh)):\(twoDigit(mm)):\(twoDigit(ss))"
+  let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
+
+  return "\(dateString)T\(timeString)\(nanosString)Z"
 }
 
 extension Google_Protobuf_Timestamp {
