@@ -232,7 +232,7 @@ Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project
 
 # Quick Start
 
-Once you have installed the code generator, used it to
+Once you have installed the code generator, use it to
 generate Swift code from your `.proto` file, and
 added the SwiftProtobuf library to your project, you can
 just use the generated types as you would any other Swift
