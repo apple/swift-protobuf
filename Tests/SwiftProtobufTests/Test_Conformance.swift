@@ -99,4 +99,16 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
             return $0.optionalString == "\u{1F601}"
         }
     }
+
+    func testMaps_TextFormatKeysSorted() {
+        assertTextFormatEncode("map_string_string {\n  key: \"a\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"b\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"c\"\n  value: \"value\"\n}\n") {(o: inout MessageTestType) in
+            o.mapStringString = ["c":"value", "b":"value", "a":"value"]
+        }
+        assertTextFormatEncode("map_int32_int32 {\n  key: 1\n  value: 0\n}\nmap_int32_int32 {\n  key: 2\n  value: 0\n}\nmap_int32_int32 {\n  key: 3\n  value: 0\n}\n") {(o: inout MessageTestType) in
+            o.mapInt32Int32 = [3:0, 2:0, 1:0]
+        }
+        assertTextFormatEncode("map_bool_bool {\n  key: false\n  value: false\n}\nmap_bool_bool {\n  key: true\n  value: false\n}\n") {(o: inout MessageTestType) in
+            o.mapBoolBool = [true: false, false: false]
+        }
+    }
 }
