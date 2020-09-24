@@ -611,9 +611,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
   private mutating func _visitMap<K, V>(
     map: Dictionary<K, V>,
     fieldNumber: Int,
+    isOrderedBefore: (K, K) -> Bool,
     coder: (inout TextFormatEncodingVisitor, K, V) throws -> ()
   ) throws {
-      for (k,v) in map {
+      for (k,v) in map.sorted(by: { isOrderedBefore( $0.0, $1.0) }) {
           emitFieldName(lookingUp: fieldNumber)
           encoder.startMessageField()
           var visitor = TextFormatEncodingVisitor(nameMap: nil, nameResolver: mapNameResolver, extensions: nil, encoder: encoder, options: options)
@@ -628,7 +629,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-      try _visitMap(map: value, fieldNumber: fieldNumber) {
+      try _visitMap(map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan) {
           (visitor: inout TextFormatEncodingVisitor, key, value) throws -> () in
           try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
           try ValueType.visitSingular(value: value, fieldNumber: 2, with: &visitor)
@@ -640,7 +641,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where ValueType.RawValue == Int {
-      try _visitMap(map: value, fieldNumber: fieldNumber) {
+      try _visitMap(map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan) {
           (visitor: inout TextFormatEncodingVisitor, key, value) throws -> () in
           try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
           try visitor.visitSingularEnumField(value: value, fieldNumber: 2)
@@ -652,7 +653,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-      try _visitMap(map: value, fieldNumber: fieldNumber) {
+      try _visitMap(map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan) {
           (visitor: inout TextFormatEncodingVisitor, key, value) throws -> () in
           try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
           try visitor.visitSingularMessageField(value: value, fieldNumber: 2)
