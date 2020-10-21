@@ -2161,6 +2161,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3462455D26900EB0A70 /* SwiftProtobuf_iOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Debug;
 		};
@@ -2168,6 +2169,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3462455D26900EB0A70 /* SwiftProtobuf_iOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Release;
 		};
@@ -2175,6 +2177,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3492455D26900EB0A70 /* SwiftProtobuf_tvOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Debug;
 		};
@@ -2182,6 +2185,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3492455D26900EB0A70 /* SwiftProtobuf_tvOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Release;
 		};
@@ -2203,6 +2207,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3452455D26900EB0A70 /* SwiftProtobuf_watchOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Debug;
 		};
@@ -2210,6 +2215,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3452455D26900EB0A70 /* SwiftProtobuf_watchOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Release;
 		};
@@ -2217,6 +2223,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3482455D26900EB0A70 /* SwiftProtobuf_macOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Release;
 		};
@@ -2231,6 +2238,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E3482455D26900EB0A70 /* SwiftProtobuf_macOS.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Debug;
 		};
@@ -2245,6 +2253,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E34D2455D71400EB0A70 /* Base_Release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Release;
 		};
@@ -2252,6 +2261,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A82E34C2455D71400EB0A70 /* Base_Debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 			};
 			name = Debug;
 		};
