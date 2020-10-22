@@ -493,6 +493,7 @@ message GeneratedSwiftReservedMessages {
   message leadingComments { int32 leadingComments = 1; }
   message leadingDetachedComments { int32 leadingDetachedComments = 1; }
   message length { int32 length = 1; }
+  message lessThan { int32 lessThan = 1; }
   message let { int32 let = 1; }
   message lhs { int32 lhs = 1; }
   message list { int32 list = 1; }

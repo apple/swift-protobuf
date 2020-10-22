@@ -12256,6 +12256,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum lessThan: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneLessThan // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneLessThan
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneLessThan
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneLessThan: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum letEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneLet // = 0
@@ -24909,6 +24934,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.length: CaseIter
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lessThan: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lessThan] = [
+    .noneLessThan,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.letEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.letEnum] = [
@@ -30448,6 +30480,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.leadingDetachedC
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.length: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_length"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lessThan: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_lessThan"),
   ]
 }
 
