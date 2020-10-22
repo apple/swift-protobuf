@@ -424,7 +424,8 @@ extension Test_Conformance {
         ("testInt32_toosmall", testInt32_toosmall),
         ("testRepeatedBoolWrapper", testRepeatedBoolWrapper),
         ("testString_badUnicodeEscape", testString_badUnicodeEscape),
-        ("testString_surrogates", testString_surrogates)
+        ("testString_surrogates", testString_surrogates),
+        ("testMaps_TextFormatKeysSorted", testMaps_TextFormatKeysSorted)
     ]
 }
 
