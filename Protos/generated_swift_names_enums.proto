@@ -493,6 +493,7 @@ message GeneratedSwiftReservedEnums {
   enum leadingComments { NONE_leadingComments = 0; }
   enum leadingDetachedComments { NONE_leadingDetachedComments = 0; }
   enum length { NONE_length = 0; }
+  enum lessThan { NONE_lessThan = 0; }
   enum let { NONE_let = 0; }
   enum lhs { NONE_lhs = 0; }
   enum list { NONE_list = 0; }
