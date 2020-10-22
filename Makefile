@@ -580,27 +580,21 @@ test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release test-xcode-t
 
 # The individual ones
 
-# 4s - 32bit, 6s - 64bit
 test-xcode-iOS-debug:
-	# 9+ seems to not like concurrent testing with the iPhone 4s simulator.
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_iOS \
 		-configuration Debug \
 		-destination "platform=iOS Simulator,name=iPhone 8,OS=latest" \
-		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
 		-disable-concurrent-destination-testing \
 		test $(XCODEBUILD_EXTRAS)
 
-# 4s - 32bit, 6s - 64bit
 # Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
 # to ensure the main library gets testing support.
 test-xcode-iOS-release:
-	# 9+ seems to not like concurrent testing with the iPhone 4s simulator.
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_iOS \
 		-configuration Release \
 		-destination "platform=iOS Simulator,name=iPhone 8,OS=latest" \
-		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
 		-disable-concurrent-destination-testing \
 		test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
 
