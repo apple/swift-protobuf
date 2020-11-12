@@ -1171,3 +1171,28 @@ message ValidIdentifiers {
   }
   optional TestEnum enum_field = 6;
 }
+
+// For issue #1084 - If the generated code compiles, things are good.
+//
+// This gets special handling because of the generated setter.
+message SpecialNames1 {
+    oneof new_value {
+      string str = 1;
+    }
+}
+// No special handling needed in the generator.
+message SpecialNames2 {
+    optional string new_value = 1;
+}
+// No special handling needed in the generator.
+message SpecialNames3 {
+    oneof new_value {
+      string str = 1;
+    }
+    optional SpecialNames3 forces_storage = 2;
+}
+// No special handling needed in the generator.
+message SpecialNames4 {
+    optional string new_value = 1;
+    optional SpecialNames4 forces_storage = 2;
+}
