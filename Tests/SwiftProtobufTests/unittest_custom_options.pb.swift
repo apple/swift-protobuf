@@ -632,6 +632,16 @@ struct ProtobufUnittest_Aggregate {
   /// Clears the value of `mset`. Subsequent reads from it will return its default value.
   mutating func clearMset() {_uniqueStorage()._mset = nil}
 
+  /// An any
+  var any: SwiftProtobuf.Google_Protobuf_Any {
+    get {return _storage._any ?? SwiftProtobuf.Google_Protobuf_Any()}
+    set {_uniqueStorage()._any = newValue}
+  }
+  /// Returns true if `any` has been explicitly set.
+  var hasAny: Bool {return _storage._any != nil}
+  /// Clears the value of `any`. Subsequent reads from it will return its default value.
+  mutating func clearAny() {_uniqueStorage()._any = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -2506,6 +2516,7 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Mess
     3: .same(proto: "sub"),
     4: .same(proto: "file"),
     5: .same(proto: "mset"),
+    6: .same(proto: "any"),
   ]
 
   fileprivate class _StorageClass {
@@ -2514,6 +2525,7 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Mess
     var _sub: ProtobufUnittest_Aggregate? = nil
     var _file: SwiftProtobuf.Google_Protobuf_FileOptions? = nil
     var _mset: ProtobufUnittest_AggregateMessageSet? = nil
+    var _any: SwiftProtobuf.Google_Protobuf_Any? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -2525,6 +2537,7 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Mess
       _sub = source._sub
       _file = source._file
       _mset = source._mset
+      _any = source._any
     }
   }
 
@@ -2557,6 +2570,7 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Mess
         case 3: try { try decoder.decodeSingularMessageField(value: &_storage._sub) }()
         case 4: try { try decoder.decodeSingularMessageField(value: &_storage._file) }()
         case 5: try { try decoder.decodeSingularMessageField(value: &_storage._mset) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._any) }()
         default: break
         }
       }
@@ -2580,6 +2594,9 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if let v = _storage._mset {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
+      if let v = _storage._any {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2594,6 +2611,7 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Mess
         if _storage._sub != rhs_storage._sub {return false}
         if _storage._file != rhs_storage._file {return false}
         if _storage._mset != rhs_storage._mset {return false}
+        if _storage._any != rhs_storage._any {return false}
         return true
       }
       if !storagesAreEqual {return false}
