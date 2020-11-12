@@ -13707,6 +13707,153 @@ extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+/// For issue #1084 - If the generated code compiles, things are good.
+///
+/// This gets special handling because of the generated setter.
+struct SwiftUnittest_Names_SpecialNames1 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var newValue: SwiftUnittest_Names_SpecialNames1.OneOf_NewValue? = nil
+
+  var str: String {
+    get {
+      if case .str(let v)? = newValue {return v}
+      return String()
+    }
+    set {self.newValue = .str(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_NewValue: Equatable {
+    case str(String)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: SwiftUnittest_Names_SpecialNames1.OneOf_NewValue, rhs: SwiftUnittest_Names_SpecialNames1.OneOf_NewValue) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch (lhs, rhs) {
+      case (.str, .str): return {
+        guard case .str(let l) = lhs, case .str(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      }
+    }
+  #endif
+  }
+
+  init() {}
+}
+
+/// No special handling needed in the generator.
+struct SwiftUnittest_Names_SpecialNames2 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var newValue: String {
+    get {return _newValue ?? String()}
+    set {_newValue = newValue}
+  }
+  /// Returns true if `newValue` has been explicitly set.
+  var hasNewValue: Bool {return self._newValue != nil}
+  /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
+  mutating func clearNewValue() {self._newValue = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _newValue: String? = nil
+}
+
+/// No special handling needed in the generator.
+struct SwiftUnittest_Names_SpecialNames3 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var newValue: OneOf_NewValue? {
+    get {return _storage._newValue}
+    set {_uniqueStorage()._newValue = newValue}
+  }
+
+  var str: String {
+    get {
+      if case .str(let v)? = _storage._newValue {return v}
+      return String()
+    }
+    set {_uniqueStorage()._newValue = .str(newValue)}
+  }
+
+  var forcesStorage: SwiftUnittest_Names_SpecialNames3 {
+    get {return _storage._forcesStorage ?? SwiftUnittest_Names_SpecialNames3()}
+    set {_uniqueStorage()._forcesStorage = newValue}
+  }
+  /// Returns true if `forcesStorage` has been explicitly set.
+  var hasForcesStorage: Bool {return _storage._forcesStorage != nil}
+  /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
+  mutating func clearForcesStorage() {_uniqueStorage()._forcesStorage = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_NewValue: Equatable {
+    case str(String)
+
+  #if !swift(>=4.1)
+    static func ==(lhs: SwiftUnittest_Names_SpecialNames3.OneOf_NewValue, rhs: SwiftUnittest_Names_SpecialNames3.OneOf_NewValue) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch (lhs, rhs) {
+      case (.str, .str): return {
+        guard case .str(let l) = lhs, case .str(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      }
+    }
+  #endif
+  }
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+/// No special handling needed in the generator.
+struct SwiftUnittest_Names_SpecialNames4 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var newValue: String {
+    get {return _storage._newValue ?? String()}
+    set {_uniqueStorage()._newValue = newValue}
+  }
+  /// Returns true if `newValue` has been explicitly set.
+  var hasNewValue: Bool {return _storage._newValue != nil}
+  /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
+  mutating func clearNewValue() {_uniqueStorage()._newValue = nil}
+
+  var forcesStorage: SwiftUnittest_Names_SpecialNames4 {
+    get {return _storage._forcesStorage ?? SwiftUnittest_Names_SpecialNames4()}
+    set {_uniqueStorage()._forcesStorage = newValue}
+  }
+  /// Returns true if `forcesStorage` has been explicitly set.
+  var hasForcesStorage: Bool {return _storage._forcesStorage != nil}
+  /// Clears the value of `forcesStorage`. Subsequent reads from it will return its default value.
+  mutating func clearForcesStorage() {_uniqueStorage()._forcesStorage = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Extension support defined in unittest_swift_naming.proto.
 
 // MARK: - Extension Properties
@@ -26862,4 +27009,222 @@ extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNam
     2: .same(proto: "_2"),
     3: .same(proto: "_3_VALUE"),
   ]
+}
+
+extension SwiftUnittest_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SpecialNames1"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "str"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try {
+        if self.newValue != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.newValue = .str(v)}
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if case .str(let v)? = self.newValue {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftUnittest_Names_SpecialNames1, rhs: SwiftUnittest_Names_SpecialNames1) -> Bool {
+    if lhs.newValue != rhs.newValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_SpecialNames2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SpecialNames2"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "new_value"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._newValue) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._newValue {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftUnittest_Names_SpecialNames2, rhs: SwiftUnittest_Names_SpecialNames2) -> Bool {
+    if lhs._newValue != rhs._newValue {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SpecialNames3"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "str"),
+    2: .standard(proto: "forces_storage"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _newValue: SwiftUnittest_Names_SpecialNames3.OneOf_NewValue?
+    var _forcesStorage: SwiftUnittest_Names_SpecialNames3? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _newValue = source._newValue
+      _forcesStorage = source._forcesStorage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try {
+          if _storage._newValue != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._newValue = .str(v)}
+        }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._forcesStorage) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if case .str(let v)? = _storage._newValue {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._forcesStorage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftUnittest_Names_SpecialNames3, rhs: SwiftUnittest_Names_SpecialNames3) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._newValue != rhs_storage._newValue {return false}
+        if _storage._forcesStorage != rhs_storage._forcesStorage {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_SpecialNames4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SpecialNames4"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "new_value"),
+    2: .standard(proto: "forces_storage"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _newValue: String? = nil
+    var _forcesStorage: SwiftUnittest_Names_SpecialNames4? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _newValue = source._newValue
+      _forcesStorage = source._forcesStorage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._newValue) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._forcesStorage) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._newValue {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._forcesStorage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SwiftUnittest_Names_SpecialNames4, rhs: SwiftUnittest_Names_SpecialNames4) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._newValue != rhs_storage._newValue {return false}
+        if _storage._forcesStorage != rhs_storage._forcesStorage {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
