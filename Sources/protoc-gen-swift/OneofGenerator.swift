@@ -318,7 +318,10 @@ class OneofGenerator {
         }
 
         let getter = usesHeapStorage ? "_storage.\(underscoreSwiftFieldName)" : swiftFieldName
-        let setter = usesHeapStorage ? "_uniqueStorage().\(underscoreSwiftFieldName)" : swiftFieldName
+        // Within `set` below, if the oneof name was "newValue" then it has to
+        // be qualified with `self.` to avoid the collision with the setter
+        // parameter.
+        let setter = usesHeapStorage ? "_uniqueStorage().\(underscoreSwiftFieldName)" : (swiftFieldName == "newValue" ? "self.newValue" : swiftFieldName)
 
         let visibility = generatorOptions.visibilitySourceSnippet
 
