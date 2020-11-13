@@ -350,6 +350,9 @@ internal struct TextFormatScanner {
           return count
         }
         switch byte {
+        case asciiNewLine, asciiCarriageReturn:
+          // Can't have a newline in the middle of a bytes string.
+          throw TextFormatDecodingError.malformedText
         case asciiBackslash: //  "\\"
           sawBackslash = true
           if p != end {
@@ -575,6 +578,10 @@ internal struct TextFormatScanner {
                 }
                 sawBackslash = true
                 p += 1
+            }
+            if c == asciiNewLine || c == asciiCarriageReturn {
+                // Can't have a newline in the middle of a raw string.
+                return nil
             }
         }
         return nil // Unterminated quoted string

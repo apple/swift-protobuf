@@ -1,2 +1,1 @@
-Required.Proto3.TextFormatInput.StringLiteralIncludesLFBytes
-Required.Proto3.TextFormatInput.StringLiteralIncludesLFString
+# No known failures

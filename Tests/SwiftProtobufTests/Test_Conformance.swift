@@ -187,6 +187,13 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("optional_bytes: \"\\U0000D83D\\uDE01\"")
     }
 
+    func test_LiteralIncludeLF() {
+        assertTextFormatDecodeFails("optional_string: 'first line\nsecond line'")
+        assertTextFormatDecodeFails("optional_string: 'first line\rsecond line'")
+        assertTextFormatDecodeFails("optional_bytes: 'first line\nsecond line'")
+        assertTextFormatDecodeFails("optional_bytes: 'first line\rsecond line'")
+    }
+
     func testMaps_TextFormatKeysSorted() {
         assertTextFormatEncode("map_string_string {\n  key: \"a\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"b\"\n  value: \"value\"\n}\nmap_string_string {\n  key: \"c\"\n  value: \"value\"\n}\n") {(o: inout MessageTestType) in
             o.mapStringString = ["c":"value", "b":"value", "a":"value"]
