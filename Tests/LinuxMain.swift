@@ -427,6 +427,7 @@ extension Test_Conformance {
         ("testString_surrogates", testString_surrogates),
         ("testBytes_unicodeEscape", testBytes_unicodeEscape),
         ("testBytes_surrogates", testBytes_surrogates),
+        ("test_LiteralIncludeLF", test_LiteralIncludeLF),
         ("testMaps_TextFormatKeysSorted", testMaps_TextFormatKeysSorted)
     ]
 }
