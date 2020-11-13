@@ -61,6 +61,7 @@ private let asciiLowerS = UInt8(ascii: "s")
 private let asciiLowerT = UInt8(ascii: "t")
 private let asciiUpperT = UInt8(ascii: "T")
 private let asciiLowerU = UInt8(ascii: "u")
+private let asciiUpperU = UInt8(ascii: "U")
 private let asciiLowerV = UInt8(ascii: "v")
 private let asciiLowerX = UInt8(ascii: "x")
 private let asciiLowerY = UInt8(ascii: "y")
@@ -78,6 +79,13 @@ private func fromHexDigit(_ c: UInt8) -> UInt8? {
       return c - asciiLowerA + UInt8(10)
   }
   return nil
+}
+
+private func uint32FromHexDigit(_ c: UInt8) -> UInt32? {
+  guard let u8 = fromHexDigit(c) else {
+    return nil
+  }
+  return UInt32(u8)
 }
 
 // Protobuf Text encoding assumes that you're working directly
@@ -115,6 +123,58 @@ private func decodeString(_ s: String) -> String? {
             let n = digit1Value
             out.append(n)
             bytes = savedPosition
+          }
+        case asciiLowerU, asciiUpperU: // "u"
+          // \u - 4 hex digits, \U 8 hex digits:
+          if let digit1 = bytes.next(),
+              let d1 = uint32FromHexDigit(digit1),
+              let digit2 = bytes.next(),
+              let d2 = uint32FromHexDigit(digit2),
+              let digit3 = bytes.next(),
+              let d3 = uint32FromHexDigit(digit3),
+              let digit4 = bytes.next(),
+              let d4 = uint32FromHexDigit(digit4) {
+            var codePoint = (d1 << 12) + (d2 << 8) + (d3 << 4) + d4
+            if escaped == asciiUpperU {
+              if let digit5 = bytes.next(),
+                  let d5 = uint32FromHexDigit(digit5),
+                  let digit6 = bytes.next(),
+                  let d6 = uint32FromHexDigit(digit6),
+                  let digit7 = bytes.next(),
+                  let d7 = uint32FromHexDigit(digit7),
+                  let digit8 = bytes.next(),
+                  let d8 = uint32FromHexDigit(digit8) {
+                codePoint = (codePoint << 16) + (d5 << 12) + (d6 << 8) + (d7 << 4) + d8
+              } else {
+                // Malformed \U escape
+                return nil
+              }
+            }
+            switch codePoint {
+            case 0...0x7f:
+              // 1 byte encoding
+              out.append(UInt8(truncatingIfNeeded: codePoint))
+            case 0x80...0x7ff:
+              // 2 byte encoding
+              out.append(0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6))
+              out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+            case 0x800...0xffff:
+              // 3 byte encoding
+              out.append(0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12))
+              out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
+              out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+            case 0x10000...0x10FFFF:
+              // 4 byte encoding
+              out.append(0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18))
+              out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F))
+              out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
+              out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+            default:
+              return nil
+            }
+          } else {
+            // Malformed \u,\U escape
+            return nil
           }
         case asciiLowerX: // "x"
           // Unlike C/C++, protobuf only allows 1 or 2 digits here:
@@ -315,6 +375,39 @@ internal struct TextFormatScanner {
                   }
                 }
                 count += 1
+              case asciiLowerU, asciiUpperU: // 'u' or 'U' unicode escape
+                let numDigits = (escaped == asciiLowerU) ? 4 : 8
+                var codePoint: UInt32 = 0
+                for i in 0..<numDigits {
+                  guard p != end else {
+                    throw TextFormatDecodingError.malformedText // unicode escape must 4/8 digits
+                  }
+                  if let digit = uint32FromHexDigit(p[i]) {
+                    codePoint = (codePoint << 4) + digit
+                  } else {
+                    throw TextFormatDecodingError.malformedText // wasn't a hex digit
+                  }
+                }
+                p += numDigits
+                switch codePoint {
+                case 0...0x7f:
+                  // 1 byte encoding
+                  count += 1
+                case 0x80...0x7ff:
+                  // 2 byte encoding
+                  count += 2
+                case 0xD800...0xDFFF:
+                  // Surrogate pair (low or high), shouldn't get a unicode literal of those.
+                  throw TextFormatDecodingError.malformedText
+                case 0x800...0xffff:
+                  // 3 byte encoding
+                  count += 3
+                case 0x10000...0x10FFFF:
+                  // 4 byte encoding
+                  count += 4
+                default:
+                  throw TextFormatDecodingError.malformedText // Isn't a valid unicode character
+                }
               case asciiLowerX: // 'x' hexadecimal escape
                 if p != end && fromHexDigit(p[0]) != nil {
                   p += 1
@@ -386,6 +479,39 @@ internal struct TextFormatScanner {
                 } else {
                   out[0] = digit1Value
                   out += 1
+                }
+              case asciiLowerU, asciiUpperU:
+                let numDigits = (escaped == asciiLowerU) ? 4 : 8
+                var codePoint: UInt32 = 0
+                for i in 0..<numDigits {
+                  codePoint = (codePoint << 4) + uint32FromHexDigit(p[i])!
+                }
+                p += numDigits
+                switch codePoint {
+                case 0...0x7f:
+                  // 1 byte encoding
+                  out[0] = UInt8(truncatingIfNeeded: codePoint)
+                  out += 1
+                case 0x80...0x7ff:
+                  // 2 byte encoding
+                  out[0] = 0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6)
+                  out[1] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
+                  out += 2
+                case 0x800...0xffff:
+                  // 3 byte encoding
+                  out[0] = 0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12)
+                  out[1] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F)
+                  out[2] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
+                  out += 3
+                case 0x10000...0x10FFFF:
+                  // 4 byte encoding
+                  out[0] = 0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18)
+                  out[1] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F)
+                  out[2] = 0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F)
+                  out[3] = 0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F)
+                  out += 4
+                default:
+                  preconditionFailure() // Already validated, can't happen
                 }
               case asciiLowerX: // 'x' hexadecimal escape
                 // We already validated, so we know there's at least one digit:
