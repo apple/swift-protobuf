@@ -93,6 +93,22 @@ private func uint32FromHexDigit(_ c: UInt8) -> UInt32? {
 // then decodes it into a sequence of bytes, then converts
 // it back into a string.
 private func decodeString(_ s: String) -> String? {
+
+  // Helper to read 4 hex digits as a UInt32
+  func read4HexDigits(_ i: inout IndexingIterator<String.UTF8View>) -> UInt32? {
+    if let digit1 = i.next(),
+        let d1 = uint32FromHexDigit(digit1),
+        let digit2 = i.next(),
+        let d2 = uint32FromHexDigit(digit2),
+        let digit3 = i.next(),
+        let d3 = uint32FromHexDigit(digit3),
+        let digit4 = i.next(),
+        let d4 = uint32FromHexDigit(digit4) {
+      return (d1 << 12) + (d2 << 8) + (d3 << 4) + d4
+    }
+    return nil
+  }
+
   var out = [UInt8]()
   var bytes = s.utf8.makeIterator()
   while let byte = bytes.next() {
@@ -126,54 +142,32 @@ private func decodeString(_ s: String) -> String? {
           }
         case asciiLowerU, asciiUpperU: // "u"
           // \u - 4 hex digits, \U 8 hex digits:
-          if let digit1 = bytes.next(),
-              let d1 = uint32FromHexDigit(digit1),
-              let digit2 = bytes.next(),
-              let d2 = uint32FromHexDigit(digit2),
-              let digit3 = bytes.next(),
-              let d3 = uint32FromHexDigit(digit3),
-              let digit4 = bytes.next(),
-              let d4 = uint32FromHexDigit(digit4) {
-            var codePoint = (d1 << 12) + (d2 << 8) + (d3 << 4) + d4
-            if escaped == asciiUpperU {
-              if let digit5 = bytes.next(),
-                  let d5 = uint32FromHexDigit(digit5),
-                  let digit6 = bytes.next(),
-                  let d6 = uint32FromHexDigit(digit6),
-                  let digit7 = bytes.next(),
-                  let d7 = uint32FromHexDigit(digit7),
-                  let digit8 = bytes.next(),
-                  let d8 = uint32FromHexDigit(digit8) {
-                codePoint = (codePoint << 16) + (d5 << 12) + (d6 << 8) + (d7 << 4) + d8
-              } else {
-                // Malformed \U escape
-                return nil
-              }
-            }
-            switch codePoint {
-            case 0...0x7f:
-              // 1 byte encoding
-              out.append(UInt8(truncatingIfNeeded: codePoint))
-            case 0x80...0x7ff:
-              // 2 byte encoding
-              out.append(0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6))
-              out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
-            case 0x800...0xffff:
-              // 3 byte encoding
-              out.append(0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12))
-              out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
-              out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
-            case 0x10000...0x10FFFF:
-              // 4 byte encoding
-              out.append(0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18))
-              out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F))
-              out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
-              out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
-            default:
-              return nil
-            }
-          } else {
-            // Malformed \u,\U escape
+          guard let first = read4HexDigits(&bytes) else { return nil }
+          var codePoint = first
+          if escaped == asciiUpperU {
+            guard let second = read4HexDigits(&bytes) else { return nil }
+            codePoint = (codePoint << 16) + second
+          }
+          switch codePoint {
+          case 0...0x7f:
+            // 1 byte encoding
+            out.append(UInt8(truncatingIfNeeded: codePoint))
+          case 0x80...0x7ff:
+            // 2 byte encoding
+            out.append(0xC0 + UInt8(truncatingIfNeeded: codePoint >> 6))
+            out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+          case 0x800...0xffff:
+            // 3 byte encoding
+            out.append(0xE0 + UInt8(truncatingIfNeeded: codePoint >> 12))
+            out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
+            out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+          case 0x10000...0x10FFFF:
+            // 4 byte encoding
+            out.append(0xF0 + UInt8(truncatingIfNeeded: codePoint >> 18))
+            out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 12) & 0x3F))
+            out.append(0x80 + UInt8(truncatingIfNeeded: (codePoint >> 6) & 0x3F))
+            out.append(0x80 + UInt8(truncatingIfNeeded: codePoint & 0x3F))
+          default:
             return nil
           }
         case asciiLowerX: // "x"
