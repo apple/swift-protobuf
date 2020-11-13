@@ -127,6 +127,7 @@ message GeneratedSwiftReservedEnums {
   enum clearValue { NONE_clearValue = 0; }
   enum clearWeak { NONE_clearWeak = 0; }
   enum clientStreaming { NONE_clientStreaming = 0; }
+  enum codePoint { NONE_codePoint = 0; }
   enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
   enum com { NONE_com = 0; }
@@ -282,6 +283,7 @@ message GeneratedSwiftReservedEnums {
   enum fileName { NONE_fileName = 0; }
   enum FileOptions { NONE_FileOptions = 0; }
   enum filter { NONE_filter = 0; }
+  enum first { NONE_first = 0; }
   enum firstItem { NONE_firstItem = 0; }
   enum float { NONE_float = 0; }
   enum floatLiteral { NONE_floatLiteral = 0; }
@@ -436,6 +438,7 @@ message GeneratedSwiftReservedEnums {
   enum if { NONE_if = 0; }
   enum ignoreUnknownFields { NONE_ignoreUnknownFields = 0; }
   enum index { NONE_index = 0; }
+  enum IndexingIterator { NONE_IndexingIterator = 0; }
   enum init { NONE_init = 0; }
   enum inout { NONE_inout = 0; }
   enum inputType { NONE_inputType = 0; }
@@ -655,6 +658,7 @@ message GeneratedSwiftReservedEnums {
   enum rawChars { NONE_rawChars = 0; }
   enum RawRepresentable { NONE_RawRepresentable = 0; }
   enum RawValue { NONE_RawValue = 0; }
+  enum read4HexDigits { NONE_read4HexDigits = 0; }
   enum register { NONE_register = 0; }
   enum RepeatedEnumExtensionField { NONE_RepeatedEnumExtensionField = 0; }
   enum RepeatedExtensionField { NONE_RepeatedExtensionField = 0; }

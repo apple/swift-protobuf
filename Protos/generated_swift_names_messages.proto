@@ -127,6 +127,7 @@ message GeneratedSwiftReservedMessages {
   message clearValue { int32 clearValue = 1; }
   message clearWeak { int32 clearWeak = 1; }
   message clientStreaming { int32 clientStreaming = 1; }
+  message codePoint { int32 codePoint = 1; }
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
   message com { int32 com = 1; }
@@ -282,6 +283,7 @@ message GeneratedSwiftReservedMessages {
   message fileName { int32 fileName = 1; }
   message FileOptions { int32 FileOptions = 1; }
   message filter { int32 filter = 1; }
+  message first { int32 first = 1; }
   message firstItem { int32 firstItem = 1; }
   message float { int32 float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
@@ -436,6 +438,7 @@ message GeneratedSwiftReservedMessages {
   message if { int32 if = 1; }
   message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message index { int32 index = 1; }
+  message IndexingIterator { int32 IndexingIterator = 1; }
   message init { int32 init = 1; }
   message inout { int32 inout = 1; }
   message inputType { int32 inputType = 1; }
@@ -655,6 +658,7 @@ message GeneratedSwiftReservedMessages {
   message rawChars { int32 rawChars = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
+  message read4HexDigits { int32 read4HexDigits = 1; }
   message register { int32 register = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
