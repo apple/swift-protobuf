@@ -73,8 +73,9 @@ jobs:
       run: |
         ./autogen.sh
         ./configure
-        make -C ./src
-        make -C ./conformance
+        NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
+        make -C ./src -j "${NUM_CPUS}" protoc
+        make -C ./conformance -j "${NUM_CPUS}" conformance-test-runner
     - name: Test conformance
       working-directory: main
       run: make test-conformance
