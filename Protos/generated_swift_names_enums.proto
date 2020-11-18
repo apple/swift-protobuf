@@ -438,7 +438,6 @@ message GeneratedSwiftReservedEnums {
   enum if { NONE_if = 0; }
   enum ignoreUnknownFields { NONE_ignoreUnknownFields = 0; }
   enum index { NONE_index = 0; }
-  enum IndexingIterator { NONE_IndexingIterator = 0; }
   enum init { NONE_init = 0; }
   enum inout { NONE_inout = 0; }
   enum inputType { NONE_inputType = 0; }
@@ -462,6 +461,7 @@ message GeneratedSwiftReservedEnums {
   enum isExtension { NONE_isExtension = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
+  enum Iterator { NONE_Iterator = 0; }
   enum i_2166136261 { NONE_i_2166136261 = 0; }
   enum javaGenerateEqualsAndHash { NONE_javaGenerateEqualsAndHash = 0; }
   enum javaGenericServices { NONE_javaGenericServices = 0; }

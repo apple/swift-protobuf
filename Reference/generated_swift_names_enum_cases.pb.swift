@@ -461,30 +461,30 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   case `if` // = 432
   case ignoreUnknownFields // = 433
   case index // = 434
-  case indexingIterator // = 435
-  case init_ // = 436
-  case `inout` // = 437
-  case inputType // = 438
-  case insert // = 439
-  case int // = 440
-  case int32 // = 441
-  case int32Value // = 442
-  case int64 // = 443
-  case int64Value // = 444
-  case int8 // = 445
-  case integerLiteral // = 446
-  case integerLiteralType // = 447
-  case intern // = 448
-  case `internal` // = 449
-  case internalState // = 450
-  case into // = 451
-  case ints // = 452
-  case isA // = 453
-  case isEqual // = 454
-  case isEqualTo // = 455
-  case isExtension // = 456
-  case isInitialized // = 457
-  case itemTagsEncodedSize // = 458
+  case init_ // = 435
+  case `inout` // = 436
+  case inputType // = 437
+  case insert // = 438
+  case int // = 439
+  case int32 // = 440
+  case int32Value // = 441
+  case int64 // = 442
+  case int64Value // = 443
+  case int8 // = 444
+  case integerLiteral // = 445
+  case integerLiteralType // = 446
+  case intern // = 447
+  case `internal` // = 448
+  case internalState // = 449
+  case into // = 450
+  case ints // = 451
+  case isA // = 452
+  case isEqual // = 453
+  case isEqualTo // = 454
+  case isExtension // = 455
+  case isInitialized // = 456
+  case itemTagsEncodedSize // = 457
+  case iterator // = 458
   case i2166136261 // = 459
   case javaGenerateEqualsAndHash // = 460
   case javaGenericServices // = 461
@@ -1333,30 +1333,30 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 432: self = .if
     case 433: self = .ignoreUnknownFields
     case 434: self = .index
-    case 435: self = .indexingIterator
-    case 436: self = .init_
-    case 437: self = .inout
-    case 438: self = .inputType
-    case 439: self = .insert
-    case 440: self = .int
-    case 441: self = .int32
-    case 442: self = .int32Value
-    case 443: self = .int64
-    case 444: self = .int64Value
-    case 445: self = .int8
-    case 446: self = .integerLiteral
-    case 447: self = .integerLiteralType
-    case 448: self = .intern
-    case 449: self = .internal
-    case 450: self = .internalState
-    case 451: self = .into
-    case 452: self = .ints
-    case 453: self = .isA
-    case 454: self = .isEqual
-    case 455: self = .isEqualTo
-    case 456: self = .isExtension
-    case 457: self = .isInitialized
-    case 458: self = .itemTagsEncodedSize
+    case 435: self = .init_
+    case 436: self = .inout
+    case 437: self = .inputType
+    case 438: self = .insert
+    case 439: self = .int
+    case 440: self = .int32
+    case 441: self = .int32Value
+    case 442: self = .int64
+    case 443: self = .int64Value
+    case 444: self = .int8
+    case 445: self = .integerLiteral
+    case 446: self = .integerLiteralType
+    case 447: self = .intern
+    case 448: self = .internal
+    case 449: self = .internalState
+    case 450: self = .into
+    case 451: self = .ints
+    case 452: self = .isA
+    case 453: self = .isEqual
+    case 454: self = .isEqualTo
+    case 455: self = .isExtension
+    case 456: self = .isInitialized
+    case 457: self = .itemTagsEncodedSize
+    case 458: self = .iterator
     case 459: self = .i2166136261
     case 460: self = .javaGenerateEqualsAndHash
     case 461: self = .javaGenericServices
@@ -2203,30 +2203,30 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .if: return 432
     case .ignoreUnknownFields: return 433
     case .index: return 434
-    case .indexingIterator: return 435
-    case .init_: return 436
-    case .inout: return 437
-    case .inputType: return 438
-    case .insert: return 439
-    case .int: return 440
-    case .int32: return 441
-    case .int32Value: return 442
-    case .int64: return 443
-    case .int64Value: return 444
-    case .int8: return 445
-    case .integerLiteral: return 446
-    case .integerLiteralType: return 447
-    case .intern: return 448
-    case .internal: return 449
-    case .internalState: return 450
-    case .into: return 451
-    case .ints: return 452
-    case .isA: return 453
-    case .isEqual: return 454
-    case .isEqualTo: return 455
-    case .isExtension: return 456
-    case .isInitialized: return 457
-    case .itemTagsEncodedSize: return 458
+    case .init_: return 435
+    case .inout: return 436
+    case .inputType: return 437
+    case .insert: return 438
+    case .int: return 439
+    case .int32: return 440
+    case .int32Value: return 441
+    case .int64: return 442
+    case .int64Value: return 443
+    case .int8: return 444
+    case .integerLiteral: return 445
+    case .integerLiteralType: return 446
+    case .intern: return 447
+    case .internal: return 448
+    case .internalState: return 449
+    case .into: return 450
+    case .ints: return 451
+    case .isA: return 452
+    case .isEqual: return 453
+    case .isEqualTo: return 454
+    case .isExtension: return 455
+    case .isInitialized: return 456
+    case .itemTagsEncodedSize: return 457
+    case .iterator: return 458
     case .i2166136261: return 459
     case .javaGenerateEqualsAndHash: return 460
     case .javaGenericServices: return 461
@@ -3086,7 +3086,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .if,
     .ignoreUnknownFields,
     .index,
-    .indexingIterator,
     .init_,
     .inout,
     .inputType,
@@ -3110,6 +3109,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .isExtension,
     .isInitialized,
     .itemTagsEncodedSize,
+    .iterator,
     .i2166136261,
     .javaGenerateEqualsAndHash,
     .javaGenericServices,
@@ -3959,30 +3959,30 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf._P
     432: .same(proto: "if"),
     433: .same(proto: "ignoreUnknownFields"),
     434: .same(proto: "index"),
-    435: .same(proto: "IndexingIterator"),
-    436: .same(proto: "init"),
-    437: .same(proto: "inout"),
-    438: .same(proto: "inputType"),
-    439: .same(proto: "insert"),
-    440: .same(proto: "Int"),
-    441: .same(proto: "Int32"),
-    442: .same(proto: "Int32Value"),
-    443: .same(proto: "Int64"),
-    444: .same(proto: "Int64Value"),
-    445: .same(proto: "Int8"),
-    446: .same(proto: "integerLiteral"),
-    447: .same(proto: "IntegerLiteralType"),
-    448: .same(proto: "intern"),
-    449: .same(proto: "Internal"),
-    450: .same(proto: "InternalState"),
-    451: .same(proto: "into"),
-    452: .same(proto: "ints"),
-    453: .same(proto: "isA"),
-    454: .same(proto: "isEqual"),
-    455: .same(proto: "isEqualTo"),
-    456: .same(proto: "isExtension"),
-    457: .same(proto: "isInitialized"),
-    458: .same(proto: "itemTagsEncodedSize"),
+    435: .same(proto: "init"),
+    436: .same(proto: "inout"),
+    437: .same(proto: "inputType"),
+    438: .same(proto: "insert"),
+    439: .same(proto: "Int"),
+    440: .same(proto: "Int32"),
+    441: .same(proto: "Int32Value"),
+    442: .same(proto: "Int64"),
+    443: .same(proto: "Int64Value"),
+    444: .same(proto: "Int8"),
+    445: .same(proto: "integerLiteral"),
+    446: .same(proto: "IntegerLiteralType"),
+    447: .same(proto: "intern"),
+    448: .same(proto: "Internal"),
+    449: .same(proto: "InternalState"),
+    450: .same(proto: "into"),
+    451: .same(proto: "ints"),
+    452: .same(proto: "isA"),
+    453: .same(proto: "isEqual"),
+    454: .same(proto: "isEqualTo"),
+    455: .same(proto: "isExtension"),
+    456: .same(proto: "isInitialized"),
+    457: .same(proto: "itemTagsEncodedSize"),
+    458: .same(proto: "Iterator"),
     459: .same(proto: "i_2166136261"),
     460: .same(proto: "javaGenerateEqualsAndHash"),
     461: .same(proto: "javaGenericServices"),

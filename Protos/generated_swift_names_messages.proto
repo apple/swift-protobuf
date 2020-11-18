@@ -438,7 +438,6 @@ message GeneratedSwiftReservedMessages {
   message if { int32 if = 1; }
   message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message index { int32 index = 1; }
-  message IndexingIterator { int32 IndexingIterator = 1; }
   message init { int32 init = 1; }
   message inout { int32 inout = 1; }
   message inputType { int32 inputType = 1; }
@@ -462,6 +461,7 @@ message GeneratedSwiftReservedMessages {
   message isExtension { int32 isExtension = 1; }
   message isInitialized { int32 isInitialized = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
+  message Iterator { int32 Iterator = 1; }
   message i_2166136261 { int32 i_2166136261 = 1; }
   message javaGenerateEqualsAndHash { int32 javaGenerateEqualsAndHash = 1; }
   message javaGenericServices { int32 javaGenericServices = 1; }
