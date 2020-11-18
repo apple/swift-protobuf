@@ -2199,11 +2199,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
     set {_uniqueStorage()._index = newValue}
   }
 
-  var indexingIterator: Int32 {
-    get {return _storage._indexingIterator}
-    set {_uniqueStorage()._indexingIterator = newValue}
-  }
-
   var init_p: Int32 {
     get {return _storage._init_p}
     set {_uniqueStorage()._init_p = newValue}
@@ -2317,6 +2312,11 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
   var itemTagsEncodedSize: Int32 {
     get {return _storage._itemTagsEncodedSize}
     set {_uniqueStorage()._itemTagsEncodedSize = newValue}
+  }
+
+  var iterator: Int32 {
+    get {return _storage._iterator}
+    set {_uniqueStorage()._iterator = newValue}
   }
 
   var i2166136261: Int32 {
@@ -4792,30 +4792,30 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     432: .same(proto: "if"),
     433: .same(proto: "ignoreUnknownFields"),
     434: .same(proto: "index"),
-    435: .same(proto: "IndexingIterator"),
-    436: .same(proto: "init"),
-    437: .same(proto: "inout"),
-    438: .same(proto: "inputType"),
-    439: .same(proto: "insert"),
-    440: .same(proto: "Int"),
-    441: .same(proto: "Int32"),
-    442: .same(proto: "Int32Value"),
-    443: .same(proto: "Int64"),
-    444: .same(proto: "Int64Value"),
-    445: .same(proto: "Int8"),
-    446: .same(proto: "integerLiteral"),
-    447: .same(proto: "IntegerLiteralType"),
-    448: .same(proto: "intern"),
-    449: .same(proto: "Internal"),
-    450: .same(proto: "InternalState"),
-    451: .same(proto: "into"),
-    452: .same(proto: "ints"),
-    453: .same(proto: "isA"),
-    454: .same(proto: "isEqual"),
-    455: .same(proto: "isEqualTo"),
-    456: .same(proto: "isExtension"),
-    457: .same(proto: "isInitialized"),
-    458: .same(proto: "itemTagsEncodedSize"),
+    435: .same(proto: "init"),
+    436: .same(proto: "inout"),
+    437: .same(proto: "inputType"),
+    438: .same(proto: "insert"),
+    439: .same(proto: "Int"),
+    440: .same(proto: "Int32"),
+    441: .same(proto: "Int32Value"),
+    442: .same(proto: "Int64"),
+    443: .same(proto: "Int64Value"),
+    444: .same(proto: "Int8"),
+    445: .same(proto: "integerLiteral"),
+    446: .same(proto: "IntegerLiteralType"),
+    447: .same(proto: "intern"),
+    448: .same(proto: "Internal"),
+    449: .same(proto: "InternalState"),
+    450: .same(proto: "into"),
+    451: .same(proto: "ints"),
+    452: .same(proto: "isA"),
+    453: .same(proto: "isEqual"),
+    454: .same(proto: "isEqualTo"),
+    455: .same(proto: "isExtension"),
+    456: .same(proto: "isInitialized"),
+    457: .same(proto: "itemTagsEncodedSize"),
+    458: .same(proto: "Iterator"),
     459: .standard(proto: "i_2166136261"),
     460: .same(proto: "javaGenerateEqualsAndHash"),
     461: .same(proto: "javaGenericServices"),
@@ -5658,7 +5658,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     var _if: Int32 = 0
     var _ignoreUnknownFields: Int32 = 0
     var _index: Int32 = 0
-    var _indexingIterator: Int32 = 0
     var _init_p: Int32 = 0
     var _inout: Int32 = 0
     var _inputType: Int32 = 0
@@ -5682,6 +5681,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     var _isExtension: Int32 = 0
     var _isInitialized_p: Int32 = 0
     var _itemTagsEncodedSize: Int32 = 0
+    var _iterator: Int32 = 0
     var _i2166136261: Int32 = 0
     var _javaGenerateEqualsAndHash: Int32 = 0
     var _javaGenericServices: Int32 = 0
@@ -6527,7 +6527,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       _if = source._if
       _ignoreUnknownFields = source._ignoreUnknownFields
       _index = source._index
-      _indexingIterator = source._indexingIterator
       _init_p = source._init_p
       _inout = source._inout
       _inputType = source._inputType
@@ -6551,6 +6550,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       _isExtension = source._isExtension
       _isInitialized_p = source._isInitialized_p
       _itemTagsEncodedSize = source._itemTagsEncodedSize
+      _iterator = source._iterator
       _i2166136261 = source._i2166136261
       _javaGenerateEqualsAndHash = source._javaGenerateEqualsAndHash
       _javaGenericServices = source._javaGenericServices
@@ -7408,30 +7408,30 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         case 432: try { try decoder.decodeSingularInt32Field(value: &_storage._if) }()
         case 433: try { try decoder.decodeSingularInt32Field(value: &_storage._ignoreUnknownFields) }()
         case 434: try { try decoder.decodeSingularInt32Field(value: &_storage._index) }()
-        case 435: try { try decoder.decodeSingularInt32Field(value: &_storage._indexingIterator) }()
-        case 436: try { try decoder.decodeSingularInt32Field(value: &_storage._init_p) }()
-        case 437: try { try decoder.decodeSingularInt32Field(value: &_storage._inout) }()
-        case 438: try { try decoder.decodeSingularInt32Field(value: &_storage._inputType) }()
-        case 439: try { try decoder.decodeSingularInt32Field(value: &_storage._insert) }()
-        case 440: try { try decoder.decodeSingularInt32Field(value: &_storage._int) }()
-        case 441: try { try decoder.decodeSingularInt32Field(value: &_storage._int32) }()
-        case 442: try { try decoder.decodeSingularInt32Field(value: &_storage._int32Value) }()
-        case 443: try { try decoder.decodeSingularInt32Field(value: &_storage._int64) }()
-        case 444: try { try decoder.decodeSingularInt32Field(value: &_storage._int64Value) }()
-        case 445: try { try decoder.decodeSingularInt32Field(value: &_storage._int8) }()
-        case 446: try { try decoder.decodeSingularInt32Field(value: &_storage._integerLiteral) }()
-        case 447: try { try decoder.decodeSingularInt32Field(value: &_storage._integerLiteralType) }()
-        case 448: try { try decoder.decodeSingularInt32Field(value: &_storage._intern) }()
-        case 449: try { try decoder.decodeSingularInt32Field(value: &_storage._internal) }()
-        case 450: try { try decoder.decodeSingularInt32Field(value: &_storage._internalState) }()
-        case 451: try { try decoder.decodeSingularInt32Field(value: &_storage._into) }()
-        case 452: try { try decoder.decodeSingularInt32Field(value: &_storage._ints) }()
-        case 453: try { try decoder.decodeSingularInt32Field(value: &_storage._isA) }()
-        case 454: try { try decoder.decodeSingularInt32Field(value: &_storage._isEqual) }()
-        case 455: try { try decoder.decodeSingularInt32Field(value: &_storage._isEqualTo) }()
-        case 456: try { try decoder.decodeSingularInt32Field(value: &_storage._isExtension) }()
-        case 457: try { try decoder.decodeSingularInt32Field(value: &_storage._isInitialized_p) }()
-        case 458: try { try decoder.decodeSingularInt32Field(value: &_storage._itemTagsEncodedSize) }()
+        case 435: try { try decoder.decodeSingularInt32Field(value: &_storage._init_p) }()
+        case 436: try { try decoder.decodeSingularInt32Field(value: &_storage._inout) }()
+        case 437: try { try decoder.decodeSingularInt32Field(value: &_storage._inputType) }()
+        case 438: try { try decoder.decodeSingularInt32Field(value: &_storage._insert) }()
+        case 439: try { try decoder.decodeSingularInt32Field(value: &_storage._int) }()
+        case 440: try { try decoder.decodeSingularInt32Field(value: &_storage._int32) }()
+        case 441: try { try decoder.decodeSingularInt32Field(value: &_storage._int32Value) }()
+        case 442: try { try decoder.decodeSingularInt32Field(value: &_storage._int64) }()
+        case 443: try { try decoder.decodeSingularInt32Field(value: &_storage._int64Value) }()
+        case 444: try { try decoder.decodeSingularInt32Field(value: &_storage._int8) }()
+        case 445: try { try decoder.decodeSingularInt32Field(value: &_storage._integerLiteral) }()
+        case 446: try { try decoder.decodeSingularInt32Field(value: &_storage._integerLiteralType) }()
+        case 447: try { try decoder.decodeSingularInt32Field(value: &_storage._intern) }()
+        case 448: try { try decoder.decodeSingularInt32Field(value: &_storage._internal) }()
+        case 449: try { try decoder.decodeSingularInt32Field(value: &_storage._internalState) }()
+        case 450: try { try decoder.decodeSingularInt32Field(value: &_storage._into) }()
+        case 451: try { try decoder.decodeSingularInt32Field(value: &_storage._ints) }()
+        case 452: try { try decoder.decodeSingularInt32Field(value: &_storage._isA) }()
+        case 453: try { try decoder.decodeSingularInt32Field(value: &_storage._isEqual) }()
+        case 454: try { try decoder.decodeSingularInt32Field(value: &_storage._isEqualTo) }()
+        case 455: try { try decoder.decodeSingularInt32Field(value: &_storage._isExtension) }()
+        case 456: try { try decoder.decodeSingularInt32Field(value: &_storage._isInitialized_p) }()
+        case 457: try { try decoder.decodeSingularInt32Field(value: &_storage._itemTagsEncodedSize) }()
+        case 458: try { try decoder.decodeSingularInt32Field(value: &_storage._iterator) }()
         case 459: try { try decoder.decodeSingularInt32Field(value: &_storage._i2166136261) }()
         case 460: try { try decoder.decodeSingularInt32Field(value: &_storage._javaGenerateEqualsAndHash) }()
         case 461: try { try decoder.decodeSingularInt32Field(value: &_storage._javaGenericServices) }()
@@ -9147,77 +9147,77 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       if _storage._index != 0 {
         try visitor.visitSingularInt32Field(value: _storage._index, fieldNumber: 434)
       }
-      if _storage._indexingIterator != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._indexingIterator, fieldNumber: 435)
-      }
       if _storage._init_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._init_p, fieldNumber: 436)
+        try visitor.visitSingularInt32Field(value: _storage._init_p, fieldNumber: 435)
       }
       if _storage._inout != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._inout, fieldNumber: 437)
+        try visitor.visitSingularInt32Field(value: _storage._inout, fieldNumber: 436)
       }
       if _storage._inputType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._inputType, fieldNumber: 438)
+        try visitor.visitSingularInt32Field(value: _storage._inputType, fieldNumber: 437)
       }
       if _storage._insert != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._insert, fieldNumber: 439)
+        try visitor.visitSingularInt32Field(value: _storage._insert, fieldNumber: 438)
       }
       if _storage._int != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._int, fieldNumber: 440)
+        try visitor.visitSingularInt32Field(value: _storage._int, fieldNumber: 439)
       }
       if _storage._int32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._int32, fieldNumber: 441)
+        try visitor.visitSingularInt32Field(value: _storage._int32, fieldNumber: 440)
       }
       if _storage._int32Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._int32Value, fieldNumber: 442)
+        try visitor.visitSingularInt32Field(value: _storage._int32Value, fieldNumber: 441)
       }
       if _storage._int64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._int64, fieldNumber: 443)
+        try visitor.visitSingularInt32Field(value: _storage._int64, fieldNumber: 442)
       }
       if _storage._int64Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._int64Value, fieldNumber: 444)
+        try visitor.visitSingularInt32Field(value: _storage._int64Value, fieldNumber: 443)
       }
       if _storage._int8 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._int8, fieldNumber: 445)
+        try visitor.visitSingularInt32Field(value: _storage._int8, fieldNumber: 444)
       }
       if _storage._integerLiteral != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._integerLiteral, fieldNumber: 446)
+        try visitor.visitSingularInt32Field(value: _storage._integerLiteral, fieldNumber: 445)
       }
       if _storage._integerLiteralType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._integerLiteralType, fieldNumber: 447)
+        try visitor.visitSingularInt32Field(value: _storage._integerLiteralType, fieldNumber: 446)
       }
       if _storage._intern != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._intern, fieldNumber: 448)
+        try visitor.visitSingularInt32Field(value: _storage._intern, fieldNumber: 447)
       }
       if _storage._internal != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._internal, fieldNumber: 449)
+        try visitor.visitSingularInt32Field(value: _storage._internal, fieldNumber: 448)
       }
       if _storage._internalState != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._internalState, fieldNumber: 450)
+        try visitor.visitSingularInt32Field(value: _storage._internalState, fieldNumber: 449)
       }
       if _storage._into != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._into, fieldNumber: 451)
+        try visitor.visitSingularInt32Field(value: _storage._into, fieldNumber: 450)
       }
       if _storage._ints != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._ints, fieldNumber: 452)
+        try visitor.visitSingularInt32Field(value: _storage._ints, fieldNumber: 451)
       }
       if _storage._isA != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._isA, fieldNumber: 453)
+        try visitor.visitSingularInt32Field(value: _storage._isA, fieldNumber: 452)
       }
       if _storage._isEqual != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._isEqual, fieldNumber: 454)
+        try visitor.visitSingularInt32Field(value: _storage._isEqual, fieldNumber: 453)
       }
       if _storage._isEqualTo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._isEqualTo, fieldNumber: 455)
+        try visitor.visitSingularInt32Field(value: _storage._isEqualTo, fieldNumber: 454)
       }
       if _storage._isExtension != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._isExtension, fieldNumber: 456)
+        try visitor.visitSingularInt32Field(value: _storage._isExtension, fieldNumber: 455)
       }
       if _storage._isInitialized_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._isInitialized_p, fieldNumber: 457)
+        try visitor.visitSingularInt32Field(value: _storage._isInitialized_p, fieldNumber: 456)
       }
       if _storage._itemTagsEncodedSize != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._itemTagsEncodedSize, fieldNumber: 458)
+        try visitor.visitSingularInt32Field(value: _storage._itemTagsEncodedSize, fieldNumber: 457)
+      }
+      if _storage._iterator != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._iterator, fieldNumber: 458)
       }
       if _storage._i2166136261 != 0 {
         try visitor.visitSingularInt32Field(value: _storage._i2166136261, fieldNumber: 459)
@@ -10877,7 +10877,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         if _storage._if != rhs_storage._if {return false}
         if _storage._ignoreUnknownFields != rhs_storage._ignoreUnknownFields {return false}
         if _storage._index != rhs_storage._index {return false}
-        if _storage._indexingIterator != rhs_storage._indexingIterator {return false}
         if _storage._init_p != rhs_storage._init_p {return false}
         if _storage._inout != rhs_storage._inout {return false}
         if _storage._inputType != rhs_storage._inputType {return false}
@@ -10901,6 +10900,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         if _storage._isExtension != rhs_storage._isExtension {return false}
         if _storage._isInitialized_p != rhs_storage._isInitialized_p {return false}
         if _storage._itemTagsEncodedSize != rhs_storage._itemTagsEncodedSize {return false}
+        if _storage._iterator != rhs_storage._iterator {return false}
         if _storage._i2166136261 != rhs_storage._i2166136261 {return false}
         if _storage._javaGenerateEqualsAndHash != rhs_storage._javaGenerateEqualsAndHash {return false}
         if _storage._javaGenericServices != rhs_storage._javaGenericServices {return false}

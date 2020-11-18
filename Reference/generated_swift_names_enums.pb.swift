@@ -10881,31 +10881,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum IndexingIterator: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneIndexingIterator // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneIndexingIterator
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneIndexingIterator
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneIndexingIterator: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum initEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneInit // = 0
@@ -11475,6 +11450,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneItemTagsEncodedSize: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum Iterator: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneIterator // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIterator
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIterator
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIterator: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -24649,13 +24649,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index: CaseItera
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IndexingIterator: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IndexingIterator] = [
-    .noneIndexingIterator,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.initEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.initEnum] = [
@@ -24814,6 +24807,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedS
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedSize] = [
     .noneItemTagsEncodedSize,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator] = [
+    .noneIterator,
   ]
 }
 
@@ -30281,12 +30281,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index: SwiftProt
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IndexingIterator: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_IndexingIterator"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.initEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_init"),
@@ -30422,6 +30416,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isInitializedEnu
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_itemTagsEncodedSize"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_Iterator"),
   ]
 }
 
