@@ -566,7 +566,6 @@ conformance-host $(CONFORMANCE_HOST): check-for-protobuf-checkout
 	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/src
 	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/conformance
 
-
 # Helpers to put the Xcode project through all modes.
 
 # Grouping targets
