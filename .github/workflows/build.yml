@@ -77,8 +77,8 @@ jobs:
       run: |
         ./autogen.sh
         ./configure
-        make -C ./src
-        make -C ./conformance
+        make -j
+        make -C ./conformance -j
     - name: Test plugin
       working-directory: main
       run: make test-plugin PROTOC=../protobuf/src/protoc

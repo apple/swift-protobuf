@@ -73,8 +73,8 @@ jobs:
       run: |
         ./autogen.sh
         ./configure
-        make -C ./src
-        make -C ./conformance
+        make -j
+        make -C ./conformance -j
     - name: Test conformance
       working-directory: main
       run: make test-conformance
