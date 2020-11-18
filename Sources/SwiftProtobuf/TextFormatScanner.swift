@@ -95,7 +95,7 @@ private func uint32FromHexDigit(_ c: UInt8) -> UInt32? {
 private func decodeString(_ s: String) -> String? {
 
   // Helper to read 4 hex digits as a UInt32
-  func read4HexDigits(_ i: inout IndexingIterator<String.UTF8View>) -> UInt32? {
+  func read4HexDigits(_ i: inout String.UTF8View.Iterator) -> UInt32? {
     if let digit1 = i.next(),
         let d1 = uint32FromHexDigit(digit1),
         let digit2 = i.next(),
