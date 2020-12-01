@@ -47,9 +47,11 @@ internal func typeName(fromURL s: String) -> String {
   return String(s[typeStart..<s.endIndex])
 }
 
-fileprivate var serialQueue = DispatchQueue(label: "org.swift.protobuf.typeRegistry")
+fileprivate var knownTypesQueue =
+    DispatchQueue(label: "org.swift.protobuf.typeRegistry",
+                  attributes: .concurrent)
 
-// All access to this should be done on `serialQueue`.
+// All access to this should be done on `knownTypesQueue`.
 fileprivate var knownTypes: [String:Message.Type] = [
   // Seeded with the Well Known Types.
   "google.protobuf.Any": Google_Protobuf_Any.self,
@@ -103,7 +105,7 @@ extension Google_Protobuf_Any {
     @discardableResult public static func register(messageType: Message.Type) -> Bool {
         let messageTypeName = messageType.protoMessageName
         var result: Bool = false
-        serialQueue.sync {
+        knownTypesQueue.sync(flags: .barrier) {
             if let alreadyRegistered = knownTypes[messageTypeName] {
                 // Success/failure when something was already registered is
                 // based on if they are registering the same class or trying
@@ -126,7 +128,7 @@ extension Google_Protobuf_Any {
     /// Returns the Message.Type expected for the given proto message name.
     public static func messageType(forMessageName name: String) -> Message.Type? {
         var result: Message.Type?
-        serialQueue.sync {
+        knownTypesQueue.sync {
             result = knownTypes[name]
         }
         return result
