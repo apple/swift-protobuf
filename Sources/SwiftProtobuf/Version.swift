@@ -19,7 +19,7 @@ public struct Version {
   /// Major version.
   public static let major = 1
   /// Minor version.
-  public static let minor = 13
+  public static let minor = 14
   /// Revision number.
   public static let revision = 0
 
