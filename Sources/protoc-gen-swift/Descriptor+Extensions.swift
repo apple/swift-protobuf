@@ -73,14 +73,14 @@ extension Descriptor {
     return helper(self)
   }
 
-  /// A `String` containing a comma-delimited list of Swift range expressions
+  /// A `String` containing a comma-delimited list of Swift expressions
   /// covering the extension ranges for this message.
   ///
   /// This expression list is suitable as a pattern match in a `case`
-  /// statement. For example, `"case 5..<10, 20..<30:"`.
-  var swiftExtensionRangeExpressions: String {
+  /// statement. For example, `"case 5..<10, 15, 20..<30:"`.
+  var swiftExtensionRangeCaseExpressions: String {
     return normalizedExtensionRanges.lazy.map {
-      $0.swiftRangeExpression
+      $0.swiftCaseExpression
     }.joined(separator: ", ")
   }
 

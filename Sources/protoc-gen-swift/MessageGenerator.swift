@@ -290,7 +290,7 @@ class MessageGenerator {
             f.generateDecodeFieldCase(printer: &p)
           }
           if isExtensible {
-            p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+            p.print("case \(descriptor.swiftExtensionRangeCaseExpressions):\n")
             p.indent()
             p.print("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()\n")
             p.outdent()
