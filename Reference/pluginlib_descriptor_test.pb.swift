@@ -1168,7 +1168,7 @@ extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._Me
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 5) || (7 <= fieldNumber && fieldNumber < 8) || (9 <= fieldNumber && fieldNumber < 10) || (100 <= fieldNumber && fieldNumber < 121) || (126 <= fieldNumber && fieldNumber < 131) {
+      if (1 <= fieldNumber && fieldNumber < 5) || (7 == fieldNumber) || (9 == fieldNumber) || (100 <= fieldNumber && fieldNumber < 121) || (126 <= fieldNumber && fieldNumber < 131) {
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SDTMsgExtensionRangeOrdering.self, fieldNumber: fieldNumber)
       }
     }

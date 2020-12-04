@@ -681,7 +681,7 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
         try decoder.decodeSingularInt32Field(value: &v)
         if let v = v {self.oConflictExtensionsEnd = .b4(v)}
       }()
-      case 202..<203, 325..<326:
+      case 202, 325:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber) }()
       default: break
       }
