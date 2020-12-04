@@ -15,7 +15,8 @@ extension Test_Descriptor {
         ("testLookup", testLookup),
         ("testParents", testParents),
         ("testFields", testFields),
-        ("testExtensions", testExtensions)
+        ("testExtensions", testExtensions),
+        ("testExtensionRanges", testExtensionRanges)
     ]
 }
 

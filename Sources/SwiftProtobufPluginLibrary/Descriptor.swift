@@ -176,6 +176,21 @@ public final class Descriptor {
   public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
     return proto.extensionRange
   }
+  /// The `extensionRanges` are in the order they appear in the original .proto
+  /// file; this orders them and then merges the any ranges that are actually
+  /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
+  public private(set) lazy var normalizedExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
+    var ordered = self.extensionRanges.sorted(by: { return $0.start < $1.start })
+    if ordered.count > 1 {
+      for i in (0..<(ordered.count - 1)).reversed() {
+        if ordered[i].end == ordered[i+1].start {
+          ordered[i].end = ordered[i+1].end
+          ordered.remove(at: i + 1)
+        }
+      }
+    }
+    return ordered
+  }()
 
   /// True/False if this Message is just for a `map<>` entry.
   public var isMapEntry: Bool { return proto.options.mapEntry }

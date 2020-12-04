@@ -334,4 +334,36 @@ class Test_Descriptor: XCTestCase {
     XCTAssertTrue(nestedExt2.file === descriptorTestFile)
   }
 
+  func testExtensionRanges() throws {
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedData: fileDescriptorSetData)
+
+    let descriptorSet = DescriptorSet(proto: fileSet)
+
+    let msgDescriptor = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.MsgExtensionRangeOrdering")
+    // Quick check of what should be in the proto file
+    XCTAssertEqual(msgDescriptor.extensionRanges.count, 9)
+    XCTAssertEqual(msgDescriptor.extensionRanges[0].start, 1)
+    XCTAssertEqual(msgDescriptor.extensionRanges[1].start, 3)
+    XCTAssertEqual(msgDescriptor.extensionRanges[2].start, 2)
+    XCTAssertEqual(msgDescriptor.extensionRanges[3].start, 4)
+    XCTAssertEqual(msgDescriptor.extensionRanges[4].start, 7)
+    XCTAssertEqual(msgDescriptor.extensionRanges[5].start, 9)
+    XCTAssertEqual(msgDescriptor.extensionRanges[6].start, 100)
+    XCTAssertEqual(msgDescriptor.extensionRanges[7].start, 126)
+    XCTAssertEqual(msgDescriptor.extensionRanges[8].start, 111)
+
+    // Check sorting
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges.count, 5)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[0].start, 1)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[0].end, 5)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[1].start, 7)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[1].end, 8)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[2].start, 9)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[2].end, 10)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[3].start, 100)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[3].end, 121)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[4].start, 126)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[4].end, 131)
+  }
+
 }
