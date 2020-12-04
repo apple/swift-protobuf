@@ -1168,22 +1168,18 @@ extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._Me
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      if (1 <= fieldNumber && fieldNumber < 2) || (3 <= fieldNumber && fieldNumber < 4) || (2 <= fieldNumber && fieldNumber < 3) || (4 <= fieldNumber && fieldNumber < 5) || (7 <= fieldNumber && fieldNumber < 8) || (9 <= fieldNumber && fieldNumber < 10) || (100 <= fieldNumber && fieldNumber < 111) || (126 <= fieldNumber && fieldNumber < 131) || (111 <= fieldNumber && fieldNumber < 121) {
+      if (1 <= fieldNumber && fieldNumber < 5) || (7 <= fieldNumber && fieldNumber < 8) || (9 <= fieldNumber && fieldNumber < 10) || (100 <= fieldNumber && fieldNumber < 121) || (126 <= fieldNumber && fieldNumber < 131) {
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SDTMsgExtensionRangeOrdering.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 2)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 3, end: 4)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 3)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 4, end: 5)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5)
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 7, end: 8)
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 9, end: 10)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 111)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 121)
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 126, end: 131)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 111, end: 121)
     try unknownFields.traverse(visitor: &visitor)
   }
 
