@@ -79,7 +79,7 @@ extension Descriptor {
   /// This expression list is suitable as a pattern match in a `case`
   /// statement. For example, `"case 5..<10, 20..<30:"`.
   var swiftExtensionRangeExpressions: String {
-    return extensionRanges.lazy.map {
+    return normalizedExtensionRanges.lazy.map {
       $0.swiftRangeExpression
     }.joined(separator: ", ")
   }
@@ -90,7 +90,7 @@ extension Descriptor {
   /// - Parameter variable: The name of the variable to test in the expression.
   /// - Returns: A `String` containing the Boolean expression.
   func swiftExtensionRangeBooleanExpression(variable: String) -> String {
-    return extensionRanges.lazy.map {
+    return normalizedExtensionRanges.lazy.map {
       "(\($0.swiftBooleanExpression(variable: variable)))"
     }.joined(separator: " || ")
   }

@@ -150,7 +150,7 @@ class OneofGenerator {
         // from each extension range as an easy way to check for them being
         // mixed in between the fields.
         var parentNumbers = descriptor.containingType.fields.map { Int($0.number) }
-        parentNumbers.append(contentsOf: descriptor.containingType.extensionRanges.map { Int($0.start) })
+        parentNumbers.append(contentsOf: descriptor.containingType.normalizedExtensionRanges.map { Int($0.start) })
         var parentNumbersIterator = parentNumbers.sorted(by: { $0 < $1 }).makeIterator()
         var nextParentFieldNumber = parentNumbersIterator.next()
         var grouped = [[MemberFieldGenerator]]()

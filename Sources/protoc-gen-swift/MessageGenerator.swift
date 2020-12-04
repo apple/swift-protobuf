@@ -331,7 +331,7 @@ class MessageGenerator {
       let visitExtensionsName =
         descriptor.useMessageSetWireFormat ? "visitExtensionFieldsAsMessageSet" : "visitExtensionFields"
 
-      var ranges = descriptor.extensionRanges.makeIterator()
+      var ranges = descriptor.normalizedExtensionRanges.makeIterator()
       var nextRange = ranges.next()
       for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {
