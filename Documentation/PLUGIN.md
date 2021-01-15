@@ -181,7 +181,7 @@ above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(1,0,1))
+    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
 ]
 ```
 
