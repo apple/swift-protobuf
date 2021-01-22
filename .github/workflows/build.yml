@@ -5,9 +5,9 @@ name: Build and Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -62,7 +62,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: protobuf
-        # NOTE: for refs that can float like 'master' the cache might be out of date!
+        # NOTE: for refs that can float like 'main' the cache might be out of date!
         key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
