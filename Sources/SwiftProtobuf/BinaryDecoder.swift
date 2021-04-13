@@ -919,6 +919,7 @@ internal struct BinaryDecoder: Decoder {
     }
 
     internal mutating func decodeFullMessage<M: Message>(message: inout M) throws {
+      assert(unknownData == nil)
       try incrementRecursionDepth()
       try message.decodeMessage(decoder: &self)
       decrementRecursionDepth()
@@ -950,8 +951,6 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.startGroup else {
             return false
         }
-        assert(unknownData == nil)
-
         try incrementRecursionDepth()
 
         // This works by making a clone of the current decoder state and
@@ -965,6 +964,9 @@ internal struct BinaryDecoder: Decoder {
         // startGroup was read, so current tag/data is done (otherwise the
         // startTag will end up in the unknowns of the first thing decoded).
         subDecoder.consumed = true
+        // The group (message) doesn't get any existing unknown fields from
+        // the parent.
+        subDecoder.unknownData = nil
         try group.decodeMessage(decoder: &subDecoder)
         guard subDecoder.fieldNumber == fieldNumber && subDecoder.fieldWireFormat == .endGroup else {
             throw BinaryDecodingError.truncated
