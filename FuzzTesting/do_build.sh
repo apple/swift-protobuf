@@ -9,7 +9,7 @@ cd "${FuzzTestingDir}"
 if [ "$(uname)" == "Darwin" ]; then
   xcrun \
     --toolchain swift \
-    swift build -c release -Xswiftc -sanitize=fuzzer -Xswiftc -parse-as-library
+    swift build -c debug -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
 else
-  swift build -c release -Xswiftc -sanitize=fuzzer -Xswiftc -parse-as-library
+  swift build -c debug -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
 fi
