@@ -208,6 +208,7 @@ endif
 	reference \
 	regenerate \
 	regenerate-conformance-protos \
+	regenerate-fuzz-protos \
 	regenerate-library-protos \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
@@ -358,6 +359,7 @@ reference: build ${PROTOC_GEN_SWIFT}
 #
 regenerate: \
 	regenerate-library-protos \
+	regenerate-fuzz-protos \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
 	regenerate-conformance-protos \
@@ -391,6 +393,15 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_e
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
 		${TEST_PROTOS}
+
+# Rebuild just the protos used by the plugin
+regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT}
+	find FuzzTesting/Sources/FuzzCommon -name "*.pb.swift" -exec rm -f {} \;
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_out=FuzzTesting/Sources/FuzzCommon \
+		Protos/fuzz_testing.proto
 
 Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
 	# Until the flag isn't needed, add the flag to enable proto3 optional.
