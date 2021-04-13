@@ -3,7 +3,7 @@ import Foundation
 import FuzzCommon
 
 @_cdecl("LLVMFuzzerTestOneInput")
-public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
+public func FuzzTextFormat(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   let bytes = UnsafeRawBufferPointer(start: start, count: count)
   guard let str = String(data: Data(bytes), encoding: .utf8) else { return 0 }
   do {
