@@ -86,3 +86,20 @@ jobs:
     - name: Test conformance
       working-directory: main
       run: make test-conformance
+
+  fuzz_builds:
+    runs-on: ubuntu-18.04
+    # Ensure the library builds before bothering to make sure these still build.
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        # Should we both building the fuzzing support with anything else?
+        swift: ["bionic"]
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build
+      run: FuzzTesting/do_build.sh
