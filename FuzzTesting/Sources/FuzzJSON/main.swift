@@ -3,7 +3,7 @@ import Foundation
 import FuzzCommon
 
 @_cdecl("LLVMFuzzerTestOneInput")
-public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
+public func FuzzJSON(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   let bytes = UnsafeRawBufferPointer(start: start, count: count)
   do {
     let _ = try Fuzz_Testing_Message(
