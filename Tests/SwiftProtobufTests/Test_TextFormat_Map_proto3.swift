@@ -45,6 +45,17 @@ class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("map_int32_int32 [{key:1 value:2}")
         assertTextFormatDecodeFails("map_int32_int32 [{key:1 value:2 nonsense:3}")
         assertTextFormatDecodeFails("map_int32_int32 {key:1}")
+
+        assertTextFormatDecodeFails("map_int32_int32<")
+        assertTextFormatDecodeFails("map_int32_int32{")
+        assertTextFormatDecodeFails("1<")
+        assertTextFormatDecodeFails("1{")
+        assertTextFormatDecodeFails("1{1:1 2:2")
+        assertTextFormatDecodeFails("1{1:1 2:")
+        assertTextFormatDecodeFails("1{1:1 2")
+        assertTextFormatDecodeFails("1{1:1")
+        assertTextFormatDecodeFails("1{1:")
+        assertTextFormatDecodeFails("1{1")
     }
 
     func test_Int32Int32_numbers() {
