@@ -1265,7 +1265,11 @@ internal struct JSONScanner {
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
         }
-        fieldName = utf8ToString(bytes: key.baseAddress!, count: key.count)!
+        if let s = utf8ToString(bytes: key.baseAddress!, count: key.count) {
+          fieldName = s
+        } else {
+          throw JSONDecodingError.invalidUTF8
+        }
       } else {
         // Slow path:  We parsed a String; lookups from String are slower.
         fieldName = try nextQuotedString()
