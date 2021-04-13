@@ -235,7 +235,7 @@ internal struct BinaryDecoder: Decoder {
             if bodyBytes > 0 {
                 let itemSize = UInt64(MemoryLayout<Float>.size)
                 let itemCount = bodyBytes / itemSize
-                if bodyBytes % itemSize != 0 || itemCount > UInt64(Int.max) {
+                if bodyBytes % itemSize != 0 || bodyBytes > available {
                     throw BinaryDecodingError.truncated
                 }
                 value.reserveCapacity(value.count + Int(truncatingIfNeeded: itemCount))
@@ -276,7 +276,7 @@ internal struct BinaryDecoder: Decoder {
             if bodyBytes > 0 {
                 let itemSize = UInt64(MemoryLayout<Double>.size)
                 let itemCount = bodyBytes / itemSize
-                if bodyBytes % itemSize != 0 || itemCount > UInt64(Int.max) {
+                if bodyBytes % itemSize != 0 || bodyBytes > available {
                     throw BinaryDecodingError.truncated
                 }
                 value.reserveCapacity(value.count + Int(truncatingIfNeeded: itemCount))
