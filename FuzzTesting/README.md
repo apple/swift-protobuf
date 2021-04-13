@@ -8,12 +8,12 @@ for macOS, one need to install the swift.org toolchain and use that instead.
 To build on macOS:
 
 ```
-xcrun --toolchain swift swift build -c release -Xswiftc -sanitize=fuzzer -Xswiftc -parse-as-library
+xcrun --toolchain swift swift build -c debug -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
 ```
 
 To build on linux:
 ```
-swift build -c release -Xswiftc -sanitize=fuzzer -Xswiftc -parse-as-library
+swift build -c debug -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
 ```
 
 Then the binaries will be found in `.build/release`.
