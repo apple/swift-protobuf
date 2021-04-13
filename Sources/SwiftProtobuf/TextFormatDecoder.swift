@@ -574,6 +574,8 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
+            } else {
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -621,6 +623,8 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
+            } else {
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -668,6 +672,8 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
+            } else {
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
