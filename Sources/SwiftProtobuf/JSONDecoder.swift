@@ -730,6 +730,12 @@ internal struct JSONDecoder: Decoder {
     } else {
       fieldValue = try ext._protobuf_newField(decoder: &self)
     }
-    values[fieldNumber] = fieldValue!
+    // If the value was `null`, then the 'else' clause will return nil, as there
+    // is nothing to assign. If the api ever supports merging JSON into an
+    // object to update it, then the 'then' clause likely should be update to
+    // support clearing the the value rather that keeping its current value.
+    if fieldValue != nil {
+      values[fieldNumber] = fieldValue
+    }
   }
 }
