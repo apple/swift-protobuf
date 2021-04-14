@@ -12,8 +12,12 @@ xcrun --toolchain swift swift build -c debug -Xswiftc -sanitize=fuzzer,address -
 ```
 
 To build on linux:
+
 ```
 swift build -c debug -Xswiftc -sanitize=fuzzer,address -Xswiftc -parse-as-library
 ```
 
 Then the binaries will be found in `.build/release`.
+
+Note: You can also use `-c release` to build/test in release instead as that
+could find different issues.
