@@ -598,6 +598,10 @@ internal struct TextFormatScanner {
         let c = p[0]
         p += 1
         if c == asciiZero { // leading '0' precedes octal or hex
+            if p == end {
+                // The TextFormat ended with a field value of zero.
+                return 0
+            }
             if p[0] == asciiLowerX { // 'x' => hex
                 p += 1
                 var n: UInt64 = 0
@@ -683,6 +687,9 @@ internal struct TextFormatScanner {
         let c = p[0]
         if c == asciiMinus { // -
             p += 1
+            if p == end {
+                throw TextFormatDecodingError.malformedNumber
+            }
             // character after '-' must be digit
             let digit = p[0]
             if digit < asciiZero || digit > asciiNine {
