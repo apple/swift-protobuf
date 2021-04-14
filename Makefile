@@ -112,6 +112,7 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_proto3_arena.proto \
 	Protos/google/protobuf/unittest_proto3_optional.proto \
 	Protos/google/protobuf/unittest_well_known_types.proto \
+	Protos/fuzz_testing.proto \
 	Protos/unittest_swift_all_required_types.proto \
 	Protos/unittest_swift_cycle.proto \
 	Protos/unittest_swift_enum.proto \
