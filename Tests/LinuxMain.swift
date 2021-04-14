@@ -555,6 +555,14 @@ extension Test_FieldOrdering {
     ]
 }
 
+extension Test_FuzzTests {
+    static var allTests = [
+        ("test_Binary", test_Binary),
+        ("test_JSON", test_JSON),
+        ("test_TextFormat", test_TextFormat)
+    ]
+}
+
 extension Test_GroupWithinGroup {
     static var allTests = [
         ("testGroupWithGroup_Single", testGroupWithGroup_Single),
@@ -1208,6 +1216,7 @@ XCTMain(
         testCase(Test_ExtremeDefaultValues.allTests),
         testCase(Test_FieldMask.allTests),
         testCase(Test_FieldOrdering.allTests),
+        testCase(Test_FuzzTests.allTests),
         testCase(Test_GroupWithinGroup.allTests),
         testCase(Test_JSON.allTests),
         testCase(Test_JSONPacked.allTests),

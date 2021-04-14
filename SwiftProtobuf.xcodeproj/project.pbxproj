@@ -342,6 +342,12 @@
 		F41BA4431E7B35C6004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
 		F41BA4441E7B35C7004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
 		F41BA4451E7B35C8004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
+		F430B11C262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */; };
+		F430B11D262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */; };
+		F430B11E262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */; };
+		F430B11F262764D400C9EE2A /* Test_FuzzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */; };
+		F430B120262764D400C9EE2A /* Test_FuzzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */; };
+		F430B121262764D400C9EE2A /* Test_FuzzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */; };
 		F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		F44F93771DAEA76700BC5B85 /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
 		F44F93781DAEA76700BC5B85 /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
@@ -787,6 +793,8 @@
 		F41BA4171E79C568004F6E95 /* AnyUnpackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyUnpackError.swift; sourceTree = "<group>"; };
 		F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = any.pb.swift; sourceTree = "<group>"; };
 		F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMessageStorage.swift; sourceTree = "<group>"; };
+		F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fuzz_testing.pb.swift; sourceTree = "<group>"; };
+		F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_FuzzTests.swift; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1100,6 +1108,8 @@
 		"_______Group_ProtobufTestSuite" /* SwiftProtobufTests */ = {
 			isa = PBXGroup;
 			children = (
+				F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */,
+				F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */,
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */,
 				F451075723A2B9B500488257 /* Data+TestHelpers.swift */,
@@ -1457,6 +1467,7 @@
 				9C8CDA371D7A28F600E207CA /* Test_ParsingMerge.swift in Sources */,
 				9C60CBED1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
 				9C8CDA391D7A28F600E207CA /* Test_ReallyLargeTagNumber.swift in Sources */,
+				F430B120262764D400C9EE2A /* Test_FuzzTests.swift in Sources */,
 				9C8CDA3A1D7A28F600E207CA /* Test_RecursiveMap.swift in Sources */,
 				9C60CBE91DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
 				9C8CDA3B1D7A28F600E207CA /* Test_Required.swift in Sources */,
@@ -1472,6 +1483,7 @@
 				9C8CDA431D7A28F600E207CA /* unittest.pb.swift in Sources */,
 				9C8CDA441D7A28F600E207CA /* unittest_arena.pb.swift in Sources */,
 				F48FDD271E4D18060061D5C1 /* Test_TextFormat_proto2_extensions.swift in Sources */,
+				F430B11D262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */,
 				9C8CDA451D7A28F600E207CA /* unittest_custom_options.pb.swift in Sources */,
 				9C8CDA461D7A28F600E207CA /* unittest_drop_unknown_fields.pb.swift in Sources */,
 				9C8CDA471D7A28F600E207CA /* unittest_embed_optimize_for.pb.swift in Sources */,
@@ -1757,6 +1769,7 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Reserved.swift /* Test_Reserved.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Struct.swift /* Test_Struct.swift in Sources */,
+				F430B11F262764D400C9EE2A /* Test_FuzzTests.swift in Sources */,
 				9C60CBEC1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
 				9C5890A71DFF5FFC001CFC34 /* Test_TextFormat_proto2_extensions.swift in Sources */,
 				BCCA0E7A1DB124B800957D74 /* Test_TextFormat_proto3.swift in Sources */,
@@ -1772,6 +1785,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest.pb.swift /* unittest.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_arena.pb.swift /* unittest_arena.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_custom_options.pb.swift /* unittest_custom_options.pb.swift in Sources */,
+				F430B11C262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_drop_unknown_fields.pb.swift /* unittest_drop_unknown_fields.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_embed_optimize_for.pb.swift /* unittest_embed_optimize_for.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_empty.pb.swift /* unittest_empty.pb.swift in Sources */,
@@ -1967,6 +1981,7 @@
 				F44F93EF1DAEA8C900BC5B85 /* unittest_swift_fieldorder.pb.swift in Sources */,
 				9C60CBEE1DF9DEEA00F7B14E /* Test_TextFormat_proto2.swift in Sources */,
 				F44F93F81DAEA8C900BC5B85 /* unittest.pb.swift in Sources */,
+				F430B121262764D400C9EE2A /* Test_FuzzTests.swift in Sources */,
 				F44F93E81DAEA8C900BC5B85 /* unittest_proto3_arena.pb.swift in Sources */,
 				9C60CBEA1DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
 				F44F93F21DAEA8C900BC5B85 /* unittest_swift_performance.pb.swift in Sources */,
@@ -1982,6 +1997,7 @@
 				F44F93CA1DAEA8C900BC5B85 /* Test_Reserved.swift in Sources */,
 				F44F93BF1DAEA8C900BC5B85 /* Test_JSON_Group.swift in Sources */,
 				F44F93E61DAEA8C900BC5B85 /* unittest_preserve_unknown_enum.pb.swift in Sources */,
+				F430B11E262764D400C9EE2A /* fuzz_testing.pb.swift in Sources */,
 				F411FEAE1EDDDC62001AE6B2 /* Test_BinaryDecodingOptions.swift in Sources */,
 				F44F93E51DAEA8C900BC5B85 /* unittest_optimize_for.pb.swift in Sources */,
 				F44F943C1DBFBB7700BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
