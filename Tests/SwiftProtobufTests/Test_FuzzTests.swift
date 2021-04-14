@@ -101,5 +101,15 @@ class Test_FuzzTests: XCTestCase {
       0x34, 0x34, 0x3a, 0x27, 0x32, 0x5c, 0x35, 0x30, 0x31, 0x39, 0x31, 0x3c,
       0x31, 0x0f, 0x3a, 0x27
     ])
+
+    // This was caught in by the address sanitizer in a fuzz of the release
+    // build. The code when seeing the last zero was trying to see if it was
+    // octal or hex input and trying to read the next byte without checking if
+    // it was past the end.
+    assertTextFormatSucceeds("    1:0    1:0      1:0")
+    // Code inspection showed that handling a negative value could read off the
+    // end also. Tweaking an input file to this confirmed that the test also
+    // tripped up with the memory issue.
+    assertTextFormatFails("    1:0    1:0      5:-")
   }
 }
