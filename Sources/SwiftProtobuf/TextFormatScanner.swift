@@ -128,7 +128,11 @@ private func decodeString(_ s: String) -> String? {
             if let digit3 = bytes.next(),
               digit3 >= asciiZero && digit3 <= asciiSeven {
               let digit3Value = digit3 - asciiZero
-              let n = digit1Value * 64 + digit2Value * 8 + digit3Value
+              // The max octal digit is actually \377, but looking at the C++
+              // protobuf code in strutil.cc:UnescapeCEscapeSequences(), it
+              // decodes with rollover, so just duplicate that behavior for
+              // consistency between languages.
+              let n = digit1Value &* 64 &+ digit2Value &* 8 &+ digit3Value
               out.append(n)
             } else {
               let n = digit1Value * 8 + digit2Value
