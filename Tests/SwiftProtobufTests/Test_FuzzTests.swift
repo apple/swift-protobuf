@@ -76,7 +76,7 @@ class Test_FuzzTests: XCTestCase {
   }
 
   func test_Binary() {
-    // Float/Double repeated/packed huge count
+    // FailCases/Binary-packed-float-double-growth
     assertBinaryFails([
       0x8a, 0x41, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0xb0, 0x8a, 0x41, 0x8d,
       0x8c,
@@ -84,7 +84,7 @@ class Test_FuzzTests: XCTestCase {
   }
 
   func test_JSON() {
-    // {"Ù{":\\\x00. ":\\\x00. - malformed utf8
+    // FailCases/JSON-malformed-utf8
     assertJSONFails([
       0x7b, 0x22, 0xf4, 0x7b, 0x22, 0x3a, 0x5c, 0x00, 0x2e, 0x20, 0x22, 0x3a,
       0x5c, 0x00, 0x2e, 0x20
@@ -94,24 +94,20 @@ class Test_FuzzTests: XCTestCase {
   }
 
   func test_TextFormat() {
-    // parsing map<>s looping forever when truncated
+    // FailCases/TextFormat-map-loops-forever
+    // FailCases/TextFormat-map-loops-forever2
     assertTextFormatFails("104<")
     assertTextFormatFails("104{")
 
-    // 44:'2\\50191<1\x0f:' - octal out of range '\501', gets rolled in range
+    // FailCases/TextFormat-octal-out-of-range
     assertTextFormatSucceeds([
       0x34, 0x34, 0x3a, 0x27, 0x32, 0x5c, 0x35, 0x30, 0x31, 0x39, 0x31, 0x3c,
       0x31, 0x0f, 0x3a, 0x27
     ])
 
-    // This was caught in by the address sanitizer in a fuzz of the release
-    // build. The code when seeing the last zero was trying to see if it was
-    // octal or hex input and trying to read the next byte without checking if
-    // it was past the end.
+    // FailCases/TextFormat-ending-zero
     assertTextFormatSucceeds("    1:0    1:0      1:0")
-    // Code inspection showed that handling a negative value could read off the
-    // end also. Tweaking an input file to this confirmed that the test also
-    // tripped up with the memory issue.
+    // FailCases/TextFormat-ending-minus
     assertTextFormatFails("    1:0    1:0      5:-")
   }
 }
