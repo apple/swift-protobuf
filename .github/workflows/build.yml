@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  core:
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -87,19 +87,46 @@ jobs:
       working-directory: main
       run: make test-conformance
 
-  fuzz_builds:
+  sanitizer_testing:
     runs-on: ubuntu-18.04
-    # Ensure the library builds before bothering to make sure these still build.
-    needs: build
     strategy:
       fail-fast: false
       matrix:
-        # Should we both building the fuzzing support with anything else?
-        swift: ["bionic"]
+        sanitizer: ["address", "thread"]
+        swiftpm_config: ["debug", "release"]
     container:
-      image: swift:${{ matrix.swift }}
+      # Test on the latest Swift release
+      image: swift:bionic
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - name: Test
+      run: |
+        set -eu
+        # Trim out the generate files that are just compile tests, they take a while to compile and
+        # are covered in core instead.
+        rm Tests/SwiftProtobufTests/generated_swift_names*
+        # On linux, the tests seem to always see leaks that don't show up on macOS. Disable the
+        # leak detection and just assume it is a Linux Swift issue. This still gets validation
+        # for other memory errors. Maybe https://bugs.swift.org/browse/SR-6848.
+        if [ "${{ matrix.sanitizer }}" = "address" ] ; then
+          export ASAN_OPTIONS=detect_leaks=0
+        fi
+        # 'release' doesn't support @testable, force it on.
+        if [ "${{ matrix.swiftpm_config }}" = "release" ] ; then
+          EXTRAS="-Xswiftc -enable-testing"
+        fi
+        swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
+
+  fuzz_builds:
+    runs-on: ubuntu-18.04
+    # Ensure the library builds before bothering to make sure these still build.
+    needs: core
+    strategy:
+      fail-fast: false
+    container:
+      # Test on the latest Swift release
+      image: swift:bionic
+    steps:
+    - uses: actions/checkout@v2
     - name: Build
       run: FuzzTesting/do_build.sh
