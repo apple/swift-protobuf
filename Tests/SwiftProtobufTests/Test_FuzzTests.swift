@@ -90,6 +90,8 @@ class Test_FuzzTests: XCTestCase {
       0x5c, 0x00, 0x2e, 0x20
     ])
 
+    // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_debug-4506617283477504
+    // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_release-5689942715006976
     assertJSONFails("{\"[fuzz.testing.singular_sint32_ext]\":null")
   }
 
