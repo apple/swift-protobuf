@@ -4,7 +4,32 @@ set -eu
 
 readonly FuzzTestingDir=$(dirname "$(echo $0 | sed -e "s,^\([^/]\),$(pwd)/\1,")")
 
-cd "${FuzzTestingDir}"
+printUsage() {
+  NAME=$(basename "${0}")
+  cat << EOF
+usage: ${NAME} [OPTIONS]
+
+This script builds (and can run) the fuzz tests.
+
+OPTIONS:
+
+ General:
+
+   -h, --help
+         Show this message
+   --debug-only
+         Just build the 'debug' configuration.
+   --release-only
+         Just build the 'release' configuration.
+   --both
+         Build both the 'debug' and 'release' configurations. This is
+         the default.
+   --run-regressions, --run
+         After building, also run all the fuzz tests against the known fail
+         cases.
+
+EOF
+}
 
 FUZZ_TESTS=("FuzzBinary" "FuzzJSON" "FuzzTextFormat")
 CHECK_REGRESSIONS="no"
@@ -13,10 +38,14 @@ CMD_CONFIGS=("debug" "release")
 
 while [[ $# != 0 ]]; do
   case "${1}" in
-    --debug )
+    -h | --help )
+      printUsage
+      exit 0
+      ;;
+    --debug-only )
       CMD_CONFIGS=("debug")
       ;;
-    --release )
+    --release-only )
       CMD_CONFIGS=("release")
       ;;
     --both )
@@ -27,15 +56,19 @@ while [[ $# != 0 ]]; do
       ;;
     -*)
       echo "ERROR: Unknown option: ${1}" 1>&2
+      printUsage
       exit 1
       ;;
     *)
       echo "ERROR: Unknown argument: ${1}" 1>&2
+      printUsage
       exit 1
       ;;
   esac
   shift
 done
+
+cd "${FuzzTestingDir}"
 
 declare -a CMD_BASE
 if [ "$(uname)" == "Darwin" ]; then
