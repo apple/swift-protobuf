@@ -117,16 +117,16 @@ jobs:
         fi
         swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
 
-  fuzz_builds:
+  fuzzing_regressions:
     runs-on: ubuntu-18.04
-    # Ensure the library builds before bothering to make sure these still build.
-    needs: core
     strategy:
       fail-fast: false
+      matrix:
+        swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release
       image: swift:bionic
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: FuzzTesting/do_build.sh
+      run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions
