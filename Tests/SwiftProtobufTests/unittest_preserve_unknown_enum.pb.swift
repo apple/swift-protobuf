@@ -306,16 +306,20 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
       case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE) }()
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
       case 5: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE1(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofE1(v)
+        }
       }()
       case 6: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE2(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofE2(v)
+        }
       }()
       default: break
       }
@@ -385,16 +389,20 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
       case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE) }()
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
       case 5: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE1(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofE1(v)
+        }
       }()
       case 6: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofE2(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofE2(v)
+        }
       }()
       default: break
       }

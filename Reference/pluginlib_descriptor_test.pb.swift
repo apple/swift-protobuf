@@ -653,34 +653,46 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
         case 1: try { try decoder.decodeSingularStringField(value: &_storage._field1) }()
         case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._field2) }()
         case 3: try {
-          if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: SDTTopLevelEnum?
           try decoder.decodeSingularEnumField(value: &v)
-          if let v = v {_storage._o = .field3(v)}
+          if let v = v {
+            if _storage._o != nil {try decoder.handleConflictingOneOf()}
+            _storage._o = .field3(v)
+          }
         }()
         case 4: try {
-          if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: SDTTopLevelMessage.SubEnum?
           try decoder.decodeSingularEnumField(value: &v)
-          if let v = v {_storage._o = .field4(v)}
+          if let v = v {
+            if _storage._o != nil {try decoder.handleConflictingOneOf()}
+            _storage._o = .field4(v)
+          }
         }()
         case 5: try {
           var v: SDTTopLevelMessage.SubMessage?
+          var hadOneofValue = false
           if let current = _storage._o {
-            try decoder.handleConflictingOneOf()
+            hadOneofValue = true
             if case .field5(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._o = .field5(v)}
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._o = .field5(v)
+          }
         }()
         case 6: try {
           var v: SDTTopLevelMessage2?
+          var hadOneofValue = false
           if let current = _storage._o {
-            try decoder.handleConflictingOneOf()
+            hadOneofValue = true
             if case .field6(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._o = .field6(v)}
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._o = .field6(v)
+          }
         }()
         default: break
         }
@@ -1045,31 +1057,41 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 23: try { try decoder.decodeRepeatedEnumField(value: &self.repeatEnumField) }()
       case 24: try { try decoder.decodeRepeatedMessageField(value: &self.repeatMessageField) }()
       case 31: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.o = .oneofStrField(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofStrField(v)
+        }
       }()
       case 32: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.o = .oneofInt32Field(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofInt32Field(v)
+        }
       }()
       case 33: try {
-        if self.o != nil {try decoder.handleConflictingOneOf()}
         var v: SDTTopLevelEnum?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.o = .oneofEnumField(v)}
+        if let v = v {
+          if self.o != nil {try decoder.handleConflictingOneOf()}
+          self.o = .oneofEnumField(v)
+        }
       }()
       case 34: try {
         var v: SDTTopLevelMessage?
+        var hadOneofValue = false
         if let current = self.o {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .oneofMessageField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.o = .oneofMessageField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.o = .oneofMessageField(v)
+        }
       }()
       default: break
       }

@@ -312,46 +312,62 @@ extension Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: Google_Protobuf_NullValue?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.kind = .nullValue(v)}
+        if let v = v {
+          if self.kind != nil {try decoder.handleConflictingOneOf()}
+          self.kind = .nullValue(v)
+        }
       }()
       case 2: try {
-        if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: Double?
         try decoder.decodeSingularDoubleField(value: &v)
-        if let v = v {self.kind = .numberValue(v)}
+        if let v = v {
+          if self.kind != nil {try decoder.handleConflictingOneOf()}
+          self.kind = .numberValue(v)
+        }
       }()
       case 3: try {
-        if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.kind = .stringValue(v)}
+        if let v = v {
+          if self.kind != nil {try decoder.handleConflictingOneOf()}
+          self.kind = .stringValue(v)
+        }
       }()
       case 4: try {
-        if self.kind != nil {try decoder.handleConflictingOneOf()}
         var v: Bool?
         try decoder.decodeSingularBoolField(value: &v)
-        if let v = v {self.kind = .boolValue(v)}
+        if let v = v {
+          if self.kind != nil {try decoder.handleConflictingOneOf()}
+          self.kind = .boolValue(v)
+        }
       }()
       case 5: try {
         var v: Google_Protobuf_Struct?
+        var hadOneofValue = false
         if let current = self.kind {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .structValue(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.kind = .structValue(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.kind = .structValue(v)
+        }
       }()
       case 6: try {
         var v: Google_Protobuf_ListValue?
+        var hadOneofValue = false
         if let current = self.kind {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .listValue(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.kind = .listValue(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.kind = .listValue(v)
+        }
       }()
       default: break
       }

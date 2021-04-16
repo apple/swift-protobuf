@@ -26944,16 +26944,20 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
       case 2: try { try decoder.decodeSingularInt32Field(value: &self._field) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.__3Field3) }()
       case 4: try {
-        if self._2Of != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self._2Of = ._4(v)}
+        if let v = v {
+          if self._2Of != nil {try decoder.handleConflictingOneOf()}
+          self._2Of = ._4(v)
+        }
       }()
       case 5: try {
-        if self._2Of != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self._2Of = ._5Field(v)}
+        if let v = v {
+          if self._2Of != nil {try decoder.handleConflictingOneOf()}
+          self._2Of = ._5Field(v)
+        }
       }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._enumField) }()
       default: break
@@ -27024,10 +27028,12 @@ extension SwiftUnittest_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobu
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.newValue != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.newValue = .str(v)}
+        if let v = v {
+          if self.newValue != nil {try decoder.handleConflictingOneOf()}
+          self.newValue = .str(v)
+        }
       }()
       default: break
       }
@@ -27117,10 +27123,12 @@ extension SwiftUnittest_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobu
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch fieldNumber {
         case 1: try {
-          if _storage._newValue != nil {try decoder.handleConflictingOneOf()}
           var v: String?
           try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._newValue = .str(v)}
+          if let v = v {
+            if _storage._newValue != nil {try decoder.handleConflictingOneOf()}
+            _storage._newValue = .str(v)
+          }
         }()
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._forcesStorage) }()
         default: break

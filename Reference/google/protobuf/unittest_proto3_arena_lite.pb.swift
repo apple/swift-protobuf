@@ -881,31 +881,41 @@ extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProt
         case 55: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord) }()
         case 57: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage) }()
         case 111: try {
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
-          if let v = v {_storage._oneofField = .oneofUint32(v)}
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofUint32(v)
+          }
         }()
         case 112: try {
           var v: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage?
+          var hadOneofValue = false
           if let current = _storage._oneofField {
-            try decoder.handleConflictingOneOf()
+            hadOneofValue = true
             if case .oneofNestedMessage(let m) = current {v = m}
           }
           try decoder.decodeSingularMessageField(value: &v)
-          if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofNestedMessage(v)
+          }
         }()
         case 113: try {
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: String?
           try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._oneofField = .oneofString(v)}
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofString(v)
+          }
         }()
         case 114: try {
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Data?
           try decoder.decodeSingularBytesField(value: &v)
-          if let v = v {_storage._oneofField = .oneofBytes(v)}
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofBytes(v)
+          }
         }()
         default: break
         }

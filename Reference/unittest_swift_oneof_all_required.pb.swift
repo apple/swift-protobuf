@@ -322,36 +322,50 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
       switch fieldNumber {
       case 1: try {
         var v: ProtobufUnittest_OneOfOptionMessage1?
+        var hadOneofValue = false
         if let current = self.option {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .option1(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.option = .option1(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.option = .option1(v)
+        }
       }()
       case 2: try {
         var v: ProtobufUnittest_OneOfOptionMessage2?
+        var hadOneofValue = false
         if let current = self.option {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .option2(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.option = .option2(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.option = .option2(v)
+        }
       }()
       case 3: try {
         var v: ProtobufUnittest_OneOfContainer.Option3?
+        var hadOneofValue = false
         if let current = self.option {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .option3(let m) = current {v = m}
         }
         try decoder.decodeSingularGroupField(value: &v)
-        if let v = v {self.option = .option3(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.option = .option3(v)
+        }
       }()
       case 6: try {
-        if self.option != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.option = .option4(v)}
+        if let v = v {
+          if self.option != nil {try decoder.handleConflictingOneOf()}
+          self.option = .option4(v)
+        }
       }()
       default: break
       }
