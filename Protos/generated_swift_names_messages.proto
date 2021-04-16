@@ -360,6 +360,7 @@ message GeneratedSwiftReservedMessages {
   message groupFieldNumberStack { int32 groupFieldNumberStack = 1; }
   message groupSize { int32 groupSize = 1; }
   message h { int32 h = 1; }
+  message hadOneofValue { int32 hadOneofValue = 1; }
   message handleConflictingOneOf { int32 handleConflictingOneOf = 1; }
   message hasAggregateValue { int32 hasAggregateValue = 1; }
   message hasAllowAlias { int32 hasAllowAlias = 1; }

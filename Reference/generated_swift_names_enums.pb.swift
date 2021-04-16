@@ -8931,6 +8931,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum hadOneofValue: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHadOneofValue // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHadOneofValue
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHadOneofValue
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHadOneofValue: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum handleConflictingOneOf: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHandleConflictingOneOf // = 0
@@ -24128,6 +24153,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.h: CaseIterable 
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hadOneofValue: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hadOneofValue] = [
+    .noneHadOneofValue,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.handleConflictingOneOf: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.handleConflictingOneOf] = [
@@ -29842,6 +29874,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupSize: Swift
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.h: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_h"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hadOneofValue: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hadOneofValue"),
   ]
 }
 
