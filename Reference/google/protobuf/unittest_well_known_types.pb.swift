@@ -1119,165 +1119,237 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProt
       switch fieldNumber {
       case 1: try {
         var v: SwiftProtobuf.Google_Protobuf_Any?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .anyField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .anyField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .anyField(v)
+        }
       }()
       case 2: try {
         var v: SwiftProtobuf.Google_Protobuf_Api?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .apiField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .apiField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .apiField(v)
+        }
       }()
       case 3: try {
         var v: SwiftProtobuf.Google_Protobuf_Duration?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .durationField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .durationField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .durationField(v)
+        }
       }()
       case 4: try {
         var v: SwiftProtobuf.Google_Protobuf_Empty?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .emptyField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .emptyField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .emptyField(v)
+        }
       }()
       case 5: try {
         var v: SwiftProtobuf.Google_Protobuf_FieldMask?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .fieldMaskField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .fieldMaskField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .fieldMaskField(v)
+        }
       }()
       case 6: try {
         var v: SwiftProtobuf.Google_Protobuf_SourceContext?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .sourceContextField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .sourceContextField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .sourceContextField(v)
+        }
       }()
       case 7: try {
         var v: SwiftProtobuf.Google_Protobuf_Struct?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .structField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .structField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .structField(v)
+        }
       }()
       case 8: try {
         var v: SwiftProtobuf.Google_Protobuf_Timestamp?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .timestampField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .timestampField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .timestampField(v)
+        }
       }()
       case 9: try {
         var v: SwiftProtobuf.Google_Protobuf_Type?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .typeField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .typeField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .typeField(v)
+        }
       }()
       case 10: try {
         var v: SwiftProtobuf.Google_Protobuf_DoubleValue?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .doubleField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .doubleField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .doubleField(v)
+        }
       }()
       case 11: try {
         var v: SwiftProtobuf.Google_Protobuf_FloatValue?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .floatField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .floatField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .floatField(v)
+        }
       }()
       case 12: try {
         var v: SwiftProtobuf.Google_Protobuf_Int64Value?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .int64Field(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .int64Field(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .int64Field(v)
+        }
       }()
       case 13: try {
         var v: SwiftProtobuf.Google_Protobuf_UInt64Value?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .uint64Field(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .uint64Field(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .uint64Field(v)
+        }
       }()
       case 14: try {
         var v: SwiftProtobuf.Google_Protobuf_Int32Value?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .int32Field(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .int32Field(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .int32Field(v)
+        }
       }()
       case 15: try {
         var v: SwiftProtobuf.Google_Protobuf_UInt32Value?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .uint32Field(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .uint32Field(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .uint32Field(v)
+        }
       }()
       case 16: try {
         var v: SwiftProtobuf.Google_Protobuf_BoolValue?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .boolField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .boolField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .boolField(v)
+        }
       }()
       case 17: try {
         var v: SwiftProtobuf.Google_Protobuf_StringValue?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .stringField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .stringField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .stringField(v)
+        }
       }()
       case 18: try {
         var v: SwiftProtobuf.Google_Protobuf_BytesValue?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .bytesField(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .bytesField(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .bytesField(v)
+        }
       }()
       default: break
       }

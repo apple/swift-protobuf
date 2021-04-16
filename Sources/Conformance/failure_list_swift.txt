@@ -1,2 +1,1 @@
-Required.Proto3.JsonInput.OneofFieldNullSecond.JsonOutput
-Required.Proto3.JsonInput.OneofFieldNullSecond.ProtobufOutput
+# No known failures

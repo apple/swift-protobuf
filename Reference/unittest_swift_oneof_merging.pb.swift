@@ -214,31 +214,41 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._Messa
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 111: try {
-        if self.oneofField != nil {try decoder.handleConflictingOneOf()}
         var v: UInt32?
         try decoder.decodeSingularUInt32Field(value: &v)
-        if let v = v {self.oneofField = .oneofUint32(v)}
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofUint32(v)
+        }
       }()
       case 112: try {
         var v: SwiftUnittest_TestMessage.NestedMessage?
+        var hadOneofValue = false
         if let current = self.oneofField {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .oneofNestedMessage(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.oneofField = .oneofNestedMessage(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofNestedMessage(v)
+        }
       }()
       case 113: try {
-        if self.oneofField != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.oneofField = .oneofString(v)}
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofString(v)
+        }
       }()
       case 114: try {
-        if self.oneofField != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.oneofField = .oneofBytes(v)}
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofBytes(v)
+        }
       }()
       default: break
       }

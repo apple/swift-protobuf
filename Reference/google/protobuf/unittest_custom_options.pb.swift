@@ -1928,10 +1928,12 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, 
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self._field1) }()
       case 2: try {
-        if self.anOneof != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.anOneof = .oneofField(v)}
+        if let v = v {
+          if self.anOneof != nil {try decoder.handleConflictingOneOf()}
+          self.anOneof = .oneofField(v)
+        }
       }()
       default: break
       }

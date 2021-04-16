@@ -585,32 +585,40 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.payload = .protobufPayload(v)}
+        if let v = v {
+          if self.payload != nil {try decoder.handleConflictingOneOf()}
+          self.payload = .protobufPayload(v)
+        }
       }()
       case 2: try {
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.payload = .jsonPayload(v)}
+        if let v = v {
+          if self.payload != nil {try decoder.handleConflictingOneOf()}
+          self.payload = .jsonPayload(v)
+        }
       }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.messageType) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.testCategory) }()
       case 6: try { try decoder.decodeSingularMessageField(value: &self._jspbEncodingOptions) }()
       case 7: try {
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.payload = .jspbPayload(v)}
+        if let v = v {
+          if self.payload != nil {try decoder.handleConflictingOneOf()}
+          self.payload = .jspbPayload(v)
+        }
       }()
       case 8: try {
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.payload = .textPayload(v)}
+        if let v = v {
+          if self.payload != nil {try decoder.handleConflictingOneOf()}
+          self.payload = .textPayload(v)
+        }
       }()
       case 9: try { try decoder.decodeSingularBoolField(value: &self.printUnknownFields) }()
       default: break
@@ -697,52 +705,68 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .parseError(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .parseError(v)
+        }
       }()
       case 2: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .runtimeError(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .runtimeError(v)
+        }
       }()
       case 3: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.result = .protobufPayload(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .protobufPayload(v)
+        }
       }()
       case 4: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .jsonPayload(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .jsonPayload(v)
+        }
       }()
       case 5: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .skipped(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .skipped(v)
+        }
       }()
       case 6: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .serializeError(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .serializeError(v)
+        }
       }()
       case 7: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .jspbPayload(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .jspbPayload(v)
+        }
       }()
       case 8: try {
-        if self.result != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.result = .textPayload(v)}
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .textPayload(v)
+        }
       }()
       default: break
       }
