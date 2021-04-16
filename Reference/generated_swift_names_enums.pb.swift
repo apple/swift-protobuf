@@ -18406,6 +18406,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum TextFormatDecodingOptions: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneTextFormatDecodingOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTextFormatDecodingOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTextFormatDecodingOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTextFormatDecodingOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum TextFormatEncodingOptions: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneTextFormatEncodingOptions // = 0
@@ -26756,6 +26781,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodi
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingOptions: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingOptions] = [
+    .noneTextFormatDecodingOptions,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingOptions: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingOptions] = [
@@ -32084,6 +32116,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecode
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_TextFormatDecodingError"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_TextFormatDecodingOptions"),
   ]
 }
 

@@ -8851,6 +8851,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct TextFormatDecodingOptions {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var textFormatDecodingOptions: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct TextFormatEncodingOptions {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -33928,6 +33940,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.TextFormatDec
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.TextFormatDecodingError, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.TextFormatDecodingError) -> Bool {
     if lhs.textFormatDecodingError != rhs.textFormatDecodingError {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.TextFormatDecodingOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".TextFormatDecodingOptions"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "TextFormatDecodingOptions"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.textFormatDecodingOptions) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.textFormatDecodingOptions != 0 {
+      try visitor.visitSingularInt32Field(value: self.textFormatDecodingOptions, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.TextFormatDecodingOptions, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.TextFormatDecodingOptions) -> Bool {
+    if lhs.textFormatDecodingOptions != rhs.textFormatDecodingOptions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

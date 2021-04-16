@@ -739,6 +739,7 @@ message GeneratedSwiftReservedMessages {
   message textDecoder { int32 textDecoder = 1; }
   message TextFormatDecoder { int32 TextFormatDecoder = 1; }
   message TextFormatDecodingError { int32 TextFormatDecodingError = 1; }
+  message TextFormatDecodingOptions { int32 TextFormatDecodingOptions = 1; }
   message TextFormatEncodingOptions { int32 TextFormatEncodingOptions = 1; }
   message TextFormatEncodingVisitor { int32 TextFormatEncodingVisitor = 1; }
   message textFormatString { int32 textFormatString = 1; }

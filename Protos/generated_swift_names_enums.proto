@@ -739,6 +739,7 @@ message GeneratedSwiftReservedEnums {
   enum textDecoder { NONE_textDecoder = 0; }
   enum TextFormatDecoder { NONE_TextFormatDecoder = 0; }
   enum TextFormatDecodingError { NONE_TextFormatDecodingError = 0; }
+  enum TextFormatDecodingOptions { NONE_TextFormatDecodingOptions = 0; }
   enum TextFormatEncodingOptions { NONE_TextFormatEncodingOptions = 0; }
   enum TextFormatEncodingVisitor { NONE_TextFormatEncodingVisitor = 0; }
   enum textFormatString { NONE_textFormatString = 0; }
