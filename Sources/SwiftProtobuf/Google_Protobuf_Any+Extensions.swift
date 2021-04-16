@@ -63,6 +63,28 @@ extension Google_Protobuf_Any {
     textFormatString: String,
     extensions: ExtensionMap? = nil
   ) throws {
+    // TODO: Remove this api and default the options instead. This api has to
+    // exist for anything compiled against an older version of the library.
+    try self.init(textFormatString: textFormatString,
+                  options: TextFormatDecodingOptions(),
+                  extensions: extensions)
+  }
+
+  /// Creates a new `Google_Protobuf_Any` by decoding the given string
+  /// containing a serialized message in Protocol Buffer text format.
+  ///
+  /// - Parameters:
+  ///   - textFormatString: The text format string to decode.
+  ///   - options: The `TextFormatDencodingOptions` to use.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  /// - Throws: an instance of `TextFormatDecodingError` on failure.
+  public init(
+    textFormatString: String,
+    options: TextFormatDecodingOptions,
+    extensions: ExtensionMap? = nil
+  ) throws {
     self.init()
     if !textFormatString.isEmpty {
       if let data = textFormatString.data(using: String.Encoding.utf8) {
@@ -72,6 +94,7 @@ extension Google_Protobuf_Any {
               messageType: Google_Protobuf_Any.self,
               utf8Pointer: baseAddress,
               count: body.count,
+              options: options,
               extensions: extensions)
             try decodeTextFormat(decoder: &textDecoder)
             if !textDecoder.complete {

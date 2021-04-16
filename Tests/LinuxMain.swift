@@ -1012,6 +1012,12 @@ extension Test_JSON_Value {
     ]
 }
 
+extension Test_TextFormatDecodingOptions {
+    static var allTests = [
+        ("testMessageDepthLimit", testMessageDepthLimit)
+    ]
+}
+
 extension Test_TextFormat_Map_proto3 {
     static var allTests = [
         ("test_Int32Int32", test_Int32Int32),
@@ -1254,6 +1260,7 @@ XCTMain(
         testCase(Test_JSON_ListValue.allTests),
         testCase(Test_Value.allTests),
         testCase(Test_JSON_Value.allTests),
+        testCase(Test_TextFormatDecodingOptions.allTests),
         testCase(Test_TextFormat_Map_proto3.allTests),
         testCase(Test_TextFormat_Unknown.allTests),
         testCase(Test_TextFormat_WKT_proto3.allTests),

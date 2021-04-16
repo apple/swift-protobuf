@@ -33,8 +33,14 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    internal init(messageType: Message.Type, utf8Pointer: UnsafeRawPointer, count: Int, extensions: ExtensionMap?) throws {
-        scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, extensions: extensions)
+    internal init(
+      messageType: Message.Type,
+      utf8Pointer: UnsafeRawPointer,
+      count: Int,
+      options: TextFormatDecodingOptions,
+      extensions: ExtensionMap?
+    ) throws {
+        scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, options: options, extensions: extensions)
         guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
@@ -51,7 +57,6 @@ internal struct TextFormatDecoder: Decoder {
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
     }
-
 
     mutating func handleConflictingOneOf() throws {
         throw TextFormatDecodingError.conflictingOneOf
@@ -490,7 +495,7 @@ internal struct TextFormatDecoder: Decoder {
             value = M()
         }
         let terminator = try scanner.skipObjectStart()
-        var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+        var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
         if M.self == Google_Protobuf_Any.self {
             var any = value as! Google_Protobuf_Any?
             try any!.decodeTextFormat(decoder: &subDecoder)
@@ -498,6 +503,7 @@ internal struct TextFormatDecoder: Decoder {
         } else {
             try value!.decodeMessage(decoder: &subDecoder)
         }
+        assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
         scanner = subDecoder.scanner
     }
 
@@ -515,7 +521,7 @@ internal struct TextFormatDecoder: Decoder {
                     try scanner.skipRequiredComma()
                 }
                 let terminator = try scanner.skipObjectStart()
-                var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+                var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
                 if M.self == Google_Protobuf_Any.self {
                     var message = Google_Protobuf_Any()
                     try message.decodeTextFormat(decoder: &subDecoder)
@@ -525,11 +531,12 @@ internal struct TextFormatDecoder: Decoder {
                     try message.decodeMessage(decoder: &subDecoder)
                     value.append(message)
                 }
+                assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
                 scanner = subDecoder.scanner
             }
         } else {
             let terminator = try scanner.skipObjectStart()
-            var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+            var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
             if M.self == Google_Protobuf_Any.self {
                 var message = Google_Protobuf_Any()
                 try message.decodeTextFormat(decoder: &subDecoder)
@@ -539,6 +546,7 @@ internal struct TextFormatDecoder: Decoder {
                 try message.decodeMessage(decoder: &subDecoder)
                 value.append(message)
             }
+            assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
             scanner = subDecoder.scanner
         }
     }

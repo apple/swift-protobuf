@@ -237,17 +237,45 @@ internal struct TextFormatScanner {
     private var end: UnsafeRawPointer
     private var doubleParser = DoubleParser()
 
+    private let options: TextFormatDecodingOptions
+    internal var recursionBudget: Int
+
     internal var complete: Bool {
         mutating get {
             return p == end
         }
     }
 
-    internal init(utf8Pointer: UnsafeRawPointer, count: Int, extensions: ExtensionMap? = nil) {
+    internal init(
+      utf8Pointer: UnsafeRawPointer,
+      count: Int,
+      options: TextFormatDecodingOptions,
+      extensions: ExtensionMap? = nil
+    ) {
         p = utf8Pointer
         end = p + count
         self.extensions = extensions
+        self.options = options
+        // Since the root message doesn't start with a `skipObjectStart`, the
+        // budget starts with one less depth to cover that top message.
+        recursionBudget = options.messageDepthLimit - 1
         skipWhitespace()
+    }
+
+    internal mutating func incrementRecursionDepth() throws {
+        recursionBudget -= 1
+        if recursionBudget < 0 {
+            throw TextFormatDecodingError.messageDepthLimit
+        }
+    }
+
+    private mutating func decrementRecursionDepth() {
+        recursionBudget += 1
+        // This should never happen, if it does, something is probably
+        // corrupting memory, and simply throwing doesn't make much sense.
+        if recursionBudget > options.messageDepthLimit {
+            fatalError("Somehow TextFormatDecoding unwound more objects than it started")
+        }
     }
 
     /// Skip whitespace
@@ -1181,7 +1209,11 @@ internal struct TextFormatScanner {
     }
 
     internal mutating func skipOptionalObjectEnd(_ c: UInt8) -> Bool {
-        return skipOptionalCharacter(c)
+        let result = skipOptionalCharacter(c)
+        if result {
+            decrementRecursionDepth()
+        }
+        return result
     }
 
     internal mutating func skipOptionalSeparator() {
@@ -1197,6 +1229,7 @@ internal struct TextFormatScanner {
     /// Returns the character that should end this field.
     /// E.g., if object starts with "{", returns "}"
     internal mutating func skipObjectStart() throws -> UInt8 {
+        try incrementRecursionDepth()
         if p != end {
             let c = p[0]
             p += 1
