@@ -366,27 +366,35 @@ class OneofGenerator {
         p.print("case \(field.number): try {\n")
         p.indent()
 
+        let hadValueTest: String
         if field.isGroupOrMessage {
             // Messages need to fetch the current value so new fields are merged into the existing
             // value
             p.print(
               "var v: \(field.swiftType)?\n",
+              "var hadOneofValue = false\n",
               "if let current = \(storedProperty) {\n")
             p.indent()
             p.print(
-              "try decoder.handleConflictingOneOf()\n",
+              "hadOneofValue = true\n",
               "if case \(field.dottedSwiftName)(let m) = current {v = m}\n")
             p.outdent()
             p.print("}\n")
+            hadValueTest = "hadOneofValue"
         } else {
-            p.print(
-              "if \(storedProperty) != nil {try decoder.handleConflictingOneOf()}\n",
-              "var v: \(field.swiftType)?\n")
+            p.print("var v: \(field.swiftType)?\n")
+            hadValueTest = "\(storedProperty) != nil"
         }
 
         p.print(
           "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
-          "if let v = v {\(storedProperty) = \(field.dottedSwiftName)(v)}\n")
+          "if let v = v {\n")
+        p.indent()
+        p.print(
+          "if \(hadValueTest) {try decoder.handleConflictingOneOf()}\n",
+          "\(storedProperty) = \(field.dottedSwiftName)(v)\n")
+        p.outdent()
+        p.print("}\n")
         p.outdent()
         p.print("}()\n")
     }
