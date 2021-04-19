@@ -111,5 +111,10 @@ class Test_FuzzTests: XCTestCase {
     assertTextFormatSucceeds("    1:0    1:0      1:0")
     // FailCases/TextFormat-ending-minus
     assertTextFormatFails("    1:0    1:0      5:-")
+
+    // FailCases/clusterfuzz-testcase-minimized-FuzzTextFormat_release-5836572361621504
+    assertTextFormatFails([
+      0x31, 0x35, 0x3a, 0x27, 0xa9, 0xa9, 0x5c, 0x75, 0x41, 0x62
+    ])
   }
 }
