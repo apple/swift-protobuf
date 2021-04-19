@@ -406,11 +406,11 @@ internal struct TextFormatScanner {
                 count += 1
               case asciiLowerU, asciiUpperU: // 'u' or 'U' unicode escape
                 let numDigits = (escaped == asciiLowerU) ? 4 : 8
+                guard (end - p) >= numDigits else {
+                  throw TextFormatDecodingError.malformedText // unicode escape must 4/8 digits
+                }
                 var codePoint: UInt32 = 0
                 for i in 0..<numDigits {
-                  guard p != end else {
-                    throw TextFormatDecodingError.malformedText // unicode escape must 4/8 digits
-                  }
                   if let digit = uint32FromHexDigit(p[i]) {
                     codePoint = (codePoint << 4) + digit
                   } else {
