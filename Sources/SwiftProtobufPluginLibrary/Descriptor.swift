@@ -509,8 +509,13 @@ public final class FieldDescriptor {
       oneofIndex = proto.oneofIndex
     } else {
       oneofIndex = nil
-      // .proto3Optional requires being in a oneof, also enforced by C++ Descriptor.
-      assert(!proto.proto3Optional)
+      // FieldDescriptorProto is used for fields or extensions, generally
+      // .proto3Optional only makes sense on fields if it is in a oneof. But
+      // It is allowed on extensions. For information on that, see
+      // https://github.com/protocolbuffers/protobuf/issues/8234#issuecomment-774224376
+      // The C++ Descriptor code encorces the field/oneof part, but nothing
+      // is checked on the oneof side.
+      assert(!proto.proto3Optional || isExtension)
     }
   }
 
