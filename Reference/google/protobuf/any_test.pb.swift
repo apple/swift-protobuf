@@ -68,6 +68,8 @@ struct ProtobufUnittest_TestAny {
 
   var repeatedAnyValue: [SwiftProtobuf.Google_Protobuf_Any] = []
 
+  var text: String = String()
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -85,6 +87,7 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
     1: .standard(proto: "int32_value"),
     2: .standard(proto: "any_value"),
     3: .standard(proto: "repeated_any_value"),
+    4: .same(proto: "text"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -96,6 +99,7 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
       case 1: try { try decoder.decodeSingularInt32Field(value: &self.int32Value) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._anyValue) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAnyValue) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.text) }()
       default: break
       }
     }
@@ -111,6 +115,9 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if !self.repeatedAnyValue.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.repeatedAnyValue, fieldNumber: 3)
     }
+    if !self.text.isEmpty {
+      try visitor.visitSingularStringField(value: self.text, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -118,6 +125,7 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
     if lhs.int32Value != rhs.int32Value {return false}
     if lhs._anyValue != rhs._anyValue {return false}
     if lhs.repeatedAnyValue != rhs.repeatedAnyValue {return false}
+    if lhs.text != rhs.text {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

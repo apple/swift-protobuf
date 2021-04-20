@@ -1541,6 +1541,47 @@ struct ProtobufUnittest_TestNestedExtension {
   init() {}
 }
 
+struct ProtobufUnittest_TestChildExtension {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: String {
+    get {return _a ?? String()}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var b: String {
+    get {return _b ?? String()}
+    set {_b = newValue}
+  }
+  /// Returns true if `b` has been explicitly set.
+  var hasB: Bool {return self._b != nil}
+  /// Clears the value of `b`. Subsequent reads from it will return its default value.
+  mutating func clearB() {self._b = nil}
+
+  var optionalExtension: ProtobufUnittest_TestAllExtensions {
+    get {return _optionalExtension ?? ProtobufUnittest_TestAllExtensions()}
+    set {_optionalExtension = newValue}
+  }
+  /// Returns true if `optionalExtension` has been explicitly set.
+  var hasOptionalExtension: Bool {return self._optionalExtension != nil}
+  /// Clears the value of `optionalExtension`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalExtension() {self._optionalExtension = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _a: String? = nil
+  fileprivate var _b: String? = nil
+  fileprivate var _optionalExtension: ProtobufUnittest_TestAllExtensions? = nil
+}
+
 /// We have separate messages for testing required fields because it's
 /// annoying to have to fill in required fields in TestProto in order to
 /// do anything with it.  Note that we don't need to test every type of
@@ -4621,6 +4662,58 @@ struct ProtobufUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessag
   fileprivate var _field10: Int32? = nil
 }
 
+struct ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var fooOne: Int32 {
+    get {return _fooOne ?? 0}
+    set {_fooOne = newValue}
+  }
+  /// Returns true if `fooOne` has been explicitly set.
+  var hasFooOne: Bool {return self._fooOne != nil}
+  /// Clears the value of `fooOne`. Subsequent reads from it will return its default value.
+  mutating func clearFooOne() {self._fooOne = nil}
+
+  var fooTwo: Int32 {
+    get {return _fooTwo ?? 0}
+    set {_fooTwo = newValue}
+  }
+  /// Returns true if `fooTwo` has been explicitly set.
+  var hasFooTwo: Bool {return self._fooTwo != nil}
+  /// Clears the value of `fooTwo`. Subsequent reads from it will return its default value.
+  mutating func clearFooTwo() {self._fooTwo = nil}
+
+  var fooThree: Int32 {
+    get {return _fooThree ?? 0}
+    set {_fooThree = newValue}
+  }
+  /// Returns true if `fooThree` has been explicitly set.
+  var hasFooThree: Bool {return self._fooThree != nil}
+  /// Clears the value of `fooThree`. Subsequent reads from it will return its default value.
+  mutating func clearFooThree() {self._fooThree = nil}
+
+  var fooFour: Int32 {
+    get {return _fooFour ?? 0}
+    set {_fooFour = newValue}
+  }
+  /// Returns true if `fooFour` has been explicitly set.
+  var hasFooFour: Bool {return self._fooFour != nil}
+  /// Clears the value of `fooFour`. Subsequent reads from it will return its default value.
+  mutating func clearFooFour() {self._fooFour = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _fooOne: Int32? = nil
+  fileprivate var _fooTwo: Int32? = nil
+  fileprivate var _fooThree: Int32? = nil
+  fileprivate var _fooFour: Int32? = nil
+}
+
 // MARK: - Extension support defined in unittest.proto.
 
 // MARK: - Extension Properties
@@ -5844,6 +5937,84 @@ extension ProtobufUnittest_TestExtensionInsideTable {
   }
 }
 
+extension ProtobufUnittest_TestExtensionRangeSerialize {
+
+  var ProtobufUnittest_TestExtensionRangeSerialize_barOne: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one`
+  /// has been explicitly set.
+  var hasProtobufUnittest_TestExtensionRangeSerialize_barOne: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one)
+  }
+  /// Clears the value of extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_TestExtensionRangeSerialize_barOne() {
+    clearExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one)
+  }
+
+  var ProtobufUnittest_TestExtensionRangeSerialize_barTwo: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two`
+  /// has been explicitly set.
+  var hasProtobufUnittest_TestExtensionRangeSerialize_barTwo: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two)
+  }
+  /// Clears the value of extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_TestExtensionRangeSerialize_barTwo() {
+    clearExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two)
+  }
+
+  var ProtobufUnittest_TestExtensionRangeSerialize_barThree: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three`
+  /// has been explicitly set.
+  var hasProtobufUnittest_TestExtensionRangeSerialize_barThree: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three)
+  }
+  /// Clears the value of extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_TestExtensionRangeSerialize_barThree() {
+    clearExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three)
+  }
+
+  var ProtobufUnittest_TestExtensionRangeSerialize_barFour: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four`
+  /// has been explicitly set.
+  var hasProtobufUnittest_TestExtensionRangeSerialize_barFour: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four)
+  }
+  /// Clears the value of extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_TestExtensionRangeSerialize_barFour() {
+    clearExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four)
+  }
+
+  var ProtobufUnittest_TestExtensionRangeSerialize_barFive: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five`
+  /// has been explicitly set.
+  var hasProtobufUnittest_TestExtensionRangeSerialize_barFive: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five)
+  }
+  /// Clears the value of extension `ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_TestExtensionRangeSerialize_barFive() {
+    clearExtensionValue(ext: ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five)
+  }
+}
+
 extension ProtobufUnittest_TestFieldOrderings {
 
   var ProtobufUnittest_myExtensionString: String {
@@ -6557,7 +6728,12 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestExtensionOrderings2.Extensions.test_ext_orderings2,
   ProtobufUnittest_TestExtensionOrderings2.TestExtensionOrderings3.Extensions.test_ext_orderings3,
   ProtobufUnittest_TestParsingMerge.Extensions.optional_ext,
-  ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext
+  ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext,
+  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_one,
+  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two,
+  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three,
+  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four,
+  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -7182,6 +7358,35 @@ extension ProtobufUnittest_TestParsingMerge {
     static let repeated_ext = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<ProtobufUnittest_TestAllTypes>, ProtobufUnittest_TestParsingMerge>(
       _protobuf_fieldNumber: 1001,
       fieldName: "protobuf_unittest.TestParsingMerge.repeated_ext"
+    )
+  }
+}
+
+extension ProtobufUnittest_TestExtensionRangeSerialize {
+  enum Extensions {
+    static let bar_one = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestExtensionRangeSerialize>(
+      _protobuf_fieldNumber: 2,
+      fieldName: "protobuf_unittest.TestExtensionRangeSerialize.bar_one"
+    )
+
+    static let bar_two = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestExtensionRangeSerialize>(
+      _protobuf_fieldNumber: 4,
+      fieldName: "protobuf_unittest.TestExtensionRangeSerialize.bar_two"
+    )
+
+    static let bar_three = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestExtensionRangeSerialize>(
+      _protobuf_fieldNumber: 10,
+      fieldName: "protobuf_unittest.TestExtensionRangeSerialize.bar_three"
+    )
+
+    static let bar_four = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestExtensionRangeSerialize>(
+      _protobuf_fieldNumber: 15,
+      fieldName: "protobuf_unittest.TestExtensionRangeSerialize.bar_four"
+    )
+
+    static let bar_five = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestExtensionRangeSerialize>(
+      _protobuf_fieldNumber: 19,
+      fieldName: "protobuf_unittest.TestExtensionRangeSerialize.bar_five"
     )
   }
 }
@@ -8558,6 +8763,55 @@ extension ProtobufUnittest_TestNestedExtension.OptionalGroup_extension: SwiftPro
 
   static func ==(lhs: ProtobufUnittest_TestNestedExtension.OptionalGroup_extension, rhs: ProtobufUnittest_TestNestedExtension.OptionalGroup_extension) -> Bool {
     if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestChildExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestChildExtension"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+    3: .standard(proto: "optional_extension"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._optionalExtension, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._b) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._optionalExtension) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._a {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    if let v = self._b {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    }
+    if let v = self._optionalExtension {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestChildExtension, rhs: ProtobufUnittest_TestChildExtension) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._b != rhs._b {return false}
+    if lhs._optionalExtension != rhs._optionalExtension {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -12693,6 +12947,69 @@ extension ProtobufUnittest_TestExtensionInsideTable: SwiftProtobuf.Message, Swif
     if lhs._field8 != rhs._field8 {return false}
     if lhs._field9 != rhs._field9 {return false}
     if lhs._field10 != rhs._field10 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestExtensionRangeSerialize"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "foo_one"),
+    6: .standard(proto: "foo_two"),
+    7: .standard(proto: "foo_three"),
+    13: .standard(proto: "foo_four"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._fooOne) }()
+      case 6: try { try decoder.decodeSingularInt32Field(value: &self._fooTwo) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self._fooThree) }()
+      case 13: try { try decoder.decodeSingularInt32Field(value: &self._fooFour) }()
+      case 2..<5, 9..<11, 15, 17, 19:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestExtensionRangeSerialize.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._fooOne {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 5)
+    if let v = self._fooTwo {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+    }
+    if let v = self._fooThree {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 9, end: 11)
+    if let v = self._fooFour {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 15, end: 16)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 17, end: 18)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 19, end: 20)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestExtensionRangeSerialize, rhs: ProtobufUnittest_TestExtensionRangeSerialize) -> Bool {
+    if lhs._fooOne != rhs._fooOne {return false}
+    if lhs._fooTwo != rhs._fooTwo {return false}
+    if lhs._fooThree != rhs._fooThree {return false}
+    if lhs._fooFour != rhs._fooFour {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true

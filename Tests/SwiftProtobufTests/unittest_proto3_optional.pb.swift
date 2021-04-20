@@ -366,6 +366,88 @@ struct ProtobufUnittest_TestProto3OptionalMessage {
   fileprivate var _optionalNestedMessage: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage? = nil
 }
 
+struct ProtobufUnittest_Proto3OptionalExtensions {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+// MARK: - Extension support defined in unittest_proto3_optional.proto.
+
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
+extension SwiftProtobuf.Google_Protobuf_MessageOptions {
+
+  var ProtobufUnittest_Proto3OptionalExtensions_extNoOptional: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional`
+  /// has been explicitly set.
+  var hasProtobufUnittest_Proto3OptionalExtensions_extNoOptional: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_Proto3OptionalExtensions_extNoOptional() {
+    clearExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional)
+  }
+
+  var ProtobufUnittest_Proto3OptionalExtensions_extWithOptional: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional`
+  /// has been explicitly set.
+  var hasProtobufUnittest_Proto3OptionalExtensions_extWithOptional: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_Proto3OptionalExtensions_extWithOptional() {
+    clearExtensionValue(ext: ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional)
+  }
+
+}
+
+// MARK: - File's ExtensionMap: ProtobufUnittest_UnittestProto3Optional_Extensions
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
+let ProtobufUnittest_UnittestProto3Optional_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_no_optional,
+  ProtobufUnittest_Proto3OptionalExtensions.Extensions.ext_with_optional
+]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
+
+extension ProtobufUnittest_Proto3OptionalExtensions {
+  enum Extensions {
+    static let ext_no_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+      _protobuf_fieldNumber: 355886728,
+      fieldName: "protobuf_unittest.Proto3OptionalExtensions.ext_no_optional"
+    )
+
+    static let ext_with_optional = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+      _protobuf_fieldNumber: 355886729,
+      fieldName: "protobuf_unittest.Proto3OptionalExtensions.ext_with_optional"
+    )
+  }
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"
@@ -701,6 +783,25 @@ extension ProtobufUnittest_TestProto3OptionalMessage.NestedMessage: SwiftProtobu
 
   static func ==(lhs: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage, rhs: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage) -> Bool {
     if lhs.s != rhs.s {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Proto3OptionalExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Proto3OptionalExtensions"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_Proto3OptionalExtensions, rhs: ProtobufUnittest_Proto3OptionalExtensions) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
