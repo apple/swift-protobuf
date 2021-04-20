@@ -724,18 +724,12 @@ internal struct JSONDecoder: Decoder {
     // Force-unwrap: we can only get here if the extension exists.
     let ext = scanner.extensions[messageType, fieldNumber]!
 
-    var fieldValue = values[fieldNumber]
-    if fieldValue != nil {
-      try fieldValue!.decodeExtensionField(decoder: &self)
-    } else {
-      fieldValue = try ext._protobuf_newField(decoder: &self)
-    }
-    // If the value was `null`, then the 'else' clause will return nil, as there
-    // is nothing to assign. If the api ever supports merging JSON into an
-    // object to update it, then the 'then' clause likely should be update to
-    // support clearing the the value rather that keeping its current value.
-    if fieldValue != nil {
-      values[fieldNumber] = fieldValue
+    try values.modify(index: fieldNumber) { fieldValue in
+      if fieldValue != nil {
+        try fieldValue!.decodeExtensionField(decoder: &self)
+      } else {
+        fieldValue = try ext._protobuf_newField(decoder: &self)
+      }
     }
   }
 }

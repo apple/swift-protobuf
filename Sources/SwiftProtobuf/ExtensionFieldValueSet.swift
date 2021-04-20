@@ -78,6 +78,12 @@ public struct ExtensionFieldValueSet: Hashable {
     set { values[index] = newValue }
   }
 
+  mutating func modify<ReturnType>(index: Int, _ modifier: (inout AnyExtensionField?) throws -> ReturnType) rethrows -> ReturnType {
+    // This internal helper exists to invoke the _modify accessor on Dictionary for the given operation, which can avoid CoWs
+    // during the modification operation.
+    return try modifier(&values[index])
+  }
+
   public var isInitialized: Bool {
     for (_, v) in values {
       if !v.isInitialized {
