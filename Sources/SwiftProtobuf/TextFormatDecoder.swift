@@ -708,19 +708,18 @@ internal struct TextFormatDecoder: Decoder {
 
     mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
-            var fieldValue = values[fieldNumber]
-            if fieldValue != nil {
-                try fieldValue!.decodeExtensionField(decoder: &self)
-            } else {
-                fieldValue = try ext._protobuf_newField(decoder: &self)
-            }
-            if fieldValue != nil {
-                values[fieldNumber] = fieldValue
-            } else {
-                // Really things should never get here, for TextFormat, decoding
-                // the value should always work or throw an error.  This specific
-                // error result is to allow this to be more detectable.
-                throw TextFormatDecodingError.internalExtensionError
+            try values.modify(index: fieldNumber) { fieldValue in
+                if fieldValue != nil {
+                    try fieldValue!.decodeExtensionField(decoder: &self)
+                } else {
+                    fieldValue = try ext._protobuf_newField(decoder: &self)
+                }
+                if fieldValue == nil {
+                    // Really things should never get here, for TextFormat, decoding
+                    // the value should always work or throw an error.  This specific
+                    // error result is to allow this to be more detectable.
+                    throw TextFormatDecodingError.internalExtensionError
+                }
             }
         }
     }
