@@ -332,6 +332,142 @@ struct Proto3ArenaUnittest_TestAllTypes {
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
+  /// Optional
+  var proto3OptionalInt32: Int32 {
+    get {return _storage._proto3OptionalInt32 ?? 0}
+    set {_uniqueStorage()._proto3OptionalInt32 = newValue}
+  }
+  /// Returns true if `proto3OptionalInt32` has been explicitly set.
+  var hasProto3OptionalInt32: Bool {return _storage._proto3OptionalInt32 != nil}
+  /// Clears the value of `proto3OptionalInt32`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalInt32() {_uniqueStorage()._proto3OptionalInt32 = nil}
+
+  var proto3OptionalInt64: Int64 {
+    get {return _storage._proto3OptionalInt64 ?? 0}
+    set {_uniqueStorage()._proto3OptionalInt64 = newValue}
+  }
+  /// Returns true if `proto3OptionalInt64` has been explicitly set.
+  var hasProto3OptionalInt64: Bool {return _storage._proto3OptionalInt64 != nil}
+  /// Clears the value of `proto3OptionalInt64`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalInt64() {_uniqueStorage()._proto3OptionalInt64 = nil}
+
+  var proto3OptionalUint32: UInt32 {
+    get {return _storage._proto3OptionalUint32 ?? 0}
+    set {_uniqueStorage()._proto3OptionalUint32 = newValue}
+  }
+  /// Returns true if `proto3OptionalUint32` has been explicitly set.
+  var hasProto3OptionalUint32: Bool {return _storage._proto3OptionalUint32 != nil}
+  /// Clears the value of `proto3OptionalUint32`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalUint32() {_uniqueStorage()._proto3OptionalUint32 = nil}
+
+  var proto3OptionalUint64: UInt64 {
+    get {return _storage._proto3OptionalUint64 ?? 0}
+    set {_uniqueStorage()._proto3OptionalUint64 = newValue}
+  }
+  /// Returns true if `proto3OptionalUint64` has been explicitly set.
+  var hasProto3OptionalUint64: Bool {return _storage._proto3OptionalUint64 != nil}
+  /// Clears the value of `proto3OptionalUint64`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalUint64() {_uniqueStorage()._proto3OptionalUint64 = nil}
+
+  var proto3OptionalSint32: Int32 {
+    get {return _storage._proto3OptionalSint32 ?? 0}
+    set {_uniqueStorage()._proto3OptionalSint32 = newValue}
+  }
+  /// Returns true if `proto3OptionalSint32` has been explicitly set.
+  var hasProto3OptionalSint32: Bool {return _storage._proto3OptionalSint32 != nil}
+  /// Clears the value of `proto3OptionalSint32`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalSint32() {_uniqueStorage()._proto3OptionalSint32 = nil}
+
+  var proto3OptionalSint64: Int64 {
+    get {return _storage._proto3OptionalSint64 ?? 0}
+    set {_uniqueStorage()._proto3OptionalSint64 = newValue}
+  }
+  /// Returns true if `proto3OptionalSint64` has been explicitly set.
+  var hasProto3OptionalSint64: Bool {return _storage._proto3OptionalSint64 != nil}
+  /// Clears the value of `proto3OptionalSint64`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalSint64() {_uniqueStorage()._proto3OptionalSint64 = nil}
+
+  var proto3OptionalFixed32: UInt32 {
+    get {return _storage._proto3OptionalFixed32 ?? 0}
+    set {_uniqueStorage()._proto3OptionalFixed32 = newValue}
+  }
+  /// Returns true if `proto3OptionalFixed32` has been explicitly set.
+  var hasProto3OptionalFixed32: Bool {return _storage._proto3OptionalFixed32 != nil}
+  /// Clears the value of `proto3OptionalFixed32`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalFixed32() {_uniqueStorage()._proto3OptionalFixed32 = nil}
+
+  var proto3OptionalFixed64: UInt64 {
+    get {return _storage._proto3OptionalFixed64 ?? 0}
+    set {_uniqueStorage()._proto3OptionalFixed64 = newValue}
+  }
+  /// Returns true if `proto3OptionalFixed64` has been explicitly set.
+  var hasProto3OptionalFixed64: Bool {return _storage._proto3OptionalFixed64 != nil}
+  /// Clears the value of `proto3OptionalFixed64`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalFixed64() {_uniqueStorage()._proto3OptionalFixed64 = nil}
+
+  var proto3OptionalSfixed32: Int32 {
+    get {return _storage._proto3OptionalSfixed32 ?? 0}
+    set {_uniqueStorage()._proto3OptionalSfixed32 = newValue}
+  }
+  /// Returns true if `proto3OptionalSfixed32` has been explicitly set.
+  var hasProto3OptionalSfixed32: Bool {return _storage._proto3OptionalSfixed32 != nil}
+  /// Clears the value of `proto3OptionalSfixed32`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalSfixed32() {_uniqueStorage()._proto3OptionalSfixed32 = nil}
+
+  var proto3OptionalSfixed64: Int64 {
+    get {return _storage._proto3OptionalSfixed64 ?? 0}
+    set {_uniqueStorage()._proto3OptionalSfixed64 = newValue}
+  }
+  /// Returns true if `proto3OptionalSfixed64` has been explicitly set.
+  var hasProto3OptionalSfixed64: Bool {return _storage._proto3OptionalSfixed64 != nil}
+  /// Clears the value of `proto3OptionalSfixed64`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalSfixed64() {_uniqueStorage()._proto3OptionalSfixed64 = nil}
+
+  var proto3OptionalFloat: Float {
+    get {return _storage._proto3OptionalFloat ?? 0}
+    set {_uniqueStorage()._proto3OptionalFloat = newValue}
+  }
+  /// Returns true if `proto3OptionalFloat` has been explicitly set.
+  var hasProto3OptionalFloat: Bool {return _storage._proto3OptionalFloat != nil}
+  /// Clears the value of `proto3OptionalFloat`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalFloat() {_uniqueStorage()._proto3OptionalFloat = nil}
+
+  var proto3OptionalDouble: Double {
+    get {return _storage._proto3OptionalDouble ?? 0}
+    set {_uniqueStorage()._proto3OptionalDouble = newValue}
+  }
+  /// Returns true if `proto3OptionalDouble` has been explicitly set.
+  var hasProto3OptionalDouble: Bool {return _storage._proto3OptionalDouble != nil}
+  /// Clears the value of `proto3OptionalDouble`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalDouble() {_uniqueStorage()._proto3OptionalDouble = nil}
+
+  var proto3OptionalBool: Bool {
+    get {return _storage._proto3OptionalBool ?? false}
+    set {_uniqueStorage()._proto3OptionalBool = newValue}
+  }
+  /// Returns true if `proto3OptionalBool` has been explicitly set.
+  var hasProto3OptionalBool: Bool {return _storage._proto3OptionalBool != nil}
+  /// Clears the value of `proto3OptionalBool`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalBool() {_uniqueStorage()._proto3OptionalBool = nil}
+
+  var proto3OptionalString: String {
+    get {return _storage._proto3OptionalString ?? String()}
+    set {_uniqueStorage()._proto3OptionalString = newValue}
+  }
+  /// Returns true if `proto3OptionalString` has been explicitly set.
+  var hasProto3OptionalString: Bool {return _storage._proto3OptionalString != nil}
+  /// Clears the value of `proto3OptionalString`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalString() {_uniqueStorage()._proto3OptionalString = nil}
+
+  var proto3OptionalBytes: Data {
+    get {return _storage._proto3OptionalBytes ?? Data()}
+    set {_uniqueStorage()._proto3OptionalBytes = newValue}
+  }
+  /// Returns true if `proto3OptionalBytes` has been explicitly set.
+  var hasProto3OptionalBytes: Bool {return _storage._proto3OptionalBytes != nil}
+  /// Clears the value of `proto3OptionalBytes`. Subsequent reads from it will return its default value.
+  mutating func clearProto3OptionalBytes() {_uniqueStorage()._proto3OptionalBytes = nil}
+
   var repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
@@ -748,6 +884,21 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     43: .standard(proto: "repeated_bool"),
     44: .standard(proto: "repeated_string"),
     45: .standard(proto: "repeated_bytes"),
+    116: .standard(proto: "proto3_optional_int32"),
+    117: .standard(proto: "proto3_optional_int64"),
+    118: .standard(proto: "proto3_optional_uint32"),
+    119: .standard(proto: "proto3_optional_uint64"),
+    120: .standard(proto: "proto3_optional_sint32"),
+    121: .standard(proto: "proto3_optional_sint64"),
+    122: .standard(proto: "proto3_optional_fixed32"),
+    123: .standard(proto: "proto3_optional_fixed64"),
+    124: .standard(proto: "proto3_optional_sfixed32"),
+    125: .standard(proto: "proto3_optional_sfixed64"),
+    126: .standard(proto: "proto3_optional_float"),
+    127: .standard(proto: "proto3_optional_double"),
+    128: .standard(proto: "proto3_optional_bool"),
+    129: .standard(proto: "proto3_optional_string"),
+    130: .standard(proto: "proto3_optional_bytes"),
     48: .standard(proto: "repeated_nested_message"),
     49: .standard(proto: "repeated_foreign_message"),
     50: .standard(proto: "repeated_import_message"),
@@ -803,6 +954,21 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
     var _repeatedBytes: [Data] = []
+    var _proto3OptionalInt32: Int32? = nil
+    var _proto3OptionalInt64: Int64? = nil
+    var _proto3OptionalUint32: UInt32? = nil
+    var _proto3OptionalUint64: UInt64? = nil
+    var _proto3OptionalSint32: Int32? = nil
+    var _proto3OptionalSint64: Int64? = nil
+    var _proto3OptionalFixed32: UInt32? = nil
+    var _proto3OptionalFixed64: UInt64? = nil
+    var _proto3OptionalSfixed32: Int32? = nil
+    var _proto3OptionalSfixed64: Int64? = nil
+    var _proto3OptionalFloat: Float? = nil
+    var _proto3OptionalDouble: Double? = nil
+    var _proto3OptionalBool: Bool? = nil
+    var _proto3OptionalString: String? = nil
+    var _proto3OptionalBytes: Data? = nil
     var _repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] = []
     var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
@@ -858,6 +1024,21 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       _repeatedBool = source._repeatedBool
       _repeatedString = source._repeatedString
       _repeatedBytes = source._repeatedBytes
+      _proto3OptionalInt32 = source._proto3OptionalInt32
+      _proto3OptionalInt64 = source._proto3OptionalInt64
+      _proto3OptionalUint32 = source._proto3OptionalUint32
+      _proto3OptionalUint64 = source._proto3OptionalUint64
+      _proto3OptionalSint32 = source._proto3OptionalSint32
+      _proto3OptionalSint64 = source._proto3OptionalSint64
+      _proto3OptionalFixed32 = source._proto3OptionalFixed32
+      _proto3OptionalFixed64 = source._proto3OptionalFixed64
+      _proto3OptionalSfixed32 = source._proto3OptionalSfixed32
+      _proto3OptionalSfixed64 = source._proto3OptionalSfixed64
+      _proto3OptionalFloat = source._proto3OptionalFloat
+      _proto3OptionalDouble = source._proto3OptionalDouble
+      _proto3OptionalBool = source._proto3OptionalBool
+      _proto3OptionalString = source._proto3OptionalString
+      _proto3OptionalBytes = source._proto3OptionalBytes
       _repeatedNestedMessage = source._repeatedNestedMessage
       _repeatedForeignMessage = source._repeatedForeignMessage
       _repeatedImportMessage = source._repeatedImportMessage
@@ -970,6 +1151,21 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
           }
         }()
         case 115: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyImportMessage) }()
+        case 116: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3OptionalInt32) }()
+        case 117: try { try decoder.decodeSingularInt64Field(value: &_storage._proto3OptionalInt64) }()
+        case 118: try { try decoder.decodeSingularUInt32Field(value: &_storage._proto3OptionalUint32) }()
+        case 119: try { try decoder.decodeSingularUInt64Field(value: &_storage._proto3OptionalUint64) }()
+        case 120: try { try decoder.decodeSingularSInt32Field(value: &_storage._proto3OptionalSint32) }()
+        case 121: try { try decoder.decodeSingularSInt64Field(value: &_storage._proto3OptionalSint64) }()
+        case 122: try { try decoder.decodeSingularFixed32Field(value: &_storage._proto3OptionalFixed32) }()
+        case 123: try { try decoder.decodeSingularFixed64Field(value: &_storage._proto3OptionalFixed64) }()
+        case 124: try { try decoder.decodeSingularSFixed32Field(value: &_storage._proto3OptionalSfixed32) }()
+        case 125: try { try decoder.decodeSingularSFixed64Field(value: &_storage._proto3OptionalSfixed64) }()
+        case 126: try { try decoder.decodeSingularFloatField(value: &_storage._proto3OptionalFloat) }()
+        case 127: try { try decoder.decodeSingularDoubleField(value: &_storage._proto3OptionalDouble) }()
+        case 128: try { try decoder.decodeSingularBoolField(value: &_storage._proto3OptionalBool) }()
+        case 129: try { try decoder.decodeSingularStringField(value: &_storage._proto3OptionalString) }()
+        case 130: try { try decoder.decodeSingularBytesField(value: &_storage._proto3OptionalBytes) }()
         default: break
         }
       }
@@ -1144,6 +1340,51 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._optionalLazyImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
       }
+      if let v = _storage._proto3OptionalInt32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
+      }
+      if let v = _storage._proto3OptionalInt64 {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 117)
+      }
+      if let v = _storage._proto3OptionalUint32 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 118)
+      }
+      if let v = _storage._proto3OptionalUint64 {
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 119)
+      }
+      if let v = _storage._proto3OptionalSint32 {
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 120)
+      }
+      if let v = _storage._proto3OptionalSint64 {
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 121)
+      }
+      if let v = _storage._proto3OptionalFixed32 {
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 122)
+      }
+      if let v = _storage._proto3OptionalFixed64 {
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 123)
+      }
+      if let v = _storage._proto3OptionalSfixed32 {
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 124)
+      }
+      if let v = _storage._proto3OptionalSfixed64 {
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 125)
+      }
+      if let v = _storage._proto3OptionalFloat {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 126)
+      }
+      if let v = _storage._proto3OptionalDouble {
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 127)
+      }
+      if let v = _storage._proto3OptionalBool {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 128)
+      }
+      if let v = _storage._proto3OptionalString {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 129)
+      }
+      if let v = _storage._proto3OptionalBytes {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 130)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1193,6 +1434,21 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._repeatedBool != rhs_storage._repeatedBool {return false}
         if _storage._repeatedString != rhs_storage._repeatedString {return false}
         if _storage._repeatedBytes != rhs_storage._repeatedBytes {return false}
+        if _storage._proto3OptionalInt32 != rhs_storage._proto3OptionalInt32 {return false}
+        if _storage._proto3OptionalInt64 != rhs_storage._proto3OptionalInt64 {return false}
+        if _storage._proto3OptionalUint32 != rhs_storage._proto3OptionalUint32 {return false}
+        if _storage._proto3OptionalUint64 != rhs_storage._proto3OptionalUint64 {return false}
+        if _storage._proto3OptionalSint32 != rhs_storage._proto3OptionalSint32 {return false}
+        if _storage._proto3OptionalSint64 != rhs_storage._proto3OptionalSint64 {return false}
+        if _storage._proto3OptionalFixed32 != rhs_storage._proto3OptionalFixed32 {return false}
+        if _storage._proto3OptionalFixed64 != rhs_storage._proto3OptionalFixed64 {return false}
+        if _storage._proto3OptionalSfixed32 != rhs_storage._proto3OptionalSfixed32 {return false}
+        if _storage._proto3OptionalSfixed64 != rhs_storage._proto3OptionalSfixed64 {return false}
+        if _storage._proto3OptionalFloat != rhs_storage._proto3OptionalFloat {return false}
+        if _storage._proto3OptionalDouble != rhs_storage._proto3OptionalDouble {return false}
+        if _storage._proto3OptionalBool != rhs_storage._proto3OptionalBool {return false}
+        if _storage._proto3OptionalString != rhs_storage._proto3OptionalString {return false}
+        if _storage._proto3OptionalBytes != rhs_storage._proto3OptionalBytes {return false}
         if _storage._repeatedNestedMessage != rhs_storage._repeatedNestedMessage {return false}
         if _storage._repeatedForeignMessage != rhs_storage._repeatedForeignMessage {return false}
         if _storage._repeatedImportMessage != rhs_storage._repeatedImportMessage {return false}
