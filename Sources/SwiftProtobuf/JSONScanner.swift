@@ -1276,8 +1276,8 @@ internal struct JSONScanner {
           return fieldNumber
         }
       }
-      if let first = fieldName.first, first == "[",
-         let last = fieldName.last, last == "]"
+      if let first = fieldName.utf8.first, first == UInt8(ascii: "["),
+         let last = fieldName.utf8.last, last == UInt8(ascii: "]")
       {
         fieldName.removeFirst()
         fieldName.removeLast()
