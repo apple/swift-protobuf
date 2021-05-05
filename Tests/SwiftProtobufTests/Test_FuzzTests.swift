@@ -116,5 +116,9 @@ class Test_FuzzTests: XCTestCase {
     assertTextFormatFails([
       0x31, 0x35, 0x3a, 0x27, 0xa9, 0xa9, 0x5c, 0x75, 0x41, 0x62
     ])
+
+    assertTextFormatSucceeds("500<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<>>>>>>>>>>>>>>>>500<1:''\n2:''>")
+
+    assertTextFormatFails("500<[fvwzz_exobuf.Aob/google.protobuf.Any]<[oeFgb/google.protobuf.Any]<[xlob/google.protobuf.Any]<[oeee0FFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<>>>>>>>>>>>>>>>>>500<1:''\n1:''\n1:''\n2:''\n1:'roto")
   }
 }
