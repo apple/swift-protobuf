@@ -136,7 +136,7 @@ extension Google_Protobuf_Any {
   }
 }
 
-extension Google_Protobuf_Any: _CustomJSONCodable {
+extension Google_Protobuf_Any {
   // Custom text format decoding support for Any objects.
   // (Note: This is not a part of any protocol; it's invoked
   // directly from TextFormatDecoder whenever it sees an attempt
@@ -152,10 +152,16 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
     } else {
       // This is not using the specialized encoding, so we can use the
       // standard path to decode the binary value.
+      // First, clear the fields so we don't waste time re-serializing
+      // the previous contents if a field gets repeated.
+      self.typeURL = ""
+      self.value = Data()
       try decodeMessage(decoder: &decoder)
     }
   }
+}
 
+extension Google_Protobuf_Any: _CustomJSONCodable {
   internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return try _storage.encodedJSONString(options: options)
   }
