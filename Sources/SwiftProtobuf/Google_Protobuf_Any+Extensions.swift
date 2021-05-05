@@ -153,7 +153,9 @@ extension Google_Protobuf_Any {
       // This is not using the specialized encoding, so we can use the
       // standard path to decode the binary value.
       // First, clear the fields so we don't waste time re-serializing
-      // the previous contents if a field gets repeated.
+      // the previous contents as this instances get replaced with a
+      // new value (can happen when a field name/number is repeated in
+      // the TextFormat input).
       self.typeURL = ""
       self.value = Data()
       try decodeMessage(decoder: &decoder)
