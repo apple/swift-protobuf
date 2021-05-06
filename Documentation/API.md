@@ -642,7 +642,7 @@ extend CanBeExtended {
 There are several pieces to the extension support:
 
 * **Extensible Messages** (such as `CanBeExtended` above) conform to
-  [`ExtensibleMessage`](https://github.com/apple/swift-protobuf/blob/master/Sources/SwiftProtobuf/ExtensibleMessage.swift)
+  [`ExtensibleMessage`](https://github.com/apple/swift-protobuf/blob/main/Sources/SwiftProtobuf/ExtensibleMessage.swift)
   and define some additional methods needed by the other components.  You
   should _not_ need to use these methods directly.
 
@@ -673,7 +673,7 @@ There are several pieces to the extension support:
 
   If you need to handle extensions defined in multiple files, you can build up
   your own `ExtensionMap` will all the data by using
-  [`SimpleExtensionMap`](https://github.com/apple/swift-protobuf/blob/master/Sources/SwiftProtobuf/SimpleExtensionMap.swift).
+  [`SimpleExtensionMap`](https://github.com/apple/swift-protobuf/blob/main/Sources/SwiftProtobuf/SimpleExtensionMap.swift).
   The easiest way is to create a new `SimpleExtensionMap` passing in a list
   of the generated `*_Extensions` `ExtensionMap`s that were generated for you
   in each file (i.e. - `let myMap = SimpleExtensionMap(Sample_Extensions, …)`).

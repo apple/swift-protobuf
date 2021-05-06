@@ -7,14 +7,14 @@ When doing a release:
 1. Examine what has changed
 
    Github's compare UI does a reasonable job here.  [Open that UI](https://github.com/apple/swift-protobuf/compare)
-   and set the _base_ to be the previous tag (_X.Y.Z_), and the _compare_ can be left at _master_
+   and set the _base_ to be the previous tag (_X.Y.Z_), and the _compare_ can be left at _main_
    since that is what the release is cut off of.
 
    It usually works best to open the links for each commit you want to look at in a new browser
    window/tab.  That way you can review each independently rather then looking at the unified
    diffs.
 
-   When looking at a individual commit, at the top github will show that it was a commit on master
+   When looking at a individual commit, at the top github will show that it was a commit on main
    and include a reference '#XYZ', this tells you what pull request it was part of.  This is useful
    for doing the release notes in the next section.
 
@@ -23,7 +23,7 @@ When doing a release:
    1. Inspect `Sources/SwiftProtobuf/Version.swift` and ensure the number is what you expect for
       the next release.
 
-      Normally we try to bump _master_ to a new revision after each release, so this number may
+      Normally we try to bump _main_ to a new revision after each release, so this number may
       be fine, but if this release includes import things (api changes, etc.), it may make sense
       to go back and bump the _major_ or _minor_ number instead.  If you do need to change the
       number: `DevTools/LibraryVersions.py a.b.c`.
@@ -62,7 +62,7 @@ When doing a release:
       If this doesn't pass, you have two options:
 
       - If the problem is just with the `podspec`, you can edit it, and try again.  The version of
-        the podspec in the branch doesn't really matter, so just ensure things get fixed on master
+        the podspec in the branch doesn't really matter, so just ensure things get fixed on main
         for the future.
       - If the problem is within the code, you'll likely need to abandon this release.  Fix the
         code and start the process over cutting a new tag.
@@ -75,9 +75,9 @@ When doing a release:
 
       _Note:_ This uses that local copy of the podspec.
 
-1. Bump the version on _master_
+1. Bump the version on _main_
 
-   To help tell if someone is using _master_ before it has been cut as a release, go ahead and
+   To help tell if someone is using _main_ before it has been cut as a release, go ahead and
    bump it to a new revision:
 
    ```
@@ -86,5 +86,5 @@ When doing a release:
 
    Where _c_ is one higher than the release that was just done.
 
-   Make sure to commit/merge this _master_ on github.
+   Make sure to commit/merge this _main_ on github.
 
