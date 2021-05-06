@@ -29,7 +29,7 @@ for f in `find . -name '*.swift' -o -name '*.cc' | sed -e 's|./||' | grep -v '.p
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 EOF
             # Followed by the body of the file
             # The copyright message ends at the first blank comment line after
@@ -46,7 +46,7 @@ EOF
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 
 EOF

@@ -5,7 +5,7 @@
 # Licensed under Apache License v2.0 with Runtime Library Exception
 #
 # See LICENSE.txt for license information:
-# https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+# https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 #
 
 """Helper script to for the versions numbers in the project sources."""
