@@ -2,7 +2,7 @@ Before opening a new issue, please double check the past issues (both open and
 closed ones) to see if your problem has been discussed before and already
 contains an answer/solution. Likewise, check the FAQ in the Documentation folder
 for some common things -
-  https://github.com/apple/swift-protobuf/blob/master/Documentation/FAQ.md
+  https://github.com/apple/swift-protobuf/blob/main/Documentation/FAQ.md
 
 
 Please be sure to include:

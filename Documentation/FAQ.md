@@ -6,7 +6,7 @@ issues/PRs.
 ## Can you add an option for…
 
 While there are a [_few_ options that control the generated
-files](https://github.com/apple/swift-protobuf/blob/master/Documentation/PLUGIN.md#how-to-specify-code-generation-options),
+files](https://github.com/apple/swift-protobuf/blob/main/Documentation/PLUGIN.md#how-to-specify-code-generation-options),
 we prefer not to add customization points like this.
 
 The problem with generation options, especially if the change the generated API
@@ -81,7 +81,7 @@ moves to a new major version and is generally accepting breaking changes.
 ## What's wrong with `swift_prefix`?
 
 While there is a [`swift_prefix`
-`option`](https://github.com/apple/swift-protobuf/blob/master/Documentation/API.md#generated-struct-name)
+`option`](https://github.com/apple/swift-protobuf/blob/main/Documentation/API.md#generated-struct-name)
 to override the reuse of the proto `package` when generating the Swift types,
 its use is discouraged because it has proven problematic in practice. Since it
 ignores the `package` directive, it can easily lead to name conflicts and other
