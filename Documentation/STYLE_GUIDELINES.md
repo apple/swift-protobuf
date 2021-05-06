@@ -17,7 +17,7 @@ a method with a large number of generic types and/or arguments), we suggest
 two pieces of advice:
 
 1. Look to the
-   [Swift standard library](https://github.com/apple/swift/tree/master/stdlib/public/core)
+   [Swift standard library](https://github.com/apple/swift/tree/main/stdlib/public/core)
    for guidance.
 1. Don't fight Xcode's auto-indenting unless doing so would make the
    formatting look horrible. Xcode has some baked-in assumptions about how
@@ -82,5 +82,5 @@ changes are made, old code will be opportunistically brought in line with these
 guidelines.
 
 Eventually, it is our hope that the `swift-format` tool that is in Swift's
-master branch will be made generally available with a future release of Xcode
+main branch will be made generally available with a future release of Xcode
 or in some other form that is easy for end-users to adopt.

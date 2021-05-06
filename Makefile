@@ -338,7 +338,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 # against our menagerie of sample protos.
 #
 # If you do this, you MUST MANUALLY verify these files before checking them in,
-# since the new checkin will become the new master reference.
+# since the new checkin will become the new main reference.
 #
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
