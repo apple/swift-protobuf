@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/Google_Protobuf_NullValue+Extensions.swift - NullValue extensions
+// Sources/SwiftProtobuf/Google_Protobuf_NullValue+TextExtensions.swift - NullValue extensions
 //
 // Copyright (c) 2014 - 2020 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

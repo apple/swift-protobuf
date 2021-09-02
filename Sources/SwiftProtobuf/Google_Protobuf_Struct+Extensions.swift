@@ -27,38 +27,6 @@ extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
   }
 }
 
-extension Google_Protobuf_Struct: _CustomJSONCodable {
-  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var jsonEncoder = JSONEncoder()
-    jsonEncoder.startObject()
-    var mapVisitor = JSONMapEncodingVisitor(encoder: jsonEncoder, options: options)
-    for (k,v) in fields {
-      try mapVisitor.visitSingularStringField(value: k, fieldNumber: 1)
-      try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }
-    mapVisitor.encoder.endObject()
-    return mapVisitor.encoder.stringResult
-  }
-
-  internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    try decoder.scanner.skipRequiredObjectStart()
-    if decoder.scanner.skipOptionalObjectEnd() {
-      return
-    }
-    while true {
-      let key = try decoder.scanner.nextQuotedString()
-      try decoder.scanner.skipRequiredColon()
-      var value = Google_Protobuf_Value()
-      try value.decodeJSON(from: &decoder)
-      fields[key] = value
-      if decoder.scanner.skipOptionalObjectEnd() {
-        return
-      }
-      try decoder.scanner.skipRequiredComma()
-    }
-  }
-}
-
 extension Google_Protobuf_Struct {
   /// Creates a new `Google_Protobuf_Struct` from a dictionary of string keys to
   /// values of type `Google_Protobuf_Value`.

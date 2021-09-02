@@ -32,16 +32,8 @@ protocol ProtobufWrapper {
   init(_ value: WrappedType.BaseType)
 }
 
-extension ProtobufWrapper {
-  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    var v: WrappedType.BaseType?
-    try WrappedType.decodeSingular(value: &v, from: &decoder)
-    value = v ?? WrappedType.proto3DefaultValue
-  }
-}
-
 extension Google_Protobuf_DoubleValue:
-  ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByFloatLiteral {
 
   public typealias WrappedType = ProtobufDouble
   public typealias FloatLiteralType = WrappedType.BaseType
@@ -54,23 +46,10 @@ extension Google_Protobuf_DoubleValue:
   public init(floatLiteral: FloatLiteralType) {
     self.init(floatLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    if value.isFinite {
-      // Swift 4.2 and later guarantees that this is accurate
-      // enough to parse back to the exact value on the other end.
-      return value.description
-    } else {
-      // Protobuf-specific handling of NaN and infinities
-      var encoder = JSONEncoder()
-      encoder.putDoubleValue(value: value)
-      return encoder.stringResult
-    }
-  }
 }
 
 extension Google_Protobuf_FloatValue:
-  ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByFloatLiteral {
 
   public typealias WrappedType = ProtobufFloat
   public typealias FloatLiteralType = Float
@@ -83,23 +62,10 @@ extension Google_Protobuf_FloatValue:
   public init(floatLiteral: FloatLiteralType) {
     self.init(floatLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    if value.isFinite {
-      // Swift 4.2 and later guarantees that this is accurate
-      // enough to parse back to the exact value on the other end.
-      return value.description
-    } else {
-      // Protobuf-specific handling of NaN and infinities
-      var encoder = JSONEncoder()
-      encoder.putFloatValue(value: value)
-      return encoder.stringResult
-    }
-  }
 }
 
 extension Google_Protobuf_Int64Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByIntegerLiteral {
 
   public typealias WrappedType = ProtobufInt64
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -112,14 +78,10 @@ extension Google_Protobuf_Int64Value:
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return "\"" + String(value) + "\""
-  }
 }
 
 extension Google_Protobuf_UInt64Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByIntegerLiteral {
 
   public typealias WrappedType = ProtobufUInt64
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -132,14 +94,10 @@ extension Google_Protobuf_UInt64Value:
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return "\"" + String(value) + "\""
-  }
 }
 
 extension Google_Protobuf_Int32Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByIntegerLiteral {
 
   public typealias WrappedType = ProtobufInt32
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -152,14 +110,10 @@ extension Google_Protobuf_Int32Value:
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return String(value)
-  }
 }
 
 extension Google_Protobuf_UInt32Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByIntegerLiteral {
 
   public typealias WrappedType = ProtobufUInt32
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -172,14 +126,10 @@ extension Google_Protobuf_UInt32Value:
   public init(integerLiteral: IntegerLiteralType) {
     self.init(integerLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return String(value)
-  }
 }
 
 extension Google_Protobuf_BoolValue:
-  ProtobufWrapper, ExpressibleByBooleanLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByBooleanLiteral {
 
   public typealias WrappedType = ProtobufBool
   public typealias BooleanLiteralType = Bool
@@ -192,14 +142,10 @@ extension Google_Protobuf_BoolValue:
   public init(booleanLiteral: Bool) {
     self.init(booleanLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return value ? "true" : "false"
-  }
 }
 
 extension Google_Protobuf_StringValue:
-  ProtobufWrapper, ExpressibleByStringLiteral, _CustomJSONCodable {
+  ProtobufWrapper, ExpressibleByStringLiteral {
 
   public typealias WrappedType = ProtobufString
   public typealias StringLiteralType = String
@@ -222,26 +168,14 @@ extension Google_Protobuf_StringValue:
   public init(unicodeScalarLiteral: String) {
     self.init(unicodeScalarLiteral)
   }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var encoder = JSONEncoder()
-    encoder.putStringValue(value: value)
-    return encoder.stringResult
-  }
 }
 
-extension Google_Protobuf_BytesValue: ProtobufWrapper, _CustomJSONCodable {
+extension Google_Protobuf_BytesValue: ProtobufWrapper {
 
   public typealias WrappedType = ProtobufBytes
 
   public init(_ value: WrappedType.BaseType) {
     self.init()
     self.value = value
-  }
-
-  func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var encoder = JSONEncoder()
-    encoder.putBytesValue(value: value)
-    return encoder.stringResult
   }
 }

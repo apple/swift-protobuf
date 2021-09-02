@@ -25,45 +25,6 @@ extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
   }
 }
 
-extension Google_Protobuf_ListValue: _CustomJSONCodable {
-  internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    var jsonEncoder = JSONEncoder()
-    jsonEncoder.append(text: "[")
-    var separator: StaticString = ""
-    for v in values {
-      jsonEncoder.append(staticText: separator)
-      try v.serializeJSONValue(to: &jsonEncoder, options: options)
-      separator = ","
-    }
-    jsonEncoder.append(text: "]")
-    return jsonEncoder.stringResult
-  }
-
-  internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    if decoder.scanner.skipOptionalNull() {
-      return
-    }
-    try decoder.scanner.skipRequiredArrayStart()
-    // Since we override the JSON decoding, we can't rely
-    // on the default recursion depth tracking.
-    try decoder.scanner.incrementRecursionDepth()
-    if decoder.scanner.skipOptionalArrayEnd() {
-      decoder.scanner.decrementRecursionDepth()
-      return
-    }
-    while true {
-      var v = Google_Protobuf_Value()
-      try v.decodeJSON(from: &decoder)
-      values.append(v)
-      if decoder.scanner.skipOptionalArrayEnd() {
-        decoder.scanner.decrementRecursionDepth()
-        return
-      }
-      try decoder.scanner.skipRequiredComma()
-    }
-  }
-}
-
 extension Google_Protobuf_ListValue {
   /// Creates a new `Google_Protobuf_ListValue` from the given array of
   /// `Google_Protobuf_Value` elements.
