@@ -226,7 +226,8 @@ struct GeneratorPlugin {
       let fileDescriptor = descriptorSet.lookupFileDescriptor(protoName: name)
       let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
       var printer = CodePrinter()
-      fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
+      var textPrinter = CodePrinter()
+      fileGenerator.generateOutputFile(printer: &printer, textPrinter: &textPrinter, errorString: &errorString)
       if let errorString = errorString {
         // If generating multiple files, scope the message with the file that triggered it.
         let fullError = request.fileToGenerate.count > 1 ? "\(name): \(errorString)" : errorString
@@ -235,6 +236,9 @@ struct GeneratorPlugin {
       responseFiles.append(
         Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                             content: printer.content))
+      responseFiles.append(
+        Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputTextFilename,
+                                                            content: textPrinter.content))
     }
     return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
                                                           supportedFeatures: [.proto3Optional])

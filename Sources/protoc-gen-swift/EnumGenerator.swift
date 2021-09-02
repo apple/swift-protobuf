@@ -101,13 +101,13 @@ class EnumGenerator {
     p.print("]\n")
   }
 
-  func generateRuntimeSupport(printer p: inout CodePrinter) {
-    p.print("\n")
-    p.print("extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
-    p.indent()
-    generateProtoNameProviding(printer: &p)
-    p.outdent()
-    p.print("}\n")
+  func generateRuntimeSupport(printer p: inout CodePrinter, textPrinter textP: inout CodePrinter) {
+    textP.print("\n")
+    textP.print("extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
+    textP.indent()
+    generateProtoNameProviding(printer: &textP)
+    textP.outdent()
+    textP.print("}\n")
   }
 
   /// Generates the cases or statics (for alias) for the values.

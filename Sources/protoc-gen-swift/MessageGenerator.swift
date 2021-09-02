@@ -202,11 +202,15 @@ class MessageGenerator {
     }
   }
 
-  func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+  func generateRuntimeSupport(printer p: inout CodePrinter, textPrinter textP: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print(
         "\n",
-        "extension \(swiftFullName): \(namer.swiftProtobufModuleName).Message, \(namer.swiftProtobufModuleName)._MessageImplementationBase, \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
+        "extension \(swiftFullName): \(namer.swiftProtobufModuleName).Message, \(namer.swiftProtobufModuleName)._MessageImplementationBase {\n")
     p.indent()
+    textP.print(
+        "\n",
+        "extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
+    textP.indent()
 
     if let parent = parent {
       p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\"\n")
@@ -215,7 +219,7 @@ class MessageGenerator {
     } else {
       p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"\n")
     }
-    generateProtoNameProviding(printer: &p)
+    generateProtoNameProviding(printer: &textP)
     if let storage = storage {
       p.print("\n")
       storage.generateTypeDeclaration(printer: &p)
@@ -232,13 +236,15 @@ class MessageGenerator {
     generateMessageEquality(printer: &p)
     p.outdent()
     p.print("}\n")
+    textP.outdent()
+    textP.print("}\n")
 
     // Nested enums and messages
     for e in enums {
-      e.generateRuntimeSupport(printer: &p)
+      e.generateRuntimeSupport(printer: &p, textPrinter: &textP)
     }
     for m in messages {
-      m.generateRuntimeSupport(printer: &p, file: file, parent: self)
+      m.generateRuntimeSupport(printer: &p, textPrinter: &textP, file: file, parent: self)
     }
   }
 
