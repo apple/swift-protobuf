@@ -1582,6 +1582,21 @@ public struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `wktBytesValue`. Subsequent reads from it will return its default value.
   public mutating func clearWktBytesValue() {_uniqueStorage()._wktBytesValue = nil}
 
+  /// Get some coverage for the special message_set_wire_format.
+  public var singularMessageSet: Fuzz_Testing_AMessageSetMessage {
+    get {return _storage._singularMessageSet ?? Fuzz_Testing_AMessageSetMessage()}
+    set {_uniqueStorage()._singularMessageSet = newValue}
+  }
+  /// Returns true if `singularMessageSet` has been explicitly set.
+  public var hasSingularMessageSet: Bool {return _storage._singularMessageSet != nil}
+  /// Clears the value of `singularMessageSet`. Subsequent reads from it will return its default value.
+  public mutating func clearSingularMessageSet() {_uniqueStorage()._singularMessageSet = nil}
+
+  public var repeatedMessageSet: [Fuzz_Testing_AMessageSetMessage] {
+    get {return _storage._repeatedMessageSet}
+    set {_uniqueStorage()._repeatedMessageSet = newValue}
+  }
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// oneof
@@ -1761,6 +1776,19 @@ public struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+/// A message with message_set_wire_format.
+public struct Fuzz_Testing_AMessageSetMessage: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 public struct Fuzz_Testing_SingularGroup_ext {
@@ -2866,6 +2894,8 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     515: .standard(proto: "wkt_bool_value"),
     516: .standard(proto: "wkt_string_value"),
     517: .standard(proto: "wkt_bytes_value"),
+    600: .standard(proto: "singular_message_set"),
+    601: .standard(proto: "repeated_message_set"),
   ]
 
   fileprivate class _StorageClass {
@@ -3111,6 +3141,8 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _wktBoolValue: SwiftProtobuf.Google_Protobuf_BoolValue? = nil
     var _wktStringValue: SwiftProtobuf.Google_Protobuf_StringValue? = nil
     var _wktBytesValue: SwiftProtobuf.Google_Protobuf_BytesValue? = nil
+    var _singularMessageSet: Fuzz_Testing_AMessageSetMessage? = nil
+    var _repeatedMessageSet: [Fuzz_Testing_AMessageSetMessage] = []
 
     static let defaultInstance = _StorageClass()
 
@@ -3359,6 +3391,8 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       _wktBoolValue = source._wktBoolValue
       _wktStringValue = source._wktStringValue
       _wktBytesValue = source._wktBytesValue
+      _singularMessageSet = source._singularMessageSet
+      _repeatedMessageSet = source._repeatedMessageSet
     }
   }
 
@@ -3386,6 +3420,8 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapSfixed32Message) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapSfixed64Message) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._mapBoolMessage) {return false}
+      if let v = _storage._singularMessageSet, !v.isInitialized {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedMessageSet) {return false}
       return true
     }
   }
@@ -3793,6 +3829,8 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         case 515: try { try decoder.decodeSingularMessageField(value: &_storage._wktBoolValue) }()
         case 516: try { try decoder.decodeSingularMessageField(value: &_storage._wktStringValue) }()
         case 517: try { try decoder.decodeSingularMessageField(value: &_storage._wktBytesValue) }()
+        case 600: try { try decoder.decodeSingularMessageField(value: &_storage._singularMessageSet) }()
+        case 601: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessageSet) }()
         case 1000..<2001:
           try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Fuzz_Testing_Message.self, fieldNumber: fieldNumber) }()
         default: break
@@ -4604,6 +4642,12 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if let v = _storage._wktBytesValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 517)
       }
+      if let v = _storage._singularMessageSet {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 600)
+      }
+      if !_storage._repeatedMessageSet.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedMessageSet, fieldNumber: 601)
+      }
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4856,6 +4900,8 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         if _storage._wktBoolValue != rhs_storage._wktBoolValue {return false}
         if _storage._wktStringValue != rhs_storage._wktStringValue {return false}
         if _storage._wktBytesValue != rhs_storage._wktBytesValue {return false}
+        if _storage._singularMessageSet != rhs_storage._singularMessageSet {return false}
+        if _storage._repeatedMessageSet != rhs_storage._repeatedMessageSet {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -4958,6 +5004,31 @@ extension Fuzz_Testing_Message.OneofGroup: SwiftProtobuf.Message, SwiftProtobuf.
   public static func ==(lhs: Fuzz_Testing_Message.OneofGroup, rhs: Fuzz_Testing_Message.OneofGroup) -> Bool {
     if lhs._groupField != rhs._groupField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Fuzz_Testing_AMessageSetMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AMessageSetMessage"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: Fuzz_Testing_AMessageSetMessage.self)
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFieldsAsMessageSet(fields: _protobuf_extensionFieldValues, start: 4, end: 2147483647)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Fuzz_Testing_AMessageSetMessage, rhs: Fuzz_Testing_AMessageSetMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }

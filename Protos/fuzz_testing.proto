@@ -313,8 +313,18 @@ message Message {
   optional google.protobuf.StringValue   wkt_string_value   = 516;
   optional google.protobuf.BytesValue    wkt_bytes_value    = 517;
 
+  // Get some coverage for the special message_set_wire_format.
+  optional AMessageSetMessage singular_message_set = 600;
+  repeated AMessageSetMessage repeated_message_set = 601;
+
   // Extensions
   extensions 1000 to 2000;
+}
+
+// A message with message_set_wire_format.
+message AMessageSetMessage {
+  option message_set_wire_format = true;
+  extensions 4 to max;
 }
 
 extend Message {
