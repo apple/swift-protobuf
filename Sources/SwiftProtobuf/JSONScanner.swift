@@ -1493,6 +1493,9 @@ internal struct JSONScanner {
   // they don't know; newer clients may reject the same input due to
   // schema mismatches or other issues.
   private mutating func skipString() throws {
+    guard hasMoreContent else {
+      throw JSONDecodingError.truncated
+    }
     if currentByte != asciiDoubleQuote {
       throw JSONDecodingError.malformedString
     }
