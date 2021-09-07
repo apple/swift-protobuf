@@ -44,3 +44,7 @@ A note about memory issues, the address sanitizer is enabled in the fuzz tests
 and in that context can find different things that what are found running the
 unittests with the address sanitizer. So having test cases in both places can be
 needed to help ensure something is less likely to regress.
+
+There are dictionaries to help steer the fuzzing of JSON and TextFormat, to run
+with them, just add `-dict=FuzzJSON.dict` or `-dict=FuzzTextFormat.dict` to the
+invocation of the fuzz binary.
