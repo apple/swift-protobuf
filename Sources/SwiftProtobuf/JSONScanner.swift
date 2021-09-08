@@ -1368,6 +1368,14 @@ internal struct JSONScanner {
     try skipRequiredCharacter(asciiOpenSquareBracket) // [
   }
 
+  /// Skip "[", throw if that's not the next character and increment recursion count
+  /// since this counts as an "object" for depth.
+  internal mutating func skipRequiredArrayObjectStart() throws {
+    try skipRequiredArrayStart()
+    try incrementRecursionDepth()
+  }
+
+
   /// Helper for skipping optional single-character tokens
   private mutating func skipOptionalCharacter(_ c: UInt8) -> Bool {
     skipWhitespace()
@@ -1382,6 +1390,16 @@ internal struct JSONScanner {
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalArrayEnd() -> Bool {
     return skipOptionalCharacter(asciiCloseSquareBracket) // ]
+  }
+
+  /// If the next non-whitespace character is "]", skip it, update the depth count,
+  /// and return true.  Otherwise, return false.
+  internal mutating func skipOptionalArrayObjectEnd() -> Bool {
+    let result = skipOptionalArrayEnd()
+    if result {
+      decrementRecursionDepth()
+    }
+    return result
   }
 
   /// If the next non-whitespace character is "}", skip it

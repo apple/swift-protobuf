@@ -59,6 +59,57 @@ class Test_JSONDecodingOptions: XCTestCase {
         }
     }
 
+    func testMessageDepthLimitWKTs() {
+        let tests: [(Int, String)] = [
+          // depth, input
+          ( 2, "{ \"optionalStruct\": { } }" ),
+          ( 2, "{ \"optionalStruct\": { \"value\": true } }" ),
+
+          ( 3, "{ \"optionalStruct\": { \"value\": [] } }" ),
+          ( 3, "{ \"optionalStruct\": { \"value\": [1234, \"5678\"] } }"),
+
+          ( 3, "{ \"optionalStruct\": { \"value\": {} } }" ),
+          ( 3, "{ \"optionalStruct\": { \"value\": { \"key\": 1 } } }"),
+
+          ( 1, "{ \"optionalValue\": \"str\" }" ),
+
+          ( 2, "{ \"optionalValue\": [] }" ),
+          ( 2, "{ \"optionalValue\": [ 1 ] }" ),
+
+          ( 2, "{ \"optionalValue\": {} }" ),
+          ( 2, "{ \"optionalValue\": { \"a\": 1 } }" ),
+
+          ( 3, "{ \"optionalValue\": [ [ 1 ] ] }" ),
+
+          ( 3, "{ \"optionalValue\": { \"a\": [] } }" ),
+          ( 3, "{ \"optionalValue\": { \"a\": [ null ] } }" ),
+          ( 3, "{ \"optionalValue\": { \"a\": {} } }" ),
+          ( 3, "{ \"optionalValue\": { \"a\": { \"b\": 2 } } }" ),
+        ]
+
+        for (i, (depth, jsonInput)) in tests.enumerated() {
+            for limit in (depth - 1)...(depth + 1) {
+               let expectSuccess = limit >= depth
+                do {
+                    var options = JSONDecodingOptions()
+                    options.messageDepthLimit = limit
+                    let _ = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: jsonInput, options: options)
+                    if !expectSuccess {
+                        XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
+                    }
+                } catch JSONDecodingError.messageDepthLimit {
+                    if expectSuccess {
+                        XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
+                    } else {
+                        // Nothing, this is what was expected.
+                    }
+                } catch let e  {
+                    XCTFail("Decode failed (pass: \(i), limit: \(limit) with unexpected error: \(e)")
+                }
+            }
+        }
+    }
+
     func testIgnoreUnknownFields() {
         // (isValidJSON, jsonInput)
         //   isValidJSON - if the input is otherwise valid protobuf JSON, and

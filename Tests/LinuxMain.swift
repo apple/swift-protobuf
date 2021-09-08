@@ -628,6 +628,7 @@ extension Test_JSONrepeated {
 extension Test_JSONDecodingOptions {
     static var allTests = [
         ("testMessageDepthLimit", testMessageDepthLimit),
+        ("testMessageDepthLimitWKTs", testMessageDepthLimitWKTs),
         ("testIgnoreUnknownFields", testIgnoreUnknownFields)
     ]
 }

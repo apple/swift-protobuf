@@ -43,15 +43,18 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
     if decoder.scanner.skipOptionalNull() {
       return
     }
-    try decoder.scanner.skipRequiredArrayStart()
-    if decoder.scanner.skipOptionalArrayEnd() {
+    // Unlike most lists, this counts as a object start (for recursion depth);
+    // this follows protostream_objectsource.cc's
+    // ProtoStreamObjectSource::RenderField() logic for tracking the depth.
+    try decoder.scanner.skipRequiredArrayObjectStart()
+    if decoder.scanner.skipOptionalArrayObjectEnd() {
       return
     }
     while true {
       var v = Google_Protobuf_Value()
       try v.decodeJSON(from: &decoder)
       values.append(v)
-      if decoder.scanner.skipOptionalArrayEnd() {
+      if decoder.scanner.skipOptionalArrayObjectEnd() {
         return
       }
       try decoder.scanner.skipRequiredComma()
