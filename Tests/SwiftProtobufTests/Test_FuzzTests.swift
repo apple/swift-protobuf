@@ -96,6 +96,11 @@ class Test_FuzzTests: XCTestCase {
 
     // FailCases/JSON-Any
     assertJSONFails(" {\"wktAny\":{\"ny\":{")
+
+    // FuzzTesting/FailCases/clusterfuzz-testcase-minimized-FuzzJSON_release-4929034878844928
+    // This actually fails when the fuzzer was trying to write it back out again.
+    let msg = try! Fuzz_Testing_Message(jsonString: "   {\"wktAny\":  {}}  ")
+    XCTAssertEqual(try! msg.jsonString(), "{\"wktAny\":{}}")
   }
 
   func test_TextFormat() {

@@ -410,6 +410,18 @@ extension AnyMessageStorage {
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     switch state {
     case .binary(let valueData):
+      // Follow the C++ protostream_objectsource.cc's
+      // ProtoStreamObjectSource::RenderAny() special casing of an empty value.
+      guard !valueData.isEmpty else {
+        if _typeURL.isEmpty {
+          return "{}"
+        }
+        var jsonEncoder = JSONEncoder()
+        jsonEncoder.startField(name: "@type")
+        jsonEncoder.putStringValue(value: _typeURL)
+        jsonEncoder.endObject()
+        return jsonEncoder.stringResult
+      }
       // Transcode by decoding the binary data to a message object
       // and then recode back into JSON.
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
