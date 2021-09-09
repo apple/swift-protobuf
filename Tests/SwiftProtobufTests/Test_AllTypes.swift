@@ -52,6 +52,14 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     func testEncoding_unknown() {
         assertDecodeFails([208, 41]) // Field 666, wiretype 0
         assertDecodeSucceeds([208, 41, 0]) {$0 != MessageTestType()} // Ditto, with varint body
+
+        // This test validation when putting things into unknown fields. In
+        // this case, ensuring the a varint value isn't invalid.
+        assertDecodeFails([
+          (7 << 3) + 0, // Field 7 as a varint (it should be a fixed32)
+          // And overly encoded varint for the value (extracted from some fuzz testing)
+          239, 191, 189, 239, 191, 189, 239, 191, 189, 239, 191, 189, 49,
+        ])
     }
 
     //

@@ -1288,20 +1288,8 @@ internal struct BinaryDecoder: Decoder {
     private mutating func skipOver(tag: FieldTag) throws {
         switch tag.wireFormat {
         case .varint:
-            if available < 1 {
-                throw BinaryDecodingError.truncated
-            }
-            var c = p.load(fromByteOffset: 0, as: UInt8.self)
-            while (c & 0x80) != 0 {
-                p += 1
-                available -= 1
-                if available < 1 {
-                    throw BinaryDecodingError.truncated
-                }
-                c = p.load(fromByteOffset: 0, as: UInt8.self)
-            }
-            p += 1
-            available -= 1
+            // Don't need the value, just ensuring it is validly encoded.
+            let _ = try decodeVarint()
         case .fixed64:
             if available < 8 {
                 throw BinaryDecodingError.truncated
