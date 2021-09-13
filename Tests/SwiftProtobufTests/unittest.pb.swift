@@ -3501,6 +3501,38 @@ struct ProtobufUnittest_TestOneof2 {
     set {bar = .barEnum(newValue)}
   }
 
+  var barStringWithEmptyDefault: String {
+    get {
+      if case .barStringWithEmptyDefault(let v)? = bar {return v}
+      return String()
+    }
+    set {bar = .barStringWithEmptyDefault(newValue)}
+  }
+
+  var barCordWithEmptyDefault: String {
+    get {
+      if case .barCordWithEmptyDefault(let v)? = bar {return v}
+      return String()
+    }
+    set {bar = .barCordWithEmptyDefault(newValue)}
+  }
+
+  var barStringPieceWithEmptyDefault: String {
+    get {
+      if case .barStringPieceWithEmptyDefault(let v)? = bar {return v}
+      return String()
+    }
+    set {bar = .barStringPieceWithEmptyDefault(newValue)}
+  }
+
+  var barBytesWithEmptyDefault: Data {
+    get {
+      if case .barBytesWithEmptyDefault(let v)? = bar {return v}
+      return Data()
+    }
+    set {bar = .barBytesWithEmptyDefault(newValue)}
+  }
+
   var bazInt: Int32 {
     get {return _bazInt ?? 0}
     set {_bazInt = newValue}
@@ -3587,6 +3619,10 @@ struct ProtobufUnittest_TestOneof2 {
     case barStringPiece(String)
     case barBytes(Data)
     case barEnum(ProtobufUnittest_TestOneof2.NestedEnum)
+    case barStringWithEmptyDefault(String)
+    case barCordWithEmptyDefault(String)
+    case barStringPieceWithEmptyDefault(String)
+    case barBytesWithEmptyDefault(Data)
 
   #if !swift(>=4.1)
     static func ==(lhs: ProtobufUnittest_TestOneof2.OneOf_Bar, rhs: ProtobufUnittest_TestOneof2.OneOf_Bar) -> Bool {
@@ -3616,6 +3652,22 @@ struct ProtobufUnittest_TestOneof2 {
       }()
       case (.barEnum, .barEnum): return {
         guard case .barEnum(let l) = lhs, case .barEnum(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barStringWithEmptyDefault, .barStringWithEmptyDefault): return {
+        guard case .barStringWithEmptyDefault(let l) = lhs, case .barStringWithEmptyDefault(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barCordWithEmptyDefault, .barCordWithEmptyDefault): return {
+        guard case .barCordWithEmptyDefault(let l) = lhs, case .barCordWithEmptyDefault(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barStringPieceWithEmptyDefault, .barStringPieceWithEmptyDefault): return {
+        guard case .barStringPieceWithEmptyDefault(let l) = lhs, case .barStringPieceWithEmptyDefault(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.barBytesWithEmptyDefault, .barBytesWithEmptyDefault): return {
+        guard case .barBytesWithEmptyDefault(let l) = lhs, case .barBytesWithEmptyDefault(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -4371,6 +4423,15 @@ struct ProtobufUnittest_TestJsonName {
   /// Clears the value of `fieldName6`. Subsequent reads from it will return its default value.
   mutating func clearFieldName6() {self._fieldName6 = nil}
 
+  var fieldname7: Int32 {
+    get {return _fieldname7 ?? 0}
+    set {_fieldname7 = newValue}
+  }
+  /// Returns true if `fieldname7` has been explicitly set.
+  var hasFieldname7: Bool {return self._fieldname7 != nil}
+  /// Clears the value of `fieldname7`. Subsequent reads from it will return its default value.
+  mutating func clearFieldname7() {self._fieldname7 = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -4381,6 +4442,7 @@ struct ProtobufUnittest_TestJsonName {
   fileprivate var _fieldName4: Int32? = nil
   fileprivate var _fieldName5: Int32? = nil
   fileprivate var _fieldName6: Int32? = nil
+  fileprivate var _fieldname7: Int32? = nil
 }
 
 struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
@@ -11308,6 +11370,10 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
     15: .standard(proto: "bar_string_piece"),
     16: .standard(proto: "bar_bytes"),
     17: .standard(proto: "bar_enum"),
+    20: .standard(proto: "bar_string_with_empty_default"),
+    21: .standard(proto: "bar_cord_with_empty_default"),
+    22: .standard(proto: "bar_string_piece_with_empty_default"),
+    23: .standard(proto: "bar_bytes_with_empty_default"),
     18: .standard(proto: "baz_int"),
     19: .standard(proto: "baz_string"),
   ]
@@ -11455,6 +11521,38 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
       }()
       case 18: try { try decoder.decodeSingularInt32Field(value: &self._bazInt) }()
       case 19: try { try decoder.decodeSingularStringField(value: &self._bazString) }()
+      case 20: try {
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barStringWithEmptyDefault(v)
+        }
+      }()
+      case 21: try {
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barCordWithEmptyDefault(v)
+        }
+      }()
+      case 22: try {
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barStringPieceWithEmptyDefault(v)
+        }
+      }()
+      case 23: try {
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barBytesWithEmptyDefault(v)
+        }
+      }()
       default: break
       }
     }
@@ -11531,13 +11629,35 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
       guard case .barEnum(let v)? = self.bar else { preconditionFailure() }
       try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
     }()
-    case nil: break
+    default: break
     }
     if let v = self._bazInt {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
     }
     if let v = self._bazString {
       try visitor.visitSingularStringField(value: v, fieldNumber: 19)
+    }
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every case branch when no optimizations are
+    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    switch self.bar {
+    case .barStringWithEmptyDefault?: try {
+      guard case .barStringWithEmptyDefault(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 20)
+    }()
+    case .barCordWithEmptyDefault?: try {
+      guard case .barCordWithEmptyDefault(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 21)
+    }()
+    case .barStringPieceWithEmptyDefault?: try {
+      guard case .barStringPieceWithEmptyDefault(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 22)
+    }()
+    case .barBytesWithEmptyDefault?: try {
+      guard case .barBytesWithEmptyDefault(let v)? = self.bar else { preconditionFailure() }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 23)
+    }()
+    default: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12620,6 +12740,7 @@ extension ProtobufUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._M
     4: .standard(proto: "_field_name4"),
     5: .standard(proto: "FIELD_NAME5"),
     6: .unique(proto: "field_name6", json: "@type"),
+    7: .same(proto: "fieldname7"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -12634,6 +12755,7 @@ extension ProtobufUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._M
       case 4: try { try decoder.decodeSingularInt32Field(value: &self._fieldName4) }()
       case 5: try { try decoder.decodeSingularInt32Field(value: &self._fieldName5) }()
       case 6: try { try decoder.decodeSingularInt32Field(value: &self._fieldName6) }()
+      case 7: try { try decoder.decodeSingularInt32Field(value: &self._fieldname7) }()
       default: break
       }
     }
@@ -12658,6 +12780,9 @@ extension ProtobufUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._M
     if let v = self._fieldName6 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
     }
+    if let v = self._fieldname7 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -12668,6 +12793,7 @@ extension ProtobufUnittest_TestJsonName: SwiftProtobuf.Message, SwiftProtobuf._M
     if lhs._fieldName4 != rhs._fieldName4 {return false}
     if lhs._fieldName5 != rhs._fieldName5 {return false}
     if lhs._fieldName6 != rhs._fieldName6 {return false}
+    if lhs._fieldname7 != rhs._fieldname7 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

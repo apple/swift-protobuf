@@ -206,7 +206,7 @@ struct Conformance_ConformanceRequest {
   ///
   /// TODO(haberman): if/when we expand the conformance tests to support proto2,
   /// we will want to include a field that lets the payload/response be a
-  /// protobuf_test_messages.proto2.TestAllTypes message instead.
+  /// protobuf_test_messages.google.protobuf.TestAllTypes message instead.
   var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var protobufPayload: Data {
@@ -247,7 +247,7 @@ struct Conformance_ConformanceRequest {
 
   /// The full name for the test message to use; for the moment, either:
   /// protobuf_test_messages.proto3.TestAllTypesProto3 or
-  /// protobuf_test_messages.proto2.TestAllTypesProto2.
+  /// protobuf_test_messages.google.protobuf.TestAllTypesProto2.
   var messageType: String = String()
 
   /// Each test is given a specific test category. Some category may need
@@ -277,7 +277,7 @@ struct Conformance_ConformanceRequest {
   ///
   /// TODO(haberman): if/when we expand the conformance tests to support proto2,
   /// we will want to include a field that lets the payload/response be a
-  /// protobuf_test_messages.proto2.TestAllTypes message instead.
+  /// protobuf_test_messages.google.protobuf.TestAllTypes message instead.
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)

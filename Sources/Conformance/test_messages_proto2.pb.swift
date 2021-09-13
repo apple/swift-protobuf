@@ -1234,6 +1234,60 @@ struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
   fileprivate var _optionalBool: Bool? = nil
 }
 
+struct ProtobufTestMessages_Proto2_NullHypothesisProto2 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct ProtobufTestMessages_Proto2_EnumOnlyProto2 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum BoolEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case kFalse // = 0
+    case kTrue // = 1
+
+    init() {
+      self = .kFalse
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .kFalse
+      case 1: self = .kTrue
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .kFalse: return 0
+      case .kTrue: return 1
+      }
+    }
+
+  }
+
+  init() {}
+}
+
+#if swift(>=4.2)
+
+extension ProtobufTestMessages_Proto2_EnumOnlyProto2.BoolEnum: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
+
 // MARK: - Extension support defined in test_messages_proto2.proto.
 
 // MARK: - Extension Properties
@@ -2760,4 +2814,49 @@ extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup: Swift
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufTestMessages_Proto2_NullHypothesisProto2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NullHypothesisProto2"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_NullHypothesisProto2, rhs: ProtobufTestMessages_Proto2_NullHypothesisProto2) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_EnumOnlyProto2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".EnumOnlyProto2"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_EnumOnlyProto2, rhs: ProtobufTestMessages_Proto2_EnumOnlyProto2) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_EnumOnlyProto2.BoolEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "kFalse"),
+    1: .same(proto: "kTrue"),
+  ]
 }
