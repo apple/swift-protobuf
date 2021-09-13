@@ -543,15 +543,15 @@ update-proto-files: check-for-protobuf-checkout
 #
 check-proto-files: check-for-protobuf-checkout
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto`; do \
-		diff -u "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" "Protos/$$p" \
+		diff -u "Protos/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test`; do \
-		diff -u "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" "Protos/$$p" \
+		diff -u "Protos/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
-		diff -u "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" "Protos/$$p" \
+		diff -u "Protos/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
 
