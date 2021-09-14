@@ -269,6 +269,7 @@ extension Test_Any {
         ("test_Any_OddTypeURL_FromValue", test_Any_OddTypeURL_FromValue),
         ("test_Any_OddTypeURL_FromMessage", test_Any_OddTypeURL_FromMessage),
         ("test_Any_JSON_Extensions", test_Any_JSON_Extensions),
+        ("test_Any_WKT_UnknownFields", test_Any_WKT_UnknownFields),
         ("test_IsA", test_IsA),
         ("test_Any_Registry", test_Any_Registry)
     ]

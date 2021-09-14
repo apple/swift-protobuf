@@ -679,7 +679,40 @@ class Test_Any: XCTestCase {
       XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllExtensions.self))
       // Throws because the extensions can't be implicitly transcoded
       XCTAssertThrowsError(try decodedWithExtensions.serializedData())
-  }
+    }
+
+    func test_Any_WKT_UnknownFields() throws {
+      let testcases = [
+        // unknown field before value
+        "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"fred\":1,\"value\":\"99.001s\"}}",
+        // unknown field after value
+        "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\",\"fred\":1}}",
+      ]
+      for json in testcases {
+        for ignoreUnknown in [false, true] {
+          var options = JSONDecodingOptions()
+          options.ignoreUnknownFields = ignoreUnknown
+          // This may appear a little odd, since Any lazy parses, this will
+          // always succeed because the Any isn't decoded until requested.
+          let decoded = try! ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json, options: options)
+
+          XCTAssertNotNil(decoded.optionalAny)
+          let anyField = decoded.optionalAny
+          do {
+            let unpacked = try Google_Protobuf_Duration(unpackingAny: anyField)
+            XCTAssertTrue(ignoreUnknown)  // Should have throw if not ignoring unknowns.
+            XCTAssertEqual(unpacked.seconds, 99)
+            XCTAssertEqual(unpacked.nanos, 1000000)
+          } catch {
+            XCTAssertTrue(!ignoreUnknown)
+          }
+
+          // The extra field should still be there.
+          let encoded = try decoded.jsonString()
+          XCTAssertEqual(encoded, json)
+        }
+      }
+    }
 
     func test_IsA() {
       var msg = Google_Protobuf_Any()
