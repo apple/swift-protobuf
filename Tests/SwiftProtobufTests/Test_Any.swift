@@ -276,6 +276,16 @@ class Test_Any: XCTestCase {
         }
     }
 
+    func test_Any_recursive() throws {
+        func nestedAny(_ i: Int) throws -> Google_Protobuf_Any {
+           guard i > 0 else { return Google_Protobuf_Any() }
+           return try Google_Protobuf_Any(message: nestedAny(i - 1))
+        }
+        let any = try nestedAny(5)
+        let encoded = try any.serializedBytes()
+        XCTAssertEqual(encoded.count, 214)
+    }
+
     func test_Any_Duration_JSON_roundtrip() throws {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}"
         do {

@@ -248,6 +248,7 @@ extension Test_Any {
         ("test_Any_UnknownUserMessage_JSON", test_Any_UnknownUserMessage_JSON),
         ("test_Any_UnknownUserMessage_protobuf", test_Any_UnknownUserMessage_protobuf),
         ("test_Any_Any", test_Any_Any),
+        ("test_Any_recursive", test_Any_recursive),
         ("test_Any_Duration_JSON_roundtrip", test_Any_Duration_JSON_roundtrip),
         ("test_Any_Duration_transcode", test_Any_Duration_transcode),
         ("test_Any_FieldMask_JSON_roundtrip", test_Any_FieldMask_JSON_roundtrip),
