@@ -1118,11 +1118,10 @@
 		"_______Group_ProtobufTestSuite" /* SwiftProtobufTests */ = {
 			isa = PBXGroup;
 			children = (
-				F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */,
-				F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */,
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */,
 				F451075723A2B9B500488257 /* Data+TestHelpers.swift */,
+				F430B11A262764D300C9EE2A /* fuzz_testing.pb.swift */,
 				9CC8CAA81EC512A0008EF45F /* generated_swift_names_enum_cases.pb.swift */,
 				9CC8CAA91EC512A0008EF45F /* generated_swift_names_enums.pb.swift */,
 				9CC8CAAA1EC512A0008EF45F /* generated_swift_names_fields.pb.swift */,
@@ -1149,6 +1148,7 @@
 				__PBXFileRef_Tests/ProtobufTests/Test_ExtremeDefaultValues.swift /* Test_ExtremeDefaultValues.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_FieldMask.swift /* Test_FieldMask.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_FieldOrdering.swift /* Test_FieldOrdering.swift */,
+				F430B11B262764D300C9EE2A /* Test_FuzzTests.swift */,
 				F4539D241E688B000076251F /* Test_GroupWithGroups.swift */,
 				DB2E0AF91EB24C7600F59319 /* Test_JSON_Array.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_JSON_Conformance.swift /* Test_JSON_Conformance.swift */,
