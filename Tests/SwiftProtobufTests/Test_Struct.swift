@@ -143,6 +143,41 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("[true]") {$0.values == [Google_Protobuf_Value(boolValue: true)]}
     }
 
+    func test_JSON_nested_list() throws {
+        let depths = [
+            // Small lists
+            1,2,3,4,5,
+            // Little less than default messageDepthLimit, should succeed
+            95,96,97,98,99,100,
+            // Little bigger than default messageDepthLimit, should fail
+            101,102,103,104,
+            // Really big, should fail cleanly (not crash)
+            1000,10000,100000,1000000
+        ]
+        for depth in depths {
+            var s = ""
+            for _ in 0..<(depth / 10) {
+                s.append("[[[[[[[[[[")
+            }
+            for _ in 0..<(depth % 10) {
+                s.append("[")
+            }
+            for _ in 0..<(depth / 10) {
+                s.append("]]]]]]]]]]")
+            }
+            for _ in 0..<(depth % 10) {
+                s.append("]")
+            }
+            // Recursion limits should cause this to
+            // fail cleanly without crashing
+            if depth <= JSONDecodingOptions().messageDepthLimit {
+                assertJSONDecodeSucceeds(s) {_ in true}
+            } else {
+                assertJSONDecodeFails(s)
+            }
+        }
+    }
+
     func test_equality() throws {
         let a1decoded = try Google_Protobuf_ListValue(jsonString: "[1]")
         let a2decoded = try Google_Protobuf_ListValue(jsonString: "[2]")

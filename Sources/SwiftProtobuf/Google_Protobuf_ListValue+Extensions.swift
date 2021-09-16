@@ -44,7 +44,9 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
       return
     }
     try decoder.scanner.skipRequiredArrayStart()
+    try decoder.scanner.incrementRecursionDepth()
     if decoder.scanner.skipOptionalArrayEnd() {
+      decoder.scanner.decrementRecursionDepth()
       return
     }
     while true {
@@ -52,6 +54,7 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
       try v.decodeJSON(from: &decoder)
       values.append(v)
       if decoder.scanner.skipOptionalArrayEnd() {
+        decoder.scanner.decrementRecursionDepth()
         return
       }
       try decoder.scanner.skipRequiredComma()

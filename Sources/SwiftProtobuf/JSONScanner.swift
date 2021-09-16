@@ -410,14 +410,14 @@ internal struct JSONScanner {
     self.extensions = extensions ?? SimpleExtensionMap()
   }
 
-  private mutating func incrementRecursionDepth() throws {
+  internal mutating func incrementRecursionDepth() throws {
     recursionBudget -= 1
     if recursionBudget < 0 {
       throw JSONDecodingError.messageDepthLimit
     }
   }
 
-  private mutating func decrementRecursionDepth() {
+  internal mutating func decrementRecursionDepth() {
     recursionBudget += 1
     // This should never happen, if it does, something is probably corrupting memory, and
     // simply throwing doesn't make much sense.
