@@ -1378,7 +1378,7 @@ internal struct JSONScanner {
     return false
   }
 
-  /// If the next non-whitespace character is "]", skip it
+  /// If the next non-whitespace character is "[", skip it
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalArrayStart() -> Bool {
     return skipOptionalCharacter(asciiOpenSquareBracket)
