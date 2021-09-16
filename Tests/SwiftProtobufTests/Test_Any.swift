@@ -737,6 +737,27 @@ class Test_Any: XCTestCase {
       XCTAssertEqual(rejson, start)
     }
 
+    func test_Any_nestedList() throws {
+      var start = "{\"optionalAny\":{\"x\":"
+      for _ in 0...10000 {
+        start.append("[")
+      }
+      XCTAssertThrowsError(
+        // This should fail because the deeply-nested array is not closed
+        // It should not crash from exhausting stack space
+        try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+      )
+      for _ in 0...10000 {
+        start.append("]")
+      }
+      start.append("}}")
+      // This should succeed because the deeply-nested array is properly closed
+      // It should not crash from exhausting stack space and should
+      // not fail due to recursion limits (because when skipping, those are
+      // only applied to objects).
+      _ = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+    }
+
     func test_IsA() {
       var msg = Google_Protobuf_Any()
 

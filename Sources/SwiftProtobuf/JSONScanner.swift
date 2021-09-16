@@ -1378,6 +1378,12 @@ internal struct JSONScanner {
     return false
   }
 
+  /// If the next non-whitespace character is "[", skip it
+  /// and return true.  Otherwise, return false.
+  internal mutating func skipOptionalArrayStart() -> Bool {
+    return skipOptionalCharacter(asciiOpenSquareBracket)
+  }
+
   /// If the next non-whitespace character is "]", skip it
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalArrayEnd() -> Bool {
@@ -1413,38 +1419,63 @@ internal struct JSONScanner {
 
   /// Advance index past the next value.  This is used
   /// by skip() and by unknown field handling.
+  /// Note: This handles objects {...} recursively but arrays [...] non-recursively
+  /// This avoids us requiring excessive stack space for deeply nested
+  /// arrays (which are not included in the recursion budget check).
   private mutating func skipValue() throws {
     skipWhitespace()
-    guard hasMoreContent else {
-      throw JSONDecodingError.truncated
-    }
-    switch currentByte {
-    case asciiDoubleQuote: // " begins a string
-      try skipString()
-    case asciiOpenCurlyBracket: // { begins an object
-      try skipObject()
-    case asciiOpenSquareBracket: // [ begins an array
-      try skipArray()
-    case asciiLowerN: // n must be null
-      if !skipOptionalKeyword(bytes: [
-        asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
-      ]) {
-        throw JSONDecodingError.truncated
-      }
-    case asciiLowerF: // f must be false
-      if !skipOptionalKeyword(bytes: [
-        asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
-      ]) {
-        throw JSONDecodingError.truncated
-      }
-    case asciiLowerT: // t must be true
-      if !skipOptionalKeyword(bytes: [
-        asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
-      ]) {
-        throw JSONDecodingError.truncated
-      }
-    default: // everything else is a number token
-      _ = try nextDouble()
+    var totalArrayDepth = 0
+    while true {
+        var arrayDepth = 0
+        while skipOptionalArrayStart() {
+            arrayDepth += 1
+        }
+        guard hasMoreContent else {
+          throw JSONDecodingError.truncated
+        }
+        switch currentByte {
+        case asciiDoubleQuote: // " begins a string
+            try skipString()
+        case asciiOpenCurlyBracket: // { begins an object
+            try skipObject()
+        case asciiCloseSquareBracket: // ] ends an empty array
+            if arrayDepth == 0 {
+                throw JSONDecodingError.failure
+            }
+            // We also close out [[]] or [[[]]] here
+            while arrayDepth > 0 && skipOptionalArrayEnd() {
+                arrayDepth -= 1
+            }
+        case asciiLowerN: // n must be null
+            if !skipOptionalKeyword(bytes: [
+                asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
+            ]) {
+                throw JSONDecodingError.truncated
+            }
+        case asciiLowerF: // f must be false
+            if !skipOptionalKeyword(bytes: [
+                asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
+            ]) {
+                throw JSONDecodingError.truncated
+            }
+        case asciiLowerT: // t must be true
+            if !skipOptionalKeyword(bytes: [
+                asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
+            ]) {
+                throw JSONDecodingError.truncated
+            }
+        default: // everything else is a number token
+            _ = try nextDouble()
+        }
+        totalArrayDepth += arrayDepth
+        while totalArrayDepth > 0 && skipOptionalArrayEnd() {
+            totalArrayDepth -= 1
+        }
+        if totalArrayDepth > 0 {
+            try skipRequiredComma()
+        } else {
+            return
+        }
     }
   }
 
@@ -1460,21 +1491,6 @@ internal struct JSONScanner {
       try skipRequiredColon()
       try skipValue()
       if skipOptionalObjectEnd() {
-        return
-      }
-      try skipRequiredComma()
-    }
-  }
-
-  /// Advance the index past the next complete [...] construct.
-  private mutating func skipArray() throws {
-    try skipRequiredArrayStart()
-    if skipOptionalArrayEnd() {
-      return
-    }
-    while true {
-      try skipValue()
-      if skipOptionalArrayEnd() {
         return
       }
       try skipRequiredComma()
