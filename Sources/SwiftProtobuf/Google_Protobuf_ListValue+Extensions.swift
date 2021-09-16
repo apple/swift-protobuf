@@ -44,6 +44,8 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
       return
     }
     try decoder.scanner.skipRequiredArrayStart()
+    // Since we override the JSON decoding, we can't rely
+    // on the default recursion depth tracking.
     try decoder.scanner.incrementRecursionDepth()
     if decoder.scanner.skipOptionalArrayEnd() {
       decoder.scanner.decrementRecursionDepth()
