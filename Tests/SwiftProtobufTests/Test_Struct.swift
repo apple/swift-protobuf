@@ -144,13 +144,14 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     }
 
     func test_JSON_nested_list() throws {
+        let limit = JSONDecodingOptions().messageDepthLimit
         let depths = [
             // Small lists
             1,2,3,4,5,
             // Little less than default messageDepthLimit, should succeed
-            95,96,97,98,99,100,
+	    limit - 3, limit - 2, limit - 1, limit,
             // Little bigger than default messageDepthLimit, should fail
-            101,102,103,104,
+	    limit + 1, limit + 2, limit + 3, limit + 4,
             // Really big, should fail cleanly (not crash)
             1000,10000,100000,1000000
         ]
@@ -170,7 +171,7 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
             }
             // Recursion limits should cause this to
             // fail cleanly without crashing
-            if depth <= JSONDecodingOptions().messageDepthLimit {
+            if depth <= limit {
                 assertJSONDecodeSucceeds(s) {_ in true}
             } else {
                 assertJSONDecodeFails(s)
