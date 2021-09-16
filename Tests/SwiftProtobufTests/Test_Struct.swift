@@ -149,9 +149,9 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
             // Small lists
             1,2,3,4,5,
             // Little less than default messageDepthLimit, should succeed
-	    limit - 3, limit - 2, limit - 1, limit,
+            limit - 3, limit - 2, limit - 1, limit,
             // Little bigger than default messageDepthLimit, should fail
-	    limit + 1, limit + 2, limit + 3, limit + 4,
+            limit + 1, limit + 2, limit + 3, limit + 4,
             // Really big, should fail cleanly (not crash)
             1000,10000,100000,1000000
         ]
