@@ -262,7 +262,7 @@ internal struct TextFormatScanner {
         skipWhitespace()
     }
 
-    internal mutating func incrementRecursionDepth() throws {
+    private mutating func incrementRecursionDepth() throws {
         recursionBudget -= 1
         if recursionBudget < 0 {
             throw TextFormatDecodingError.messageDepthLimit
