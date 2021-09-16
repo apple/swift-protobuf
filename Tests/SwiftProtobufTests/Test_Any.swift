@@ -724,6 +724,19 @@ class Test_Any: XCTestCase {
       }
     }
 
+    func test_Any_empty() throws {
+      let start = "{\"optionalAny\":{}}"
+      let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+      let protobuf = try decoded.serializedData()
+      XCTAssertEqual(protobuf, Data([138, 19, 0]))
+      let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedData: protobuf)
+      let retext = redecoded.textFormatString()
+      XCTAssertEqual(retext, "optional_any {\n}\n")
+      let reredecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(textFormatString: retext)
+      let rejson = try reredecoded.jsonString()
+      XCTAssertEqual(rejson, start)
+    }
+
     func test_IsA() {
       var msg = Google_Protobuf_Any()
 
