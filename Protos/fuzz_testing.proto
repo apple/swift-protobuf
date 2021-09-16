@@ -104,6 +104,22 @@ message Message {
      Message oneof_message  = 79;
   }
 
+  // Repeated Packed
+  repeated    int32 repeated_packed_int32    = 81 [packed = true];
+  repeated    int64 repeated_packed_int64    = 82 [packed = true];
+  repeated   uint32 repeated_packed_uint32   = 83 [packed = true];
+  repeated   uint64 repeated_packed_uint64   = 84 [packed = true];
+  repeated   sint32 repeated_packed_sint32   = 85 [packed = true];
+  repeated   sint64 repeated_packed_sint64   = 86 [packed = true];
+  repeated  fixed32 repeated_packed_fixed32  = 87 [packed = true];
+  repeated  fixed64 repeated_packed_fixed64  = 88 [packed = true];
+  repeated sfixed32 repeated_packed_sfixed32 = 89 [packed = true];
+  repeated sfixed64 repeated_packed_sfixed64 = 90 [packed = true];
+  repeated    float repeated_packed_float    = 91 [packed = true];
+  repeated   double repeated_packed_double   = 92 [packed = true];
+  repeated     bool repeated_packed_bool     = 93 [packed = true];
+  repeated   AnEnum repeated_packed_enum     = 94 [packed = true];
+
   // map<>
   map<int32   , int32   > map_int32_int32       = 100;
   map<int32   , int64   > map_int32_int64       = 101;
@@ -371,4 +387,20 @@ extend Message {
     optional int32 group_field = 1048;
   }
   repeated  Message repeated_message_ext  = 1049;
+
+  // Repeated Packed
+  repeated    int32 repeated_packed_int32_ext    = 1061 [packed = true];
+  repeated    int64 repeated_packed_int64_ext    = 1062 [packed = true];
+  repeated   uint32 repeated_packed_uint32_ext   = 1063 [packed = true];
+  repeated   uint64 repeated_packed_uint64_ext   = 1064 [packed = true];
+  repeated   sint32 repeated_packed_sint32_ext   = 1065 [packed = true];
+  repeated   sint64 repeated_packed_sint64_ext   = 1066 [packed = true];
+  repeated  fixed32 repeated_packed_fixed32_ext  = 1067 [packed = true];
+  repeated  fixed64 repeated_packed_fixed64_ext  = 1068 [packed = true];
+  repeated sfixed32 repeated_packed_sfixed32_ext = 1069 [packed = true];
+  repeated sfixed64 repeated_packed_sfixed64_ext = 1070 [packed = true];
+  repeated    float repeated_packed_float_ext    = 1071 [packed = true];
+  repeated   double repeated_packed_double_ext   = 1072 [packed = true];
+  repeated     bool repeated_packed_bool_ext     = 1073 [packed = true];
+  repeated   AnEnum repeated_packed_enum_ext     = 1074 [packed = true];
 }
