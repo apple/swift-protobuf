@@ -1,0 +1,136 @@
+#!/usr/bin/env swift
+
+import Foundation
+
+enum WireFormat: UInt8 {
+  case varint = 0
+  case fixed64 = 1
+  case lengthDelimited = 2
+  case startGroup = 3
+  case endGroup = 4
+  case fixed32 = 5
+}
+
+enum Matchers {
+  case prefix(String, WireFormat)
+  case suffix(String, WireFormat, WireFormat)
+  case contains(String, WireFormat)
+  case contains2(String, WireFormat, WireFormat)
+  case containsAndPackable(String, WireFormat)
+}
+
+// The order of these matters since it is first match that is used.
+let tests: [Matchers] = [
+  .prefix("wkt", .lengthDelimited),
+  .prefix("map", .lengthDelimited),
+  .contains2("Group", .startGroup, .endGroup),
+  .containsAndPackable("float", .fixed32),
+  .containsAndPackable("double", .fixed64),
+  .containsAndPackable("fixed64", .fixed64),
+  .containsAndPackable("fixed", .fixed32),
+  .containsAndPackable("int64", .varint),
+  .containsAndPackable("int32", .varint),
+  .containsAndPackable("bool", .varint),
+  .containsAndPackable("enum", .varint),
+  .contains("bytes", .lengthDelimited),
+  .contains("string", .lengthDelimited),
+  .contains("message", .lengthDelimited),
+  // The single fields in the Groups.
+  .contains("group_field", .varint),
+]
+
+func escapedVarint(_ x: Int) -> String {
+  var escaped = String()
+  var v = x
+  while v > 127 {
+    escaped.append(String(format: "\\x%02x", UInt8(v & 0x7f | 0x80)))
+    v >>= 7
+  }
+  escaped.append(String(format: "\\x%02x", UInt8(v)))
+  return escaped
+}
+
+func outputTag(_ fieldNum: Int, as wireformat: WireFormat) {
+  let tag = UInt32(truncatingIfNeeded: fieldNum) << 3 | UInt32(wireformat.rawValue)
+  print("\"\(escapedVarint(Int(tag)))\"")
+}
+
+if CommandLine.arguments.count != 2 {
+  print("Expected only to get the proto file path as an argument")
+  exit(1)
+}
+
+print("# Tags for all the fields")
+
+let protoFile = try! String(contentsOfFile: CommandLine.arguments[1], encoding: .utf8)
+let re = try NSRegularExpression(pattern: #"^ *.+ +(\w+) += (\d+)"#,
+                                 options: [.anchorsMatchLines])
+let range = NSRange(protoFile.startIndex..<protoFile.endIndex, in: protoFile)
+re.enumerateMatches(in: protoFile, options: [], range: range) { (match, _, _) in
+  guard let match = match else { return }
+  guard match.numberOfRanges == 3 else { return }
+
+  let fieldName = protoFile[Range(match.range(at: 1), in: protoFile)!]
+  let fieldNum = Int(protoFile[Range(match.range(at: 2), in: protoFile)!])!
+  
+  // The regex matches enum cases, so skip those.
+  guard fieldName.uppercased() != fieldName else { return }
+  
+  for test in tests {
+    switch test {
+      case .prefix(let s, let wf):
+        if fieldName.hasPrefix(s) {
+          outputTag(fieldNum, as: wf)
+          return
+        }
+      case .suffix(let s, let wf1, let wf2):
+        if fieldName.hasSuffix(s) {
+          outputTag(fieldNum, as: wf1)
+          outputTag(fieldNum, as: wf2)
+          return
+        }
+      case .contains(let s, let wf):
+        if fieldName.contains(s) {
+          outputTag(fieldNum, as: wf)
+          return
+        }
+      case .contains2(let s, let wf1, let wf2):
+        if fieldName.contains(s) {
+          outputTag(fieldNum, as: wf1)
+          outputTag(fieldNum, as: wf2)
+          return
+        }
+      case .containsAndPackable(let s, let wf):
+        if fieldName.contains(s) {
+          outputTag(fieldNum, as: wf)
+          if fieldName.contains("repeated") {
+            outputTag(fieldNum, as: .lengthDelimited)
+          }
+          return
+        }
+    }
+  }
+  print("Error: failed to match: \(fieldName)")
+  exit(1)
+}
+
+print(#"""
+
+# Include a few example values:
+# varint:
+"\#(escapedVarint(0))"
+"\#(escapedVarint(5000))"
+"\#(escapedVarint(50000))"
+# fixed32:
+"\x01\x02\x03\x04"
+"\x05\x06\x07\x08"
+# fixed64:
+"\x01\x02\x03\x04\x05\x06\x07\x08"
+"\x01\x02\x03\x04\x50\x60\x70\x80"
+# length delimited:
+"\#(escapedVarint(3))abc"
+"\#(escapedVarint(7))1234567"
+"\#(escapedVarint(26))abcdefghijklmnopqrstuvwxyz"
+# start/end group just have tags/values after them, no tag specific payload; so
+# nothing to provide as an example.
+"""#)
