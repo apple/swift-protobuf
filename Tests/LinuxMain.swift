@@ -991,6 +991,7 @@ extension Test_JSON_ListValue {
     static var allTests = [
         ("testProtobuf", testProtobuf),
         ("testJSON", testJSON),
+        ("test_JSON_nested_list", test_JSON_nested_list),
         ("test_equality", test_equality)
     ]
 }
