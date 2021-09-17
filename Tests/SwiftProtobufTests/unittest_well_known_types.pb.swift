@@ -794,63 +794,67 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProto
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._anyField {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._anyField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._apiField {
+      } }()
+      try { if let v = _storage._apiField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._durationField {
+      } }()
+      try { if let v = _storage._durationField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if let v = _storage._emptyField {
+      } }()
+      try { if let v = _storage._emptyField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      }
-      if let v = _storage._fieldMaskField {
+      } }()
+      try { if let v = _storage._fieldMaskField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }
-      if let v = _storage._sourceContextField {
+      } }()
+      try { if let v = _storage._sourceContextField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      }
-      if let v = _storage._structField {
+      } }()
+      try { if let v = _storage._structField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
-      if let v = _storage._timestampField {
+      } }()
+      try { if let v = _storage._timestampField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._typeField {
+      } }()
+      try { if let v = _storage._typeField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }
-      if let v = _storage._doubleField {
+      } }()
+      try { if let v = _storage._doubleField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-      }
-      if let v = _storage._floatField {
+      } }()
+      try { if let v = _storage._floatField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      }
-      if let v = _storage._int64Field {
+      } }()
+      try { if let v = _storage._int64Field {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-      }
-      if let v = _storage._uint64Field {
+      } }()
+      try { if let v = _storage._uint64Field {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-      }
-      if let v = _storage._int32Field {
+      } }()
+      try { if let v = _storage._int32Field {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-      }
-      if let v = _storage._uint32Field {
+      } }()
+      try { if let v = _storage._uint32Field {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-      }
-      if let v = _storage._boolField {
+      } }()
+      try { if let v = _storage._boolField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-      }
-      if let v = _storage._stringField {
+      } }()
+      try { if let v = _storage._stringField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-      }
-      if let v = _storage._bytesField {
+      } }()
+      try { if let v = _storage._bytesField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      }
-      if let v = _storage._valueField {
+      } }()
+      try { if let v = _storage._valueField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      }
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1358,8 +1362,9 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every case branch when no optimizations are
-    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     switch self.oneofField {
     case .anyField?: try {
       guard case .anyField(let v)? = self.oneofField else { preconditionFailure() }

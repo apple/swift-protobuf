@@ -212,9 +212,13 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._e {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._e {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    }
+    } }()
     if !self.repeatedE.isEmpty {
       try visitor.visitRepeatedEnumField(value: self.repeatedE, fieldNumber: 2)
     }
@@ -224,9 +228,6 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
     if !self.repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitRepeatedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every case branch when no optimizations are
-    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.o {
     case .oneofE1?: try {
       guard case .oneofE1(let v)? = self.o else { preconditionFailure() }

@@ -220,15 +220,19 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._aFoo {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._aBar {
+      } }()
+      try { if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._aBaz {
+      } }()
+      try { if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -300,15 +304,19 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._aBar {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._aBaz {
+      } }()
+      try { if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._aFoo {
+      } }()
+      try { if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -380,15 +388,19 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._aBaz {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._aFoo {
+      } }()
+      try { if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._aBar {
+      } }()
+      try { if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }

@@ -1174,6 +1174,10 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
       if _storage._optionalInt32 != 0 {
         try visitor.visitSingularInt32Field(value: _storage._optionalInt32, fieldNumber: 1)
       }
@@ -1219,15 +1223,15 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       if !_storage._optionalBytes.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._optionalBytes, fieldNumber: 15)
       }
-      if let v = _storage._optionalNestedMessage {
+      try { if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      }
-      if let v = _storage._optionalForeignMessage {
+      } }()
+      try { if let v = _storage._optionalForeignMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      }
-      if let v = _storage._optionalImportMessage {
+      } }()
+      try { if let v = _storage._optionalImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
-      }
+      } }()
       if _storage._optionalNestedEnum != .zero {
         try visitor.visitSingularEnumField(value: _storage._optionalNestedEnum, fieldNumber: 21)
       }
@@ -1240,12 +1244,12 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       if !_storage._optionalCord.isEmpty {
         try visitor.visitSingularStringField(value: _storage._optionalCord, fieldNumber: 25)
       }
-      if let v = _storage._optionalPublicImportMessage {
+      try { if let v = _storage._optionalPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
-      }
-      if let v = _storage._optionalLazyMessage {
+      } }()
+      try { if let v = _storage._optionalLazyMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
-      }
+      } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitPackedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
       }
@@ -1315,9 +1319,6 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       if !_storage._repeatedLazyMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._oneofField {
       case .oneofUint32?: try {
         guard case .oneofUint32(let v)? = _storage._oneofField else { preconditionFailure() }
@@ -1337,54 +1338,54 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       }()
       case nil: break
       }
-      if let v = _storage._optionalLazyImportMessage {
+      try { if let v = _storage._optionalLazyImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
-      }
-      if let v = _storage._proto3OptionalInt32 {
+      } }()
+      try { if let v = _storage._proto3OptionalInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
-      }
-      if let v = _storage._proto3OptionalInt64 {
+      } }()
+      try { if let v = _storage._proto3OptionalInt64 {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 117)
-      }
-      if let v = _storage._proto3OptionalUint32 {
+      } }()
+      try { if let v = _storage._proto3OptionalUint32 {
         try visitor.visitSingularUInt32Field(value: v, fieldNumber: 118)
-      }
-      if let v = _storage._proto3OptionalUint64 {
+      } }()
+      try { if let v = _storage._proto3OptionalUint64 {
         try visitor.visitSingularUInt64Field(value: v, fieldNumber: 119)
-      }
-      if let v = _storage._proto3OptionalSint32 {
+      } }()
+      try { if let v = _storage._proto3OptionalSint32 {
         try visitor.visitSingularSInt32Field(value: v, fieldNumber: 120)
-      }
-      if let v = _storage._proto3OptionalSint64 {
+      } }()
+      try { if let v = _storage._proto3OptionalSint64 {
         try visitor.visitSingularSInt64Field(value: v, fieldNumber: 121)
-      }
-      if let v = _storage._proto3OptionalFixed32 {
+      } }()
+      try { if let v = _storage._proto3OptionalFixed32 {
         try visitor.visitSingularFixed32Field(value: v, fieldNumber: 122)
-      }
-      if let v = _storage._proto3OptionalFixed64 {
+      } }()
+      try { if let v = _storage._proto3OptionalFixed64 {
         try visitor.visitSingularFixed64Field(value: v, fieldNumber: 123)
-      }
-      if let v = _storage._proto3OptionalSfixed32 {
+      } }()
+      try { if let v = _storage._proto3OptionalSfixed32 {
         try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 124)
-      }
-      if let v = _storage._proto3OptionalSfixed64 {
+      } }()
+      try { if let v = _storage._proto3OptionalSfixed64 {
         try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 125)
-      }
-      if let v = _storage._proto3OptionalFloat {
+      } }()
+      try { if let v = _storage._proto3OptionalFloat {
         try visitor.visitSingularFloatField(value: v, fieldNumber: 126)
-      }
-      if let v = _storage._proto3OptionalDouble {
+      } }()
+      try { if let v = _storage._proto3OptionalDouble {
         try visitor.visitSingularDoubleField(value: v, fieldNumber: 127)
-      }
-      if let v = _storage._proto3OptionalBool {
+      } }()
+      try { if let v = _storage._proto3OptionalBool {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 128)
-      }
-      if let v = _storage._proto3OptionalString {
+      } }()
+      try { if let v = _storage._proto3OptionalString {
         try visitor.visitSingularStringField(value: v, fieldNumber: 129)
-      }
-      if let v = _storage._proto3OptionalBytes {
+      } }()
+      try { if let v = _storage._proto3OptionalBytes {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 130)
-      }
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1779,12 +1780,16 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._child {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._payload {
+      } }()
+      try { if let v = _storage._payload {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
+      } }()
       if !_storage._repeatedChild.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
