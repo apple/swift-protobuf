@@ -288,9 +288,13 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, Swift
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._messageSet {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._messageSet {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -329,15 +333,19 @@ extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, Swif
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._i {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._i {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
-    }
-    if let v = self._recursive {
+    } }()
+    try { if let v = self._recursive {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-    }
-    if let v = self._testAliasing {
+    } }()
+    try { if let v = self._testAliasing {
       try visitor.visitSingularStringField(value: v, fieldNumber: 17)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -369,9 +377,13 @@ extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, Swif
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._str {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._str {
       try visitor.visitSingularStringField(value: v, fieldNumber: 25)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -446,12 +458,16 @@ extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf.Message, SwiftProto
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._typeID {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._typeID {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
-    if let v = self._message {
+    } }()
+    try { if let v = self._message {
       try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 

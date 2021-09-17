@@ -4264,60 +4264,64 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._singularInt32 {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._singularInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._singularInt64 {
+      } }()
+      try { if let v = _storage._singularInt64 {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._singularUint32 {
+      } }()
+      try { if let v = _storage._singularUint32 {
         try visitor.visitSingularUInt32Field(value: v, fieldNumber: 3)
-      }
-      if let v = _storage._singularUint64 {
+      } }()
+      try { if let v = _storage._singularUint64 {
         try visitor.visitSingularUInt64Field(value: v, fieldNumber: 4)
-      }
-      if let v = _storage._singularSint32 {
+      } }()
+      try { if let v = _storage._singularSint32 {
         try visitor.visitSingularSInt32Field(value: v, fieldNumber: 5)
-      }
-      if let v = _storage._singularSint64 {
+      } }()
+      try { if let v = _storage._singularSint64 {
         try visitor.visitSingularSInt64Field(value: v, fieldNumber: 6)
-      }
-      if let v = _storage._singularFixed32 {
+      } }()
+      try { if let v = _storage._singularFixed32 {
         try visitor.visitSingularFixed32Field(value: v, fieldNumber: 7)
-      }
-      if let v = _storage._singularFixed64 {
+      } }()
+      try { if let v = _storage._singularFixed64 {
         try visitor.visitSingularFixed64Field(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._singularSfixed32 {
+      } }()
+      try { if let v = _storage._singularSfixed32 {
         try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 9)
-      }
-      if let v = _storage._singularSfixed64 {
+      } }()
+      try { if let v = _storage._singularSfixed64 {
         try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 10)
-      }
-      if let v = _storage._singularFloat {
+      } }()
+      try { if let v = _storage._singularFloat {
         try visitor.visitSingularFloatField(value: v, fieldNumber: 11)
-      }
-      if let v = _storage._singularDouble {
+      } }()
+      try { if let v = _storage._singularDouble {
         try visitor.visitSingularDoubleField(value: v, fieldNumber: 12)
-      }
-      if let v = _storage._singularBool {
+      } }()
+      try { if let v = _storage._singularBool {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
-      }
-      if let v = _storage._singularString {
+      } }()
+      try { if let v = _storage._singularString {
         try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-      }
-      if let v = _storage._singularBytes {
+      } }()
+      try { if let v = _storage._singularBytes {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
-      }
-      if let v = _storage._singularEnum {
+      } }()
+      try { if let v = _storage._singularEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 16)
-      }
-      if let v = _storage._singularGroup {
+      } }()
+      try { if let v = _storage._singularGroup {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 17)
-      }
-      if let v = _storage._singularMessage {
+      } }()
+      try { if let v = _storage._singularMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      }
+      } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
       }
@@ -4372,9 +4376,6 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if !_storage._repeatedMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessage, fieldNumber: 49)
       }
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch _storage._o {
       case .oneofInt32?: try {
         guard case .oneofInt32(let v)? = _storage._o else { preconditionFailure() }
@@ -5053,63 +5054,63 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if !_storage._mapBoolMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,Fuzz_Testing_Message>.self, value: _storage._mapBoolMessage, fieldNumber: 286)
       }
-      if let v = _storage._wktAny {
+      try { if let v = _storage._wktAny {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 500)
-      }
-      if let v = _storage._wktApi {
+      } }()
+      try { if let v = _storage._wktApi {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 501)
-      }
-      if let v = _storage._wktDuration {
+      } }()
+      try { if let v = _storage._wktDuration {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 502)
-      }
-      if let v = _storage._wktEmpty {
+      } }()
+      try { if let v = _storage._wktEmpty {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 503)
-      }
-      if let v = _storage._wktFieldMask {
+      } }()
+      try { if let v = _storage._wktFieldMask {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 504)
-      }
-      if let v = _storage._wktSourceContext {
+      } }()
+      try { if let v = _storage._wktSourceContext {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 505)
-      }
-      if let v = _storage._wktStruct {
+      } }()
+      try { if let v = _storage._wktStruct {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 506)
-      }
-      if let v = _storage._wktTimestamp {
+      } }()
+      try { if let v = _storage._wktTimestamp {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 507)
-      }
-      if let v = _storage._wktType {
+      } }()
+      try { if let v = _storage._wktType {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 508)
-      }
-      if let v = _storage._wktDoubleValue {
+      } }()
+      try { if let v = _storage._wktDoubleValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 509)
-      }
-      if let v = _storage._wktFloatValue {
+      } }()
+      try { if let v = _storage._wktFloatValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 510)
-      }
-      if let v = _storage._wktInt64Value {
+      } }()
+      try { if let v = _storage._wktInt64Value {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 511)
-      }
-      if let v = _storage._wktUint64Value {
+      } }()
+      try { if let v = _storage._wktUint64Value {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 512)
-      }
-      if let v = _storage._wktInt32Value {
+      } }()
+      try { if let v = _storage._wktInt32Value {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 513)
-      }
-      if let v = _storage._wktUint32Value {
+      } }()
+      try { if let v = _storage._wktUint32Value {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 514)
-      }
-      if let v = _storage._wktBoolValue {
+      } }()
+      try { if let v = _storage._wktBoolValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 515)
-      }
-      if let v = _storage._wktStringValue {
+      } }()
+      try { if let v = _storage._wktStringValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 516)
-      }
-      if let v = _storage._wktBytesValue {
+      } }()
+      try { if let v = _storage._wktBytesValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 517)
-      }
-      if let v = _storage._singularMessageSet {
+      } }()
+      try { if let v = _storage._singularMessageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 600)
-      }
+      } }()
       if !_storage._repeatedMessageSet.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessageSet, fieldNumber: 601)
       }
@@ -5410,9 +5411,13 @@ extension Fuzz_Testing_Message.SingularGroup: SwiftProtobuf.Message, SwiftProtob
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._groupField {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5442,9 +5447,13 @@ extension Fuzz_Testing_Message.RepeatedGroup: SwiftProtobuf.Message, SwiftProtob
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._groupField {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5474,9 +5483,13 @@ extension Fuzz_Testing_Message.OneofGroup: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._groupField {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5531,9 +5544,13 @@ extension Fuzz_Testing_SingularGroup_ext: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._groupField {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1018)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -5563,9 +5580,13 @@ extension Fuzz_Testing_RepeatedGroup_ext: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._groupField {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._groupField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1048)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 

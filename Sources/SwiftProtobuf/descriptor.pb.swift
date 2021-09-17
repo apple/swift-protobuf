@@ -2116,12 +2116,16 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if let v = self._package {
+    } }()
+    try { if let v = self._package {
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }
+    } }()
     if !self.dependency.isEmpty {
       try visitor.visitRepeatedStringField(value: self.dependency, fieldNumber: 3)
     }
@@ -2137,21 +2141,21 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     if !self.`extension`.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.`extension`, fieldNumber: 7)
     }
-    if let v = self._options {
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-    }
-    if let v = self._sourceCodeInfo {
+    } }()
+    try { if let v = self._sourceCodeInfo {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-    }
+    } }()
     if !self.publicDependency.isEmpty {
       try visitor.visitRepeatedInt32Field(value: self.publicDependency, fieldNumber: 10)
     }
     if !self.weakDependency.isEmpty {
       try visitor.visitRepeatedInt32Field(value: self.weakDependency, fieldNumber: 11)
     }
-    if let v = self._syntax {
+    try { if let v = self._syntax {
       try visitor.visitSingularStringField(value: v, fieldNumber: 12)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2221,9 +2225,13 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
+    } }()
     if !self.field.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.field, fieldNumber: 2)
     }
@@ -2239,9 +2247,9 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.`extension`.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.`extension`, fieldNumber: 6)
     }
-    if let v = self._options {
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    }
+    } }()
     if !self.oneofDecl.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.oneofDecl, fieldNumber: 8)
     }
@@ -2298,15 +2306,19 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf.Message,
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._start {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._start {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    }
-    if let v = self._end {
+    } }()
+    try { if let v = self._end {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
-    if let v = self._options {
+    } }()
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2340,12 +2352,16 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf.Message, 
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._start {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._start {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    }
-    if let v = self._end {
+    } }()
+    try { if let v = self._end {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2488,39 +2504,43 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProt
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._name {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._name {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._extendee {
+      } }()
+      try { if let v = _storage._extendee {
         try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._number {
+      } }()
+      try { if let v = _storage._number {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      }
-      if let v = _storage._label {
+      } }()
+      try { if let v = _storage._label {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-      }
-      if let v = _storage._type {
+      } }()
+      try { if let v = _storage._type {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-      }
-      if let v = _storage._typeName {
+      } }()
+      try { if let v = _storage._typeName {
         try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-      }
-      if let v = _storage._defaultValue {
+      } }()
+      try { if let v = _storage._defaultValue {
         try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-      }
-      if let v = _storage._options {
+      } }()
+      try { if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._oneofIndex {
+      } }()
+      try { if let v = _storage._oneofIndex {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
-      }
-      if let v = _storage._jsonName {
+      } }()
+      try { if let v = _storage._jsonName {
         try visitor.visitSingularStringField(value: v, fieldNumber: 10)
-      }
-      if let v = _storage._proto3Optional {
+      } }()
+      try { if let v = _storage._proto3Optional {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
-      }
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2607,12 +2627,16 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProt
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if let v = self._options {
+    } }()
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2657,15 +2681,19 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProto
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
+    } }()
     if !self.value.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.value, fieldNumber: 2)
     }
-    if let v = self._options {
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }
+    } }()
     if !self.reservedRange.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.reservedRange, fieldNumber: 4)
     }
@@ -2707,12 +2735,16 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: SwiftProtobuf.M
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._start {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._start {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    }
-    if let v = self._end {
+    } }()
+    try { if let v = self._end {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2752,15 +2784,19 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, Swift
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if let v = self._number {
+    } }()
+    try { if let v = self._number {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
-    if let v = self._options {
+    } }()
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2802,15 +2838,19 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftPr
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
+    } }()
     if !self.method.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.method, fieldNumber: 2)
     }
-    if let v = self._options {
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2857,24 +2897,28 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftPro
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._name {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._name {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if let v = self._inputType {
+    } }()
+    try { if let v = self._inputType {
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }
-    if let v = self._outputType {
+    } }()
+    try { if let v = self._outputType {
       try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    }
-    if let v = self._options {
+    } }()
+    try { if let v = self._options {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }
-    if let v = self._clientStreaming {
+    } }()
+    try { if let v = self._clientStreaming {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 5)
-    }
-    if let v = self._serverStreaming {
+    } }()
+    try { if let v = self._serverStreaming {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3022,66 +3066,70 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if let v = _storage._javaPackage {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._javaPackage {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      }
-      if let v = _storage._javaOuterClassname {
+      } }()
+      try { if let v = _storage._javaOuterClassname {
         try visitor.visitSingularStringField(value: v, fieldNumber: 8)
-      }
-      if let v = _storage._optimizeFor {
+      } }()
+      try { if let v = _storage._optimizeFor {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
-      }
-      if let v = _storage._javaMultipleFiles {
+      } }()
+      try { if let v = _storage._javaMultipleFiles {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 10)
-      }
-      if let v = _storage._goPackage {
+      } }()
+      try { if let v = _storage._goPackage {
         try visitor.visitSingularStringField(value: v, fieldNumber: 11)
-      }
-      if let v = _storage._ccGenericServices {
+      } }()
+      try { if let v = _storage._ccGenericServices {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 16)
-      }
-      if let v = _storage._javaGenericServices {
+      } }()
+      try { if let v = _storage._javaGenericServices {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
-      }
-      if let v = _storage._pyGenericServices {
+      } }()
+      try { if let v = _storage._pyGenericServices {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 18)
-      }
-      if let v = _storage._javaGenerateEqualsAndHash {
+      } }()
+      try { if let v = _storage._javaGenerateEqualsAndHash {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 20)
-      }
-      if let v = _storage._deprecated {
+      } }()
+      try { if let v = _storage._deprecated {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 23)
-      }
-      if let v = _storage._javaStringCheckUtf8 {
+      } }()
+      try { if let v = _storage._javaStringCheckUtf8 {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 27)
-      }
-      if let v = _storage._ccEnableArenas {
+      } }()
+      try { if let v = _storage._ccEnableArenas {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 31)
-      }
-      if let v = _storage._objcClassPrefix {
+      } }()
+      try { if let v = _storage._objcClassPrefix {
         try visitor.visitSingularStringField(value: v, fieldNumber: 36)
-      }
-      if let v = _storage._csharpNamespace {
+      } }()
+      try { if let v = _storage._csharpNamespace {
         try visitor.visitSingularStringField(value: v, fieldNumber: 37)
-      }
-      if let v = _storage._swiftPrefix {
+      } }()
+      try { if let v = _storage._swiftPrefix {
         try visitor.visitSingularStringField(value: v, fieldNumber: 39)
-      }
-      if let v = _storage._phpClassPrefix {
+      } }()
+      try { if let v = _storage._phpClassPrefix {
         try visitor.visitSingularStringField(value: v, fieldNumber: 40)
-      }
-      if let v = _storage._phpNamespace {
+      } }()
+      try { if let v = _storage._phpNamespace {
         try visitor.visitSingularStringField(value: v, fieldNumber: 41)
-      }
-      if let v = _storage._phpGenericServices {
+      } }()
+      try { if let v = _storage._phpGenericServices {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 42)
-      }
-      if let v = _storage._phpMetadataNamespace {
+      } }()
+      try { if let v = _storage._phpMetadataNamespace {
         try visitor.visitSingularStringField(value: v, fieldNumber: 44)
-      }
-      if let v = _storage._rubyPackage {
+      } }()
+      try { if let v = _storage._rubyPackage {
         try visitor.visitSingularStringField(value: v, fieldNumber: 45)
-      }
+      } }()
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
       }
@@ -3169,18 +3217,22 @@ extension Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._messageSetWireFormat {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._messageSetWireFormat {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
-    }
-    if let v = self._noStandardDescriptorAccessor {
+    } }()
+    try { if let v = self._noStandardDescriptorAccessor {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
-    }
-    if let v = self._deprecated {
+    } }()
+    try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
-    }
-    if let v = self._mapEntry {
+    } }()
+    try { if let v = self._mapEntry {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 7)
-    }
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3239,24 +3291,28 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._ctype {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._ctype {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    }
-    if let v = self._packed {
+    } }()
+    try { if let v = self._packed {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
-    }
-    if let v = self._deprecated {
+    } }()
+    try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
-    }
-    if let v = self._lazy {
+    } }()
+    try { if let v = self._lazy {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 5)
-    }
-    if let v = self._jstype {
+    } }()
+    try { if let v = self._jstype {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    }
-    if let v = self._weak {
+    } }()
+    try { if let v = self._weak {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 10)
-    }
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3367,12 +3423,16 @@ extension Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._allowAlias {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._allowAlias {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
-    }
-    if let v = self._deprecated {
+    } }()
+    try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
-    }
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3419,9 +3479,13 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._deprecated {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
-    }
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3467,9 +3531,13 @@ extension Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf._
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._deprecated {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 33)
-    }
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3517,12 +3585,16 @@ extension Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._deprecated {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 33)
-    }
-    if let v = self._idempotencyLevel {
+    } }()
+    try { if let v = self._idempotencyLevel {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 34)
-    }
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3584,27 +3656,31 @@ extension Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProto
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.name.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.name, fieldNumber: 2)
     }
-    if let v = self._identifierValue {
+    try { if let v = self._identifierValue {
       try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    }
-    if let v = self._positiveIntValue {
+    } }()
+    try { if let v = self._positiveIntValue {
       try visitor.visitSingularUInt64Field(value: v, fieldNumber: 4)
-    }
-    if let v = self._negativeIntValue {
+    } }()
+    try { if let v = self._negativeIntValue {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 5)
-    }
-    if let v = self._doubleValue {
+    } }()
+    try { if let v = self._doubleValue {
       try visitor.visitSingularDoubleField(value: v, fieldNumber: 6)
-    }
-    if let v = self._stringValue {
+    } }()
+    try { if let v = self._stringValue {
       try visitor.visitSingularBytesField(value: v, fieldNumber: 7)
-    }
-    if let v = self._aggregateValue {
+    } }()
+    try { if let v = self._aggregateValue {
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3648,12 +3724,16 @@ extension Google_Protobuf_UninterpretedOption.NamePart: SwiftProtobuf.Message, S
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._namePart {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._namePart {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if let v = self._isExtension {
+    } }()
+    try { if let v = self._isExtension {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3724,18 +3804,22 @@ extension Google_Protobuf_SourceCodeInfo.Location: SwiftProtobuf.Message, SwiftP
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.path.isEmpty {
       try visitor.visitPackedInt32Field(value: self.path, fieldNumber: 1)
     }
     if !self.span.isEmpty {
       try visitor.visitPackedInt32Field(value: self.span, fieldNumber: 2)
     }
-    if let v = self._leadingComments {
+    try { if let v = self._leadingComments {
       try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    }
-    if let v = self._trailingComments {
+    } }()
+    try { if let v = self._trailingComments {
       try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-    }
+    } }()
     if !self.leadingDetachedComments.isEmpty {
       try visitor.visitRepeatedStringField(value: self.leadingDetachedComments, fieldNumber: 6)
     }
@@ -3810,18 +3894,22 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf.Message, S
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.path.isEmpty {
       try visitor.visitPackedInt32Field(value: self.path, fieldNumber: 1)
     }
-    if let v = self._sourceFile {
+    try { if let v = self._sourceFile {
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }
-    if let v = self._begin {
+    } }()
+    try { if let v = self._begin {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    }
-    if let v = self._end {
+    } }()
+    try { if let v = self._end {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 

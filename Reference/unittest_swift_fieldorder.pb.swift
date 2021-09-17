@@ -528,13 +528,14 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._myInt {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
-    }
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 9)
     // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every case branch when no optimizations are
-    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._myInt {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 9)
     switch self.options {
     case .oneofBool?: try {
       guard case .oneofBool(let v)? = self.options else { preconditionFailure() }
@@ -546,22 +547,22 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
     }()
     default: break
     }
-    if let v = self._myString {
+    try { if let v = self._myString {
       try visitor.visitSingularStringField(value: v, fieldNumber: 11)
-    }
+    } }()
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 12, end: 56)
-    if case .oneofInt64(let v)? = self.options {
+    try { if case .oneofInt64(let v)? = self.options {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
-    }
-    if let v = self._myFloat {
+    } }()
+    try { if let v = self._myFloat {
       try visitor.visitSingularFloatField(value: v, fieldNumber: 101)
-    }
-    if case .oneofString(let v)? = self.options {
+    } }()
+    try { if case .oneofString(let v)? = self.options {
       try visitor.visitSingularStringField(value: v, fieldNumber: 150)
-    }
-    if let v = self._optionalNestedMessage {
+    } }()
+    try { if let v = self._optionalNestedMessage {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -598,12 +599,16 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._bb {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._bb {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    }
-    if let v = self._oo {
+    } }()
+    try { if let v = self._oo {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -714,8 +719,9 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every case branch when no optimizations are
-    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     switch self.oGood {
     case .a?: try {
       guard case .a(let v)? = self.oGood else { preconditionFailure() }
@@ -727,29 +733,29 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
     }()
     case nil: break
     }
-    if case .a2(let v)? = self.oConflictField {
+    try { if case .a2(let v)? = self.oConflictField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)
-    }
-    if let v = self._m {
+    } }()
+    try { if let v = self._m {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 113)
-    }
-    if case .b2(let v)? = self.oConflictField {
+    } }()
+    try { if case .b2(let v)? = self.oConflictField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 126)
-    }
-    if case .a3(let v)? = self.oConflictExtensionsStart {
+    } }()
+    try { if case .a3(let v)? = self.oConflictExtensionsStart {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
-    }
+    } }()
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 202, end: 203)
-    if case .b3(let v)? = self.oConflictExtensionsStart {
+    try { if case .b3(let v)? = self.oConflictExtensionsStart {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
-    }
-    if case .a4(let v)? = self.oConflictExtensionsEnd {
+    } }()
+    try { if case .a4(let v)? = self.oConflictExtensionsEnd {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 301)
-    }
+    } }()
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 325, end: 326)
-    if case .b4(let v)? = self.oConflictExtensionsEnd {
+    try { if case .b4(let v)? = self.oConflictExtensionsEnd {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 326)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 

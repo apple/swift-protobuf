@@ -321,6 +321,10 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.strField.isEmpty {
       try visitor.visitSingularStringField(value: self.strField, fieldNumber: 1)
     }
@@ -330,21 +334,21 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
     if self.enumField != .subValue0 {
       try visitor.visitSingularEnumField(value: self.enumField, fieldNumber: 3)
     }
-    if let v = self._messageField {
+    try { if let v = self._messageField {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }
-    if let v = self._optStrField {
+    } }()
+    try { if let v = self._optStrField {
       try visitor.visitSingularStringField(value: v, fieldNumber: 11)
-    }
-    if let v = self._optInt32Field {
+    } }()
+    try { if let v = self._optInt32Field {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-    }
-    if let v = self._optEnumField {
+    } }()
+    try { if let v = self._optEnumField {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 13)
-    }
-    if let v = self._optMessageField {
+    } }()
+    try { if let v = self._optMessageField {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-    }
+    } }()
     if !self.repeatStrField.isEmpty {
       try visitor.visitRepeatedStringField(value: self.repeatStrField, fieldNumber: 21)
     }
@@ -357,9 +361,6 @@ extension SwiftDescriptorTest_Proto3MessageForPresence: SwiftProtobuf.Message, S
     if !self.repeatMessageField.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.repeatMessageField, fieldNumber: 24)
     }
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every case branch when no optimizations are
-    // enabled. https://github.com/apple/swift-protobuf/issues/1034
     switch self.o {
     case .oneofStrField?: try {
       guard case .oneofStrField(let v)? = self.o else { preconditionFailure() }
