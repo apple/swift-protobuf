@@ -174,15 +174,13 @@ internal struct JSONEncodingVisitor: Visitor {
       // Preserve outer object's name and extension maps; restore them before returning
       let oldNameMap = self.nameMap
       let oldExtensions = self.extensions
-      defer {
-        self.nameMap = oldNameMap
-        self.extensions = oldExtensions
-      }
       // Install inner object's name and extension maps
       self.nameMap = newNameMap
       startObject(message: value)
       try value.traverse(visitor: &self)
       endObject()
+      self.nameMap = oldNameMap
+      self.extensions = oldExtensions
     } else {
       throw JSONEncodingError.missingFieldNames
     }
@@ -319,17 +317,15 @@ internal struct JSONEncodingVisitor: Visitor {
       // Preserve name and extension maps for outer object
       let oldNameMap = self.nameMap
       let oldExtensions = self.extensions
-      // Restore outer object's name and extension maps before returning
-      defer {
-        self.nameMap = oldNameMap
-        self.extensions = oldExtensions
-      }
       self.nameMap = newNameMap
       for v in value {
         startArrayObject(message: v)
         try v.traverse(visitor: &self)
         encoder.endObject()
       }
+      // Restore outer object's name and extension maps before returning
+      self.nameMap = oldNameMap
+      self.extensions = oldExtensions
     } else {
       throw JSONEncodingError.missingFieldNames
     }

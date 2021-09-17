@@ -288,12 +288,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
       self.nameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap
       self.nameResolver = [:]
       self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
-      // Restore state before returning
-      defer {
-        self.extensions = oldExtensions
-        self.nameResolver = oldNameResolver
-        self.nameMap = oldNameMap
-      }
       // Encode submessage
       encoder.startMessageField()
       if let any = value as? Google_Protobuf_Any {
@@ -302,6 +296,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
           try! value.traverse(visitor: &self)
       }
       encoder.endMessageField()
+      // Restore state before returning
+      self.extensions = oldExtensions
+      self.nameResolver = oldNameResolver
+      self.nameMap = oldNameMap
   }
 
   // Emit the full "verbose" form of an Any.  This writes the typeURL
