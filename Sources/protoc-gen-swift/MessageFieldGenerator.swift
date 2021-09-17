@@ -184,6 +184,10 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         p.print("case \(number): try { try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty)) }()\n")
     }
 
+    var generateTraverseUsesLocals: Bool {
+        return !isRepeated && hasFieldPresence
+    }
+
     func generateTraverse(printer p: inout CodePrinter) {
         let visitMethod: String
         let traitsArg: String
@@ -198,11 +202,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         let varName = hasFieldPresence ? "v" : storedProperty
 
+        var usesLocals = false
         let conditional: String
         if isRepeated {  // Also covers maps
             conditional = "!\(varName).isEmpty"
         } else if hasFieldPresence {
             conditional = "let v = \(storedProperty)"
+            usesLocals = true
         } else {
             // At this point, the fields would be a primative type, and should only
             // be visted if it is the non default value.
@@ -214,11 +220,14 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
                 conditional = ("\(varName) != \(swiftDefaultValue)")
             }
         }
+        assert(usesLocals == generateTraverseUsesLocals)
+        let prefix = usesLocals ? "try { " : ""
+        let suffix = usesLocals ? " }()" : ""
 
-        p.print("if \(conditional) {\n")
+        p.print("\(prefix)if \(conditional) {\n")
         p.indent()
         p.print("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))\n")
         p.outdent()
-        p.print("}\n")
+        p.print("}\(suffix)\n")
     }
 }

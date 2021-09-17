@@ -331,6 +331,15 @@ class MessageGenerator {
       let visitExtensionsName =
         descriptor.useMessageSetWireFormat ? "visitExtensionFieldsAsMessageSet" : "visitExtensionFields"
 
+      let usesLocals = fields.reduce(false) { $0 || $1.generateTraverseUsesLocals }
+      if usesLocals {
+        p.print(
+          "// The use of inline closures is to circumvent an issue where the compiler\n",
+          "// allocates stack space for every if/case branch local when no optimizations\n",
+          "// are enabled. https://github.com/apple/swift-protobuf/issues/1034 and\n",
+          "// https://github.com/apple/swift-protobuf/issues/1182\n")
+      }
+
       var ranges = descriptor.normalizedExtensionRanges.makeIterator()
       var nextRange = ranges.next()
       for f in fieldsSortedByNumber {

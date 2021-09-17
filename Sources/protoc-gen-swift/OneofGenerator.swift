@@ -97,6 +97,10 @@ class OneofGenerator {
             oneof.generateIsInitializedCheck(printer: &p, field: self)
         }
 
+        var generateTraverseUsesLocals: Bool {
+            return oneof.generateTraverseUsesLocals
+        }
+
         func generateTraverse(printer p: inout CodePrinter) {
             oneof.generateTraverse(printer: &p, field: self)
         }
@@ -399,22 +403,21 @@ class OneofGenerator {
         p.print("}()\n")
     }
 
+    var generateTraverseUsesLocals: Bool { return true }
+
     func generateTraverse(printer p: inout CodePrinter, field: MemberFieldGenerator) {
         // First field in the group causes the output.
         let group = fieldSortedGrouped[field.group]
         guard field === group.first else { return }
 
         if group.count == 1 {
-            p.print("if case \(field.dottedSwiftName)(let v)? = \(storedProperty) {\n")
+            p.print("try { if case \(field.dottedSwiftName)(let v)? = \(storedProperty) {\n")
             p.indent()
             p.print("try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))\n")
             p.outdent()
+            p.print("} }()\n")
         } else {
-            p.print(
-                "// The use of inline closures is to circumvent an issue where the compiler\n",
-                "// allocates stack space for every case branch when no optimizations are\n",
-                "// enabled. https://github.com/apple/swift-protobuf/issues/1034\n",
-                "switch \(storedProperty) {\n")
+            p.print("switch \(storedProperty) {\n")
             for f in group {
                 p.print("case \(f.dottedSwiftName)?: try {\n")
                 p.indent()
@@ -430,8 +433,8 @@ class OneofGenerator {
                 // Multiple groups, cover other cases (or not being set).
                 p.print("default: break\n")
             }
+            p.print("}\n")
         }
-        p.print("}\n")
     }
 
     func generateFieldComparison(printer p: inout CodePrinter, field: MemberFieldGenerator) {
