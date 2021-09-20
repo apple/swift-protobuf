@@ -15,14 +15,27 @@
 
 // TODO: We should have utilities to apply a fieldmask to an arbitrary
 // message, intersect two fieldmasks, etc.
+// Google's C++ implementation does this by having utilities
+// to build a tree of field paths that can be easily intersected,
+// unioned, traversed to apply to submessages, etc.
+
+// True if the string only contains printable (non-control)
+// ASCII characters.  Note: This follows the ASCII standard;
+// space is not a "printable" character.
+private func isPrintableASCII(_ s: String) -> Bool {
+  for u in s.utf8 {
+    if u <= 0x20 || u >= 0x7f {
+      return false
+    }
+  }
+  return true
+}
 
 private func ProtoToJSON(name: String) -> String? {
+  guard isPrintableASCII(name) else { return nil }
   var jsonPath = String()
   var chars = name.makeIterator()
   while let c = chars.next() {
-    if !c.isASCII {
-        return nil // Reject anything with a non-ASCII character
-    }
     switch c {
     case "_":
       if let toupper = chars.next() {
@@ -45,11 +58,9 @@ private func ProtoToJSON(name: String) -> String? {
 }
 
 private func JSONToProto(name: String) -> String? {
+  guard isPrintableASCII(name) else { return nil }
   var path = String()
   for c in name {
-    if !c.isASCII {
-        return nil // Reject anything with a non-ASCII character
-    }
     switch c {
     case "_":
       return nil
