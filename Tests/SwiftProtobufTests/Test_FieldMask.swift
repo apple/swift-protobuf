@@ -27,8 +27,8 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONEncode("\"foo\"") { (o: inout MessageTestType) in
             o.paths = ["foo"]
         }
-        assertJSONEncode("\"foo,fooBar\"") { (o: inout MessageTestType) in
-            o.paths = ["foo", "foo_bar"]
+        assertJSONEncode("\"foo,fooBar,foo.bar.baz\"") { (o: inout MessageTestType) in
+            o.paths = ["foo", "foo_bar", "foo.bar.baz"]
         }
         // assertJSONEncode doesn't want an empty object, hand roll it.
         let msg = MessageTestType.with { (o: inout MessageTestType) in
@@ -44,6 +44,8 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("\"foo,,bar\"")
         assertJSONDecodeFails("\"foo,bar")
         assertJSONDecodeFails("foo,bar\"")
+        assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"") // Reject non-ASCII
+        assertJSONDecodeFails("abc_def") // Reject underscores
     }
 
     func testProtobuf() {
@@ -101,11 +103,10 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
     func testSerializationFailure() {
         // If the proto fieldname can't be converted to a JSON field name,
         // then JSON serialization should fail:
-        let m1 = Google_Protobuf_FieldMask(protoPaths: "foo_3_bar")
-        XCTAssertThrowsError(try m1.jsonString())
-        let m2 = Google_Protobuf_FieldMask(protoPaths: "foo__bar")
-        XCTAssertThrowsError(try m2.jsonString())
-        let m3 = Google_Protobuf_FieldMask(protoPaths: "fooBar")
-        XCTAssertThrowsError(try m3.jsonString())
+        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ"]
+        for c in cases {
+            let m = Google_Protobuf_FieldMask(protoPaths: c)
+            XCTAssertThrowsError(try m.jsonString())
+        }
     }
 }

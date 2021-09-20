@@ -20,6 +20,9 @@ private func ProtoToJSON(name: String) -> String? {
   var jsonPath = String()
   var chars = name.makeIterator()
   while let c = chars.next() {
+    if !c.isASCII {
+        return nil // Reject anything with a non-ASCII character
+    }
     switch c {
     case "_":
       if let toupper = chars.next() {
@@ -44,6 +47,9 @@ private func ProtoToJSON(name: String) -> String? {
 private func JSONToProto(name: String) -> String? {
   var path = String()
   for c in name {
+    if !c.isASCII {
+        return nil // Reject anything with a non-ASCII character
+    }
     switch c {
     case "_":
       return nil
