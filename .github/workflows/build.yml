@@ -96,11 +96,7 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release
-      #image: swift:bionic
-      # Using 5.3 because 5.4 seems to have an issue with passing
-      # `-enable-testing` in a release builds:
-      #   https://bugs.swift.org/browse/SR-14550
-      image: swift:5.3.3-bionic
+      image: swift:bionic
     steps:
     - uses: actions/checkout@v2
     - name: Test
