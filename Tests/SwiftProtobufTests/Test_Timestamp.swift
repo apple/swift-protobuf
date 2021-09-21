@@ -167,7 +167,20 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
             o.seconds = -62135596800
             o.nanos = 0
         }
+
+        // Truncated forms w/o timezone should not read past end of string
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.00000000\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.0000000\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.000000\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.00000\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.0000\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.000\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.00\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.0\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00.\"")
+        assertJSONDecodeFails("\"9999-12-31T00:00:00\"")
     }
+
 
     func testJSON_range() throws {
         // Check that JSON timestamps round-trip correctly over a wide range.
