@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        swift: ["5.4-bionic"]
+        swift: ["5.5-bionic"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
