@@ -31,13 +31,7 @@ jobs:
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
-      # NOTE: zlib1g-dev is added to fix the Swift 5.0.x builds, when those builds aren't needed
-      # that dep likely can be removed.
-      run: |
-        set -eu
-        apt-get update
-        apt-get install -y autoconf automake libtool curl make g++ unzip jq
-        [ \"${{ matrix.swift }}\" != \"5.0.3-bionic\" ] || apt-get install zlib1g-dev
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
     - name: Get Protobuf Commit SHA
       id: get-sha
       run: |
