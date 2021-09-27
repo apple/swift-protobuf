@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -76,6 +76,10 @@ class Test_JSONDecodingOptions: XCTestCase {
             (true, "{\"unknown\":  7.308e+8}"),
             (true, "{\"unknown\": \"hi!\"}"),
             (true, "{\"unknown\": []}"),
+            (true, "{\"unknown\": [[]]}"),
+            (true, "{\"unknown\": [[[]]]}"),
+            (true, "{\"unknown\": [[],[[]],[[[]],[]],[],7]}"),
+            (true, "{\"unknown\": [1,[2,[3,4],5],6]}"),
             (true, "{\"unknown\": [3, 4, 5]}"),
             (true, "{\"unknown\": [[3], [4], [5, [6, [7], 8, null, \"no\"]]]}"),
             (true, "{\"unknown\": [3, {}, \"5\"]}"),
@@ -111,6 +115,12 @@ class Test_JSONDecodingOptions: XCTestCase {
             (false, "{\"unknown\": -9.3e+}"),
             (false, "{\"unknown\": 1 2 3}"),
             (false, "{\"unknown\": { true false }}"),
+            (false, "{\"unknown\": [,[2,[3,4],5],6]}"),
+            (false, "{\"unknown\": [1,[2[3,4],5],6]}"),
+            (false, "{\"unknown\": [1,[2,[3,4],5],]}"),
+            (false, "{\"unknown\": [[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]}"),
+            (false, "{\"unknown\": [[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]}"),
+            (false, "{\"unknown\": [[[[[[[[[[[[[[[[[[[[[[,]]]]]]]]]]]]]]]]]]]]]]}"),
             // Generally malformed JSON still errors on the field name
             (false, "{\"unknown\": }"),
             (false, "{\"unknown\": null true}"),

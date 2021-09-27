@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -128,6 +128,17 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
+    /// Begin a new extension field
+    internal mutating func startExtensionField(name: String) {
+        if let s = separator {
+            data.append(s)
+        }
+        append(staticText: "\"[")
+        data.append(contentsOf: name.utf8)
+        append(staticText: "]\":")
+        separator = asciiComma
+    }
+
     /// Append an open square bracket `[` to the JSON.
     internal mutating func startArray() {
         data.append(asciiOpenSquareBracket)
@@ -146,10 +157,17 @@ internal struct JSONEncoder {
     }
 
     /// Append an open curly brace `{` to the JSON.
-    internal mutating func startObject() {
+    /// Assumes this object is part of an array of objects.
+    internal mutating func startArrayObject() {
         if let s = separator {
             data.append(s)
         }
+        data.append(asciiOpenCurlyBracket)
+        separator = nil
+    }
+
+    /// Append an open curly brace `{` to the JSON.
+    internal mutating func startObject() {
         data.append(asciiOpenCurlyBracket)
         separator = nil
     }
@@ -323,9 +341,7 @@ internal struct JSONEncoder {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
             value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-              if let baseAddress = body.baseAddress, body.count > 0 {
-                let p = baseAddress.assumingMemoryBound(to: UInt8.self)
-
+              if let p = body.baseAddress, body.count > 0 {
                 var t: Int = 0
                 var bytesInGroup: Int = 0
                 for i in 0..<body.count {

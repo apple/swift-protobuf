@@ -1,0 +1,81 @@
+name: Run Conformance Tests
+
+# This workflow is a subset of the build.yml. It *only* try to run the
+# conformance checks. It is triggered weekly on a cron to catch when new
+# conformance tests are added and they don't pass.
+#
+# Without this workflow the new tests wouldn't be noticed until a PR was made.
+#
+# This workflow shares the caching logic with build.yml. It should serve to
+# update a subset of the caches for when things do land on trunk. If that
+# is deemed not worth it in the future, this can be simplify.
+
+# NOTE: If making changes to most of the steps, please also look to update
+# build.yml also.
+
+on:
+  schedule:
+    # Every Sunday at 5am.
+    - cron: '0 5 * * 0'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        swift: ["5.5-bionic"]
+        # protobuf_git can reference a commit, tag, or branch
+        # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
+        # tag: "ref/tags/v3.11.4"
+        # branch: "ref/heads/master"
+        protobuf_git: ["ref/heads/master"]
+    container:
+      image: swift:${{ matrix.swift }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        path: main
+    - name: Update and install dependencies
+      # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+      # this step is run before get-sha because we need curl and jq for get-sha
+      run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
+    - name: Get Protobuf Commit SHA
+      id: get-sha
+      run: |
+        set -eu
+        url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
+        case ${{ matrix.protobuf_git }} in
+        ref/*)
+          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )
+          ;;
+        commits/*)
+          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
+          ;;
+        esac
+    - name: Cache protobuf
+      id: cache-protobuf
+      uses: actions/cache@v2
+      with:
+        path: protobuf
+        # NOTE: for refs that can float like 'main' the cache might be out of date!
+        key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
+    - name: Checkout protobuf repo
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      uses: actions/checkout@v2
+      with:
+        repository: protocolbuffers/protobuf
+        ref: ${{ steps.get-sha.outputs.sha }}
+        path: protobuf
+    - name: Build protobuf
+      if: steps.cache-protobuf.outputs.cache-hit != 'true'
+      working-directory: protobuf
+      run: |
+        ./autogen.sh
+        ./configure
+        NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
+        make -C ./src -j "${NUM_CPUS}" protoc
+        make -C ./conformance conformance-test-runner
+    - name: Test conformance
+      working-directory: main
+      run: make test-conformance

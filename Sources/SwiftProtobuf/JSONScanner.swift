@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -116,9 +116,9 @@ let base64Values: [Int] = [
 ///    Base 64 encoding and the "URL and Filename Safe Alphabet" variant.
 ///
 private func parseBytes(
-  source: UnsafeBufferPointer<UInt8>,
-  index: inout UnsafeBufferPointer<UInt8>.Index,
-  end: UnsafeBufferPointer<UInt8>.Index
+  source: UnsafeRawBufferPointer,
+  index: inout UnsafeRawBufferPointer.Index,
+  end: UnsafeRawBufferPointer.Index
 ) throws -> Data {
     let c = source[index]
     if c != asciiDoubleQuote {
@@ -191,8 +191,7 @@ private func parseBytes(
     index = digitsStart
     try value.withUnsafeMutableBytes {
         (body: UnsafeMutableRawBufferPointer) in
-      if let baseAddress = body.baseAddress, body.count > 0 {
-        var p = baseAddress.assumingMemoryBound(to: UInt8.self)
+      if var p = body.baseAddress, body.count > 0 {
         var n = 0
         var chars = 0 // # chars in current group
         var padding = 0 // # padding '=' chars
@@ -372,12 +371,12 @@ private func decodeString(_ s: String) -> String? {
 /// For performance, it works directly against UTF-8 bytes in memory.
 ///
 internal struct JSONScanner {
-  private let source: UnsafeBufferPointer<UInt8>
-  private var index: UnsafeBufferPointer<UInt8>.Index
+  private let source: UnsafeRawBufferPointer
+  private var index: UnsafeRawBufferPointer.Index
   private var numberParser = DoubleParser()
-  internal var recursionLimit: Int
+  internal let options: JSONDecodingOptions
+  internal let extensions: ExtensionMap
   internal var recursionBudget: Int
-  private var ignoreUnknownFields: Bool
 
   /// True if the scanner has read all of the data from the source, with the
   /// exception of any trailing whitespace (which is consumed by reading this
@@ -400,29 +399,29 @@ internal struct JSONScanner {
   }
 
   internal init(
-    source: UnsafeBufferPointer<UInt8>,
-    messageDepthLimit: Int,
-    ignoreUnknownFields: Bool
+    source: UnsafeRawBufferPointer,
+    options: JSONDecodingOptions,
+    extensions: ExtensionMap?
   ) {
     self.source = source
     self.index = source.startIndex
-    self.recursionLimit = messageDepthLimit
-    self.recursionBudget = messageDepthLimit
-    self.ignoreUnknownFields = ignoreUnknownFields
+    self.recursionBudget = options.messageDepthLimit
+    self.options = options
+    self.extensions = extensions ?? SimpleExtensionMap()
   }
 
-  private mutating func incrementRecursionDepth() throws {
+  internal mutating func incrementRecursionDepth() throws {
     recursionBudget -= 1
     if recursionBudget < 0 {
       throw JSONDecodingError.messageDepthLimit
     }
   }
 
-  private mutating func decrementRecursionDepth() {
+  internal mutating func decrementRecursionDepth() {
     recursionBudget += 1
     // This should never happen, if it does, something is probably corrupting memory, and
     // simply throwing doesn't make much sense.
-    if recursionBudget > recursionLimit {
+    if recursionBudget > options.messageDepthLimit {
       fatalError("Somehow JSONDecoding unwound more objects than it started")
     }
   }
@@ -484,9 +483,9 @@ internal struct JSONScanner {
   // is used by callers that are parsing quoted numbers.  See nextSInt()
   // and nextUInt() below.
   private func parseBareUInt64(
-    source: UnsafeBufferPointer<UInt8>,
-    index: inout UnsafeBufferPointer<UInt8>.Index,
-    end: UnsafeBufferPointer<UInt8>.Index
+    source: UnsafeRawBufferPointer,
+    index: inout UnsafeRawBufferPointer.Index,
+    end: UnsafeRawBufferPointer.Index
   ) throws -> UInt64? {
     if index == end {
       throw JSONDecodingError.truncated
@@ -569,9 +568,9 @@ internal struct JSONScanner {
   // UTF8 directly, only falling back to a full String decode when
   // absolutely necessary.
   private func parseBareSInt64(
-    source: UnsafeBufferPointer<UInt8>,
-    index: inout UnsafeBufferPointer<UInt8>.Index,
-    end: UnsafeBufferPointer<UInt8>.Index
+    source: UnsafeRawBufferPointer,
+    index: inout UnsafeRawBufferPointer.Index,
+    end: UnsafeRawBufferPointer.Index
   ) throws -> Int64? {
     if index == end {
       throw JSONDecodingError.truncated
@@ -623,9 +622,9 @@ internal struct JSONScanner {
   // It's also used by the slow path in parseBareSInt64() and parseBareUInt64()
   // above to handle integer values that are written in float-point notation.
   private func parseBareDouble(
-    source: UnsafeBufferPointer<UInt8>,
-    index: inout UnsafeBufferPointer<UInt8>.Index,
-    end: UnsafeBufferPointer<UInt8>.Index
+    source: UnsafeRawBufferPointer,
+    index: inout UnsafeRawBufferPointer.Index,
+    end: UnsafeRawBufferPointer.Index
   ) throws -> Double? {
     // RFC 7159 defines the grammar for JSON numbers as:
     // number = [ minus ] int [ frac ] [ exp ]
@@ -850,12 +849,10 @@ internal struct JSONScanner {
         let raw = s.data(using: String.Encoding.utf8)!
         let n = try raw.withUnsafeBytes {
           (body: UnsafeRawBufferPointer) -> UInt64? in
-          if let baseAddress = body.baseAddress, body.count > 0 {
-            let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-            let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-            var index = buffer.startIndex
-            let end = buffer.endIndex
-            if let u = try parseBareUInt64(source: buffer,
+          if body.count > 0 {
+            var index = body.startIndex
+            let end = body.endIndex
+            if let u = try parseBareUInt64(source: body,
                                            index: &index,
                                            end: end) {
               if index == end {
@@ -912,12 +909,10 @@ internal struct JSONScanner {
         let raw = s.data(using: String.Encoding.utf8)!
         let n = try raw.withUnsafeBytes {
           (body: UnsafeRawBufferPointer) -> Int64? in
-          if let baseAddress = body.baseAddress, body.count > 0 {
-            let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-            let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-            var index = buffer.startIndex
-            let end = buffer.endIndex
-            if let s = try parseBareSInt64(source: buffer,
+          if body.count > 0 {
+            var index = body.startIndex
+            let end = body.endIndex
+            if let s = try parseBareSInt64(source: body,
                                            index: &index,
                                            end: end) {
               if index == end {
@@ -979,12 +974,10 @@ internal struct JSONScanner {
           let raw = s.data(using: String.Encoding.utf8)!
           let n = try raw.withUnsafeBytes {
             (body: UnsafeRawBufferPointer) -> Float? in
-            if let baseAddress = body.baseAddress, body.count > 0 {
-              let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-              let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-              var index = buffer.startIndex
-              let end = buffer.endIndex
-              if let d = try parseBareDouble(source: buffer,
+            if body.count > 0 {
+              var index = body.startIndex
+              let end = body.endIndex
+              if let d = try parseBareDouble(source: body,
                                              index: &index,
                                              end: end) {
                 let f = Float(d)
@@ -1053,12 +1046,10 @@ internal struct JSONScanner {
           let raw = s.data(using: String.Encoding.utf8)!
           let n = try raw.withUnsafeBytes {
             (body: UnsafeRawBufferPointer) -> Double? in
-            if let baseAddress = body.baseAddress, body.count > 0 {
-              let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-              let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-              var index = buffer.startIndex
-              let end = buffer.endIndex
-              if let d = try parseBareDouble(source: buffer,
+            if body.count > 0 {
+              var index = body.startIndex
+              let end = body.endIndex
+              if let d = try parseBareDouble(source: body,
                                              index: &index,
                                              end: end) {
                 if index == end {
@@ -1225,7 +1216,7 @@ internal struct JSONScanner {
   /// Returns pointer/count spanning the UTF8 bytes of the next regular
   /// key or nil if the key contains a backslash (and therefore requires
   /// the full string-parsing logic to properly parse).
-  private mutating func nextOptionalKey() throws -> UnsafeBufferPointer<UInt8>? {
+  private mutating func nextOptionalKey() throws -> UnsafeRawBufferPointer? {
     skipWhitespace()
     let stringStart = index
     guard hasMoreContent else {
@@ -1246,7 +1237,7 @@ internal struct JSONScanner {
     guard hasMoreContent else {
       throw JSONDecodingError.truncated
     }
-    let buff = UnsafeBufferPointer<UInt8>(
+    let buff = UnsafeRawBufferPointer(
       start: source.baseAddress! + nameStart,
       count: index - nameStart)
     advance()
@@ -1257,30 +1248,45 @@ internal struct JSONScanner {
   /// and return the corresponding field number.
   ///
   /// Throws if field name cannot be parsed.
-  /// If it encounters an unknown field name, it silently skips
-  /// the value and looks at the following field name.
-  internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
+  /// If it encounters an unknown field name, it throws
+  /// unless `options.ignoreUnknownFields` is set, in which case
+  /// it silently skips it.
+  internal mutating func nextFieldNumber(
+    names: _NameMap,
+    messageType: Message.Type
+  ) throws -> Int? {
     while true {
+      var fieldName: String
       if let key = try nextOptionalKey() {
         // Fast path:  We parsed it as UTF8 bytes...
         try skipRequiredCharacter(asciiColon) // :
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
         }
-        if !ignoreUnknownFields {
-          let fieldName = utf8ToString(bytes: key.baseAddress!, count: key.count)!
-          throw JSONDecodingError.unknownField(fieldName)
+        if let s = utf8ToString(bytes: key.baseAddress!, count: key.count) {
+          fieldName = s
+        } else {
+          throw JSONDecodingError.invalidUTF8
         }
       } else {
         // Slow path:  We parsed a String; lookups from String are slower.
-        let key = try nextQuotedString()
+        fieldName = try nextQuotedString()
         try skipRequiredCharacter(asciiColon) // :
-        if let fieldNumber = names.number(forJSONName: key) {
+        if let fieldNumber = names.number(forJSONName: fieldName) {
           return fieldNumber
         }
-        if !ignoreUnknownFields {
-          throw JSONDecodingError.unknownField(key)
+      }
+      if let first = fieldName.utf8.first, first == UInt8(ascii: "["),
+         let last = fieldName.utf8.last, last == UInt8(ascii: "]")
+      {
+        fieldName.removeFirst()
+        fieldName.removeLast()
+        if let fieldNumber = extensions.fieldNumberForProto(messageType: messageType, protoFieldName: fieldName) {
+          return fieldNumber
         }
+      }
+      if !options.ignoreUnknownFields {
+        throw JSONDecodingError.unknownField(fieldName)
       }
       // Unknown field, skip it and try to parse the next field name
       try skipValue()
@@ -1372,6 +1378,12 @@ internal struct JSONScanner {
     return false
   }
 
+  /// If the next non-whitespace character is "[", skip it
+  /// and return true.  Otherwise, return false.
+  internal mutating func skipOptionalArrayStart() -> Bool {
+    return skipOptionalCharacter(asciiOpenSquareBracket)
+  }
+
   /// If the next non-whitespace character is "]", skip it
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalArrayEnd() -> Bool {
@@ -1407,38 +1419,63 @@ internal struct JSONScanner {
 
   /// Advance index past the next value.  This is used
   /// by skip() and by unknown field handling.
+  /// Note: This handles objects {...} recursively but arrays [...] non-recursively
+  /// This avoids us requiring excessive stack space for deeply nested
+  /// arrays (which are not included in the recursion budget check).
   private mutating func skipValue() throws {
     skipWhitespace()
-    guard hasMoreContent else {
-      throw JSONDecodingError.truncated
-    }
-    switch currentByte {
-    case asciiDoubleQuote: // " begins a string
-      try skipString()
-    case asciiOpenCurlyBracket: // { begins an object
-      try skipObject()
-    case asciiOpenSquareBracket: // [ begins an array
-      try skipArray()
-    case asciiLowerN: // n must be null
-      if !skipOptionalKeyword(bytes: [
-        asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
-      ]) {
-        throw JSONDecodingError.truncated
-      }
-    case asciiLowerF: // f must be false
-      if !skipOptionalKeyword(bytes: [
-        asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
-      ]) {
-        throw JSONDecodingError.truncated
-      }
-    case asciiLowerT: // t must be true
-      if !skipOptionalKeyword(bytes: [
-        asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
-      ]) {
-        throw JSONDecodingError.truncated
-      }
-    default: // everything else is a number token
-      _ = try nextDouble()
+    var totalArrayDepth = 0
+    while true {
+        var arrayDepth = 0
+        while skipOptionalArrayStart() {
+            arrayDepth += 1
+        }
+        guard hasMoreContent else {
+          throw JSONDecodingError.truncated
+        }
+        switch currentByte {
+        case asciiDoubleQuote: // " begins a string
+            try skipString()
+        case asciiOpenCurlyBracket: // { begins an object
+            try skipObject()
+        case asciiCloseSquareBracket: // ] ends an empty array
+            if arrayDepth == 0 {
+                throw JSONDecodingError.failure
+            }
+            // We also close out [[]] or [[[]]] here
+            while arrayDepth > 0 && skipOptionalArrayEnd() {
+                arrayDepth -= 1
+            }
+        case asciiLowerN: // n must be null
+            if !skipOptionalKeyword(bytes: [
+                asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
+            ]) {
+                throw JSONDecodingError.truncated
+            }
+        case asciiLowerF: // f must be false
+            if !skipOptionalKeyword(bytes: [
+                asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
+            ]) {
+                throw JSONDecodingError.truncated
+            }
+        case asciiLowerT: // t must be true
+            if !skipOptionalKeyword(bytes: [
+                asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
+            ]) {
+                throw JSONDecodingError.truncated
+            }
+        default: // everything else is a number token
+            _ = try nextDouble()
+        }
+        totalArrayDepth += arrayDepth
+        while totalArrayDepth > 0 && skipOptionalArrayEnd() {
+            totalArrayDepth -= 1
+        }
+        if totalArrayDepth > 0 {
+            try skipRequiredComma()
+        } else {
+            return
+        }
     }
   }
 
@@ -1460,21 +1497,6 @@ internal struct JSONScanner {
     }
   }
 
-  /// Advance the index past the next complete [...] construct.
-  private mutating func skipArray() throws {
-    try skipRequiredArrayStart()
-    if skipOptionalArrayEnd() {
-      return
-    }
-    while true {
-      try skipValue()
-      if skipOptionalArrayEnd() {
-        return
-      }
-      try skipRequiredComma()
-    }
-  }
-
   /// Advance the index past the next complete quoted string.
   ///
   // Caveat:  This does not fully validate; it will accept
@@ -1487,6 +1509,9 @@ internal struct JSONScanner {
   // they don't know; newer clients may reject the same input due to
   // schema mismatches or other issues.
   private mutating func skipString() throws {
+    guard hasMoreContent else {
+      throw JSONDecodingError.truncated
+    }
     if currentByte != asciiDoubleQuote {
       throw JSONDecodingError.malformedString
     }

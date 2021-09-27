@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -16,6 +16,7 @@ import Foundation
 
 #if !swift(>=5.0)
 internal extension Data {
+    @usableFromInline
     func withUnsafeBytes<T>(_ body: (UnsafeRawBufferPointer) throws -> T) rethrows -> T {
         let c = count
         return try withUnsafeBytes { (p: UnsafePointer<UInt8>) throws -> T in

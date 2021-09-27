@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -147,8 +147,10 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
   }
 
   var seconds: Int64 = 0
-  // "+" or "-" starts Timezone offset
-  if value[pos] == plus || value[pos] == dash {
+  // "Z" or "+" or "-" starts Timezone offset
+  if pos >= value.count {
+    throw JSONDecodingError.malformedTimestamp
+  } else if value[pos] == plus || value[pos] == dash {
     if pos + 6 > value.count {
       throw JSONDecodingError.malformedTimestamp
     }
@@ -191,19 +193,11 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
   let (hh, mm, ss) = timeOfDayFromSecondsSince1970(seconds: seconds)
   let (YY, MM, DD) = gregorianDateFromSecondsSince1970(seconds: seconds)
 
-  if nanos == 0 {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02dZ",
-                  YY, MM, DD, hh, mm, ss)
-  } else if nanos % 1000000 == 0 {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%03dZ",
-                  YY, MM, DD, hh, mm, ss, nanos / 1000000)
-  } else if nanos % 1000 == 0 {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%06dZ",
-                  YY, MM, DD, hh, mm, ss, nanos / 1000)
-  } else {
-    return String(format: "%04d-%02d-%02dT%02d:%02d:%02d.%09dZ",
-                  YY, MM, DD, hh, mm, ss, nanos)
-  }
+  let dateString = "\(fourDigit(YY))-\(twoDigit(MM))-\(twoDigit(DD))"
+  let timeString = "\(twoDigit(hh)):\(twoDigit(mm)):\(twoDigit(ss))"
+  let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
+
+  return "\(dateString)T\(timeString)\(nanosString)Z"
 }
 
 extension Google_Protobuf_Timestamp {

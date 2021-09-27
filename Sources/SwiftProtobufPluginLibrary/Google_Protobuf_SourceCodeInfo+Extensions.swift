@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 
@@ -34,7 +34,11 @@ extension Google_Protobuf_SourceCodeInfo.Location {
 
     func prefixLines(text: String, prefix: String) -> String {
       var result = String()
-      var lines = text.components(separatedBy: .newlines)
+      // Protoc doesn't normalize newlines in the comments, make sure CRLF
+      // doesn't insert blank lines and the generated file is hopefully then
+      // consistent in using '\n'.
+      var lines =
+        text.replacingOccurrences(of: "\r\n", with: "\n").components(separatedBy: .newlines)
       // Trim any blank lines off the end.
       while !lines.isEmpty && lines.last!.trimmingCharacters(in: .whitespaces).isEmpty {
         lines.removeLast()

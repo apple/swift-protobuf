@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -20,11 +20,47 @@
 
 import Foundation
 
+/*
+  Note: Once our minimum support version is at least Swift 5.3, we
+  should probably recast the following to use
+  String(unsafeUninitializedCapacity:)
+*/
+
+// Note: We're trying to avoid Foundation's String(format:) since that's not
+// universally available.
+
+fileprivate func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
+  precondition(value >= 0)
+  let s = String(value)
+  if s.count >= digits {
+    return s
+  } else {
+    let pad = String(repeating: "0", count: digits - s.count)
+    return pad + s
+  }
+}
+
+internal func twoDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 2)
+}
+internal func threeDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 3)
+}
+internal func fourDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 4)
+}
+internal func sixDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 6)
+}
+internal func nineDigit(_ value: Int32) -> String {
+  return formatZeroPaddedInt(value, digits: 9)
+}
+
 // Wrapper that takes a buffer and start/end offsets
 internal func utf8ToString(
-  bytes: UnsafeBufferPointer<UInt8>,
-  start: UnsafeBufferPointer<UInt8>.Index,
-  end: UnsafeBufferPointer<UInt8>.Index
+  bytes: UnsafeRawBufferPointer,
+  start: UnsafeRawBufferPointer.Index,
+  end: UnsafeRawBufferPointer.Index
 ) -> String? {
   return utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
 }
@@ -45,11 +81,11 @@ internal func utf8ToString(
 // On Linux, the Foundation initializer is much
 // slower than on macOS, so this is a much bigger
 // win there.
-internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
+internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
   if count == 0 {
     return String()
   }
-  let codeUnits = UnsafeBufferPointer<UInt8>(start: bytes, count: count)
+  let codeUnits = UnsafeRawBufferPointer(start: bytes, count: count)
   let sourceEncoding = Unicode.UTF8.self
 
   // Verify that the UTF-8 is valid.

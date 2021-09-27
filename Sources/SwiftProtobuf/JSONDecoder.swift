@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -16,26 +16,30 @@ import Foundation
 
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
-  internal var options: JSONDecodingOptions
+  internal var messageType: Message.Type
   private var fieldCount = 0
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
+
+  internal var options: JSONDecodingOptions {
+    return scanner.options
+  }
 
   mutating func handleConflictingOneOf() throws {
     throw JSONDecodingError.conflictingOneOf
   }
 
-  internal init(source: UnsafeBufferPointer<UInt8>, options: JSONDecodingOptions) {
-    self.options = options
-    self.scanner = JSONScanner(source: source,
-                               messageDepthLimit: self.options.messageDepthLimit,
-                               ignoreUnknownFields: self.options.ignoreUnknownFields)
+  internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
+                messageType: Message.Type, extensions: ExtensionMap?) {
+    let scanner = JSONScanner(source: source,
+                               options: options,
+                               extensions: extensions)
+    self.init(scanner: scanner, messageType: messageType)
   }
 
-  private init(decoder: JSONDecoder) {
-    // The scanner is copied over along with the options.
-    scanner = decoder.scanner
-    options = decoder.options
+  private init(scanner: JSONScanner, messageType: Message.Type) {
+    self.scanner = scanner
+    self.messageType = messageType
   }
 
   mutating func nextFieldNumber() throws -> Int? {
@@ -45,7 +49,9 @@ internal struct JSONDecoder: Decoder {
     if fieldCount > 0 {
       try scanner.skipRequiredComma()
     }
-    if let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!) {
+    let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!,
+                                                  messageType: messageType)
+    if let fieldNumber = fieldNumber {
       fieldCount += 1
       return fieldNumber
     }
@@ -428,7 +434,7 @@ internal struct JSONDecoder: Decoder {
 
   mutating func decodeSingularBytesField(value: inout Data) throws {
     if scanner.skipOptionalNull() {
-      value = Internal.emptyData
+      value = Data()
       return
     }
     value = try scanner.nextBytesValue()
@@ -463,6 +469,10 @@ internal struct JSONDecoder: Decoder {
   mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
+      if let customDecodable = E.self as? _CustomJSONCodable.Type {
+        value = try customDecodable.decodedFromJSONNull() as? E
+        return
+      }
       value = nil
       return
     }
@@ -472,6 +482,10 @@ internal struct JSONDecoder: Decoder {
   mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
+      if let customDecodable = E.self as? _CustomJSONCodable.Type {
+        value = try customDecodable.decodedFromJSONNull() as! E
+        return
+      }
       value = E()
       return
     }
@@ -487,9 +501,19 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let maybeCustomDecodable = E.self as? _CustomJSONCodable.Type
     while true {
-      let e: E = try scanner.nextEnumValue()
-      value.append(e)
+      if scanner.skipOptionalNull() {
+        if let customDecodable = maybeCustomDecodable {
+          let e = try customDecodable.decodedFromJSONNull() as! E
+          value.append(e)
+        } else {
+          throw JSONDecodingError.illegalNull
+        }
+      } else {
+        let e: E = try scanner.nextEnumValue()
+        value.append(e)
+      }
       if scanner.skipOptionalArrayEnd() {
         return
       }
@@ -529,7 +553,7 @@ internal struct JSONDecoder: Decoder {
     if value == nil {
       value = M()
     }
-    var subDecoder = JSONDecoder(decoder: self)
+    var subDecoder = JSONDecoder(scanner: scanner, messageType: M.self)
     try subDecoder.decodeFullObject(message: &value!)
     assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
     scanner = subDecoder.scanner
@@ -560,7 +584,7 @@ internal struct JSONDecoder: Decoder {
         }
       } else {
         var message = M()
-        var subDecoder = JSONDecoder(decoder: self)
+        var subDecoder = JSONDecoder(scanner: scanner, messageType: M.self)
         try subDecoder.decodeFullObject(message: &message)
         value.append(message)
         assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
@@ -697,6 +721,15 @@ internal struct JSONDecoder: Decoder {
     messageType: Message.Type,
     fieldNumber: Int
   ) throws {
-    throw JSONDecodingError.schemaMismatch
+    // Force-unwrap: we can only get here if the extension exists.
+    let ext = scanner.extensions[messageType, fieldNumber]!
+
+    try values.modify(index: fieldNumber) { fieldValue in
+      if fieldValue != nil {
+        try fieldValue!.decodeExtensionField(decoder: &self)
+      } else {
+        fieldValue = try ext._protobuf_newField(decoder: &self)
+      }
+    }
   }
 }

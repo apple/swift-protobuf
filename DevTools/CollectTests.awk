@@ -34,6 +34,7 @@ BEGIN {
     printf("//\n")
     printf("// GENERATED FILE\n")
     printf("// DO NOT EDIT\n")
+    printf("// swift-format-ignore-file\n")
     printf("//\n")
     printf("\n")
     printf("import XCTest\n")

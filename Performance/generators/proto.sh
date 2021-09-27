@@ -37,7 +37,31 @@ function print_proto_field() {
 function generate_homogeneous_test_proto() {
   cat >"$gen_message_path" <<EOF
 syntax = "proto$proto_syntax";
+EOF
 
+  case "$field_type" in
+      *message)
+	  case "$field_type" in
+	      repeated\ message)
+		  out_field_type="repeated SubMessage"
+		  ;;
+	      message)
+		  out_field_type="SubMessage"
+		  ;;
+	      *)
+		  echo "XXX Invalid field type ``$field_type''"
+		  ;;
+	  esac
+	  echo "message SubMessage {" >>"$gen_message_path"
+	  echo "  int32 optional_int32 = 1;" >>"$gen_message_path"
+	  echo "}" >>"$gen_message_path"
+	  ;;
+      *)
+	  out_field_type="$field_type"
+	  ;;
+  esac
+
+  cat >>"$gen_message_path" <<EOF
 message PerfMessage {
   enum PerfEnum {
     ZERO = 0;
@@ -49,7 +73,7 @@ message PerfMessage {
 EOF
 
   for field_number in $(seq 1 "$field_count"); do
-    print_proto_field "$field_number" "$field_type" >>"$gen_message_path"
+    print_proto_field "$field_number" "$out_field_type" >>"$gen_message_path"
   done
 
   cat >>"$gen_message_path" <<EOF

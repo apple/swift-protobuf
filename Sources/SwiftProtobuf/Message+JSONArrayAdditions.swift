@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -51,7 +51,7 @@ extension Message {
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startArray()
     for message in collection {
-        visitor.startObject()
+        visitor.startArrayObject(message: message)
         try message.traverse(visitor: &visitor)
         visitor.endObject()
     }
@@ -69,11 +69,28 @@ extension Message {
     fromJSONString jsonString: String,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
+    return try self.array(fromJSONString: jsonString,
+                          extensions: SimpleExtensionMap(),
+                          options: options)
+  }
+
+  /// Creates a new array of messages by decoding the given string containing a
+  /// serialized array of messages in JSON format.
+  ///
+  /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter extensions: The extension map to use with this decode
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public static func array(
+    fromJSONString jsonString: String,
+    extensions: ExtensionMap = SimpleExtensionMap(),
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws -> [Self] {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      return try array(fromJSONUTF8Data: data, options: options)
+      return try array(fromJSONUTF8Data: data, extensions: extensions, options: options)
     } else {
       throw JSONDecodingError.truncated
     }
@@ -91,13 +108,31 @@ extension Message {
     fromJSONUTF8Data jsonUTF8Data: Data,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
+    return try self.array(fromJSONUTF8Data: jsonUTF8Data,
+                          extensions: SimpleExtensionMap(),
+                          options: options)
+  }
+
+  /// Creates a new array of messages by decoding the given `Data` containing a
+  /// serialized array of messages in JSON format, interpreting the data as
+  /// UTF-8 encoded text.
+  ///
+  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  ///   as UTF-8 encoded text.
+  /// - Parameter extensions: The extension map to use with this decode
+  /// - Parameter options: The JSONDecodingOptions to use.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public static func array(
+    fromJSONUTF8Data jsonUTF8Data: Data,
+    extensions: ExtensionMap = SimpleExtensionMap(),
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws -> [Self] {
     return try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       var array = [Self]()
 
-      if let baseAddress = body.baseAddress, body.count > 0 {
-        let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-        let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-        var decoder = JSONDecoder(source: buffer, options: options)
+      if body.count > 0 {
+        var decoder = JSONDecoder(source: body, options: options,
+          messageType: Self.self, extensions: extensions)
         try decoder.decodeRepeatedMessageField(value: &array)
         if !decoder.scanner.complete {
           throw JSONDecodingError.trailingGarbage

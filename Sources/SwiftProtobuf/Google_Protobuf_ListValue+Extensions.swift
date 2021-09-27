@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -44,7 +44,11 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
       return
     }
     try decoder.scanner.skipRequiredArrayStart()
+    // Since we override the JSON decoding, we can't rely
+    // on the default recursion depth tracking.
+    try decoder.scanner.incrementRecursionDepth()
     if decoder.scanner.skipOptionalArrayEnd() {
+      decoder.scanner.decrementRecursionDepth()
       return
     }
     while true {
@@ -52,6 +56,7 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
       try v.decodeJSON(from: &decoder)
       values.append(v)
       if decoder.scanner.skipOptionalArrayEnd() {
+        decoder.scanner.decrementRecursionDepth()
         return
       }
       try decoder.scanner.skipRequiredComma()

@@ -4,11 +4,12 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobufPluginLibrary
 
 func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   var dir = ""
@@ -61,7 +62,7 @@ func trimWhitespace(_ s: String) -> String {
 ///  \n\r\t\\\'\" and three-digit octal escapes but nothing else.
 func escapedToDataLiteral(_ s: String) -> String {
   if s.isEmpty {
-    return "SwiftProtobuf.Internal.emptyData"
+    return "Data()"
   }
   var out = "Data(["
   var separator = ""

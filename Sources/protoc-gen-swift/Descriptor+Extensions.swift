@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 
@@ -14,11 +14,6 @@ extension FileDescriptor {
   /// True if this file should perserve unknown enums within the enum.
   var hasUnknownEnumPreservingSemantics: Bool {
     return syntax == .proto3
-  }
-
-  /// True of primative field types should have field presence.
-  var hasPrimativeFieldPresence: Bool {
-    return syntax == .proto2
   }
 
   var isBundledProto: Bool {
@@ -39,18 +34,20 @@ extension Descriptor {
   ///
   /// The logic for this check comes from google/protobuf; the C++ and Java
   /// generators specificly.
-  func hasRequiredFields() -> Bool {
+  func containsRequiredFields() -> Bool {
     var alreadySeen = Set<String>()
 
-    func hasRequiredFieldsInner(_ descriptor: Descriptor) -> Bool {
+    func helper(_ descriptor: Descriptor) -> Bool {
       if alreadySeen.contains(descriptor.fullName) {
         // First required thing found causes this to return true, so one can
-        // assume if it is already visited, it didn't have required fields.
+        // assume if it is already visited and and wasn't cached, it is part
+        // of a recursive cycle, so return false without caching to allow
+        // the evalutation to continue on other fields of the message.
         return false
       }
       alreadySeen.insert(descriptor.fullName)
 
-      // If it can support extensions, then return true as the extension could
+      // If it can support extensions, then return true as an extension could
       // have a required field.
       if !descriptor.extensionRanges.isEmpty {
         return true
@@ -62,7 +59,7 @@ extension Descriptor {
         }
         switch f.type {
         case .group, .message:
-          if hasRequiredFieldsInner(f.messageType) {
+          if helper(f.messageType) {
             return true
           }
         default:
@@ -73,17 +70,17 @@ extension Descriptor {
       return false
     }
 
-    return hasRequiredFieldsInner(self)
+    return helper(self)
   }
 
-  /// A `String` containing a comma-delimited list of Swift range expressions
+  /// A `String` containing a comma-delimited list of Swift expressions
   /// covering the extension ranges for this message.
   ///
   /// This expression list is suitable as a pattern match in a `case`
-  /// statement. For example, `"case 5..<10, 20..<30:"`.
-  var swiftExtensionRangeExpressions: String {
-    return extensionRanges.lazy.map {
-      $0.swiftRangeExpression
+  /// statement. For example, `"case 5..<10, 15, 20..<30:"`.
+  var swiftExtensionRangeCaseExpressions: String {
+    return normalizedExtensionRanges.lazy.map {
+      $0.swiftCaseExpression
     }.joined(separator: ", ")
   }
 
@@ -93,38 +90,16 @@ extension Descriptor {
   /// - Parameter variable: The name of the variable to test in the expression.
   /// - Returns: A `String` containing the Boolean expression.
   func swiftExtensionRangeBooleanExpression(variable: String) -> String {
-    return extensionRanges.lazy.map {
+    return normalizedExtensionRanges.lazy.map {
       "(\($0.swiftBooleanExpression(variable: variable)))"
     }.joined(separator: " || ")
   }
 }
 
 extension FieldDescriptor {
-  /// True if this field should have presence support
-  var hasFieldPresence: Bool {
-    if label == .repeated {  // Covers both Arrays and Maps
-      return false
-    }
-    if oneofIndex != nil {
-      // When in a oneof, no presence is provided.
-      return false
-    }
-    switch type {
-    case .group, .message:
-      // Groups/messages always get field presence.
-      return true
-    default:
-      // Depends on the context the message was declared in.
-      return file.hasPrimativeFieldPresence
-    }
-  }
-
   func swiftType(namer: SwiftProtobufNamer) -> String {
-    if isMap {
-      let mapDescriptor: Descriptor = messageType
-      let keyField = mapDescriptor.fields[0]
+    if case let (keyField, valueField)? = messageType?.mapKeyAndValue {
       let keyType = keyField.swiftType(namer: namer)
-      let valueField = mapDescriptor.fields[1]
       let valueType = valueField.swiftType(namer: namer)
       return "Dictionary<" + keyType + "," + valueType + ">"
     }
@@ -163,7 +138,10 @@ extension FieldDescriptor {
     case .repeated:
       return swiftType
     case .optional, .required:
-      if hasFieldPresence {
+      guard realOneof == nil else {
+        return swiftType
+      }
+      if hasPresence {
         return "\(swiftType)?"
       } else {
         return swiftType
@@ -235,7 +213,7 @@ extension FieldDescriptor {
     switch type {
     case .bool: return "false"
     case .string: return "String()"
-    case .bytes: return "SwiftProtobuf.Internal.emptyData"
+    case .bytes: return "Data()"
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:
@@ -248,39 +226,36 @@ extension FieldDescriptor {
   /// Calculates the traits type used for maps and extensions, they
   /// are used in decoding and visiting.
   func traitsType(namer: SwiftProtobufNamer) -> String {
-    if isMap {
-      let mapDescriptor: Descriptor = messageType
-      let keyField = mapDescriptor.fields[0]
+    if case let (keyField, valueField)? = messageType?.mapKeyAndValue {
       let keyTraits = keyField.traitsType(namer: namer)
-      let valueField = mapDescriptor.fields[1]
       let valueTraits = valueField.traitsType(namer: namer)
       switch valueField.type {
       case .message:  // Map's can't have a group as the value
-        return "SwiftProtobuf._ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
+        return "\(namer.swiftProtobufModuleName)._ProtobufMessageMap<\(keyTraits),\(valueTraits)>"
       case .enum:
-        return "SwiftProtobuf._ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
+        return "\(namer.swiftProtobufModuleName)._ProtobufEnumMap<\(keyTraits),\(valueTraits)>"
       default:
-        return "SwiftProtobuf._ProtobufMap<\(keyTraits),\(valueTraits)>"
+        return "\(namer.swiftProtobufModuleName)._ProtobufMap<\(keyTraits),\(valueTraits)>"
       }
     }
     switch type {
-    case .double: return "SwiftProtobuf.ProtobufDouble"
-    case .float: return "SwiftProtobuf.ProtobufFloat"
-    case .int64: return "SwiftProtobuf.ProtobufInt64"
-    case .uint64: return "SwiftProtobuf.ProtobufUInt64"
-    case .int32: return "SwiftProtobuf.ProtobufInt32"
-    case .fixed64: return "SwiftProtobuf.ProtobufFixed64"
-    case .fixed32: return "SwiftProtobuf.ProtobufFixed32"
-    case .bool: return "SwiftProtobuf.ProtobufBool"
-    case .string: return "SwiftProtobuf.ProtobufString"
+    case .double: return "\(namer.swiftProtobufModuleName).ProtobufDouble"
+    case .float: return "\(namer.swiftProtobufModuleName).ProtobufFloat"
+    case .int64: return "\(namer.swiftProtobufModuleName).ProtobufInt64"
+    case .uint64: return "\(namer.swiftProtobufModuleName).ProtobufUInt64"
+    case .int32: return "\(namer.swiftProtobufModuleName).ProtobufInt32"
+    case .fixed64: return "\(namer.swiftProtobufModuleName).ProtobufFixed64"
+    case .fixed32: return "\(namer.swiftProtobufModuleName).ProtobufFixed32"
+    case .bool: return "\(namer.swiftProtobufModuleName).ProtobufBool"
+    case .string: return "\(namer.swiftProtobufModuleName).ProtobufString"
     case .group, .message: return namer.fullName(message: messageType)
-    case .bytes: return "SwiftProtobuf.ProtobufBytes"
-    case .uint32: return "SwiftProtobuf.ProtobufUInt32"
+    case .bytes: return "\(namer.swiftProtobufModuleName).ProtobufBytes"
+    case .uint32: return "\(namer.swiftProtobufModuleName).ProtobufUInt32"
     case .enum: return namer.fullName(enum: enumType)
-    case .sfixed32: return "SwiftProtobuf.ProtobufSFixed32"
-    case .sfixed64: return "SwiftProtobuf.ProtobufSFixed64"
-    case .sint32: return "SwiftProtobuf.ProtobufSInt32"
-    case .sint64: return "SwiftProtobuf.ProtobufSInt64"
+    case .sfixed32: return "\(namer.swiftProtobufModuleName).ProtobufSFixed32"
+    case .sfixed64: return "\(namer.swiftProtobufModuleName).ProtobufSFixed64"
+    case .sint32: return "\(namer.swiftProtobufModuleName).ProtobufSInt32"
+    case .sint64: return "\(namer.swiftProtobufModuleName).ProtobufSInt64"
     }
   }
 }

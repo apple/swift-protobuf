@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 
@@ -28,10 +28,20 @@ class Test_NamingUtils: XCTestCase {
       ( "foo.bar.baz", nil, "Foo_Bar_Baz_" ),
       ( "foo_bar_baz", nil, "FooBarBaz_" ),
       ( "foo.bar_baz", nil, "Foo_BarBaz_" ),
+      ( "foo_bar__baz", nil, "FooBarBaz_" ),
+      ( "foo.bar_baz_", nil, "Foo_BarBaz_" ),
+      ( "foo._bar_baz", nil, "Foo_BarBaz_" ),
 
       ( "foo.BAR_baz", nil, "Foo_BARBaz_" ),
       ( "foo.bar_bAZ", nil, "Foo_BarBAZ_" ),
       ( "FOO.BAR_BAZ", nil, "FOO_BARBAZ_" ),
+
+      ( "_foo", nil, "Foo_" ),
+      ( "__foo", nil, "Foo_" ),
+      ( "_1foo", nil, "_1foo_" ),
+      ( "__1foo", nil, "_1foo_" ),
+      ( "_1foo.2bar._3baz", nil, "_1foo_2bar_3baz_" ),
+      ( "_1foo_2bar_3baz", nil, "_1foo2bar3baz_" ),
 
       ( "foo.bar.baz", "", "" ),
       ( "", "ABC", "ABC" ),
@@ -79,6 +89,10 @@ class Test_NamingUtils: XCTestCase {
       ( "foo_bar", "foobar_bAZ", "bAZ" ),
       ( "_foo_bar", "foobar_bAZ", "bAZ" ),
       ( "foo__bar_", "_foo_bar__baz", "baz" ),
+
+      ( "FooBar", "foo_bar_1", nil ),
+      ( "FooBar", "foo_bar_1foo", nil ),
+      ( "FooBar", "foo_bar_foo1", "foo1" ),
     ]
     for (prefix, str, expected) in tests {
       let stripper = NamingUtils.PrefixStripper(prefix: prefix)
@@ -98,6 +112,7 @@ class Test_NamingUtils: XCTestCase {
 
       // Some of our names get the disambiguator added.
       ( "SwiftProtobuf", "SwiftProtobufMessage" ),
+      ( "RenamedSwiftProtobuf", "RenamedSwiftProtobufMessage" ),
       ( "isInitialized", "isInitializedMessage" ),
 
       // Some Swift keywords.
@@ -115,7 +130,7 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "___Message" ),
     ]
     for (input, expected) in tests {
-      XCTAssertEqual(NamingUtils.sanitize(messageName: input), expected)
+      XCTAssertEqual(NamingUtils.sanitize(messageName: input, forbiddenTypeNames: ["RenamedSwiftProtobuf"]), expected)
     }
   }
 
@@ -130,6 +145,7 @@ class Test_NamingUtils: XCTestCase {
 
       // Some of our names get the disambiguator added.
       ( "SwiftProtobuf", "SwiftProtobufEnum" ),
+      ( "RenamedSwiftProtobuf", "RenamedSwiftProtobufEnum" ),
       ( "isInitialized", "isInitializedEnum" ),
 
       // Some Swift keywords.
@@ -147,7 +163,7 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "___Enum" ),
     ]
     for (input, expected) in tests {
-      XCTAssertEqual(NamingUtils.sanitize(enumName: input), expected)
+      XCTAssertEqual(NamingUtils.sanitize(enumName: input, forbiddenTypeNames: ["RenamedSwiftProtobuf"]), expected)
     }
   }
 
@@ -161,7 +177,7 @@ class Test_NamingUtils: XCTestCase {
       ( "foo_bar", "foo_bar" ),
 
       // Some of our names get the disambiguator added.
-      ( "SwiftProtobuf", "SwiftProtobufOneof" ),
+      ( "RenamedSwiftProtobuf", "RenamedSwiftProtobufOneof" ),
       ( "isInitialized", "isInitializedOneof" ),
 
       // Some Swift keywords.
@@ -179,7 +195,7 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "___Oneof" ),
     ]
     for (input, expected) in tests {
-      XCTAssertEqual(NamingUtils.sanitize(oneofName: input), expected)
+      XCTAssertEqual(NamingUtils.sanitize(oneofName: input, forbiddenTypeNames: ["RenamedSwiftProtobuf"]), expected)
     }
   }
 
@@ -294,13 +310,18 @@ class Test_NamingUtils: XCTestCase {
       ( "FOO", "foo", "Foo" ),
       ( "foO", "foO", "FoO" ),
 
-      ( "foo.bar", "fooBar", "FooBar" ),
       ( "foo_bar", "fooBar", "FooBar" ),
-      ( "foo.bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
-      ( "foo_bAr.BaZ", "fooBArBaZ", "FooBArBaZ" ),
+      ( "foo_bar", "fooBar", "FooBar" ),
+      ( "foo_bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
+      ( "foo_bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
 
       ( "foo1bar", "foo1Bar", "Foo1Bar" ),
       ( "foo2bAr3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
+
+      ( "foo_1bar", "foo1Bar", "Foo1Bar" ),
+      ( "foo_2bAr_3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
+      ( "_0foo_1bar", "_0Foo1Bar", "_0Foo1Bar" ),
+      ( "_0foo_2bAr_3BaZ", "_0Foo2BAr3BaZ", "_0Foo2BAr3BaZ" ),
 
       ( "url", "url", "URL" ),
       ( "http", "http", "HTTP" ),
@@ -323,6 +344,16 @@ class Test_NamingUtils: XCTestCase {
       ( "the_id_number", "theIDNumber", "TheIDNumber" ),
 
       ( "url_foo_http_id", "urlFooHTTPID", "URLFooHTTPID"),
+
+      ( "göß", "göß", "Göß"),
+      ( "göo", "göO", "GöO"),
+      ( "gö_o", "göO", "GöO"),
+      ( "g_🎉_o", "g🎉O", "G🎉O"),
+      ( "g🎉o", "g🎉O", "G🎉O"),
+
+      ( "m\u{AB}n", "m_u171N", "M_u171N"),
+      ( "m\u{AB}_n", "m_u171N", "M_u171N"),
+      ( "m_\u{AB}_n", "m_u171N", "M_u171N"),
     ]
 
     for (input, expectedLower, expectedUppper) in tests {

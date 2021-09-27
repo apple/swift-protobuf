@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -21,8 +21,17 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse {
 
   /// Helper to make a response with a set of files
   public init(files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File]) {
+    self.init(files: files, supportedFeatures: [])
+  }
+
+  /// Helper to make a response with a set of files and supported features.
+  public init(
+    files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File],
+    supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] = []
+  ) {
     self.init()
     self.file = files
+    self.supportedFeatures = supportedFeatures.reduce(0) { $0 | UInt64($1.rawValue) }
   }
 }
 

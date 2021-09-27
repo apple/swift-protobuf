@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -108,8 +108,7 @@ struct GeneratorPlugin {
         + "Package.swift:\n"
         + "\n"
         + "   dependencies: [\n"
-        + "     .Package(url: \"https://github.com/apple/swift-protobuf\",\n"
-        + "              Version(\(packageVersion)))\n"
+        + "     .package(name: \"SwiftProtobuf\", url: \"https://github.com/apple/swift-protobuf.git\", from: \"\(packageVersion)\"),"
         + "   ]\n"
         + "\n"
         + "\n"
@@ -239,7 +238,8 @@ struct GeneratorPlugin {
         Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                             content: printer.content))
     }
-    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles)
+    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
+                                                          supportedFeatures: [.proto3Optional])
   }
 
   private func auditProtoCVersion(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {

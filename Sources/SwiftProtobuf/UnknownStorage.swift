@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -24,7 +24,7 @@ import Foundation
 public struct UnknownStorage: Equatable {
   /// The raw protocol buffer binary-encoded bytes that represent the unknown
   /// fields of a decoded message.
-  public private(set) var data = Internal.emptyData
+  public private(set) var data = Data()
 
 #if !swift(>=4.1)
   public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {

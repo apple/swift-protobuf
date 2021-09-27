@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -48,10 +48,12 @@ internal func typeName(fromURL s: String) -> String {
 
 #if !os(WASI)
 import Dispatch
-fileprivate var serialQueue = DispatchQueue(label: "org.swift.protobuf.typeRegistry")
+fileprivate var knownTypesQueue =
+    DispatchQueue(label: "org.swift.protobuf.typeRegistry",
+                  attributes: .concurrent)
 #endif
 
-// All access to this should be done on `serialQueue`.
+// All access to this should be done on `knownTypesQueue`.
 fileprivate var knownTypes: [String:Message.Type] = [
   // Seeded with the Well Known Types.
   "google.protobuf.Any": Google_Protobuf_Any.self,
@@ -117,7 +119,7 @@ extension Google_Protobuf_Any {
             }
         }
         #if !os(WASI)
-        serialQueue.sync {
+        knownTypesQueue.sync(flags: .barrier) {
           block()
         }
         #else
@@ -139,7 +141,7 @@ extension Google_Protobuf_Any {
             result = knownTypes[name]
         }
         #if !os(WASI)
-        serialQueue.sync {
+        knownTypesQueue.sync {
           block()
         }
         #else

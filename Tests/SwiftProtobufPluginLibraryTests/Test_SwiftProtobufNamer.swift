@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "  }",
       "  value {",
       "    name: \"TEST_ENUM_FOO\"",
-      "    number: 0",  // Master
+      "    number: 0",  // Primary
       "  }",
       "  value {",
       "    name: \"TEST_ENUM_BAR\"",
@@ -164,7 +164,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "  }",
       "  value {",
       "    name: \"TEST_ENUM_FOO\"",
-      "    number: 0",  // Collision/Master0
+      "    number: 0",  // Collision/Primary0
       "  }",
       "  value {",
       "    name: \"TEST_ENUM_BAR\"",
@@ -176,7 +176,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "  }",
       "  value {",
       "    name: \"_FOO\"",
-      "    number: 2",  // Collision/Master2
+      "    number: 2",  // Collision/Primary2
       "  }",
       "  value {",
       "    name: \"FOO\"",

@@ -1,0 +1,13 @@
+version: 1
+builder:
+  configs:
+  - platform: ios
+    scheme: SwiftProtobuf_iOS
+  - platform: macos-xcodebuild
+    scheme: SwiftProtobuf_macOS
+  - platform: macos-xcodebuild-arm
+    scheme: SwiftProtobuf_macOS
+  - platform: tvos
+    scheme: SwiftProtobuf_tvOS
+  - platform: watchos
+    scheme: SwiftProtobuf_watchOS

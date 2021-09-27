@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -425,10 +425,19 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5e+1\"}") {$0.optionalDouble == 15}
         assertJSONDecodeSucceeds("{\"optionalDouble\":\"15e-1\"}") {$0.optionalDouble == 1.5}
         assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.0e0\"}") {$0.optionalDouble == 1.0}
-        assertJSONDecodeSucceeds("{\"optionalDouble\":\"-0\"}") {$0.optionalDouble == 0.0}
         assertJSONDecodeSucceeds("{\"optionalDouble\":\"0\"}") {$0.optionalDouble == 0.0}
-        assertJSONDecodeSucceeds("{\"optionalDouble\":-0}") {$0.optionalDouble == 0.0}
         assertJSONDecodeSucceeds("{\"optionalDouble\":0}") {$0.optionalDouble == 0.0}
+        // We preserve signed zero when decoding
+        let d1 = try MessageTestType(jsonString: "{\"optionalDouble\":\"-0\"}")
+        XCTAssertEqual(d1.optionalDouble, 0.0)
+        XCTAssertEqual(d1.optionalDouble.sign, .minus)
+        let d2 = try MessageTestType(jsonString: "{\"optionalDouble\":-0}")
+        XCTAssertEqual(d2.optionalDouble, 0.0)
+        XCTAssertEqual(d2.optionalDouble.sign, .minus)
+        // But re-encoding treats the field as defaulted, so the sign gets lost
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"-0\"}") {$0.optionalDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":-0}") {$0.optionalDouble == 0.0}
+
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"optionalDouble\":Infinity}")
         assertJSONDecodeFails("{\"optionalDouble\":-Infinity}") // Must be quoted
@@ -472,9 +481,12 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertRoundTripJSON {$0.optionalDouble = 2.22507385850720138309e-308}
     }
 
-    func testOptionalFloat() {
+    func testOptionalFloat() throws {
         assertJSONEncode("{\"optionalFloat\":1.0}") {(o: inout MessageTestType) in
             o.optionalFloat = 1.0
+        }
+        assertJSONEncode("{\"optionalFloat\":-1.0}") {(o: inout MessageTestType) in
+            o.optionalFloat = -1.0
         }
         assertJSONEncode("{\"optionalFloat\":\"Infinity\"}") {(o: inout MessageTestType) in
             o.optionalFloat = Float.infinity
@@ -485,6 +497,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"Inf\"}") {$0.optionalFloat == Float.infinity}
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"-Inf\"}") {$0.optionalFloat == -Float.infinity}
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"1\"}") {$0.optionalFloat == 1}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"-1\"}") {$0.optionalFloat == -1}
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.0\"}") {$0.optionalFloat == 1.0}
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5\"}") {$0.optionalFloat == 1.5}
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5e1\"}") {$0.optionalFloat == 15}
@@ -499,8 +512,16 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"optionalFloat\":1.0e0}") {$0.optionalFloat == 1.0}
         assertJSONDecodeSucceeds("{\"optionalFloat\":\"0\"}") {$0.optionalFloat == 0.0}
         assertJSONDecodeSucceeds("{\"optionalFloat\":0}") {$0.optionalFloat == 0.0}
-        assertJSONDecodeSucceeds("{\"optionalFloat\":\"-0\"}") {$0.optionalFloat == -0.0 && $0.optionalFloat.sign == .minus}
-        assertJSONDecodeSucceeds("{\"optionalFloat\":-0}") {$0.optionalFloat == 0 && $0.optionalFloat.sign == .minus}
+        // We preserve signed zero when decoding
+        let d1 = try MessageTestType(jsonString: "{\"optionalFloat\":\"-0\"}")
+        XCTAssertEqual(d1.optionalFloat, 0.0)
+        XCTAssertEqual(d1.optionalFloat.sign, .minus)
+        let d2 = try MessageTestType(jsonString: "{\"optionalFloat\":-0}")
+        XCTAssertEqual(d2.optionalFloat, 0.0)
+        XCTAssertEqual(d2.optionalFloat.sign, .minus)
+        // But re-encoding treats the field as defaulted, so the sign gets lost
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"-0\"}") {$0.optionalFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":-0}") {$0.optionalFloat == 0.0}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"optionalFloat\":Infinity}")
         assertJSONDecodeFails("{\"optionalFloat\":-Infinity}") // Must be quoted
@@ -855,6 +876,26 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testRepeatedEnum() {
+        assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\"]}") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.foo]
+        }
+        assertJSONEncode("{\"repeatedNestedEnum\":[\"FOO\",\"BAR\"]}") {(o: inout MessageTestType) in
+            o.repeatedNestedEnum = [.foo, .bar]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":[\"FOO\",0,1,\"BAR\",-1]}") {(o:MessageTestType) in
+            o.repeatedNestedEnum == [.foo, .zero, .foo, .bar, .neg]
+        }
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":[null]}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":\"FOO\"}")
+        assertJSONDecodeFails("{\"repeatedNestedEnum\":0}")
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":null}") {(o:MessageTestType) in
+            o.repeatedNestedEnum == []
+        }
+        assertJSONDecodeSucceeds("{\"repeatedNestedEnum\":[]}") {(o:MessageTestType) in
+            o.repeatedNestedEnum == []
+        }
+    }
 
     // TODO: Test other repeated field types
 
@@ -873,6 +914,13 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"oneofString\": 1}")
         assertJSONDecodeFails("{\"oneofUint32\":1,\"oneofString\":\"abc\"}")
         assertJSONDecodeFails("{\"oneofString\":\"abc\",\"oneofUint32\":1}")
+    }
+
+    func testEmptyMessage() {
+        assertJSONDecodeSucceeds("{}") {MessageTestType -> Bool in true}
+        assertJSONDecodeFails("")
+        assertJSONDecodeFails("{")
+        assertJSONDecodeFails("}")
     }
 }
 

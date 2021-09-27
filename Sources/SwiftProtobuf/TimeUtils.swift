@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -50,4 +50,16 @@ internal func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, M
     let YY = div(e, 1461) - 4716 + div(12 + 2 - MM, 12)
 
     return (YY: Int32(YY), MM: Int32(MM), DD: Int32(DD))
+}
+
+internal func nanosToString(nanos: Int32) -> String {
+  if nanos == 0 {
+    return ""
+  } else if nanos % 1000000 == 0 {
+    return ".\(threeDigit(abs(nanos) / 1000000))"
+  } else if nanos % 1000 == 0 {
+    return ".\(sixDigit(abs(nanos) / 1000))"
+  } else {
+    return ".\(nineDigit(abs(nanos)))"
+  }
 }

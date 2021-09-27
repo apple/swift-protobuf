@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -19,6 +19,8 @@ public final class SwiftProtobufNamer {
   var enumValueRelativeNameCache = [String:String]()
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
+
+  public var swiftProtobufModuleName: String { return mappings.swiftProtobufModuleName }
 
   /// Initializes a a new namer, assuming everything will be in the same Swift module.
   public convenience init() {
@@ -47,10 +49,10 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given message.
   public func relativeName(message: Descriptor) -> String {
     if message.containingType != nil {
-      return NamingUtils.sanitize(messageName: message.name)
+      return NamingUtils.sanitize(messageName: message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     } else {
       let prefix = typePrefix(forFile: message.file)
-      return NamingUtils.sanitize(messageName: prefix + message.name)
+      return NamingUtils.sanitize(messageName: prefix + message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     }
   }
 
@@ -66,10 +68,10 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given enum.
   public func relativeName(enum e: EnumDescriptor) -> String {
     if e.containingType != nil {
-      return NamingUtils.sanitize(enumName: e.name)
+      return NamingUtils.sanitize(enumName: e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     } else {
       let prefix = typePrefix(forFile: e.file)
-      return NamingUtils.sanitize(enumName: prefix + e.name)
+      return NamingUtils.sanitize(enumName: prefix + e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     }
   }
 
@@ -86,34 +88,22 @@ public final class SwiftProtobufNamer {
   private func computeRelativeNames(enum e: EnumDescriptor) {
     let stripper = NamingUtils.PrefixStripper(prefix: e.name)
 
-    /// Determine the initial canidate name for the name before
+    /// Determine the initial candidate name for the name before
     /// doing duplicate checks.
-    func canidateName(_ enumValue: EnumValueDescriptor) -> String {
+    func candidateName(_ enumValue: EnumValueDescriptor) -> String {
       let baseName = enumValue.name
       if let stripped = stripper.strip(from: baseName) {
-        let camelCased = NamingUtils.toLowerCamelCase(stripped)
-        if isValidSwiftIdentifier(camelCased) {
-          return camelCased
-        }
+        return NamingUtils.toLowerCamelCase(stripped)
       }
       return NamingUtils.toLowerCamelCase(baseName)
     }
 
     // Bucketed based on candidate names to check for duplicates.
-    var canidates = [String:[EnumValueDescriptor]]()
-    for enumValue in e.values {
-      let canidate = canidateName(enumValue)
-
-      if var existing = canidates[canidate] {
-        existing.append(enumValue)
-        canidates[canidate] = existing
-      } else {
-        canidates[canidate] = [enumValue]
-      }
-
+    let candidates :[String:[EnumValueDescriptor]] = e.values.reduce(into: [:]) {
+      $0[candidateName($1), default:[]].append($1)
     }
 
-    for (camelCased, enumValues) in canidates {
+    for (camelCased, enumValues) in candidates {
       // If there is only one, sanitize and cache it.
       guard enumValues.count > 1 else {
         enumValueRelativeNameCache[enumValues.first!.fullName] =
@@ -203,7 +193,7 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given oneof.
   public func relativeName(oneof: OneofDescriptor) -> String {
     let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
-    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)")
+    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)", forbiddenTypeNames: [self.swiftProtobufModuleName])
   }
 
   /// Calculate the full name for the given oneof.

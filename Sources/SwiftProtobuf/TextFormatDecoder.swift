@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -33,8 +33,14 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    internal init(messageType: Message.Type, utf8Pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap?) throws {
-        scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, extensions: extensions)
+    internal init(
+      messageType: Message.Type,
+      utf8Pointer: UnsafeRawPointer,
+      count: Int,
+      options: TextFormatDecodingOptions,
+      extensions: ExtensionMap?
+    ) throws {
+        scanner = TextFormatScanner(utf8Pointer: utf8Pointer, count: count, options: options, extensions: extensions)
         guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
@@ -51,7 +57,6 @@ internal struct TextFormatDecoder: Decoder {
         fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
     }
-
 
     mutating func handleConflictingOneOf() throws {
         throw TextFormatDecodingError.conflictingOneOf
@@ -490,7 +495,7 @@ internal struct TextFormatDecoder: Decoder {
             value = M()
         }
         let terminator = try scanner.skipObjectStart()
-        var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+        var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
         if M.self == Google_Protobuf_Any.self {
             var any = value as! Google_Protobuf_Any?
             try any!.decodeTextFormat(decoder: &subDecoder)
@@ -498,6 +503,7 @@ internal struct TextFormatDecoder: Decoder {
         } else {
             try value!.decodeMessage(decoder: &subDecoder)
         }
+        assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
         scanner = subDecoder.scanner
     }
 
@@ -515,7 +521,7 @@ internal struct TextFormatDecoder: Decoder {
                     try scanner.skipRequiredComma()
                 }
                 let terminator = try scanner.skipObjectStart()
-                var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+                var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
                 if M.self == Google_Protobuf_Any.self {
                     var message = Google_Protobuf_Any()
                     try message.decodeTextFormat(decoder: &subDecoder)
@@ -525,11 +531,12 @@ internal struct TextFormatDecoder: Decoder {
                     try message.decodeMessage(decoder: &subDecoder)
                     value.append(message)
                 }
+                assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
                 scanner = subDecoder.scanner
             }
         } else {
             let terminator = try scanner.skipObjectStart()
-            var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
+            var subDecoder = try TextFormatDecoder(messageType: M.self, scanner: scanner, terminator: terminator)
             if M.self == Google_Protobuf_Any.self {
                 var message = Google_Protobuf_Any()
                 try message.decodeTextFormat(decoder: &subDecoder)
@@ -539,6 +546,7 @@ internal struct TextFormatDecoder: Decoder {
                 try message.decodeMessage(decoder: &subDecoder)
                 value.append(message)
             }
+            assert((scanner.recursionBudget + 1) == subDecoder.scanner.recursionBudget)
             scanner = subDecoder.scanner
         }
     }
@@ -574,6 +582,8 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
+            } else {
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -621,6 +631,8 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
+            } else {
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -668,6 +680,8 @@ internal struct TextFormatDecoder: Decoder {
                     throw TextFormatDecodingError.unknownField
                 }
                 scanner.skipOptionalSeparator()
+            } else {
+                throw TextFormatDecodingError.malformedText
             }
         }
     }
@@ -694,19 +708,18 @@ internal struct TextFormatDecoder: Decoder {
 
     mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
-            var fieldValue = values[fieldNumber]
-            if fieldValue != nil {
-                try fieldValue!.decodeExtensionField(decoder: &self)
-            } else {
-                fieldValue = try ext._protobuf_newField(decoder: &self)
-            }
-            if fieldValue != nil {
-                values[fieldNumber] = fieldValue
-            } else {
-                // Really things should never get here, for TextFormat, decoding
-                // the value should always work or throw an error.  This specific
-                // error result is to allow this to be more detectable.
-                throw TextFormatDecodingError.internalExtensionError
+            try values.modify(index: fieldNumber) { fieldValue in
+                if fieldValue != nil {
+                    try fieldValue!.decodeExtensionField(decoder: &self)
+                } else {
+                    fieldValue = try ext._protobuf_newField(decoder: &self)
+                }
+                if fieldValue == nil {
+                    // Really things should never get here, for TextFormat, decoding
+                    // the value should always work or throw an error.  This specific
+                    // error result is to allow this to be more detectable.
+                    throw TextFormatDecodingError.internalExtensionError
+                }
             }
         }
     }

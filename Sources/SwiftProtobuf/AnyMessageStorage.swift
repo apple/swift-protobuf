@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -25,8 +25,8 @@ fileprivate func serializeAnyJSON(
   typeURL: String,
   options: JSONEncodingOptions
 ) throws -> String {
-  var visitor = try JSONEncodingVisitor(message: message, options: options)
-  visitor.startObject()
+  var visitor = try JSONEncodingVisitor(type: type(of: message), options: options)
+  visitor.startObject(message: message)
   visitor.encodeField(name: "@type", stringValue: typeURL)
   if let m = message as? _CustomJSONCodable {
     let value = try m.encodedJSONString(options: options)
@@ -58,37 +58,42 @@ fileprivate func asJSONObject(body: Data) -> Data {
 }
 
 fileprivate func unpack(contentJSON: Data,
+                        extensions: ExtensionMap,
                         options: JSONDecodingOptions,
                         as messageType: Message.Type) throws -> Message {
   guard messageType is _CustomJSONCodable.Type else {
     let contentJSONAsObject = asJSONObject(body: contentJSON)
-    return try messageType.init(jsonUTF8Data: contentJSONAsObject, options: options)
+    return try messageType.init(jsonUTF8Data: contentJSONAsObject, extensions: extensions, options: options)
   }
 
   var value = String()
   try contentJSON.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-    if let baseAddress = body.baseAddress, body.count > 0 {
-      let bytes = baseAddress.assumingMemoryBound(to: UInt8.self)
-
-      let buffer = UnsafeBufferPointer(start: bytes, count: body.count)
-      var scanner = JSONScanner(source: buffer,
-                                messageDepthLimit: options.messageDepthLimit,
-                                ignoreUnknownFields: options.ignoreUnknownFields)
-      let key = try scanner.nextQuotedString()
-      if key != "value" {
-        // The only thing within a WKT should be "value".
-        throw AnyUnpackError.malformedWellKnownTypeJSON
+    if body.count > 0 {
+      // contentJSON will be the valid JSON for inside an object (everything but
+      // the '{' and '}', so minimal validation is needed.
+      var scanner = JSONScanner(source: body, options: options, extensions: extensions)
+      while !scanner.complete {
+        let key = try scanner.nextQuotedString()
+        try scanner.skipRequiredColon()
+        if key == "value" {
+          value = try scanner.skip()
+          break
+        }
+        if !options.ignoreUnknownFields {
+          // The only thing within a WKT should be "value".
+          throw AnyUnpackError.malformedWellKnownTypeJSON
+        }
+        let _ = try scanner.skip()
+        try scanner.skipRequiredComma()
       }
-      try scanner.skipRequiredColon()  // Can't fail
-      value = try scanner.skip()
-      if !scanner.complete {
-        // If that wasn't the end, then there was another key,
-        // and WKTs should only have the one.
+      if !options.ignoreUnknownFields && !scanner.complete {
+        // If that wasn't the end, then there was another key, and WKTs should
+        // only have the one when not skipping unknowns.
         throw AnyUnpackError.malformedWellKnownTypeJSON
       }
     }
   }
-  return try messageType.init(jsonString: value, options: options)
+  return try messageType.init(jsonString: value, extensions: extensions, options: options)
 }
 
 internal class AnyMessageStorage {
@@ -104,19 +109,20 @@ internal class AnyMessageStorage {
         do {
           return try message.serializedData(partial: true)
         } catch {
-          return Internal.emptyData
+          return Data()
         }
       case .contentJSON(let contentJSON, let options):
         guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          return Internal.emptyData
+          return Data()
         }
         do {
           let m = try unpack(contentJSON: contentJSON,
+                             extensions: SimpleExtensionMap(),
                              options: options,
                              as: messageType)
           return try m.serializedData(partial: true)
         } catch {
-          return Internal.emptyData
+          return Data()
         }
       }
     }
@@ -138,7 +144,7 @@ internal class AnyMessageStorage {
     // parsed JSON with the @type removed and the decoding options.
     case contentJSON(Data, JSONDecodingOptions)
   }
-  var state: InternalState = .binary(Internal.emptyData)
+  var state: InternalState = .binary(Data())
 
   static let defaultInstance = AnyMessageStorage()
 
@@ -157,7 +163,7 @@ internal class AnyMessageStorage {
     return encodedType == M.protoMessageName
   }
 
-  // This is only ever called with the expactation that target will be fully
+  // This is only ever called with the expectation that target will be fully
   // replaced during the unpacking and never as a merge.
   func unpackTo<M: Message>(
     target: inout M,
@@ -184,6 +190,7 @@ internal class AnyMessageStorage {
 
     case .contentJSON(let contentJSON, let options):
       target = try unpack(contentJSON: contentJSON,
+                          extensions: extensions ?? SimpleExtensionMap(),
                           options: options,
                           as: M.self) as! M
     }
@@ -205,11 +212,21 @@ internal class AnyMessageStorage {
       // never inserted.
       break
 
-    case .contentJSON:
-      // contentJSON requires a good URL and our ability to look up
-      // the message type to transcode.
-      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
-        // Isn't registered, we can't transform it for binary.
+    case .contentJSON(let contentJSON, let options):
+      // contentJSON requires we have the type available for decoding
+      guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+          throw BinaryEncodingError.anyTranscodeFailure
+      }
+      do {
+        // Decodes the full JSON and then discard the result.
+        // The regular traversal will decode this again by querying the
+        // `value` field, but that has no way to fail.  As a result,
+        // we need this to accurately handle decode errors.
+        _ = try unpack(contentJSON: contentJSON,
+                       extensions: SimpleExtensionMap(),
+                       options: options,
+                       as: messageType)
+      } catch {
         throw BinaryEncodingError.anyTranscodeFailure
       }
     }
@@ -274,6 +291,7 @@ extension AnyMessageStorage {
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         do {
           let m = try unpack(contentJSON: contentJSON,
+                             extensions: SimpleExtensionMap(),
                              options: options,
                              as: messageType)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
@@ -392,6 +410,18 @@ extension AnyMessageStorage {
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     switch state {
     case .binary(let valueData):
+      // Follow the C++ protostream_objectsource.cc's
+      // ProtoStreamObjectSource::RenderAny() special casing of an empty value.
+      guard !valueData.isEmpty else {
+        if _typeURL.isEmpty {
+          return "{}"
+        }
+        var jsonEncoder = JSONEncoder()
+        jsonEncoder.startField(name: "@type")
+        jsonEncoder.putStringValue(value: _typeURL)
+        jsonEncoder.endObject()
+        return jsonEncoder.stringResult
+      }
       // Transcode by decoding the binary data to a message object
       // and then recode back into JSON.
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
@@ -436,7 +466,7 @@ extension AnyMessageStorage {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
     _typeURL = String()
-    state = .binary(Internal.emptyData)
+    state = .binary(Data())
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }

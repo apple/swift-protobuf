@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -19,9 +19,12 @@ import SwiftProtobuf
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange {
 
-  /// A `String` containing the Swift range expression that represents this
-  /// extension range.
-  var swiftRangeExpression: String {
+  /// A `String` containing the Swift expression that represents this
+  /// extension range to be used in a `case` statement.
+  var swiftCaseExpression: String {
+    if start == end - 1 {
+      return "\(start)"
+    }
     return "\(start)..<\(end)"
   }
 
@@ -31,6 +34,9 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange {
   /// - Parameter variable: The name of the variable to test in the expression.
   /// - Returns: A `String` containing the Boolean expression.
   func swiftBooleanExpression(variable: String) -> String {
+    if start == end - 1 {
+      return "\(start) == \(variable)"
+    }
     return "\(start) <= \(variable) && \(variable) < \(end)"
   }
 }

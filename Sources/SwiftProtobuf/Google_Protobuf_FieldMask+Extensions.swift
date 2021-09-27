@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -15,8 +15,24 @@
 
 // TODO: We should have utilities to apply a fieldmask to an arbitrary
 // message, intersect two fieldmasks, etc.
+// Google's C++ implementation does this by having utilities
+// to build a tree of field paths that can be easily intersected,
+// unioned, traversed to apply to submessages, etc.
+
+// True if the string only contains printable (non-control)
+// ASCII characters.  Note: This follows the ASCII standard;
+// space is not a "printable" character.
+private func isPrintableASCII(_ s: String) -> Bool {
+  for u in s.utf8 {
+    if u <= 0x20 || u >= 0x7f {
+      return false
+    }
+  }
+  return true
+}
 
 private func ProtoToJSON(name: String) -> String? {
+  guard isPrintableASCII(name) else { return nil }
   var jsonPath = String()
   var chars = name.makeIterator()
   while let c = chars.next() {
@@ -34,7 +50,12 @@ private func ProtoToJSON(name: String) -> String? {
       }
     case "A"..."Z":
       return nil
+    case "a"..."z","0"..."9",".","(",")":
+      jsonPath.append(c)
     default:
+      // TODO: Change this to `return nil`
+      // once we know everything legal is handled
+      // above.
       jsonPath.append(c)
     }
   }
@@ -42,6 +63,7 @@ private func ProtoToJSON(name: String) -> String? {
 }
 
 private func JSONToProto(name: String) -> String? {
+  guard isPrintableASCII(name) else { return nil }
   var path = String()
   for c in name {
     switch c {
@@ -50,7 +72,12 @@ private func JSONToProto(name: String) -> String? {
     case "A"..."Z":
       path.append(Character("_"))
       path.append(String(c).lowercased())
+    case "a"..."z","0"..."9",".","(",")":
+      path.append(c)
     default:
+      // TODO: Change to `return nil` once
+      // we know everything legal is being
+      // handled above
       path.append(c)
     }
   }

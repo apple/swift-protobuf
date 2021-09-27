@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -17,10 +17,6 @@ import SwiftProtobuf
 
 /// Scope for helpers about the library.
 public enum SwiftProtobufInfo {
-
-  /// The name of the library
-  public static let name = "SwiftProtobuf"
-
   /// Proto Files that ship with the library.
   public static let bundledProtoFiles: Set<String> = [
     "google/protobuf/any.proto",

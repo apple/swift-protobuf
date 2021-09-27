@@ -7,7 +7,6 @@ message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
   message aggregateValue { int32 aggregateValue = 1; }
   message allCases { int32 allCases = 1; }
-  message allocate { int32 allocate = 1; }
   message allowAlias { int32 allowAlias = 1; }
   message alwaysPrintEnumsAsInts { int32 alwaysPrintEnumsAsInts = 1; }
   message annotation { int32 annotation = 1; }
@@ -27,7 +26,6 @@ message GeneratedSwiftReservedMessages {
   message as { int32 as = 1; }
   message asciiOpenCurlyBracket { int32 asciiOpenCurlyBracket = 1; }
   message asciiZero { int32 asciiZero = 1; }
-  message assumingMemoryBound { int32 assumingMemoryBound = 1; }
   message available { int32 available = 1; }
   message b { int32 b = 1; }
   message base64Values { int32 base64Values = 1; }
@@ -45,19 +43,17 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingMessageSetVisitor { int32 BinaryEncodingMessageSetVisitor = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
+  message binaryOptions { int32 binaryOptions = 1; }
   message body { int32 body = 1; }
-  message bodySize { int32 bodySize = 1; }
   message Bool { int32 Bool = 1; }
   message booleanLiteral { int32 booleanLiteral = 1; }
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
   message boolValue { int32 boolValue = 1; }
-  message buffer { int32 buffer = 1; }
   message bytes { int32 bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
   message bytesRead { int32 bytesRead = 1; }
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
-  message capacity { int32 capacity = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
   message cardinality { int32 cardinality = 1; }
   message ccEnableArenas { int32 ccEnableArenas = 1; }
@@ -114,6 +110,7 @@ message GeneratedSwiftReservedMessages {
   message clearPhpMetadataNamespace { int32 clearPhpMetadataNamespace = 1; }
   message clearPhpNamespace { int32 clearPhpNamespace = 1; }
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
+  message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
   message clearRubyPackage { int32 clearRubyPackage = 1; }
   message clearServerStreaming { int32 clearServerStreaming = 1; }
@@ -130,11 +127,13 @@ message GeneratedSwiftReservedMessages {
   message clearValue { int32 clearValue = 1; }
   message clearWeak { int32 clearWeak = 1; }
   message clientStreaming { int32 clientStreaming = 1; }
+  message codePoint { int32 codePoint = 1; }
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
   message com { int32 com = 1; }
   message comma { int32 comma = 1; }
   message contentsOf { int32 contentsOf = 1; }
+  message ContiguousBytes { int32 ContiguousBytes = 1; }
   message count { int32 count = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message csharpNamespace { int32 csharpNamespace = 1; }
@@ -144,7 +143,6 @@ message GeneratedSwiftReservedMessages {
   message d { int32 d = 1; }
   message Data { int32 Data = 1; }
   message dataResult { int32 dataResult = 1; }
-  message dataSize { int32 dataSize = 1; }
   message date { int32 date = 1; }
   message daySec { int32 daySec = 1; }
   message daysSinceEpoch { int32 daysSinceEpoch = 1; }
@@ -224,6 +222,7 @@ message GeneratedSwiftReservedMessages {
   message emitFieldNumber { int32 emitFieldNumber = 1; }
   message Empty { int32 Empty = 1; }
   message emptyData { int32 emptyData = 1; }
+  message encodeAsBytes { int32 encodeAsBytes = 1; }
   message encoded { int32 encoded = 1; }
   message encodedJSONString { int32 encodedJSONString = 1; }
   message encodedSize { int32 encodedSize = 1; }
@@ -277,13 +276,13 @@ message GeneratedSwiftReservedMessages {
   message fieldSize { int32 fieldSize = 1; }
   message FieldTag { int32 FieldTag = 1; }
   message fieldType { int32 fieldType = 1; }
-  message fieldValue { int32 fieldValue = 1; }
   message file { int32 file = 1; }
   message FileDescriptorProto { int32 FileDescriptorProto = 1; }
   message FileDescriptorSet { int32 FileDescriptorSet = 1; }
   message fileName { int32 fileName = 1; }
   message FileOptions { int32 FileOptions = 1; }
   message filter { int32 filter = 1; }
+  message first { int32 first = 1; }
   message firstItem { int32 firstItem = 1; }
   message float { int32 float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
@@ -298,6 +297,7 @@ message GeneratedSwiftReservedMessages {
   message from { int32 from = 1; }
   message fromAscii2 { int32 fromAscii2 = 1; }
   message fromAscii4 { int32 fromAscii4 = 1; }
+  message fromByteOffset { int32 fromByteOffset = 1; }
   message fromHexDigit { int32 fromHexDigit = 1; }
   message func { int32 func = 1; }
   message G { int32 G = 1; }
@@ -356,8 +356,10 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_Value { int32 Google_Protobuf_Value = 1; }
   message goPackage { int32 goPackage = 1; }
   message group { int32 group = 1; }
+  message groupFieldNumberStack { int32 groupFieldNumberStack = 1; }
   message groupSize { int32 groupSize = 1; }
   message h { int32 h = 1; }
+  message hadOneofValue { int32 hadOneofValue = 1; }
   message handleConflictingOneOf { int32 handleConflictingOneOf = 1; }
   message hasAggregateValue { int32 hasAggregateValue = 1; }
   message hasAllowAlias { int32 hasAllowAlias = 1; }
@@ -413,6 +415,7 @@ message GeneratedSwiftReservedMessages {
   message hasPhpMetadataNamespace { int32 hasPhpMetadataNamespace = 1; }
   message hasPhpNamespace { int32 hasPhpNamespace = 1; }
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
+  message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
   message hasRubyPackage { int32 hasRubyPackage = 1; }
   message hasServerStreaming { int32 hasServerStreaming = 1; }
@@ -432,6 +435,7 @@ message GeneratedSwiftReservedMessages {
   message i { int32 i = 1; }
   message idempotencyLevel { int32 idempotencyLevel = 1; }
   message identifierValue { int32 identifierValue = 1; }
+  message if { int32 if = 1; }
   message ignoreUnknownFields { int32 ignoreUnknownFields = 1; }
   message index { int32 index = 1; }
   message init { int32 init = 1; }
@@ -457,6 +461,7 @@ message GeneratedSwiftReservedMessages {
   message isExtension { int32 isExtension = 1; }
   message isInitialized { int32 isInitialized = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
+  message Iterator { int32 Iterator = 1; }
   message i_2166136261 { int32 i_2166136261 = 1; }
   message javaGenerateEqualsAndHash { int32 javaGenerateEqualsAndHash = 1; }
   message javaGenericServices { int32 javaGenericServices = 1; }
@@ -491,6 +496,7 @@ message GeneratedSwiftReservedMessages {
   message leadingComments { int32 leadingComments = 1; }
   message leadingDetachedComments { int32 leadingDetachedComments = 1; }
   message length { int32 length = 1; }
+  message lessThan { int32 lessThan = 1; }
   message let { int32 let = 1; }
   message lhs { int32 lhs = 1; }
   message list { int32 list = 1; }
@@ -498,6 +504,7 @@ message GeneratedSwiftReservedMessages {
   message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
   message littleEndianBytes { int32 littleEndianBytes = 1; }
+  message load { int32 load = 1; }
   message localHasher { int32 localHasher = 1; }
   message location { int32 location = 1; }
   message M { int32 M = 1; }
@@ -527,6 +534,8 @@ message GeneratedSwiftReservedMessages {
   message minor { int32 minor = 1; }
   message Mixin { int32 Mixin = 1; }
   message mixins { int32 mixins = 1; }
+  message modifier { int32 modifier = 1; }
+  message modify { int32 modify = 1; }
   message month { int32 month = 1; }
   message msgExtension { int32 msgExtension = 1; }
   message mutating { int32 mutating = 1; }
@@ -578,7 +587,6 @@ message GeneratedSwiftReservedMessages {
   message packed { int32 packed = 1; }
   message PackedEnumExtensionField { int32 PackedEnumExtensionField = 1; }
   message PackedExtensionField { int32 PackedExtensionField = 1; }
-  message packedSize { int32 packedSize = 1; }
   message padding { int32 padding = 1; }
   message parent { int32 parent = 1; }
   message parse { int32 parse = 1; }
@@ -600,6 +608,7 @@ message GeneratedSwiftReservedMessages {
   message printUnknownFields { int32 printUnknownFields = 1; }
   message proto2 { int32 proto2 = 1; }
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
+  message proto3Optional { int32 proto3Optional = 1; }
   message ProtobufAPIVersionCheck { int32 ProtobufAPIVersionCheck = 1; }
   message ProtobufAPIVersion_2 { int32 ProtobufAPIVersion_2 = 1; }
   message ProtobufBool { int32 ProtobufBool = 1; }
@@ -651,7 +660,7 @@ message GeneratedSwiftReservedMessages {
   message rawChars { int32 rawChars = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
-  message readBuffer { int32 readBuffer = 1; }
+  message read4HexDigits { int32 read4HexDigits = 1; }
   message register { int32 register = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
@@ -667,6 +676,7 @@ message GeneratedSwiftReservedMessages {
   message result { int32 result = 1; }
   message rethrows { int32 rethrows = 1; }
   message return { int32 return = 1; }
+  message ReturnType { int32 ReturnType = 1; }
   message revision { int32 revision = 1; }
   message rhs { int32 rhs = 1; }
   message root { int32 root = 1; }
@@ -700,6 +710,7 @@ message GeneratedSwiftReservedMessages {
   message split { int32 split = 1; }
   message start { int32 start = 1; }
   message startArray { int32 startArray = 1; }
+  message startArrayObject { int32 startArrayObject = 1; }
   message startField { int32 startField = 1; }
   message startIndex { int32 startIndex = 1; }
   message startMessageField { int32 startMessageField = 1; }
@@ -731,6 +742,7 @@ message GeneratedSwiftReservedMessages {
   message textDecoder { int32 textDecoder = 1; }
   message TextFormatDecoder { int32 TextFormatDecoder = 1; }
   message TextFormatDecodingError { int32 TextFormatDecodingError = 1; }
+  message TextFormatDecodingOptions { int32 TextFormatDecodingOptions = 1; }
   message TextFormatEncodingOptions { int32 TextFormatEncodingOptions = 1; }
   message TextFormatEncodingVisitor { int32 TextFormatEncodingVisitor = 1; }
   message textFormatString { int32 textFormatString = 1; }
@@ -739,7 +751,6 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
-  message to { int32 to = 1; }
   message total { int32 total = 1; }
   message totalSize { int32 totalSize = 1; }
   message trailingComments { int32 trailingComments = 1; }
@@ -773,11 +784,13 @@ message GeneratedSwiftReservedMessages {
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
-  message UnsafePointer { int32 UnsafePointer = 1; }
+  message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
+  message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message utf8 { int32 utf8 = 1; }
+  message utf8Ptr { int32 utf8Ptr = 1; }
   message utf8ToDouble { int32 utf8ToDouble = 1; }
   message UTF8View { int32 UTF8View = 1; }
   message v { int32 v = 1; }
@@ -854,6 +867,7 @@ message GeneratedSwiftReservedMessages {
   message with { int32 with = 1; }
   message withUnsafeBytes { int32 withUnsafeBytes = 1; }
   message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
+  message work { int32 work = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message written { int32 written = 1; }
   message yday { int32 yday = 1; }

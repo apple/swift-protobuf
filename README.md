@@ -16,6 +16,9 @@ necessary for using the generated code.
 After using the protoc plugin to generate Swift code from your .proto
 files, you will need to add this library to your project.
 
+[![Build and Test](https://github.com/apple/swift-protobuf/workflows/Build%20and%20Test/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Build+and+Test%22)
+[![Check Upstream Protos](https://github.com/apple/swift-protobuf/workflows/Check%20Upstream%20Proto%20Files/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Check+Upstream+Proto+Files%22)
+[![Run Conformance Tests](https://github.com/apple/swift-protobuf/workflows/Run%20Conformance%20Tests/badge.svg)](https://github.com/apple/swift-protobuf/actions?query=workflow%3A%22Run+Conformance+Tests%22)
 
 # Features of SwiftProtobuf
 
@@ -90,7 +93,7 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A Swift 4.0 or later compiler (Xcode 9.1 or later).  Support is included
+* A Swift 4.2 or later compiler (Xcode 10.0 or later).  Support is included
 for the Swift Package Manager; or using the included Xcode project. The Swift
 protobuf project is being developed and tested against the latest release
 version of Swift available from [Swift.org](https://swift.org)
@@ -188,7 +191,7 @@ the plugin above:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
 ],
 targets: [
     .target(name: "MyTarget", dependencies: ["SwiftProtobuf"]),

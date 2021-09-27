@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -36,6 +36,11 @@ protocol FieldGenerator {
 
   /// Generate the case and decoder invoke needed for this field.
   func generateDecodeFieldCase(printer: inout CodePrinter)
+
+  /// True/False for if the generated traverse code will need use any locals.
+  /// See https://github.com/apple/swift-protobuf/issues/1034 and
+  /// https://github.com/apple/swift-protobuf/issues/1182 for more information.
+  var generateTraverseUsesLocals: Bool { get }
 
   /// Generate the support for traversing this field.
   func generateTraverse(printer: inout CodePrinter)

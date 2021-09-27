@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -37,4 +37,6 @@ public enum TextFormatDecodingError: Error {
     /// please file an issue with SwiftProtobuf with as much details as possible
     /// for what happened (proto definitions, bytes being decoded (if possible)).
     case internalExtensionError
+    /// Reached the nesting limit for messages within messages while decoding.
+    case messageDepthLimit
 }

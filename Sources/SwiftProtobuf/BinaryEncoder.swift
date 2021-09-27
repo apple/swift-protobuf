@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -19,30 +19,37 @@ import Foundation
  * Encoder for Binary Protocol Buffer format
  */
 internal struct BinaryEncoder {
-    private var pointer: UnsafeMutablePointer<UInt8>
+    private var pointer: UnsafeMutableRawPointer
 
-    init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
+    init(forWritingInto pointer: UnsafeMutableRawPointer) {
         self.pointer = pointer
     }
 
     private mutating func append(_ byte: UInt8) {
-        pointer.pointee = byte
-        pointer = pointer.successor()
+        pointer.storeBytes(of: byte, as: UInt8.self)
+        pointer = pointer.advanced(by: 1)
     }
 
     private mutating func append(contentsOf data: Data) {
-        let count = data.count
-        data.copyBytes(to: pointer, count: count)
-        pointer = pointer.advanced(by: count)
+        data.withUnsafeBytes { dataPointer in
+            if let baseAddress = dataPointer.baseAddress, dataPointer.count > 0 {
+                pointer.copyMemory(from: baseAddress, byteCount: dataPointer.count)
+                pointer = pointer.advanced(by: dataPointer.count)
+            }
+        }
     }
 
-    private mutating func append(contentsOf bufferPointer: UnsafeBufferPointer<UInt8>) {
+    @discardableResult
+    private mutating func append(contentsOf bufferPointer: UnsafeRawBufferPointer) -> Int {
         let count = bufferPointer.count
-        pointer.assign(from: bufferPointer.baseAddress!, count: count)
+        if let baseAddress = bufferPointer.baseAddress, count > 0 {
+            memcpy(pointer, baseAddress, count)
+        }
         pointer = pointer.advanced(by: count)
+        return count
     }
 
-    func distance(pointer: UnsafeMutablePointer<UInt8>) -> Int {
+    func distance(pointer: UnsafeMutableRawPointer) -> Int {
         return pointer.distance(to: self.pointer)
     }
 
@@ -120,12 +127,25 @@ internal struct BinaryEncoder {
 
     // Write a string field, including the leading index/tag value.
     mutating func putStringValue(value: String) {
-        let count = value.utf8.count
-        putVarInt(value: count)
-        for b in value.utf8 {
-            pointer.pointee = b
-            pointer = pointer.successor()
-        }
+        let utf8 = value.utf8
+        #if swift(>=5.0)
+            // If the String does not support an internal representation in a form
+            // of contiguous storage, body is not called and nil is returned.
+            let isAvailable = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Int in
+                putVarInt(value: body.count)
+                return append(contentsOf: UnsafeRawBufferPointer(body))
+            }
+        #else
+            let isAvailable: Int? = nil
+        #endif
+            if isAvailable == nil {
+                let count = utf8.count
+                putVarInt(value: count)
+                for b in utf8 {
+                    pointer.storeBytes(of: b, as: UInt8.self)
+                    pointer = pointer.advanced(by: 1)
+                }
+            }
     }
 
     mutating func putBytesValue(value: Data) {

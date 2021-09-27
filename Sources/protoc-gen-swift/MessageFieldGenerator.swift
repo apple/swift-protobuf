@@ -4,7 +4,7 @@
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
-// https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
+// https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 // -----------------------------------------------------------------------------
 ///
@@ -20,6 +20,7 @@ import SwiftProtobuf
 class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let generatorOptions: GeneratorOptions
     private let usesHeapStorage: Bool
+    private let namer: SwiftProtobufNamer
 
     private let hasFieldPresence: Bool
     private let swiftName: String
@@ -52,12 +53,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
          namer: SwiftProtobufNamer,
          usesHeapStorage: Bool)
     {
-        precondition(descriptor.oneofIndex == nil)
+        precondition(descriptor.realOneof == nil)
 
         self.generatorOptions = generatorOptions
         self.usesHeapStorage = usesHeapStorage
+        self.namer = namer
 
-        hasFieldPresence = descriptor.hasFieldPresence
+        hasFieldPresence = descriptor.hasPresence && descriptor.realOneof == nil
         let names = namer.messagePropertyNames(field: descriptor,
                                                prefixed: "_",
                                                includeHasAndClear: hasFieldPresence)
@@ -158,10 +160,10 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter) {
-        guard isGroupOrMessage && fieldDescriptor.messageType.hasRequiredFields() else { return }
+        guard isGroupOrMessage && fieldDescriptor.messageType.containsRequiredFields() else { return }
 
         if isRepeated {  // Map or Array
-            p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(storedProperty)) {return false}\n")
+            p.print("if !\(namer.swiftProtobufModuleName).Internal.areAllInitialized(\(storedProperty)) {return false}\n")
         } else {
             p.print("if let v = \(storedProperty), !v.isInitialized {return false}\n")
         }
@@ -179,7 +181,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             traitsArg = ""
         }
 
-        p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty))\n")
+        p.print("case \(number): try { try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty)) }()\n")
+    }
+
+    var generateTraverseUsesLocals: Bool {
+        return !isRepeated && hasFieldPresence
     }
 
     func generateTraverse(printer p: inout CodePrinter) {
@@ -196,11 +202,13 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         let varName = hasFieldPresence ? "v" : storedProperty
 
+        var usesLocals = false
         let conditional: String
         if isRepeated {  // Also covers maps
             conditional = "!\(varName).isEmpty"
         } else if hasFieldPresence {
             conditional = "let v = \(storedProperty)"
+            usesLocals = true
         } else {
             // At this point, the fields would be a primative type, and should only
             // be visted if it is the non default value.
@@ -212,11 +220,14 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
                 conditional = ("\(varName) != \(swiftDefaultValue)")
             }
         }
+        assert(usesLocals == generateTraverseUsesLocals)
+        let prefix = usesLocals ? "try { " : ""
+        let suffix = usesLocals ? " }()" : ""
 
-        p.print("if \(conditional) {\n")
+        p.print("\(prefix)if \(conditional) {\n")
         p.indent()
         p.print("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))\n")
         p.outdent()
-        p.print("}\n")
+        p.print("}\(suffix)\n")
     }
 }

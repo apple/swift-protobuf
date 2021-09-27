@@ -90,3 +90,14 @@ extend swift_unittest.names.ExtensionNamingInitialsWordCase {
   optional int32 TheIdNumber = 143;
   optional int32 RequestId = 144;
 }
+
+// For issue #1084 - If the generated code compiles, things are good.
+//
+// Top level extensions declarations are qualified with `Extensions_`, so there is nothing special
+// is needed in generation handling.
+message BaseMessage {
+  extensions 1 to 1000;
+}
+extend BaseMessage {
+  optional int32 new_value = 1;
+}

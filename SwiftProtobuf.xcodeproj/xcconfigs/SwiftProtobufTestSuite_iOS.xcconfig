@@ -1,0 +1,17 @@
+// Architectures
+SDKROOT = iphoneos
+
+// Deployment
+TARGETED_DEVICE_FAMILY = 1,2
+
+// Linking
+LD_RUNPATH_SEARCH_PATHS = @loader_path/Frameworks
+
+// Packaging
+INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist
+PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests
+PRODUCT_MODULE_NAME = SwiftProtobufTests
+PRODUCT_NAME = SwiftProtobufTests
+
+// Signing
+CODE_SIGN_IDENTITY[sdk=iphoneos*] = iPhone Developer
