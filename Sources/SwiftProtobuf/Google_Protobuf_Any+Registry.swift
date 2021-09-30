@@ -14,6 +14,12 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+#if canImport(Dispatch)
+import Dispatch
+fileprivate var knownTypesQueue =
+    DispatchQueue(label: "org.swift.protobuf.typeRegistry",
+                  attributes: .concurrent)
+#endif
 
 // TODO: Should these first four be exposed as methods to go with
 // the general registry support?
@@ -45,13 +51,6 @@ internal func typeName(fromURL s: String) -> String {
 
   return String(s[typeStart..<s.endIndex])
 }
-
-#if !os(WASI)
-import Dispatch
-fileprivate var knownTypesQueue =
-    DispatchQueue(label: "org.swift.protobuf.typeRegistry",
-                  attributes: .concurrent)
-#endif
 
 // All access to this should be done on `knownTypesQueue`.
 fileprivate var knownTypes: [String:Message.Type] = [
@@ -107,7 +106,7 @@ extension Google_Protobuf_Any {
     @discardableResult public static func register(messageType: Message.Type) -> Bool {
         let messageTypeName = messageType.protoMessageName
         var result: Bool = false
-        let block = {
+        execute(flags: .barrier) {
             if let alreadyRegistered = knownTypes[messageTypeName] {
                 // Success/failure when something was already registered is
                 // based on if they are registering the same class or trying
@@ -118,13 +117,7 @@ extension Google_Protobuf_Any {
                 result = true
             }
         }
-        #if !os(WASI)
-        knownTypesQueue.sync(flags: .barrier) {
-          block()
-        }
-        #else
-          block()
-        #endif
+
         return result
     }
 
@@ -137,17 +130,32 @@ extension Google_Protobuf_Any {
     /// Returns the Message.Type expected for the given proto message name.
     public static func messageType(forMessageName name: String) -> Message.Type? {
         var result: Message.Type?
-        let block = {
+        execute(flags: .none) {
             result = knownTypes[name]
         }
-        #if !os(WASI)
-        knownTypesQueue.sync {
-          block()
-        }
-        #else
-          block()
-        #endif
         return result
     }
 
+}
+
+fileprivate enum DispatchFlags {
+    case barrier
+    case none
+}
+
+fileprivate func execute(flags: DispatchFlags, _ closure: () -> Void) {
+    #if !os(WASI)
+    switch flags {
+    case .barrier:
+        knownTypesQueue.sync(flags: .barrier) {
+            closure()
+        }
+    case .none:
+        knownTypesQueue.sync {
+            closure()
+        }
+    }
+    #else
+    closure()
+    #endif
 }
