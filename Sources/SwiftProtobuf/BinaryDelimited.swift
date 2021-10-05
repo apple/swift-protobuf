@@ -12,6 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if !os(WASI)
 import Foundation
 
 /// Helper methods for reading/writing messages with a length prefix.
@@ -230,3 +231,4 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
   }
 }
+#endif
