@@ -14,6 +14,7 @@
 
 import Foundation
 import XCTest
+
 @testable import SwiftProtobuf
 
 extension ProtobufUnittest_RawMessageSet.Item {
@@ -55,10 +56,12 @@ class Test_MessageSet: XCTestCase {
 
     XCTAssertEqual(raw.item.count, 2)
 
-    XCTAssertEqual(Int(raw.item[0].typeID),
-                   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
-    XCTAssertEqual(Int(raw.item[1].typeID),
-                   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
+    XCTAssertEqual(
+      Int(raw.item[0].typeID),
+      ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
+    XCTAssertEqual(
+      Int(raw.item[1].typeID),
+      ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
 
     let extMsg1 = try ProtobufUnittest_TestMessageSetExtension1(serializedData: raw.item[0].message)
     XCTAssertEqual(extMsg1.i, 123)
@@ -76,13 +79,15 @@ class Test_MessageSet: XCTestCase {
     raw.item = [
       // Two known extensions.
       ProtobufUnittest_RawMessageSet.Item(
-        typeID: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
+        typeID: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension
+          .fieldNumber,
         message: try msg1.serializedData()),
       ProtobufUnittest_RawMessageSet.Item(
-        typeID: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
+        typeID: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
+          .fieldNumber,
         message: try msg2.serializedData()),
       // One unknown extension.
-      ProtobufUnittest_RawMessageSet.Item(typeID: 7, message: Data([1, 2, 3]))
+      ProtobufUnittest_RawMessageSet.Item(typeID: 7, message: Data([1, 2, 3])),
     ]
     // Add some unknown data into one of the groups to ensure it gets stripped when parsing.
     raw.item[1].unknownFields.append(protobufData: Data([40, 2]))  // Field 5, varint of 2
@@ -118,31 +123,31 @@ class Test_MessageSet: XCTestCase {
     // Ensure the unknown shows up as a group.
     let expectedUnknowns = Data([
       11,  // Start group
-      16, 7, // typeID = 7
-      26, 3, 1, 2, 3, // message data = 3 bytes: 1, 2, 3
-      12   // End Group
+      16, 7,  // typeID = 7
+      26, 3, 1, 2, 3,  // message data = 3 bytes: 1, 2, 3
+      12,  // End Group
     ])
     XCTAssertEqual(msg.unknownFields.data, expectedUnknowns)
 
     var validator = ExtensionValidator()
     validator.expectedMessages = [
-      (ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
-      (ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
+      (
+        ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
+        false
+      ),
+      (
+        ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
+        false
+      ),
     ]
-    validator.expectedUnknowns = [ expectedUnknowns ]
+    validator.expectedUnknowns = [expectedUnknowns]
     validator.validate(message: msg)
   }
 
-  static let canonicalTextFormat: String = (
-    "message_set {\n" +
-      "  [protobuf_unittest.TestMessageSetExtension1] {\n" +
-      "    i: 23\n" +
-      "  }\n" +
-      "  [protobuf_unittest.TestMessageSetExtension2] {\n" +
-      "    str: \"foo\"\n" +
-      "  }\n" +
-    "}\n"
-  )
+  static let canonicalTextFormat: String =
+    ("message_set {\n" + "  [protobuf_unittest.TestMessageSetExtension1] {\n" + "    i: 23\n"
+      + "  }\n" + "  [protobuf_unittest.TestMessageSetExtension2] {\n" + "    str: \"foo\"\n"
+      + "  }\n" + "}\n")
 
   // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Serialize)
   func testTextFormat_Serialize() {
@@ -177,9 +182,15 @@ class Test_MessageSet: XCTestCase {
 
     var validator = ExtensionValidator()
     validator.expectedMessages = [
-      (1, true), // protobuf_unittest.TestMessageSetContainer.message_set (where the extensions are)
-      (ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
-      (ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
+      (1, true),  // protobuf_unittest.TestMessageSetContainer.message_set (where the extensions are)
+      (
+        ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
+        false
+      ),
+      (
+        ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
+        false
+      ),
     ]
     validator.validate(message: msg)
   }
@@ -195,10 +206,12 @@ class Test_MessageSet: XCTestCase {
       } catch let e {
         XCTFail("Error while traversing: \(e)")
       }
-      XCTAssertTrue(expectedMessages.isEmpty,
-                    "Expected more messages: \(expectedMessages)")
-      XCTAssertTrue(expectedUnknowns.isEmpty,
-                    "Expected more unknowns: \(expectedUnknowns)")
+      XCTAssertTrue(
+        expectedMessages.isEmpty,
+        "Expected more messages: \(expectedMessages)")
+      XCTAssertTrue(
+        expectedUnknowns.isEmpty,
+        "Expected more unknowns: \(expectedUnknowns)")
     }
 
     mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {

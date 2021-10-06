@@ -17,25 +17,25 @@ import XCTest
 
 class Test_ReallyLargeTagNumber: XCTestCase {
 
-    func test_ReallyLargeTagNumber() {
-        var m = ProtobufUnittest_TestReallyLargeTagNumber()
-        m.a = 1
-        m.bb = 2
+  func test_ReallyLargeTagNumber() {
+    var m = ProtobufUnittest_TestReallyLargeTagNumber()
+    m.a = 1
+    m.bb = 2
 
-        do {
-            let encoded = try m.serializedData()
-            XCTAssertEqual(encoded, Data([8, 1, 248, 255, 255, 255, 7, 2]))
+    do {
+      let encoded = try m.serializedData()
+      XCTAssertEqual(encoded, Data([8, 1, 248, 255, 255, 255, 7, 2]))
 
-            do {
-                let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(serializedData: encoded)
-                XCTAssertEqual(2, decoded.bb)
-                XCTAssertEqual(1, decoded.a)
-                XCTAssertEqual(m, decoded)
-            } catch {
-                XCTFail("Decode should not fail")
-            }
-        } catch let e {
-            XCTFail("Could not encode \(m): Got error \(e)")
-        }
+      do {
+        let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(serializedData: encoded)
+        XCTAssertEqual(2, decoded.bb)
+        XCTAssertEqual(1, decoded.a)
+        XCTAssertEqual(m, decoded)
+      } catch {
+        XCTFail("Decode should not fail")
+      }
+    } catch let e {
+      XCTFail("Could not encode \(m): Got error \(e)")
     }
+  }
 }

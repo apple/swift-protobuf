@@ -9,8 +9,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 class Test_BinaryDelimited: XCTestCase {
 
@@ -24,7 +24,7 @@ class Test_BinaryDelimited: XCTestCase {
     let msg1 = ProtobufUnittest_TestAllTypes.with {
       $0.optionalBool = true
       $0.optionalInt32 = 123
-      $0.optionalInt64 = 123456789
+      $0.optionalInt64 = 123_456_789
       $0.optionalGroup.a = 456
       $0.optionalNestedEnum = .baz
       $0.repeatedString.append("wee")

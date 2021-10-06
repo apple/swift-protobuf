@@ -16,31 +16,31 @@ import Foundation
 import XCTest
 
 class Test_RecursiveMap: XCTestCase {
-    func test_RecursiveMap() throws {
-        let inner = ProtobufUnittest_TestRecursiveMapMessage()
-        var mid = ProtobufUnittest_TestRecursiveMapMessage()
-        mid.a = ["1": inner]
-        var outer = ProtobufUnittest_TestRecursiveMapMessage()
-        outer.a = ["2": mid]
+  func test_RecursiveMap() throws {
+    let inner = ProtobufUnittest_TestRecursiveMapMessage()
+    var mid = ProtobufUnittest_TestRecursiveMapMessage()
+    mid.a = ["1": inner]
+    var outer = ProtobufUnittest_TestRecursiveMapMessage()
+    outer.a = ["2": mid]
 
-        do {
-            let encoded = try outer.serializedData()
-            XCTAssertEqual(encoded, Data([10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0]))
+    do {
+      let encoded = try outer.serializedData()
+      XCTAssertEqual(encoded, Data([10, 12, 10, 1, 50, 18, 7, 10, 5, 10, 1, 49, 18, 0]))
 
-            let decodedOuter = try ProtobufUnittest_TestRecursiveMapMessage(serializedData: encoded)
-            if let decodedMid = decodedOuter.a["2"] {
-                if let decodedInner = decodedMid.a["1"] {
-                    XCTAssertEqual(decodedOuter.a.count, 1)
-                    XCTAssertEqual(decodedMid.a.count, 1)
-                    XCTAssertEqual(decodedInner.a.count, 0)
-                } else {
-                    XCTFail()
-                }
-            } else {
-                XCTFail()
-            }
-        } catch let e {
-            XCTFail("Failed with error \(e)")
+      let decodedOuter = try ProtobufUnittest_TestRecursiveMapMessage(serializedData: encoded)
+      if let decodedMid = decodedOuter.a["2"] {
+        if let decodedInner = decodedMid.a["1"] {
+          XCTAssertEqual(decodedOuter.a.count, 1)
+          XCTAssertEqual(decodedMid.a.count, 1)
+          XCTAssertEqual(decodedInner.a.count, 0)
+        } else {
+          XCTFail()
         }
+      } else {
+        XCTFail()
+      }
+    } catch let e {
+      XCTFail("Failed with error \(e)")
     }
+  }
 }

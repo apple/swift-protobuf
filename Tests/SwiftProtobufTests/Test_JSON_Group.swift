@@ -18,13 +18,13 @@ import Foundation
 import XCTest
 
 class Test_JSON_Group: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestAllTypes
+  typealias MessageTestType = ProtobufUnittest_TestAllTypes
 
-    func testOptionalGroup() {
-        assertJSONDecodeFails("{\"optionalgroup\":{\"a\":3}}")
-    }
+  func testOptionalGroup() {
+    assertJSONDecodeFails("{\"optionalgroup\":{\"a\":3}}")
+  }
 
-    func testRepeatedGroup() {
-        assertJSONDecodeFails("{\"repeatedgroup\":[{\"a\":1},{\"a\":2}]}")
-    }
+  func testRepeatedGroup() {
+    assertJSONDecodeFails("{\"repeatedgroup\":[{\"a\":1},{\"a\":2}]}")
+  }
 }

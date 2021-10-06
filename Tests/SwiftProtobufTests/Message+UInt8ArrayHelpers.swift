@@ -18,11 +18,11 @@ import Foundation
 import SwiftProtobuf
 
 extension SwiftProtobuf.Message {
-    init(serializedBytes: [UInt8], extensions: SwiftProtobuf.SimpleExtensionMap? = nil) throws {
-        try self.init(serializedData: Data(serializedBytes), extensions: extensions)
-    }
+  init(serializedBytes: [UInt8], extensions: SwiftProtobuf.SimpleExtensionMap? = nil) throws {
+    try self.init(serializedData: Data(serializedBytes), extensions: extensions)
+  }
 
-    func serializedBytes() throws -> [UInt8] {
-        return try [UInt8](serializedData())
-    }
+  func serializedBytes() throws -> [UInt8] {
+    return try [UInt8](serializedData())
+  }
 }

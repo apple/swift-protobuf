@@ -27,13 +27,15 @@ class Test_FuzzTests: XCTestCase {
 
   func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(serializedData: Data(bytes), extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(
+        serializedData: Data(bytes), extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
   func assertJSONFails(_ jsonBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(jsonUTF8Data: Data(jsonBytes), extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(
+        jsonUTF8Data: Data(jsonBytes), extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
@@ -43,35 +45,47 @@ class Test_FuzzTests: XCTestCase {
       file: file, line: line)
   }
 
-  func assertTextFormatFails(_ textFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+  func assertTextFormatFails(
+    _ textFormat: String, file: XCTestFileArgType = #file, line: UInt = #line
+  ) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(textFormatString: textFormat, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(
+        textFormatString: textFormat, extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
-  func assertTextFormatFails(_ asBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+  func assertTextFormatFails(
+    _ asBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line
+  ) {
     guard let str = String(data: Data(asBytes), encoding: .utf8) else {
       XCTFail("Failed to make a string", file: file, line: line)
       return
     }
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(
+        textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
-  func assertTextFormatSucceeds(_ textFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+  func assertTextFormatSucceeds(
+    _ textFormat: String, file: XCTestFileArgType = #file, line: UInt = #line
+  ) {
     XCTAssertNoThrow(
-      try Fuzz_Testing_Message(textFormatString: textFormat, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(
+        textFormatString: textFormat, extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
-  func assertTextFormatSucceeds(_ asBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+  func assertTextFormatSucceeds(
+    _ asBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line
+  ) {
     guard let str = String(data: Data(asBytes), encoding: .utf8) else {
       XCTFail("Failed to make a string", file: file, line: line)
       return
     }
     XCTAssertNoThrow(
-      try Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(
+        textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
@@ -87,7 +101,7 @@ class Test_FuzzTests: XCTestCase {
     // FailCases/JSON-malformed-utf8
     assertJSONFails([
       0x7b, 0x22, 0xf4, 0x7b, 0x22, 0x3a, 0x5c, 0x00, 0x2e, 0x20, 0x22, 0x3a,
-      0x5c, 0x00, 0x2e, 0x20
+      0x5c, 0x00, 0x2e, 0x20,
     ])
 
     // FailCases/clusterfuzz-testcase-minimized-FuzzJSON_debug-4506617283477504
@@ -112,7 +126,7 @@ class Test_FuzzTests: XCTestCase {
     // FailCases/TextFormat-octal-out-of-range
     assertTextFormatSucceeds([
       0x34, 0x34, 0x3a, 0x27, 0x32, 0x5c, 0x35, 0x30, 0x31, 0x39, 0x31, 0x3c,
-      0x31, 0x0f, 0x3a, 0x27
+      0x31, 0x0f, 0x3a, 0x27,
     ])
 
     // FailCases/TextFormat-ending-zero
@@ -122,12 +136,16 @@ class Test_FuzzTests: XCTestCase {
 
     // FailCases/clusterfuzz-testcase-minimized-FuzzTextFormat_release-5836572361621504
     assertTextFormatFails([
-      0x31, 0x35, 0x3a, 0x27, 0xa9, 0xa9, 0x5c, 0x75, 0x41, 0x62
+      0x31, 0x35, 0x3a, 0x27, 0xa9, 0xa9, 0x5c, 0x75, 0x41, 0x62,
     ])
 
-    assertTextFormatSucceeds("500<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<>>>>>>>>>>>>>>>>500<1:''\n2:''>")
+    assertTextFormatSucceeds(
+      "500<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<[google.protobuf.Any]<>>>>>>>>>>>>>>>>500<1:''\n2:''>"
+    )
 
-    assertTextFormatFails("500<[fvwzz_exobuf.Aob/google.protobuf.Any]<[oeFgb/google.protobuf.Any]<[xlob/google.protobuf.Any]<[oeee0FFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<>>>>>>>>>>>>>>>>>500<1:''\n1:''\n1:''\n2:''\n1:'roto")
+    assertTextFormatFails(
+      "500<[fvwzz_exobuf.Aob/google.protobuf.Any]<[oeFgb/google.protobuf.Any]<[xlob/google.protobuf.Any]<[oeee0FFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<[oglob/google.protobuf.Any]<[oogoFFFFFFFFRFfuzz.tebool_extFFFFFFFBFFFFegleeeeeeeeeeeeeeeeeeemeeeeeeeeeeeneeeeeeeekeeeeFFFFFFFFFIFFFFFFFgb/google.protobuf.Any]<>>>>>>>>>>>>>>>>>500<1:''\n1:''\n1:''\n2:''\n1:'roto"
+    )
 
     // FailCases/clusterfuzz-testcase-minimized-FuzzTextFormat_release-5109315292233728
     // This decodes but fails when trying to generate the TextFormat again.
@@ -150,7 +168,8 @@ class Test_FuzzTests: XCTestCase {
       0xa9, 0xa9, 0xa9, 0xa9, 0x31, 0x27, 0x3e,
     ]
     let str = String(data: Data(bytes), encoding: .utf8)!
-    let msg = try! Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions)
+    let msg = try! Fuzz_Testing_Message(
+      textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions)
     let _ = msg.textFormatString()
   }
 }

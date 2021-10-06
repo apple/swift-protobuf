@@ -9,8 +9,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 class Test_Merge: XCTestCase, PBTestHelpers {
   typealias MessageTestType = Proto3Unittest_TestAllTypes

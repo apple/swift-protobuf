@@ -17,96 +17,103 @@
 // message, intersecting two masks, etc.
 
 import Foundation
-import XCTest
 import SwiftProtobuf
+import XCTest
 
 class Test_FieldMask: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Google_Protobuf_FieldMask
+  typealias MessageTestType = Google_Protobuf_FieldMask
 
-    func testJSON() {
-        assertJSONEncode("\"foo\"") { (o: inout MessageTestType) in
-            o.paths = ["foo"]
-        }
-        assertJSONEncode("\"foo,fooBar,foo.bar.baz\"") { (o: inout MessageTestType) in
-            o.paths = ["foo", "foo_bar", "foo.bar.baz"]
-        }
-        // assertJSONEncode doesn't want an empty object, hand roll it.
-        let msg = MessageTestType.with { (o: inout MessageTestType) in
-          o.paths = []
-        }
-        XCTAssertEqual(try msg.jsonString(), "\"\"")
-        assertJSONDecodeSucceeds("\"foo\"") { $0.paths == ["foo"] }
-        assertJSONDecodeSucceeds("\"\"") { $0.paths == [] }
-        assertJSONDecodeFails("foo")
-        assertJSONDecodeFails("\"foo,\"")
-        assertJSONDecodeFails("\"foo\",\"bar\"")
-        assertJSONDecodeFails("\",foo\"")
-        assertJSONDecodeFails("\"foo,,bar\"")
-        assertJSONDecodeFails("\"foo,bar")
-        assertJSONDecodeFails("foo,bar\"")
-        assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"") // Reject non-ASCII
-        assertJSONDecodeFails("abc_def") // Reject underscores
+  func testJSON() {
+    assertJSONEncode("\"foo\"") { (o: inout MessageTestType) in
+      o.paths = ["foo"]
+    }
+    assertJSONEncode("\"foo,fooBar,foo.bar.baz\"") { (o: inout MessageTestType) in
+      o.paths = ["foo", "foo_bar", "foo.bar.baz"]
+    }
+    // assertJSONEncode doesn't want an empty object, hand roll it.
+    let msg = MessageTestType.with { (o: inout MessageTestType) in
+      o.paths = []
+    }
+    XCTAssertEqual(try msg.jsonString(), "\"\"")
+    assertJSONDecodeSucceeds("\"foo\"") { $0.paths == ["foo"] }
+    assertJSONDecodeSucceeds("\"\"") { $0.paths == [] }
+    assertJSONDecodeFails("foo")
+    assertJSONDecodeFails("\"foo,\"")
+    assertJSONDecodeFails("\"foo\",\"bar\"")
+    assertJSONDecodeFails("\",foo\"")
+    assertJSONDecodeFails("\"foo,,bar\"")
+    assertJSONDecodeFails("\"foo,bar")
+    assertJSONDecodeFails("foo,bar\"")
+    assertJSONDecodeFails("\"H̱ܻ̻ܻ̻ܶܶAܻD\"")  // Reject non-ASCII
+    assertJSONDecodeFails("abc_def")  // Reject underscores
+  }
+
+  func testProtobuf() {
+    assertEncode([10, 3, 102, 111, 111]) { (o: inout MessageTestType) in
+      o.paths = ["foo"]
+    }
+  }
+
+  func testDebugDescription() {
+    var m = Google_Protobuf_FieldMask()
+    m.paths = ["foo", "bar"]
+    XCTAssertEqual(
+      m.debugDescription,
+      "SwiftProtobuf.Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n")
+  }
+
+  func testConvenienceInits() {
+    var m = Google_Protobuf_FieldMask()
+    m.paths = ["foo", "bar"]
+
+    let m1 = Google_Protobuf_FieldMask(protoPaths: "foo", "bar")
+    let m2 = Google_Protobuf_FieldMask(protoPaths: ["foo", "bar"])
+
+    var other = Google_Protobuf_FieldMask()
+    other.paths = ["foo", "bar", "baz"]
+
+    XCTAssertEqual(m, m1)
+    XCTAssertEqual(m, m2)
+    XCTAssertEqual(m1, m2)
+
+    XCTAssertNotEqual(m, other)
+    XCTAssertNotEqual(m1, other)
+    XCTAssertNotEqual(m2, other)
+  }
+
+  // Make sure field mask works correctly when stored in a field
+  func testJSON_field() throws {
+    do {
+      let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
+        jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
+      XCTAssertEqual(
+        valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
+    } catch {
+      XCTFail("Should have decoded correctly")
     }
 
-    func testProtobuf() {
-        assertEncode([10, 3, 102, 111, 111]) { (o: inout MessageTestType) in
-            o.paths = ["foo"]
-        }
+    // https://github.com/protocolbuffers/protobuf/issues/4734 resulted in a new conformance
+    // test to confirm an empty string works.
+    do {
+      let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
+        jsonString: "{\"optionalFieldMask\": \"\"}")
+      XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask())
+    } catch {
+      XCTFail("Should have decoded correctly")
     }
 
-    func testDebugDescription() {
-        var m = Google_Protobuf_FieldMask()
-        m.paths = ["foo", "bar"]
-        XCTAssertEqual(m.debugDescription, "SwiftProtobuf.Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n")
+    XCTAssertThrowsError(
+      try ProtobufTestMessages_Proto3_TestAllTypesProto3(
+        jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
+  }
+
+  func testSerializationFailure() {
+    // If the proto fieldname can't be converted to a JSON field name,
+    // then JSON serialization should fail:
+    let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ"]
+    for c in cases {
+      let m = Google_Protobuf_FieldMask(protoPaths: c)
+      XCTAssertThrowsError(try m.jsonString())
     }
-
-    func testConvenienceInits() {
-        var m = Google_Protobuf_FieldMask()
-        m.paths = ["foo", "bar"]
-
-        let m1 = Google_Protobuf_FieldMask(protoPaths: "foo", "bar")
-        let m2 = Google_Protobuf_FieldMask(protoPaths: ["foo", "bar"])
-
-        var other = Google_Protobuf_FieldMask()
-        other.paths = ["foo", "bar", "baz"]
-
-        XCTAssertEqual(m, m1)
-        XCTAssertEqual(m, m2)
-        XCTAssertEqual(m1, m2)
-
-        XCTAssertNotEqual(m, other)
-        XCTAssertNotEqual(m1, other)
-        XCTAssertNotEqual(m2, other)
-    }
-
-    // Make sure field mask works correctly when stored in a field
-    func testJSON_field() throws {
-        do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
-            XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
-        } catch {
-            XCTFail("Should have decoded correctly")
-        }
-
-        // https://github.com/protocolbuffers/protobuf/issues/4734 resulted in a new conformance
-        // test to confirm an empty string works.
-        do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"\"}")
-            XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask())
-        } catch {
-            XCTFail("Should have decoded correctly")
-        }
-
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
-    }
-
-    func testSerializationFailure() {
-        // If the proto fieldname can't be converted to a JSON field name,
-        // then JSON serialization should fail:
-        let cases = ["foo_3_bar", "foo__bar", "fooBar", "☹️", "ȟìĳ"]
-        for c in cases {
-            let m = Google_Protobuf_FieldMask(protoPaths: c)
-            XCTAssertThrowsError(try m.jsonString())
-        }
-    }
+  }
 }
