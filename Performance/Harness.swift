@@ -83,23 +83,23 @@ class Harness: GeneratedHarnessMembers {
         timings.append(diff)
 
         if !headingsDisplayed {
-            let names = taskNames
-            print("   ", terminator: "")
-            for (i, name) in names.enumerated() {
-                if i % 2 == 0 {
-                    print(padded(name, to: 18), terminator: "")
-                }
+          let names = taskNames
+          print("   ", terminator: "")
+          for (i, name) in names.enumerated() {
+            if i % 2 == 0 {
+              print(padded(name, to: 18), terminator: "")
             }
-            print()
-            print("   ", terminator: "")
-            print(padded("", to: 9), terminator: "")
-            for (i, name) in names.enumerated() {
-                if i % 2 == 1 {
-                    print(padded(name, to: 18), terminator: "")
-                }
+          }
+          print()
+          print("   ", terminator: "")
+          print(padded("", to: 9), terminator: "")
+          for (i, name) in names.enumerated() {
+            if i % 2 == 1 {
+              print(padded(name, to: 18), terminator: "")
             }
-            print()
-            headingsDisplayed = true
+          }
+          print()
+          headingsDisplayed = true
         }
 
         print(String(format: "%3d", attempt), terminator: "")
@@ -121,7 +121,7 @@ class Harness: GeneratedHarnessMembers {
 
     let (mean, stddev) = statistics(timings)
     let stats =
-        String(format: "Relative stddev = %.1f%%\n", (stddev / mean) * 100.0)
+      String(format: "Relative stddev = %.1f%%\n", (stddev / mean) * 100.0)
     print(stats)
   }
 
@@ -131,20 +131,19 @@ class Harness: GeneratedHarnessMembers {
     _ name: String,
     block: () throws -> Result
   ) rethrows -> Result {
-      return try autoreleasepool { () -> Result in
-          taskNames.append(name)
-          let start = Date()
-          let result = try block()
-          let end = Date()
-          let diff = end.timeIntervalSince(start) / Double(runCount) * 1000000.0
-          currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
-          return result
-      }
+    return try autoreleasepool { () -> Result in
+      taskNames.append(name)
+      let start = Date()
+      let result = try block()
+      let end = Date()
+      let diff = end.timeIntervalSince(start) / Double(runCount) * 1000000.0
+      currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
+      return result
+    }
   }
 
   /// Compute the mean and standard deviation of the given time intervals.
-  private func statistics(_ timings: [TimeInterval]) ->
-    (mean: TimeInterval, stddev: TimeInterval) {
+  private func statistics(_ timings: [TimeInterval]) -> (mean: TimeInterval, stddev: TimeInterval) {
     var sum: TimeInterval = 0
     var sqsum: TimeInterval = 0
     for timing in timings {
