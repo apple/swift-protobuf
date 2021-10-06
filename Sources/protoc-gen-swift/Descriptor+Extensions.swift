@@ -24,9 +24,9 @@ extension FileDescriptor {
 extension Descriptor {
   /// Returns True if this is the Any WKT
   var isAnyMessage: Bool {
-    return (file.syntax == .proto3 &&
-      fullName == ".google.protobuf.Any" &&
-      file.name == "google/protobuf/any.proto")
+    return
+      (file.syntax == .proto3 && fullName == ".google.protobuf.Any"
+      && file.name == "google/protobuf/any.proto")
   }
 
   /// Returns True if this message recurisvely contains a required field.

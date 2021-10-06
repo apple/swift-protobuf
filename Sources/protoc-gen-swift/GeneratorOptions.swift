@@ -11,13 +11,13 @@
 import SwiftProtobufPluginLibrary
 
 class GeneratorOptions {
-  enum OutputNaming : String {
+  enum OutputNaming: String {
     case FullPath
     case PathToUnderscores
     case DropPath
   }
 
-  enum Visibility : String {
+  enum Visibility: String {
     case Internal
     case Public
   }
@@ -35,14 +35,15 @@ class GeneratorOptions {
     var visibility: Visibility = .Internal
     var swiftProtobufModuleName: String? = nil
 
-    for pair in parseParameter(string:parameter) {
+    for pair in parseParameter(string: parameter) {
       switch pair.key {
       case "FileNaming":
         if let naming = OutputNaming(rawValue: pair.value) {
           outputNaming = naming
         } else {
-          throw GenerationError.invalidParameterValue(name: pair.key,
-                                                      value: pair.value)
+          throw GenerationError.invalidParameterValue(
+            name: pair.key,
+            value: pair.value)
         }
       case "ProtoPathModuleMappings":
         if !pair.value.isEmpty {
@@ -52,8 +53,9 @@ class GeneratorOptions {
         if let value = Visibility(rawValue: pair.value) {
           visibility = value
         } else {
-          throw GenerationError.invalidParameterValue(name: pair.key,
-                                                      value: pair.value)
+          throw GenerationError.invalidParameterValue(
+            name: pair.key,
+            value: pair.value)
         }
       case "SwiftProtobufModuleName":
         // This option is not documented in PLUGIN.md, because it's a feature
@@ -61,8 +63,9 @@ class GeneratorOptions {
         if isValidSwiftIdentifier(pair.value) {
           swiftProtobufModuleName = pair.value
         } else {
-          throw GenerationError.invalidParameterValue(name: pair.key,
-                                                      value: pair.value)
+          throw GenerationError.invalidParameterValue(
+            name: pair.key,
+            value: pair.value)
         }
       default:
         throw GenerationError.unknownParameter(name: pair.key)
@@ -71,14 +74,16 @@ class GeneratorOptions {
 
     if let moduleMapPath = moduleMapPath {
       do {
-        self.protoToModuleMappings = try ProtoFileToModuleMappings(path: moduleMapPath, swiftProtobufModuleName: swiftProtobufModuleName)
+        self.protoToModuleMappings = try ProtoFileToModuleMappings(
+          path: moduleMapPath, swiftProtobufModuleName: swiftProtobufModuleName)
       } catch let e {
         throw GenerationError.wrappedError(
           message: "Parameter 'ProtoPathModuleMappings=\(moduleMapPath)'",
           error: e)
       }
     } else {
-      self.protoToModuleMappings = ProtoFileToModuleMappings(swiftProtobufModuleName: swiftProtobufModuleName)
+      self.protoToModuleMappings = ProtoFileToModuleMappings(
+        swiftProtobufModuleName: swiftProtobufModuleName)
     }
 
     self.outputNaming = outputNaming

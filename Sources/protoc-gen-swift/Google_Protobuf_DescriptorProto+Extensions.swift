@@ -14,8 +14,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufPluginLibrary
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 
 extension Google_Protobuf_DescriptorProto.ExtensionRange {
 

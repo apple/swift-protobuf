@@ -24,6 +24,6 @@ class Stderr {
 }
 
 func readFileData(filename: String) throws -> Data {
-    let url = URL(fileURLWithPath: filename)
-    return try Data(contentsOf: url)
+  let url = URL(fileURLWithPath: filename)
+  return try Data(contentsOf: url)
 }

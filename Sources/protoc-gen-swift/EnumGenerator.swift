@@ -13,8 +13,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufPluginLibrary
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 
 /// The name of the case used to represent unrecognized values in proto3.
 /// This case has an associated value containing the raw integer value.
@@ -34,9 +34,10 @@ class EnumGenerator {
   private let swiftRelativeName: String
   private let swiftFullName: String
 
-  init(descriptor: EnumDescriptor,
-       generatorOptions: GeneratorOptions,
-       namer: SwiftProtobufNamer
+  init(
+    descriptor: EnumDescriptor,
+    generatorOptions: GeneratorOptions,
+    namer: SwiftProtobufNamer
   ) {
     self.enumDescriptor = descriptor
     self.generatorOptions = generatorOptions
@@ -156,7 +157,8 @@ class EnumGenerator {
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
-    p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [\n")
+    p.print(
+      "\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [\n")
     p.indent()
     for v in mainEnumValueDescriptorsSorted {
       if v.aliases.isEmpty {
@@ -209,8 +211,8 @@ class EnumGenerator {
     // again, all one can do is lower the limit.
     let maxCasesInSwitch = 500
 
-    let neededCases = mainEnumValueDescriptorsSorted.count +
-      (enumDescriptor.hasUnknownPreservingSemantics ? 1 : 0)
+    let neededCases =
+      mainEnumValueDescriptorsSorted.count + (enumDescriptor.hasUnknownPreservingSemantics ? 1 : 0)
     let useMultipleSwitches = neededCases > maxCasesInSwitch
 
     p.print("\(visibility)var rawValue: Int {\n")

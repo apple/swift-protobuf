@@ -14,8 +14,8 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufPluginLibrary
 import SwiftProtobuf
+import SwiftProtobufPluginLibrary
 
 /// Generates the `_StorageClass` used for messages that employ copy-on-write
 /// logic for some of their fields.
@@ -50,11 +50,11 @@ class MessageStorageClassGenerator {
     // returning the default to not require that heap allocation, i.e. -
     // readonly usage never causes the allocation.
     p.print(
-        "\n",
-        "static let defaultInstance = _StorageClass()\n",
-        "\n",
-        "private init() {}\n",
-        "\n")
+      "\n",
+      "static let defaultInstance = _StorageClass()\n",
+      "\n",
+      "private init() {}\n",
+      "\n")
     generateClone(printer: &p)
 
     p.outdent()
@@ -104,7 +104,7 @@ class MessageStorageClassGenerator {
 }
 
 /// Custom generator for storage of an google.protobuf.Any.
-class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
+class AnyMessageStorageClassGenerator: MessageStorageClassGenerator {
   override var storageVisibility: String { return "internal" }
   override var storageProvidesEqualTo: Bool { return true }
 

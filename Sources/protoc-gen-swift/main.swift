@@ -40,7 +40,7 @@ struct GeneratorPlugin {
     case generateFromFiles(paths: [String])
   }
 
-  init() { }
+  init() {}
 
   func run(args: [String]) -> Int32 {
     var result: Int32 = 0
@@ -90,8 +90,8 @@ struct GeneratorPlugin {
     let version = SwiftProtobuf.Version.self
     let packageVersion = "\(version.major),\(version.minor),\(version.revision)"
 
-    let help = (
-      "Note:  This is a plugin for protoc and should not normally be run\n"
+    let help =
+      ("Note:  This is a plugin for protoc and should not normally be run\n"
         + "directly.\n"
         + "\n"
         + "If you invoke a recent version of protoc with the --swift_out=<dir>\n"
@@ -139,7 +139,9 @@ struct GeneratorPlugin {
     // Support for loggin the request. Useful when protoc/protoc-gen-swift are
     // being invoked from some build system/script. protoc-gen-swift supports
     // loading a request as a command line argument to simplify debugging/etc.
-    if let dumpPath = ProcessInfo.processInfo.environment["PROTOC_GEN_SWIFT_LOG_REQUEST"], !dumpPath.isEmpty {
+    if let dumpPath = ProcessInfo.processInfo.environment["PROTOC_GEN_SWIFT_LOG_REQUEST"],
+      !dumpPath.isEmpty
+    {
       let dumpURL = URL(fileURLWithPath: dumpPath)
       do {
         try requestData.write(to: dumpURL)
@@ -235,16 +237,19 @@ struct GeneratorPlugin {
         return Google_Protobuf_Compiler_CodeGeneratorResponse(error: fullError)
       }
       responseFiles.append(
-        Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
-                                                            content: printer.content))
+        Google_Protobuf_Compiler_CodeGeneratorResponse.File(
+          name: fileGenerator.outputFilename,
+          content: printer.content))
     }
-    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
-                                                          supportedFeatures: [.proto3Optional])
+    return Google_Protobuf_Compiler_CodeGeneratorResponse(
+      files: responseFiles,
+      supportedFeatures: [.proto3Optional])
   }
 
   private func auditProtoCVersion(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {
     guard request.hasCompilerVersion else {
-      Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
+      Stderr.print(
+        "WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
       return
     }
     // 3.2.x is what added the compiler_version, so there is no need to

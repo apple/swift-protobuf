@@ -11,7 +11,7 @@
 import Foundation
 import SwiftProtobufPluginLibrary
 
-func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
+func splitPath(pathname: String) -> (dir: String, base: String, suffix: String) {
   var dir = ""
   var base = ""
   var suffix = ""
@@ -39,17 +39,19 @@ func partition(string: String, atFirstOccurrenceOf substring: String) -> (String
   guard let index = string.range(of: substring)?.lowerBound else {
     return (string, "")
   }
-  return (String(string[..<index]),
-          String(string[string.index(after: index)...]))
+  return (
+    String(string[..<index]),
+    String(string[string.index(after: index)...])
+  )
 }
 
-func parseParameter(string: String?) -> [(key:String, value:String)] {
+func parseParameter(string: String?) -> [(key: String, value: String)] {
   guard let string = string, !string.isEmpty else {
     return []
   }
   let parts = string.components(separatedBy: ",")
   let asPairs = parts.map { partition(string: $0, atFirstOccurrenceOf: "=") }
-  let result = asPairs.map { (key:trimWhitespace($0), value:trimWhitespace($1)) }
+  let result = asPairs.map { (key: trimWhitespace($0), value: trimWhitespace($1)) }
   return result
 }
 
@@ -95,7 +97,7 @@ func escapedToDataLiteral(_ s: String) -> String {
         out += "9"
         separator = ", "
       case 48..<56:
-        octal = 2 // 2 more digits
+        octal = 2  // 2 more digits
         octalAccumulator = Int(c) - 48
       default:
         out += separator
@@ -103,7 +105,7 @@ func escapedToDataLiteral(_ s: String) -> String {
         separator = ", "
       }
       escape = false
-    } else if c == 92 { // backslash
+    } else if c == 92 {  // backslash
       escape = true
     } else {
       out += separator
@@ -117,7 +119,9 @@ func escapedToDataLiteral(_ s: String) -> String {
 
 /// Generate a Swift string literal suitable for including in
 /// source code
-private let hexdigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
+private let hexdigits = [
+  "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f",
+]
 
 func stringToEscapedStringLiteral(_ s: String) -> String {
   if s.isEmpty {

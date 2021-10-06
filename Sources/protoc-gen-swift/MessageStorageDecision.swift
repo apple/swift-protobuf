@@ -20,7 +20,7 @@ import SwiftProtobufPluginLibrary
 ///
 /// As mentioned in the file comment, these numbers can be revised in the futute
 /// to compute a real stack/heap cost if desired.
-fileprivate enum FieldCost {
+private enum FieldCost {
   /// Of a repeated field.
   static let repeated = 1
   /// Of a map field.
@@ -64,11 +64,11 @@ fileprivate enum FieldCost {
 }
 
 /// Maxium computed cost of a Message's fields allow before it uses Storage.
-fileprivate let totalFieldCostRequiringStorage = 17
+private let totalFieldCostRequiringStorage = 17
 
 /// The result of analysis, if the message should use heap storage and the
 /// cost of the message when used as a field in other messages.
-fileprivate struct AnalyzeResult {
+private struct AnalyzeResult {
   let usesStorage: Bool
   let costAsField: Int
 
@@ -90,14 +90,14 @@ fileprivate struct AnalyzeResult {
 
 /// Cache for the `analyze(descriptor:)` results to avoid doing them multiple
 /// times.
-fileprivate var analysisCache: Dictionary<String,AnalyzeResult> = [
+private var analysisCache: [String: AnalyzeResult] = [
   // google.protobuf.Any can be seeded.
-  ".google.protobuf.Any": .useStorage,
+  ".google.protobuf.Any": .useStorage
 ]
 
 /// Analyze the given descriptor to decide if it should use storage and what
 /// the cost of it will be when appearing as a single field in another message.
-fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
+private func analyze(descriptor: Descriptor) -> AnalyzeResult {
   if let analysis = analysisCache[descriptor.fullName] {
     return analysis
   }
