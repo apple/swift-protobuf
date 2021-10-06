@@ -51,9 +51,9 @@ extension Message {
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startArray()
     for message in collection {
-        visitor.startArrayObject(message: message)
-        try message.traverse(visitor: &visitor)
-        visitor.endObject()
+      visitor.startArrayObject(message: message)
+      try message.traverse(visitor: &visitor)
+      visitor.endObject()
     }
     visitor.endArray()
     return visitor.dataResult
@@ -69,9 +69,10 @@ extension Message {
     fromJSONString jsonString: String,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
-    return try self.array(fromJSONString: jsonString,
-                          extensions: SimpleExtensionMap(),
-                          options: options)
+    return try self.array(
+      fromJSONString: jsonString,
+      extensions: SimpleExtensionMap(),
+      options: options)
   }
 
   /// Creates a new array of messages by decoding the given string containing a
@@ -108,9 +109,10 @@ extension Message {
     fromJSONUTF8Data jsonUTF8Data: Data,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
-    return try self.array(fromJSONUTF8Data: jsonUTF8Data,
-                          extensions: SimpleExtensionMap(),
-                          options: options)
+    return try self.array(
+      fromJSONUTF8Data: jsonUTF8Data,
+      extensions: SimpleExtensionMap(),
+      options: options)
   }
 
   /// Creates a new array of messages by decoding the given `Data` containing a
@@ -131,7 +133,8 @@ extension Message {
       var array = [Self]()
 
       if body.count > 0 {
-        var decoder = JSONDecoder(source: body, options: options,
+        var decoder = JSONDecoder(
+          source: body, options: options,
           messageType: Self.self, extensions: extensions)
         try decoder.decodeRepeatedMessageField(value: &array)
         if !decoder.scanner.complete {

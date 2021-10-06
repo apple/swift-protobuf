@@ -15,19 +15,18 @@
 
 import Foundation
 
-private let minTimestampSeconds: Int64 = -62135596800  // 0001-01-01T00:00:00Z
-private let maxTimestampSeconds: Int64 = 253402300799  // 9999-12-31T23:59:59Z
+private let minTimestampSeconds: Int64 = -62_135_596_800  // 0001-01-01T00:00:00Z
+private let maxTimestampSeconds: Int64 = 253_402_300_799  // 9999-12-31T23:59:59Z
 
 // TODO: Add convenience methods to interoperate with standard
 // date/time classes:  an initializer that accepts Unix timestamp as
 // Int or Double, an easy way to convert to/from Foundation's
 // NSDateTime (on Apple platforms only?), others?
 
-
 // Parse an RFC3339 timestamp into a pair of seconds-since-1970 and nanos.
 private func parseTimestamp(s: String) throws -> (Int64, Int32) {
   // Convert to an array of integer character values
-  let value = s.utf8.map{Int($0)}
+  let value = s.utf8.map { Int($0) }
   if value.count < 20 {
     throw JSONDecodingError.malformedTimestamp
   }
@@ -55,10 +54,11 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     _ digit2: Int,
     _ digit3: Int
   ) throws -> Int {
-    if (digit0 < zero || digit0 > nine
+    if digit0 < zero || digit0 > nine
       || digit1 < zero || digit1 > nine
       || digit2 < zero || digit2 > nine
-      || digit3 < zero || digit3 > nine) {
+      || digit3 < zero || digit3 > nine
+    {
       throw JSONDecodingError.malformedTimestamp
     }
     return digit0 * 1000 + digit1 * 100 + digit2 * 10 + digit3 - 53328
@@ -136,9 +136,9 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
   var pos = 19
 
   var nanos: Int32 = 0
-  if value[pos] == period { // "." begins fractional seconds
+  if value[pos] == period {  // "." begins fractional seconds
     pos += 1
-    var digitValue = 100000000
+    var digitValue = 100_000_000
     while pos < value.count && value[pos] >= zero && value[pos] <= nine {
       nanos += Int32(digitValue * (value[pos] - zero))
       digitValue /= 10
@@ -172,7 +172,7 @@ private func parseTimestamp(s: String) throws -> (Int64, Int32) {
     }
     seconds = adjusted
     pos += 6
-  } else if value[pos] == letterZ { // "Z" indicator for UTC
+  } else if value[pos] == letterZ {  // "Z" indicator for UTC
     seconds = t
     pos += 1
   } else {
@@ -195,7 +195,7 @@ private func formatTimestamp(seconds: Int64, nanos: Int32) -> String? {
 
   let dateString = "\(fourDigit(YY))-\(twoDigit(MM))-\(twoDigit(DD))"
   let timeString = "\(twoDigit(hh)):\(twoDigit(mm)):\(twoDigit(ss))"
-  let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
+  let nanosString = nanosToString(nanos: nanos)  // Includes leading '.' if needed
 
   return "\(dateString)T\(timeString)\(nanosString)Z"
 }
@@ -273,15 +273,14 @@ extension Google_Protobuf_Timestamp {
 
   /// The interval between the timestamp and 00:00:00 UTC on 1 January 1970.
   public var timeIntervalSince1970: TimeInterval {
-    return TimeInterval(self.seconds) +
-      TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
+    return TimeInterval(self.seconds) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
   }
 
   /// The interval between the timestamp and 00:00:00 UTC on 1 January 2001.
   public var timeIntervalSinceReferenceDate: TimeInterval {
     return TimeInterval(
-      self.seconds - Int64(Date.timeIntervalBetween1970AndReferenceDate)) +
-      TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
+      self.seconds - Int64(Date.timeIntervalBetween1970AndReferenceDate)) + TimeInterval(self.nanos)
+      / TimeInterval(nanosPerSecond)
   }
 
   /// A `Date` initialized to the same time as the timestamp.
@@ -307,8 +306,9 @@ public func + (
   lhs: Google_Protobuf_Timestamp,
   rhs: Google_Protobuf_Duration
 ) -> Google_Protobuf_Timestamp {
-  let (s, n) = normalizeForTimestamp(seconds: lhs.seconds + rhs.seconds,
-                                     nanos: lhs.nanos + rhs.nanos)
+  let (s, n) = normalizeForTimestamp(
+    seconds: lhs.seconds + rhs.seconds,
+    nanos: lhs.nanos + rhs.nanos)
   return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
@@ -316,8 +316,9 @@ public func + (
   lhs: Google_Protobuf_Duration,
   rhs: Google_Protobuf_Timestamp
 ) -> Google_Protobuf_Timestamp {
-  let (s, n) = normalizeForTimestamp(seconds: lhs.seconds + rhs.seconds,
-                                     nanos: lhs.nanos + rhs.nanos)
+  let (s, n) = normalizeForTimestamp(
+    seconds: lhs.seconds + rhs.seconds,
+    nanos: lhs.nanos + rhs.nanos)
   return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }
 
@@ -325,7 +326,8 @@ public func - (
   lhs: Google_Protobuf_Timestamp,
   rhs: Google_Protobuf_Duration
 ) -> Google_Protobuf_Timestamp {
-  let (s, n) = normalizeForTimestamp(seconds: lhs.seconds - rhs.seconds,
-                                     nanos: lhs.nanos - rhs.nanos)
+  let (s, n) = normalizeForTimestamp(
+    seconds: lhs.seconds - rhs.seconds,
+    nanos: lhs.nanos - rhs.nanos)
   return Google_Protobuf_Timestamp(seconds: s, nanos: n)
 }

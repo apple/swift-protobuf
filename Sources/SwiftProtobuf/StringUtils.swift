@@ -29,7 +29,7 @@ import Foundation
 // Note: We're trying to avoid Foundation's String(format:) since that's not
 // universally available.
 
-fileprivate func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
+private func formatZeroPaddedInt(_ value: Int32, digits: Int) -> String {
   precondition(value >= 0)
   let s = String(value)
   if s.count >= digits {
@@ -65,7 +65,6 @@ internal func utf8ToString(
   return utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
 }
 
-
 // Swift 4 introduced new faster String facilities
 // that seem to work consistently across all platforms.
 
@@ -91,8 +90,7 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
   // Verify that the UTF-8 is valid.
   var p = sourceEncoding.ForwardParser()
   var i = codeUnits.makeIterator()
-  Loop:
-  while true {
+  Loop: while true {
     switch p.parseScalar(from: &i) {
     case .valid(_):
       break
@@ -106,4 +104,4 @@ internal func utf8ToString(bytes: UnsafeRawPointer, count: Int) -> String? {
   // This initializer is fast but does not reject broken
   // UTF-8 (which is why we validate the UTF-8 above).
   return String(decoding: codeUnits, as: sourceEncoding)
- }
+}

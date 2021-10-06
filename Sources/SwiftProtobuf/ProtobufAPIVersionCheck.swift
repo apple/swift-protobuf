@@ -19,7 +19,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 /// An empty protocol that encodes the version of the runtime library.
 ///
 /// This protocol will be replaced with one containing a different version

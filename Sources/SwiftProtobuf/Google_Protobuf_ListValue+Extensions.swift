@@ -79,7 +79,7 @@ extension Google_Protobuf_ListValue {
   ///
   /// - Parameter index: The position of the element to access.
   public subscript(index: Int) -> Google_Protobuf_Value {
-    get {return values[index]}
-    set(newValue) {values[index] = newValue}
+    get { return values[index] }
+    set(newValue) { values[index] = newValue }
   }
 }

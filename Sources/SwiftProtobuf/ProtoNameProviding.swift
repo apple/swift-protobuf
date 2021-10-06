@@ -8,7 +8,6 @@
 //
 // -----------------------------------------------------------------------------
 
-
 /// SwiftProtobuf Internal: Common support looking up field names.
 ///
 /// Messages conform to this protocol to provide the proto/text and JSON field

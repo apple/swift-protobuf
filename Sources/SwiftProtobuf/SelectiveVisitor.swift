@@ -163,7 +163,8 @@ extension SelectiveVisitor {
     assert(false)
   }
 
-  internal mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+  internal mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws
+  {
     assert(false)
   }
 
@@ -230,7 +231,8 @@ extension SelectiveVisitor {
   internal mutating func visitMapField<KeyType, ValueType: MapValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int) throws {
+    fieldNumber: Int
+  ) throws {
     assert(false)
   }
 
@@ -250,7 +252,9 @@ extension SelectiveVisitor {
     assert(false)
   }
 
-  internal mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+  internal mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int)
+    throws
+  {
     assert(false)
   }
 

@@ -267,8 +267,9 @@ public protocol Visitor {
   ///
   /// A default implementation is provided that simply calls
   /// `visitSingularMessageField` once for each item in the array.
-  mutating func visitRepeatedMessageField<M: Message>(value: [M],
-                                                      fieldNumber: Int) throws
+  mutating func visitRepeatedMessageField<M: Message>(
+    value: [M],
+    fieldNumber: Int) throws
 
   /// Called for each repeated proto2 group field.
   ///
@@ -534,45 +535,45 @@ extension Visitor {
   }
 
   public mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
-      for v in value {
-          try visitSingularSInt32Field(value: v, fieldNumber: fieldNumber)
-      }
+    assert(!value.isEmpty)
+    for v in value {
+      try visitSingularSInt32Field(value: v, fieldNumber: fieldNumber)
+    }
   }
 
   public mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
-      for v in value {
-          try visitSingularSInt64Field(value: v, fieldNumber: fieldNumber)
-      }
+    assert(!value.isEmpty)
+    for v in value {
+      try visitSingularSInt64Field(value: v, fieldNumber: fieldNumber)
+    }
   }
 
   public mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
-      for v in value {
-          try visitSingularFixed32Field(value: v, fieldNumber: fieldNumber)
-      }
+    assert(!value.isEmpty)
+    for v in value {
+      try visitSingularFixed32Field(value: v, fieldNumber: fieldNumber)
+    }
   }
 
   public mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
-      for v in value {
-          try visitSingularFixed64Field(value: v, fieldNumber: fieldNumber)
-      }
+    assert(!value.isEmpty)
+    for v in value {
+      try visitSingularFixed64Field(value: v, fieldNumber: fieldNumber)
+    }
   }
 
   public mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
-      for v in value {
-          try visitSingularSFixed32Field(value: v, fieldNumber: fieldNumber)
-      }
+    assert(!value.isEmpty)
+    for v in value {
+      try visitSingularSFixed32Field(value: v, fieldNumber: fieldNumber)
+    }
   }
 
   public mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(!value.isEmpty)
-      for v in value {
-          try visitSingularSFixed64Field(value: v, fieldNumber: fieldNumber)
-      }
+    assert(!value.isEmpty)
+    for v in value {
+      try visitSingularSFixed64Field(value: v, fieldNumber: fieldNumber)
+    }
   }
 
   public mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
@@ -599,7 +600,7 @@ extension Visitor {
   public mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     for v in value {
-        try visitSingularEnumField(value: v, fieldNumber: fieldNumber)
+      try visitSingularEnumField(value: v, fieldNumber: fieldNumber)
     }
   }
 
@@ -687,8 +688,10 @@ extension Visitor {
     try visitRepeatedBoolField(value: value, fieldNumber: fieldNumber)
   }
 
-  public mutating func visitPackedEnumField<E: Enum>(value: [E],
-                                            fieldNumber: Int) throws {
+  public mutating func visitPackedEnumField<E: Enum>(
+    value: [E],
+    fieldNumber: Int
+  ) throws {
     assert(!value.isEmpty)
     try visitRepeatedEnumField(value: value, fieldNumber: fieldNumber)
   }
@@ -698,8 +701,10 @@ extension Visitor {
   // format (which has a different encoding for groups) and JSON
   // (which explicitly ignores all groups).
 
-  public mutating func visitSingularGroupField<G: Message>(value: G,
-                                                  fieldNumber: Int) throws {
+  public mutating func visitSingularGroupField<G: Message>(
+    value: G,
+    fieldNumber: Int
+  ) throws {
     try visitSingularMessageField(value: value, fieldNumber: fieldNumber)
   }
 
@@ -710,7 +715,8 @@ extension Visitor {
   public mutating func visitExtensionFieldsAsMessageSet(
     fields: ExtensionFieldValueSet,
     start: Int,
-    end: Int) throws {
+    end: Int
+  ) throws {
     try visitExtensionFields(fields: fields, start: start, end: end)
   }
 
@@ -719,7 +725,9 @@ extension Visitor {
   // can override to avoid it.
 
   /// Called for each extension range.
-  public mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+  public mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int)
+    throws
+  {
     try fields.traverse(visitor: &self, start: start, end: end)
   }
 }

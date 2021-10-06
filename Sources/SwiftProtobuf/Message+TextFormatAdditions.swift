@@ -69,9 +69,10 @@ extension Message {
   ) throws {
     // TODO: Remove this api and default the options instead. This api has to
     // exist for anything compiled against an older version of the library.
-    try self.init(textFormatString: textFormatString,
-                  options: TextFormatDecodingOptions(),
-                  extensions: extensions)
+    try self.init(
+      textFormatString: textFormatString,
+      options: TextFormatDecodingOptions(),
+      extensions: extensions)
   }
 
   /// Creates a new message by decoding the given string containing a
@@ -94,11 +95,12 @@ extension Message {
       if let data = textFormatString.data(using: String.Encoding.utf8) {
         try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
           if let baseAddress = body.baseAddress, body.count > 0 {
-            var decoder = try TextFormatDecoder(messageType: Self.self,
-                                                utf8Pointer: baseAddress,
-                                                count: body.count,
-                                                options: options,
-                                                extensions: extensions)
+            var decoder = try TextFormatDecoder(
+              messageType: Self.self,
+              utf8Pointer: baseAddress,
+              count: body.count,
+              options: options,
+              extensions: extensions)
             try decodeMessage(decoder: &decoder)
             if !decoder.complete {
               throw TextFormatDecodingError.trailingGarbage

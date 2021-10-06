@@ -50,7 +50,7 @@ private func ProtoToJSON(name: String) -> String? {
       }
     case "A"..."Z":
       return nil
-    case "a"..."z","0"..."9",".","(",")":
+    case "a"..."z", "0"..."9", ".", "(", ")":
       jsonPath.append(c)
     default:
       // TODO: Change this to `return nil`
@@ -72,7 +72,7 @@ private func JSONToProto(name: String) -> String? {
     case "A"..."Z":
       path.append(Character("_"))
       path.append(String(c).lowercased())
-    case "a"..."z","0"..."9",".","(",")":
+    case "a"..."z", "0"..."9", ".", "(", ")":
       path.append(c)
     default:
       // TODO: Change to `return nil` once
@@ -108,7 +108,7 @@ private func parseJSONFieldNames(names: String) -> [String]? {
       fieldNameCount += 1
     }
   }
-  if fieldNameCount == 0 { // Last field name can't be empty
+  if fieldNameCount == 0 {  // Last field name can't be empty
     return nil
   }
   if let pbName = JSONToProto(name: fieldName) {

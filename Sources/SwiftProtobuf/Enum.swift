@@ -39,15 +39,15 @@ public protocol Enum: RawRepresentable, Hashable {
 }
 
 extension Enum {
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(rawValue)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    return rawValue
-  }
-#endif  // swift(>=4.2)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(rawValue)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
+      return rawValue
+    }
+  #endif  // swift(>=4.2)
 
   /// Internal convenience property representing the name of the enum value (or
   /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
@@ -70,7 +70,8 @@ extension Enum {
   /// - Parameter name: The name of the enum case.
   internal init?(name: String) {
     guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
-      let number = nameProviding._protobuf_nameMap.number(forJSONName: name) else {
+      let number = nameProviding._protobuf_nameMap.number(forJSONName: name)
+    else {
       return nil
     }
     self.init(rawValue: number)
@@ -85,7 +86,8 @@ extension Enum {
   /// - Parameter name: Buffer holding the UTF-8 bytes of the desired name.
   internal init?(rawUTF8: UnsafeRawBufferPointer) {
     guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
-      let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8) else {
+      let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8)
+    else {
       return nil
     }
     self.init(rawValue: number)

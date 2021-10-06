@@ -55,7 +55,8 @@ internal struct FieldTag: RawRepresentable {
     // Verify that the field number and wire format are valid and fail if they
     // are not.
     guard rawValue & ~0x07 != 0,
-      let _ = WireFormat(rawValue: UInt8(rawValue % 8)) else {
+      let _ = WireFormat(rawValue: UInt8(rawValue % 8))
+    else {
       return nil
     }
     self.rawValue = rawValue
@@ -63,7 +64,6 @@ internal struct FieldTag: RawRepresentable {
 
   /// Creates a new tag by composing the given field number and wire format.
   init(fieldNumber: Int, wireFormat: WireFormat) {
-    self.rawValue = UInt32(truncatingIfNeeded: fieldNumber) << 3 |
-      UInt32(wireFormat.rawValue)
+    self.rawValue = UInt32(truncatingIfNeeded: fieldNumber) << 3 | UInt32(wireFormat.rawValue)
   }
 }

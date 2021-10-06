@@ -33,7 +33,7 @@ extension Google_Protobuf_Any {
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryEncodingError.missingRequiredFields`.
-  ///   - typePrefix: The prefix to be used when building the `type_url`. 
+  ///   - typePrefix: The prefix to be used when building the `type_url`.
   ///     Defaults to "type.googleapis.com".
   /// - Throws: `BinaryEncodingError.missingRequiredFields` if `partial` is
   ///     false and `message` wasn't fully initialized.
@@ -46,7 +46,7 @@ extension Google_Protobuf_Any {
       throw BinaryEncodingError.missingRequiredFields
     }
     self.init()
-    typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
+    typeURL = buildTypeURL(forMessage: message, typePrefix: typePrefix)
     _storage.state = .message(message)
   }
 
@@ -65,9 +65,10 @@ extension Google_Protobuf_Any {
   ) throws {
     // TODO: Remove this api and default the options instead. This api has to
     // exist for anything compiled against an older version of the library.
-    try self.init(textFormatString: textFormatString,
-                  options: TextFormatDecodingOptions(),
-                  extensions: extensions)
+    try self.init(
+      textFormatString: textFormatString,
+      options: TextFormatDecodingOptions(),
+      extensions: extensions)
   }
 
   /// Creates a new `Google_Protobuf_Any` by decoding the given string
@@ -118,15 +119,15 @@ extension Google_Protobuf_Any {
     return _storage.isA(type)
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    _storage.hash(into: &hasher)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    return _storage.hashValue
-  }
-#endif  // swift(>=4.2)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      _storage.hash(into: &hasher)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
+      return _storage.hashValue
+    }
+  #endif  // swift(>=4.2)
 }
 
 extension Google_Protobuf_Any {

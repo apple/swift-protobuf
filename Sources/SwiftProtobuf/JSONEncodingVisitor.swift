@@ -29,7 +29,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   /// The JSON text produced by the visitor, as a String.
   internal var stringResult: String {
-      return encoder.stringResult
+    return encoder.stringResult
   }
 
   /// Creates a new visitor for serializing a message of the given type to JSON
@@ -137,7 +137,7 @@ internal struct JSONEncodingVisitor: Visitor {
   private mutating func _visitRepeated<T>(
     value: [T],
     fieldNumber: Int,
-    encode: (inout JSONEncoder, T) throws -> ()
+    encode: (inout JSONEncoder, T) throws -> Void
   ) throws {
     assert(!value.isEmpty)
     try startField(for: fieldNumber)
@@ -145,7 +145,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.startArray()
     for v in value {
       if comma {
-          encoder.comma()
+        encoder.comma()
       }
       comma = true
       try encode(&encoder, v)
@@ -218,7 +218,7 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: UInt32) in
       encoder.putUInt32(value: v)
@@ -232,7 +232,7 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
@@ -248,7 +248,7 @@ internal struct JSONEncodingVisitor: Visitor {
     try visitRepeatedUInt64Field(value: value, fieldNumber: fieldNumber)
   }
 
-   mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
     try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
   }
 
@@ -340,21 +340,25 @@ internal struct JSONEncodingVisitor: Visitor {
   // Packed fields are handled the same as non-packed fields, so JSON just
   // relies on the default implementations in Visitor.swift
 
-
-
-  mutating func visitMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
+  mutating func visitMapField<KeyType, ValueType: MapValueType>(
+    fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+    value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int
+  ) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
-    for (k,v) in value {
-        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-        try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
+    for (k, v) in value {
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+      try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
     }
     encoder = mapVisitor.encoder
     encoder.append(text: "}")
   }
 
-  mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where ValueType.RawValue == Int {
+  mutating func visitMapField<KeyType, ValueType>(
+    fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int
+  ) throws where ValueType.RawValue == Int {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
@@ -366,13 +370,16 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
-  mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
+  mutating func visitMapField<KeyType, ValueType>(
+    fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int
+  ) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
-    for (k,v) in value {
-        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-        try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    for (k, v) in value {
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+      try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
     encoder = mapVisitor.encoder
     encoder.append(text: "}")
@@ -384,17 +391,17 @@ internal struct JSONEncodingVisitor: Visitor {
     let name: _NameMap.Name?
 
     if options.preserveProtoFieldNames {
-        name = nameMap.names(for: number)?.proto
+      name = nameMap.names(for: number)?.proto
     } else {
-        name = nameMap.names(for: number)?.json
+      name = nameMap.names(for: number)?.json
     }
 
     if let name = name {
-        encoder.startField(name: name)
+      encoder.startField(name: name)
     } else if let name = extensions?[number]?.protobufExtension.fieldName {
-        encoder.startExtensionField(name: name)
+      encoder.startExtensionField(name: name)
     } else {
-        throw JSONEncodingError.missingFieldNames
+      throw JSONEncodingError.missingFieldNames
     }
   }
 }

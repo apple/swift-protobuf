@@ -17,7 +17,7 @@
 import Foundation
 
 private let minDurationSeconds: Int64 = -maxDurationSeconds
-private let maxDurationSeconds: Int64 = 315576000000
+private let maxDurationSeconds: Int64 = 315_576_000_000
 
 private func parseDuration(text: String) throws -> (Int64, Int32) {
   var digits = [Character]()
@@ -43,7 +43,8 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
       }
       let digitString = String(digits)
       if let s = Int64(digitString),
-        s >= minDurationSeconds && s <= maxDurationSeconds {
+        s >= minDurationSeconds && s <= maxDurationSeconds
+      {
         seconds = s
       } else {
         throw JSONDecodingError.malformedDuration
@@ -53,7 +54,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
     case "s":
       if let seconds = seconds {
         // Seconds already set, digits holds nanos
-        while (digitCount < 9) {
+        while digitCount < 9 {
           digits.append(Character("0"))
           digitCount += 1
         }
@@ -75,7 +76,8 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
         // No fraction, we just have an integral number of seconds
         let digitString = String(digits)
         if let s = Int64(digitString),
-          s >= minDurationSeconds && s <= maxDurationSeconds {
+          s >= minDurationSeconds && s <= maxDurationSeconds
+        {
           seconds = s
         } else {
           throw JSONDecodingError.malformedDuration
@@ -99,7 +101,7 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
   guard seconds >= minDurationSeconds && seconds <= maxDurationSeconds else {
     return nil
   }
-  let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
+  let nanosString = nanosToString(nanos: nanos)  // Includes leading '.' if needed
   return "\(seconds)\(nanosString)s"
 }
 
@@ -158,8 +160,7 @@ extension Google_Protobuf_Duration {
 
   /// The `TimeInterval` (measured in seconds) equal to this duration.
   public var timeInterval: TimeInterval {
-    return TimeInterval(self.seconds) +
-      TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
+    return TimeInterval(self.seconds) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
   }
 }
 
@@ -193,8 +194,9 @@ private func normalizeForDuration(
 public prefix func - (
   operand: Google_Protobuf_Duration
 ) -> Google_Protobuf_Duration {
-  let (s, n) = normalizeForDuration(seconds: -operand.seconds,
-                                    nanos: -operand.nanos)
+  let (s, n) = normalizeForDuration(
+    seconds: -operand.seconds,
+    nanos: -operand.nanos)
   return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
@@ -202,8 +204,9 @@ public func + (
   lhs: Google_Protobuf_Duration,
   rhs: Google_Protobuf_Duration
 ) -> Google_Protobuf_Duration {
-  let (s, n) = normalizeForDuration(seconds: lhs.seconds + rhs.seconds,
-                                    nanos: lhs.nanos + rhs.nanos)
+  let (s, n) = normalizeForDuration(
+    seconds: lhs.seconds + rhs.seconds,
+    nanos: lhs.nanos + rhs.nanos)
   return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
@@ -211,8 +214,9 @@ public func - (
   lhs: Google_Protobuf_Duration,
   rhs: Google_Protobuf_Duration
 ) -> Google_Protobuf_Duration {
-  let (s, n) = normalizeForDuration(seconds: lhs.seconds - rhs.seconds,
-                                    nanos: lhs.nanos - rhs.nanos)
+  let (s, n) = normalizeForDuration(
+    seconds: lhs.seconds - rhs.seconds,
+    nanos: lhs.nanos - rhs.nanos)
   return Google_Protobuf_Duration(seconds: s, nanos: n)
 }
 
@@ -220,7 +224,8 @@ public func - (
   lhs: Google_Protobuf_Timestamp,
   rhs: Google_Protobuf_Timestamp
 ) -> Google_Protobuf_Duration {
-  let (s, n) = normalizeForDuration(seconds: lhs.seconds - rhs.seconds,
-                                    nanos: lhs.nanos - rhs.nanos)
+  let (s, n) = normalizeForDuration(
+    seconds: lhs.seconds - rhs.seconds,
+    nanos: lhs.nanos - rhs.nanos)
   return Google_Protobuf_Duration(seconds: s, nanos: n)
 }

@@ -49,9 +49,9 @@ extension WireFormat {
   internal enum MessageSet {
 
     enum FieldNumbers {
-      static let item = 1;
-      static let typeId = 2;
-      static let message = 3;
+      static let item = 1
+      static let typeId = 2
+      static let message = 3
     }
 
     enum Tags {
@@ -63,8 +63,7 @@ extension WireFormat {
 
     // The size of all the tags needed to write out an Extension in MessageSet format.
     static let itemTagsEncodedSize =
-      Tags.itemStart.encodedSize + Tags.itemEnd.encodedSize +
-        Tags.typeId.encodedSize +
-        Tags.message.encodedSize
+      Tags.itemStart.encodedSize + Tags.itemEnd.encodedSize + Tags.typeId.encodedSize
+      + Tags.message.encodedSize
   }
 }

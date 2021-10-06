@@ -29,11 +29,14 @@ internal struct JSONDecoder: Decoder {
     throw JSONDecodingError.conflictingOneOf
   }
 
-  internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
-                messageType: Message.Type, extensions: ExtensionMap?) {
-    let scanner = JSONScanner(source: source,
-                               options: options,
-                               extensions: extensions)
+  internal init(
+    source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
+    messageType: Message.Type, extensions: ExtensionMap?
+  ) {
+    let scanner = JSONScanner(
+      source: source,
+      options: options,
+      extensions: extensions)
     self.init(scanner: scanner, messageType: messageType)
   }
 
@@ -49,8 +52,9 @@ internal struct JSONDecoder: Decoder {
     if fieldCount > 0 {
       try scanner.skipRequiredComma()
     }
-    let fieldNumber = try scanner.nextFieldNumber(names: fieldNameMap!,
-                                                  messageType: messageType)
+    let fieldNumber = try scanner.nextFieldNumber(
+      names: fieldNameMap!,
+      messageType: messageType)
     if let fieldNumber = fieldNumber {
       fieldCount += 1
       return fieldNumber
@@ -574,7 +578,8 @@ internal struct JSONDecoder: Decoder {
         var appended = false
         if M.self is _CustomJSONCodable.Type {
           if let message = try (M.self as! _CustomJSONCodable.Type)
-            .decodedFromJSONNull() as? M {
+            .decodedFromJSONNull() as? M
+          {
             value.append(message)
             appended = true
           }

@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-
 /// Contains helper methods to varint-encode and decode integers.
 internal enum Varint {
 

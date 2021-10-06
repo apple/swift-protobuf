@@ -13,8 +13,8 @@
 // -----------------------------------------------------------------------------
 
 #if !swift(>=4.2)
-private let i_2166136261 = Int(bitPattern: 2166136261)
-private let i_16777619 = Int(16777619)
+  private let i_2166136261 = Int(bitPattern: 2_166_136_261)
+  private let i_16777619 = Int(16_777_619)
 #endif
 
 //
@@ -28,11 +28,11 @@ private let i_16777619 = Int(16777619)
 // so you can't actually access the contained value itself.
 //
 public protocol AnyExtensionField: CustomDebugStringConvertible {
-#if swift(>=4.2)
-  func hash(into hasher: inout Hasher)
-#else
-  var hashValue: Int { get }
-#endif
+  #if swift(>=4.2)
+    func hash(into hasher: inout Hasher)
+  #else
+    var hashValue: Int { get }
+  #endif
   var protobufExtension: AnyMessageExtension { get }
   func isEqual(other: AnyExtensionField) -> Bool
 
@@ -71,8 +71,10 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: OptionalExtensionField,
-                        rhs: OptionalExtensionField) -> Bool {
+  public static func == (
+    lhs: OptionalExtensionField,
+    rhs: OptionalExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -82,20 +84,18 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
   }
 
   public var debugDescription: String {
-    get {
-      return String(reflecting: value)
-    }
+    return String(reflecting: value)
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get { return value.hashValue }
-  }
-#endif  // swift(>=4.2)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
+      return value.hashValue
+    }
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! OptionalExtensionField<T>
@@ -103,11 +103,11 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
-      var v: ValueType?
-      try T.decodeSingular(value: &v, from: &decoder)
-      if let v = v {
-          value = v
-      }
+    var v: ValueType?
+    try T.decodeSingular(value: &v, from: &decoder)
+    if let v = v {
+      value = v
+    }
   }
 
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
@@ -134,8 +134,10 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: RepeatedExtensionField,
-                        rhs: RepeatedExtensionField) -> Bool {
+  public static func == (
+    lhs: RepeatedExtensionField,
+    rhs: RepeatedExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -144,21 +146,19 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get {
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
       var hash = i_2166136261
       for e in value {
         hash = (hash &* i_16777619) ^ e.hashValue
       }
       return hash
     }
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! RepeatedExtensionField<T>
@@ -166,7 +166,7 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   }
 
   public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    return "[" + value.map { String(reflecting: $0) }.joined(separator: ",") + "]"
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
@@ -198,8 +198,10 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: PackedExtensionField,
-                        rhs: PackedExtensionField) -> Bool {
+  public static func == (
+    lhs: PackedExtensionField,
+    rhs: PackedExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -208,21 +210,19 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get {
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
       var hash = i_2166136261
       for e in value {
         hash = (hash &* i_16777619) ^ e.hashValue
       }
       return hash
     }
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! PackedExtensionField<T>
@@ -230,7 +230,7 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   }
 
   public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    return "[" + value.map { String(reflecting: $0) }.joined(separator: ",") + "]"
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
@@ -259,8 +259,10 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: OptionalEnumExtensionField,
-                        rhs: OptionalEnumExtensionField) -> Bool {
+  public static func == (
+    lhs: OptionalEnumExtensionField,
+    rhs: OptionalEnumExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -270,20 +272,18 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   }
 
   public var debugDescription: String {
-    get {
-      return String(reflecting: value)
-    }
+    return String(reflecting: value)
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get { return value.hashValue }
-  }
-#endif  // swift(>=4.2)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
+      return value.hashValue
+    }
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! OptionalEnumExtensionField<E>
@@ -291,11 +291,11 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
-      var v: ValueType?
-      try decoder.decodeSingularEnumField(value: &v)
-      if let v = v {
-          value = v
-      }
+    var v: ValueType?
+    try decoder.decodeSingularEnumField(value: &v)
+    if let v = v {
+      value = v
+    }
   }
 
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
@@ -324,8 +324,10 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: RepeatedEnumExtensionField,
-                        rhs: RepeatedEnumExtensionField) -> Bool {
+  public static func == (
+    lhs: RepeatedEnumExtensionField,
+    rhs: RepeatedEnumExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -334,21 +336,19 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get {
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
       var hash = i_2166136261
       for e in value {
         hash = (hash &* i_16777619) ^ e.hashValue
       }
       return hash
     }
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! RepeatedEnumExtensionField<E>
@@ -356,7 +356,7 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   }
 
   public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    return "[" + value.map { String(reflecting: $0) }.joined(separator: ",") + "]"
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
@@ -390,8 +390,10 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: PackedEnumExtensionField,
-                        rhs: PackedEnumExtensionField) -> Bool {
+  public static func == (
+    lhs: PackedEnumExtensionField,
+    rhs: PackedEnumExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -400,21 +402,19 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get {
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
       var hash = i_2166136261
       for e in value {
         hash = (hash &* i_16777619) ^ e.hashValue
       }
       return hash
     }
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! PackedEnumExtensionField<E>
@@ -422,7 +422,7 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
   }
 
   public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    return "[" + value.map { String(reflecting: $0) }.joined(separator: ",") + "]"
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
@@ -448,14 +448,17 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
 // ========== Message ==========
 //
 public struct OptionalMessageExtensionField<M: Message & Equatable>:
-  ExtensionField {
+  ExtensionField
+{
   public typealias BaseType = M
   public typealias ValueType = BaseType
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: OptionalMessageExtensionField,
-                        rhs: OptionalMessageExtensionField) -> Bool {
+  public static func == (
+    lhs: OptionalMessageExtensionField,
+    rhs: OptionalMessageExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -465,18 +468,16 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
   }
 
   public var debugDescription: String {
-    get {
-      return String(reflecting: value)
-    }
+    return String(reflecting: value)
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    value.hash(into: &hasher)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {return value.hashValue}
-#endif  // swift(>=4.2)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      value.hash(into: &hasher)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int { return value.hashValue }
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! OptionalMessageExtensionField<M>
@@ -512,14 +513,17 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
 }
 
 public struct RepeatedMessageExtensionField<M: Message & Equatable>:
-  ExtensionField {
+  ExtensionField
+{
   public typealias BaseType = M
   public typealias ValueType = [BaseType]
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: RepeatedMessageExtensionField,
-                        rhs: RepeatedMessageExtensionField) -> Bool {
+  public static func == (
+    lhs: RepeatedMessageExtensionField,
+    rhs: RepeatedMessageExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -528,23 +532,21 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    for e in value {
-      e.hash(into: &hasher)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      for e in value {
+        e.hash(into: &hasher)
+      }
     }
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get {
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
       var hash = i_2166136261
       for e in value {
         hash = (hash &* i_16777619) ^ e.hashValue
       }
       return hash
     }
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! RepeatedMessageExtensionField<M>
@@ -552,7 +554,7 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
   }
 
   public var debugDescription: String {
-    return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
+    return "[" + value.map { String(reflecting: $0) }.joined(separator: ",") + "]"
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
@@ -584,14 +586,17 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
 // they serialize very differently, so we have separate serialization
 // handling here...
 public struct OptionalGroupExtensionField<G: Message & Hashable>:
-  ExtensionField {
+  ExtensionField
+{
   public typealias BaseType = G
   public typealias ValueType = BaseType
   public var value: G
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: OptionalGroupExtensionField,
-                        rhs: OptionalGroupExtensionField) -> Bool {
+  public static func == (
+    lhs: OptionalGroupExtensionField,
+    rhs: OptionalGroupExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -600,15 +605,15 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {return value.hashValue}
-#endif  // swift(>=4.2)
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int { return value.hashValue }
+  #endif  // swift(>=4.2)
 
-  public var debugDescription: String { get {return value.debugDescription} }
+  public var debugDescription: String { return value.debugDescription }
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! OptionalGroupExtensionField<G>
@@ -644,14 +649,17 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
 }
 
 public struct RepeatedGroupExtensionField<G: Message & Hashable>:
-  ExtensionField {
+  ExtensionField
+{
   public typealias BaseType = G
   public typealias ValueType = [BaseType]
   public var value: ValueType
   public var protobufExtension: AnyMessageExtension
 
-  public static func ==(lhs: RepeatedGroupExtensionField,
-                        rhs: RepeatedGroupExtensionField) -> Bool {
+  public static func == (
+    lhs: RepeatedGroupExtensionField,
+    rhs: RepeatedGroupExtensionField
+  ) -> Bool {
     return lhs.value == rhs.value
   }
 
@@ -660,24 +668,22 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     self.value = value
   }
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    hasher.combine(value)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    get {
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      hasher.combine(value)
+    }
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
       var hash = i_2166136261
       for e in value {
         hash = (hash &* i_16777619) ^ e.hashValue
       }
       return hash
     }
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public var debugDescription: String {
-    return "[" + value.map{$0.debugDescription}.joined(separator: ",") + "]"
+    return "[" + value.map { $0.debugDescription }.joined(separator: ",") + "]"
   }
 
   public func isEqual(other: AnyExtensionField) -> Bool {

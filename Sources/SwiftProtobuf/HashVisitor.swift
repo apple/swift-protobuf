@@ -15,8 +15,8 @@
 
 import Foundation
 
-private let i_2166136261 = Int(bitPattern: 2166136261)
-private let i_16777619 = Int(16777619)
+private let i_2166136261 = Int(bitPattern: 2_166_136_261)
+private let i_16777619 = Int(16_777_619)
 
 /// Computes the hash of a message by visiting its fields recursively.
 ///
@@ -27,33 +27,33 @@ private let i_16777619 = Int(16777619)
 /// message fields they want to include.
 internal struct HashVisitor: Visitor {
 
-#if swift(>=4.2)
-  internal private(set) var hasher: Hasher
-#else  // swift(>=4.2)
-  // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
-  private(set) var hashValue = i_2166136261
+  #if swift(>=4.2)
+    internal private(set) var hasher: Hasher
+  #else  // swift(>=4.2)
+    // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
+    private(set) var hashValue = i_2166136261
 
-  private mutating func mix(_ hash: Int) {
-    hashValue = (hashValue ^ hash) &* i_16777619
-  }
-
-  private mutating func mixMap<K, V: Hashable>(map: Dictionary<K,V>) {
-    var mapHash = 0
-    for (k, v) in map {
-      // Note: This calculation cannot depend on the order of the items.
-      mapHash = mapHash &+ (k.hashValue ^ v.hashValue)
+    private mutating func mix(_ hash: Int) {
+      hashValue = (hashValue ^ hash) &* i_16777619
     }
-    mix(mapHash)
-  }
-#endif // swift(>=4.2)
 
-#if swift(>=4.2)
-  init(_ hasher: Hasher) {
-    self.hasher = hasher
-  }
-#else
-  init() {}
-#endif
+    private mutating func mixMap<K, V: Hashable>(map: [K: V]) {
+      var mapHash = 0
+      for (k, v) in map {
+        // Note: This calculation cannot depend on the order of the items.
+        mapHash = mapHash &+ (k.hashValue ^ v.hashValue)
+      }
+      mix(mapHash)
+    }
+  #endif  // swift(>=4.2)
+
+  #if swift(>=4.2)
+    init(_ hasher: Hasher) {
+      self.hasher = hasher
+    }
+  #else
+    init() {}
+  #endif
 
   mutating func visitUnknown(bytes: Data) throws {
     #if swift(>=4.2)
@@ -70,7 +70,7 @@ internal struct HashVisitor: Visitor {
     #else
       mix(fieldNumber)
       mix(value.hashValue)
-   #endif
+    #endif
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
@@ -123,8 +123,10 @@ internal struct HashVisitor: Visitor {
     #endif
   }
 
-  mutating func visitSingularEnumField<E: Enum>(value: E,
-                                                fieldNumber: Int) {
+  mutating func visitSingularEnumField<E: Enum>(
+    value: E,
+    fieldNumber: Int
+  ) {
     #if swift(>=4.2)
       hasher.combine(fieldNumber)
       hasher.combine(value)

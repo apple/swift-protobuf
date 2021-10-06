@@ -16,11 +16,11 @@
 import Foundation
 
 #if !swift(>=4.2)
-private let i_2166136261 = Int(bitPattern: 2166136261)
-private let i_16777619 = Int(16777619)
+  private let i_2166136261 = Int(bitPattern: 2_166_136_261)
+  private let i_16777619 = Int(16_777_619)
 #endif
 
-fileprivate func serializeAnyJSON(
+private func serializeAnyJSON(
   for message: Message,
   typeURL: String,
   options: JSONEncodingOptions
@@ -38,7 +38,9 @@ fileprivate func serializeAnyJSON(
   return visitor.stringResult
 }
 
-fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
+private func emitVerboseTextForm(
+  visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String
+) {
   let url: String
   if typeURL.isEmpty {
     url = buildTypeURL(forMessage: message, typePrefix: defaultAnyTypeURLPrefix)
@@ -48,7 +50,7 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
   visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
-fileprivate func asJSONObject(body: Data) -> Data {
+private func asJSONObject(body: Data) -> Data {
   let asciiOpenCurlyBracket = UInt8(ascii: "{")
   let asciiCloseCurlyBracket = UInt8(ascii: "}")
   var result = Data([asciiOpenCurlyBracket])
@@ -57,13 +59,16 @@ fileprivate func asJSONObject(body: Data) -> Data {
   return result
 }
 
-fileprivate func unpack(contentJSON: Data,
-                        extensions: ExtensionMap,
-                        options: JSONDecodingOptions,
-                        as messageType: Message.Type) throws -> Message {
+private func unpack(
+  contentJSON: Data,
+  extensions: ExtensionMap,
+  options: JSONDecodingOptions,
+  as messageType: Message.Type
+) throws -> Message {
   guard messageType is _CustomJSONCodable.Type else {
     let contentJSONAsObject = asJSONObject(body: contentJSON)
-    return try messageType.init(jsonUTF8Data: contentJSONAsObject, extensions: extensions, options: options)
+    return try messageType.init(
+      jsonUTF8Data: contentJSONAsObject, extensions: extensions, options: options)
   }
 
   var value = String()
@@ -116,10 +121,11 @@ internal class AnyMessageStorage {
           return Data()
         }
         do {
-          let m = try unpack(contentJSON: contentJSON,
-                             extensions: SimpleExtensionMap(),
-                             options: options,
-                             as: messageType)
+          let m = try unpack(
+            contentJSON: contentJSON,
+            extensions: SimpleExtensionMap(),
+            options: options,
+            as: messageType)
           return try m.serializedData(partial: true)
         } catch {
           return Data()
@@ -189,10 +195,12 @@ internal class AnyMessageStorage {
       }
 
     case .contentJSON(let contentJSON, let options):
-      target = try unpack(contentJSON: contentJSON,
-                          extensions: extensions ?? SimpleExtensionMap(),
-                          options: options,
-                          as: M.self) as! M
+      target =
+        try unpack(
+          contentJSON: contentJSON,
+          extensions: extensions ?? SimpleExtensionMap(),
+          options: options,
+          as: M.self) as! M
     }
   }
 
@@ -215,17 +223,18 @@ internal class AnyMessageStorage {
     case .contentJSON(let contentJSON, let options):
       // contentJSON requires we have the type available for decoding
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          throw BinaryEncodingError.anyTranscodeFailure
+        throw BinaryEncodingError.anyTranscodeFailure
       }
       do {
         // Decodes the full JSON and then discard the result.
         // The regular traversal will decode this again by querying the
         // `value` field, but that has no way to fail.  As a result,
         // we need this to accurately handle decode errors.
-        _ = try unpack(contentJSON: contentJSON,
-                       extensions: SimpleExtensionMap(),
-                       options: options,
-                       as: messageType)
+        _ = try unpack(
+          contentJSON: contentJSON,
+          extensions: SimpleExtensionMap(),
+          options: options,
+          as: messageType)
       } catch {
         throw BinaryEncodingError.anyTranscodeFailure
       }
@@ -243,7 +252,8 @@ extension AnyMessageStorage {
       throw TextFormatDecodingError.malformedText
     }
     let terminator = try decoder.scanner.skipObjectStart()
-    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+    var subDecoder = try TextFormatDecoder(
+      messageType: messageType, scanner: decoder.scanner, terminator: terminator)
     if messageType == Google_Protobuf_Any.self {
       var any = Google_Protobuf_Any()
       try any.decodeTextFormat(decoder: &subDecoder)
@@ -290,10 +300,11 @@ extension AnyMessageStorage {
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         do {
-          let m = try unpack(contentJSON: contentJSON,
-                             extensions: SimpleExtensionMap(),
-                             options: options,
-                             as: messageType)
+          let m = try unpack(
+            contentJSON: contentJSON,
+            extensions: SimpleExtensionMap(),
+            options: options,
+            as: messageType)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
@@ -323,33 +334,33 @@ extension AnyMessageStorage {
 /// test.  Of course, regardless of the above, we must guarantee that
 /// hashValue is compatible with equality.
 extension AnyMessageStorage {
-#if swift(>=4.2)
-  // Can't use _valueData for a few reasons:
-  // 1. Since decode is done on demand, two objects could be equal
-  //    but created differently (one from JSON, one for Message, etc.),
-  //    and the hash values have to be equal even if we don't have data
-  //    yet.
-  // 2. map<> serialization order is undefined. At the time of writing
-  //    the Swift, Objective-C, and Go runtimes all tend to have random
-  //    orders, so the messages could be identical, but in binary form
-  //    they could differ.
-  public func hash(into hasher: inout Hasher) {
-    if !_typeURL.isEmpty {
-      hasher.combine(_typeURL)
+  #if swift(>=4.2)
+    // Can't use _valueData for a few reasons:
+    // 1. Since decode is done on demand, two objects could be equal
+    //    but created differently (one from JSON, one for Message, etc.),
+    //    and the hash values have to be equal even if we don't have data
+    //    yet.
+    // 2. map<> serialization order is undefined. At the time of writing
+    //    the Swift, Objective-C, and Go runtimes all tend to have random
+    //    orders, so the messages could be identical, but in binary form
+    //    they could differ.
+    public func hash(into hasher: inout Hasher) {
+      if !_typeURL.isEmpty {
+        hasher.combine(_typeURL)
+      }
     }
-  }
-#else  // swift(>=4.2)
-  var hashValue: Int {
-    var hash: Int = i_2166136261
-    if !_typeURL.isEmpty {
-      hash = (hash &* i_16777619) ^ _typeURL.hashValue
+  #else  // swift(>=4.2)
+    var hashValue: Int {
+      var hash: Int = i_2166136261
+      if !_typeURL.isEmpty {
+        hash = (hash &* i_16777619) ^ _typeURL.hashValue
+      }
+      return hash
     }
-    return hash
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   func isEqualTo(other: AnyMessageStorage) -> Bool {
-    if (_typeURL != other._typeURL) {
+    if _typeURL != other._typeURL {
       return false
     }
 
@@ -365,7 +376,9 @@ extension AnyMessageStorage {
     // Do our best to compare what is present have...
 
     // If both have messages, check if they are the same.
-    if case .message(let myMsg) = state, case .message(let otherMsg) = other.state, type(of: myMsg) == type(of: otherMsg) {
+    if case .message(let myMsg) = state, case .message(let otherMsg) = other.state,
+      type(of: myMsg) == type(of: otherMsg)
+    {
       // Since the messages are known to be same type, we can claim both equal and
       // not equal based on the equality comparison.
       return myMsg.isEqualTo(message: otherMsg)
@@ -376,7 +389,9 @@ extension AnyMessageStorage {
     // same doesn't always mean the messages aren't equal. Likewise, the binary could
     // have been created by a library that doesn't order the fields, or the binary was
     // created using the appending ability in of the binary format.
-    if case .binary(let myValue) = state, case .binary(let otherValue) = other.state, myValue == otherValue {
+    if case .binary(let myValue) = state, case .binary(let otherValue) = other.state,
+      myValue == otherValue
+    {
       return true
     }
 
@@ -385,8 +400,9 @@ extension AnyMessageStorage {
     // order), the fact that the JSON isn't the same doesn't always mean the messages
     // aren't equal.
     if case .contentJSON(let myJSON, _) = state,
-       case .contentJSON(let otherJSON, _) = other.state,
-       myJSON == otherJSON {
+      case .contentJSON(let otherJSON, _) = other.state,
+      myJSON == otherJSON
+    {
       return true
     }
 
@@ -437,7 +453,9 @@ extension AnyMessageStorage {
     case .message(let msg):
       // We should have been initialized with a typeURL, but
       // ensure it wasn't cleared.
-      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix)
+      let url =
+        !_typeURL.isEmpty
+        ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix)
       return try serializeAnyJSON(for: msg, typeURL: url, options: options)
 
     case .contentJSON(let contentJSON, _):

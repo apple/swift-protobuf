@@ -15,20 +15,22 @@
 import Foundation
 
 #if !swift(>=5.0)
-internal extension Data {
+  extension Data {
     @usableFromInline
     func withUnsafeBytes<T>(_ body: (UnsafeRawBufferPointer) throws -> T) rethrows -> T {
-        let c = count
-        return try withUnsafeBytes { (p: UnsafePointer<UInt8>) throws -> T in
-            try body(UnsafeRawBufferPointer(start: p, count: c))
-        }
+      let c = count
+      return try withUnsafeBytes { (p: UnsafePointer<UInt8>) throws -> T in
+        try body(UnsafeRawBufferPointer(start: p, count: c))
+      }
     }
 
-    mutating func withUnsafeMutableBytes<T>(_ body: (UnsafeMutableRawBufferPointer) throws -> T) rethrows -> T {
-        let c = count
-        return try withUnsafeMutableBytes { (p: UnsafeMutablePointer<UInt8>) throws -> T in
-            try body(UnsafeMutableRawBufferPointer(start: p, count: c))
-        }
+    mutating func withUnsafeMutableBytes<T>(_ body: (UnsafeMutableRawBufferPointer) throws -> T)
+      rethrows -> T
+    {
+      let c = count
+      return try withUnsafeMutableBytes { (p: UnsafeMutablePointer<UInt8>) throws -> T in
+        try body(UnsafeMutableRawBufferPointer(start: p, count: c))
+      }
     }
-}
+  }
 #endif

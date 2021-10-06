@@ -15,10 +15,12 @@
 // -----------------------------------------------------------------------------
 
 public struct ExtensionFieldValueSet: Hashable {
-  fileprivate var values = [Int : AnyExtensionField]()
+  fileprivate var values = [Int: AnyExtensionField]()
 
-  public static func ==(lhs: ExtensionFieldValueSet,
-                        rhs: ExtensionFieldValueSet) -> Bool {
+  public static func == (
+    lhs: ExtensionFieldValueSet,
+    rhs: ExtensionFieldValueSet
+  ) -> Bool {
     guard lhs.values.count == rhs.values.count else {
       return false
     }
@@ -39,34 +41,34 @@ public struct ExtensionFieldValueSet: Hashable {
 
   public init() {}
 
-#if swift(>=4.2)
-  public func hash(into hasher: inout Hasher) {
-    // AnyExtensionField is not Hashable, and the Self constraint that would
-    // add breaks some of the uses of it; so the only choice is to manually
-    // mix things in. However, one must remember to do things in an order
-    // independent manner.
-    var hash = 16777619
-    for (fieldNumber, v) in values {
-      var localHasher = hasher
-      localHasher.combine(fieldNumber)
-      v.hash(into: &localHasher)
-      hash = hash &+ localHasher.finalize()
+  #if swift(>=4.2)
+    public func hash(into hasher: inout Hasher) {
+      // AnyExtensionField is not Hashable, and the Self constraint that would
+      // add breaks some of the uses of it; so the only choice is to manually
+      // mix things in. However, one must remember to do things in an order
+      // independent manner.
+      var hash = 16_777_619
+      for (fieldNumber, v) in values {
+        var localHasher = hasher
+        localHasher.combine(fieldNumber)
+        v.hash(into: &localHasher)
+        hash = hash &+ localHasher.finalize()
+      }
+      hasher.combine(hash)
     }
-    hasher.combine(hash)
-  }
-#else  // swift(>=4.2)
-  public var hashValue: Int {
-    var hash = 16777619
-    for (fieldNumber, v) in values {
-      // Note: This calculation cannot depend on the order of the items.
-      hash = hash &+ fieldNumber &+ v.hashValue
+  #else  // swift(>=4.2)
+    public var hashValue: Int {
+      var hash = 16_777_619
+      for (fieldNumber, v) in values {
+        // Note: This calculation cannot depend on the order of the items.
+        hash = hash &+ fieldNumber &+ v.hashValue
+      }
+      return hash
     }
-    return hash
-  }
-#endif  // swift(>=4.2)
+  #endif  // swift(>=4.2)
 
   public func traverse<V: Visitor>(visitor: inout V, start: Int, end: Int) throws {
-    let validIndexes = values.keys.filter {$0 >= start && $0 < end}
+    let validIndexes = values.keys.filter { $0 >= start && $0 < end }
     for i in validIndexes.sorted() {
       let value = values[i]!
       try value.traverse(visitor: &visitor)
@@ -78,7 +80,9 @@ public struct ExtensionFieldValueSet: Hashable {
     set { values[index] = newValue }
   }
 
-  mutating func modify<ReturnType>(index: Int, _ modifier: (inout AnyExtensionField?) throws -> ReturnType) rethrows -> ReturnType {
+  mutating func modify<ReturnType>(
+    index: Int, _ modifier: (inout AnyExtensionField?) throws -> ReturnType
+  ) rethrows -> ReturnType {
     // This internal helper exists to invoke the _modify accessor on Dictionary for the given operation, which can avoid CoWs
     // during the modification operation.
     return try modifier(&values[index])

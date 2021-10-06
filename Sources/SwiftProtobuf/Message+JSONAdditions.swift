@@ -49,7 +49,7 @@ extension Message {
   ) throws -> Data {
     if let m = self as? _CustomJSONCodable {
       let string = try m.encodedJSONString(options: options)
-      let data = string.data(using: String.Encoding.utf8)! // Cannot fail!
+      let data = string.data(using: String.Encoding.utf8)!  // Cannot fail!
       return data
     }
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
@@ -65,7 +65,7 @@ extension Message {
   /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
-    public init(
+  public init(
     jsonString: String,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
@@ -129,11 +129,13 @@ extension Message {
       guard body.count > 0 else {
         throw JSONDecodingError.truncated
       }
-      var decoder = JSONDecoder(source: body, options: options,
-                                messageType: Self.self, extensions: extensions)
+      var decoder = JSONDecoder(
+        source: body, options: options,
+        messageType: Self.self, extensions: extensions)
       if decoder.scanner.skipOptionalNull() {
         if let customCodable = Self.self as? _CustomJSONCodable.Type,
-           let message = try customCodable.decodedFromJSONNull() {
+          let message = try customCodable.decodedFromJSONNull()
+        {
           self = message as! Self
         } else {
           throw JSONDecodingError.illegalNull
@@ -147,4 +149,3 @@ extension Message {
     }
   }
 }
-

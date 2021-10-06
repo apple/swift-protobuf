@@ -26,11 +26,11 @@ public struct UnknownStorage: Equatable {
   /// fields of a decoded message.
   public private(set) var data = Data()
 
-#if !swift(>=4.1)
-  public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
-    return lhs.data == rhs.data
-  }
-#endif
+  #if !swift(>=4.1)
+    public static func == (lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
+      return lhs.data == rhs.data
+    }
+  #endif
 
   public init() {}
 

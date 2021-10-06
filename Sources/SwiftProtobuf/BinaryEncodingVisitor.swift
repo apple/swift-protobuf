@@ -97,14 +97,19 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder.putBytesValue(value: value)
   }
 
-  mutating func visitSingularEnumField<E: Enum>(value: E,
-                                                fieldNumber: Int) throws {
-    try visitSingularUInt64Field(value: UInt64(bitPattern: Int64(value.rawValue)),
-                                 fieldNumber: fieldNumber)
+  mutating func visitSingularEnumField<E: Enum>(
+    value: E,
+    fieldNumber: Int
+  ) throws {
+    try visitSingularUInt64Field(
+      value: UInt64(bitPattern: Int64(value.rawValue)),
+      fieldNumber: fieldNumber)
   }
 
-  mutating func visitSingularMessageField<M: Message>(value: M,
-                                             fieldNumber: Int) throws {
+  mutating func visitSingularMessageField<M: Message>(
+    value: M,
+    fieldNumber: Int
+  ) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     let length = try value.serializedDataSize()
     encoder.putVarInt(value: length)
@@ -118,7 +123,6 @@ internal struct BinaryEncodingVisitor: Visitor {
   }
 
   // Repeated fields are handled by the default implementations in Visitor.swift
-
 
   // Packed Fields
 
@@ -146,7 +150,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
-        encoder.putVarInt(value: Int64(v))
+      encoder.putVarInt(value: Int64(v))
     }
   }
 
@@ -156,7 +160,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
-        encoder.putVarInt(value: v)
+      encoder.putVarInt(value: v)
     }
   }
 
@@ -166,7 +170,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     encoder.putVarInt(value: packedSize)
     for v in value {
-        encoder.putZigZagVarInt(value: Int64(v))
+      encoder.putZigZagVarInt(value: Int64(v))
     }
   }
 
@@ -176,7 +180,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: ZigZag.encoded($1)) }
     encoder.putVarInt(value: packedSize)
     for v in value {
-        encoder.putZigZagVarInt(value: v)
+      encoder.putZigZagVarInt(value: v)
     }
   }
 
@@ -186,7 +190,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
-        encoder.putVarInt(value: UInt64(v))
+      encoder.putVarInt(value: UInt64(v))
     }
   }
 
@@ -196,7 +200,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     let packedSize = value.reduce(0) { $0 + Varint.encodedSize(of: $1) }
     encoder.putVarInt(value: packedSize)
     for v in value {
-        encoder.putVarInt(value: v)
+      encoder.putVarInt(value: v)
     }
   }
 
@@ -223,7 +227,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putVarInt(value: value.count * MemoryLayout<Int32>.size)
     for v in value {
-       encoder.putFixedUInt32(value: UInt32(bitPattern: v))
+      encoder.putFixedUInt32(value: UInt32(bitPattern: v))
     }
   }
 
@@ -262,7 +266,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    for (k,v) in value {
+    for (k, v) in value {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
       var sizer = BinaryEncodingSizeVisitor()
       try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
@@ -279,7 +283,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where ValueType.RawValue == Int {
-    for (k,v) in value {
+    for (k, v) in value {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
       var sizer = BinaryEncodingSizeVisitor()
       try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
@@ -296,7 +300,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    for (k,v) in value {
+    for (k, v) in value {
       encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
       var sizer = BinaryEncodingSizeVisitor()
       try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)

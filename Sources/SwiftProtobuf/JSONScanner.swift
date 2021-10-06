@@ -86,22 +86,22 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
 // Note that both "-" and "+" decode to 62 and "/" and "_" both
 // decode as 63.
 let base64Values: [Int] = [
-/* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0x20 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63,
-/* 0x30 */ 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,
-/* 0x40 */ -1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,
-/* 0x50 */ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63,
-/* 0x60 */ -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-/* 0x70 */ 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1,
-/* 0x80 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0x90 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0xa0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0xb0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0xc0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0xd0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0xe0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0xf0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0x20 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63,
+  /* 0x30 */ 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,
+  /* 0x40 */ -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+  /* 0x50 */ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63,
+  /* 0x60 */ -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+  /* 0x70 */ 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1,
+  /* 0x80 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0x90 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0xa0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0xb0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0xc0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0xd0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0xe0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+  /* 0xf0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 ]
 
 /// Returns a `Data` value containing bytes equivalent to the given
@@ -120,157 +120,157 @@ private func parseBytes(
   index: inout UnsafeRawBufferPointer.Index,
   end: UnsafeRawBufferPointer.Index
 ) throws -> Data {
-    let c = source[index]
-    if c != asciiDoubleQuote {
+  let c = source[index]
+  if c != asciiDoubleQuote {
+    throw JSONDecodingError.malformedString
+  }
+  source.formIndex(after: &index)
+
+  // Count the base-64 digits
+  // Ignore most unrecognized characters in this first pass,
+  // stop at the closing double quote.
+  let digitsStart = index
+  var rawChars = 0
+  var sawSection4Characters = false
+  var sawSection5Characters = false
+  while index != end {
+    var digit = source[index]
+    if digit == asciiDoubleQuote {
+      break
+    }
+
+    if digit == asciiBackslash {
+      source.formIndex(after: &index)
+      if index == end {
         throw JSONDecodingError.malformedString
-    }
-    source.formIndex(after: &index)
-
-    // Count the base-64 digits
-    // Ignore most unrecognized characters in this first pass,
-    // stop at the closing double quote.
-    let digitsStart = index
-    var rawChars = 0
-    var sawSection4Characters = false
-    var sawSection5Characters = false
-    while index != end {
-        var digit = source[index]
-        if digit == asciiDoubleQuote {
-            break
-        }
-
-        if digit == asciiBackslash {
-            source.formIndex(after: &index)
-            if index == end {
-                throw JSONDecodingError.malformedString
-            }
-            let escaped = source[index]
-            switch escaped {
-            case asciiLowerU:
-                // TODO: Parse hex escapes such as \u0041.  Note that
-                // such escapes are going to be extremely rare, so
-                // there's little point in optimizing for them.
-                throw JSONDecodingError.malformedString
-            case asciiForwardSlash:
-                digit = escaped
-            default:
-                // Reject \b \f \n \r \t \" or \\ and all illegal escapes
-                throw JSONDecodingError.malformedString
-            }
-        }
-
-        if digit == asciiPlus || digit == asciiForwardSlash {
-            sawSection4Characters = true
-        } else if digit == asciiMinus || digit == asciiUnderscore {
-            sawSection5Characters = true
-        }
-        let k = base64Values[Int(digit)]
-        if k >= 0 {
-            rawChars += 1
-        }
-        source.formIndex(after: &index)
-    }
-
-    // We reached the end without seeing the close quote
-    if index == end {
+      }
+      let escaped = source[index]
+      switch escaped {
+      case asciiLowerU:
+        // TODO: Parse hex escapes such as \u0041.  Note that
+        // such escapes are going to be extremely rare, so
+        // there's little point in optimizing for them.
         throw JSONDecodingError.malformedString
-    }
-    // Reject mixed encodings.
-    if sawSection4Characters && sawSection5Characters {
-        throw JSONDecodingError.malformedString
-    }
-
-    // Allocate a Data object of exactly the right size
-    var value = Data(count: rawChars * 3 / 4)
-
-    // Scan the digits again and populate the Data object.
-    // In this pass, we check for (and fail) if there are
-    // unexpected characters.  But we don't check for end-of-input,
-    // because the loop above already verified that there was
-    // a closing double quote.
-    index = digitsStart
-    try value.withUnsafeMutableBytes {
-        (body: UnsafeMutableRawBufferPointer) in
-      if var p = body.baseAddress, body.count > 0 {
-        var n = 0
-        var chars = 0 // # chars in current group
-        var padding = 0 // # padding '=' chars
-        digits: while true {
-            let digit = source[index]
-            var k = base64Values[Int(digit)]
-            if k < 0 {
-                switch digit {
-                case asciiDoubleQuote:
-                    break digits
-                case asciiBackslash:
-                    source.formIndex(after: &index)
-                    let escaped = source[index]
-                    switch escaped {
-                    case asciiForwardSlash:
-                        k = base64Values[Int(escaped)]
-                    default:
-                        // Note: Invalid backslash escapes were caught
-                        // above; we should never get here.
-                        throw JSONDecodingError.malformedString
-                    }
-                case asciiSpace:
-                    source.formIndex(after: &index)
-                    continue digits
-                case asciiEqualSign: // Count padding
-                    while true {
-                        switch source[index] {
-                        case asciiDoubleQuote:
-                            break digits
-                        case asciiSpace:
-                            break
-                        case 61:
-                            padding += 1
-                        default: // Only '=' and whitespace permitted
-                            throw JSONDecodingError.malformedString
-                        }
-                        source.formIndex(after: &index)
-                    }
-                default:
-                    throw JSONDecodingError.malformedString
-                }
-            }
-            n <<= 6
-            n |= k
-            chars += 1
-            if chars == 4 {
-                p[0] = UInt8(truncatingIfNeeded: n >> 16)
-                p[1] = UInt8(truncatingIfNeeded: n >> 8)
-                p[2] = UInt8(truncatingIfNeeded: n)
-                p += 3
-                chars = 0
-                n = 0
-            }
-            source.formIndex(after: &index)
-        }
-        switch chars {
-        case 3:
-            p[0] = UInt8(truncatingIfNeeded: n >> 10)
-            p[1] = UInt8(truncatingIfNeeded: n >> 2)
-            if padding == 1 || padding == 0 {
-                return
-            }
-        case 2:
-            p[0] = UInt8(truncatingIfNeeded: n >> 4)
-            if padding == 2 || padding == 0 {
-                return
-            }
-        case 0:
-            if padding == 0 {
-                return
-            }
-        default:
-            break
-        }
+      case asciiForwardSlash:
+        digit = escaped
+      default:
+        // Reject \b \f \n \r \t \" or \\ and all illegal escapes
         throw JSONDecodingError.malformedString
       }
     }
+
+    if digit == asciiPlus || digit == asciiForwardSlash {
+      sawSection4Characters = true
+    } else if digit == asciiMinus || digit == asciiUnderscore {
+      sawSection5Characters = true
+    }
+    let k = base64Values[Int(digit)]
+    if k >= 0 {
+      rawChars += 1
+    }
     source.formIndex(after: &index)
-    return value
+  }
+
+  // We reached the end without seeing the close quote
+  if index == end {
+    throw JSONDecodingError.malformedString
+  }
+  // Reject mixed encodings.
+  if sawSection4Characters && sawSection5Characters {
+    throw JSONDecodingError.malformedString
+  }
+
+  // Allocate a Data object of exactly the right size
+  var value = Data(count: rawChars * 3 / 4)
+
+  // Scan the digits again and populate the Data object.
+  // In this pass, we check for (and fail) if there are
+  // unexpected characters.  But we don't check for end-of-input,
+  // because the loop above already verified that there was
+  // a closing double quote.
+  index = digitsStart
+  try value.withUnsafeMutableBytes {
+    (body: UnsafeMutableRawBufferPointer) in
+    if var p = body.baseAddress, body.count > 0 {
+      var n = 0
+      var chars = 0  // # chars in current group
+      var padding = 0  // # padding '=' chars
+      digits: while true {
+        let digit = source[index]
+        var k = base64Values[Int(digit)]
+        if k < 0 {
+          switch digit {
+          case asciiDoubleQuote:
+            break digits
+          case asciiBackslash:
+            source.formIndex(after: &index)
+            let escaped = source[index]
+            switch escaped {
+            case asciiForwardSlash:
+              k = base64Values[Int(escaped)]
+            default:
+              // Note: Invalid backslash escapes were caught
+              // above; we should never get here.
+              throw JSONDecodingError.malformedString
+            }
+          case asciiSpace:
+            source.formIndex(after: &index)
+            continue digits
+          case asciiEqualSign:  // Count padding
+            while true {
+              switch source[index] {
+              case asciiDoubleQuote:
+                break digits
+              case asciiSpace:
+                break
+              case 61:
+                padding += 1
+              default:  // Only '=' and whitespace permitted
+                throw JSONDecodingError.malformedString
+              }
+              source.formIndex(after: &index)
+            }
+          default:
+            throw JSONDecodingError.malformedString
+          }
+        }
+        n <<= 6
+        n |= k
+        chars += 1
+        if chars == 4 {
+          p[0] = UInt8(truncatingIfNeeded: n >> 16)
+          p[1] = UInt8(truncatingIfNeeded: n >> 8)
+          p[2] = UInt8(truncatingIfNeeded: n)
+          p += 3
+          chars = 0
+          n = 0
+        }
+        source.formIndex(after: &index)
+      }
+      switch chars {
+      case 3:
+        p[0] = UInt8(truncatingIfNeeded: n >> 10)
+        p[1] = UInt8(truncatingIfNeeded: n >> 2)
+        if padding == 1 || padding == 0 {
+          return
+        }
+      case 2:
+        p[0] = UInt8(truncatingIfNeeded: n >> 4)
+        if padding == 2 || padding == 0 {
+          return
+        }
+      case 0:
+        if padding == 0 {
+          return
+        }
+      default:
+        break
+      }
+      throw JSONDecodingError.malformedString
+    }
+  }
+  source.formIndex(after: &index)
+  return value
 }
 
 // JSON encoding allows a variety of \-escapes, including
@@ -280,10 +280,10 @@ private func decodeString(_ s: String) -> String? {
   var chars = s.unicodeScalars.makeIterator()
   while let c = chars.next() {
     switch c.value {
-    case UInt32(asciiBackslash): // backslash
+    case UInt32(asciiBackslash):  // backslash
       if let escaped = chars.next() {
         switch escaped.value {
-        case UInt32(asciiLowerU): // "\u"
+        case UInt32(asciiLowerU):  // "\u"
           // Exactly 4 hex digits:
           if let digit1 = chars.next(),
             let d1 = fromHexDigit(digit1),
@@ -292,7 +292,8 @@ private func decodeString(_ s: String) -> String? {
             let digit3 = chars.next(),
             let d3 = fromHexDigit(digit3),
             let digit4 = chars.next(),
-            let d4 = fromHexDigit(digit4) {
+            let d4 = fromHexDigit(digit4)
+          {
             let codePoint = ((d1 * 16 + d2) * 16 + d3) * 16 + d4
             if let scalar = UnicodeScalar(codePoint) {
               out.append(scalar)
@@ -316,7 +317,8 @@ private func decodeString(_ s: String) -> String? {
                 let digit3 = chars.next(),
                 let d3 = fromHexDigit(digit3),
                 let digit4 = chars.next(),
-                let d4 = fromHexDigit(digit4) {
+                let d4 = fromHexDigit(digit4)
+              {
                 let follower = ((d1 * 16 + d2) * 16 + d3) * 16 + d4
                 guard 0xDC00 <= follower && follower < 0xE000 else {
                   // High surrogate was not followed by a low surrogate.
@@ -339,24 +341,24 @@ private func decodeString(_ s: String) -> String? {
             // Malformed \u escape
             return nil
           }
-        case UInt32(asciiLowerB): // \b
+        case UInt32(asciiLowerB):  // \b
           out.append("\u{08}")
-        case UInt32(asciiLowerF): // \f
+        case UInt32(asciiLowerF):  // \f
           out.append("\u{0c}")
-        case UInt32(asciiLowerN): // \n
+        case UInt32(asciiLowerN):  // \n
           out.append("\u{0a}")
-        case UInt32(asciiLowerR): // \r
+        case UInt32(asciiLowerR):  // \r
           out.append("\u{0d}")
-        case UInt32(asciiLowerT): // \t
+        case UInt32(asciiLowerT):  // \t
           out.append("\u{09}")
         case UInt32(asciiDoubleQuote), UInt32(asciiBackslash),
-             UInt32(asciiForwardSlash): // " \ /
+          UInt32(asciiForwardSlash):  // " \ /
           out.append(escaped)
         default:
-          return nil // Unrecognized escape
+          return nil  // Unrecognized escape
         }
       } else {
-        return nil // Input ends with backslash
+        return nil  // Input ends with backslash
       }
     default:
       out.append(c)
@@ -493,20 +495,22 @@ internal struct JSONScanner {
     let start = index
     let c = source[index]
     switch c {
-    case asciiZero: // 0
+    case asciiZero:  // 0
       source.formIndex(after: &index)
       if index != end {
         let after = source[index]
         switch after {
-        case asciiZero...asciiNine: // 0...9
+        case asciiZero...asciiNine:  // 0...9
           // leading '0' forbidden unless it is the only digit
           throw JSONDecodingError.leadingZero
-        case asciiPeriod, asciiLowerE, asciiUpperE: // . e
+        case asciiPeriod, asciiLowerE, asciiUpperE:  // . e
           // Slow path: JSON numbers can be written in floating-point notation
           index = start
-          if let d = try parseBareDouble(source: source,
-                                         index: &index,
-                                         end: end) {
+          if let d = try parseBareDouble(
+            source: source,
+            index: &index,
+            end: end)
+          {
             if let u = UInt64(exactly: d) {
               return u
             }
@@ -519,24 +523,26 @@ internal struct JSONScanner {
         }
       }
       return 0
-    case asciiOne...asciiNine: // 1...9
+    case asciiOne...asciiNine:  // 1...9
       var n = 0 as UInt64
       while index != end {
         let digit = source[index]
         switch digit {
-        case asciiZero...asciiNine: // 0...9
+        case asciiZero...asciiNine:  // 0...9
           let val = UInt64(digit - asciiZero)
           if n > UInt64.max / 10 || n * 10 > UInt64.max - val {
             throw JSONDecodingError.numberRange
           }
           source.formIndex(after: &index)
           n = n * 10 + val
-        case asciiPeriod, asciiLowerE, asciiUpperE: // . e
+        case asciiPeriod, asciiLowerE, asciiUpperE:  // . e
           // Slow path: JSON allows floating-point notation for integers
           index = start
-          if let d = try parseBareDouble(source: source,
-                                         index: &index,
-                                         end: end) {
+          if let d = try parseBareDouble(
+            source: source,
+            index: &index,
+            end: end)
+          {
             if let u = UInt64(exactly: d) {
               return u
             }
@@ -576,7 +582,7 @@ internal struct JSONScanner {
       throw JSONDecodingError.truncated
     }
     let c = source[index]
-    if c == asciiMinus { // -
+    if c == asciiMinus {  // -
       source.formIndex(after: &index)
       if index == end {
         throw JSONDecodingError.truncated
@@ -587,13 +593,13 @@ internal struct JSONScanner {
         throw JSONDecodingError.malformedNumber
       }
       if let n = try parseBareUInt64(source: source, index: &index, end: end) {
-        let limit: UInt64 = 0x8000000000000000 // -Int64.min
+        let limit: UInt64 = 0x8000_0000_0000_0000  // -Int64.min
         if n >= limit {
           if n > limit {
             // Too large negative number
             throw JSONDecodingError.numberRange
           } else {
-            return Int64.min // Special case for Int64.min
+            return Int64.min  // Special case for Int64.min
           }
         }
         return -Int64(bitPattern: n)
@@ -638,7 +644,7 @@ internal struct JSONScanner {
     }
 
     // Optional leading minus sign
-    if c == asciiMinus { // -
+    if c == asciiMinus {  // -
       source.formIndex(after: &index)
       if index == end {
         index = start
@@ -648,12 +654,12 @@ internal struct JSONScanner {
       if c == asciiBackslash {
         return nil
       }
-    } else if c == asciiUpperN { // Maybe NaN?
+    } else if c == asciiUpperN {  // Maybe NaN?
       // Return nil, let the caller deal with it.
       return nil
     }
 
-    if c == asciiUpperI { // Maybe Infinity, Inf, -Infinity, or -Inf ?
+    if c == asciiUpperI {  // Maybe Infinity, Inf, -Infinity, or -Inf ?
       // Return nil, let the caller deal with it.
       return nil
     }
@@ -703,7 +709,7 @@ internal struct JSONScanner {
       }
       c = source[index]
       switch c {
-      case asciiZero...asciiNine: // 0...9
+      case asciiZero...asciiNine:  // 0...9
         while c >= asciiZero && c <= asciiNine {
           source.formIndex(after: &index)
           if index == end {
@@ -737,7 +743,7 @@ internal struct JSONScanner {
       if c == asciiBackslash {
         return nil
       }
-      if c == asciiPlus || c == asciiMinus { // + -
+      if c == asciiPlus || c == asciiMinus {  // + -
         source.formIndex(after: &index)
         if index == end {
           // must be at least one digit in exponent
@@ -787,7 +793,7 @@ internal struct JSONScanner {
     let start = index
     while hasMoreContent {
       switch currentByte {
-      case asciiDoubleQuote: // "
+      case asciiDoubleQuote:  // "
         let s = utf8ToString(bytes: source, start: start, end: index)
         advance()
         if let t = s {
@@ -797,12 +803,12 @@ internal struct JSONScanner {
             return t
           }
         } else {
-          return nil // Invalid UTF8
+          return nil  // Invalid UTF8
         }
-      case asciiBackslash: //  \
+      case asciiBackslash:  //  \
         advance()
         guard hasMoreContent else {
-          return nil // Unterminated escape
+          return nil  // Unterminated escape
         }
         sawBackslash = true
       default:
@@ -810,7 +816,7 @@ internal struct JSONScanner {
       }
       advance()
     }
-    return nil // Unterminated quoted string
+    return nil  // Unterminated quoted string
   }
 
   /// Parse an unsigned integer, whether or not its quoted.
@@ -829,9 +835,11 @@ internal struct JSONScanner {
     if c == asciiDoubleQuote {
       let start = index
       advance()
-      if let u = try parseBareUInt64(source: source,
-                                     index: &index,
-                                     end: source.endIndex) {
+      if let u = try parseBareUInt64(
+        source: source,
+        index: &index,
+        end: source.endIndex)
+      {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -852,9 +860,11 @@ internal struct JSONScanner {
           if body.count > 0 {
             var index = body.startIndex
             let end = body.endIndex
-            if let u = try parseBareUInt64(source: body,
-                                           index: &index,
-                                           end: end) {
+            if let u = try parseBareUInt64(
+              source: body,
+              index: &index,
+              end: end)
+            {
               if index == end {
                 return u
               }
@@ -866,9 +876,11 @@ internal struct JSONScanner {
           return n
         }
       }
-    } else if let u = try parseBareUInt64(source: source,
-                                          index: &index,
-                                          end: source.endIndex) {
+    } else if let u = try parseBareUInt64(
+      source: source,
+      index: &index,
+      end: source.endIndex)
+    {
       return u
     }
     throw JSONDecodingError.malformedNumber
@@ -889,9 +901,11 @@ internal struct JSONScanner {
     if c == asciiDoubleQuote {
       let start = index
       advance()
-      if let s = try parseBareSInt64(source: source,
-                                     index: &index,
-                                     end: source.endIndex) {
+      if let s = try parseBareSInt64(
+        source: source,
+        index: &index,
+        end: source.endIndex)
+      {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -912,9 +926,11 @@ internal struct JSONScanner {
           if body.count > 0 {
             var index = body.startIndex
             let end = body.endIndex
-            if let s = try parseBareSInt64(source: body,
-                                           index: &index,
-                                           end: end) {
+            if let s = try parseBareSInt64(
+              source: body,
+              index: &index,
+              end: end)
+            {
               if index == end {
                 return s
               }
@@ -926,9 +942,11 @@ internal struct JSONScanner {
           return n
         }
       }
-    } else if let s = try parseBareSInt64(source: source,
-                                          index: &index,
-                                          end: source.endIndex) {
+    } else if let s = try parseBareSInt64(
+      source: source,
+      index: &index,
+      end: source.endIndex)
+    {
       return s
     }
     throw JSONDecodingError.malformedNumber
@@ -943,12 +961,14 @@ internal struct JSONScanner {
       throw JSONDecodingError.truncated
     }
     let c = currentByte
-    if c == asciiDoubleQuote { // "
+    if c == asciiDoubleQuote {  // "
       let start = index
       advance()
-      if let d = try parseBareDouble(source: source,
-                                     index: &index,
-                                     end: source.endIndex) {
+      if let d = try parseBareDouble(
+        source: source,
+        index: &index,
+        end: source.endIndex)
+      {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -977,9 +997,11 @@ internal struct JSONScanner {
             if body.count > 0 {
               var index = body.startIndex
               let end = body.endIndex
-              if let d = try parseBareDouble(source: body,
-                                             index: &index,
-                                             end: end) {
+              if let d = try parseBareDouble(
+                source: body,
+                index: &index,
+                end: end)
+              {
                 let f = Float(d)
                 if index == end && f.isFinite {
                   return f
@@ -994,9 +1016,11 @@ internal struct JSONScanner {
         }
       }
     } else {
-      if let d = try parseBareDouble(source: source,
-                                     index: &index,
-                                     end: source.endIndex) {
+      if let d = try parseBareDouble(
+        source: source,
+        index: &index,
+        end: source.endIndex)
+      {
         let f = Float(d)
         if f.isFinite {
           return f
@@ -1015,12 +1039,14 @@ internal struct JSONScanner {
       throw JSONDecodingError.truncated
     }
     let c = currentByte
-    if c == asciiDoubleQuote { // "
+    if c == asciiDoubleQuote {  // "
       let start = index
       advance()
-      if let d = try parseBareDouble(source: source,
-                                     index: &index,
-                                     end: source.endIndex) {
+      if let d = try parseBareDouble(
+        source: source,
+        index: &index,
+        end: source.endIndex)
+      {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -1049,9 +1075,11 @@ internal struct JSONScanner {
             if body.count > 0 {
               var index = body.startIndex
               let end = body.endIndex
-              if let d = try parseBareDouble(source: body,
-                                             index: &index,
-                                             end: end) {
+              if let d = try parseBareDouble(
+                source: body,
+                index: &index,
+                end: end)
+              {
                 if index == end {
                   return d
                 }
@@ -1065,9 +1093,11 @@ internal struct JSONScanner {
         }
       }
     } else {
-      if let d = try parseBareDouble(source: source,
-                                     index: &index,
-                                     end: source.endIndex) {
+      if let d = try parseBareDouble(
+        source: source,
+        index: &index,
+        end: source.endIndex)
+      {
         return d
       }
     }
@@ -1144,8 +1174,7 @@ internal struct JSONScanner {
     }
     if hasMoreContent {
       let c = currentByte
-      if (c >= asciiUpperA && c <= asciiUpperZ) ||
-        (c >= asciiLowerA && c <= asciiLowerZ) {
+      if (c >= asciiUpperA && c <= asciiUpperZ) || (c >= asciiLowerA && c <= asciiLowerZ) {
         index = start
         return false
       }
@@ -1158,7 +1187,7 @@ internal struct JSONScanner {
     skipWhitespace()
     if hasMoreContent && currentByte == asciiLowerN {
       return skipOptionalKeyword(bytes: [
-        asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
+        asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL,
       ])
     }
     return false
@@ -1174,15 +1203,15 @@ internal struct JSONScanner {
     }
     let c = currentByte
     switch c {
-    case asciiLowerF: // f
+    case asciiLowerF:  // f
       if skipOptionalKeyword(bytes: [
-        asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
+        asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE,
       ]) {
         return false
       }
-    case asciiLowerT: // t
+    case asciiLowerT:  // t
       if skipOptionalKeyword(bytes: [
-        asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
+        asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE,
       ]) {
         return true
       }
@@ -1229,7 +1258,7 @@ internal struct JSONScanner {
     let nameStart = index
     while hasMoreContent && currentByte != asciiDoubleQuote {
       if currentByte == asciiBackslash {
-        index = stringStart // Reset to open quote
+        index = stringStart  // Reset to open quote
         return nil
       }
       advance()
@@ -1259,7 +1288,7 @@ internal struct JSONScanner {
       var fieldName: String
       if let key = try nextOptionalKey() {
         // Fast path:  We parsed it as UTF8 bytes...
-        try skipRequiredCharacter(asciiColon) // :
+        try skipRequiredCharacter(asciiColon)  // :
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
         }
@@ -1271,17 +1300,19 @@ internal struct JSONScanner {
       } else {
         // Slow path:  We parsed a String; lookups from String are slower.
         fieldName = try nextQuotedString()
-        try skipRequiredCharacter(asciiColon) // :
+        try skipRequiredCharacter(asciiColon)  // :
         if let fieldNumber = names.number(forJSONName: fieldName) {
           return fieldNumber
         }
       }
       if let first = fieldName.utf8.first, first == UInt8(ascii: "["),
-         let last = fieldName.utf8.last, last == UInt8(ascii: "]")
+        let last = fieldName.utf8.last, last == UInt8(ascii: "]")
       {
         fieldName.removeFirst()
         fieldName.removeLast()
-        if let fieldNumber = extensions.fieldNumberForProto(messageType: messageType, protoFieldName: fieldName) {
+        if let fieldNumber = extensions.fieldNumberForProto(
+          messageType: messageType, protoFieldName: fieldName)
+        {
           return fieldNumber
         }
       }
@@ -1303,7 +1334,7 @@ internal struct JSONScanner {
   internal mutating func nextEnumValue<E: Enum>() throws -> E {
     skipWhitespace()
     guard hasMoreContent else {
-        throw JSONDecodingError.truncated
+      throw JSONDecodingError.truncated
     }
     if currentByte == asciiDoubleQuote {
       if let name = try nextOptionalKey() {
@@ -1349,7 +1380,7 @@ internal struct JSONScanner {
 
   /// Skip "{", throw if that's not the next character
   internal mutating func skipRequiredObjectStart() throws {
-    try skipRequiredCharacter(asciiOpenCurlyBracket) // {
+    try skipRequiredCharacter(asciiOpenCurlyBracket)  // {
     try incrementRecursionDepth()
   }
 
@@ -1365,7 +1396,7 @@ internal struct JSONScanner {
 
   /// Skip "[", throw if that's not the next character
   internal mutating func skipRequiredArrayStart() throws {
-    try skipRequiredCharacter(asciiOpenSquareBracket) // [
+    try skipRequiredCharacter(asciiOpenSquareBracket)  // [
   }
 
   /// Helper for skipping optional single-character tokens
@@ -1387,13 +1418,13 @@ internal struct JSONScanner {
   /// If the next non-whitespace character is "]", skip it
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalArrayEnd() -> Bool {
-    return skipOptionalCharacter(asciiCloseSquareBracket) // ]
+    return skipOptionalCharacter(asciiCloseSquareBracket)  // ]
   }
 
   /// If the next non-whitespace character is "}", skip it
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalObjectEnd() -> Bool {
-    let result = skipOptionalCharacter(asciiCloseCurlyBracket) // }
+    let result = skipOptionalCharacter(asciiCloseCurlyBracket)  // }
     if result {
       decrementRecursionDepth()
     }
@@ -1426,56 +1457,56 @@ internal struct JSONScanner {
     skipWhitespace()
     var totalArrayDepth = 0
     while true {
-        var arrayDepth = 0
-        while skipOptionalArrayStart() {
-            arrayDepth += 1
+      var arrayDepth = 0
+      while skipOptionalArrayStart() {
+        arrayDepth += 1
+      }
+      guard hasMoreContent else {
+        throw JSONDecodingError.truncated
+      }
+      switch currentByte {
+      case asciiDoubleQuote:  // " begins a string
+        try skipString()
+      case asciiOpenCurlyBracket:  // { begins an object
+        try skipObject()
+      case asciiCloseSquareBracket:  // ] ends an empty array
+        if arrayDepth == 0 {
+          throw JSONDecodingError.failure
         }
-        guard hasMoreContent else {
+        // We also close out [[]] or [[[]]] here
+        while arrayDepth > 0 && skipOptionalArrayEnd() {
+          arrayDepth -= 1
+        }
+      case asciiLowerN:  // n must be null
+        if !skipOptionalKeyword(bytes: [
+          asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL,
+        ]) {
           throw JSONDecodingError.truncated
         }
-        switch currentByte {
-        case asciiDoubleQuote: // " begins a string
-            try skipString()
-        case asciiOpenCurlyBracket: // { begins an object
-            try skipObject()
-        case asciiCloseSquareBracket: // ] ends an empty array
-            if arrayDepth == 0 {
-                throw JSONDecodingError.failure
-            }
-            // We also close out [[]] or [[[]]] here
-            while arrayDepth > 0 && skipOptionalArrayEnd() {
-                arrayDepth -= 1
-            }
-        case asciiLowerN: // n must be null
-            if !skipOptionalKeyword(bytes: [
-                asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL
-            ]) {
-                throw JSONDecodingError.truncated
-            }
-        case asciiLowerF: // f must be false
-            if !skipOptionalKeyword(bytes: [
-                asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE
-            ]) {
-                throw JSONDecodingError.truncated
-            }
-        case asciiLowerT: // t must be true
-            if !skipOptionalKeyword(bytes: [
-                asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE
-            ]) {
-                throw JSONDecodingError.truncated
-            }
-        default: // everything else is a number token
-            _ = try nextDouble()
+      case asciiLowerF:  // f must be false
+        if !skipOptionalKeyword(bytes: [
+          asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE,
+        ]) {
+          throw JSONDecodingError.truncated
         }
-        totalArrayDepth += arrayDepth
-        while totalArrayDepth > 0 && skipOptionalArrayEnd() {
-            totalArrayDepth -= 1
+      case asciiLowerT:  // t must be true
+        if !skipOptionalKeyword(bytes: [
+          asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE,
+        ]) {
+          throw JSONDecodingError.truncated
         }
-        if totalArrayDepth > 0 {
-            try skipRequiredComma()
-        } else {
-            return
-        }
+      default:  // everything else is a number token
+        _ = try nextDouble()
+      }
+      totalArrayDepth += arrayDepth
+      while totalArrayDepth > 0 && skipOptionalArrayEnd() {
+        totalArrayDepth -= 1
+      }
+      if totalArrayDepth > 0 {
+        try skipRequiredComma()
+      } else {
+        return
+      }
     }
   }
 
