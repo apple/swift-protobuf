@@ -1,5 +1,4 @@
 import Foundation
-
 import FuzzCommon
 
 @_cdecl("LLVMFuzzerTestOneInput")
