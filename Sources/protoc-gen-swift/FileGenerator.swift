@@ -27,13 +27,13 @@ class FileGenerator {
     let ext = ".pb.swift"
     let pathParts = splitPath(pathname: fileDescriptor.name)
     switch generatorOptions.outputNaming {
-    case .FullPath:
+    case .fullPath:
       return pathParts.dir + pathParts.base + ext
-    case .PathToUnderscores:
+    case .pathToUnderscores:
       let dirWithUnderscores =
         pathParts.dir.replacingOccurrences(of: "/", with: "_")
       return dirWithUnderscores + pathParts.base + ext
-    case .DropPath:
+    case .dropPath:
       return pathParts.base + ext
     }
   }
