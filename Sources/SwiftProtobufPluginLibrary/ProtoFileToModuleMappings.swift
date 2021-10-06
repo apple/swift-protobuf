@@ -36,7 +36,7 @@ public struct ProtoFileToModuleMappings {
   /// Proto file name to module name.
   /// This is really `private` to this type, it is just `internal` so the tests can
   /// access it to verify things.
-  let mappings: [String:String]
+  let mappings: [String: String]
 
   /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
   /// We expect to find the WKTs in the module named here.
@@ -59,7 +59,8 @@ public struct ProtoFileToModuleMappings {
     }
 
     let mappingsProto = try SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: content)
-    try self.init(moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
+    try self.init(
+      moduleMappingsProto: mappingsProto, swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
   /// Parses the given module mapping.  Raises LoadError.
@@ -68,7 +69,10 @@ public struct ProtoFileToModuleMappings {
   }
 
   /// Parses the given module mapping.  Raises LoadError.
-  public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings, swiftProtobufModuleName: String?) throws {
+  public init(
+    moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings,
+    swiftProtobufModuleName: String?
+  ) throws {
     self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
     var builder = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
     for (idx, mapping) in mappings.mapping.lazy.enumerated() {
@@ -81,9 +85,10 @@ public struct ProtoFileToModuleMappings {
       for path in mapping.protoFilePath {
         if let existing = builder[path] {
           if existing != mapping.moduleName {
-            throw LoadError.duplicateProtoPathMapping(path: path,
-                                                      firstModule: existing,
-                                                      secondModule: mapping.moduleName)
+            throw LoadError.duplicateProtoPathMapping(
+              path: path,
+              firstModule: existing,
+              secondModule: mapping.moduleName)
           }
           // Was a repeat, just allow it.
         } else {
@@ -95,11 +100,14 @@ public struct ProtoFileToModuleMappings {
   }
 
   public init() {
-    try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: nil)
+    try! self.init(
+      moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: nil)
   }
 
   public init(swiftProtobufModuleName: String?) {
-    try! self.init(moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(), swiftProtobufModuleName: swiftProtobufModuleName)
+    try! self.init(
+      moduleMappingsProto: SwiftProtobuf_GenSwift_ModuleMappings(),
+      swiftProtobufModuleName: swiftProtobufModuleName)
   }
 
   /// Looks up the module a given file is in.
@@ -160,6 +168,6 @@ public struct ProtoFileToModuleMappings {
 }
 
 // Used to seed the mappings, the wkt are all part of the main library.
-private func wktMappings(swiftProtobufModuleName: String) -> [String:String] {
+private func wktMappings(swiftProtobufModuleName: String) -> [String: String] {
   return SwiftProtobufInfo.bundledProtoFiles.reduce(into: [:]) { $0[$1] = swiftProtobufModuleName }
 }

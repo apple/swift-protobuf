@@ -15,8 +15,8 @@
 import Foundation
 
 public final class SwiftProtobufNamer {
-  var filePrefixCache = [String:String]()
-  var enumValueRelativeNameCache = [String:String]()
+  var filePrefixCache = [String: String]()
+  var enumValueRelativeNameCache = [String: String]()
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
 
@@ -49,10 +49,12 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given message.
   public func relativeName(message: Descriptor) -> String {
     if message.containingType != nil {
-      return NamingUtils.sanitize(messageName: message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
+      return NamingUtils.sanitize(
+        messageName: message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     } else {
       let prefix = typePrefix(forFile: message.file)
-      return NamingUtils.sanitize(messageName: prefix + message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
+      return NamingUtils.sanitize(
+        messageName: prefix + message.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     }
   }
 
@@ -62,16 +64,18 @@ public final class SwiftProtobufNamer {
     guard let containingType = message.containingType else {
       return modulePrefix(file: message.file) + relativeName
     }
-    return fullName(message:containingType) + "." + relativeName
+    return fullName(message: containingType) + "." + relativeName
   }
 
   /// Calculate the relative name for the given enum.
   public func relativeName(enum e: EnumDescriptor) -> String {
     if e.containingType != nil {
-      return NamingUtils.sanitize(enumName: e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
+      return NamingUtils.sanitize(
+        enumName: e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     } else {
       let prefix = typePrefix(forFile: e.file)
-      return NamingUtils.sanitize(enumName: prefix + e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
+      return NamingUtils.sanitize(
+        enumName: prefix + e.name, forbiddenTypeNames: [self.swiftProtobufModuleName])
     }
   }
 
@@ -99,8 +103,8 @@ public final class SwiftProtobufNamer {
     }
 
     // Bucketed based on candidate names to check for duplicates.
-    let candidates :[String:[EnumValueDescriptor]] = e.values.reduce(into: [:]) {
-      $0[candidateName($1), default:[]].append($1)
+    let candidates: [String: [EnumValueDescriptor]] = e.values.reduce(into: [:]) {
+      $0[candidateName($1), default: []].append($1)
     }
 
     for (camelCased, enumValues) in candidates {
@@ -193,7 +197,8 @@ public final class SwiftProtobufNamer {
   /// Calculate the relative name for the given oneof.
   public func relativeName(oneof: OneofDescriptor) -> String {
     let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
-    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)", forbiddenTypeNames: [self.swiftProtobufModuleName])
+    return NamingUtils.sanitize(
+      oneofName: "OneOf_\(camelCase)", forbiddenTypeNames: [self.swiftProtobufModuleName])
   }
 
   /// Calculate the full name for the given oneof.
@@ -240,15 +245,18 @@ public final class SwiftProtobufNamer {
   /// be the empty string.
   ///
   /// - Precondition: `field` must be FieldDescriptor that's isn't for an extension.
-  public func messagePropertyNames(field: FieldDescriptor,
-                                   prefixed: String,
-                                   includeHasAndClear: Bool) -> MessageFieldNames {
+  public func messagePropertyNames(
+    field: FieldDescriptor,
+    prefixed: String,
+    includeHasAndClear: Bool
+  ) -> MessageFieldNames {
     precondition(!field.isExtension)
 
     let lowerName = NamingUtils.toLowerCamelCase(field.namingBase)
     let fieldName = NamingUtils.sanitize(fieldName: lowerName)
     let prefixedFieldName =
-      prefixed.isEmpty ? "" : NamingUtils.sanitize(fieldName: "\(prefixed)\(lowerName)", basedOn: lowerName)
+      prefixed.isEmpty
+      ? "" : NamingUtils.sanitize(fieldName: "\(prefixed)\(lowerName)", basedOn: lowerName)
 
     if !includeHasAndClear {
       return MessageFieldNames(name: fieldName, prefixed: prefixedFieldName, has: "", clear: "")
@@ -258,16 +266,19 @@ public final class SwiftProtobufNamer {
     let hasName = NamingUtils.sanitize(fieldName: "has\(upperName)", basedOn: lowerName)
     let clearName = NamingUtils.sanitize(fieldName: "clear\(upperName)", basedOn: lowerName)
 
-    return MessageFieldNames(name: fieldName, prefixed: prefixedFieldName, has: hasName, clear: clearName)
+    return MessageFieldNames(
+      name: fieldName, prefixed: prefixedFieldName, has: hasName, clear: clearName)
   }
 
   public typealias OneofFieldNames = (name: String, prefixed: String)
 
   /// Calculate the name to use for the Swift field on the message.
-  public func messagePropertyName(oneof: OneofDescriptor, prefixed: String = "_") -> OneofFieldNames {
+  public func messagePropertyName(oneof: OneofDescriptor, prefixed: String = "_") -> OneofFieldNames
+  {
     let lowerName = NamingUtils.toLowerCamelCase(oneof.name)
     let fieldName = NamingUtils.sanitize(fieldName: lowerName)
-    let prefixedFieldName = NamingUtils.sanitize(fieldName: "\(prefixed)\(lowerName)", basedOn: lowerName)
+    let prefixedFieldName = NamingUtils.sanitize(
+      fieldName: "\(prefixed)\(lowerName)", basedOn: lowerName)
     return OneofFieldNames(name: fieldName, prefixed: prefixedFieldName)
   }
 
@@ -294,7 +305,8 @@ public final class SwiftProtobufNamer {
       // fieldBaseName is the lowerCase name even though we put more on the
       // front, this seems to help make the field name stick out a little
       // compared to the message name scoping it on the front.
-      fieldName = NamingUtils.periodsToUnderscores(extensionScopeSwiftFullName + "_" + fieldBaseName)
+      fieldName = NamingUtils.periodsToUnderscores(
+        extensionScopeSwiftFullName + "_" + fieldBaseName)
       let fieldNameFirstUp = NamingUtils.uppercaseFirstCharacter(fieldName)
       hasName = "has" + fieldNameFirstUp
       clearName = "clear" + fieldNameFirstUp
@@ -308,8 +320,9 @@ public final class SwiftProtobufNamer {
       if swiftPrefix.isEmpty {
         // No prefix, so got back to UpperCamelCasing the extension name, and then
         // sanitize it like we did for the lower form.
-        let upperCleaned = NamingUtils.sanitize(fieldName: NamingUtils.toUpperCamelCase(field.namingBase),
-                                                basedOn: fieldBaseName)
+        let upperCleaned = NamingUtils.sanitize(
+          fieldName: NamingUtils.toUpperCamelCase(field.namingBase),
+          basedOn: fieldBaseName)
         hasName = "has" + upperCleaned
         clearName = "clear" + upperCleaned
       } else {
@@ -331,8 +344,9 @@ public final class SwiftProtobufNamer {
       return result
     }
 
-    let result = NamingUtils.typePrefix(protoPackage: file.package,
-                                        fileOptions: file.fileOptions)
+    let result = NamingUtils.typePrefix(
+      protoPackage: file.package,
+      fileOptions: file.fileOptions)
     filePrefixCache[file.name] = result
     return result
   }

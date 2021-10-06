@@ -80,8 +80,12 @@ public final class FileDescriptor {
   public let syntax: Syntax
 
   public let dependencies: [FileDescriptor]
-  public var publicDependencies: [FileDescriptor] { return proto.publicDependency.map { dependencies[Int($0)] } }
-  public var weakDependencies: [FileDescriptor] { return proto.weakDependency.map { dependencies[Int($0)] } }
+  public var publicDependencies: [FileDescriptor] {
+    return proto.publicDependency.map { dependencies[Int($0)] }
+  }
+  public var weakDependencies: [FileDescriptor] {
+    return proto.weakDependency.map { dependencies[Int($0)] }
+  }
 
   public let enums: [EnumDescriptor]
   public let messages: [Descriptor]
@@ -141,8 +145,8 @@ public final class FileDescriptor {
 
   // Lazy so this can be computed on demand, as the imported files won't need
   // comments during generation.
-  private lazy var locationMap: [IndexPath:Google_Protobuf_SourceCodeInfo.Location] = {
-    var result: [IndexPath:Google_Protobuf_SourceCodeInfo.Location] = [:]
+  private lazy var locationMap: [IndexPath: Google_Protobuf_SourceCodeInfo.Location] = {
+    var result: [IndexPath: Google_Protobuf_SourceCodeInfo.Location] = [:]
     for loc in self.proto.sourceCodeInfo.location {
       let intList = loc.path.map { return Int($0) }
       result[IndexPath(indexes: intList)] = loc
@@ -179,18 +183,19 @@ public final class Descriptor {
   /// The `extensionRanges` are in the order they appear in the original .proto
   /// file; this orders them and then merges the any ranges that are actually
   /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
-  public private(set) lazy var normalizedExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
-    var ordered = self.extensionRanges.sorted(by: { return $0.start < $1.start })
-    if ordered.count > 1 {
-      for i in (0..<(ordered.count - 1)).reversed() {
-        if ordered[i].end == ordered[i+1].start {
-          ordered[i].end = ordered[i+1].end
-          ordered.remove(at: i + 1)
+  public private(set) lazy var normalizedExtensionRanges:
+    [Google_Protobuf_DescriptorProto.ExtensionRange] = {
+      var ordered = self.extensionRanges.sorted(by: { return $0.start < $1.start })
+      if ordered.count > 1 {
+        for i in (0..<(ordered.count - 1)).reversed() {
+          if ordered[i].end == ordered[i + 1].start {
+            ordered[i].end = ordered[i + 1].end
+            ordered.remove(at: i + 1)
+          }
         }
       }
-    }
-    return ordered
-  }()
+      return ordered
+    }()
 
   /// True/False if this Message is just for a `map<>` entry.
   public var isMapEntry: Bool { return proto.options.mapEntry }
@@ -205,10 +210,12 @@ public final class Descriptor {
 
   public var useMessageSetWireFormat: Bool { return proto.options.messageSetWireFormat }
 
-  fileprivate init(proto: Google_Protobuf_DescriptorProto,
-                   index: Int,
-                   registry: Registry,
-                   fullNamePrefix prefix: String) {
+  fileprivate init(
+    proto: Google_Protobuf_DescriptorProto,
+    index: Int,
+    registry: Registry,
+    fullNamePrefix prefix: String
+  ) {
     self.proto = proto
     self.index = index
     let fullName = "\(prefix).\(proto.name)"
@@ -268,7 +275,7 @@ public final class EnumDescriptor {
   // import doesn't have to do all this work unless the enum is used by
   // the importer.
   public private(set) lazy var values: [EnumValueDescriptor] = {
-    var firstValues = [Int32:EnumValueDescriptor]()
+    var firstValues = [Int32: EnumValueDescriptor]()
     var result = [EnumValueDescriptor]()
     var i = 0
     for p in self.proto.value {
@@ -291,10 +298,12 @@ public final class EnumDescriptor {
     return values.first!
   }
 
-  fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
-                   index: Int,
-                   registry: Registry,
-                   fullNamePrefix prefix: String) {
+  fileprivate init(
+    proto: Google_Protobuf_EnumDescriptorProto,
+    index: Int,
+    registry: Registry,
+    fullNamePrefix prefix: String
+  ) {
     self.proto = proto
     self.index = index
     self.fullName = "\(prefix).\(proto.name)"
@@ -322,10 +331,12 @@ public final class EnumValueDescriptor {
   public private(set) weak var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
 
-  fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
-                   index: Int,
-                   enumType: EnumDescriptor,
-                   aliasing: EnumValueDescriptor?) {
+  fileprivate init(
+    proto: Google_Protobuf_EnumValueDescriptorProto,
+    index: Int,
+    enumType: EnumDescriptor,
+    aliasing: EnumValueDescriptor?
+  ) {
     self.proto = proto
     self.index = index
     self.enumType = enumType
@@ -355,9 +366,11 @@ public final class OneofDescriptor {
     return self.containingType.fields.filter { $0.oneofIndex == myIndex }
   }()
 
-  fileprivate init(proto: Google_Protobuf_OneofDescriptorProto,
-                   index: Int,
-                   registry: Registry) {
+  fileprivate init(
+    proto: Google_Protobuf_OneofDescriptorProto,
+    index: Int,
+    registry: Registry
+  ) {
     self.proto = proto
     self.index = index
   }
@@ -385,8 +398,7 @@ public final class FieldDescriptor {
   /// Returns true if this field was syntactically written with "optional" in the
   /// .proto file. Excludes singular proto3 fields that do not have a label.
   public var hasOptionalKeyword: Bool {
-    return proto3Optional ||
-      (file.syntax == .proto2 && label == .optional && oneofIndex == nil)
+    return proto3Optional || (file.syntax == .proto2 && label == .optional && oneofIndex == nil)
   }
 
   /// Returns true if this field tracks presence, ie. does the field
@@ -497,10 +509,12 @@ public final class FieldDescriptor {
 
   public var options: Google_Protobuf_FieldOptions { return proto.options }
 
-  fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
-                   index: Int,
-                   registry: Registry,
-                   isExtension: Bool = false) {
+  fileprivate init(
+    proto: Google_Protobuf_FieldDescriptorProto,
+    index: Int,
+    registry: Registry,
+    isExtension: Bool = false
+  ) {
     self.proto = proto
     self.index = index
     self.isExtension = isExtension
@@ -550,10 +564,12 @@ public final class ServiceDescriptor {
 
   public let methods: [MethodDescriptor]
 
-  fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
-                   index: Int,
-                   registry: Registry,
-                   fullNamePrefix prefix: String) {
+  fileprivate init(
+    proto: Google_Protobuf_ServiceDescriptorProto,
+    index: Int,
+    registry: Registry,
+    fullNamePrefix prefix: String
+  ) {
     self.proto = proto
     self.index = index
     let fullName = "\(prefix).\(proto.name)"
@@ -584,9 +600,11 @@ public final class MethodDescriptor {
   public private(set) var inputType: Descriptor!
   public private(set) var outputType: Descriptor!
 
-  fileprivate init(proto: Google_Protobuf_MethodDescriptorProto,
-                   index: Int,
-                   registry: Registry) {
+  fileprivate init(
+    proto: Google_Protobuf_MethodDescriptorProto,
+    index: Int,
+    registry: Registry
+  ) {
     self.proto = proto
     self.index = index
   }
@@ -600,11 +618,11 @@ public final class MethodDescriptor {
 }
 
 /// Helper used under the hood to build the mapping tables and look things up.
-fileprivate final class Registry {
-  private var fileMap = [String:FileDescriptor]()
-  private var messageMap = [String:Descriptor]()
-  private var enumMap = [String:EnumDescriptor]()
-  private var serviceMap = [String:ServiceDescriptor]()
+private final class Registry {
+  private var fileMap = [String: FileDescriptor]()
+  private var messageMap = [String: Descriptor]()
+  private var enumMap = [String: EnumDescriptor]()
+  private var serviceMap = [String: ServiceDescriptor]()
 
   init() {}
 

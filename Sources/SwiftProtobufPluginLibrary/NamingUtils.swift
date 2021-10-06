@@ -23,7 +23,7 @@ import SwiftProtobuf
 ///
 /// We won't generate types (structs, enums) with these names:
 ///
-fileprivate let reservedTypeNames: Set<String> = {
+private let reservedTypeNames: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
@@ -74,7 +74,7 @@ fileprivate let reservedTypeNames: Set<String> = {
  * Many Swift reserved words can be used as fields names if we put
  * backticks around them:
  */
-fileprivate let quotableFieldNames: Set<String> = {
+private let quotableFieldNames: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
@@ -84,7 +84,7 @@ fileprivate let quotableFieldNames: Set<String> = {
   return names
 }()
 
-fileprivate let reservedFieldNames: Set<String> = {
+private let reservedFieldNames: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
@@ -122,7 +122,7 @@ fileprivate let reservedFieldNames: Set<String> = {
  * Many Swift reserved words can be used as enum cases if we put
  * backticks around them:
  */
-fileprivate let quotableEnumCases: Set<String> = {
+private let quotableEnumCases: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
@@ -148,7 +148,7 @@ fileprivate let quotableEnumCases: Set<String> = {
  * Some words cannot be used for enum cases, even if they
  * are quoted with backticks:
  */
-fileprivate let reservedEnumCases: Set<String> = [
+private let reservedEnumCases: Set<String> = [
   // Don't conflict with standard Swift property names:
   "allCases",
   "debugDescription",
@@ -165,21 +165,22 @@ fileprivate let reservedEnumCases: Set<String> = [
  * `enum Extensions { ... }`, so we resuse the same sets for backticks
  * and reserved words.
  */
-fileprivate let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
-fileprivate let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
+private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
+private let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
 
-
-fileprivate func isAllUnderscore(_ s: String) -> Bool {
+private func isAllUnderscore(_ s: String) -> Bool {
   if s.isEmpty {
     return false
   }
   for c in s.unicodeScalars {
-    if c != "_" {return false}
+    if c != "_" { return false }
   }
   return true
 }
 
-fileprivate func sanitizeTypeName(_ s: String, disambiguator: String, forbiddenTypeNames: Set<String>) -> String {
+private func sanitizeTypeName(_ s: String, disambiguator: String, forbiddenTypeNames: Set<String>)
+  -> String
+{
   // NOTE: This code relies on the protoc validation of _identifier_ is defined
   // (in Tokenizer::Next() as `[a-zA-Z_][a-zA-Z0-9_]*`, so this does not need
   // any complex validation or handing of characters outside those ranges. Since
@@ -200,7 +201,9 @@ fileprivate func sanitizeTypeName(_ s: String, disambiguator: String, forbiddenT
     // disambiguator:
     let e = s.index(s.endIndex, offsetBy: -disambiguator.count)
     let truncated = String(s[..<e])
-    return sanitizeTypeName(truncated, disambiguator: disambiguator, forbiddenTypeNames: forbiddenTypeNames) + disambiguator
+    return sanitizeTypeName(
+      truncated, disambiguator: disambiguator, forbiddenTypeNames: forbiddenTypeNames)
+      + disambiguator
   } else if forbiddenTypeNames.contains(s) {
     // NOTE: It is important that this case runs after the hasSuffix case.
     // This set of forbidden type names is not fixed, and may contain something
@@ -215,7 +218,7 @@ fileprivate func sanitizeTypeName(_ s: String, disambiguator: String, forbiddenT
   }
 }
 
-fileprivate func isCharacterUppercase(_ s: String, index: Int) -> Bool {
+private func isCharacterUppercase(_ s: String, index: Int) -> Bool {
   let scalars = s.unicodeScalars
   let start = scalars.index(scalars.startIndex, offsetBy: index)
   if start == scalars.endIndex {
@@ -225,7 +228,7 @@ fileprivate func isCharacterUppercase(_ s: String, index: Int) -> Bool {
   return scalars[start].isASCUppercase
 }
 
-fileprivate func makeUnicodeScalarView(
+private func makeUnicodeScalarView(
   from unicodeScalar: UnicodeScalar
 ) -> String.UnicodeScalarView {
   var view = String.UnicodeScalarView()
@@ -233,7 +236,7 @@ fileprivate func makeUnicodeScalarView(
   return view
 }
 
-fileprivate enum CamelCaser {
+private enum CamelCaser {
   // Abbreviation that should be all uppercase when camelcasing. Used in
   // camelCased(:initialUpperCase:).
   static let appreviations: Set<String> = ["url", "http", "https", "id"]
@@ -327,8 +330,8 @@ fileprivate enum CamelCaser {
         addCurrent()
         let escapeIt =
           result.isEmpty
-            ? !isSwiftIdentifierHeadCharacter(scalar)
-            : !isSwiftIdentifierCharacter(scalar)
+          ? !isSwiftIdentifierHeadCharacter(scalar)
+          : !isSwiftIdentifierCharacter(scalar)
         if escapeIt {
           result.append("_u\(scalar.value)")
         } else {
@@ -351,7 +354,7 @@ fileprivate enum CamelCaser {
   }
 }
 
-fileprivate let backtickCharacterSet = CharacterSet(charactersIn: "`")
+private let backtickCharacterSet = CharacterSet(charactersIn: "`")
 
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
@@ -429,8 +432,8 @@ public enum NamingUtils {
       var fromIndex = fromChars.startIndex
       let fromEnd = fromChars.endIndex
 
-      while (prefixIndex != prefixEnd) {
-        if (fromIndex == fromEnd) {
+      while prefixIndex != prefixEnd {
+        if fromIndex == fromEnd {
           // Reached the end of the string while still having prefix to go
           // nothing to strip.
           return nil

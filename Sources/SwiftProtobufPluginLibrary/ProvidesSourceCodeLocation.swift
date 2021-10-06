@@ -26,11 +26,14 @@ extension ProvidesSourceCodeLocation where Self: ProvidesLocationPath {
 
 // Helper to get source comments out of ProvidesSourceCodeLocation
 extension ProvidesSourceCodeLocation {
-  public func protoSourceComments(commentPrefix: String = "///",
-                                  leadingDetachedPrefix: String? = nil) -> String {
+  public func protoSourceComments(
+    commentPrefix: String = "///",
+    leadingDetachedPrefix: String? = nil
+  ) -> String {
     if let loc = sourceCodeInfoLocation {
-      return loc.asSourceComment(commentPrefix: commentPrefix,
-                                 leadingDetachedPrefix: leadingDetachedPrefix)
+      return loc.asSourceComment(
+        commentPrefix: commentPrefix,
+        leadingDetachedPrefix: leadingDetachedPrefix)
     }
     return String()
   }

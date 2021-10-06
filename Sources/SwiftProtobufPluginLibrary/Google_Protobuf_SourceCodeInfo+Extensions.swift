@@ -17,8 +17,10 @@ extension Google_Protobuf_SourceCodeInfo.Location {
   ///
   /// If leadingDetachedPrefix is not provided, those comments won't
   /// be collected.
-  public func asSourceComment(commentPrefix: String,
-                              leadingDetachedPrefix: String? = nil) -> String {
+  public func asSourceComment(
+    commentPrefix: String,
+    leadingDetachedPrefix: String? = nil
+  ) -> String {
     func escapeMarkup(_ text: String) -> String {
       // Proto file comments don't really have any markup associated with
       // them.  Swift uses something like MarkDown:
