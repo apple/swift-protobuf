@@ -8,9 +8,9 @@
 //
 // -----------------------------------------------------------------------------
 
-import XCTest
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
+import XCTest
 
 class Test_SwiftProtobufNamer: XCTestCase {
 
@@ -47,12 +47,12 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "    name: \"TEST_ENUM_ALIAS\"",
       "    number: 0",  // Alias (unique name)
       "  }",
-      "}"
+      "}",
     ]
 
     let fileProto: Google_Protobuf_FileDescriptorProto
     do {
-     fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+      fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
     } catch let e {
       XCTFail("Error: \(e)")
       return
@@ -60,8 +60,9 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+      SwiftProtobufNamer(
+        currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+        protoFileToModuleMappings: ProtoFileToModuleMappings())
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
@@ -111,7 +112,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "    name: \"_FOO\"",
       "    number: -1",  // Collision - negative value
       "  }",
-      "}"
+      "}",
     ]
 
     let fileProto: Google_Protobuf_FileDescriptorProto
@@ -124,8 +125,9 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+      SwiftProtobufNamer(
+        currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+        protoFileToModuleMappings: ProtoFileToModuleMappings())
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
@@ -194,7 +196,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "    name: \"MUMBLE\"",
       "    number: 0",  // Alias 0 - Collision with previous alias
       "  }",
-      "}"
+      "}",
     ]
 
     let fileProto: Google_Protobuf_FileDescriptorProto
@@ -207,8 +209,9 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+      SwiftProtobufNamer(
+        currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+        protoFileToModuleMappings: ProtoFileToModuleMappings())
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
     let values = e.values
@@ -280,7 +283,7 @@ class Test_SwiftProtobufNamer: XCTestCase {
       "    name: \"bAz\"",
       "    number: 2",
       "  }",
-      "}"
+      "}",
     ]
 
     let fileProto: Google_Protobuf_FileDescriptorProto
@@ -293,8 +296,9 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
-                         protoFileToModuleMappings: ProtoFileToModuleMappings())
+      SwiftProtobufNamer(
+        currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+        protoFileToModuleMappings: ProtoFileToModuleMappings())
 
     let e = descriptorSet.lookupEnumDescriptor(protoName: ".AliasedEnum")
     let values = e.values

@@ -12,63 +12,70 @@
 ///
 // -----------------------------------------------------------------------------
 
-import XCTest
 import SwiftProtobufPluginLibrary
+import XCTest
 
 class Test_SwiftLanguage: XCTestCase {
-    func testIsValidSwiftIdentifier() {
-        let cases = [
-            "H9000",
-            "\u{1f436}\u{1f431}",
-        ]
-        for identifier in cases {
-            XCTAssertTrue(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                          "Should be valid: \(identifier)")
-        }
-        let quotedCases = cases.map {return "`\($0)`"}
-        for identifier in quotedCases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                          "Should NOT be valid: \(identifier)")
-        }
-        for identifier in cases + quotedCases {
-            XCTAssertTrue(isValidSwiftIdentifier(identifier, allowQuoted: true),
-                          "Should be valid: \(identifier)")
-        }
+  func testIsValidSwiftIdentifier() {
+    let cases = [
+      "H9000",
+      "\u{1f436}\u{1f431}",
+    ]
+    for identifier in cases {
+      XCTAssertTrue(
+        isValidSwiftIdentifier(identifier, allowQuoted: false),
+        "Should be valid: \(identifier)")
+    }
+    let quotedCases = cases.map { return "`\($0)`" }
+    for identifier in quotedCases {
+      XCTAssertFalse(
+        isValidSwiftIdentifier(identifier, allowQuoted: false),
+        "Should NOT be valid: \(identifier)")
+    }
+    for identifier in cases + quotedCases {
+      XCTAssertTrue(
+        isValidSwiftIdentifier(identifier, allowQuoted: true),
+        "Should be valid: \(identifier)")
+    }
+  }
+
+  func testIsNotValidSwiftIdentifier() {
+    let cases = [
+      "_",
+      "$0",
+      "$f00",
+      "12Hour",
+      "This is bad",
+    ]
+    for identifier in cases {
+      XCTAssertFalse(
+        isValidSwiftIdentifier(identifier, allowQuoted: false),
+        "Should NOT be valid: \(identifier)")
+    }
+    let quotedCases = cases.map { return "`\($0)`" }
+    for identifier in cases + quotedCases {
+      XCTAssertFalse(
+        isValidSwiftIdentifier(identifier, allowQuoted: false),
+        "Should NOT be valid: \(identifier)")
+    }
+    for identifier in cases + quotedCases {
+      XCTAssertFalse(
+        isValidSwiftIdentifier(identifier, allowQuoted: true),
+        "Should NOT be valid: \(identifier)")
     }
 
-    func testIsNotValidSwiftIdentifier() {
-        let cases = [
-            "_",
-            "$0",
-            "$f00",
-            "12Hour",
-            "This is bad",
-        ]
-        for identifier in cases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                           "Should NOT be valid: \(identifier)")
-        }
-        let quotedCases = cases.map {return "`\($0)`"}
-        for identifier in cases + quotedCases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: false),
-                           "Should NOT be valid: \(identifier)")
-        }
-        for identifier in cases + quotedCases {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: true),
-                           "Should NOT be valid: \(identifier)")
-        }
-
-        let badQuotes = [
-            "`H9000",
-            "H9000`",
-            "``H9000",
-            "H9000``",
-            "``H9000`",
-            "``H9000``",
-        ]
-        for identifier in badQuotes {
-            XCTAssertFalse(isValidSwiftIdentifier(identifier, allowQuoted: true),
-                           "Should NOT be valid: \(identifier)")
-        }
+    let badQuotes = [
+      "`H9000",
+      "H9000`",
+      "``H9000",
+      "H9000``",
+      "``H9000`",
+      "``H9000``",
+    ]
+    for identifier in badQuotes {
+      XCTAssertFalse(
+        isValidSwiftIdentifier(identifier, allowQuoted: true),
+        "Should NOT be valid: \(identifier)")
     }
+  }
 }
