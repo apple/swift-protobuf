@@ -12,7 +12,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Options for JSONDecoding.
+/// Options for binary decoding.
 public struct BinaryDecodingOptions {
   /// The maximum nesting of message with messages.  The default is 100.
   ///
