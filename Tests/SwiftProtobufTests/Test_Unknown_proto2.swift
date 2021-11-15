@@ -17,10 +17,8 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-/*
- * Verify that unknown fields are correctly preserved by
- * proto2 messages.
- */
+// Verify that unknown fields are correctly preserved by
+// proto2 messages.
 
 class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestEmptyMessage
