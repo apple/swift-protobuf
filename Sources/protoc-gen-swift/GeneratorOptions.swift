@@ -12,14 +12,14 @@ import SwiftProtobufPluginLibrary
 
 class GeneratorOptions {
   enum OutputNaming : String {
-    case FullPath
-    case PathToUnderscores
-    case DropPath
+    case fullPath = "FullPath"
+    case pathToUnderscores = "PathToUnderscores"
+    case dropPath = "DropPath"
   }
 
   enum Visibility : String {
-    case Internal
-    case Public
+    case `internal` = "Internal"
+    case `public` = "Public"
   }
 
   let outputNaming: OutputNaming
@@ -30,9 +30,9 @@ class GeneratorOptions {
   let visibilitySourceSnippet: String
 
   init(parameter: String?) throws {
-    var outputNaming: OutputNaming = .FullPath
+    var outputNaming: OutputNaming = .fullPath
     var moduleMapPath: String?
-    var visibility: Visibility = .Internal
+    var visibility: Visibility = .internal
     var swiftProtobufModuleName: String? = nil
 
     for pair in parseParameter(string:parameter) {
@@ -85,9 +85,9 @@ class GeneratorOptions {
     self.visibility = visibility
 
     switch visibility {
-    case .Internal:
+    case .internal:
       visibilitySourceSnippet = ""
-    case .Public:
+    case .public:
       visibilitySourceSnippet = "public "
     }
 
