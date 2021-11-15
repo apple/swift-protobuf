@@ -98,7 +98,7 @@ extension Descriptor {
 
 extension FieldDescriptor {
   func swiftType(namer: SwiftProtobufNamer) -> String {
-    if case let (keyField, valueField)? = messageType?.mapKeyAndValue {
+    if case (let keyField, let valueField)? = messageType?.mapKeyAndValue {
       let keyType = keyField.swiftType(namer: namer)
       let valueType = valueField.swiftType(namer: namer)
       return "Dictionary<" + keyType + "," + valueType + ">"
@@ -226,7 +226,7 @@ extension FieldDescriptor {
   /// Calculates the traits type used for maps and extensions, they
   /// are used in decoding and visiting.
   func traitsType(namer: SwiftProtobufNamer) -> String {
-    if case let (keyField, valueField)? = messageType?.mapKeyAndValue {
+    if case (let keyField, let valueField)? = messageType?.mapKeyAndValue {
       let keyTraits = keyField.traitsType(namer: namer)
       let valueTraits = valueField.traitsType(namer: namer)
       switch valueField.type {
