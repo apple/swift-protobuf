@@ -15,9 +15,7 @@
 
 import Foundation
 
-/*
- * Encoder for Binary Protocol Buffer format
- */
+/// Encoder for Binary Protocol Buffer format
 internal struct BinaryEncoder {
     private var pointer: UnsafeMutableRawPointer
 

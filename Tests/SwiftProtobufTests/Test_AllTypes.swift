@@ -1693,15 +1693,14 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([240, 2]) // Wire type 0
         assertDecodesAsUnknownFields([240, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodesAsUnknownFields([240, 2, 244, 2])  // Wrong wire type (varint), valid as an unknown field
-        /*
-        assertJSONEncode("{\"repeatedGroup\":[{\"a\":1},{\"a\":2}]}") {(o: inout MessageTestType) in
-            var g1 = MessageTestType.RepeatedGroup()
-            g1.a = 1
-            var g2 = MessageTestType.RepeatedGroup()
-            g2.a = 2
-            o.repeatedGroup = [g1, g2]
-        }
-         */
+        // JSON current disable, pending what to do with groups
+        // assertJSONEncode("{\"repeatedGroup\":[{\"a\":1},{\"a\":2}]}") { (o: inout MessageTestType) in
+        //   var g1 = MessageTestType.RepeatedGroup()
+        //   g1.a = 1
+        //   var g2 = MessageTestType.RepeatedGroup()
+        //   g2.a = 2
+        //   o.repeatedGroup = [g1, g2]
+        // }
         assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\nRepeatedGroup {\n  a: 1\n}\nRepeatedGroup {\n  a: 2\n}\n") {(o: inout MessageTestType) in
             var g1 = MessageTestType.RepeatedGroup()
             g1.a = 1

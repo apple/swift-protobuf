@@ -70,10 +70,10 @@ fileprivate let reservedTypeNames: Set<String> = {
   return names
 }()
 
-/*
- * Many Swift reserved words can be used as fields names if we put
- * backticks around them:
- */
+///
+/// Many Swift reserved words can be used as fields names if we put backticks
+/// around them:
+///
 fileprivate let quotableFieldNames: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
@@ -118,10 +118,10 @@ fileprivate let reservedFieldNames: Set<String> = {
   return names
 }()
 
-/*
- * Many Swift reserved words can be used as enum cases if we put
- * backticks around them:
- */
+///
+/// Many Swift reserved words can be used as enum cases if we put quotes
+/// around them:
+///
 fileprivate let quotableEnumCases: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
@@ -144,10 +144,10 @@ fileprivate let quotableEnumCases: Set<String> = {
   return names
 }()
 
-/*
- * Some words cannot be used for enum cases, even if they
- * are quoted with backticks:
- */
+///
+/// Some words cannot be used for enum cases, even if they are quoted with
+/// backticks:
+///
 fileprivate let reservedEnumCases: Set<String> = [
   // Don't conflict with standard Swift property names:
   "allCases",
@@ -160,11 +160,11 @@ fileprivate let reservedEnumCases: Set<String> = [
   "self",
 ]
 
-/*
- * Message scoped extensions are scoped within the Message struct with
- * `enum Extensions { ... }`, so we resuse the same sets for backticks
- * and reserved words.
- */
+///
+/// Message scoped extensions are scoped within the Message struct with `enum
+/// Extensions { ... }`, so we resuse the same sets for backticks and reserved
+/// words.
+///
 fileprivate let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
 fileprivate let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
 
