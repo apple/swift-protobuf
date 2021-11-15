@@ -40,8 +40,6 @@ struct GeneratorPlugin {
     case generateFromFiles(paths: [String])
   }
 
-  init() { }
-
   func run(args: [String]) -> Int32 {
     var result: Int32 = 0
 
