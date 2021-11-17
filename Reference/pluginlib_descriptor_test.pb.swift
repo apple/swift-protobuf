@@ -500,6 +500,60 @@ struct SDTMsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
+/// To check handling of extension ranges that are out of order, have fields or
+/// reserved things mix through them.
+struct SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var field6: Int32 {
+    get {return _field6 ?? 0}
+    set {_field6 = newValue}
+  }
+  /// Returns true if `field6` has been explicitly set.
+  var hasField6: Bool {return self._field6 != nil}
+  /// Clears the value of `field6`. Subsequent reads from it will return its default value.
+  mutating func clearField6() {self._field6 = nil}
+
+  var field124: Int32 {
+    get {return _field124 ?? 0}
+    set {_field124 = newValue}
+  }
+  /// Returns true if `field124` has been explicitly set.
+  var hasField124: Bool {return self._field124 != nil}
+  /// Clears the value of `field124`. Subsequent reads from it will return its default value.
+  mutating func clearField124() {self._field124 = nil}
+
+  var field125: Int32 {
+    get {return _field125 ?? 0}
+    set {_field125 = newValue}
+  }
+  /// Returns true if `field125` has been explicitly set.
+  var hasField125: Bool {return self._field125 != nil}
+  /// Clears the value of `field125`. Subsequent reads from it will return its default value.
+  mutating func clearField125() {self._field125 = nil}
+
+  var field200: Int32 {
+    get {return _field200 ?? 0}
+    set {_field200 = newValue}
+  }
+  /// Returns true if `field200` has been explicitly set.
+  var hasField200: Bool {return self._field200 != nil}
+  /// Clears the value of `field200`. Subsequent reads from it will return its default value.
+  mutating func clearField200() {self._field200 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _field6: Int32? = nil
+  fileprivate var _field124: Int32? = nil
+  fileprivate var _field125: Int32? = nil
+  fileprivate var _field200: Int32? = nil
+}
+
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
 // MARK: - Extension Properties
@@ -1220,6 +1274,73 @@ extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 
   static func ==(lhs: SDTMsgExtensionRangeOrdering, rhs: SDTMsgExtensionRangeOrdering) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingWithFields"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    6: .same(proto: "field6"),
+    124: .same(proto: "field124"),
+    125: .same(proto: "field125"),
+    200: .same(proto: "field200"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 6: try { try decoder.decodeSingularInt32Field(value: &self._field6) }()
+      case 124: try { try decoder.decodeSingularInt32Field(value: &self._field124) }()
+      case 125: try { try decoder.decodeSingularInt32Field(value: &self._field125) }()
+      case 200: try { try decoder.decodeSingularInt32Field(value: &self._field200) }()
+      case 1..<5, 7, 9, 100..<121, 126..<131:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SDTMsgExtensionRangeOrderingWithFields.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5)
+    try { if let v = self._field6 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 7, end: 8)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 9, end: 10)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 121)
+    try { if let v = self._field124 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 124)
+    } }()
+    try { if let v = self._field125 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 125)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 126, end: 131)
+    try { if let v = self._field200 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SDTMsgExtensionRangeOrderingWithFields, rhs: SDTMsgExtensionRangeOrderingWithFields) -> Bool {
+    if lhs._field6 != rhs._field6 {return false}
+    if lhs._field124 != rhs._field124 {return false}
+    if lhs._field125 != rhs._field125 {return false}
+    if lhs._field200 != rhs._field200 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
