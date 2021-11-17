@@ -137,3 +137,16 @@ message MsgExtensionRangeOrderingWithFields {
   extensions 111 to 120;
   optional int32 field200 = 200;
 }
+
+// Intermixed ranges and fields so help ensure no merge issues
+message MsgExtensionRangeOrderingNoMerging {
+  optional int32 field1 = 1;
+  optional int32 field2 = 2;
+  extensions 3 to 5;
+  optional int32 field6 = 6;
+  extensions 7 to 12;
+  optional int32 field13 = 13;
+  optional int32 field15 = 15;
+  extensions 16 to 20;
+  optional int32 field21 = 21;
+}
