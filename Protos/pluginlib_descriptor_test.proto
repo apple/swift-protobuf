@@ -119,3 +119,21 @@ message MsgExtensionRangeOrdering {
   extensions 126 to 130;
   extensions 111 to 120;
 }
+
+// To check handling of extension ranges that are out of order, have fields or
+// reserved things mix through them.
+message MsgExtensionRangeOrderingWithFields {
+  extensions 1, 3, 2, 4;
+  optional int32 field6 = 6;
+  extensions 7;
+  reserved 8;
+  extensions 9;
+
+  extensions 100 to 110;
+  reserved 121 to 123;
+  optional int32 field124 = 124;
+  optional int32 field125 = 125;
+  extensions 126 to 130;
+  extensions 111 to 120;
+  optional int32 field200 = 200;
+}
