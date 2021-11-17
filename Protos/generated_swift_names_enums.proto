@@ -21,6 +21,7 @@ message GeneratedSwiftReservedEnums {
   enum appendUnknown { NONE_appendUnknown = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
   enum array { NONE_array = 0; }
+  enum arrayDepth { NONE_arrayDepth = 0; }
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
   enum as { NONE_as = 0; }
@@ -752,6 +753,7 @@ message GeneratedSwiftReservedEnums {
   enum timeIntervalSinceReferenceDate { NONE_timeIntervalSinceReferenceDate = 0; }
   enum Timestamp { NONE_Timestamp = 0; }
   enum total { NONE_total = 0; }
+  enum totalArrayDepth { NONE_totalArrayDepth = 0; }
   enum totalSize { NONE_totalSize = 0; }
   enum trailingComments { NONE_trailingComments = 0; }
   enum traverse { NONE_traverse = 0; }
