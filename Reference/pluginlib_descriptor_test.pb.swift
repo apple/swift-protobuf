@@ -554,6 +554,79 @@ struct SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _field200: Int32? = nil
 }
 
+/// Intermixed ranges and fields so help ensure no merge issues
+struct SDTMsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var field1: Int32 {
+    get {return _field1 ?? 0}
+    set {_field1 = newValue}
+  }
+  /// Returns true if `field1` has been explicitly set.
+  var hasField1: Bool {return self._field1 != nil}
+  /// Clears the value of `field1`. Subsequent reads from it will return its default value.
+  mutating func clearField1() {self._field1 = nil}
+
+  var field2: Int32 {
+    get {return _field2 ?? 0}
+    set {_field2 = newValue}
+  }
+  /// Returns true if `field2` has been explicitly set.
+  var hasField2: Bool {return self._field2 != nil}
+  /// Clears the value of `field2`. Subsequent reads from it will return its default value.
+  mutating func clearField2() {self._field2 = nil}
+
+  var field6: Int32 {
+    get {return _field6 ?? 0}
+    set {_field6 = newValue}
+  }
+  /// Returns true if `field6` has been explicitly set.
+  var hasField6: Bool {return self._field6 != nil}
+  /// Clears the value of `field6`. Subsequent reads from it will return its default value.
+  mutating func clearField6() {self._field6 = nil}
+
+  var field13: Int32 {
+    get {return _field13 ?? 0}
+    set {_field13 = newValue}
+  }
+  /// Returns true if `field13` has been explicitly set.
+  var hasField13: Bool {return self._field13 != nil}
+  /// Clears the value of `field13`. Subsequent reads from it will return its default value.
+  mutating func clearField13() {self._field13 = nil}
+
+  var field15: Int32 {
+    get {return _field15 ?? 0}
+    set {_field15 = newValue}
+  }
+  /// Returns true if `field15` has been explicitly set.
+  var hasField15: Bool {return self._field15 != nil}
+  /// Clears the value of `field15`. Subsequent reads from it will return its default value.
+  mutating func clearField15() {self._field15 = nil}
+
+  var field21: Int32 {
+    get {return _field21 ?? 0}
+    set {_field21 = newValue}
+  }
+  /// Returns true if `field21` has been explicitly set.
+  var hasField21: Bool {return self._field21 != nil}
+  /// Clears the value of `field21`. Subsequent reads from it will return its default value.
+  mutating func clearField21() {self._field21 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _field1: Int32? = nil
+  fileprivate var _field2: Int32? = nil
+  fileprivate var _field6: Int32? = nil
+  fileprivate var _field13: Int32? = nil
+  fileprivate var _field15: Int32? = nil
+  fileprivate var _field21: Int32? = nil
+}
+
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
 // MARK: - Extension Properties
@@ -1335,6 +1408,83 @@ extension SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftPr
     if lhs._field124 != rhs._field124 {return false}
     if lhs._field125 != rhs._field125 {return false}
     if lhs._field200 != rhs._field200 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension SDTMsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingNoMerging"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "field1"),
+    2: .same(proto: "field2"),
+    6: .same(proto: "field6"),
+    13: .same(proto: "field13"),
+    15: .same(proto: "field15"),
+    21: .same(proto: "field21"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._field1) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._field2) }()
+      case 6: try { try decoder.decodeSingularInt32Field(value: &self._field6) }()
+      case 13: try { try decoder.decodeSingularInt32Field(value: &self._field13) }()
+      case 15: try { try decoder.decodeSingularInt32Field(value: &self._field15) }()
+      case 21: try { try decoder.decodeSingularInt32Field(value: &self._field21) }()
+      case 3..<6, 7..<13, 16..<21:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SDTMsgExtensionRangeOrderingNoMerging.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._field1 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._field2 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 3, end: 6)
+    try { if let v = self._field6 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 7, end: 13)
+    try { if let v = self._field13 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+    } }()
+    try { if let v = self._field15 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
+    } }()
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 16, end: 21)
+    try { if let v = self._field21 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: SDTMsgExtensionRangeOrderingNoMerging, rhs: SDTMsgExtensionRangeOrderingNoMerging) -> Bool {
+    if lhs._field1 != rhs._field1 {return false}
+    if lhs._field2 != rhs._field2 {return false}
+    if lhs._field6 != rhs._field6 {return false}
+    if lhs._field13 != rhs._field13 {return false}
+    if lhs._field15 != rhs._field15 {return false}
+    if lhs._field21 != rhs._field21 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
