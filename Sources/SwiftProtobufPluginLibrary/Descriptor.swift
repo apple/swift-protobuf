@@ -177,7 +177,7 @@ public final class Descriptor {
     return proto.extensionRange
   }
   /// The `extensionRanges` are in the order they appear in the original .proto
-  /// file; this orders them and then merges the any ranges that are actually
+  /// file; this orders them and then merges any ranges that are actually
   /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
   public private(set) lazy var normalizedExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
     var ordered = self.extensionRanges.sorted(by: { return $0.start < $1.start })
@@ -190,6 +190,38 @@ public final class Descriptor {
       }
     }
     return ordered
+  }()
+
+  /// The `extensionRanges` from `normalizedExtensionRanges`, but takes a step
+  /// further in that any ranges that do _not_ have any fields inbetween them
+  /// are also merged together. These can then be used in context where it is
+  /// ok to include field numbers that have to be extension or unknown fields.
+  public private(set) lazy var ambitiousExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] = {
+    var merged = self.normalizedExtensionRanges
+    var sortedFields = self.fields.sorted {$0.number < $1.number}
+    if merged.count > 1 {
+      var fieldNumbersReversedIterator =
+        self.fields.map({ Int($0.number) }).sorted(by: { $0 > $1 }).makeIterator()
+      var nextFieldNumber = fieldNumbersReversedIterator.next()
+      while nextFieldNumber != nil && merged.last!.start < nextFieldNumber! {
+        nextFieldNumber = fieldNumbersReversedIterator.next()
+      }
+
+      for i in (0..<(merged.count - 1)).reversed() {
+        if nextFieldNumber == nil || merged[i].start > nextFieldNumber! {
+          // No fields left or range starts after the next field, merge it with
+          // the previous one.
+          merged[i].end = merged[i+1].end
+          merged.remove(at: i + 1)
+        } else {
+          // can't merge, find the next field number below this range.
+          while nextFieldNumber != nil && merged[i].start < nextFieldNumber! {
+            nextFieldNumber = fieldNumbersReversedIterator.next()
+          }
+        }
+      }
+    }
+    return merged
   }()
 
   /// True/False if this Message is just for a `map<>` entry.
