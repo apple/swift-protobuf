@@ -9564,9 +9564,7 @@ extension ProtobufUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Message, S
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 42, end: 43)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 4143, end: 4244)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 65536, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 42, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -13388,9 +13386,7 @@ extension ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.Message, S
     try { if let v = self._fooFour {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
     } }()
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 15, end: 16)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 17, end: 18)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 19, end: 20)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 15, end: 20)
     try unknownFields.traverse(visitor: &visitor)
   }
 
