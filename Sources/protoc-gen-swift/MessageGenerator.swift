@@ -340,7 +340,10 @@ class MessageGenerator {
           "// https://github.com/apple/swift-protobuf/issues/1182\n")
       }
 
-      var ranges = descriptor.normalizedExtensionRanges.makeIterator()
+      // Use the "ambitious" ranges because for visit because subranges with no
+      // intermixed fields can be merged to reduce the number of calls for
+      // extension visitation.
+      var ranges = descriptor.ambitiousExtensionRanges.makeIterator()
       var nextRange = ranges.next()
       for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {
