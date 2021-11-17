@@ -235,6 +235,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct arrayDepth {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var arrayDepth: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct arrayLiteral {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -9007,6 +9019,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct totalArrayDepth {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var totalArrayDepth: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct totalSize {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -11000,6 +11024,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array: SwiftP
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array) -> Bool {
     if lhs.array != rhs.array {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.arrayDepth: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".arrayDepth"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "arrayDepth"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.arrayDepth) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.arrayDepth != 0 {
+      try visitor.visitSingularInt32Field(value: self.arrayDepth, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.arrayDepth, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.arrayDepth) -> Bool {
+    if lhs.arrayDepth != rhs.arrayDepth {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -34392,6 +34448,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.total: SwiftP
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.total, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.total) -> Bool {
     if lhs.total != rhs.total {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.totalArrayDepth: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".totalArrayDepth"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "totalArrayDepth"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.totalArrayDepth) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.totalArrayDepth != 0 {
+      try visitor.visitSingularInt32Field(value: self.totalArrayDepth, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.totalArrayDepth, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.totalArrayDepth) -> Bool {
+    if lhs.totalArrayDepth != rhs.totalArrayDepth {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

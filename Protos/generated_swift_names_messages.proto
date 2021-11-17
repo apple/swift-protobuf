@@ -21,6 +21,7 @@ message GeneratedSwiftReservedMessages {
   message appendUnknown { int32 appendUnknown = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
   message array { int32 array = 1; }
+  message arrayDepth { int32 arrayDepth = 1; }
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
   message as { int32 as = 1; }
@@ -752,6 +753,7 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
   message total { int32 total = 1; }
+  message totalArrayDepth { int32 totalArrayDepth = 1; }
   message totalSize { int32 totalSize = 1; }
   message trailingComments { int32 trailingComments = 1; }
   message traverse { int32 traverse = 1; }
