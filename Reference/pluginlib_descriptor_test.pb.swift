@@ -1265,11 +1265,7 @@ extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 7, end: 8)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 9, end: 10)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 121)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 126, end: 131)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 131)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1320,9 +1316,7 @@ extension SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftPr
     try { if let v = self._field6 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
     } }()
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 7, end: 8)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 9, end: 10)
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 121)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 7, end: 121)
     try { if let v = self._field124 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 124)
     } }()
