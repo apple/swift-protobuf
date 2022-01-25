@@ -26797,16 +26797,20 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
       case 2: try { try decoder.decodeSingularInt32Field(value: &self._field) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self.__3Field3) }()
       case 4: try {
-        if self._2Of != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self._2Of = ._4(v)}
+        if let v = v {
+          if self._2Of != nil {try decoder.handleConflictingOneOf()}
+          self._2Of = ._4(v)
+        }
       }()
       case 5: try {
-        if self._2Of != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self._2Of = ._5Field(v)}
+        if let v = v {
+          if self._2Of != nil {try decoder.handleConflictingOneOf()}
+          self._2Of = ._5Field(v)
+        }
       }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._enumField) }()
       default: break

@@ -7645,10 +7645,12 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
         case 84: try { try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece) }()
         case 85: try { try decoder.decodeSingularStringField(value: &_storage._defaultCord) }()
         case 111: try {
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
-          if let v = v {_storage._oneofField = .oneofUint32(v)}
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofUint32(v)
+          }
         }()
         case 112: try {
           var v: ProtobufUnittest_TestAllTypes.NestedMessage?
@@ -7660,16 +7662,20 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
           if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
         }()
         case 113: try {
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: String?
           try decoder.decodeSingularStringField(value: &v)
-          if let v = v {_storage._oneofField = .oneofString(v)}
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofString(v)
+          }
         }()
         case 114: try {
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Data?
           try decoder.decodeSingularBytesField(value: &v)
-          if let v = v {_storage._oneofField = .oneofBytes(v)}
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofBytes(v)
+          }
         }()
         default: break
         }
@@ -8204,10 +8210,12 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftPro
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self._deprecatedInt32) }()
       case 2: try {
-        if self.oneofFields != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.oneofFields = .deprecatedInt32InOneof(v)}
+        if let v = v {
+          if self.oneofFields != nil {try decoder.handleConflictingOneOf()}
+          self.oneofFields = .deprecatedInt32InOneof(v)
+        }
       }()
       default: break
       }
@@ -10819,16 +10827,20 @@ extension ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mess
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.foo = .fooInt(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooInt(v)
+        }
       }()
       case 2: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.foo = .fooString(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooString(v)
+        }
       }()
       case 3: try {
         var v: ProtobufUnittest_TestAllTypes?
@@ -11041,40 +11053,52 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.foo = .fooInt(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooInt(v)
+        }
       }()
       case 2: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.foo = .fooString(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooString(v)
+        }
       }()
       case 3: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.foo = .fooCord(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooCord(v)
+        }
       }()
       case 4: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.foo = .fooStringPiece(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooStringPiece(v)
+        }
       }()
       case 5: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.foo = .fooBytes(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooBytes(v)
+        }
       }()
       case 6: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: ProtobufUnittest_TestOneof2.NestedEnum?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.foo = .fooEnum(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooEnum(v)
+        }
       }()
       case 7: try {
         var v: ProtobufUnittest_TestOneof2.NestedMessage?
@@ -11104,40 +11128,52 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
         if let v = v {self.foo = .fooLazyMessage(v)}
       }()
       case 12: try {
-        if self.bar != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.bar = .barInt(v)}
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barInt(v)
+        }
       }()
       case 13: try {
-        if self.bar != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.bar = .barString(v)}
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barString(v)
+        }
       }()
       case 14: try {
-        if self.bar != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.bar = .barCord(v)}
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barCord(v)
+        }
       }()
       case 15: try {
-        if self.bar != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.bar = .barStringPiece(v)}
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barStringPiece(v)
+        }
       }()
       case 16: try {
-        if self.bar != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.bar = .barBytes(v)}
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barBytes(v)
+        }
       }()
       case 17: try {
-        if self.bar != nil {try decoder.handleConflictingOneOf()}
         var v: ProtobufUnittest_TestOneof2.NestedEnum?
         try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {self.bar = .barEnum(v)}
+        if let v = v {
+          if self.bar != nil {try decoder.handleConflictingOneOf()}
+          self.bar = .barEnum(v)
+        }
       }()
       case 18: try { try decoder.decodeSingularInt32Field(value: &self._bazInt) }()
       case 19: try { try decoder.decodeSingularStringField(value: &self._bazString) }()
@@ -11342,16 +11378,20 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtob
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.foo = .fooInt(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooInt(v)
+        }
       }()
       case 2: try {
-        if self.foo != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.foo = .fooString(v)}
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooString(v)
+        }
       }()
       case 3: try {
         var v: ProtobufUnittest_TestRequiredOneof.NestedMessage?
@@ -12392,10 +12432,12 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftPro
       case 536870008: try { try decoder.decodeSingularGroupField(value: &self._optionalGroup) }()
       case 536870010: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.stringStringMap) }()
       case 536870011: try {
-        if self.oneofField != nil {try decoder.handleConflictingOneOf()}
         var v: UInt32?
         try decoder.decodeSingularUInt32Field(value: &v)
-        if let v = v {self.oneofField = .oneofUint32(v)}
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofUint32(v)
+        }
       }()
       case 536870012: try {
         var v: ProtobufUnittest_TestAllTypes?
@@ -12407,16 +12449,20 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftPro
         if let v = v {self.oneofField = .oneofTestAllTypes(v)}
       }()
       case 536870013: try {
-        if self.oneofField != nil {try decoder.handleConflictingOneOf()}
         var v: String?
         try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.oneofField = .oneofString(v)}
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofString(v)
+        }
       }()
       case 536870014: try {
-        if self.oneofField != nil {try decoder.handleConflictingOneOf()}
         var v: Data?
         try decoder.decodeSingularBytesField(value: &v)
-        if let v = v {self.oneofField = .oneofBytes(v)}
+        if let v = v {
+          if self.oneofField != nil {try decoder.handleConflictingOneOf()}
+          self.oneofField = .oneofBytes(v)
+        }
       }()
       case 536860000..<536870000:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbers.self, fieldNumber: fieldNumber) }()

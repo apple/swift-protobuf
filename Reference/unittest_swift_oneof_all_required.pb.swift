@@ -348,10 +348,12 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
         if let v = v {self.option = .option3(v)}
       }()
       case 6: try {
-        if self.option != nil {try decoder.handleConflictingOneOf()}
         var v: Int32?
         try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {self.option = .option4(v)}
+        if let v = v {
+          if self.option != nil {try decoder.handleConflictingOneOf()}
+          self.option = .option4(v)
+        }
       }()
       default: break
       }
