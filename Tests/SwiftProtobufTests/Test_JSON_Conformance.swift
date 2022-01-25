@@ -299,4 +299,28 @@ class Test_JSON_Conformance: XCTestCase {
             return
         }
     }
+
+    func testConflictingOneOf() {
+        let start = "{\"oneofUint32\": null, \"oneofString\": \"test\"}"
+        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        do {
+           decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+        } catch {
+           XCTFail("Failed to decode: \(start)")
+           return
+        }
+        XCTAssertEqual(try decoded.jsonString(), "{\"oneofString\":\"test\"}")
+    }
+
+    func testConflictingOneOf_2() {
+        let start = "{\"oneofString\": \"test\", \"oneofUint32\": null}"
+        let decoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        do {
+           decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
+        } catch {
+           XCTFail("Failed to decode: \(start)")
+           return
+        }
+        XCTAssertEqual(try decoded.jsonString(), "{\"oneofString\":\"test\"}")
+    }
 }

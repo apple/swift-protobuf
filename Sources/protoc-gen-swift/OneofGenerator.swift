@@ -362,12 +362,13 @@ class OneofGenerator {
     func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
         p.print("case \(field.number): try {\n")
         p.indent()
+        p.print(
+            "var v: \(field.swiftType)?\n")
 
         if field.isGroupOrMessage {
             // Messages need to fetch the current value so new fields are merged into the existing
             // value
             p.print(
-              "var v: \(field.swiftType)?\n",
               "if let current = \(storedProperty) {\n")
             p.indent()
             p.print(
@@ -375,15 +376,21 @@ class OneofGenerator {
               "if case \(field.dottedSwiftName)(let m) = current {v = m}\n")
             p.outdent()
             p.print("}\n")
+            p.print(
+              "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
+              "if let v = v {\(storedProperty) = \(field.dottedSwiftName)(v)}\n")
         } else {
             p.print(
+              "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
+              "if let v = v {\n")
+            p.indent()
+            p.print(
               "if \(storedProperty) != nil {try decoder.handleConflictingOneOf()}\n",
-              "var v: \(field.swiftType)?\n")
+              "\(storedProperty) = \(field.dottedSwiftName)(v)\n")
+            p.outdent()
+            p.print("}\n")
         }
 
-        p.print(
-          "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
-          "if let v = v {\(storedProperty) = \(field.dottedSwiftName)(v)}\n")
         p.outdent()
         p.print("}()\n")
     }

@@ -647,7 +647,9 @@ extension Test_JSON_Conformance {
         ("testNullSupport_RepeatedValue", testNullSupport_RepeatedValue),
         ("testNullConformance", testNullConformance),
         ("testValueList", testValueList),
-        ("testNestedAny", testNestedAny)
+        ("testNestedAny", testNestedAny),
+        ("testConflictingOneOf", testConflictingOneOf),
+        ("testConflictingOneOf_2", testConflictingOneOf_2)
     ]
 }
 
