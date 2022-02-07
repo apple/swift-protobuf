@@ -44,3 +44,8 @@ public struct UnknownStorage: Equatable {
     }
   }
 }
+
+#if swift(>=5.5) && canImport(_Concurrency)
+// Once our minimum supported version has Data be Sendable, @unchecked could be removed.
+extension UnknownStorage: @unchecked Sendable {}
+#endif

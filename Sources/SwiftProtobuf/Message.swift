@@ -31,7 +31,7 @@
 ///
 /// The actual functionality is implemented either in the generated code or in
 /// default implementations of the below methods and properties.
-public protocol Message: CustomDebugStringConvertible {
+public protocol Message: CustomDebugStringConvertible, _ProtoSendable {
   /// Creates a new message with all of its fields initialized to their default
   /// values.
   init()

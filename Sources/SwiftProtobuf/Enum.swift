@@ -16,7 +16,7 @@
 // -----------------------------------------------------------------------------
 
 /// Generated enum types conform to this protocol.
-public protocol Enum: RawRepresentable, Hashable {
+public protocol Enum: RawRepresentable, Hashable, _ProtoSendable {
   /// Creates a new instance of the enum initialized to its default value.
   init()
 
