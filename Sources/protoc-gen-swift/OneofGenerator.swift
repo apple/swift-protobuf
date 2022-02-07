@@ -294,6 +294,11 @@ class OneofGenerator {
         p.print("}\n")
     }
 
+    func generateSendable(printer p: inout CodePrinter) {
+        // Once our minimum supported version has Data be Sendable, @unchecked could be removed.
+        p.print("extension \(swiftFullName): @unchecked Sendable {}\n")
+    }
+
     private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
         p.print("\n", comments)

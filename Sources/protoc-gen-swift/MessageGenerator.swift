@@ -194,6 +194,23 @@ class MessageGenerator {
     }
   }
 
+  func generateSendable(printer p: inout CodePrinter) {
+    // Once our minimum supported version has Data be Sendable, @unchecked
+    // will not be needed for all messages, provided that the extension types
+    // in the library are marked Sendable.
+    //
+    // Messages that have a storage class will always need @unchecked.
+    p.print("extension \(swiftFullName): @unchecked Sendable {}\n")
+
+    for o in oneofs {
+      o.generateSendable(printer: &p)
+    }
+
+    for m in messages {
+      m.generateSendable(printer: &p)
+    }
+  }
+
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print(
         "\n",
