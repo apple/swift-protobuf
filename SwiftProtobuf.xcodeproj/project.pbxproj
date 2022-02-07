@@ -1368,7 +1368,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					9C8CDA111D7A288E00E207CA = {
 						CreatedOnToolsVersion = 8.0;
@@ -1400,10 +1400,9 @@
 			};
 			buildConfigurationList = "___RootConfs_" /* Build configuration list for PBXProject "SwiftProtobuf" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = "___RootGroup_";
