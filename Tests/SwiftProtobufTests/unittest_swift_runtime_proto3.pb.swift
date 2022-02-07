@@ -699,6 +699,15 @@ struct ProtobufUnittest_Msg3NamesUsesStorage {
   fileprivate var _value: ProtobufUnittest_Msg3UsesStorage? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_Message3: @unchecked Sendable {}
+extension ProtobufUnittest_Message3.OneOf_O: @unchecked Sendable {}
+extension ProtobufUnittest_Msg3NoStorage: @unchecked Sendable {}
+extension ProtobufUnittest_Msg3UsesStorage: @unchecked Sendable {}
+extension ProtobufUnittest_Msg3NamesNoStorage: @unchecked Sendable {}
+extension ProtobufUnittest_Msg3NamesUsesStorage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"

@@ -2025,6 +2025,36 @@ public struct Google_Protobuf_GeneratedCodeInfo {
   public init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Google_Protobuf_FileDescriptorSet: @unchecked Sendable {}
+extension Google_Protobuf_FileDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_DescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_DescriptorProto.ExtensionRange: @unchecked Sendable {}
+extension Google_Protobuf_DescriptorProto.ReservedRange: @unchecked Sendable {}
+extension Google_Protobuf_ExtensionRangeOptions: @unchecked Sendable {}
+extension Google_Protobuf_FieldDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_OneofDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_EnumDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: @unchecked Sendable {}
+extension Google_Protobuf_EnumValueDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_ServiceDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_MethodDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_FileOptions: @unchecked Sendable {}
+extension Google_Protobuf_MessageOptions: @unchecked Sendable {}
+extension Google_Protobuf_FieldOptions: @unchecked Sendable {}
+extension Google_Protobuf_OneofOptions: @unchecked Sendable {}
+extension Google_Protobuf_EnumOptions: @unchecked Sendable {}
+extension Google_Protobuf_EnumValueOptions: @unchecked Sendable {}
+extension Google_Protobuf_ServiceOptions: @unchecked Sendable {}
+extension Google_Protobuf_MethodOptions: @unchecked Sendable {}
+extension Google_Protobuf_UninterpretedOption: @unchecked Sendable {}
+extension Google_Protobuf_UninterpretedOption.NamePart: @unchecked Sendable {}
+extension Google_Protobuf_SourceCodeInfo: @unchecked Sendable {}
+extension Google_Protobuf_SourceCodeInfo.Location: @unchecked Sendable {}
+extension Google_Protobuf_GeneratedCodeInfo: @unchecked Sendable {}
+extension Google_Protobuf_GeneratedCodeInfo.Annotation: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"

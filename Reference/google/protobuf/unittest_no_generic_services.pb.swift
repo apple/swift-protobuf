@@ -105,6 +105,10 @@ struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensi
   fileprivate var _a: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_NoGenericServicesTest_TestMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_no_generic_services.proto.
 
 // MARK: - Extension Properties

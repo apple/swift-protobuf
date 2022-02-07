@@ -828,6 +828,20 @@ struct Proto3ArenaUnittest_TestPickleNestedMessage {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3ArenaUnittest_TestAllTypes: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestPackedTypes: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestUnpackedTypes: @unchecked Sendable {}
+extension Proto3ArenaUnittest_NestedTestAllTypes: @unchecked Sendable {}
+extension Proto3ArenaUnittest_ForeignMessage: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestEmptyMessage: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestPickleNestedMessage: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestPickleNestedMessage.NestedMessage.NestedNestedMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto3_arena_unittest"

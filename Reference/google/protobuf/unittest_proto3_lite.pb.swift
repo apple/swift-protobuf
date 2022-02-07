@@ -643,6 +643,17 @@ struct Proto3LiteUnittest_TestEmptyMessage {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3LiteUnittest_TestAllTypes: @unchecked Sendable {}
+extension Proto3LiteUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension Proto3LiteUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
+extension Proto3LiteUnittest_TestPackedTypes: @unchecked Sendable {}
+extension Proto3LiteUnittest_TestUnpackedTypes: @unchecked Sendable {}
+extension Proto3LiteUnittest_NestedTestAllTypes: @unchecked Sendable {}
+extension Proto3LiteUnittest_ForeignMessage: @unchecked Sendable {}
+extension Proto3LiteUnittest_TestEmptyMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto3_lite_unittest"

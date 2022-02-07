@@ -478,6 +478,17 @@ struct ProtobufUnittest_ForeignMessageArenaLite {
   fileprivate var _c: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestMapLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestArenaMapLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestRequiredMessageMapLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestEnumMapLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestEnumMapPlusExtraLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageMapLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestRequiredLite: @unchecked Sendable {}
+extension ProtobufUnittest_ForeignMessageArenaLite: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"

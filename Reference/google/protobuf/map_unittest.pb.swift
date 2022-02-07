@@ -435,6 +435,18 @@ struct ProtobufUnittest_TestRecursiveMapMessage {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestMap: @unchecked Sendable {}
+extension ProtobufUnittest_TestMapSubmessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageMap: @unchecked Sendable {}
+extension ProtobufUnittest_TestSameTypeMap: @unchecked Sendable {}
+extension ProtobufUnittest_TestRequiredMessageMap: @unchecked Sendable {}
+extension ProtobufUnittest_TestArenaMap: @unchecked Sendable {}
+extension ProtobufUnittest_MessageContainingEnumCalledType: @unchecked Sendable {}
+extension ProtobufUnittest_MessageContainingMapCalledEntry: @unchecked Sendable {}
+extension ProtobufUnittest_TestRecursiveMapMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"

@@ -97,6 +97,12 @@ struct ProtobufUnittest_LazyImports_MessageCustomOption2 {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_LazyImports_ImportedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_LazyImports_MessageCustomOption: @unchecked Sendable {}
+extension ProtobufUnittest_LazyImports_MessageCustomOption2: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest.lazy_imports"

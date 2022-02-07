@@ -203,6 +203,18 @@ public struct Google_Protobuf_BytesValue {
   public init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Google_Protobuf_DoubleValue: @unchecked Sendable {}
+extension Google_Protobuf_FloatValue: @unchecked Sendable {}
+extension Google_Protobuf_Int64Value: @unchecked Sendable {}
+extension Google_Protobuf_UInt64Value: @unchecked Sendable {}
+extension Google_Protobuf_Int32Value: @unchecked Sendable {}
+extension Google_Protobuf_UInt32Value: @unchecked Sendable {}
+extension Google_Protobuf_BoolValue: @unchecked Sendable {}
+extension Google_Protobuf_StringValue: @unchecked Sendable {}
+extension Google_Protobuf_BytesValue: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"

@@ -1830,6 +1830,44 @@ struct ProtobufUnittest_RecursiveMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypesLite.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypesLite.NestedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_ForeignMessageLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestPackedTypesLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllExtensionsLite: @unchecked Sendable {}
+extension ProtobufUnittest_OptionalGroup_extension_lite: @unchecked Sendable {}
+extension ProtobufUnittest_RepeatedGroup_extension_lite: @unchecked Sendable {}
+extension ProtobufUnittest_TestPackedExtensionsLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedExtensionLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestDeprecatedLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestParsingMergeLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: @unchecked Sendable {}
+extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: @unchecked Sendable {}
+extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: @unchecked Sendable {}
+extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestEmptyMessageLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: @unchecked Sendable {}
+extension ProtobufUnittest_V1MessageLite: @unchecked Sendable {}
+extension ProtobufUnittest_V2MessageLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestHugeFieldNumbersLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {}
+extension ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_PackedInt32: @unchecked Sendable {}
+extension ProtobufUnittest_NonPackedInt32: @unchecked Sendable {}
+extension ProtobufUnittest_PackedFixed32: @unchecked Sendable {}
+extension ProtobufUnittest_NonPackedFixed32: @unchecked Sendable {}
+extension ProtobufUnittest_DupEnum: @unchecked Sendable {}
+extension ProtobufUnittest_RecursiveMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_lite.proto.
 
 // MARK: - Extension Properties

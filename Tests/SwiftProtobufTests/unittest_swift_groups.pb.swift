@@ -265,6 +265,18 @@ struct SwiftTestNestingGroupsMessage {
   fileprivate var _subGroup1: SwiftTestNestingGroupsMessage.SubGroup1? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension SwiftTestGroupExtensions: @unchecked Sendable {}
+extension ExtensionGroup: @unchecked Sendable {}
+extension RepeatedExtensionGroup: @unchecked Sendable {}
+extension SwiftTestGroupUnextended: @unchecked Sendable {}
+extension SwiftTestNestingGroupsMessage: @unchecked Sendable {}
+extension SwiftTestNestingGroupsMessage.SubGroup1: @unchecked Sendable {}
+extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: @unchecked Sendable {}
+extension SwiftTestNestingGroupsMessage.SubGroup3: @unchecked Sendable {}
+extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_swift_groups.proto.
 
 // MARK: - Extension Properties

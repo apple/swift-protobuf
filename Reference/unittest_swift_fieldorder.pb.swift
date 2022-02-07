@@ -388,6 +388,17 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
   fileprivate var _m: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Swift_Protobuf_TestFieldOrderings: @unchecked Sendable {}
+extension Swift_Protobuf_TestFieldOrderings.OneOf_Options: @unchecked Sendable {}
+extension Swift_Protobuf_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
+extension Swift_Protobuf_OneofTraversalGeneration: @unchecked Sendable {}
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood: @unchecked Sendable {}
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField: @unchecked Sendable {}
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart: @unchecked Sendable {}
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.
 
 // MARK: - Extension Properties

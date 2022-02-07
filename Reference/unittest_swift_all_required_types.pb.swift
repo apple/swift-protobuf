@@ -749,6 +749,14 @@ extension ProtobufUnittest_TestSomeRequiredTypes.NestedEnum: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestAllRequiredTypes: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestSomeRequiredTypes: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"

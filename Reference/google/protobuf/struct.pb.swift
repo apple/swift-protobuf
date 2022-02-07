@@ -252,6 +252,13 @@ struct Google_Protobuf_ListValue {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Google_Protobuf_Struct: @unchecked Sendable {}
+extension Google_Protobuf_Value: @unchecked Sendable {}
+extension Google_Protobuf_Value.OneOf_Kind: @unchecked Sendable {}
+extension Google_Protobuf_ListValue: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"

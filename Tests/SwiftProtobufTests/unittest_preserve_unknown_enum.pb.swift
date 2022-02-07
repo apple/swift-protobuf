@@ -263,6 +263,13 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Sendable {}
+extension Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O: @unchecked Sendable {}
+extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Sendable {}
+extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"

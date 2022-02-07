@@ -854,6 +854,38 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestMessageWithCustomOptions: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionFooRequest: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionFooResponse: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionFooClientMessage: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionFooServerMessage: @unchecked Sendable {}
+extension ProtobufUnittest_DummyMessageContainingEnum: @unchecked Sendable {}
+extension ProtobufUnittest_DummyMessageInvalidAsOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionMinIntegerValues: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionMaxIntegerValues: @unchecked Sendable {}
+extension ProtobufUnittest_CustomOptionOtherValues: @unchecked Sendable {}
+extension ProtobufUnittest_SettingRealsFromPositiveInts: @unchecked Sendable {}
+extension ProtobufUnittest_SettingRealsFromNegativeInts: @unchecked Sendable {}
+extension ProtobufUnittest_ComplexOptionType1: @unchecked Sendable {}
+extension ProtobufUnittest_ComplexOptionType2: @unchecked Sendable {}
+extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4: @unchecked Sendable {}
+extension ProtobufUnittest_ComplexOptionType3: @unchecked Sendable {}
+extension ProtobufUnittest_ComplexOptionType3.ComplexOptionType5: @unchecked Sendable {}
+extension ProtobufUnittest_ComplexOpt6: @unchecked Sendable {}
+extension ProtobufUnittest_VariousComplexOptions: @unchecked Sendable {}
+extension ProtobufUnittest_AggregateMessageSet: @unchecked Sendable {}
+extension ProtobufUnittest_AggregateMessageSetElement: @unchecked Sendable {}
+extension ProtobufUnittest_Aggregate: @unchecked Sendable {}
+extension ProtobufUnittest_AggregateMessage: @unchecked Sendable {}
+extension ProtobufUnittest_NestedOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_NestedOptionType.NestedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_OldOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_NewOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageWithRequiredEnumOption: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_custom_options.proto.
 
 // MARK: - Extension Properties

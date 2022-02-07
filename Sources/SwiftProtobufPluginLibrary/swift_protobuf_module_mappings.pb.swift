@@ -67,6 +67,11 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings {
   public init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Sendable {}
+extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "swift_protobuf.gen_swift"

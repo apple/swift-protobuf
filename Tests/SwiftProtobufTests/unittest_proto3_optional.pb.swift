@@ -376,6 +376,14 @@ struct ProtobufUnittest_Proto3OptionalExtensions {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestProto3Optional: @unchecked Sendable {}
+extension ProtobufUnittest_TestProto3Optional.NestedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestProto3OptionalMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestProto3OptionalMessage.NestedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_Proto3OptionalExtensions: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_proto3_optional.proto.
 
 // MARK: - Extension Properties
