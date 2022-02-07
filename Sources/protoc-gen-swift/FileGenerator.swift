@@ -140,6 +140,17 @@ class FileGenerator {
             }
         }
 
+        var sendablePrinter = CodePrinter()
+        for m in messages {
+            m.generateSendable(printer: &sendablePrinter)
+        }
+
+        if !sendablePrinter.isEmpty {
+            p.print("\n#if swift(>=5.5) && canImport(_Concurrency)\n")
+            p.print(sendablePrinter.content)
+            p.print("#endif  // swift(>=5.5) && canImport(_Concurrency)\n")
+        }
+
         if !extensionSet.isEmpty {
             let pathParts = splitPath(pathname: fileDescriptor.name)
             let filename = pathParts.base + pathParts.suffix
