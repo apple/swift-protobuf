@@ -15981,6 +15981,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum ProtoSendable: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneProtoSendable // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneProtoSendable
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneProtoSendable
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneProtoSendable: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum publicEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case nonePublic // = 0
@@ -17150,6 +17175,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneSelf: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum Sendable: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSendable // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSendable
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSendable
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSendable: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -26227,6 +26277,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoPaths: Case
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoSendable: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoSendable] = [
+    .noneProtoSendable,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicEnum] = [
@@ -26553,6 +26610,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.selfEnum: CaseIt
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.selfEnum] = [
     .noneSelf,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Sendable: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Sendable] = [
+    .noneSendable,
   ]
 }
 
@@ -27845,6 +27909,10 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday: CaseIterab
 }
 
 #endif  // swift(>=4.2)
+
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -31697,6 +31765,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoPaths: Swif
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoSendable: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ProtoSendable"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_public"),
@@ -31976,6 +32050,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.seconds: SwiftPr
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.selfEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_self"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Sendable: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_Sendable"),
   ]
 }
 

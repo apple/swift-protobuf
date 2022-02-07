@@ -525,6 +525,14 @@ struct Proto2NofieldpresenceUnittest_ForeignMessage {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {}
+extension Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
+extension Proto2NofieldpresenceUnittest_TestProto2Required: @unchecked Sendable {}
+extension Proto2NofieldpresenceUnittest_ForeignMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto2_nofieldpresence_unittest"

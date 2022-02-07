@@ -1904,6 +1904,17 @@ struct Fuzz_Testing_RepeatedGroup_ext {
   fileprivate var _groupField: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Fuzz_Testing_Message: @unchecked Sendable {}
+extension Fuzz_Testing_Message.OneOf_O: @unchecked Sendable {}
+extension Fuzz_Testing_Message.SingularGroup: @unchecked Sendable {}
+extension Fuzz_Testing_Message.RepeatedGroup: @unchecked Sendable {}
+extension Fuzz_Testing_Message.OneofGroup: @unchecked Sendable {}
+extension Fuzz_Testing_AMessageSetMessage: @unchecked Sendable {}
+extension Fuzz_Testing_SingularGroup_ext: @unchecked Sendable {}
+extension Fuzz_Testing_RepeatedGroup_ext: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in fuzz_testing.proto.
 
 // MARK: - Extension Properties

@@ -90,6 +90,12 @@ struct ProtobufUnittest_Extend3_C {
   fileprivate var _c: Int64? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_Extend3_MyMessage: @unchecked Sendable {}
+extension ProtobufUnittest_Extend3_MyMessage.C: @unchecked Sendable {}
+extension ProtobufUnittest_Extend3_C: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_swift_extension3.proto.
 
 // MARK: - Extension Properties

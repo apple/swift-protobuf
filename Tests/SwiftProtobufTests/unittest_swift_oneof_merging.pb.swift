@@ -194,6 +194,14 @@ struct SwiftUnittest_TestParsingMerge {
   fileprivate var _optionalMessage: SwiftUnittest_TestMessage? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension SwiftUnittest_TestMessage: @unchecked Sendable {}
+extension SwiftUnittest_TestMessage.OneOf_OneofField: @unchecked Sendable {}
+extension SwiftUnittest_TestMessage.NestedMessage: @unchecked Sendable {}
+extension SwiftUnittest_TestParsingMerge: @unchecked Sendable {}
+extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "swift_unittest"

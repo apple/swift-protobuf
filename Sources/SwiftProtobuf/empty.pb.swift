@@ -68,6 +68,10 @@ public struct Google_Protobuf_Empty {
   public init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Google_Protobuf_Empty: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.protobuf"

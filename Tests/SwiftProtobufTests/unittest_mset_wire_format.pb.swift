@@ -90,6 +90,11 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer {
   fileprivate var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Proto2WireformatUnittest_TestMessageSet: @unchecked Sendable {}
+extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "proto2_wireformat_unittest"

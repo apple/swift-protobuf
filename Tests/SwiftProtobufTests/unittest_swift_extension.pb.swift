@@ -178,6 +178,17 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_Extend_Foo: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_Foo.Bar: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_Foo.Bar.Baz: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_C: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_Msg1: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_Msg2: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_MsgNoStorage: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_MsgUsesStorage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_swift_extension.proto.
 
 // MARK: - Extension Properties

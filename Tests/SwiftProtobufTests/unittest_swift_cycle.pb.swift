@@ -166,6 +166,12 @@ struct ProtobufUnittest_CycleBaz {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_CycleFoo: @unchecked Sendable {}
+extension ProtobufUnittest_CycleBar: @unchecked Sendable {}
+extension ProtobufUnittest_CycleBaz: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"

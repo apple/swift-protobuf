@@ -112,6 +112,10 @@ struct ProtobufUnittestImport_ImportMessageLite {
   fileprivate var _d: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittestImport_ImportMessageLite: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest_import"

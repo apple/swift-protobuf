@@ -507,6 +507,15 @@ struct Conformance_JspbEncodingConfig {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Conformance_FailureSet: @unchecked Sendable {}
+extension Conformance_ConformanceRequest: @unchecked Sendable {}
+extension Conformance_ConformanceRequest.OneOf_Payload: @unchecked Sendable {}
+extension Conformance_ConformanceResponse: @unchecked Sendable {}
+extension Conformance_ConformanceResponse.OneOf_Result: @unchecked Sendable {}
+extension Conformance_JspbEncodingConfig: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "conformance"

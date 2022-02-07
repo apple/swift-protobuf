@@ -184,6 +184,14 @@ struct ProtobufUnittest_RawMessageSet {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestMessageSetContainer: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageSetExtension1: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageSetExtension2: @unchecked Sendable {}
+extension ProtobufUnittest_RawMessageSet: @unchecked Sendable {}
+extension ProtobufUnittest_RawMessageSet.Item: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_mset.proto.
 
 // MARK: - Extension Properties

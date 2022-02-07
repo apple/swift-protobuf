@@ -627,6 +627,20 @@ struct SDTMsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _field21: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension SDTTopLevelMessage: @unchecked Sendable {}
+extension SDTTopLevelMessage.OneOf_O: @unchecked Sendable {}
+extension SDTTopLevelMessage.SubMessage: @unchecked Sendable {}
+extension SDTTopLevelMessage2: @unchecked Sendable {}
+extension SDTExternalRefs: @unchecked Sendable {}
+extension SDTScoperForExt: @unchecked Sendable {}
+extension SDTProto2MessageForPresence: @unchecked Sendable {}
+extension SDTProto2MessageForPresence.OneOf_O: @unchecked Sendable {}
+extension SDTMsgExtensionRangeOrdering: @unchecked Sendable {}
+extension SDTMsgExtensionRangeOrderingWithFields: @unchecked Sendable {}
+extension SDTMsgExtensionRangeOrderingNoMerging: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
 // MARK: - Extension Properties

@@ -77,6 +77,10 @@ struct ProtobufUnittest_LazyImports_LazyMessage {
   fileprivate var _a: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_LazyImports_LazyMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_lazy_dependencies_custom_option.proto.
 
 // MARK: - Extension Properties

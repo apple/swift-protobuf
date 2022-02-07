@@ -57,6 +57,10 @@ struct _4fun_Mumble_MyMessage {
   fileprivate var _a: Int32? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension _4fun_Mumble_MyMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "_4fun.mumble"

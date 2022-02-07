@@ -172,6 +172,13 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize {
   fileprivate var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_TestOptimizedForSize: @unchecked Sendable {}
+extension ProtobufUnittest_TestOptimizedForSize.OneOf_Foo: @unchecked Sendable {}
+extension ProtobufUnittest_TestRequiredOptimizedForSize: @unchecked Sendable {}
+extension ProtobufUnittest_TestOptionalOptimizedForSize: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Extension support defined in unittest_optimize_for.proto.
 
 // MARK: - Extension Properties
