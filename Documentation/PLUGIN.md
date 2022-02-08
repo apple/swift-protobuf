@@ -84,7 +84,7 @@ $ protoc \
 _NOTE:_ protoc 3.2.0 does not recognize `--swift_opt` if you rely on
 `protoc-gen-swift` being found on the `PATH`. To work around this, you need to
 explicitly add the argument `--plugin=[PATH-TO-protoc-gen-swift]` to the
-command line, then the `--swift-opt` argument will be understood.  If you are
+command line, then the `--swift_opt` argument will be understood.  If you are
 using protoc 3.2.1 or later, then this workaround is _not_ needed.
 
 ##### Generation Option: `FileNaming` - Naming of Generated Sources
