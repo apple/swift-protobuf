@@ -93,7 +93,7 @@ By default, the paths to the proto files are maintained on the
 generated files.  So if you pass `foo/bar/my.proto`, you will get
 `foo/bar/my.pb.swift` in the output directory. The Swift plugin
 supports an option to control the generated file names, the option is
-given as part of the `--swift_out` argument like this:
+given as part of the `--swift_opt` argument like this:
 
 ```
 $ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
