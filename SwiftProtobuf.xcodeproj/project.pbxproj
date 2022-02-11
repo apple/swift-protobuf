@@ -289,10 +289,6 @@
 		DB2E0AFF1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E0AFD1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift */; };
 		DB2E0B001EB25D1D00F59319 /* Message+JSONArrayAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E0AFD1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift */; };
 		DB2E0B011EB25D1D00F59319 /* Message+JSONArrayAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E0AFD1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift */; };
-		DB9CACE027B1BB6E00091AD6 /* ProtoSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9CACDF27B1BB6E00091AD6 /* ProtoSendable.swift */; };
-		DB9CACE127B1BB6E00091AD6 /* ProtoSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9CACDF27B1BB6E00091AD6 /* ProtoSendable.swift */; };
-		DB9CACE227B1BB6E00091AD6 /* ProtoSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9CACDF27B1BB6E00091AD6 /* ProtoSendable.swift */; };
-		DB9CACE327B1BB6E00091AD6 /* ProtoSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9CACDF27B1BB6E00091AD6 /* ProtoSendable.swift */; };
 		E7038A24224D7F1000B68775 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7038A23224D7F1000B68775 /* Data+Extensions.swift */; };
 		E7038A25224D7F1000B68775 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7038A23224D7F1000B68775 /* Data+Extensions.swift */; };
 		E7038A26224D7F1000B68775 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7038A23224D7F1000B68775 /* Data+Extensions.swift */; };
@@ -792,7 +788,6 @@
 		BCCA0E751DB123F800957D74 /* Test_TextFormat_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_TextFormat_proto3.swift; sourceTree = "<group>"; };
 		DB2E0AF91EB24C7600F59319 /* Test_JSON_Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_JSON_Array.swift; sourceTree = "<group>"; };
 		DB2E0AFD1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "Message+JSONArrayAdditions.swift"; sourceTree = "<group>"; tabWidth = 2; };
-		DB9CACDF27B1BB6E00091AD6 /* ProtoSendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoSendable.swift; sourceTree = "<group>"; };
 		E7038A23224D7F1000B68775 /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		F40D33E82017ECD300ABAF0F /* unittest_swift_enum_proto3.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_enum_proto3.pb.swift; sourceTree = "<group>"; };
 		F411FE941EDDD6AA001AE6B2 /* BinaryDecodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryDecodingOptions.swift; sourceTree = "<group>"; };
@@ -1091,7 +1086,6 @@
 				AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */,
 				9C75F8A21DDD44A1005CCFF2 /* ProtobufMap.swift */,
 				AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */,
-				DB9CACDF27B1BB6E00091AD6 /* ProtoSendable.swift */,
 				F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */,
 				9C75F8841DDD3045005CCFF2 /* SimpleExtensionMap.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
@@ -1613,7 +1607,6 @@
 				F482B6B61E89941500A25EF8 /* Version.swift in Sources */,
 				9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */,
 				9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */,
-				DB9CACE127B1BB6E00091AD6 /* ProtoSendable.swift in Sources */,
 				9C5890B41DFF6389001CFC34 /* TextFormatDecoder.swift in Sources */,
 				9C5890B51DFF6389001CFC34 /* TextFormatEncoder.swift in Sources */,
 				9C5890B61DFF6389001CFC34 /* TextFormatEncodingVisitor.swift in Sources */,
@@ -1705,7 +1698,6 @@
 				F482B6B31E89940E00A25EF8 /* Version.swift in Sources */,
 				F41BA4401E7AE4AC004F6E95 /* any.pb.swift in Sources */,
 				9C75F8941DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
-				DB9CACE027B1BB6E00091AD6 /* ProtoSendable.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* Message+BinaryAdditions.swift in Sources */,
 				AAF2ED3F1DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
@@ -1920,7 +1912,6 @@
 				F482B6B71E89941600A25EF8 /* Version.swift in Sources */,
 				F44F93981DAEA76700BC5B85 /* Varint.swift in Sources */,
 				F44F937C1DAEA76700BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
-				DB9CACE227B1BB6E00091AD6 /* ProtoSendable.swift in Sources */,
 				9C5890AE1DFF6384001CFC34 /* TextFormatDecoder.swift in Sources */,
 				9C5890AF1DFF6384001CFC34 /* TextFormatEncoder.swift in Sources */,
 				9C5890B01DFF6384001CFC34 /* TextFormatEncodingVisitor.swift in Sources */,
@@ -2135,7 +2126,6 @@
 				F482B6B81E89941600A25EF8 /* Version.swift in Sources */,
 				9C75F8971DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
 				F44F94131DAEB23500BC5B85 /* Message+BinaryAdditions.swift in Sources */,
-				DB9CACE327B1BB6E00091AD6 /* ProtoSendable.swift in Sources */,
 				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
 				ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */,
 				9C5890A81DFF6375001CFC34 /* TextFormatDecoder.swift in Sources */,
