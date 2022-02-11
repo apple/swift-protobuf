@@ -160,7 +160,9 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: CaseI
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_Extend_EnumOptionalDefault: @unchecked Sendable {}
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum: @unchecked Sendable {}
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: @unchecked Sendable {}
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

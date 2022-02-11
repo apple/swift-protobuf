@@ -479,6 +479,9 @@ struct ProtobufUnittest_ForeignMessageArenaLite {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_Proto2MapEnumLite: @unchecked Sendable {}
+extension ProtobufUnittest_Proto2MapEnumPlusExtraLite: @unchecked Sendable {}
+extension ProtobufUnittest_MapEnumLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestMapLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestArenaMapLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredMessageMapLite: @unchecked Sendable {}

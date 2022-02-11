@@ -237,6 +237,8 @@ struct ProtobufUnittest_TestSubmessageMaps {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_Proto2MapEnum: @unchecked Sendable {}
+extension ProtobufUnittest_Proto2MapEnumPlusExtra: @unchecked Sendable {}
 extension ProtobufUnittest_TestEnumMap: @unchecked Sendable {}
 extension ProtobufUnittest_TestEnumMapPlusExtra: @unchecked Sendable {}
 extension ProtobufUnittest_TestImportEnumMap: @unchecked Sendable {}

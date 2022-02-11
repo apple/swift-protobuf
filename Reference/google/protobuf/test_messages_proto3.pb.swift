@@ -1244,12 +1244,16 @@ extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum: CaseIterable {
 #endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufTestMessages_Proto3_ForeignEnum: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: @unchecked Sendable {}
+extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_ForeignMessage: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_NullHypothesisProto3: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Sendable {}
+extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

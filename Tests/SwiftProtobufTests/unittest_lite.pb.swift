@@ -1831,8 +1831,12 @@ struct ProtobufUnittest_RecursiveMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_ForeignEnumLite: @unchecked Sendable {}
+extension ProtobufUnittest_V1EnumLite: @unchecked Sendable {}
+extension ProtobufUnittest_V2EnumLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypesLite.NestedEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: @unchecked Sendable {}
@@ -1865,6 +1869,7 @@ extension ProtobufUnittest_NonPackedInt32: @unchecked Sendable {}
 extension ProtobufUnittest_PackedFixed32: @unchecked Sendable {}
 extension ProtobufUnittest_NonPackedFixed32: @unchecked Sendable {}
 extension ProtobufUnittest_DupEnum: @unchecked Sendable {}
+extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: @unchecked Sendable {}
 extension ProtobufUnittest_RecursiveMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

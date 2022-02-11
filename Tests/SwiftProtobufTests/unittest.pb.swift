@@ -4777,8 +4777,13 @@ struct ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMes
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_ForeignEnum: @unchecked Sendable {}
+extension ProtobufUnittest_TestEnumWithDupValue: @unchecked Sendable {}
+extension ProtobufUnittest_TestSparseEnum: @unchecked Sendable {}
+extension ProtobufUnittest_VeryLargeEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestAllTypes.NestedEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.RepeatedGroup: @unchecked Sendable {}
@@ -4848,6 +4853,7 @@ extension ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup: @unchecked Sen
 extension ProtobufUnittest_TestOneof2: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2.OneOf_Foo: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2.OneOf_Bar: @unchecked Sendable {}
+extension ProtobufUnittest_TestOneof2.NestedEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2.FooGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredOneof: @unchecked Sendable {}
@@ -4858,6 +4864,7 @@ extension ProtobufUnittest_TestUnpackedTypes: @unchecked Sendable {}
 extension ProtobufUnittest_TestPackedExtensions: @unchecked Sendable {}
 extension ProtobufUnittest_TestUnpackedExtensions: @unchecked Sendable {}
 extension ProtobufUnittest_TestDynamicExtensions: @unchecked Sendable {}
+extension ProtobufUnittest_TestDynamicExtensions.DynamicEnumType: @unchecked Sendable {}
 extension ProtobufUnittest_TestDynamicExtensions.DynamicMessageType: @unchecked Sendable {}
 extension ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMerge: @unchecked Sendable {}

@@ -855,13 +855,17 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_MethodOpt1: @unchecked Sendable {}
+extension ProtobufUnittest_AggregateEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageWithCustomOptions: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageWithCustomOptions.AnEnum: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooRequest: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooResponse: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooClientMessage: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooServerMessage: @unchecked Sendable {}
 extension ProtobufUnittest_DummyMessageContainingEnum: @unchecked Sendable {}
+extension ProtobufUnittest_DummyMessageContainingEnum.TestEnumType: @unchecked Sendable {}
 extension ProtobufUnittest_DummyMessageInvalidAsOptionType: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionMinIntegerValues: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionMaxIntegerValues: @unchecked Sendable {}
@@ -880,9 +884,12 @@ extension ProtobufUnittest_AggregateMessageSetElement: @unchecked Sendable {}
 extension ProtobufUnittest_Aggregate: @unchecked Sendable {}
 extension ProtobufUnittest_AggregateMessage: @unchecked Sendable {}
 extension ProtobufUnittest_NestedOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_NestedOptionType.NestedEnum: @unchecked Sendable {}
 extension ProtobufUnittest_NestedOptionType.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_OldOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_OldOptionType.TestEnum: @unchecked Sendable {}
 extension ProtobufUnittest_NewOptionType: @unchecked Sendable {}
+extension ProtobufUnittest_NewOptionType.TestEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageWithRequiredEnumOption: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

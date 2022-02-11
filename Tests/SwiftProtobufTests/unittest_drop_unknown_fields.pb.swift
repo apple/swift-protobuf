@@ -174,7 +174,9 @@ extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable 
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension UnittestDropUnknownFields_Foo: @unchecked Sendable {}
+extension UnittestDropUnknownFields_Foo.NestedEnum: @unchecked Sendable {}
 extension UnittestDropUnknownFields_FooWithExtraFields: @unchecked Sendable {}
+extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

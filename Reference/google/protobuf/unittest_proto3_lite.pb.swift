@@ -644,8 +644,10 @@ struct Proto3LiteUnittest_TestEmptyMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3LiteUnittest_ForeignEnum: @unchecked Sendable {}
 extension Proto3LiteUnittest_TestAllTypes: @unchecked Sendable {}
 extension Proto3LiteUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension Proto3LiteUnittest_TestAllTypes.NestedEnum: @unchecked Sendable {}
 extension Proto3LiteUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension Proto3LiteUnittest_TestPackedTypes: @unchecked Sendable {}
 extension Proto3LiteUnittest_TestUnpackedTypes: @unchecked Sendable {}

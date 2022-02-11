@@ -642,7 +642,6 @@ message GeneratedSwiftReservedMessages {
   message protoMessageName { int32 protoMessageName = 1; }
   message ProtoNameProviding { int32 ProtoNameProviding = 1; }
   message protoPaths { int32 protoPaths = 1; }
-  message ProtoSendable { int32 ProtoSendable = 1; }
   message public { int32 public = 1; }
   message publicDependency { int32 publicDependency = 1; }
   message putBoolValue { int32 putBoolValue = 1; }
@@ -690,7 +689,6 @@ message GeneratedSwiftReservedMessages {
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
   message self { int32 self = 1; }
-  message Sendable { int32 Sendable = 1; }
   message separator { int32 separator = 1; }
   message serialize { int32 serialize = 1; }
   message serializedData { int32 serializedData = 1; }

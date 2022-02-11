@@ -628,8 +628,10 @@ struct SDTMsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension SDTTopLevelEnum: @unchecked Sendable {}
 extension SDTTopLevelMessage: @unchecked Sendable {}
 extension SDTTopLevelMessage.OneOf_O: @unchecked Sendable {}
+extension SDTTopLevelMessage.SubEnum: @unchecked Sendable {}
 extension SDTTopLevelMessage.SubMessage: @unchecked Sendable {}
 extension SDTTopLevelMessage2: @unchecked Sendable {}
 extension SDTExternalRefs: @unchecked Sendable {}

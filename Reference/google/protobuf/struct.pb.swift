@@ -253,6 +253,7 @@ struct Google_Protobuf_ListValue {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Google_Protobuf_NullValue: @unchecked Sendable {}
 extension Google_Protobuf_Struct: @unchecked Sendable {}
 extension Google_Protobuf_Value: @unchecked Sendable {}
 extension Google_Protobuf_Value.OneOf_Kind: @unchecked Sendable {}

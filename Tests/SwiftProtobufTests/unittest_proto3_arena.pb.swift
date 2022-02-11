@@ -829,8 +829,10 @@ struct Proto3ArenaUnittest_TestPickleNestedMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3ArenaUnittest_ForeignEnum: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestAllTypes: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension Proto3ArenaUnittest_TestAllTypes.NestedEnum: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestPackedTypes: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestUnpackedTypes: @unchecked Sendable {}

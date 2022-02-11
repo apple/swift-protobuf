@@ -238,6 +238,7 @@ struct SwiftDescriptorTest_OtherMessage {
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Sendable {}
 extension SwiftDescriptorTest_Proto3MessageForPresence.OneOf_O: @unchecked Sendable {}
+extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: @unchecked Sendable {}
 extension SwiftDescriptorTest_OtherMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

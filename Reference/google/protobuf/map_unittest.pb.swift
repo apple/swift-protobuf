@@ -436,6 +436,7 @@ struct ProtobufUnittest_TestRecursiveMapMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_MapEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestMap: @unchecked Sendable {}
 extension ProtobufUnittest_TestMapSubmessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageMap: @unchecked Sendable {}
@@ -443,6 +444,7 @@ extension ProtobufUnittest_TestSameTypeMap: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredMessageMap: @unchecked Sendable {}
 extension ProtobufUnittest_TestArenaMap: @unchecked Sendable {}
 extension ProtobufUnittest_MessageContainingEnumCalledType: @unchecked Sendable {}
+extension ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum: @unchecked Sendable {}
 extension ProtobufUnittest_MessageContainingMapCalledEntry: @unchecked Sendable {}
 extension ProtobufUnittest_TestRecursiveMapMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)

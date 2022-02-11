@@ -464,8 +464,11 @@ public struct Google_Protobuf_Option {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Google_Protobuf_Syntax: @unchecked Sendable {}
 extension Google_Protobuf_Type: @unchecked Sendable {}
 extension Google_Protobuf_Field: @unchecked Sendable {}
+extension Google_Protobuf_Field.Kind: @unchecked Sendable {}
+extension Google_Protobuf_Field.Cardinality: @unchecked Sendable {}
 extension Google_Protobuf_Enum: @unchecked Sendable {}
 extension Google_Protobuf_EnumValue: @unchecked Sendable {}
 extension Google_Protobuf_Option: @unchecked Sendable {}
