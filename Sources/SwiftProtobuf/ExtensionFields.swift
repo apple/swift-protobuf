@@ -17,6 +17,8 @@ private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 #endif
 
+// TODO: `AnyExtensionField` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
+
 //
 // Type-erased Extension field implementation.
 // Note that it has no "self or associated type" references, so can
