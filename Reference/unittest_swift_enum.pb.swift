@@ -247,7 +247,12 @@ extension ProtobufUnittest_SwiftEnumWithAliasTest.EnumWithAlias: CaseIterable {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_SwiftEnumTest: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftEnumTest.EnumTest1: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftEnumTest.EnumTest2: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftEnumTest.EnumTestNoStem: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftEnumTest.EnumTestReservedWord: @unchecked Sendable {}
 extension ProtobufUnittest_SwiftEnumWithAliasTest: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftEnumWithAliasTest.EnumWithAlias: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

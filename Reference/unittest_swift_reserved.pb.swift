@@ -249,6 +249,8 @@ struct ProtobufUnittest_SwiftReservedTestExt {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_SwiftReservedTest: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftReservedTest.Enum: @unchecked Sendable {}
+extension ProtobufUnittest_SwiftReservedTest.ProtocolEnum: @unchecked Sendable {}
 extension ProtobufUnittest_SwiftReservedTest.classMessage: @unchecked Sendable {}
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage: @unchecked Sendable {}
 extension ProtobufUnittest_SwiftReservedTest.isEqual: @unchecked Sendable {}

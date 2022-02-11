@@ -106,6 +106,7 @@ struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensi
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension ProtobufUnittest_NoGenericServicesTest_TestEnum: @unchecked Sendable {}
 extension ProtobufUnittest_NoGenericServicesTest_TestMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

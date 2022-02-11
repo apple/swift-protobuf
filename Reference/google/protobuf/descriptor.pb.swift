@@ -2033,6 +2033,8 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: @unchecked Sendable {}
 extension Google_Protobuf_DescriptorProto.ReservedRange: @unchecked Sendable {}
 extension Google_Protobuf_ExtensionRangeOptions: @unchecked Sendable {}
 extension Google_Protobuf_FieldDescriptorProto: @unchecked Sendable {}
+extension Google_Protobuf_FieldDescriptorProto.TypeEnum: @unchecked Sendable {}
+extension Google_Protobuf_FieldDescriptorProto.Label: @unchecked Sendable {}
 extension Google_Protobuf_OneofDescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_EnumDescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange: @unchecked Sendable {}
@@ -2040,13 +2042,17 @@ extension Google_Protobuf_EnumValueDescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_ServiceDescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_MethodDescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_FileOptions: @unchecked Sendable {}
+extension Google_Protobuf_FileOptions.OptimizeMode: @unchecked Sendable {}
 extension Google_Protobuf_MessageOptions: @unchecked Sendable {}
 extension Google_Protobuf_FieldOptions: @unchecked Sendable {}
+extension Google_Protobuf_FieldOptions.CType: @unchecked Sendable {}
+extension Google_Protobuf_FieldOptions.JSType: @unchecked Sendable {}
 extension Google_Protobuf_OneofOptions: @unchecked Sendable {}
 extension Google_Protobuf_EnumOptions: @unchecked Sendable {}
 extension Google_Protobuf_EnumValueOptions: @unchecked Sendable {}
 extension Google_Protobuf_ServiceOptions: @unchecked Sendable {}
 extension Google_Protobuf_MethodOptions: @unchecked Sendable {}
+extension Google_Protobuf_MethodOptions.IdempotencyLevel: @unchecked Sendable {}
 extension Google_Protobuf_UninterpretedOption: @unchecked Sendable {}
 extension Google_Protobuf_UninterpretedOption.NamePart: @unchecked Sendable {}
 extension Google_Protobuf_SourceCodeInfo: @unchecked Sendable {}

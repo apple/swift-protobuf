@@ -1905,6 +1905,7 @@ public struct Fuzz_Testing_RepeatedGroup_ext {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Fuzz_Testing_AnEnum: @unchecked Sendable {}
 extension Fuzz_Testing_Message: @unchecked Sendable {}
 extension Fuzz_Testing_Message.OneOf_O: @unchecked Sendable {}
 extension Fuzz_Testing_Message.SingularGroup: @unchecked Sendable {}

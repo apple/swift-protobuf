@@ -264,6 +264,8 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3PreserveUnknownEnumUnittest_MyEnum: @unchecked Sendable {}
+extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: @unchecked Sendable {}
 extension Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Sendable {}
 extension Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O: @unchecked Sendable {}
 extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Sendable {}

@@ -756,8 +756,10 @@ extension Proto3Unittest_TestOneof2.NestedEnum: CaseIterable {
 #endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
+extension Proto3Unittest_ForeignEnum: @unchecked Sendable {}
 extension Proto3Unittest_TestAllTypes: @unchecked Sendable {}
 extension Proto3Unittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
+extension Proto3Unittest_TestAllTypes.NestedEnum: @unchecked Sendable {}
 extension Proto3Unittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestPackedTypes: @unchecked Sendable {}
 extension Proto3Unittest_TestUnpackedTypes: @unchecked Sendable {}
@@ -767,6 +769,7 @@ extension Proto3Unittest_TestEmptyMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestMessageWithDummy: @unchecked Sendable {}
 extension Proto3Unittest_TestOneof2: @unchecked Sendable {}
 extension Proto3Unittest_TestOneof2.OneOf_Foo: @unchecked Sendable {}
+extension Proto3Unittest_TestOneof2.NestedEnum: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
