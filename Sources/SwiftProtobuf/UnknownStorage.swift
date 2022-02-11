@@ -16,6 +16,8 @@
 
 import Foundation
 
+// TODO: `UnknownStorage` should be `Sendable` but we cannot do so yet without possibly breaking compatibility.
+
 /// Contains any unknown fields in a decoded message; that is, fields that were
 /// sent on the wire but were not recognized by the generated message
 /// implementation or were valid field numbers but with mismatching wire

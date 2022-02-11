@@ -15,6 +15,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+// TODO: `AnyMessageExtension` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
+
 /// Type-erased MessageExtension field implementation.
 public protocol AnyMessageExtension {
     var fieldNumber: Int { get }

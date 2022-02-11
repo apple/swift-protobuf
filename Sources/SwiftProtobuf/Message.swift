@@ -7,6 +7,8 @@
 // https://github.com/apple/swift-protobuf/blob/main/LICENSE.txt
 //
 
+// TODO: `Message` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
+
 /// The protocol which all generated protobuf messages implement.
 /// `Message` is the protocol type you should use whenever
 /// you need an argument or variable which holds "some message".
