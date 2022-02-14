@@ -141,6 +141,10 @@ class FileGenerator {
         }
 
         var sendablePrinter = CodePrinter()
+        for e in enums {
+            e.generateSendable(printer: &sendablePrinter)
+        }
+
         for m in messages {
             m.generateSendable(printer: &sendablePrinter)
         }
