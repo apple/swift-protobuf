@@ -206,6 +206,10 @@ class MessageGenerator {
       o.generateSendable(printer: &p)
     }
 
+    for e in enums {
+      e.generateSendable(printer: &p)
+    }
+
     for m in messages {
       m.generateSendable(printer: &p)
     }

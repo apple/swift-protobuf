@@ -118,6 +118,11 @@ class EnumGenerator {
     }
   }
 
+  func generateSendable(printer p: inout CodePrinter) {
+    // Once our minimum supported version has Data be Sendable, @unchecked could be removed.
+    p.print("extension \(swiftFullName): @unchecked Sendable {}\n")
+  }
+
   func generateRuntimeSupport(printer p: inout CodePrinter) {
     p.print("\n")
     p.print("extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
