@@ -22,11 +22,12 @@ means if the current official release of Swift is `X.Y`, the library will
 support back to `X-1.Y`.  That is, when Swift 4.2 was released, the minimum
 for support got moved up to 3.2.
 
-NOTE: While things like Swift 4.1 existed from a packaging/install pov,
-`swiftc` does not support `4.1` as a value for `-swift-version`, so the minimum
-can't be made to something like _4.1_ because that can't be targeted. So when
-the minimum would move to a version like that, it instead says on the previous
-minimum that was targetable (4.0 in the 4.1 case).
+Having said that, the issue is complicated by the fact that there are _toolchain
+versions_ and _language versions_.  As of Swift toolchain 5.x, the 4.2 _language
+version_ is still supported. In that case of SwiftProtobuf, there's the question
+of what _language version_ the core library supports, but also what _language
+versions_ the generated code need to compile (since that code ends up in
+whatever target developers pick).
 
 When the minimum Swift version gets updated, update:
 - The `README.md` in the root of the project
