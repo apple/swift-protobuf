@@ -17,5 +17,5 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Sources/SwiftProtobuf/**/*.swift'
 
-  s.swift_versions = ['4.0', '4.2', '5.0']
+  s.swift_versions = ['5.0']
 end
