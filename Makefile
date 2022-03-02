@@ -11,8 +11,6 @@
 # make regenerate
 #   Recompile all the necessary protos
 #   (requires protoc in path)
-# make test-xcode[-NAME]:
-#   Runs the tests in the Xcode project in the requested mode(s).
 #
 # Caution: 'test' does not 'regenerate', so if you've made changes to the code
 # generation, you'll need to do more than just 'test':
@@ -171,29 +169,6 @@ SWIFT_DESCRIPTOR_TEST_PROTOS= \
 	Protos/pluginlib_descriptor_test2.proto \
 	${PLUGIN_PROTOS}
 
-XCODEBUILD_EXTRAS =
-# Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
-# building the Xcode projects. For Release builds, this is a non trivial speed
-# up for compilation
-XCODE_SKIP_OPTIMIZER=0
-ifeq "$(XCODE_SKIP_OPTIMIZER)" "1"
-  XCODEBUILD_EXTRAS += SWIFT_OPTIMIZATION_LEVEL=-Onone
-endif
-
-# Invoke make with XCODE_ANALYZE=1 to enable the analyzer while building the
-# Xcode projects.
-XCODE_ANALYZE=0
-ifeq "$(XCODE_ANALYZE)" "1"
-  XCODEBUILD_EXTRAS += RUN_CLANG_STATIC_ANALYZER=YES CLANG_STATIC_ANALYZER_MODE=deep
-endif
-
-# Invoke make with XCODE_NOISY to get the default output of everything little
-# thing Xcode does.
-XCODE_NOISY=0
-ifeq "$(XCODE_NOISY)" "0"
-  XCODEBUILD_EXTRAS += -quiet
-endif
-
 .PHONY: \
 	all \
 	build \
@@ -218,32 +193,7 @@ endif
 	test-everything \
 	test-plugin \
 	test-runtime \
-	test-xcode \
-	test-xcode-debug \
-	test-xcode-release \
-	test-xcode-iOS \
-	test-xcode-iOS-debug \
-	test-xcode-iOS-release \
-	test-xcode-macOS \
-	test-xcode-macOS-debug \
-	test-xcode-macOS-release \
-	test-xcode-tvOS \
-	test-xcode-tvOS-debug \
-	test-xcode-tvOS-release \
-	test-xcode-watchOS \
-	test-xcode-watchOS-debug \
-	test-xcode-watchOS-release \
 	update-proto-files
-
-.NOTPARALLEL: \
-	test-xcode-iOS-debug \
-	test-xcode-iOS-release \
-	test-xcode-macOS-debug \
-	test-xcode-macOS-release \
-	test-xcode-tvOS-debug \
-	test-xcode-tvOS-release \
-	test-xcode-watchOS-debug \
-	test-xcode-watchOS-release
 
 default: build
 
@@ -294,8 +244,8 @@ docs:
 #
 check test: build test-runtime test-plugin test-conformance check-version-numbers
 
-# Test everything (runtime, plugin, xcode project)
-test-all test-everything: test test-xcode
+# Test everything (runtime, plugin)
+test-all test-everything: test
 
 # Check the version numbers are all in sync.
 check-version-numbers:
@@ -577,79 +527,3 @@ conformance-host $(CONFORMANCE_HOST): check-for-protobuf-checkout
 	fi
 	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/src
 	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/conformance
-
-
-# Helpers to put the Xcode project through all modes.
-
-# Grouping targets
-test-xcode: test-xcode-iOS test-xcode-macOS test-xcode-tvOS test-xcode-watchOS
-test-xcode-iOS: test-xcode-iOS-debug test-xcode-iOS-release
-test-xcode-macOS: test-xcode-macOS-debug test-xcode-macOS-release
-test-xcode-tvOS: test-xcode-tvOS-debug test-xcode-tvOS-release
-test-xcode-watchOS: test-xcode-watchOS-debug test-xcode-watchOS-release
-test-xcode-debug: test-xcode-iOS-debug test-xcode-macOS-debug test-xcode-tvOS-debug test-xcode-watchOS-debug
-test-xcode-release: test-xcode-iOS-release test-xcode-macOS-release test-xcode-tvOS-release test-xcode-watchOS-release
-
-# The individual ones
-
-test-xcode-iOS-debug:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_iOS \
-		-configuration Debug \
-		-destination "platform=iOS Simulator,name=iPhone 8,OS=latest" \
-		-disable-concurrent-destination-testing \
-		test $(XCODEBUILD_EXTRAS)
-
-# Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
-# to ensure the main library gets testing support.
-test-xcode-iOS-release:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_iOS \
-		-configuration Release \
-		-destination "platform=iOS Simulator,name=iPhone 8,OS=latest" \
-		-disable-concurrent-destination-testing \
-		test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
-
-test-xcode-macOS-debug:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_macOS \
-		-configuration Debug \
-		build test $(XCODEBUILD_EXTRAS)
-
-# Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
-# to ensure the main library gets testing support.
-test-xcode-macOS-release:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_macOS \
-		-configuration Release \
-		build test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
-
-test-xcode-tvOS-debug:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_tvOS \
-		-configuration Debug \
-		-destination "platform=tvOS Simulator,name=Apple TV,OS=latest" \
-		build test $(XCODEBUILD_EXTRAS)
-
-# Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
-# to ensure the main library gets testing support.
-test-xcode-tvOS-release:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_tvOS \
-		-configuration Release \
-		-destination "platform=tvOS Simulator,name=Apple TV,OS=latest" \
-		build test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
-
-# watchOS doesn't support tests, just do a build.
-test-xcode-watchOS-debug:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_watchOS \
-		-configuration Debug \
-		build $(XCODEBUILD_EXTRAS)
-
-# watchOS doesn't support tests, just do a build.
-test-xcode-watchOS-release:
-	xcodebuild -project SwiftProtobuf.xcodeproj \
-		-scheme SwiftProtobuf_watchOS \
-		-configuration Release \
-		build $(XCODEBUILD_EXTRAS)
