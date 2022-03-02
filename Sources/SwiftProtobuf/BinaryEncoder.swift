@@ -126,24 +126,20 @@ internal struct BinaryEncoder {
     // Write a string field, including the leading index/tag value.
     mutating func putStringValue(value: String) {
         let utf8 = value.utf8
-        #if swift(>=5.0)
-            // If the String does not support an internal representation in a form
-            // of contiguous storage, body is not called and nil is returned.
-            let isAvailable = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Int in
-                putVarInt(value: body.count)
-                return append(contentsOf: UnsafeRawBufferPointer(body))
+        // If the String does not support an internal representation in a form
+        // of contiguous storage, body is not called and nil is returned.
+        let isAvailable = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Int in
+            putVarInt(value: body.count)
+            return append(contentsOf: UnsafeRawBufferPointer(body))
+        }
+        if isAvailable == nil {
+            let count = utf8.count
+            putVarInt(value: count)
+            for b in utf8 {
+                pointer.storeBytes(of: b, as: UInt8.self)
+                pointer = pointer.advanced(by: 1)
             }
-        #else
-            let isAvailable: Int? = nil
-        #endif
-            if isAvailable == nil {
-                let count = utf8.count
-                putVarInt(value: count)
-                for b in utf8 {
-                    pointer.storeBytes(of: b, as: UInt8.self)
-                    pointer = pointer.advanced(by: 1)
-                }
-            }
+        }
     }
 
     mutating func putBytesValue(value: Data) {

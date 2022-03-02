@@ -40,11 +40,7 @@ internal class DoubleParser {
             return nil
         }
 
-        #if swift(>=4.1)
-          UnsafeMutableRawBufferPointer(work).copyMemory(from: bytes)
-        #else
-          UnsafeMutableRawBufferPointer(work).copyBytes(from: bytes)
-        #endif
+        UnsafeMutableRawBufferPointer(work).copyMemory(from: bytes)
         work[bytes.count] = 0
 
         // Use C library strtod() to parse it

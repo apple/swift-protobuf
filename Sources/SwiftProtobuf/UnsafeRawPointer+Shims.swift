@@ -36,10 +36,4 @@ extension UnsafeMutableRawPointer {
             self.storeBytes(of: newValue, toByteOffset: offset, as: UInt8.self)
         }
     }
-
-    #if !swift(>=4.1)
-    internal mutating func copyMemory(from source: UnsafeRawPointer, byteCount: Int) {
-        self.copyBytes(from: source, count: byteCount)
-    }
-    #endif
 }
