@@ -17,8 +17,6 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-//TODO: Test Mirror functionality
-
 class Test_Wrappers: XCTestCase {
 
     /// Asserts that decoding the JSON "null" literal for the given message type
