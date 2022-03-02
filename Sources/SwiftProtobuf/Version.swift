@@ -17,9 +17,9 @@ import Foundation
 // Expose version information about the library.
 public struct Version {
   /// Major version.
-  public static let major = 1
+  public static let major = 2
   /// Minor version.
-  public static let minor = 19
+  public static let minor = 0
   /// Revision number.
   public static let revision = 0
 
