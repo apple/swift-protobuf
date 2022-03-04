@@ -189,7 +189,5 @@ If you are using Xcode, then you should:
 
 * Add the Swift source files generated from your protos directly to your
   project.
-* Clone the SwiftProtobuf package.
-* Add the SwiftProtobuf target from the Xcode project from that package to your
-  project.
-
+* Add this SwiftPM package as dependency of your xcode project:
+  [Apple Docs](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)

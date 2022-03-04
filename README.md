@@ -93,18 +93,17 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A Swift 5.0 or later compiler (Xcode 10.2 or later).  Support is included
-for the Swift Package Manager; or using the included Xcode project. The Swift
-protobuf project is being developed and tested against the latest release
-version of Swift available from [Swift.org](https://swift.org)
+* A Swift 5.0 or later compiler (Xcode 10.2 or later).  Support is included for
+  the Swift Package Manager. The Swift protobuf project is being developed and
+  tested against the latest release version of Swift available from
+  [Swift.org](https://swift.org)
 
-* Google's protoc compiler.  The Swift protoc plugin is being actively
-developed and tested against the latest protobuf sources.
-The SwiftProtobuf tests need a version of protoc which supports the
-`swift_prefix` option (introduced in protoc 3.2.0).
-It may work with earlier versions of protoc.
-You can get recent versions from
-[Google's github repository](https://github.com/protocolbuffers/protobuf).
+* Google's protoc compiler.  The Swift protoc plugin is being actively developed
+  and tested against the latest protobuf sources. The SwiftProtobuf tests need a
+  version of protoc which supports the `swift_prefix` option (introduced in
+  protoc 3.2.0). It may work with earlier versions of protoc. You can get recent
+  versions from
+  [Google's github repository](https://github.com/protocolbuffers/protobuf).
 
 ## Building and Installing the Code Generator Plugin
 
@@ -204,8 +203,8 @@ If you are using Xcode, then you should:
 
 * Add the `.pb.swift` source files generated from your protos directly to your
   project
-* Add the appropriate `SwiftProtobuf_<platform>` target from the Xcode project
-  in this package to your project.
+* Add this SwiftPM package as dependency of your xcode project:
+  [Apple Docs](https://developer.apple.com/documentation/swift_packages/adding_package_dependencies_to_your_app)
 
 ### ...using CocoaPods
 
@@ -219,16 +218,6 @@ pod 'SwiftProtobuf', '~> 1.0'
 And run `pod install`.
 
 NOTE: CocoaPods 1.7 or newer is required.
-
-### ...using Carthage
-
-If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
-
-```ruby
-github "apple/swift-protobuf" ~> 1.0
-```
-
-Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
 
 # Quick Start
 
