@@ -611,7 +611,7 @@ message GeneratedSwiftReservedMessages {
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
   message proto3Optional { int32 proto3Optional = 1; }
   message ProtobufAPIVersionCheck { int32 ProtobufAPIVersionCheck = 1; }
-  message ProtobufAPIVersion_2 { int32 ProtobufAPIVersion_2 = 1; }
+  message ProtobufAPIVersion_3 { int32 ProtobufAPIVersion_3 = 1; }
   message ProtobufBool { int32 ProtobufBool = 1; }
   message ProtobufBytes { int32 ProtobufBytes = 1; }
   message ProtobufDouble { int32 ProtobufDouble = 1; }
@@ -785,7 +785,6 @@ message GeneratedSwiftReservedMessages {
   message unpackTo { int32 unpackTo = 1; }
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
-  message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
   message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
   message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
@@ -867,8 +866,6 @@ message GeneratedSwiftReservedMessages {
   message where { int32 where = 1; }
   message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
-  message withUnsafeBytes { int32 withUnsafeBytes = 1; }
-  message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
   message work { int32 work = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message written { int32 written = 1; }

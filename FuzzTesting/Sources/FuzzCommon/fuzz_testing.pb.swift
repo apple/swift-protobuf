@@ -30,8 +30,8 @@ import SwiftProtobuf
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
+  typealias Version = _3
 }
 
 public enum Fuzz_Testing_AnEnum: SwiftProtobuf.Enum {

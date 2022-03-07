@@ -611,7 +611,7 @@ message GeneratedSwiftReservedEnums {
   enum proto3DefaultValue { NONE_proto3DefaultValue = 0; }
   enum proto3Optional { NONE_proto3Optional = 0; }
   enum ProtobufAPIVersionCheck { NONE_ProtobufAPIVersionCheck = 0; }
-  enum ProtobufAPIVersion_2 { NONE_ProtobufAPIVersion_2 = 0; }
+  enum ProtobufAPIVersion_3 { NONE_ProtobufAPIVersion_3 = 0; }
   enum ProtobufBool { NONE_ProtobufBool = 0; }
   enum ProtobufBytes { NONE_ProtobufBytes = 0; }
   enum ProtobufDouble { NONE_ProtobufDouble = 0; }
@@ -785,7 +785,6 @@ message GeneratedSwiftReservedEnums {
   enum unpackTo { NONE_unpackTo = 0; }
   enum UnsafeBufferPointer { NONE_UnsafeBufferPointer = 0; }
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
-  enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }
   enum UnsafeMutableRawPointer { NONE_UnsafeMutableRawPointer = 0; }
   enum UnsafeRawBufferPointer { NONE_UnsafeRawBufferPointer = 0; }
   enum UnsafeRawPointer { NONE_UnsafeRawPointer = 0; }
@@ -867,8 +866,6 @@ message GeneratedSwiftReservedEnums {
   enum where { NONE_where = 0; }
   enum wireFormat { NONE_wireFormat = 0; }
   enum with { NONE_with = 0; }
-  enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
-  enum withUnsafeMutableBytes { NONE_withUnsafeMutableBytes = 0; }
   enum work { NONE_work = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
   enum written { NONE_written = 0; }
