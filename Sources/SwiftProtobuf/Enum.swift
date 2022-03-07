@@ -15,8 +15,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: `Enum` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
-
 /// Generated enum types conform to this protocol.
 public protocol Enum: RawRepresentable, Hashable, _ProtoSendable {
   /// Creates a new instance of the enum initialized to its default value.
