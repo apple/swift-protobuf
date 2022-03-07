@@ -2203,270 +2203,90 @@ extension Fuzz_Testing_Message {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_int32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedInt32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_int32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedInt32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int32_ext)
-  }
 
   var Fuzz_Testing_repeatedInt64Ext: [Int64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_int64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedInt64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_int64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedInt64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_int64_ext)
   }
 
   var Fuzz_Testing_repeatedUint32Ext: [UInt32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_uint32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedUint32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_uint32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedUint32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint32_ext)
-  }
 
   var Fuzz_Testing_repeatedUint64Ext: [UInt64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_uint64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedUint64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_uint64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedUint64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_uint64_ext)
   }
 
   var Fuzz_Testing_repeatedSint32Ext: [Int32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_sint32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedSint32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_sint32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedSint32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint32_ext)
-  }
 
   var Fuzz_Testing_repeatedSint64Ext: [Int64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_sint64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedSint64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_sint64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedSint64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sint64_ext)
   }
 
   var Fuzz_Testing_repeatedFixed32Ext: [UInt32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_fixed32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedFixed32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_fixed32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedFixed32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed32_ext)
-  }
 
   var Fuzz_Testing_repeatedFixed64Ext: [UInt64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_fixed64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedFixed64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_fixed64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedFixed64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_fixed64_ext)
   }
 
   var Fuzz_Testing_repeatedSfixed32Ext: [Int32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_sfixed32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedSfixed32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_sfixed32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedSfixed32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed32_ext)
-  }
 
   var Fuzz_Testing_repeatedSfixed64Ext: [Int64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_sfixed64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedSfixed64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_sfixed64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedSfixed64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_sfixed64_ext)
   }
 
   var Fuzz_Testing_repeatedFloatExt: [Float] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_float_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_float_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_float_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedFloatExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_float_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_float_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedFloatExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_float_ext)
-  }
 
   var Fuzz_Testing_repeatedDoubleExt: [Double] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_double_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_double_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_double_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedDoubleExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_double_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_double_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedDoubleExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_double_ext)
   }
 
   var Fuzz_Testing_repeatedBoolExt: [Bool] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bool_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bool_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_bool_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedBoolExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bool_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_bool_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedBoolExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bool_ext)
-  }
 
   var Fuzz_Testing_repeatedStringExt: [String] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_string_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_string_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_string_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedStringExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_string_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_string_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedStringExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_string_ext)
   }
 
   var Fuzz_Testing_repeatedBytesExt: [Data] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bytes_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bytes_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_bytes_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedBytesExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bytes_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_bytes_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedBytesExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bytes_ext)
-  }
 
   var Fuzz_Testing_repeatedEnumExt: [Fuzz_Testing_AnEnum] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_enum_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_enum_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_enum_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedEnumExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_enum_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_enum_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedEnumExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_enum_ext)
   }
 
   var Fuzz_Testing_repeatedGroupExt: [Fuzz_Testing_RepeatedGroup_ext] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_RepeatedGroup_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_RepeatedGroup_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_RepeatedGroup_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedGroupExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_RepeatedGroup_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_RepeatedGroup_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedGroupExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_RepeatedGroup_ext)
-  }
 
   var Fuzz_Testing_repeatedMessageExt: [Fuzz_Testing_Message] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_message_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_message_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_message_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedMessageExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_message_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_message_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedMessageExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_message_ext)
   }
 
   /// Repeated Packed
@@ -2474,210 +2294,70 @@ extension Fuzz_Testing_Message {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_int32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedInt32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_int32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedInt32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int32_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedInt64Ext: [Int64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_int64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedInt64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_int64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedInt64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_int64_ext)
   }
 
   var Fuzz_Testing_repeatedPackedUint32Ext: [UInt32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_uint32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedUint32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_uint32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedUint32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint32_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedUint64Ext: [UInt64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_uint64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedUint64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_uint64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedUint64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_uint64_ext)
   }
 
   var Fuzz_Testing_repeatedPackedSint32Ext: [Int32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_sint32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedSint32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_sint32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedSint32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint32_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedSint64Ext: [Int64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_sint64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedSint64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_sint64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedSint64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sint64_ext)
   }
 
   var Fuzz_Testing_repeatedPackedFixed32Ext: [UInt32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_fixed32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedFixed32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_fixed32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedFixed32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed32_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedFixed64Ext: [UInt64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_fixed64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedFixed64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_fixed64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedFixed64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_fixed64_ext)
   }
 
   var Fuzz_Testing_repeatedPackedSfixed32Ext: [Int32] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed32_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed32_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_sfixed32_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedSfixed32Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed32_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_sfixed32_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedSfixed32Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed32_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedSfixed64Ext: [Int64] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed64_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed64_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_sfixed64_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedSfixed64Ext: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed64_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_sfixed64_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedSfixed64Ext() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_sfixed64_ext)
   }
 
   var Fuzz_Testing_repeatedPackedFloatExt: [Float] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_float_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_float_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_float_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedFloatExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_float_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_float_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedFloatExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_float_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedDoubleExt: [Double] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_double_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_double_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_double_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedDoubleExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_double_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_double_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedDoubleExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_double_ext)
   }
 
   var Fuzz_Testing_repeatedPackedBoolExt: [Bool] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_bool_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_bool_ext, value: newValue)}
   }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_bool_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedBoolExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_bool_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_bool_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedBoolExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_bool_ext)
-  }
 
   var Fuzz_Testing_repeatedPackedEnumExt: [Fuzz_Testing_AnEnum] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_enum_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_enum_ext, value: newValue)}
-  }
-  /// Returns true if extension `Fuzz_Testing_Extensions_repeated_packed_enum_ext`
-  /// has been explicitly set.
-  var hasFuzz_Testing_repeatedPackedEnumExt: Bool {
-    return hasExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_enum_ext)
-  }
-  /// Clears the value of extension `Fuzz_Testing_Extensions_repeated_packed_enum_ext`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearFuzz_Testing_repeatedPackedEnumExt() {
-    clearExtensionValue(ext: Fuzz_Testing_Extensions_repeated_packed_enum_ext)
   }
 
 }
