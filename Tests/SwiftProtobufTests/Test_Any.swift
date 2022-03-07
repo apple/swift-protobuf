@@ -821,7 +821,8 @@ class Test_Any: XCTestCase {
     }
 }
 
-// Dump message class to test registration conflicts
+// Dummy message class to test registration conflicts, this is basically the
+// generated code from ProtobufUnittest_TestEmptyMessage.
 
 struct ConflictingImportMessage:
     SwiftProtobuf.Message,
@@ -842,10 +843,14 @@ struct ConflictingImportMessage:
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [:]
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = SwiftProtobuf._NameMap()
 
-  func _protobuf_generated_isEqualTo(other: ConflictingImportMessage) -> Bool {
-    if unknownFields != other.unknownFields {return false}
+  static func ==(lhs: ConflictingImportMessage, rhs: ConflictingImportMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
+
+#if swift(>=5.5) && canImport(_Concurrency)
+extension ConflictingImportMessage: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
