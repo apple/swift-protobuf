@@ -109,21 +109,24 @@ class ExtensionSetGenerator {
             p.outdent()
             p.print("}\n")
 
-            p.print(
-                "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
-                "\(visibility)var \(extensionNames.has): Bool {\n")
-            p.indent()
-            p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
-            p.outdent()
-            p.print("}\n")
+            // Repeated extension fields can use .isEmpty and clear by setting to the empty list.
+            if fieldDescriptor.label != .repeated {
+                p.print(
+                    "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
+                    "\(visibility)var \(extensionNames.has): Bool {\n")
+                p.indent()
+                p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
+                p.outdent()
+                p.print("}\n")
 
-            p.print(
-                "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
-                "\(visibility)mutating func \(extensionNames.clear)() {\n")
-            p.indent()
-            p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
-            p.outdent()
-            p.print("}\n")
+                p.print(
+                    "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
+                    "\(visibility)mutating func \(extensionNames.clear)() {\n")
+                p.indent()
+                p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
+                p.outdent()
+                p.print("}\n")
+            }
         }
     }
 

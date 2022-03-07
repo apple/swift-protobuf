@@ -166,9 +166,9 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllExtensions:\n[protobuf_unittest.repeated_int32_extension]: 7\n[protobuf_unittest.repeated_int32_extension]: 9\n")
 
-        XCTAssertTrue(m.hasProtobufUnittest_repeatedInt32Extension)
+        XCTAssertFalse(m.ProtobufUnittest_repeatedInt32Extension.isEmpty)
         m.ProtobufUnittest_repeatedInt32Extension = []
-        XCTAssertFalse(m.hasProtobufUnittest_repeatedInt32Extension)
+        XCTAssertTrue(m.ProtobufUnittest_repeatedInt32Extension.isEmpty)
     }
 
     func test_defaultInt32Extension() throws {
@@ -252,9 +252,9 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTFail("Decoding into unextended message failed for \(coded)")
         }
 
-        XCTAssertTrue(m.hasRepeatedExtensionGroup)
+        XCTAssertFalse(m.repeatedExtensionGroup.isEmpty)
         m.repeatedExtensionGroup = []
-        XCTAssertFalse(m.hasRepeatedExtensionGroup)
+        XCTAssertTrue(m.repeatedExtensionGroup.isEmpty)
     }
 
     func test_MessageNoStorageClass() {
