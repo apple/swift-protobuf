@@ -508,8 +508,6 @@ struct Conformance_JspbEncodingConfig {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Conformance_WireFormat: @unchecked Sendable {}
-extension Conformance_TestCategory: @unchecked Sendable {}
 extension Conformance_FailureSet: @unchecked Sendable {}
 extension Conformance_ConformanceRequest: @unchecked Sendable {}
 extension Conformance_ConformanceRequest.OneOf_Payload: @unchecked Sendable {}

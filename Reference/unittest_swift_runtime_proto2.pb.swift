@@ -895,7 +895,6 @@ struct ProtobufUnittest_Msg2NamesUsesStorage {
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_Message2: @unchecked Sendable {}
 extension ProtobufUnittest_Message2.OneOf_O: @unchecked Sendable {}
-extension ProtobufUnittest_Message2.Enum: @unchecked Sendable {}
 extension ProtobufUnittest_Message2.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_Message2.RepeatedGroup: @unchecked Sendable {}
 extension ProtobufUnittest_Message2.OneofGroup: @unchecked Sendable {}
