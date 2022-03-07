@@ -113,7 +113,6 @@ struct ProtobufUnittestImport_ImportMessageLite {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittestImport_ImportEnumLite: @unchecked Sendable {}
 extension ProtobufUnittestImport_ImportMessageLite: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

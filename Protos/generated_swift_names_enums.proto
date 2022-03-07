@@ -642,6 +642,7 @@ message GeneratedSwiftReservedEnums {
   enum protoMessageName { NONE_protoMessageName = 0; }
   enum ProtoNameProviding { NONE_ProtoNameProviding = 0; }
   enum protoPaths { NONE_protoPaths = 0; }
+  enum ProtoSendable { NONE_ProtoSendable = 0; }
   enum public { NONE_public = 0; }
   enum publicDependency { NONE_publicDependency = 0; }
   enum putBoolValue { NONE_putBoolValue = 0; }
@@ -689,6 +690,7 @@ message GeneratedSwiftReservedEnums {
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }
   enum self { NONE_self = 0; }
+  enum Sendable { NONE_Sendable = 0; }
   enum separator { NONE_separator = 0; }
   enum serialize { NONE_serialize = 0; }
   enum serializedData { NONE_serializedData = 0; }
