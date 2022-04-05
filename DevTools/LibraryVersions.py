@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 # DevTools/LibraryVersions.py - Helper for the library's version number
 #
 # Copyright (c) 2014 - 2017 Apple Inc. and the project authors
