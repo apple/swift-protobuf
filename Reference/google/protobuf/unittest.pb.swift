@@ -1283,6 +1283,24 @@ struct ProtobufUnittest_NestedTestAllTypes {
     set {_uniqueStorage()._repeatedChild = newValue}
   }
 
+  var lazyChild: ProtobufUnittest_NestedTestAllTypes {
+    get {return _storage._lazyChild ?? ProtobufUnittest_NestedTestAllTypes()}
+    set {_uniqueStorage()._lazyChild = newValue}
+  }
+  /// Returns true if `lazyChild` has been explicitly set.
+  var hasLazyChild: Bool {return _storage._lazyChild != nil}
+  /// Clears the value of `lazyChild`. Subsequent reads from it will return its default value.
+  mutating func clearLazyChild() {_uniqueStorage()._lazyChild = nil}
+
+  var eagerChild: ProtobufUnittest_TestAllTypes {
+    get {return _storage._eagerChild ?? ProtobufUnittest_TestAllTypes()}
+    set {_uniqueStorage()._eagerChild = newValue}
+  }
+  /// Returns true if `eagerChild` has been explicitly set.
+  var hasEagerChild: Bool {return _storage._eagerChild != nil}
+  /// Clears the value of `eagerChild`. Subsequent reads from it will return its default value.
+  mutating func clearEagerChild() {_uniqueStorage()._eagerChild = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -1580,6 +1598,165 @@ struct ProtobufUnittest_TestChildExtension {
   fileprivate var _a: String? = nil
   fileprivate var _b: String? = nil
   fileprivate var _optionalExtension: ProtobufUnittest_TestAllExtensions? = nil
+}
+
+/// Emulates wireformat data of TestChildExtension with dynamic extension
+/// (DynamicExtension).
+struct ProtobufUnittest_TestChildExtensionData {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: String {
+    get {return _a ?? String()}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var b: String {
+    get {return _b ?? String()}
+    set {_b = newValue}
+  }
+  /// Returns true if `b` has been explicitly set.
+  var hasB: Bool {return self._b != nil}
+  /// Clears the value of `b`. Subsequent reads from it will return its default value.
+  mutating func clearB() {self._b = nil}
+
+  var optionalExtension: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData {
+    get {return _optionalExtension ?? ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData()}
+    set {_optionalExtension = newValue}
+  }
+  /// Returns true if `optionalExtension` has been explicitly set.
+  var hasOptionalExtension: Bool {return self._optionalExtension != nil}
+  /// Clears the value of `optionalExtension`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalExtension() {self._optionalExtension = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct NestedTestAllExtensionsData {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var dynamic: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions {
+      get {return _dynamic ?? ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions()}
+      set {_dynamic = newValue}
+    }
+    /// Returns true if `dynamic` has been explicitly set.
+    var hasDynamic: Bool {return self._dynamic != nil}
+    /// Clears the value of `dynamic`. Subsequent reads from it will return its default value.
+    mutating func clearDynamic() {self._dynamic = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    struct NestedDynamicExtensions {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      var a: Int32 {
+        get {return _a ?? 0}
+        set {_a = newValue}
+      }
+      /// Returns true if `a` has been explicitly set.
+      var hasA: Bool {return self._a != nil}
+      /// Clears the value of `a`. Subsequent reads from it will return its default value.
+      mutating func clearA() {self._a = nil}
+
+      var b: Int32 {
+        get {return _b ?? 0}
+        set {_b = newValue}
+      }
+      /// Returns true if `b` has been explicitly set.
+      var hasB: Bool {return self._b != nil}
+      /// Clears the value of `b`. Subsequent reads from it will return its default value.
+      mutating func clearB() {self._b = nil}
+
+      var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      init() {}
+
+      fileprivate var _a: Int32? = nil
+      fileprivate var _b: Int32? = nil
+    }
+
+    init() {}
+
+    fileprivate var _dynamic: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions? = nil
+  }
+
+  init() {}
+
+  fileprivate var _a: String? = nil
+  fileprivate var _b: String? = nil
+  fileprivate var _optionalExtension: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData? = nil
+}
+
+struct ProtobufUnittest_TestNestedChildExtension {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var child: ProtobufUnittest_TestChildExtension {
+    get {return _child ?? ProtobufUnittest_TestChildExtension()}
+    set {_child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return self._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {self._child = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _a: Int32? = nil
+  fileprivate var _child: ProtobufUnittest_TestChildExtension? = nil
+}
+
+/// Emulates wireformat data of TestNestedChildExtension with dynamic extension
+/// (DynamicExtension).
+struct ProtobufUnittest_TestNestedChildExtensionData {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var child: ProtobufUnittest_TestChildExtensionData {
+    get {return _child ?? ProtobufUnittest_TestChildExtensionData()}
+    set {_child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return self._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {self._child = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _a: Int32? = nil
+  fileprivate var _child: ProtobufUnittest_TestChildExtensionData? = nil
 }
 
 /// We have separate messages for testing required fields because it's
@@ -1891,6 +2068,16 @@ struct ProtobufUnittest_TestRequired {
   /// Clears the value of `c`. Subsequent reads from it will return its default value.
   mutating func clearC() {_uniqueStorage()._c = nil}
 
+  /// Add an optional child message to make this non-trivial for go/pdlazy.
+  var optionalForeign: ProtobufUnittest_ForeignMessage {
+    get {return _storage._optionalForeign ?? ProtobufUnittest_ForeignMessage()}
+    set {_uniqueStorage()._optionalForeign = newValue}
+  }
+  /// Returns true if `optionalForeign` has been explicitly set.
+  var hasOptionalForeign: Bool {return _storage._optionalForeign != nil}
+  /// Clears the value of `optionalForeign`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalForeign() {_uniqueStorage()._optionalForeign = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -1962,6 +2149,45 @@ struct ProtobufUnittest_TestRequiredMessage {
 
   fileprivate var _optionalMessage: ProtobufUnittest_TestRequired? = nil
   fileprivate var _requiredMessage: ProtobufUnittest_TestRequired? = nil
+}
+
+struct ProtobufUnittest_TestNestedRequiredForeign {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var child: ProtobufUnittest_TestNestedRequiredForeign {
+    get {return _storage._child ?? ProtobufUnittest_TestNestedRequiredForeign()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return _storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  var payload: ProtobufUnittest_TestRequiredForeign {
+    get {return _storage._payload ?? ProtobufUnittest_TestRequiredForeign()}
+    set {_uniqueStorage()._payload = newValue}
+  }
+  /// Returns true if `payload` has been explicitly set.
+  var hasPayload: Bool {return _storage._payload != nil}
+  /// Clears the value of `payload`. Subsequent reads from it will return its default value.
+  mutating func clearPayload() {_uniqueStorage()._payload = nil}
+
+  var dummy: Int32 {
+    get {return _storage._dummy ?? 0}
+    set {_uniqueStorage()._dummy = newValue}
+  }
+  /// Returns true if `dummy` has been explicitly set.
+  var hasDummy: Bool {return _storage._dummy != nil}
+  /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
+  mutating func clearDummy() {_uniqueStorage()._dummy = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Test that we can use NestedMessage from outside TestAllTypes.
@@ -2445,6 +2671,68 @@ struct ProtobufUnittest_TestLazyMessage {
   init() {}
 
   fileprivate var _subMessage: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestEagerMaybeLazy {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var messageFoo: ProtobufUnittest_TestAllTypes {
+    get {return _messageFoo ?? ProtobufUnittest_TestAllTypes()}
+    set {_messageFoo = newValue}
+  }
+  /// Returns true if `messageFoo` has been explicitly set.
+  var hasMessageFoo: Bool {return self._messageFoo != nil}
+  /// Clears the value of `messageFoo`. Subsequent reads from it will return its default value.
+  mutating func clearMessageFoo() {self._messageFoo = nil}
+
+  var messageBar: ProtobufUnittest_TestAllTypes {
+    get {return _messageBar ?? ProtobufUnittest_TestAllTypes()}
+    set {_messageBar = newValue}
+  }
+  /// Returns true if `messageBar` has been explicitly set.
+  var hasMessageBar: Bool {return self._messageBar != nil}
+  /// Clears the value of `messageBar`. Subsequent reads from it will return its default value.
+  mutating func clearMessageBar() {self._messageBar = nil}
+
+  var messageBaz: ProtobufUnittest_TestEagerMaybeLazy.NestedMessage {
+    get {return _messageBaz ?? ProtobufUnittest_TestEagerMaybeLazy.NestedMessage()}
+    set {_messageBaz = newValue}
+  }
+  /// Returns true if `messageBaz` has been explicitly set.
+  var hasMessageBaz: Bool {return self._messageBaz != nil}
+  /// Clears the value of `messageBaz`. Subsequent reads from it will return its default value.
+  mutating func clearMessageBaz() {self._messageBaz = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct NestedMessage {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var packed: ProtobufUnittest_TestPackedTypes {
+      get {return _packed ?? ProtobufUnittest_TestPackedTypes()}
+      set {_packed = newValue}
+    }
+    /// Returns true if `packed` has been explicitly set.
+    var hasPacked: Bool {return self._packed != nil}
+    /// Clears the value of `packed`. Subsequent reads from it will return its default value.
+    mutating func clearPacked() {self._packed = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _packed: ProtobufUnittest_TestPackedTypes? = nil
+  }
+
+  init() {}
+
+  fileprivate var _messageFoo: ProtobufUnittest_TestAllTypes? = nil
+  fileprivate var _messageBar: ProtobufUnittest_TestAllTypes? = nil
+  fileprivate var _messageBaz: ProtobufUnittest_TestEagerMaybeLazy.NestedMessage? = nil
 }
 
 /// Needed for a Python test.
@@ -3072,6 +3360,306 @@ struct ProtobufUnittest_MoreBytes {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+}
+
+struct ProtobufUnittest_ManyOptionalString {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var str1: String {
+    get {return _storage._str1 ?? String()}
+    set {_uniqueStorage()._str1 = newValue}
+  }
+  /// Returns true if `str1` has been explicitly set.
+  var hasStr1: Bool {return _storage._str1 != nil}
+  /// Clears the value of `str1`. Subsequent reads from it will return its default value.
+  mutating func clearStr1() {_uniqueStorage()._str1 = nil}
+
+  var str2: String {
+    get {return _storage._str2 ?? String()}
+    set {_uniqueStorage()._str2 = newValue}
+  }
+  /// Returns true if `str2` has been explicitly set.
+  var hasStr2: Bool {return _storage._str2 != nil}
+  /// Clears the value of `str2`. Subsequent reads from it will return its default value.
+  mutating func clearStr2() {_uniqueStorage()._str2 = nil}
+
+  var str3: String {
+    get {return _storage._str3 ?? String()}
+    set {_uniqueStorage()._str3 = newValue}
+  }
+  /// Returns true if `str3` has been explicitly set.
+  var hasStr3: Bool {return _storage._str3 != nil}
+  /// Clears the value of `str3`. Subsequent reads from it will return its default value.
+  mutating func clearStr3() {_uniqueStorage()._str3 = nil}
+
+  var str4: String {
+    get {return _storage._str4 ?? String()}
+    set {_uniqueStorage()._str4 = newValue}
+  }
+  /// Returns true if `str4` has been explicitly set.
+  var hasStr4: Bool {return _storage._str4 != nil}
+  /// Clears the value of `str4`. Subsequent reads from it will return its default value.
+  mutating func clearStr4() {_uniqueStorage()._str4 = nil}
+
+  var str5: String {
+    get {return _storage._str5 ?? String()}
+    set {_uniqueStorage()._str5 = newValue}
+  }
+  /// Returns true if `str5` has been explicitly set.
+  var hasStr5: Bool {return _storage._str5 != nil}
+  /// Clears the value of `str5`. Subsequent reads from it will return its default value.
+  mutating func clearStr5() {_uniqueStorage()._str5 = nil}
+
+  var str6: String {
+    get {return _storage._str6 ?? String()}
+    set {_uniqueStorage()._str6 = newValue}
+  }
+  /// Returns true if `str6` has been explicitly set.
+  var hasStr6: Bool {return _storage._str6 != nil}
+  /// Clears the value of `str6`. Subsequent reads from it will return its default value.
+  mutating func clearStr6() {_uniqueStorage()._str6 = nil}
+
+  var str7: String {
+    get {return _storage._str7 ?? String()}
+    set {_uniqueStorage()._str7 = newValue}
+  }
+  /// Returns true if `str7` has been explicitly set.
+  var hasStr7: Bool {return _storage._str7 != nil}
+  /// Clears the value of `str7`. Subsequent reads from it will return its default value.
+  mutating func clearStr7() {_uniqueStorage()._str7 = nil}
+
+  var str8: String {
+    get {return _storage._str8 ?? String()}
+    set {_uniqueStorage()._str8 = newValue}
+  }
+  /// Returns true if `str8` has been explicitly set.
+  var hasStr8: Bool {return _storage._str8 != nil}
+  /// Clears the value of `str8`. Subsequent reads from it will return its default value.
+  mutating func clearStr8() {_uniqueStorage()._str8 = nil}
+
+  var str9: String {
+    get {return _storage._str9 ?? String()}
+    set {_uniqueStorage()._str9 = newValue}
+  }
+  /// Returns true if `str9` has been explicitly set.
+  var hasStr9: Bool {return _storage._str9 != nil}
+  /// Clears the value of `str9`. Subsequent reads from it will return its default value.
+  mutating func clearStr9() {_uniqueStorage()._str9 = nil}
+
+  var str10: String {
+    get {return _storage._str10 ?? String()}
+    set {_uniqueStorage()._str10 = newValue}
+  }
+  /// Returns true if `str10` has been explicitly set.
+  var hasStr10: Bool {return _storage._str10 != nil}
+  /// Clears the value of `str10`. Subsequent reads from it will return its default value.
+  mutating func clearStr10() {_uniqueStorage()._str10 = nil}
+
+  var str11: String {
+    get {return _storage._str11 ?? String()}
+    set {_uniqueStorage()._str11 = newValue}
+  }
+  /// Returns true if `str11` has been explicitly set.
+  var hasStr11: Bool {return _storage._str11 != nil}
+  /// Clears the value of `str11`. Subsequent reads from it will return its default value.
+  mutating func clearStr11() {_uniqueStorage()._str11 = nil}
+
+  var str12: String {
+    get {return _storage._str12 ?? String()}
+    set {_uniqueStorage()._str12 = newValue}
+  }
+  /// Returns true if `str12` has been explicitly set.
+  var hasStr12: Bool {return _storage._str12 != nil}
+  /// Clears the value of `str12`. Subsequent reads from it will return its default value.
+  mutating func clearStr12() {_uniqueStorage()._str12 = nil}
+
+  var str13: String {
+    get {return _storage._str13 ?? String()}
+    set {_uniqueStorage()._str13 = newValue}
+  }
+  /// Returns true if `str13` has been explicitly set.
+  var hasStr13: Bool {return _storage._str13 != nil}
+  /// Clears the value of `str13`. Subsequent reads from it will return its default value.
+  mutating func clearStr13() {_uniqueStorage()._str13 = nil}
+
+  var str14: String {
+    get {return _storage._str14 ?? String()}
+    set {_uniqueStorage()._str14 = newValue}
+  }
+  /// Returns true if `str14` has been explicitly set.
+  var hasStr14: Bool {return _storage._str14 != nil}
+  /// Clears the value of `str14`. Subsequent reads from it will return its default value.
+  mutating func clearStr14() {_uniqueStorage()._str14 = nil}
+
+  var str15: String {
+    get {return _storage._str15 ?? String()}
+    set {_uniqueStorage()._str15 = newValue}
+  }
+  /// Returns true if `str15` has been explicitly set.
+  var hasStr15: Bool {return _storage._str15 != nil}
+  /// Clears the value of `str15`. Subsequent reads from it will return its default value.
+  mutating func clearStr15() {_uniqueStorage()._str15 = nil}
+
+  var str16: String {
+    get {return _storage._str16 ?? String()}
+    set {_uniqueStorage()._str16 = newValue}
+  }
+  /// Returns true if `str16` has been explicitly set.
+  var hasStr16: Bool {return _storage._str16 != nil}
+  /// Clears the value of `str16`. Subsequent reads from it will return its default value.
+  mutating func clearStr16() {_uniqueStorage()._str16 = nil}
+
+  var str17: String {
+    get {return _storage._str17 ?? String()}
+    set {_uniqueStorage()._str17 = newValue}
+  }
+  /// Returns true if `str17` has been explicitly set.
+  var hasStr17: Bool {return _storage._str17 != nil}
+  /// Clears the value of `str17`. Subsequent reads from it will return its default value.
+  mutating func clearStr17() {_uniqueStorage()._str17 = nil}
+
+  var str18: String {
+    get {return _storage._str18 ?? String()}
+    set {_uniqueStorage()._str18 = newValue}
+  }
+  /// Returns true if `str18` has been explicitly set.
+  var hasStr18: Bool {return _storage._str18 != nil}
+  /// Clears the value of `str18`. Subsequent reads from it will return its default value.
+  mutating func clearStr18() {_uniqueStorage()._str18 = nil}
+
+  var str19: String {
+    get {return _storage._str19 ?? String()}
+    set {_uniqueStorage()._str19 = newValue}
+  }
+  /// Returns true if `str19` has been explicitly set.
+  var hasStr19: Bool {return _storage._str19 != nil}
+  /// Clears the value of `str19`. Subsequent reads from it will return its default value.
+  mutating func clearStr19() {_uniqueStorage()._str19 = nil}
+
+  var str20: String {
+    get {return _storage._str20 ?? String()}
+    set {_uniqueStorage()._str20 = newValue}
+  }
+  /// Returns true if `str20` has been explicitly set.
+  var hasStr20: Bool {return _storage._str20 != nil}
+  /// Clears the value of `str20`. Subsequent reads from it will return its default value.
+  mutating func clearStr20() {_uniqueStorage()._str20 = nil}
+
+  var str21: String {
+    get {return _storage._str21 ?? String()}
+    set {_uniqueStorage()._str21 = newValue}
+  }
+  /// Returns true if `str21` has been explicitly set.
+  var hasStr21: Bool {return _storage._str21 != nil}
+  /// Clears the value of `str21`. Subsequent reads from it will return its default value.
+  mutating func clearStr21() {_uniqueStorage()._str21 = nil}
+
+  var str22: String {
+    get {return _storage._str22 ?? String()}
+    set {_uniqueStorage()._str22 = newValue}
+  }
+  /// Returns true if `str22` has been explicitly set.
+  var hasStr22: Bool {return _storage._str22 != nil}
+  /// Clears the value of `str22`. Subsequent reads from it will return its default value.
+  mutating func clearStr22() {_uniqueStorage()._str22 = nil}
+
+  var str23: String {
+    get {return _storage._str23 ?? String()}
+    set {_uniqueStorage()._str23 = newValue}
+  }
+  /// Returns true if `str23` has been explicitly set.
+  var hasStr23: Bool {return _storage._str23 != nil}
+  /// Clears the value of `str23`. Subsequent reads from it will return its default value.
+  mutating func clearStr23() {_uniqueStorage()._str23 = nil}
+
+  var str24: String {
+    get {return _storage._str24 ?? String()}
+    set {_uniqueStorage()._str24 = newValue}
+  }
+  /// Returns true if `str24` has been explicitly set.
+  var hasStr24: Bool {return _storage._str24 != nil}
+  /// Clears the value of `str24`. Subsequent reads from it will return its default value.
+  mutating func clearStr24() {_uniqueStorage()._str24 = nil}
+
+  var str25: String {
+    get {return _storage._str25 ?? String()}
+    set {_uniqueStorage()._str25 = newValue}
+  }
+  /// Returns true if `str25` has been explicitly set.
+  var hasStr25: Bool {return _storage._str25 != nil}
+  /// Clears the value of `str25`. Subsequent reads from it will return its default value.
+  mutating func clearStr25() {_uniqueStorage()._str25 = nil}
+
+  var str26: String {
+    get {return _storage._str26 ?? String()}
+    set {_uniqueStorage()._str26 = newValue}
+  }
+  /// Returns true if `str26` has been explicitly set.
+  var hasStr26: Bool {return _storage._str26 != nil}
+  /// Clears the value of `str26`. Subsequent reads from it will return its default value.
+  mutating func clearStr26() {_uniqueStorage()._str26 = nil}
+
+  var str27: String {
+    get {return _storage._str27 ?? String()}
+    set {_uniqueStorage()._str27 = newValue}
+  }
+  /// Returns true if `str27` has been explicitly set.
+  var hasStr27: Bool {return _storage._str27 != nil}
+  /// Clears the value of `str27`. Subsequent reads from it will return its default value.
+  mutating func clearStr27() {_uniqueStorage()._str27 = nil}
+
+  var str28: String {
+    get {return _storage._str28 ?? String()}
+    set {_uniqueStorage()._str28 = newValue}
+  }
+  /// Returns true if `str28` has been explicitly set.
+  var hasStr28: Bool {return _storage._str28 != nil}
+  /// Clears the value of `str28`. Subsequent reads from it will return its default value.
+  mutating func clearStr28() {_uniqueStorage()._str28 = nil}
+
+  var str29: String {
+    get {return _storage._str29 ?? String()}
+    set {_uniqueStorage()._str29 = newValue}
+  }
+  /// Returns true if `str29` has been explicitly set.
+  var hasStr29: Bool {return _storage._str29 != nil}
+  /// Clears the value of `str29`. Subsequent reads from it will return its default value.
+  mutating func clearStr29() {_uniqueStorage()._str29 = nil}
+
+  var str30: String {
+    get {return _storage._str30 ?? String()}
+    set {_uniqueStorage()._str30 = newValue}
+  }
+  /// Returns true if `str30` has been explicitly set.
+  var hasStr30: Bool {return _storage._str30 != nil}
+  /// Clears the value of `str30`. Subsequent reads from it will return its default value.
+  mutating func clearStr30() {_uniqueStorage()._str30 = nil}
+
+  var str31: String {
+    get {return _storage._str31 ?? String()}
+    set {_uniqueStorage()._str31 = newValue}
+  }
+  /// Returns true if `str31` has been explicitly set.
+  var hasStr31: Bool {return _storage._str31 != nil}
+  /// Clears the value of `str31`. Subsequent reads from it will return its default value.
+  mutating func clearStr31() {_uniqueStorage()._str31 = nil}
+
+  var str32: String {
+    get {return _storage._str32 ?? String()}
+    set {_uniqueStorage()._str32 = newValue}
+  }
+  /// Returns true if `str32` has been explicitly set.
+  var hasStr32: Bool {return _storage._str32 != nil}
+  /// Clears the value of `str32`. Subsequent reads from it will return its default value.
+  mutating func clearStr32() {_uniqueStorage()._str32 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Test int32, uint32, int64, uint64, and bool are all compatible
@@ -3741,14 +4329,14 @@ struct ProtobufUnittest_TestOneof2 {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var quxInt: Int64 {
-      get {return _quxInt ?? 0}
-      set {_quxInt = newValue}
+    var mooInt: Int64 {
+      get {return _mooInt ?? 0}
+      set {_mooInt = newValue}
     }
-    /// Returns true if `quxInt` has been explicitly set.
-    var hasQuxInt: Bool {return self._quxInt != nil}
-    /// Clears the value of `quxInt`. Subsequent reads from it will return its default value.
-    mutating func clearQuxInt() {self._quxInt = nil}
+    /// Returns true if `mooInt` has been explicitly set.
+    var hasMooInt: Bool {return self._mooInt != nil}
+    /// Clears the value of `mooInt`. Subsequent reads from it will return its default value.
+    mutating func clearMooInt() {self._mooInt = nil}
 
     var corgeInt: [Int32] = []
 
@@ -3756,7 +4344,7 @@ struct ProtobufUnittest_TestOneof2 {
 
     init() {}
 
-    fileprivate var _quxInt: Int64? = nil
+    fileprivate var _mooInt: Int64? = nil
   }
 
   init() {}
@@ -4281,6 +4869,29 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _optionalGroup: ProtobufUnittest_TestParsingMerge.OptionalGroup? = nil
 }
 
+/// Test that the correct exception is thrown by parseFrom in a corner case
+/// involving merging, extensions, and required fields.
+struct ProtobufUnittest_TestMergeException {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var allExtensions: ProtobufUnittest_TestAllExtensions {
+    get {return _allExtensions ?? ProtobufUnittest_TestAllExtensions()}
+    set {_allExtensions = newValue}
+  }
+  /// Returns true if `allExtensions` has been explicitly set.
+  var hasAllExtensions: Bool {return self._allExtensions != nil}
+  /// Clears the value of `allExtensions`. Subsequent reads from it will return its default value.
+  mutating func clearAllExtensions() {self._allExtensions = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _allExtensions: ProtobufUnittest_TestAllExtensions? = nil
+}
+
 struct ProtobufUnittest_TestCommentInjectionMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4301,6 +4912,79 @@ struct ProtobufUnittest_TestCommentInjectionMessage {
   init() {}
 
   fileprivate var _a: String? = nil
+}
+
+/// Used to check that the c++ code generator re-orders messages to reduce
+/// padding.
+struct ProtobufUnittest_TestMessageSize {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var m1: Bool {
+    get {return _m1 ?? false}
+    set {_m1 = newValue}
+  }
+  /// Returns true if `m1` has been explicitly set.
+  var hasM1: Bool {return self._m1 != nil}
+  /// Clears the value of `m1`. Subsequent reads from it will return its default value.
+  mutating func clearM1() {self._m1 = nil}
+
+  var m2: Int64 {
+    get {return _m2 ?? 0}
+    set {_m2 = newValue}
+  }
+  /// Returns true if `m2` has been explicitly set.
+  var hasM2: Bool {return self._m2 != nil}
+  /// Clears the value of `m2`. Subsequent reads from it will return its default value.
+  mutating func clearM2() {self._m2 = nil}
+
+  var m3: Bool {
+    get {return _m3 ?? false}
+    set {_m3 = newValue}
+  }
+  /// Returns true if `m3` has been explicitly set.
+  var hasM3: Bool {return self._m3 != nil}
+  /// Clears the value of `m3`. Subsequent reads from it will return its default value.
+  mutating func clearM3() {self._m3 = nil}
+
+  var m4: String {
+    get {return _m4 ?? String()}
+    set {_m4 = newValue}
+  }
+  /// Returns true if `m4` has been explicitly set.
+  var hasM4: Bool {return self._m4 != nil}
+  /// Clears the value of `m4`. Subsequent reads from it will return its default value.
+  mutating func clearM4() {self._m4 = nil}
+
+  var m5: Int32 {
+    get {return _m5 ?? 0}
+    set {_m5 = newValue}
+  }
+  /// Returns true if `m5` has been explicitly set.
+  var hasM5: Bool {return self._m5 != nil}
+  /// Clears the value of `m5`. Subsequent reads from it will return its default value.
+  mutating func clearM5() {self._m5 = nil}
+
+  var m6: Int64 {
+    get {return _m6 ?? 0}
+    set {_m6 = newValue}
+  }
+  /// Returns true if `m6` has been explicitly set.
+  var hasM6: Bool {return self._m6 != nil}
+  /// Clears the value of `m6`. Subsequent reads from it will return its default value.
+  mutating func clearM6() {self._m6 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _m1: Bool? = nil
+  fileprivate var _m2: Int64? = nil
+  fileprivate var _m3: Bool? = nil
+  fileprivate var _m4: String? = nil
+  fileprivate var _m5: Int32? = nil
+  fileprivate var _m6: Int64? = nil
 }
 
 /// Test that RPC services work.
@@ -4724,6 +5408,106 @@ struct ProtobufUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessag
   fileprivate var _field10: Int32? = nil
 }
 
+/// NOTE(b/202996544): Intentionally nested to mirror go/glep.
+struct ProtobufUnittest_TestNestedGroupExtensionOuter {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var layer1OptionalGroup: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup {
+    get {return _layer1OptionalGroup ?? ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup()}
+    set {_layer1OptionalGroup = newValue}
+  }
+  /// Returns true if `layer1OptionalGroup` has been explicitly set.
+  var hasLayer1OptionalGroup: Bool {return self._layer1OptionalGroup != nil}
+  /// Clears the value of `layer1OptionalGroup`. Subsequent reads from it will return its default value.
+  mutating func clearLayer1OptionalGroup() {self._layer1OptionalGroup = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct Layer1OptionalGroup {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var layer2RepeatedGroup: [ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup] = []
+
+    var layer2AnotherOptionalRepeatedGroup: [ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup] = []
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    struct Layer2RepeatedGroup: SwiftProtobuf.ExtensibleMessage {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      var anotherField: String {
+        get {return _anotherField ?? String()}
+        set {_anotherField = newValue}
+      }
+      /// Returns true if `anotherField` has been explicitly set.
+      var hasAnotherField: Bool {return self._anotherField != nil}
+      /// Clears the value of `anotherField`. Subsequent reads from it will return its default value.
+      mutating func clearAnotherField() {self._anotherField = nil}
+
+      var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      init() {}
+
+      var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+      fileprivate var _anotherField: String? = nil
+    }
+
+    struct Layer2AnotherOptionalRepeatedGroup {
+      // SwiftProtobuf.Message conformance is added in an extension below. See the
+      // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+      // methods supported on all messages.
+
+      var butWhyTho: String {
+        get {return _butWhyTho ?? String()}
+        set {_butWhyTho = newValue}
+      }
+      /// Returns true if `butWhyTho` has been explicitly set.
+      var hasButWhyTho: Bool {return self._butWhyTho != nil}
+      /// Clears the value of `butWhyTho`. Subsequent reads from it will return its default value.
+      mutating func clearButWhyTho() {self._butWhyTho = nil}
+
+      var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      init() {}
+
+      fileprivate var _butWhyTho: String? = nil
+    }
+
+    init() {}
+  }
+
+  init() {}
+
+  fileprivate var _layer1OptionalGroup: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup? = nil
+}
+
+struct ProtobufUnittest_TestNestedGroupExtensionInnerExtension {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var innerName: String {
+    get {return _innerName ?? String()}
+    set {_innerName = newValue}
+  }
+  /// Returns true if `innerName` has been explicitly set.
+  var hasInnerName: Bool {return self._innerName != nil}
+  /// Clears the value of `innerName`. Subsequent reads from it will return its default value.
+  mutating func clearInnerName() {self._innerName = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _innerName: String? = nil
+}
+
 struct ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4797,9 +5581,15 @@ extension ProtobufUnittest_TestGroupExtension: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedExtension: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedExtension.OptionalGroup_extension: @unchecked Sendable {}
 extension ProtobufUnittest_TestChildExtension: @unchecked Sendable {}
+extension ProtobufUnittest_TestChildExtensionData: @unchecked Sendable {}
+extension ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData: @unchecked Sendable {}
+extension ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedChildExtension: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedChildExtensionData: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequired: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredForeign: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedRequiredForeign: @unchecked Sendable {}
 extension ProtobufUnittest_TestForeignNested: @unchecked Sendable {}
 extension ProtobufUnittest_TestEmptyMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestEmptyMessageWithExtensions: @unchecked Sendable {}
@@ -4821,6 +5611,8 @@ extension ProtobufUnittest_TestDupFieldNumber.Foo: @unchecked Sendable {}
 extension ProtobufUnittest_TestDupFieldNumber.Bar: @unchecked Sendable {}
 extension ProtobufUnittest_TestEagerMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestLazyMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestEagerMaybeLazy: @unchecked Sendable {}
+extension ProtobufUnittest_TestEagerMaybeLazy.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedMessageHasBits: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedMessageHasBits.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestCamelCaseFieldNames: @unchecked Sendable {}
@@ -4835,6 +5627,7 @@ extension ProtobufUnittest_OneString: @unchecked Sendable {}
 extension ProtobufUnittest_MoreString: @unchecked Sendable {}
 extension ProtobufUnittest_OneBytes: @unchecked Sendable {}
 extension ProtobufUnittest_MoreBytes: @unchecked Sendable {}
+extension ProtobufUnittest_ManyOptionalString: @unchecked Sendable {}
 extension ProtobufUnittest_Int32Message: @unchecked Sendable {}
 extension ProtobufUnittest_Uint32Message: @unchecked Sendable {}
 extension ProtobufUnittest_Int64Message: @unchecked Sendable {}
@@ -4866,7 +5659,9 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1: @unc
 extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMerge.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMerge.RepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestMergeException: @unchecked Sendable {}
 extension ProtobufUnittest_TestCommentInjectionMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageSize: @unchecked Sendable {}
 extension ProtobufUnittest_FooRequest: @unchecked Sendable {}
 extension ProtobufUnittest_FooResponse: @unchecked Sendable {}
 extension ProtobufUnittest_FooClientMessage: @unchecked Sendable {}
@@ -4878,6 +5673,11 @@ extension ProtobufUnittest_TestHugeFieldNumbers: @unchecked Sendable {}
 extension ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestExtensionInsideTable: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedGroupExtensionOuter: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedGroupExtensionInnerExtension: @unchecked Sendable {}
 extension ProtobufUnittest_TestExtensionRangeSerialize: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
@@ -6311,6 +7111,24 @@ extension ProtobufUnittest_TestHugeFieldNumbers {
   }
 }
 
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup {
+
+  var ProtobufUnittest_inner: ProtobufUnittest_TestNestedGroupExtensionInnerExtension {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_inner) ?? ProtobufUnittest_TestNestedGroupExtensionInnerExtension()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_inner, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_inner`
+  /// has been explicitly set.
+  var hasProtobufUnittest_inner: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_inner)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_inner`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_inner() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_inner)
+  }
+}
+
 extension ProtobufUnittest_TestPackedExtensions {
 
   var ProtobufUnittest_packedInt32Extension: [Int32] {
@@ -6885,6 +7703,7 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_unpacked_enum_extension,
   ProtobufUnittest_Extensions_test_all_types,
   ProtobufUnittest_Extensions_test_extension_inside_table_extension,
+  ProtobufUnittest_Extensions_inner,
   ProtobufUnittest_TestNestedExtension.Extensions.test,
   ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension,
   ProtobufUnittest_TestNestedExtension.Extensions.OptionalGroup_extension,
@@ -7444,6 +8263,11 @@ let ProtobufUnittest_Extensions_test_all_types = SwiftProtobuf.MessageExtension<
 let ProtobufUnittest_Extensions_test_extension_inside_table_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestExtensionInsideTable>(
   _protobuf_fieldNumber: 5,
   fieldName: "protobuf_unittest.test_extension_inside_table_extension"
+)
+
+let ProtobufUnittest_Extensions_inner = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestNestedGroupExtensionInnerExtension>, ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "protobuf_unittest.inner"
 )
 
 extension ProtobufUnittest_TestNestedExtension {
@@ -8510,12 +9334,16 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
     3: .standard(proto: "repeated_child"),
+    4: .standard(proto: "lazy_child"),
+    5: .standard(proto: "eager_child"),
   ]
 
   fileprivate class _StorageClass {
     var _child: ProtobufUnittest_NestedTestAllTypes? = nil
     var _payload: ProtobufUnittest_TestAllTypes? = nil
     var _repeatedChild: [ProtobufUnittest_NestedTestAllTypes] = []
+    var _lazyChild: ProtobufUnittest_NestedTestAllTypes? = nil
+    var _eagerChild: ProtobufUnittest_TestAllTypes? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -8525,6 +9353,8 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
       _child = source._child
       _payload = source._payload
       _repeatedChild = source._repeatedChild
+      _lazyChild = source._lazyChild
+      _eagerChild = source._eagerChild
     }
   }
 
@@ -8546,6 +9376,8 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._payload) }()
         case 3: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedChild) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._lazyChild) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._eagerChild) }()
         default: break
         }
       }
@@ -8567,6 +9399,12 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
       if !_storage._repeatedChild.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
+      try { if let v = _storage._lazyChild {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._eagerChild {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -8579,6 +9417,8 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
         if _storage._child != rhs_storage._child {return false}
         if _storage._payload != rhs_storage._payload {return false}
         if _storage._repeatedChild != rhs_storage._repeatedChild {return false}
+        if _storage._lazyChild != rhs_storage._lazyChild {return false}
+        if _storage._eagerChild != rhs_storage._eagerChild {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -9033,6 +9873,221 @@ extension ProtobufUnittest_TestChildExtension: SwiftProtobuf.Message, SwiftProto
   }
 }
 
+extension ProtobufUnittest_TestChildExtensionData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestChildExtensionData"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+    3: .standard(proto: "optional_extension"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._b) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._optionalExtension) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._a {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._b {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalExtension {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestChildExtensionData, rhs: ProtobufUnittest_TestChildExtensionData) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._b != rhs._b {return false}
+    if lhs._optionalExtension != rhs._optionalExtension {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestChildExtensionData.protoMessageName + ".NestedTestAllExtensionsData"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    409707008: .same(proto: "dynamic"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 409707008: try { try decoder.decodeSingularMessageField(value: &self._dynamic) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._dynamic {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 409707008)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData, rhs: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData) -> Bool {
+    if lhs._dynamic != rhs._dynamic {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.protoMessageName + ".NestedDynamicExtensions"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._b) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._b {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions, rhs: ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._b != rhs._b {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedChildExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedChildExtension"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "child"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._child, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._child) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._child {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedChildExtension, rhs: ProtobufUnittest_TestNestedChildExtension) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._child != rhs._child {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedChildExtensionData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedChildExtensionData"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "child"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._child) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._child {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedChildExtensionData, rhs: ProtobufUnittest_TestNestedChildExtensionData) -> Bool {
+    if lhs._a != rhs._a {return false}
+    if lhs._child != rhs._child {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -9069,6 +10124,7 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._M
     31: .same(proto: "dummy31"),
     32: .same(proto: "dummy32"),
     33: .same(proto: "c"),
+    34: .standard(proto: "optional_foreign"),
   ]
 
   fileprivate class _StorageClass {
@@ -9105,6 +10161,7 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._M
     var _dummy31: Int32? = nil
     var _dummy32: Int32? = nil
     var _c: Int32? = nil
+    var _optionalForeign: ProtobufUnittest_ForeignMessage? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -9144,6 +10201,7 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._M
       _dummy31 = source._dummy31
       _dummy32 = source._dummy32
       _c = source._c
+      _optionalForeign = source._optionalForeign
     }
   }
 
@@ -9204,6 +10262,7 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._M
         case 31: try { try decoder.decodeSingularInt32Field(value: &_storage._dummy31) }()
         case 32: try { try decoder.decodeSingularInt32Field(value: &_storage._dummy32) }()
         case 33: try { try decoder.decodeSingularInt32Field(value: &_storage._c) }()
+        case 34: try { try decoder.decodeSingularMessageField(value: &_storage._optionalForeign) }()
         default: break
         }
       }
@@ -9315,6 +10374,9 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._M
       try { if let v = _storage._c {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
       } }()
+      try { if let v = _storage._optionalForeign {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 34)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -9357,6 +10419,7 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._M
         if _storage._dummy31 != rhs_storage._dummy31 {return false}
         if _storage._dummy32 != rhs_storage._dummy32 {return false}
         if _storage._c != rhs_storage._c {return false}
+        if _storage._optionalForeign != rhs_storage._optionalForeign {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -9471,6 +10534,98 @@ extension ProtobufUnittest_TestRequiredMessage: SwiftProtobuf.Message, SwiftProt
     if lhs._optionalMessage != rhs._optionalMessage {return false}
     if lhs.repeatedMessage != rhs.repeatedMessage {return false}
     if lhs._requiredMessage != rhs._requiredMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedRequiredForeign"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "child"),
+    2: .same(proto: "payload"),
+    3: .same(proto: "dummy"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _child: ProtobufUnittest_TestNestedRequiredForeign? = nil
+    var _payload: ProtobufUnittest_TestRequiredForeign? = nil
+    var _dummy: Int32? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _payload = source._payload
+      _dummy = source._dummy
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._child, !v.isInitialized {return false}
+      if let v = _storage._payload, !v.isInitialized {return false}
+      return true
+    }
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._payload) }()
+        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._dummy) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._payload {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._dummy {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedRequiredForeign, rhs: ProtobufUnittest_TestNestedRequiredForeign) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._child != rhs_storage._child {return false}
+        if _storage._payload != rhs_storage._payload {return false}
+        if _storage._dummy != rhs_storage._dummy {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -10409,6 +11564,90 @@ extension ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
+extension ProtobufUnittest_TestEagerMaybeLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestEagerMaybeLazy"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "message_foo"),
+    2: .standard(proto: "message_bar"),
+    3: .standard(proto: "message_baz"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._messageFoo) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._messageBar) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._messageBaz) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._messageFoo {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._messageBar {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._messageBaz {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestEagerMaybeLazy, rhs: ProtobufUnittest_TestEagerMaybeLazy) -> Bool {
+    if lhs._messageFoo != rhs._messageFoo {return false}
+    if lhs._messageBar != rhs._messageBar {return false}
+    if lhs._messageBaz != rhs._messageBaz {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestEagerMaybeLazy.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestEagerMaybeLazy.protoMessageName + ".NestedMessage"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "packed"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._packed) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._packed {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestEagerMaybeLazy.NestedMessage, rhs: ProtobufUnittest_TestEagerMaybeLazy.NestedMessage) -> Bool {
+    if lhs._packed != rhs._packed {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageHasBits"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -11247,6 +12486,322 @@ extension ProtobufUnittest_MoreBytes: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 }
 
+extension ProtobufUnittest_ManyOptionalString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ManyOptionalString"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "str1"),
+    2: .same(proto: "str2"),
+    3: .same(proto: "str3"),
+    4: .same(proto: "str4"),
+    5: .same(proto: "str5"),
+    6: .same(proto: "str6"),
+    7: .same(proto: "str7"),
+    8: .same(proto: "str8"),
+    9: .same(proto: "str9"),
+    10: .same(proto: "str10"),
+    11: .same(proto: "str11"),
+    12: .same(proto: "str12"),
+    13: .same(proto: "str13"),
+    14: .same(proto: "str14"),
+    15: .same(proto: "str15"),
+    16: .same(proto: "str16"),
+    17: .same(proto: "str17"),
+    18: .same(proto: "str18"),
+    19: .same(proto: "str19"),
+    20: .same(proto: "str20"),
+    21: .same(proto: "str21"),
+    22: .same(proto: "str22"),
+    23: .same(proto: "str23"),
+    24: .same(proto: "str24"),
+    25: .same(proto: "str25"),
+    26: .same(proto: "str26"),
+    27: .same(proto: "str27"),
+    28: .same(proto: "str28"),
+    29: .same(proto: "str29"),
+    30: .same(proto: "str30"),
+    31: .same(proto: "str31"),
+    32: .same(proto: "str32"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _str1: String? = nil
+    var _str2: String? = nil
+    var _str3: String? = nil
+    var _str4: String? = nil
+    var _str5: String? = nil
+    var _str6: String? = nil
+    var _str7: String? = nil
+    var _str8: String? = nil
+    var _str9: String? = nil
+    var _str10: String? = nil
+    var _str11: String? = nil
+    var _str12: String? = nil
+    var _str13: String? = nil
+    var _str14: String? = nil
+    var _str15: String? = nil
+    var _str16: String? = nil
+    var _str17: String? = nil
+    var _str18: String? = nil
+    var _str19: String? = nil
+    var _str20: String? = nil
+    var _str21: String? = nil
+    var _str22: String? = nil
+    var _str23: String? = nil
+    var _str24: String? = nil
+    var _str25: String? = nil
+    var _str26: String? = nil
+    var _str27: String? = nil
+    var _str28: String? = nil
+    var _str29: String? = nil
+    var _str30: String? = nil
+    var _str31: String? = nil
+    var _str32: String? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _str1 = source._str1
+      _str2 = source._str2
+      _str3 = source._str3
+      _str4 = source._str4
+      _str5 = source._str5
+      _str6 = source._str6
+      _str7 = source._str7
+      _str8 = source._str8
+      _str9 = source._str9
+      _str10 = source._str10
+      _str11 = source._str11
+      _str12 = source._str12
+      _str13 = source._str13
+      _str14 = source._str14
+      _str15 = source._str15
+      _str16 = source._str16
+      _str17 = source._str17
+      _str18 = source._str18
+      _str19 = source._str19
+      _str20 = source._str20
+      _str21 = source._str21
+      _str22 = source._str22
+      _str23 = source._str23
+      _str24 = source._str24
+      _str25 = source._str25
+      _str26 = source._str26
+      _str27 = source._str27
+      _str28 = source._str28
+      _str29 = source._str29
+      _str30 = source._str30
+      _str31 = source._str31
+      _str32 = source._str32
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._str1) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._str2) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._str3) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._str4) }()
+        case 5: try { try decoder.decodeSingularStringField(value: &_storage._str5) }()
+        case 6: try { try decoder.decodeSingularStringField(value: &_storage._str6) }()
+        case 7: try { try decoder.decodeSingularStringField(value: &_storage._str7) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._str8) }()
+        case 9: try { try decoder.decodeSingularStringField(value: &_storage._str9) }()
+        case 10: try { try decoder.decodeSingularStringField(value: &_storage._str10) }()
+        case 11: try { try decoder.decodeSingularStringField(value: &_storage._str11) }()
+        case 12: try { try decoder.decodeSingularStringField(value: &_storage._str12) }()
+        case 13: try { try decoder.decodeSingularStringField(value: &_storage._str13) }()
+        case 14: try { try decoder.decodeSingularStringField(value: &_storage._str14) }()
+        case 15: try { try decoder.decodeSingularStringField(value: &_storage._str15) }()
+        case 16: try { try decoder.decodeSingularStringField(value: &_storage._str16) }()
+        case 17: try { try decoder.decodeSingularStringField(value: &_storage._str17) }()
+        case 18: try { try decoder.decodeSingularStringField(value: &_storage._str18) }()
+        case 19: try { try decoder.decodeSingularStringField(value: &_storage._str19) }()
+        case 20: try { try decoder.decodeSingularStringField(value: &_storage._str20) }()
+        case 21: try { try decoder.decodeSingularStringField(value: &_storage._str21) }()
+        case 22: try { try decoder.decodeSingularStringField(value: &_storage._str22) }()
+        case 23: try { try decoder.decodeSingularStringField(value: &_storage._str23) }()
+        case 24: try { try decoder.decodeSingularStringField(value: &_storage._str24) }()
+        case 25: try { try decoder.decodeSingularStringField(value: &_storage._str25) }()
+        case 26: try { try decoder.decodeSingularStringField(value: &_storage._str26) }()
+        case 27: try { try decoder.decodeSingularStringField(value: &_storage._str27) }()
+        case 28: try { try decoder.decodeSingularStringField(value: &_storage._str28) }()
+        case 29: try { try decoder.decodeSingularStringField(value: &_storage._str29) }()
+        case 30: try { try decoder.decodeSingularStringField(value: &_storage._str30) }()
+        case 31: try { try decoder.decodeSingularStringField(value: &_storage._str31) }()
+        case 32: try { try decoder.decodeSingularStringField(value: &_storage._str32) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._str1 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._str2 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._str3 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._str4 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+      } }()
+      try { if let v = _storage._str5 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+      } }()
+      try { if let v = _storage._str6 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._str7 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+      } }()
+      try { if let v = _storage._str8 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+      } }()
+      try { if let v = _storage._str9 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 9)
+      } }()
+      try { if let v = _storage._str10 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 10)
+      } }()
+      try { if let v = _storage._str11 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 11)
+      } }()
+      try { if let v = _storage._str12 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 12)
+      } }()
+      try { if let v = _storage._str13 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 13)
+      } }()
+      try { if let v = _storage._str14 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
+      } }()
+      try { if let v = _storage._str15 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 15)
+      } }()
+      try { if let v = _storage._str16 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 16)
+      } }()
+      try { if let v = _storage._str17 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 17)
+      } }()
+      try { if let v = _storage._str18 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 18)
+      } }()
+      try { if let v = _storage._str19 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 19)
+      } }()
+      try { if let v = _storage._str20 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 20)
+      } }()
+      try { if let v = _storage._str21 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 21)
+      } }()
+      try { if let v = _storage._str22 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 22)
+      } }()
+      try { if let v = _storage._str23 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 23)
+      } }()
+      try { if let v = _storage._str24 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 24)
+      } }()
+      try { if let v = _storage._str25 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 25)
+      } }()
+      try { if let v = _storage._str26 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 26)
+      } }()
+      try { if let v = _storage._str27 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 27)
+      } }()
+      try { if let v = _storage._str28 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 28)
+      } }()
+      try { if let v = _storage._str29 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 29)
+      } }()
+      try { if let v = _storage._str30 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 30)
+      } }()
+      try { if let v = _storage._str31 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 31)
+      } }()
+      try { if let v = _storage._str32 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 32)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_ManyOptionalString, rhs: ProtobufUnittest_ManyOptionalString) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._str1 != rhs_storage._str1 {return false}
+        if _storage._str2 != rhs_storage._str2 {return false}
+        if _storage._str3 != rhs_storage._str3 {return false}
+        if _storage._str4 != rhs_storage._str4 {return false}
+        if _storage._str5 != rhs_storage._str5 {return false}
+        if _storage._str6 != rhs_storage._str6 {return false}
+        if _storage._str7 != rhs_storage._str7 {return false}
+        if _storage._str8 != rhs_storage._str8 {return false}
+        if _storage._str9 != rhs_storage._str9 {return false}
+        if _storage._str10 != rhs_storage._str10 {return false}
+        if _storage._str11 != rhs_storage._str11 {return false}
+        if _storage._str12 != rhs_storage._str12 {return false}
+        if _storage._str13 != rhs_storage._str13 {return false}
+        if _storage._str14 != rhs_storage._str14 {return false}
+        if _storage._str15 != rhs_storage._str15 {return false}
+        if _storage._str16 != rhs_storage._str16 {return false}
+        if _storage._str17 != rhs_storage._str17 {return false}
+        if _storage._str18 != rhs_storage._str18 {return false}
+        if _storage._str19 != rhs_storage._str19 {return false}
+        if _storage._str20 != rhs_storage._str20 {return false}
+        if _storage._str21 != rhs_storage._str21 {return false}
+        if _storage._str22 != rhs_storage._str22 {return false}
+        if _storage._str23 != rhs_storage._str23 {return false}
+        if _storage._str24 != rhs_storage._str24 {return false}
+        if _storage._str25 != rhs_storage._str25 {return false}
+        if _storage._str26 != rhs_storage._str26 {return false}
+        if _storage._str27 != rhs_storage._str27 {return false}
+        if _storage._str28 != rhs_storage._str28 {return false}
+        if _storage._str29 != rhs_storage._str29 {return false}
+        if _storage._str30 != rhs_storage._str30 {return false}
+        if _storage._str31 != rhs_storage._str31 {return false}
+        if _storage._str32 != rhs_storage._str32 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_Int32Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int32Message"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -12029,7 +13584,7 @@ extension ProtobufUnittest_TestOneof2.FooGroup: SwiftProtobuf.Message, SwiftProt
 extension ProtobufUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittest_TestOneof2.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "qux_int"),
+    1: .standard(proto: "moo_int"),
     2: .standard(proto: "corge_int"),
   ]
 
@@ -12039,7 +13594,7 @@ extension ProtobufUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, Swif
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self._quxInt) }()
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self._mooInt) }()
       case 2: try { try decoder.decodeRepeatedInt32Field(value: &self.corgeInt) }()
       default: break
       }
@@ -12051,7 +13606,7 @@ extension ProtobufUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, Swif
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._quxInt {
+    try { if let v = self._mooInt {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
     } }()
     if !self.corgeInt.isEmpty {
@@ -12061,7 +13616,7 @@ extension ProtobufUnittest_TestOneof2.NestedMessage: SwiftProtobuf.Message, Swif
   }
 
   static func ==(lhs: ProtobufUnittest_TestOneof2.NestedMessage, rhs: ProtobufUnittest_TestOneof2.NestedMessage) -> Bool {
-    if lhs._quxInt != rhs._quxInt {return false}
+    if lhs._mooInt != rhs._mooInt {return false}
     if lhs.corgeInt != rhs.corgeInt {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -12930,6 +14485,47 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Message
   }
 }
 
+extension ProtobufUnittest_TestMergeException: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMergeException"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "all_extensions"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._allExtensions, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._allExtensions) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._allExtensions {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMergeException, rhs: ProtobufUnittest_TestMergeException) -> Bool {
+    if lhs._allExtensions != rhs._allExtensions {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestCommentInjectionMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -12961,6 +14557,72 @@ extension ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message, S
 
   static func ==(lhs: ProtobufUnittest_TestCommentInjectionMessage, rhs: ProtobufUnittest_TestCommentInjectionMessage) -> Bool {
     if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMessageSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageSize"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "m1"),
+    2: .same(proto: "m2"),
+    3: .same(proto: "m3"),
+    4: .same(proto: "m4"),
+    5: .same(proto: "m5"),
+    6: .same(proto: "m6"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self._m1) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self._m2) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self._m3) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self._m4) }()
+      case 5: try { try decoder.decodeSingularInt32Field(value: &self._m5) }()
+      case 6: try { try decoder.decodeSingularInt64Field(value: &self._m6) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._m1 {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._m2 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._m3 {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._m4 {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._m5 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._m6 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 6)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMessageSize, rhs: ProtobufUnittest_TestMessageSize) -> Bool {
+    if lhs._m1 != rhs._m1 {return false}
+    if lhs._m2 != rhs._m2 {return false}
+    if lhs._m3 != rhs._m3 {return false}
+    if lhs._m4 != rhs._m4 {return false}
+    if lhs._m5 != rhs._m5 {return false}
+    if lhs._m6 != rhs._m6 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -13437,6 +15099,207 @@ extension ProtobufUnittest_TestExtensionInsideTable: SwiftProtobuf.Message, Swif
     if lhs._field10 != rhs._field10 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedGroupExtensionOuter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedGroupExtensionOuter"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .unique(proto: "Layer1OptionalGroup", json: "layer1optionalgroup"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._layer1OptionalGroup, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularGroupField(value: &self._layer1OptionalGroup) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._layer1OptionalGroup {
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedGroupExtensionOuter, rhs: ProtobufUnittest_TestNestedGroupExtensionOuter) -> Bool {
+    if lhs._layer1OptionalGroup != rhs._layer1OptionalGroup {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestNestedGroupExtensionOuter.protoMessageName + ".Layer1OptionalGroup"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2: .unique(proto: "Layer2RepeatedGroup", json: "layer2repeatedgroup"),
+    4: .unique(proto: "Layer2AnotherOptionalRepeatedGroup", json: "layer2anotheroptionalrepeatedgroup"),
+  ]
+
+  public var isInitialized: Bool {
+    if !SwiftProtobuf.Internal.areAllInitialized(self.layer2RepeatedGroup) {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 2: try { try decoder.decodeRepeatedGroupField(value: &self.layer2RepeatedGroup) }()
+      case 4: try { try decoder.decodeRepeatedGroupField(value: &self.layer2AnotherOptionalRepeatedGroup) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.layer2RepeatedGroup.isEmpty {
+      try visitor.visitRepeatedGroupField(value: self.layer2RepeatedGroup, fieldNumber: 2)
+    }
+    if !self.layer2AnotherOptionalRepeatedGroup.isEmpty {
+      try visitor.visitRepeatedGroupField(value: self.layer2AnotherOptionalRepeatedGroup, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup, rhs: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup) -> Bool {
+    if lhs.layer2RepeatedGroup != rhs.layer2RepeatedGroup {return false}
+    if lhs.layer2AnotherOptionalRepeatedGroup != rhs.layer2AnotherOptionalRepeatedGroup {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.protoMessageName + ".Layer2RepeatedGroup"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    6: .standard(proto: "another_field"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 6: try { try decoder.decodeSingularStringField(value: &self._anotherField) }()
+      case 3:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 3, end: 4)
+    try { if let v = self._anotherField {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 6)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup, rhs: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup) -> Bool {
+    if lhs._anotherField != rhs._anotherField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.protoMessageName + ".Layer2AnotherOptionalRepeatedGroup"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    5: .standard(proto: "but_why_tho"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 5: try { try decoder.decodeSingularStringField(value: &self._butWhyTho) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._butWhyTho {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup, rhs: ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup) -> Bool {
+    if lhs._butWhyTho != rhs._butWhyTho {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestNestedGroupExtensionInnerExtension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedGroupExtensionInnerExtension"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "inner_name"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._innerName) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._innerName {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedGroupExtensionInnerExtension, rhs: ProtobufUnittest_TestNestedGroupExtensionInnerExtension) -> Bool {
+    if lhs._innerName != rhs._innerName {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }

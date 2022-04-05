@@ -1292,6 +1292,29 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil
 }
 
+/// Test that the correct exception is thrown by parseFrom in a corner case
+/// involving merging, extensions, and required fields.
+struct ProtobufUnittest_TestMergeExceptionLite {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var allExtensions: ProtobufUnittest_TestAllExtensionsLite {
+    get {return _allExtensions ?? ProtobufUnittest_TestAllExtensionsLite()}
+    set {_allExtensions = newValue}
+  }
+  /// Returns true if `allExtensions` has been explicitly set.
+  var hasAllExtensions: Bool {return self._allExtensions != nil}
+  /// Clears the value of `allExtensions`. Subsequent reads from it will return its default value.
+  mutating func clearAllExtensions() {self._allExtensions = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _allExtensions: ProtobufUnittest_TestAllExtensionsLite? = nil
+}
+
 /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
 struct ProtobufUnittest_TestEmptyMessageLite {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1699,6 +1722,18 @@ struct ProtobufUnittest_TestOneofParsingLite {
   init() {}
 }
 
+struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 /// The following four messages are set up to test for wire compatibility between
 /// packed and non-packed repeated fields. We use the field number 2048, because
 /// that is large enough to require a 3-byte varint for the tag.
@@ -1851,6 +1886,7 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: 
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestMergeExceptionLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestEmptyMessageLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: @unchecked Sendable {}
 extension ProtobufUnittest_V1MessageLite: @unchecked Sendable {}
@@ -1860,6 +1896,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField: @unchecked
 extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageSetLite: @unchecked Sendable {}
 extension ProtobufUnittest_PackedInt32: @unchecked Sendable {}
 extension ProtobufUnittest_NonPackedInt32: @unchecked Sendable {}
 extension ProtobufUnittest_PackedFixed32: @unchecked Sendable {}
@@ -5466,6 +5503,47 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf.Mes
   }
 }
 
+extension ProtobufUnittest_TestMergeExceptionLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMergeExceptionLite"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "all_extensions"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._allExtensions, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._allExtensions) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._allExtensions {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMergeExceptionLite, rhs: ProtobufUnittest_TestMergeExceptionLite) -> Bool {
+    if lhs._allExtensions != rhs._allExtensions {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -5956,6 +6034,31 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
   static func ==(lhs: ProtobufUnittest_TestOneofParsingLite, rhs: ProtobufUnittest_TestOneofParsingLite) -> Bool {
     if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageSetLite"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestMessageSetLite.self)
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFieldsAsMessageSet(fields: _protobuf_extensionFieldValues, start: 100, end: 2147483647)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMessageSetLite, rhs: ProtobufUnittest_TestMessageSetLite) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }

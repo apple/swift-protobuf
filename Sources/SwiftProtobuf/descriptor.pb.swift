@@ -377,7 +377,6 @@ public struct Google_Protobuf_FieldDescriptorProto {
   /// For booleans, "true" or "false".
   /// For strings, contains the default text contents (not escaped in any way).
   /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
-  /// TODO(kenton):  Base-64 encode?
   public var defaultValue: String {
     get {return _storage._defaultValue ?? String()}
     set {_uniqueStorage()._defaultValue = newValue}
@@ -1348,6 +1347,12 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// implementation must either *always* check its required fields, or *never*
   /// check its required fields, regardless of whether or not the message has
   /// been parsed.
+  ///
+  /// As of 2021, lazy does no correctness checks on the byte stream during
+  /// parsing.  This may lead to crashes if and when an invalid byte stream is
+  /// finally parsed upon access.
+  ///
+  /// TODO(b/211906113):  Enable validation on lazy fields.
   public var lazy: Bool {
     get {return _lazy ?? false}
     set {_lazy = newValue}
@@ -1356,6 +1361,18 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   public var hasLazy: Bool {return self._lazy != nil}
   /// Clears the value of `lazy`. Subsequent reads from it will return its default value.
   public mutating func clearLazy() {self._lazy = nil}
+
+  /// unverified_lazy does no correctness checks on the byte stream. This should
+  /// only be used where lazy with verification is prohibitive for performance
+  /// reasons.
+  public var unverifiedLazy: Bool {
+    get {return _unverifiedLazy ?? false}
+    set {_unverifiedLazy = newValue}
+  }
+  /// Returns true if `unverifiedLazy` has been explicitly set.
+  public var hasUnverifiedLazy: Bool {return self._unverifiedLazy != nil}
+  /// Clears the value of `unverifiedLazy`. Subsequent reads from it will return its default value.
+  public mutating func clearUnverifiedLazy() {self._unverifiedLazy = nil}
 
   /// Is this field deprecated?
   /// Depending on the target platform, this can emit Deprecated annotations
@@ -1458,6 +1475,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _packed: Bool? = nil
   fileprivate var _jstype: Google_Protobuf_FieldOptions.JSType? = nil
   fileprivate var _lazy: Bool? = nil
+  fileprivate var _unverifiedLazy: Bool? = nil
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _weak: Bool? = nil
 }
@@ -1745,8 +1763,8 @@ public struct Google_Protobuf_UninterpretedOption {
   /// The name of the uninterpreted option.  Each string represents a segment in
   /// a dot-separated name.  is_extension is true iff a segment represents an
   /// extension (denoted with parentheses in options specs in .proto files).
-  /// E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
-  /// "foo.(bar.baz).qux".
+  /// E.g.,{ ["foo", false], ["bar.baz", true], ["moo", false] } represents
+  /// "foo.(bar.baz).moo".
   public struct NamePart {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1851,8 +1869,8 @@ public struct Google_Protobuf_SourceCodeInfo {
     /// location.
     ///
     /// Each element is a field number or an index.  They form a path from
-    /// the root FileDescriptorProto to the place where the definition.  For
-    /// example, this path:
+    /// the root FileDescriptorProto to the place where the definition occurs.
+    /// For example, this path:
     ///   [ 4, 3, 2, 7, 1 ]
     /// refers to:
     ///   file.message_type(3)  // 4, 3
@@ -1906,13 +1924,13 @@ public struct Google_Protobuf_SourceCodeInfo {
     ///   // Comment attached to baz.
     ///   // Another line attached to baz.
     ///
-    ///   // Comment attached to qux.
+    ///   // Comment attached to moo.
     ///   //
-    ///   // Another line attached to qux.
-    ///   optional double qux = 4;
+    ///   // Another line attached to moo.
+    ///   optional double moo = 4;
     ///
     ///   // Detached comment for corge. This is not leading or trailing comments
-    ///   // to qux or corge because there are blank lines separating it from
+    ///   // to moo or corge because there are blank lines separating it from
     ///   // both.
     ///
     ///   // Detached comment for corge paragraph 2.
@@ -3289,6 +3307,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     2: .same(proto: "packed"),
     6: .same(proto: "jstype"),
     5: .same(proto: "lazy"),
+    15: .standard(proto: "unverified_lazy"),
     3: .same(proto: "deprecated"),
     10: .same(proto: "weak"),
     999: .standard(proto: "uninterpreted_option"),
@@ -3312,6 +3331,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 5: try { try decoder.decodeSingularBoolField(value: &self._lazy) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jstype) }()
       case 10: try { try decoder.decodeSingularBoolField(value: &self._weak) }()
+      case 15: try { try decoder.decodeSingularBoolField(value: &self._unverifiedLazy) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
@@ -3343,6 +3363,9 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     try { if let v = self._weak {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 10)
     } }()
+    try { if let v = self._unverifiedLazy {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 15)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3355,6 +3378,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs._packed != rhs._packed {return false}
     if lhs._jstype != rhs._jstype {return false}
     if lhs._lazy != rhs._lazy {return false}
+    if lhs._unverifiedLazy != rhs._unverifiedLazy {return false}
     if lhs._deprecated != rhs._deprecated {return false}
     if lhs._weak != rhs._weak {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
