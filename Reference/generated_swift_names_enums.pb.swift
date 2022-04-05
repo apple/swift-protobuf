@@ -3056,6 +3056,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum clearUnverifiedLazy: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearUnverifiedLazy // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearUnverifiedLazy
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearUnverifiedLazy
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearUnverifiedLazy: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum clearValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearValue // = 0
@@ -10675,6 +10700,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneHasTypeName: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum hasUnverifiedLazy: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasUnverifiedLazy // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasUnverifiedLazy
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasUnverifiedLazy
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasUnverifiedLazy: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -19681,6 +19731,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum unverifiedLazy: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneUnverifiedLazy // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUnverifiedLazy
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUnverifiedLazy
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUnverifiedLazy: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum updatedOptions: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneUpdatedOptions // = 0
@@ -22583,6 +22658,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearTypeName: C
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearUnverifiedLazy: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearUnverifiedLazy] = [
+    .noneClearUnverifiedLazy,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearValue: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearValue] = [
@@ -24715,6 +24797,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTypeName: Cas
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTypeName] = [
     .noneHasTypeName,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasUnverifiedLazy: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasUnverifiedLazy] = [
+    .noneHasUnverifiedLazy,
   ]
 }
 
@@ -27238,6 +27327,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawPointer
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unverifiedLazy: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unverifiedLazy] = [
+    .noneUnverifiedLazy,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions] = [
@@ -28564,6 +28660,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearType: Swift
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearTypeName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearTypeName"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearUnverifiedLazy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearUnverifiedLazy"),
   ]
 }
 
@@ -30394,6 +30496,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasType: SwiftPr
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTypeName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasTypeName"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasUnverifiedLazy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasUnverifiedLazy"),
   ]
 }
 
@@ -32554,6 +32662,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawBufferP
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawPointer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnsafeRawPointer"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unverifiedLazy: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_unverifiedLazy"),
   ]
 }
 
