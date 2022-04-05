@@ -1,4 +1,1 @@
-Required.Proto3.JsonInput.EnumFieldWithAliasLowerCase.JsonOutput
-Required.Proto3.JsonInput.EnumFieldWithAliasLowerCase.ProtobufOutput
-Required.Proto3.JsonInput.EnumFieldWithAliasUseAlias.JsonOutput
-Required.Proto3.JsonInput.EnumFieldWithAliasUseAlias.ProtobufOutput
+# No known failures
