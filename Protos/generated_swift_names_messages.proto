@@ -125,6 +125,7 @@ message GeneratedSwiftReservedMessages {
   message clearTrailingComments { int32 clearTrailingComments = 1; }
   message clearType { int32 clearType = 1; }
   message clearTypeName { int32 clearTypeName = 1; }
+  message clearUnverifiedLazy { int32 clearUnverifiedLazy = 1; }
   message clearValue { int32 clearValue = 1; }
   message clearWeak { int32 clearWeak = 1; }
   message clientStreaming { int32 clientStreaming = 1; }
@@ -430,6 +431,7 @@ message GeneratedSwiftReservedMessages {
   message hasTrailingComments { int32 hasTrailingComments = 1; }
   message hasType { int32 hasType = 1; }
   message hasTypeName { int32 hasTypeName = 1; }
+  message hasUnverifiedLazy { int32 hasUnverifiedLazy = 1; }
   message hasValue { int32 hasValue = 1; }
   message hasWeak { int32 hasWeak = 1; }
   message hour { int32 hour = 1; }
@@ -790,6 +792,7 @@ message GeneratedSwiftReservedMessages {
   message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
   message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
+  message unverifiedLazy { int32 unverifiedLazy = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message utf8 { int32 utf8 = 1; }

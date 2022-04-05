@@ -125,6 +125,7 @@ message GeneratedSwiftReservedEnums {
   enum clearTrailingComments { NONE_clearTrailingComments = 0; }
   enum clearType { NONE_clearType = 0; }
   enum clearTypeName { NONE_clearTypeName = 0; }
+  enum clearUnverifiedLazy { NONE_clearUnverifiedLazy = 0; }
   enum clearValue { NONE_clearValue = 0; }
   enum clearWeak { NONE_clearWeak = 0; }
   enum clientStreaming { NONE_clientStreaming = 0; }
@@ -430,6 +431,7 @@ message GeneratedSwiftReservedEnums {
   enum hasTrailingComments { NONE_hasTrailingComments = 0; }
   enum hasType { NONE_hasType = 0; }
   enum hasTypeName { NONE_hasTypeName = 0; }
+  enum hasUnverifiedLazy { NONE_hasUnverifiedLazy = 0; }
   enum hasValue { NONE_hasValue = 0; }
   enum hasWeak { NONE_hasWeak = 0; }
   enum hour { NONE_hour = 0; }
@@ -790,6 +792,7 @@ message GeneratedSwiftReservedEnums {
   enum UnsafeMutableRawPointer { NONE_UnsafeMutableRawPointer = 0; }
   enum UnsafeRawBufferPointer { NONE_UnsafeRawBufferPointer = 0; }
   enum UnsafeRawPointer { NONE_UnsafeRawPointer = 0; }
+  enum unverifiedLazy { NONE_unverifiedLazy = 0; }
   enum updatedOptions { NONE_updatedOptions = 0; }
   enum url { NONE_url = 0; }
   enum utf8 { NONE_utf8 = 0; }
