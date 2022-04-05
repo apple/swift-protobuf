@@ -27,8 +27,8 @@ jobs:
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
-        # branch: "ref/heads/master"
-        protobuf_git: ["ref/heads/master"]
+        # branch: "ref/heads/main"
+        protobuf_git: ["ref/heads/main"]
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -37,7 +37,7 @@ jobs:
       with:
         path: main
     - name: Update and install dependencies
-      # dependencies from https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+      # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
       # this step is run before get-sha because we need curl and jq for get-sha
       run: apt-get update && apt-get install -y autoconf automake libtool curl make g++ unzip jq
     - name: Get Protobuf Commit SHA
