@@ -37,7 +37,7 @@ jobs:
         set -eu
         apt-get update
         apt-get install -y autoconf automake libtool curl make g++ unzip jq
-        [ \"${{ matrix.swift }}\" != \"5.0.3-bionic\" ] || apt-get install zlib1g-dev
+        [ \"${{ matrix.swift }}\" != \"5.0.3-bionic\" ] || apt-get install -y zlib1g-dev
     - name: Get Protobuf Commit SHA
       id: get-sha
       run: |
