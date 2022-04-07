@@ -655,10 +655,6 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalString_controlCharacters() throws {
-        // This is known to fail on Swift Linux 4.1 and earlier,
-        // so skip it there.
-        // See https://bugs.swift.org/browse/SR-4218 for details.
-#if !os(Linux) || swift(>=4.2)
         assertTextFormatEncode("optional_string: \"\\001\\002\\003\\004\\005\\006\\007\"\n") {
             (o: inout MessageTestType) in
             o.optionalString = "\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
@@ -675,7 +671,6 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             (o: inout MessageTestType) in
             o.optionalString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
         }
-#endif
     }
 
     func testEncoding_optionalString_UTF8() throws {
