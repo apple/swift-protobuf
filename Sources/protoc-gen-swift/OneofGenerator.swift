@@ -253,44 +253,8 @@ class OneofGenerator {
           p.print("}\n")
         }
 
-        // Equatable conformance
         p.print("\n")
         p.outdent()
-        p.print("#if !swift(>=4.1)\n")
-        p.indent()
-        p.print(
-            "\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
-        p.indent()
-        p.print(
-            "// The use of inline closures is to circumvent an issue where the compiler\n",
-            "// allocates stack space for every case branch when no optimizations are\n",
-            "// enabled. https://github.com/apple/swift-protobuf/issues/1034\n",
-            "switch (lhs, rhs) {\n")
-        for f in fields {
-            p.print(
-                "case (\(f.dottedSwiftName), \(f.dottedSwiftName)): return {\n")
-          p.indent()
-          p.print(
-                "guard case \(f.dottedSwiftName)(let l) = lhs, case \(f.dottedSwiftName)(let r) = rhs else { preconditionFailure() }\n",
-                "return l == r\n")
-          p.outdent()
-          p.print(
-                "}()\n")
-        }
-        if fields.count > 1 {
-            // A tricky edge case: If the oneof only has a single case, then
-            // the case pattern generated above is exhaustive and generating a
-            // default produces a compiler error. If there is more than one
-            // case, then the case patterns are not exhaustive (because we
-            // don't compare mismatched pairs), and we have to include a
-            // default.
-            p.print("default: return false\n")
-        }
-        p.print("}\n")
-        p.outdent()
-        p.print("}\n")
-        p.outdent()
-        p.print("#endif\n")
         p.print("}\n")
     }
 
