@@ -43,12 +43,8 @@ fileprivate class InternPool {
   private var interned = [UnsafeRawBufferPointer]()
 
   func intern(utf8: String.UTF8View) -> UnsafeRawBufferPointer {
-    #if swift(>=4.1)
     let mutable = UnsafeMutableRawBufferPointer.allocate(byteCount: utf8.count,
                                                          alignment: MemoryLayout<UInt8>.alignment)
-    #else
-    let mutable = UnsafeMutableRawBufferPointer.allocate(count: utf8.count)
-    #endif
     mutable.copyBytes(from: utf8)
     let immutable = UnsafeRawBufferPointer(mutable)
     interned.append(immutable)
@@ -56,12 +52,8 @@ fileprivate class InternPool {
   }
 
   func intern(utf8Ptr: UnsafeBufferPointer<UInt8>) -> UnsafeRawBufferPointer {
-    #if swift(>=4.1)
     let mutable = UnsafeMutableRawBufferPointer.allocate(byteCount: utf8Ptr.count,
                                                          alignment: MemoryLayout<UInt8>.alignment)
-    #else
-    let mutable = UnsafeMutableRawBufferPointer.allocate(count: utf8.count)
-    #endif
     mutable.copyBytes(from: utf8Ptr)
     let immutable = UnsafeRawBufferPointer(mutable)
     interned.append(immutable)
@@ -70,12 +62,7 @@ fileprivate class InternPool {
 
   deinit {
     for buff in interned {
-        #if swift(>=4.1)
-          buff.deallocate()
-        #else
-          let p = UnsafeMutableRawPointer(mutating: buff.baseAddress)!
-          p.deallocate(bytes: buff.count, alignedTo: 1)
-        #endif
+        buff.deallocate()
     }
   }
 }

@@ -655,10 +655,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
     }
 
     func testOptionalString_controlCharacters() {
-        // This is known to fail on Swift Linux 4.1 and earlier,
-        // so skip it there.
-        // See https://bugs.swift.org/browse/SR-4218 for details.
-#if !os(Linux) || swift(>=4.2)
         // Verify that all C0 controls are correctly escaped
         assertJSONEncode("{\"optionalString\":\"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\"}") {(o: inout MessageTestType) in
             o.optionalString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
@@ -672,7 +668,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"optionalString\":\"\\u0018\\u0019\\u001A\\u001B\\u001C\\u001D\\u001E\\u001F\"}") {(o: inout MessageTestType) in
             o.optionalString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
         }
-#endif
     }
 
     func testOptionalBytes() throws {
