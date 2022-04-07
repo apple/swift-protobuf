@@ -85,19 +85,13 @@ class EnumGenerator {
     p.print("}\n")
   }
 
-  func generateCaseIterable(
-    printer p: inout CodePrinter,
-    includeGuards: Bool = true
-  ) {
+  func generateCaseIterable(printer p: inout CodePrinter) {
     // NOTE: When we can assume Swift 4.2, this should move from an extension
     // to being directly done when declaring the type.
 
     let visibility = generatorOptions.visibilitySourceSnippet
 
     p.print("\n")
-    if includeGuards {
-      p.print("#if swift(>=4.2)\n\n")
-    }
     p.print("extension \(swiftFullName): CaseIterable {\n")
     p.indent()
     if enumDescriptor.hasUnknownPreservingSemantics {
@@ -113,9 +107,6 @@ class EnumGenerator {
     }
     p.outdent()
     p.print("}\n")
-    if includeGuards {
-      p.print("\n#endif  // swift(>=4.2)\n")
-    }
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter) {

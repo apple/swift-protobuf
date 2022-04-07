@@ -187,7 +187,7 @@ class MessageGenerator {
 
   func generateEnumCaseIterable(printer p: inout CodePrinter) {
     for e in enums {
-      e.generateCaseIterable(printer: &p, includeGuards: false)
+      e.generateCaseIterable(printer: &p)
     }
     for m in messages {
       m.generateEnumCaseIterable(printer: &p)

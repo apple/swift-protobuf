@@ -130,14 +130,7 @@ class FileGenerator {
 
         for m in messages {
             m.generateMainStruct(printer: &p, parent: nil, errorString: &errorString)
-
-            var caseIterablePrinter = CodePrinter()
-            m.generateEnumCaseIterable(printer: &caseIterablePrinter)
-            if !caseIterablePrinter.isEmpty {
-              p.print("\n#if swift(>=4.2)\n")
-              p.print(caseIterablePrinter.content)
-              p.print("\n#endif  // swift(>=4.2)\n")
-            }
+            m.generateEnumCaseIterable(printer: &p)
         }
 
         var sendablePrinter = CodePrinter()
