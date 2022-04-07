@@ -66,13 +66,9 @@ public enum Fuzz_Testing_AnEnum: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension Fuzz_Testing_AnEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 public struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

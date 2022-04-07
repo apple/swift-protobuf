@@ -89,8 +89,6 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension Conformance_WireFormat: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Conformance_WireFormat] = [
@@ -101,8 +99,6 @@ extension Conformance_WireFormat: CaseIterable {
     .textFormat,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 enum Conformance_TestCategory: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -159,8 +155,6 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension Conformance_TestCategory: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Conformance_TestCategory] = [
@@ -172,8 +166,6 @@ extension Conformance_TestCategory: CaseIterable {
     .textFormatTest,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 /// The conformance runner will request a list of failures as the first request.
 /// This will be known by message_type == "conformance.FailureSet", a conformance

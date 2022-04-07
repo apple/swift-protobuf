@@ -79,13 +79,9 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittest_Proto2MapEnumLite: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -119,13 +115,9 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittest_Proto2MapEnumPlusExtraLite: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -156,13 +148,9 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittest_MapEnumLite: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 struct ProtobufUnittest_TestMapLite {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

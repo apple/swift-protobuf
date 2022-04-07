@@ -83,13 +83,9 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittestImport_ImportEnumLite: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 struct ProtobufUnittestImport_ImportMessageLite {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

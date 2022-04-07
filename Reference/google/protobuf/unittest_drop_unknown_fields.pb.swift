@@ -95,8 +95,6 @@ struct UnittestDropUnknownFields_Foo {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension UnittestDropUnknownFields_Foo.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [UnittestDropUnknownFields_Foo.NestedEnum] = [
@@ -105,8 +103,6 @@ extension UnittestDropUnknownFields_Foo.NestedEnum: CaseIterable {
     .baz,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 struct UnittestDropUnknownFields_FooWithExtraFields {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -158,8 +154,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [UnittestDropUnknownFields_FooWithExtraFields.NestedEnum] = [
@@ -169,8 +163,6 @@ extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable 
     .moo,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension UnittestDropUnknownFields_Foo: @unchecked Sendable {}
