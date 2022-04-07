@@ -79,14 +79,9 @@ extension Message {
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
-#if swift(>=5.0)
     try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
-#else
-    try merge(serializedData: data, extensions: extensions, partial: partial, options: options)
-#endif
   }
 
-#if swift(>=5.0)
   /// Creates a new message by decoding the given `ContiguousBytes` value
   /// containing a serialized message in Protocol Buffer binary format.
   ///
@@ -111,7 +106,6 @@ extension Message {
     self.init()
     try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
   }
-#endif // #if swift(>=5.0)
 
   /// Updates the message by decoding the given `Data` value containing a
   /// serialized message in Protocol Buffer binary format into the receiver.
@@ -138,16 +132,9 @@ extension Message {
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
-#if swift(>=5.0)
     try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
-#else
-    try data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-      try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
-    }
-#endif  // swift(>=5.0)
   }
 
-#if swift(>=5.0)
   /// Updates the message by decoding the given `ContiguousBytes` value
   /// containing a serialized message in Protocol Buffer binary format into the
   /// receiver.
@@ -178,11 +165,11 @@ extension Message {
       try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
     }
   }
-#endif  // swift(>=5.0)
 
   // Helper for `merge()`s to keep the Decoder internal to SwiftProtobuf while
   // allowing the generic over ContiguousBytes to get better codegen from the
-  // compiler by being `@inlinable`.
+  // compiler by being `@inlinable`. For some discussion on this see
+  // https://github.com/apple/swift-protobuf/pull/914#issuecomment-555458153
   @usableFromInline
   internal mutating func _merge(
     rawBuffer body: UnsafeRawBufferPointer,
