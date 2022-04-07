@@ -361,7 +361,6 @@ message GeneratedSwiftReservedEnums {
   enum group { NONE_group = 0; }
   enum groupFieldNumberStack { NONE_groupFieldNumberStack = 0; }
   enum groupSize { NONE_groupSize = 0; }
-  enum h { NONE_h = 0; }
   enum hadOneofValue { NONE_hadOneofValue = 0; }
   enum handleConflictingOneOf { NONE_handleConflictingOneOf = 0; }
   enum hasAggregateValue { NONE_hasAggregateValue = 0; }
@@ -382,7 +381,6 @@ message GeneratedSwiftReservedEnums {
   enum hash { NONE_hash = 0; }
   enum Hashable { NONE_Hashable = 0; }
   enum hasher { NONE_hasher = 0; }
-  enum hashValue { NONE_hashValue = 0; }
   enum HashVisitor { NONE_HashVisitor = 0; }
   enum hasIdempotencyLevel { NONE_hasIdempotencyLevel = 0; }
   enum hasIdentifierValue { NONE_hasIdentifierValue = 0; }
@@ -466,7 +464,6 @@ message GeneratedSwiftReservedEnums {
   enum isInitialized { NONE_isInitialized = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
   enum Iterator { NONE_Iterator = 0; }
-  enum i_2166136261 { NONE_i_2166136261 = 0; }
   enum javaGenerateEqualsAndHash { NONE_javaGenerateEqualsAndHash = 0; }
   enum javaGenericServices { NONE_javaGenericServices = 0; }
   enum javaMultipleFiles { NONE_javaMultipleFiles = 0; }
@@ -515,7 +512,6 @@ message GeneratedSwiftReservedEnums {
   enum major { NONE_major = 0; }
   enum makeIterator { NONE_makeIterator = 0; }
   enum mapEntry { NONE_mapEntry = 0; }
-  enum mapHash { NONE_mapHash = 0; }
   enum MapKeyType { NONE_MapKeyType = 0; }
   enum mapNameResolver { NONE_mapNameResolver = 0; }
   enum mapToMessages { NONE_mapToMessages = 0; }

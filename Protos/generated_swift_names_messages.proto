@@ -361,7 +361,6 @@ message GeneratedSwiftReservedMessages {
   message group { int32 group = 1; }
   message groupFieldNumberStack { int32 groupFieldNumberStack = 1; }
   message groupSize { int32 groupSize = 1; }
-  message h { int32 h = 1; }
   message hadOneofValue { int32 hadOneofValue = 1; }
   message handleConflictingOneOf { int32 handleConflictingOneOf = 1; }
   message hasAggregateValue { int32 hasAggregateValue = 1; }
@@ -382,7 +381,6 @@ message GeneratedSwiftReservedMessages {
   message hash { int32 hash = 1; }
   message Hashable { int32 Hashable = 1; }
   message hasher { int32 hasher = 1; }
-  message hashValue { int32 hashValue = 1; }
   message HashVisitor { int32 HashVisitor = 1; }
   message hasIdempotencyLevel { int32 hasIdempotencyLevel = 1; }
   message hasIdentifierValue { int32 hasIdentifierValue = 1; }
@@ -466,7 +464,6 @@ message GeneratedSwiftReservedMessages {
   message isInitialized { int32 isInitialized = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
   message Iterator { int32 Iterator = 1; }
-  message i_2166136261 { int32 i_2166136261 = 1; }
   message javaGenerateEqualsAndHash { int32 javaGenerateEqualsAndHash = 1; }
   message javaGenericServices { int32 javaGenericServices = 1; }
   message javaMultipleFiles { int32 javaMultipleFiles = 1; }
@@ -515,7 +512,6 @@ message GeneratedSwiftReservedMessages {
   message major { int32 major = 1; }
   message makeIterator { int32 makeIterator = 1; }
   message mapEntry { int32 mapEntry = 1; }
-  message mapHash { int32 mapHash = 1; }
   message MapKeyType { int32 MapKeyType = 1; }
   message mapNameResolver { int32 mapNameResolver = 1; }
   message mapToMessages { int32 mapToMessages = 1; }
