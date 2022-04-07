@@ -80,14 +80,12 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension Google_Protobuf_Syntax: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Google_Protobuf_Syntax] = [
     .proto2,
     .proto3,
   ]
+
 }
 
 /// A protocol buffer message type.
@@ -284,6 +282,29 @@ struct Google_Protobuf_Field {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [Google_Protobuf_Field.Kind] = [
+      .typeUnknown,
+      .typeDouble,
+      .typeFloat,
+      .typeInt64,
+      .typeUint64,
+      .typeInt32,
+      .typeFixed64,
+      .typeFixed32,
+      .typeBool,
+      .typeString,
+      .typeGroup,
+      .typeMessage,
+      .typeBytes,
+      .typeUint32,
+      .typeEnum,
+      .typeSfixed32,
+      .typeSfixed64,
+      .typeSint32,
+      .typeSint64,
+    ]
+
   }
 
   /// Whether a field is optional, required, or repeated.
@@ -327,44 +348,17 @@ struct Google_Protobuf_Field {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [Google_Protobuf_Field.Cardinality] = [
+      .unknown,
+      .optional,
+      .required,
+      .repeated,
+    ]
+
   }
 
   init() {}
-}
-
-extension Google_Protobuf_Field.Kind: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Google_Protobuf_Field.Kind] = [
-    .typeUnknown,
-    .typeDouble,
-    .typeFloat,
-    .typeInt64,
-    .typeUint64,
-    .typeInt32,
-    .typeFixed64,
-    .typeFixed32,
-    .typeBool,
-    .typeString,
-    .typeGroup,
-    .typeMessage,
-    .typeBytes,
-    .typeUint32,
-    .typeEnum,
-    .typeSfixed32,
-    .typeSfixed64,
-    .typeSint32,
-    .typeSint64,
-  ]
-}
-
-extension Google_Protobuf_Field.Cardinality: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Google_Protobuf_Field.Cardinality] = [
-    .unknown,
-    .optional,
-    .required,
-    .repeated,
-  ]
 }
 
 /// Enum type definition.

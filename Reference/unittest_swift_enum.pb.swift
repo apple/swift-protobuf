@@ -172,22 +172,6 @@ struct ProtobufUnittest_SwiftEnumTest {
   init() {}
 }
 
-extension ProtobufUnittest_SwiftEnumTest.EnumTest1: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension ProtobufUnittest_SwiftEnumTest.EnumTest2: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension ProtobufUnittest_SwiftEnumTest.EnumTestNoStem: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension ProtobufUnittest_SwiftEnumTest.EnumTestReservedWord: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct ProtobufUnittest_SwiftEnumWithAliasTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -231,10 +215,6 @@ struct ProtobufUnittest_SwiftEnumWithAliasTest {
   }
 
   init() {}
-}
-
-extension ProtobufUnittest_SwiftEnumWithAliasTest.EnumWithAlias: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)

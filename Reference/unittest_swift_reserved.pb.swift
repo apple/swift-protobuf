@@ -225,14 +225,6 @@ struct ProtobufUnittest_SwiftReservedTest {
   fileprivate var _requiredInt: Int32? = nil
 }
 
-extension ProtobufUnittest_SwiftReservedTest.Enum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension ProtobufUnittest_SwiftReservedTest.ProtocolEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct ProtobufUnittest_SwiftReservedTestExt {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

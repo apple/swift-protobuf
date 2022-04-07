@@ -350,10 +350,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse {
   fileprivate var _supportedFeatures: UInt64? = nil
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Google_Protobuf_Compiler_Version: @unchecked Sendable {}
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: @unchecked Sendable {}

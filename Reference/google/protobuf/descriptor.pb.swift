@@ -583,14 +583,6 @@ struct Google_Protobuf_FieldDescriptorProto {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-extension Google_Protobuf_FieldDescriptorProto.TypeEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension Google_Protobuf_FieldDescriptorProto.Label: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 /// Describes a oneof.
 struct Google_Protobuf_OneofDescriptorProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1154,10 +1146,6 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-extension Google_Protobuf_FileOptions.OptimizeMode: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1472,14 +1460,6 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _weak: Bool? = nil
 }
 
-extension Google_Protobuf_FieldOptions.CType: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension Google_Protobuf_FieldOptions.JSType: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct Google_Protobuf_OneofOptions: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1667,10 +1647,6 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel? = nil
-}
-
-extension Google_Protobuf_MethodOptions.IdempotencyLevel: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 /// A message representing a option the parser does not recognize. This only

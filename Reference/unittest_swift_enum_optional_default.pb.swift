@@ -145,14 +145,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault {
   init() {}
 }
 
-extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
-extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_Extend_EnumOptionalDefault: @unchecked Sendable {}
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: @unchecked Sendable {}

@@ -66,10 +66,6 @@ enum Fuzz_Testing_AnEnum: SwiftProtobuf.Enum {
 
 }
 
-extension Fuzz_Testing_AnEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

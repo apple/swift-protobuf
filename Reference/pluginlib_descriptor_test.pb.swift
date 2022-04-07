@@ -65,10 +65,6 @@ enum SDTTopLevelEnum: SwiftProtobuf.Enum {
 
 }
 
-extension SDTTopLevelEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct SDTTopLevelMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -236,10 +232,6 @@ struct SDTTopLevelMessage {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension SDTTopLevelMessage.SubEnum: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 struct SDTTopLevelMessage2 {

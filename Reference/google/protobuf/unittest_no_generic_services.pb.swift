@@ -75,10 +75,6 @@ enum ProtobufUnittest_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittest_NoGenericServicesTest_TestEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

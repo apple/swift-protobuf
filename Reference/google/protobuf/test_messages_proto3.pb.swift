@@ -85,15 +85,13 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufTestMessages_Proto3_ForeignEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufTestMessages_Proto3_ForeignEnum] = [
     .foreignFoo,
     .foreignBar,
     .foreignBaz,
   ]
+
 }
 
 /// This proto includes every type of field in both singular and repeated
@@ -1078,6 +1076,14 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
+      .foo,
+      .bar,
+      .baz,
+      .neg,
+    ]
+
   }
 
   enum AliasedEnum: SwiftProtobuf.Enum {
@@ -1111,6 +1117,13 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum] = [
+      .aliasFoo,
+      .aliasBar,
+      .aliasBaz,
+    ]
+
   }
 
   struct NestedMessage {
@@ -1142,25 +1155,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
-    .foo,
-    .bar,
-    .baz,
-    .neg,
-  ]
-}
-
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum] = [
-    .aliasFoo,
-    .aliasBar,
-    .aliasBaz,
-  ]
 }
 
 struct ProtobufTestMessages_Proto3_ForeignMessage {
@@ -1218,17 +1212,15 @@ struct ProtobufTestMessages_Proto3_EnumOnlyProto3 {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum] = [
+      .kFalse,
+      .kTrue,
+    ]
+
   }
 
   init() {}
-}
-
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum] = [
-    .kFalse,
-    .kTrue,
-  ]
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)

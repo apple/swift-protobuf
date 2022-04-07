@@ -57,6 +57,7 @@ message GeneratedSwiftReservedMessages {
   message c { int32 c = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
   message cardinality { int32 cardinality = 1; }
+  message CaseIterable { int32 CaseIterable = 1; }
   message ccEnableArenas { int32 ccEnableArenas = 1; }
   message ccGenericServices { int32 ccGenericServices = 1; }
   message Character { int32 Character = 1; }

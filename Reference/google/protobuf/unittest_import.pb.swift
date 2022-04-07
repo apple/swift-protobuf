@@ -85,10 +85,6 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittestImport_ImportEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 /// To use an enum in a map, it must has the first value as 0.
 enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -117,10 +113,6 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittestImport_ImportEnumForMap: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 struct ProtobufUnittestImport_ImportMessage {

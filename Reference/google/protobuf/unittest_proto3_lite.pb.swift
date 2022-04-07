@@ -82,9 +82,6 @@ enum Proto3LiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension Proto3LiteUnittest_ForeignEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto3LiteUnittest_ForeignEnum] = [
     .foreignZero,
@@ -92,6 +89,7 @@ extension Proto3LiteUnittest_ForeignEnum: CaseIterable {
     .foreignBar,
     .foreignBaz,
   ]
+
 }
 
 /// This proto includes every type of field in both singular and repeated
@@ -469,6 +467,15 @@ struct Proto3LiteUnittest_TestAllTypes {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [Proto3LiteUnittest_TestAllTypes.NestedEnum] = [
+      .zero,
+      .foo,
+      .bar,
+      .baz,
+      .neg,
+    ]
+
   }
 
   struct NestedMessage {
@@ -489,17 +496,6 @@ struct Proto3LiteUnittest_TestAllTypes {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension Proto3LiteUnittest_TestAllTypes.NestedEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto3LiteUnittest_TestAllTypes.NestedEnum] = [
-    .zero,
-    .foo,
-    .bar,
-    .baz,
-    .neg,
-  ]
 }
 
 struct Proto3LiteUnittest_TestPackedTypes {

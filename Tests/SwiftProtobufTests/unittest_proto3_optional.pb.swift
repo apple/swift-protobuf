@@ -277,6 +277,15 @@ struct ProtobufUnittest_TestProto3Optional {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [ProtobufUnittest_TestProto3Optional.NestedEnum] = [
+      .unspecified,
+      .foo,
+      .bar,
+      .baz,
+      .neg,
+    ]
+
   }
 
   struct NestedMessage {
@@ -306,17 +315,6 @@ struct ProtobufUnittest_TestProto3Optional {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension ProtobufUnittest_TestProto3Optional.NestedEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittest_TestProto3Optional.NestedEnum] = [
-    .unspecified,
-    .foo,
-    .bar,
-    .baz,
-    .neg,
-  ]
 }
 
 struct ProtobufUnittest_TestProto3OptionalMessage {

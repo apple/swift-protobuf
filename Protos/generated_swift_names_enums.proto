@@ -57,6 +57,7 @@ message GeneratedSwiftReservedEnums {
   enum c { NONE_c = 0; }
   enum capitalizeNext { NONE_capitalizeNext = 0; }
   enum cardinality { NONE_cardinality = 0; }
+  enum CaseIterable { NONE_CaseIterable = 0; }
   enum ccEnableArenas { NONE_ccEnableArenas = 0; }
   enum ccGenericServices { NONE_ccGenericServices = 0; }
   enum Character { NONE_Character = 0; }
