@@ -80,33 +80,25 @@ class EnumGenerator {
     p.print("\n")
     generateRawValueProperty(printer: &p)
 
+    maybeGenerateCaseIterable(printer: &p)
+
     p.outdent()
     p.print("\n")
     p.print("}\n")
   }
 
-  func generateCaseIterable(printer p: inout CodePrinter) {
-    // NOTE: When we can assume Swift 4.2, this should move from an extension
-    // to being directly done when declaring the type.
+  func maybeGenerateCaseIterable(printer p: inout CodePrinter) {
+    guard enumDescriptor.hasUnknownPreservingSemantics else { return }
 
     let visibility = generatorOptions.visibilitySourceSnippet
-
     p.print("\n")
-    p.print("extension \(swiftFullName): CaseIterable {\n")
-    p.indent()
-    if enumDescriptor.hasUnknownPreservingSemantics {
-      p.print("// The compiler won't synthesize support with the \(unrecognizedCaseName) case.\n")
-      p.print("\(visibility)static var allCases: [\(swiftFullName)] = [\n")
-      for v in mainEnumValueDescriptors {
-        let dottedName = namer.dottedRelativeName(enumValue: v)
-        p.print("  \(dottedName),\n")
-      }
-      p.print("]\n")
-    } else {
-      p.print("// Support synthesized by the compiler.\n")
+    p.print("// The compiler won't synthesize support with the \(unrecognizedCaseName) case.\n")
+    p.print("\(visibility)static var allCases: [\(swiftFullName)] = [\n")
+    for v in mainEnumValueDescriptors {
+      let dottedName = namer.dottedRelativeName(enumValue: v)
+      p.print("  \(dottedName),\n")
     }
-    p.outdent()
-    p.print("}\n")
+    p.print("]\n")
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter) {
