@@ -21809,8 +21809,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.adjusted: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.adjusted] = [
@@ -27907,8 +27905,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday: CaseIterab
     .noneYday,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums: @unchecked Sendable {}

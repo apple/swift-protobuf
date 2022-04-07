@@ -684,13 +684,9 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension SwiftUnittest_Names_EnumFieldNames: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -726,13 +722,9 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension SwiftUnittest_Names_EnumFieldNames2: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 struct SwiftUnittest_Names_Foo: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -12123,8 +12115,6 @@ struct SwiftUnittest_Names_EnumNames {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension SwiftUnittest_Names_EnumNames.StringEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
@@ -12969,8 +12959,6 @@ extension SwiftUnittest_Names_EnumNames.ExtensionsEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
 
-#endif  // swift(>=4.2)
-
 struct SwiftUnittest_Names_FieldNamingInitials {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -13699,13 +13687,9 @@ struct SwiftUnittest_Names_ValidIdentifiers {
   fileprivate var _enumField: SwiftUnittest_Names_ValidIdentifiers.TestEnum? = nil
 }
 
-#if swift(>=4.2)
-
 extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
-
-#endif  // swift(>=4.2)
 
 /// For issue #1084 - If the generated code compiles, things are good.
 ///

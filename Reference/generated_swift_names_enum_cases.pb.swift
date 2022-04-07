@@ -2670,8 +2670,6 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnum] = [
@@ -3549,8 +3547,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .yday,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -180,8 +180,6 @@ struct Protobuf3Unittest_SwiftEnumTest {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension Protobuf3Unittest_SwiftEnumTest.EnumTest1: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = [
@@ -213,8 +211,6 @@ extension Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord: CaseIterable {
     .notReserved,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 struct Protobuf3Unittest_SwiftEnumWithAliasTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -263,8 +259,6 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = [
@@ -273,8 +267,6 @@ extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: CaseIterable {
     .bar1,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Protobuf3Unittest_SwiftEnumTest: @unchecked Sendable {}

@@ -82,8 +82,6 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension Google_Protobuf_Syntax: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static var allCases: [Google_Protobuf_Syntax] = [
@@ -91,8 +89,6 @@ extension Google_Protobuf_Syntax: CaseIterable {
     .proto3,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 /// A protocol buffer message type.
 public struct Google_Protobuf_Type {
@@ -336,8 +332,6 @@ public struct Google_Protobuf_Field {
   public init() {}
 }
 
-#if swift(>=4.2)
-
 extension Google_Protobuf_Field.Kind: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   public static var allCases: [Google_Protobuf_Field.Kind] = [
@@ -372,8 +366,6 @@ extension Google_Protobuf_Field.Cardinality: CaseIterable {
     .repeated,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 /// Enum type definition.
 public struct Google_Protobuf_Enum {

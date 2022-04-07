@@ -308,8 +308,6 @@ struct ProtobufUnittest_TestProto3Optional {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-#if swift(>=4.2)
-
 extension ProtobufUnittest_TestProto3Optional.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittest_TestProto3Optional.NestedEnum] = [
@@ -320,8 +318,6 @@ extension ProtobufUnittest_TestProto3Optional.NestedEnum: CaseIterable {
     .neg,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 struct ProtobufUnittest_TestProto3OptionalMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the

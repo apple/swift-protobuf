@@ -84,8 +84,6 @@ enum Proto3Unittest_ForeignEnum: SwiftProtobuf.Enum {
 
 }
 
-#if swift(>=4.2)
-
 extension Proto3Unittest_ForeignEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto3Unittest_ForeignEnum] = [
@@ -95,8 +93,6 @@ extension Proto3Unittest_ForeignEnum: CaseIterable {
     .foreignBaz,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
@@ -504,8 +500,6 @@ struct Proto3Unittest_TestAllTypes {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-#if swift(>=4.2)
-
 extension Proto3Unittest_TestAllTypes.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto3Unittest_TestAllTypes.NestedEnum] = [
@@ -516,8 +510,6 @@ extension Proto3Unittest_TestAllTypes.NestedEnum: CaseIterable {
     .neg,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 struct Proto3Unittest_TestPackedTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -741,8 +733,6 @@ struct Proto3Unittest_TestOneof2 {
   init() {}
 }
 
-#if swift(>=4.2)
-
 extension Proto3Unittest_TestOneof2.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto3Unittest_TestOneof2.NestedEnum] = [
@@ -752,8 +742,6 @@ extension Proto3Unittest_TestOneof2.NestedEnum: CaseIterable {
     .baz,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Proto3Unittest_TestAllTypes: @unchecked Sendable {}

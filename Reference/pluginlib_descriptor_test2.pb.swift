@@ -210,8 +210,6 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
   fileprivate var _optMessageField: SwiftDescriptorTest_OtherMessage? = nil
 }
 
-#if swift(>=4.2)
-
 extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [SwiftDescriptorTest_Proto3MessageForPresence.SubEnum] = [
@@ -220,8 +218,6 @@ extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: CaseIterable {
     .subValue2,
   ]
 }
-
-#endif  // swift(>=4.2)
 
 struct SwiftDescriptorTest_OtherMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
