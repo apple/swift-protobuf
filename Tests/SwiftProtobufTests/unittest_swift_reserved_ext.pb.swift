@@ -344,9 +344,8 @@ extension SwiftReservedTestExt2 {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = "SwiftReservedTestExt2"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {

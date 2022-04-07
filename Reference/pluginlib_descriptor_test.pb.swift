@@ -673,24 +673,8 @@ extension SDTScoperForExt {
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "VALUE_ZERO"),
-    1: .same(proto: "VALUE_ONE"),
-    2: .same(proto: "VALUE_TWO"),
-  ]
-}
-
-extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-    4: .same(proto: "field4"),
-    5: .same(proto: "field5"),
-    6: .same(proto: "field6"),
-  ]
 
   fileprivate class _StorageClass {
     var _field1: String? = nil
@@ -825,21 +809,8 @@ extension SDTTopLevelMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
   }
 }
 
-extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SUB_VALUE_0"),
-    1: .same(proto: "SUB_VALUE_1"),
-    2: .same(proto: "SUB_VALUE_2"),
-  ]
-}
-
-extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    3: .same(proto: "field3"),
-  ]
 
   fileprivate class _StorageClass {
     var _field1: Int32? = nil
@@ -917,12 +888,8 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 }
 
-extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "left"),
-    2: .same(proto: "right"),
-  ]
 
   fileprivate class _StorageClass {
     var _left: SDTTopLevelMessage? = nil
@@ -993,12 +960,8 @@ extension SDTTopLevelMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "desc"),
-    2: .same(proto: "ver"),
-  ]
 
   fileprivate class _StorageClass {
     var _desc: SwiftProtobuf.Google_Protobuf_DescriptorProto? = nil
@@ -1076,9 +1039,8 @@ extension SDTExternalRefs: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ScoperForExt"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
@@ -1095,26 +1057,8 @@ extension SDTScoperForExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".Proto2MessageForPresence"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "req_str_field"),
-    2: .standard(proto: "req_int32_field"),
-    3: .standard(proto: "req_enum_field"),
-    4: .standard(proto: "req_message_field"),
-    11: .standard(proto: "opt_str_field"),
-    12: .standard(proto: "opt_int32_field"),
-    13: .standard(proto: "opt_enum_field"),
-    14: .standard(proto: "opt_message_field"),
-    21: .standard(proto: "repeat_str_field"),
-    22: .standard(proto: "repeat_int32_field"),
-    23: .standard(proto: "repeat_enum_field"),
-    24: .standard(proto: "repeat_message_field"),
-    31: .standard(proto: "oneof_str_field"),
-    32: .standard(proto: "oneof_int32_field"),
-    33: .standard(proto: "oneof_enum_field"),
-    34: .standard(proto: "oneof_message_field"),
-  ]
 
   public var isInitialized: Bool {
     if self._reqStrField == nil {return false}
@@ -1266,9 +1210,8 @@ extension SDTProto2MessageForPresence: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 }
 
-extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrdering"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1300,14 +1243,8 @@ extension SDTMsgExtensionRangeOrdering: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingWithFields"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    6: .same(proto: "field6"),
-    124: .same(proto: "field124"),
-    125: .same(proto: "field125"),
-    200: .same(proto: "field200"),
-  ]
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -1365,16 +1302,8 @@ extension SDTMsgExtensionRangeOrderingWithFields: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension SDTMsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTMsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MsgExtensionRangeOrderingNoMerging"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-    6: .same(proto: "field6"),
-    13: .same(proto: "field13"),
-    15: .same(proto: "field15"),
-    21: .same(proto: "field21"),
-  ]
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

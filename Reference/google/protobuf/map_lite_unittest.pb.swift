@@ -520,53 +520,8 @@ extension ProtobufUnittest_TestRequiredLite {
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTO2_MAP_ENUM_FOO_LITE"),
-    1: .same(proto: "PROTO2_MAP_ENUM_BAR_LITE"),
-    2: .same(proto: "PROTO2_MAP_ENUM_BAZ_LITE"),
-  ]
-}
-
-extension ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO_LITE"),
-    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR_LITE"),
-    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ_LITE"),
-    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA_LITE"),
-  ]
-}
-
-extension ProtobufUnittest_MapEnumLite: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MAP_ENUM_FOO_LITE"),
-    1: .same(proto: "MAP_ENUM_BAR_LITE"),
-    2: .same(proto: "MAP_ENUM_BAZ_LITE"),
-  ]
-}
-
-extension ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_int32"),
-    2: .standard(proto: "map_int64_int64"),
-    3: .standard(proto: "map_uint32_uint32"),
-    4: .standard(proto: "map_uint64_uint64"),
-    5: .standard(proto: "map_sint32_sint32"),
-    6: .standard(proto: "map_sint64_sint64"),
-    7: .standard(proto: "map_fixed32_fixed32"),
-    8: .standard(proto: "map_fixed64_fixed64"),
-    9: .standard(proto: "map_sfixed32_sfixed32"),
-    10: .standard(proto: "map_sfixed64_sfixed64"),
-    11: .standard(proto: "map_int32_float"),
-    12: .standard(proto: "map_int32_double"),
-    13: .standard(proto: "map_bool_bool"),
-    14: .standard(proto: "map_string_string"),
-    15: .standard(proto: "map_int32_bytes"),
-    16: .standard(proto: "map_int32_enum"),
-    17: .standard(proto: "map_int32_foreign_message"),
-    18: .same(proto: "teboring"),
-  ]
 
   fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -745,27 +700,8 @@ extension ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestArenaMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_int32"),
-    2: .standard(proto: "map_int64_int64"),
-    3: .standard(proto: "map_uint32_uint32"),
-    4: .standard(proto: "map_uint64_uint64"),
-    5: .standard(proto: "map_sint32_sint32"),
-    6: .standard(proto: "map_sint64_sint64"),
-    7: .standard(proto: "map_fixed32_fixed32"),
-    8: .standard(proto: "map_fixed64_fixed64"),
-    9: .standard(proto: "map_sfixed32_sfixed32"),
-    10: .standard(proto: "map_sfixed64_sfixed64"),
-    11: .standard(proto: "map_int32_float"),
-    12: .standard(proto: "map_int32_double"),
-    13: .standard(proto: "map_bool_bool"),
-    14: .standard(proto: "map_string_string"),
-    15: .standard(proto: "map_int32_bytes"),
-    16: .standard(proto: "map_int32_enum"),
-    17: .standard(proto: "map_int32_foreign_message"),
-  ]
 
   fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -937,11 +873,8 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_field"),
-  ]
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.mapField) {return false}
@@ -974,12 +907,8 @@ extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Sw
   }
 }
 
-extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1012,12 +941,8 @@ extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtraLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1050,11 +975,8 @@ extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, Swif
   }
 }
 
-extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_message"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1082,13 +1004,8 @@ extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "b"),
-    3: .same(proto: "c"),
-  ]
 
   public var isInitialized: Bool {
     if self._a == nil {return false}
@@ -1137,11 +1054,8 @@ extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageArenaLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

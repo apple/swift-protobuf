@@ -499,68 +499,8 @@ extension Proto2NofieldpresenceUnittest_ForeignMessage: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "proto2_nofieldpresence_unittest"
 
-extension Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOREIGN_FOO"),
-    1: .same(proto: "FOREIGN_BAR"),
-    2: .same(proto: "FOREIGN_BAZ"),
-  ]
-}
-
-extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_int32"),
-    2: .standard(proto: "optional_int64"),
-    3: .standard(proto: "optional_uint32"),
-    4: .standard(proto: "optional_uint64"),
-    5: .standard(proto: "optional_sint32"),
-    6: .standard(proto: "optional_sint64"),
-    7: .standard(proto: "optional_fixed32"),
-    8: .standard(proto: "optional_fixed64"),
-    9: .standard(proto: "optional_sfixed32"),
-    10: .standard(proto: "optional_sfixed64"),
-    11: .standard(proto: "optional_float"),
-    12: .standard(proto: "optional_double"),
-    13: .standard(proto: "optional_bool"),
-    14: .standard(proto: "optional_string"),
-    15: .standard(proto: "optional_bytes"),
-    18: .standard(proto: "optional_nested_message"),
-    19: .standard(proto: "optional_foreign_message"),
-    20: .standard(proto: "optional_proto2_message"),
-    21: .standard(proto: "optional_nested_enum"),
-    22: .standard(proto: "optional_foreign_enum"),
-    24: .standard(proto: "optional_string_piece"),
-    25: .standard(proto: "optional_cord"),
-    30: .standard(proto: "optional_lazy_message"),
-    31: .standard(proto: "repeated_int32"),
-    32: .standard(proto: "repeated_int64"),
-    33: .standard(proto: "repeated_uint32"),
-    34: .standard(proto: "repeated_uint64"),
-    35: .standard(proto: "repeated_sint32"),
-    36: .standard(proto: "repeated_sint64"),
-    37: .standard(proto: "repeated_fixed32"),
-    38: .standard(proto: "repeated_fixed64"),
-    39: .standard(proto: "repeated_sfixed32"),
-    40: .standard(proto: "repeated_sfixed64"),
-    41: .standard(proto: "repeated_float"),
-    42: .standard(proto: "repeated_double"),
-    43: .standard(proto: "repeated_bool"),
-    44: .standard(proto: "repeated_string"),
-    45: .standard(proto: "repeated_bytes"),
-    48: .standard(proto: "repeated_nested_message"),
-    49: .standard(proto: "repeated_foreign_message"),
-    50: .standard(proto: "repeated_proto2_message"),
-    51: .standard(proto: "repeated_nested_enum"),
-    52: .standard(proto: "repeated_foreign_enum"),
-    54: .standard(proto: "repeated_string_piece"),
-    55: .standard(proto: "repeated_cord"),
-    57: .standard(proto: "repeated_lazy_message"),
-    111: .standard(proto: "oneof_uint32"),
-    112: .standard(proto: "oneof_nested_message"),
-    113: .standard(proto: "oneof_string"),
-    114: .standard(proto: "oneof_enum"),
-  ]
 
   fileprivate class _StorageClass {
     var _optionalInt32: Int32 = 0
@@ -998,19 +938,8 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, Swi
   }
 }
 
-extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
-}
-
-extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = Proto2NofieldpresenceUnittest_TestAllTypes.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "bb"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1038,11 +967,8 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobu
   }
 }
 
-extension Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestProto2Required"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "proto2"),
-  ]
 
   public var isInitialized: Bool {
     if let v = self._proto2, !v.isInitialized {return false}
@@ -1079,11 +1005,8 @@ extension Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Messag
   }
 }
 
-extension Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

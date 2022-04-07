@@ -233,29 +233,8 @@ extension ProtobufUnittest_TestSubmessageMaps: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
-  ]
-}
-
-extension ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
-    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
-  ]
-}
-
-extension ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -288,12 +267,8 @@ extension ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._Me
   }
 }
 
-extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -326,11 +301,8 @@ extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestImportEnumMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "import_enum_amp"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -358,11 +330,8 @@ extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestIntIntMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "m"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -390,22 +359,8 @@ extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMaps"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "m_int32"),
-    2: .standard(proto: "m_int64"),
-    3: .standard(proto: "m_uint32"),
-    4: .standard(proto: "m_uint64"),
-    5: .standard(proto: "m_sint32"),
-    6: .standard(proto: "m_sint64"),
-    7: .standard(proto: "m_fixed32"),
-    8: .standard(proto: "m_fixed64"),
-    9: .standard(proto: "m_sfixed32"),
-    10: .standard(proto: "m_sfixed64"),
-    11: .standard(proto: "m_bool"),
-    12: .standard(proto: "m_string"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -488,11 +443,8 @@ extension ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestSubmessageMaps"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "m"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -180,14 +180,8 @@ extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sen
 
 fileprivate let _protobuf_package = "swift_unittest"
 
-extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    111: .standard(proto: "oneof_uint32"),
-    112: .standard(proto: "oneof_nested_message"),
-    113: .standard(proto: "oneof_string"),
-    114: .standard(proto: "oneof_bytes"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -271,13 +265,8 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = SwiftUnittest_TestMessage.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "b"),
-    3: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -319,12 +308,8 @@ extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "optional_message"),
-    2: .standard(proto: "repeated_message"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -361,12 +346,8 @@ extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = SwiftUnittest_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "field1"),
-    2: .same(proto: "field2"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

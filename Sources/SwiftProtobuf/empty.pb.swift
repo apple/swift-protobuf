@@ -74,9 +74,8 @@ extension Google_Protobuf_Empty: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Empty"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {

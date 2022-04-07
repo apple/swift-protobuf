@@ -50,11 +50,8 @@ extension ProtobufUnittest_SwiftJSONTest: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftJSONTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    318: .standard(proto: "repeated_null_value"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

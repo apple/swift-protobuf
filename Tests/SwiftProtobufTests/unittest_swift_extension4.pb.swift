@@ -214,9 +214,8 @@ extension Ext4MyMessage {
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend4"
 
-extension Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
@@ -233,11 +232,8 @@ extension Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
   }
 }
 
-extension Ext4MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Ext4MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = Ext4MyMessage.protoMessageName + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1410: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -269,11 +265,8 @@ extension Ext4MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
   }
 }
 
-extension Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1420: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

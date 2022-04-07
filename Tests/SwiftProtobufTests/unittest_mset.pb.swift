@@ -381,11 +381,8 @@ extension ProtobufUnittest_TestMessageSetExtension3 {
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "message_set"),
-  ]
 
   public var isInitialized: Bool {
     if let v = self._messageSet, !v.isInitialized {return false}
@@ -422,12 +419,8 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, Swift
   }
 }
 
-extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".NestedTestMessageSetContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "container"),
-    2: .same(proto: "child"),
-  ]
 
   fileprivate class _StorageClass {
     var _container: ProtobufUnittest_TestMessageSetContainer? = nil
@@ -506,13 +499,8 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
   }
 }
 
-extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    15: .same(proto: "i"),
-    16: .same(proto: "recursive"),
-    17: .standard(proto: "test_aliasing"),
-  ]
 
   public var isInitialized: Bool {
     if let v = self._recursive, !v.isInitialized {return false}
@@ -559,11 +547,8 @@ extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, Swif
   }
 }
 
-extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    25: .same(proto: "str"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -595,12 +580,8 @@ extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, Swif
   }
 }
 
-extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".NestedTestInt"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "child"),
-  ]
 
   fileprivate class _StorageClass {
     var _a: UInt32? = nil
@@ -671,11 +652,8 @@ extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension3"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    35: .same(proto: "msg"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -707,11 +685,8 @@ extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobuf.Message, Swif
   }
 }
 
-extension ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".RawMessageSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "Item", json: "item"),
-  ]
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.item) {return false}
@@ -744,12 +719,8 @@ extension ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_RawMessageSet.protoMessageName + ".Item"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .standard(proto: "type_id"),
-    3: .same(proto: "message"),
-  ]
 
   public var isInitialized: Bool {
     if self._typeID == nil {return false}

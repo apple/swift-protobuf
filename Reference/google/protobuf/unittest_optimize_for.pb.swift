@@ -237,14 +237,8 @@ extension ProtobufUnittest_TestOptimizedForSize {
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "i"),
-    19: .same(proto: "msg"),
-    2: .standard(proto: "integer_field"),
-    3: .standard(proto: "string_field"),
-  ]
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -318,11 +312,8 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOptimizedForSize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "x"),
-  ]
 
   public var isInitialized: Bool {
     if self._x == nil {return false}
@@ -359,11 +350,8 @@ extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, 
   }
 }
 
-extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "o"),
-  ]
 
   public var isInitialized: Bool {
     if let v = self._o, !v.isInitialized {return false}

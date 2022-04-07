@@ -214,9 +214,8 @@ extension ProtobufUnittest_Extend2_MyMessage {
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend2"
 
-extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
@@ -233,11 +232,8 @@ extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_Extend2_MyMessage.protoMessageName + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1210: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -269,11 +265,8 @@ extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension ProtobufUnittest_Extend2_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend2_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1220: .same(proto: "c"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

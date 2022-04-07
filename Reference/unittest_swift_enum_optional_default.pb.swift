@@ -155,9 +155,8 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: @unchecked
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend"
 
-extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".EnumOptionalDefault"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
@@ -174,12 +173,8 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Sw
   }
 }
 
-extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "message"),
-    17: .standard(proto: "optional_enum"),
-  ]
 
   fileprivate class _StorageClass {
     var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
@@ -250,17 +245,8 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtob
   }
 }
 
-extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-  ]
-}
-
-extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    17: .standard(proto: "optional_enum"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -290,10 +276,4 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProto
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
-}
-
-extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-  ]
 }

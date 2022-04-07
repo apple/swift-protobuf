@@ -461,23 +461,8 @@ extension Google_Protobuf_Option: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Syntax: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SYNTAX_PROTO2"),
-    1: .same(proto: "SYNTAX_PROTO3"),
-  ]
-}
-
-extension Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Type"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "fields"),
-    3: .same(proto: "oneofs"),
-    4: .same(proto: "options"),
-    5: .standard(proto: "source_context"),
-    6: .same(proto: "syntax"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -534,20 +519,8 @@ extension Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Field"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "kind"),
-    2: .same(proto: "cardinality"),
-    3: .same(proto: "number"),
-    4: .same(proto: "name"),
-    6: .standard(proto: "type_url"),
-    7: .standard(proto: "oneof_index"),
-    8: .same(proto: "packed"),
-    9: .same(proto: "options"),
-    10: .standard(proto: "json_name"),
-    11: .standard(proto: "default_value"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -620,48 +593,8 @@ extension Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   }
 }
 
-extension Google_Protobuf_Field.Kind: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TYPE_UNKNOWN"),
-    1: .same(proto: "TYPE_DOUBLE"),
-    2: .same(proto: "TYPE_FLOAT"),
-    3: .same(proto: "TYPE_INT64"),
-    4: .same(proto: "TYPE_UINT64"),
-    5: .same(proto: "TYPE_INT32"),
-    6: .same(proto: "TYPE_FIXED64"),
-    7: .same(proto: "TYPE_FIXED32"),
-    8: .same(proto: "TYPE_BOOL"),
-    9: .same(proto: "TYPE_STRING"),
-    10: .same(proto: "TYPE_GROUP"),
-    11: .same(proto: "TYPE_MESSAGE"),
-    12: .same(proto: "TYPE_BYTES"),
-    13: .same(proto: "TYPE_UINT32"),
-    14: .same(proto: "TYPE_ENUM"),
-    15: .same(proto: "TYPE_SFIXED32"),
-    16: .same(proto: "TYPE_SFIXED64"),
-    17: .same(proto: "TYPE_SINT32"),
-    18: .same(proto: "TYPE_SINT64"),
-  ]
-}
-
-extension Google_Protobuf_Field.Cardinality: SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "CARDINALITY_UNKNOWN"),
-    1: .same(proto: "CARDINALITY_OPTIONAL"),
-    2: .same(proto: "CARDINALITY_REQUIRED"),
-    3: .same(proto: "CARDINALITY_REPEATED"),
-  ]
-}
-
-extension Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Enum"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "enumvalue"),
-    3: .same(proto: "options"),
-    4: .standard(proto: "source_context"),
-    5: .same(proto: "syntax"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -713,13 +646,8 @@ extension Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
   }
 }
 
-extension Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".EnumValue"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "number"),
-    3: .same(proto: "options"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -757,12 +685,8 @@ extension Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Option"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "value"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

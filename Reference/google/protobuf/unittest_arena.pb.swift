@@ -92,11 +92,8 @@ extension Proto2ArenaUnittest_ArenaMessage: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "proto2_arena_unittest"
 
-extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".NestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -128,11 +125,8 @@ extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ArenaMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "repeated_nested_message"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

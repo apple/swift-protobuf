@@ -132,11 +132,8 @@ let ProtobufUnittest_LazyImports_Extensions_lazy_enum_option = SwiftProtobuf.Mes
 
 fileprivate let _protobuf_package = "protobuf_unittest.lazy_imports"
 
-extension ProtobufUnittest_LazyImports_LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_LazyImports_LazyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".LazyMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

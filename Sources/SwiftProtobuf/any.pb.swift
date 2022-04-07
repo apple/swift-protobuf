@@ -189,12 +189,8 @@ extension Google_Protobuf_Any: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Any"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "type_url"),
-    2: .same(proto: "value"),
-  ]
 
   typealias _StorageClass = AnyMessageStorage
 

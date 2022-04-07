@@ -440,32 +440,8 @@ extension Conformance_JspbEncodingConfig: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "conformance"
 
-extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNSPECIFIED"),
-    1: .same(proto: "PROTOBUF"),
-    2: .same(proto: "JSON"),
-    3: .same(proto: "JSPB"),
-    4: .same(proto: "TEXT_FORMAT"),
-  ]
-}
-
-extension Conformance_TestCategory: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNSPECIFIED_TEST"),
-    1: .same(proto: "BINARY_TEST"),
-    2: .same(proto: "JSON_TEST"),
-    3: .same(proto: "JSON_IGNORE_UNKNOWN_PARSING_TEST"),
-    4: .same(proto: "JSPB_TEST"),
-    5: .same(proto: "TEXT_FORMAT_TEST"),
-  ]
-}
-
-extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".FailureSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "failure"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -493,19 +469,8 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "protobuf_payload"),
-    2: .standard(proto: "json_payload"),
-    7: .standard(proto: "jspb_payload"),
-    8: .standard(proto: "text_payload"),
-    3: .standard(proto: "requested_output_format"),
-    4: .standard(proto: "message_type"),
-    5: .standard(proto: "test_category"),
-    6: .standard(proto: "jspb_encoding_options"),
-    9: .standard(proto: "print_unknown_fields"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -612,18 +577,8 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "parse_error"),
-    6: .standard(proto: "serialize_error"),
-    2: .standard(proto: "runtime_error"),
-    3: .standard(proto: "protobuf_payload"),
-    4: .standard(proto: "json_payload"),
-    5: .same(proto: "skipped"),
-    7: .standard(proto: "jspb_payload"),
-    8: .standard(proto: "text_payload"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -750,11 +705,8 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".JspbEncodingConfig"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "use_jspb_array_any_format"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -169,12 +169,8 @@ extension Google_Protobuf_Timestamp: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-    2: .same(proto: "nanos"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

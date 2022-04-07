@@ -545,18 +545,8 @@ extension ProtobufUnittest_SwiftReservedTestExt {
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    10: .standard(proto: "proto_message_name"),
-    11: .standard(proto: "proto_package_name"),
-    12: .standard(proto: "any_type_prefix"),
-    13: .standard(proto: "any_type_url"),
-    20: .standard(proto: "is_initialized"),
-    21: .standard(proto: "hash_value"),
-    22: .standard(proto: "debug_description"),
-    30: .standard(proto: "required_int"),
-  ]
 
   public var isInitialized: Bool {
     if self._requiredInt == nil {return false}
@@ -628,26 +618,8 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-extension ProtobufUnittest_SwiftReservedTest.Enum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "DOUBLE"),
-    2: .same(proto: "JSON"),
-    3: .same(proto: "CLASS"),
-    4: .same(proto: "_"),
-    5: .same(proto: "SELF"),
-    6: .same(proto: "TYPE"),
-  ]
-}
-
-extension ProtobufUnittest_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-  ]
-}
-
-extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".class"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -674,9 +646,8 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf.Message
   }
 }
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".Type"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -703,9 +674,8 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message,
   }
 }
 
-extension ProtobufUnittest_SwiftReservedTest.isEqual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftReservedTest.isEqual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".isEqual"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
@@ -722,9 +692,8 @@ extension ProtobufUnittest_SwiftReservedTest.isEqual: SwiftProtobuf.Message, Swi
   }
 }
 
-extension ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTestExt"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {

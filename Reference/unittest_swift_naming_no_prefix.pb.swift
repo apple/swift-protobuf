@@ -1143,9 +1143,8 @@ let Extensions_new_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.Optional
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension BaseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension BaseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = "BaseMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}

@@ -208,11 +208,8 @@ extension ProtobufUnittest_OneOfContainer.Option3: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "requiredField"),
-  ]
 
   public var isInitialized: Bool {
     if self._requiredField == nil {return false}
@@ -249,11 +246,8 @@ extension ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "requiredField"),
-  ]
 
   public var isInitialized: Bool {
     if self._requiredField == nil {return false}
@@ -290,14 +284,8 @@ extension ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "option1"),
-    2: .same(proto: "option2"),
-    3: .unique(proto: "Option3", json: "option3"),
-    6: .same(proto: "option4"),
-  ]
 
   public var isInitialized: Bool {
     if let v = self.option, !v.isInitialized {return false}
@@ -396,12 +384,8 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension ProtobufUnittest_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = ProtobufUnittest_OneOfContainer.protoMessageName + ".Option3"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    4: .same(proto: "a"),
-    5: .same(proto: "b"),
-  ]
 
   public var isInitialized: Bool {
     if self._a == nil {return false}

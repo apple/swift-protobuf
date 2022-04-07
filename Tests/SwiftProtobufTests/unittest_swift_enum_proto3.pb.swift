@@ -267,14 +267,8 @@ extension Protobuf3Unittest_SwiftEnumWithAliasTest: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf3_unittest"
 
-extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "values1"),
-    2: .same(proto: "values2"),
-    3: .same(proto: "values3"),
-    4: .same(proto: "values4"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -317,39 +311,8 @@ extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Protobuf3Unittest_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_1_FIRST_VALUE"),
-    2: .same(proto: "ENUM_TEST_1_SECOND_VALUE"),
-  ]
-}
-
-extension Protobuf3Unittest_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_2_FIRST_VALUE"),
-    2: .same(proto: "SECOND_VALUE"),
-  ]
-}
-
-extension Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_NO_STEM_1"),
-    2: .same(proto: "ENUM_TEST_NO_STEM_2"),
-  ]
-}
-
-extension Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ENUM_TEST_RESERVED_WORD_VAR"),
-    2: .same(proto: "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"),
-  ]
-}
-
-extension Protobuf3Unittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Protobuf3Unittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "values"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -375,12 +338,4 @@ extension Protobuf3Unittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, Swift
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
-}
-
-extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .aliased(proto: "FOO1", aliases: ["FOO2"]),
-    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
-    3: .same(proto: "BAZ1"),
-  ]
 }

@@ -606,29 +606,8 @@ extension ProtobufUnittest_MapWellKnownTypes: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-    19: .standard(proto: "value_field"),
-  ]
 
   fileprivate class _StorageClass {
     var _anyField: SwiftProtobuf.Google_Protobuf_Any? = nil
@@ -818,28 +797,8 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
   fileprivate class _StorageClass {
     var _anyField: [SwiftProtobuf.Google_Protobuf_Any] = []
@@ -1018,28 +977,8 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1376,28 +1315,8 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
   fileprivate class _StorageClass {
     var _anyField: Dictionary<Int32,SwiftProtobuf.Google_Protobuf_Any> = [:]

@@ -107,11 +107,8 @@ extension ProtobufUnittest_LazyImports_MessageCustomOption2: @unchecked Sendable
 
 fileprivate let _protobuf_package = "protobuf_unittest.lazy_imports"
 
-extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".ImportedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "lazy_message"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -143,9 +140,8 @@ extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf.Message, S
   }
 }
 
-extension ProtobufUnittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_LazyImports_MessageCustomOption: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
@@ -162,9 +158,8 @@ extension ProtobufUnittest_LazyImports_MessageCustomOption: SwiftProtobuf.Messag
   }
 }
 
-extension ProtobufUnittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_LazyImports_MessageCustomOption2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".MessageCustomOption2"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {

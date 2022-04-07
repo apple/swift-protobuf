@@ -176,13 +176,8 @@ extension ProtobufUnittest_CycleBaz: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_foo"),
-    2: .standard(proto: "a_bar"),
-    3: .standard(proto: "a_baz"),
-  ]
 
   fileprivate class _StorageClass {
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
@@ -260,13 +255,8 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_bar"),
-    2: .standard(proto: "a_baz"),
-    3: .standard(proto: "a_foo"),
-  ]
 
   fileprivate class _StorageClass {
     var _aBar: ProtobufUnittest_CycleBar? = nil
@@ -344,13 +334,8 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_baz"),
-    2: .standard(proto: "a_foo"),
-    3: .standard(proto: "a_bar"),
-  ]
 
   fileprivate class _StorageClass {
     var _aBaz: ProtobufUnittest_CycleBaz? = nil

@@ -255,17 +255,8 @@ extension Google_Protobuf_Mixin: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Api"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "methods"),
-    3: .same(proto: "options"),
-    4: .same(proto: "version"),
-    5: .standard(proto: "source_context"),
-    6: .same(proto: "mixins"),
-    7: .same(proto: "syntax"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -327,17 +318,8 @@ extension Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
   }
 }
 
-extension Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Method"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "request_type_url"),
-    3: .standard(proto: "request_streaming"),
-    4: .standard(proto: "response_type_url"),
-    5: .standard(proto: "response_streaming"),
-    6: .same(proto: "options"),
-    7: .same(proto: "syntax"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -395,12 +377,8 @@ extension Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-extension Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "root"),
-  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

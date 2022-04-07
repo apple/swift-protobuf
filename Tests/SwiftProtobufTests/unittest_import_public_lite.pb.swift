@@ -81,11 +81,8 @@ extension ProtobufUnittestImport_PublicImportMessageLite: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
-extension ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".PublicImportMessageLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "e"),
-  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

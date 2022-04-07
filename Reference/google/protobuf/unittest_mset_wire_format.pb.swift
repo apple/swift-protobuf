@@ -99,9 +99,8 @@ extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: @unchecked
 
 fileprivate let _protobuf_package = "proto2_wireformat_unittest"
 
-extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSet"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
@@ -124,11 +123,8 @@ extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetWireFormatContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "message_set"),
-  ]
 
   public var isInitialized: Bool {
     if let v = self._messageSet, !v.isInitialized {return false}
