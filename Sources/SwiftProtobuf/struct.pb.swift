@@ -191,40 +191,6 @@ public struct Google_Protobuf_Value {
     /// Represents a repeated `Value`.
     case listValue(Google_Protobuf_ListValue)
 
-  #if !swift(>=4.1)
-    public static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.nullValue, .nullValue): return {
-        guard case .nullValue(let l) = lhs, case .nullValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.numberValue, .numberValue): return {
-        guard case .numberValue(let l) = lhs, case .numberValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.stringValue, .stringValue): return {
-        guard case .stringValue(let l) = lhs, case .stringValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.boolValue, .boolValue): return {
-        guard case .boolValue(let l) = lhs, case .boolValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.structValue, .structValue): return {
-        guard case .structValue(let l) = lhs, case .structValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.listValue, .listValue): return {
-        guard case .listValue(let l) = lhs, case .listValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   public init() {}

@@ -395,32 +395,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
     case oneofString(String)
     case oneofEnum(Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField, rhs: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.oneofUint32, .oneofUint32): return {
-        guard case .oneofUint32(let l) = lhs, case .oneofUint32(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofNestedMessage, .oneofNestedMessage): return {
-        guard case .oneofNestedMessage(let l) = lhs, case .oneofNestedMessage(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofString, .oneofString): return {
-        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofEnum, .oneofEnum): return {
-        guard case .oneofEnum(let l) = lhs, case .oneofEnum(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {

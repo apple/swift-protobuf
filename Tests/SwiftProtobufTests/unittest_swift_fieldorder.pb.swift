@@ -119,32 +119,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
     case oneofString(String)
     case oneofInt32(Int32)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options, rhs: Swift_Protobuf_TestFieldOrderings.OneOf_Options) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.oneofInt64, .oneofInt64): return {
-        guard case .oneofInt64(let l) = lhs, case .oneofInt64(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofBool, .oneofBool): return {
-        guard case .oneofBool(let l) = lhs, case .oneofBool(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofString, .oneofString): return {
-        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofInt32, .oneofInt32): return {
-        guard case .oneofInt32(let l) = lhs, case .oneofInt32(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   struct NestedMessage {
@@ -287,24 +261,6 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
     case a(Int32)
     case b(Int32)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.a, .a): return {
-        guard case .a(let l) = lhs, case .a(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.b, .b): return {
-        guard case .b(let l) = lhs, case .b(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Gaps with a field in the middle of the range.
@@ -312,24 +268,6 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
     case a2(Int32)
     case b2(Int32)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.a2, .a2): return {
-        guard case .a2(let l) = lhs, case .a2(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.b2, .b2): return {
-        guard case .b2(let l) = lhs, case .b2(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Gaps with an extension range in the middle of the range.
@@ -337,24 +275,6 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
     case a3(Int32)
     case b3(Int32)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.a3, .a3): return {
-        guard case .a3(let l) = lhs, case .a3(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.b3, .b3): return {
-        guard case .b3(let l) = lhs, case .b3(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Gaps with an extension range in the middle of the range.
@@ -362,24 +282,6 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
     case a4(Int32)
     case b4(Int32)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.a4, .a4): return {
-        guard case .a4(let l) = lhs, case .a4(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.b4, .b4): return {
-        guard case .b4(let l) = lhs, case .b4(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
