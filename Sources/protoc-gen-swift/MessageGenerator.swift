@@ -185,15 +185,6 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  func generateEnumCaseIterable(printer p: inout CodePrinter) {
-    for e in enums {
-      e.generateCaseIterable(printer: &p)
-    }
-    for m in messages {
-      m.generateEnumCaseIterable(printer: &p)
-    }
-  }
-
   func generateSendable(printer p: inout CodePrinter) {
     // Once our minimum supported version has Data be Sendable, @unchecked
     // will not be needed for all messages, provided that the extension types

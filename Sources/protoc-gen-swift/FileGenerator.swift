@@ -125,12 +125,10 @@ class FileGenerator {
 
         for e in enums {
             e.generateMainEnum(printer: &p)
-            e.generateCaseIterable(printer: &p)
         }
 
         for m in messages {
             m.generateMainStruct(printer: &p, parent: nil, errorString: &errorString)
-            m.generateEnumCaseIterable(printer: &p)
         }
 
         var sendablePrinter = CodePrinter()
