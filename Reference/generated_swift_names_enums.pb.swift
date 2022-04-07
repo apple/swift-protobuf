@@ -10741,36 +10741,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum h: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneH // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneH
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneH
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneH: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.h] = [
-      .noneH,
-    ]
-
-  }
-
   enum hadOneofValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHadOneofValue // = 0
@@ -11367,36 +11337,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher] = [
       .noneHasher,
-    ]
-
-  }
-
-  enum hashValueEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneHashValue // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneHashValue
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneHashValue
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneHashValue: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum] = [
-      .noneHashValue,
     ]
 
   }
@@ -13891,36 +13831,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum i_2166136261: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneI2166136261 // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneI2166136261
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneI2166136261
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneI2166136261: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i_2166136261] = [
-      .noneI2166136261,
-    ]
-
-  }
-
   enum javaGenerateEqualsAndHash: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneJavaGenerateEqualsAndHash // = 0
@@ -15357,36 +15267,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapEntry] = [
       .noneMapEntry,
-    ]
-
-  }
-
-  enum mapHash: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneMapHash // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneMapHash
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneMapHash
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneMapHash: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapHash] = [
-      .noneMapHash,
     ]
 
   }
@@ -28363,12 +28243,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupSize: Swift
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.h: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_h"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hadOneofValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hadOneofValue"),
@@ -28486,12 +28360,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: SwiftP
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasher"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_hashValue"),
   ]
 }
 
@@ -28993,12 +28861,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator: SwiftP
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i_2166136261: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_i_2166136261"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaGenerateEqualsAndHash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_javaGenerateEqualsAndHash"),
@@ -29284,12 +29146,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.makeIterator: Sw
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapEntry: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapEntry"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapHash: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_mapHash"),
   ]
 }
 
