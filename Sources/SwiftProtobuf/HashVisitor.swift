@@ -27,359 +27,167 @@ private let i_16777619 = Int(16777619)
 /// message fields they want to include.
 internal struct HashVisitor: Visitor {
 
-#if swift(>=4.2)
   internal private(set) var hasher: Hasher
-#else  // swift(>=4.2)
-  // Roughly based on FNV hash: http://tools.ietf.org/html/draft-eastlake-fnv-03
-  private(set) var hashValue = i_2166136261
 
-  private mutating func mix(_ hash: Int) {
-    hashValue = (hashValue ^ hash) &* i_16777619
-  }
-
-  private mutating func mixMap<K, V: Hashable>(map: Dictionary<K,V>) {
-    var mapHash = 0
-    for (k, v) in map {
-      // Note: This calculation cannot depend on the order of the items.
-      mapHash = mapHash &+ (k.hashValue ^ v.hashValue)
-    }
-    mix(mapHash)
-  }
-#endif // swift(>=4.2)
-
-#if swift(>=4.2)
   init(_ hasher: Hasher) {
     self.hasher = hasher
   }
-#else
-  init() {}
-#endif
 
   mutating func visitUnknown(bytes: Data) throws {
-    #if swift(>=4.2)
-      hasher.combine(bytes)
-    #else
-      mix(bytes.hashValue)
-    #endif
+    hasher.combine(bytes)
   }
 
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-   #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularEnumField<E: Enum>(value: E,
                                                 fieldNumber: Int) {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      value.hash(into: &hasher)
-    #else
-      mix(fieldNumber)
-      mix(value.hashValue)
-    #endif
+    hasher.combine(fieldNumber)
+    value.hash(into: &hasher)
   }
 
   mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      for v in value {
-        v.hash(into: &hasher)
-      }
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    for v in value {
+      v.hash(into: &hasher)
+    }
   }
 
   mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
     assert(!value.isEmpty)
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      for v in value {
-        v.hash(into: &hasher)
-      }
-    #else
-      mix(fieldNumber)
-      for v in value {
-        mix(v.hashValue)
-      }
-    #endif
+    hasher.combine(fieldNumber)
+    for v in value {
+      v.hash(into: &hasher)
+    }
   }
 
   mutating func visitMapField<KeyType, ValueType: MapValueType>(
@@ -387,13 +195,8 @@ internal struct HashVisitor: Visitor {
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mixMap(map: value)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitMapField<KeyType, ValueType>(
@@ -401,13 +204,8 @@ internal struct HashVisitor: Visitor {
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where ValueType.RawValue == Int {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mixMap(map: value)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 
   mutating func visitMapField<KeyType, ValueType>(
@@ -415,12 +213,7 @@ internal struct HashVisitor: Visitor {
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    #if swift(>=4.2)
-      hasher.combine(fieldNumber)
-      hasher.combine(value)
-    #else
-      mix(fieldNumber)
-      mixMap(map: value)
-    #endif
+    hasher.combine(fieldNumber)
+    hasher.combine(value)
   }
 }
