@@ -142,32 +142,6 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
     case oneofEnumField(SwiftDescriptorTest_Proto3MessageForPresence.SubEnum)
     case oneofMessageField(SwiftDescriptorTest_OtherMessage)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_O, rhs: SwiftDescriptorTest_Proto3MessageForPresence.OneOf_O) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.oneofStrField, .oneofStrField): return {
-        guard case .oneofStrField(let l) = lhs, case .oneofStrField(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofInt32Field, .oneofInt32Field): return {
-        guard case .oneofInt32Field(let l) = lhs, case .oneofInt32Field(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofEnumField, .oneofEnumField): return {
-        guard case .oneofEnumField(let l) = lhs, case .oneofEnumField(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofMessageField, .oneofMessageField): return {
-        guard case .oneofMessageField(let l) = lhs, case .oneofMessageField(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   enum SubEnum: SwiftProtobuf.Enum {

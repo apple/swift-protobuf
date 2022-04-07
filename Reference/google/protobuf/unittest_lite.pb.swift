@@ -780,40 +780,6 @@ struct ProtobufUnittest_TestAllTypesLite {
     case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case oneofNestedMessage2(ProtobufUnittest_TestAllTypesLite.NestedMessage2)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField, rhs: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.oneofUint32, .oneofUint32): return {
-        guard case .oneofUint32(let l) = lhs, case .oneofUint32(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofNestedMessage, .oneofNestedMessage): return {
-        guard case .oneofNestedMessage(let l) = lhs, case .oneofNestedMessage(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofString, .oneofString): return {
-        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofBytes, .oneofBytes): return {
-        guard case .oneofBytes(let l) = lhs, case .oneofBytes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofLazyNestedMessage, .oneofLazyNestedMessage): return {
-        guard case .oneofLazyNestedMessage(let l) = lhs, case .oneofLazyNestedMessage(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofNestedMessage2, .oneofNestedMessage2): return {
-        guard case .oneofNestedMessage2(let l) = lhs, case .oneofNestedMessage2(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -1518,32 +1484,6 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
     case oneofString(String)
     case oneofBytes(Data)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField, rhs: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.oneofUint32, .oneofUint32): return {
-        guard case .oneofUint32(let l) = lhs, case .oneofUint32(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofTestAllTypes, .oneofTestAllTypes): return {
-        guard case .oneofTestAllTypes(let l) = lhs, case .oneofTestAllTypes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofString, .oneofString): return {
-        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofBytes, .oneofBytes): return {
-        guard case .oneofBytes(let l) = lhs, case .oneofBytes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   struct OptionalGroup {
@@ -1671,52 +1611,6 @@ struct ProtobufUnittest_TestOneofParsingLite {
     case oneofBytesStringPiece(Data)
     case oneofEnum(ProtobufUnittest_V2EnumLite)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField, rhs: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.oneofInt32, .oneofInt32): return {
-        guard case .oneofInt32(let l) = lhs, case .oneofInt32(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofSubmessage, .oneofSubmessage): return {
-        guard case .oneofSubmessage(let l) = lhs, case .oneofSubmessage(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofString, .oneofString): return {
-        guard case .oneofString(let l) = lhs, case .oneofString(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofBytes, .oneofBytes): return {
-        guard case .oneofBytes(let l) = lhs, case .oneofBytes(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofStringCord, .oneofStringCord): return {
-        guard case .oneofStringCord(let l) = lhs, case .oneofStringCord(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofBytesCord, .oneofBytesCord): return {
-        guard case .oneofBytesCord(let l) = lhs, case .oneofBytesCord(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofStringStringPiece, .oneofStringStringPiece): return {
-        guard case .oneofStringStringPiece(let l) = lhs, case .oneofStringStringPiece(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofBytesStringPiece, .oneofBytesStringPiece): return {
-        guard case .oneofBytesStringPiece(let l) = lhs, case .oneofBytesStringPiece(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.oneofEnum, .oneofEnum): return {
-        guard case .oneofEnum(let l) = lhs, case .oneofEnum(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}

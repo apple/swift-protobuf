@@ -13631,24 +13631,6 @@ struct SwiftUnittest_Names_ValidIdentifiers {
     case _4(Int32)
     case _5Field(Int32)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of, rhs: SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (._4, ._4): return {
-        guard case ._4(let l) = lhs, case ._4(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (._5Field, ._5Field): return {
-        guard case ._5Field(let l) = lhs, case ._5Field(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   enum TestEnum: SwiftProtobuf.Enum {
@@ -13730,19 +13712,6 @@ struct SwiftUnittest_Names_SpecialNames1 {
   enum OneOf_NewValue: Equatable {
     case str(String)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftUnittest_Names_SpecialNames1.OneOf_NewValue, rhs: SwiftUnittest_Names_SpecialNames1.OneOf_NewValue) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.str, .str): return {
-        guard case .str(let l) = lhs, case .str(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
@@ -13803,19 +13772,6 @@ struct SwiftUnittest_Names_SpecialNames3 {
   enum OneOf_NewValue: Equatable {
     case str(String)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: SwiftUnittest_Names_SpecialNames3.OneOf_NewValue, rhs: SwiftUnittest_Names_SpecialNames3.OneOf_NewValue) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.str, .str): return {
-        guard case .str(let l) = lhs, case .str(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
