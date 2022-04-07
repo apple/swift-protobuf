@@ -82,10 +82,6 @@ enum ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittest_LazyImports_LazyEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension ProtobufUnittest_LazyImports_LazyEnum: SwiftProtobuf._ProtoNameProviding {

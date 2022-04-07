@@ -83,10 +83,6 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittestImport_ImportEnumLite: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct ProtobufUnittestImport_ImportMessageLite {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

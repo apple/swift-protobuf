@@ -81,15 +81,13 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension Proto2NofieldpresenceUnittest_ForeignEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto2NofieldpresenceUnittest_ForeignEnum] = [
     .foreignFoo,
     .foreignBar,
     .foreignBaz,
   ]
+
 }
 
 /// This proto includes every type of field in both singular and repeated
@@ -454,6 +452,13 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = [
+      .foo,
+      .bar,
+      .baz,
+    ]
+
   }
 
   struct NestedMessage {
@@ -471,15 +476,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = [
-    .foo,
-    .bar,
-    .baz,
-  ]
 }
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required {

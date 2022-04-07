@@ -87,10 +87,6 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittest_ForeignEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 /// Test an enum that has multiple values with the same number.
 enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
   typealias RawValue = Int
@@ -121,10 +117,6 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_TestEnumWithDupValue: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 /// Test an enum with large, unordered values.
@@ -167,10 +159,6 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_TestSparseEnum: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 enum ProtobufUnittest_VeryLargeEnum: SwiftProtobuf.Enum {
@@ -494,10 +482,6 @@ enum ProtobufUnittest_VeryLargeEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_VeryLargeEnum: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 /// This proto includes every type of field in both singular and repeated
@@ -1228,10 +1212,6 @@ struct ProtobufUnittest_TestAllTypes {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension ProtobufUnittest_TestAllTypes.NestedEnum: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 /// This proto includes a recursively nested message.
@@ -4333,10 +4313,6 @@ struct ProtobufUnittest_TestOneof2 {
   fileprivate var _bazString: String? = nil
 }
 
-extension ProtobufUnittest_TestOneof2.NestedEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct ProtobufUnittest_TestRequiredOneof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4646,10 +4622,6 @@ struct ProtobufUnittest_TestDynamicExtensions {
   fileprivate var _dynamicEnumExtension: ProtobufUnittest_TestDynamicExtensions.DynamicEnumType? = nil
   fileprivate var _messageExtension: ProtobufUnittest_ForeignMessage? = nil
   fileprivate var _dynamicMessageExtension: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType? = nil
-}
-
-extension ProtobufUnittest_TestDynamicExtensions.DynamicEnumType: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes {

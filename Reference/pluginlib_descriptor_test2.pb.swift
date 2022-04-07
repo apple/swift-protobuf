@@ -199,6 +199,13 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [SwiftDescriptorTest_Proto3MessageForPresence.SubEnum] = [
+      .subValue0,
+      .subValue1,
+      .subValue2,
+    ]
+
   }
 
   init() {}
@@ -208,15 +215,6 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
   fileprivate var _optInt32Field: Int32? = nil
   fileprivate var _optEnumField: SwiftDescriptorTest_Proto3MessageForPresence.SubEnum? = nil
   fileprivate var _optMessageField: SwiftDescriptorTest_OtherMessage? = nil
-}
-
-extension SwiftDescriptorTest_Proto3MessageForPresence.SubEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [SwiftDescriptorTest_Proto3MessageForPresence.SubEnum] = [
-    .subValue0,
-    .subValue1,
-    .subValue2,
-  ]
 }
 
 struct SwiftDescriptorTest_OtherMessage {

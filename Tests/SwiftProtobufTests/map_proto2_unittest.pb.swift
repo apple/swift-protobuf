@@ -79,10 +79,6 @@ enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittest_Proto2MapEnum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eProto2MapEnumFoo // = 0
@@ -113,10 +109,6 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_Proto2MapEnumPlusExtra: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 struct ProtobufUnittest_TestEnumMap {

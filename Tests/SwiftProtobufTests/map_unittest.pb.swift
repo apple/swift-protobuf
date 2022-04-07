@@ -79,15 +79,13 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_MapEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittest_MapEnum] = [
     .foo,
     .bar,
     .baz,
   ]
+
 }
 
 /// Tests maps.
@@ -390,16 +388,14 @@ struct ProtobufUnittest_MessageContainingEnumCalledType {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum] = [
+      .foo,
+    ]
+
   }
 
   init() {}
-}
-
-extension ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum] = [
-    .foo,
-  ]
 }
 
 /// Previously, message cannot contain map field called "entry".

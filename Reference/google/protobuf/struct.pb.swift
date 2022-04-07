@@ -78,13 +78,11 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension Google_Protobuf_NullValue: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Google_Protobuf_NullValue] = [
     .nullValue,
   ]
+
 }
 
 /// `Struct` represents a structured data value, consisting of fields

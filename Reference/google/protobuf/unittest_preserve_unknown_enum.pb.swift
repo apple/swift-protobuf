@@ -79,15 +79,13 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension Proto3PreserveUnknownEnumUnittest_MyEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [
     .foo,
     .bar,
     .baz,
   ]
+
 }
 
 enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
@@ -122,9 +120,6 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [
     .eFoo,
@@ -132,6 +127,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: CaseIterable {
     .eBaz,
     .eExtra,
   ]
+
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage {

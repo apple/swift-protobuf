@@ -83,10 +83,6 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
 
 }
 
-extension ProtobufUnittest_ForeignEnumLite: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case v1First // = 1
@@ -108,10 +104,6 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_V1EnumLite: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
@@ -138,10 +130,6 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-extension ProtobufUnittest_V2EnumLite: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 /// Same as TestAllTypes but with the lite runtime.
@@ -930,10 +918,6 @@ struct ProtobufUnittest_TestAllTypesLite {
   init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
-}
-
-extension ProtobufUnittest_TestAllTypesLite.NestedEnum: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 struct ProtobufUnittest_ForeignMessageLite {
@@ -1809,10 +1793,6 @@ struct ProtobufUnittest_DupEnum {
   }
 
   init() {}
-}
-
-extension ProtobufUnittest_DupEnum.TestEnumWithDupValueLite: CaseIterable {
-  // Support synthesized by the compiler.
 }
 
 struct ProtobufUnittest_RecursiveMessage {

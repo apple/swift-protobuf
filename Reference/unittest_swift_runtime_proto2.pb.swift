@@ -767,10 +767,6 @@ struct ProtobufUnittest_Message2 {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-extension ProtobufUnittest_Message2.Enum: CaseIterable {
-  // Support synthesized by the compiler.
-}
-
 struct ProtobufUnittest_Msg2NoStorage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
