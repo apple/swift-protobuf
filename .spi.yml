@@ -1,0 +1,9 @@
+version: 1
+builder:
+  configs:
+  - platform: ios
+    scheme: SwiftProtobuf
+  - platform: tvos
+    scheme: SwiftProtobuf
+  - platform: watchos
+    scheme: SwiftProtobuf
