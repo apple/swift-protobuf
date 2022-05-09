@@ -14,7 +14,7 @@
 
 
 // Note: The generated code only relies on ExpressibleByArrayLiteral
-public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, CustomDebugStringConvertible {
+public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
     public typealias Element = AnyMessageExtension
 
     // Since type objects aren't Hashable, we can't do much better than this...
@@ -98,6 +98,10 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         return out
     }
 
+}
+
+#if DEBUG
+extension SimpleExtensionMap: CustomDebugStringConvertible {
     public var debugDescription: String {
         var names = [String]()
         for (_, list) in fields {
@@ -108,5 +112,5 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         let d = names.joined(separator: ",")
         return "SimpleExtensionMap(\(d))"
     }
-
 }
+#endif
