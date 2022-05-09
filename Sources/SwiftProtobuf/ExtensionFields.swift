@@ -24,7 +24,7 @@
 // equality with some other extension field; but it's type-sealed
 // so you can't actually access the contained value itself.
 //
-public protocol AnyExtensionField: CustomDebugStringConvertible {
+public protocol AnyExtensionField: _AnyExtensionField {
   func hash(into hasher: inout Hasher)
   var protobufExtension: AnyMessageExtension { get }
   func isEqual(other: AnyExtensionField) -> Bool
@@ -38,6 +38,12 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   /// Check if the field is initialized.
   var isInitialized: Bool { get }
 }
+
+#if DEBUG
+public protocol _AnyExtensionField: CustomDebugStringConvertible {}
+#else
+public protocol _AnyExtensionField {}
+#endif
 
 extension AnyExtensionField {
   // Default implementation for extensions fields.  The message types below provide
@@ -74,11 +80,13 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
     self.value = value
   }
 
+  #if DEBUG
   public var debugDescription: String {
     get {
       return String(reflecting: value)
     }
   }
+  #endif
 
   public func hash(into hasher: inout Hasher) {
     hasher.combine(value)
@@ -140,9 +148,11 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
     return self == o
   }
 
+  #if DEBUG
   public var debugDescription: String {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
+  #endif
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try T.decodeRepeated(value: &value, from: &decoder)
@@ -192,9 +202,11 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     return self == o
   }
 
+  #if DEBUG
   public var debugDescription: String {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
+  #endif
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try T.decodeRepeated(value: &value, from: &decoder)
@@ -232,11 +244,13 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     self.value = value
   }
 
+  #if DEBUG
   public var debugDescription: String {
     get {
       return String(reflecting: value)
     }
   }
+  #endif
 
   public func hash(into hasher: inout Hasher) {
     hasher.combine(value)
@@ -300,9 +314,11 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
     return self == o
   }
 
+  #if DEBUG
   public var debugDescription: String {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
+  #endif
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedEnumField(value: &value)
@@ -354,9 +370,11 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
     return self == o
   }
 
+  #if DEBUG
   public var debugDescription: String {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
+  #endif
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedEnumField(value: &value)
@@ -397,11 +415,13 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
     self.value = value
   }
 
+  #if DEBUG
   public var debugDescription: String {
     get {
       return String(reflecting: value)
     }
   }
+  #endif
 
   public func hash(into hasher: inout Hasher) {
     value.hash(into: &hasher)
@@ -468,9 +488,11 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
     return self == o
   }
 
+  #if DEBUG
   public var debugDescription: String {
     return "[" + value.map{String(reflecting: $0)}.joined(separator: ",") + "]"
   }
+  #endif
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedMessageField(value: &value)
@@ -521,7 +543,9 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     hasher.combine(value)
   }
 
+  #if DEBUG
   public var debugDescription: String { get {return value.debugDescription} }
+  #endif
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! OptionalGroupExtensionField<G>
@@ -577,9 +601,11 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
     hasher.combine(value)
   }
 
+  #if DEBUG
   public var debugDescription: String {
     return "[" + value.map{$0.debugDescription}.joined(separator: ",") + "]"
   }
+  #endif
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! RepeatedGroupExtensionField<G>
