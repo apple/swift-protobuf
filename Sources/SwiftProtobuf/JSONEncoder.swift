@@ -250,6 +250,10 @@ internal struct JSONEncoder {
         data.append(asciiDoubleQuote)
     }
 
+    internal mutating func putNonQuotedInt64(value: Int64) {
+        appendInt(value: value)
+    }
+
     /// Write an `Int32` with quoting suitable for
     /// using the value as a map key.
     internal mutating func putQuotedInt32(value: Int32) {
@@ -268,6 +272,10 @@ internal struct JSONEncoder {
         data.append(asciiDoubleQuote)
         appendUInt(value: value)
         data.append(asciiDoubleQuote)
+    }
+
+    internal mutating func putNonQuotedUInt64(value: UInt64) {
+        appendUInt(value: value)
     }
 
     /// Write a `UInt32` with quoting suitable for

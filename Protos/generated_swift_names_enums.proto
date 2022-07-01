@@ -9,6 +9,7 @@ message GeneratedSwiftReservedEnums {
   enum allCases { NONE_allCases = 0; }
   enum allowAlias { NONE_allowAlias = 0; }
   enum alwaysPrintEnumsAsInts { NONE_alwaysPrintEnumsAsInts = 0; }
+  enum alwaysPrintInt64sAsNumbers { NONE_alwaysPrintInt64sAsNumbers = 0; }
   enum annotation { NONE_annotation = 0; }
   enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }

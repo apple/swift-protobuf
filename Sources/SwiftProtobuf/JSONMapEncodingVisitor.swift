@@ -69,11 +69,13 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
       if fieldNumber == 1 {
           startKey()
+          encoder.putInt64(value: value)
       } else {
           startValue()
+          options.alwaysPrintInt64sAsNumbers
+            ? encoder.putNonQuotedInt64(value: value)
+            : encoder.putInt64(value: value)
       }
-      // Int64 fields are always quoted anyway
-      encoder.putInt64(value: value)
   }
 
   mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
@@ -89,10 +91,13 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
       if fieldNumber == 1 {
           startKey()
+          encoder.putUInt64(value: value)
       } else {
           startValue()
+          options.alwaysPrintInt64sAsNumbers
+            ? encoder.putNonQuotedUInt64(value: value)
+            : encoder.putUInt64(value: value)
       }
-      encoder.putUInt64(value: value)
   }
 
   mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {

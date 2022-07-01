@@ -17,9 +17,23 @@ import XCTest
 import SwiftProtobuf
 
 class Test_JSONEncodingOptions: XCTestCase {
+  
+  func testAlwaysPrintInt64sAsNumbers() {
+    // Use explicit options (the default is false), no reason only others can be pedantic.
+    var asStrings = JSONEncodingOptions()
+    asStrings.alwaysPrintInt64sAsNumbers = false
+    var asNumbers = JSONEncodingOptions()
+    asNumbers.alwaysPrintInt64sAsNumbers = true
+
+    let msg1 = ProtobufUnittest_Message2.with {
+      $0.optionalInt64 = 1656338459803
+    }
+    XCTAssertEqual(try msg1.jsonString(options: asStrings), "{\"optionalInt64\":\"1656338459803\"}")
+    XCTAssertEqual(try msg1.jsonString(options: asNumbers), "{\"optionalInt64\":1656338459803}")
+  }
 
   func testAlwaysPrintEnumsAsInts() {
-    // Use explict options (the default is false), just to be pedantic.
+    // Use explicit options (the default is false), just to be pedantic.
     var asStrings = JSONEncodingOptions()
     asStrings.alwaysPrintEnumsAsInts = false
     var asInts = JSONEncodingOptions()

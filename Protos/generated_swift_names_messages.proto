@@ -9,6 +9,7 @@ message GeneratedSwiftReservedMessages {
   message allCases { int32 allCases = 1; }
   message allowAlias { int32 allowAlias = 1; }
   message alwaysPrintEnumsAsInts { int32 alwaysPrintEnumsAsInts = 1; }
+  message alwaysPrintInt64sAsNumbers { int32 alwaysPrintInt64sAsNumbers = 1; }
   message annotation { int32 annotation = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
