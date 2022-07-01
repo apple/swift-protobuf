@@ -216,7 +216,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    let options = options
+    let options = self.options
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: Int64) in
       options.alwaysPrintInt64sAsNumbers
@@ -233,7 +233,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    let options = options
+    let options = self.options
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: UInt64) in
       options.alwaysPrintInt64sAsNumbers
