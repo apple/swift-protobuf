@@ -131,6 +131,59 @@ class Test_JSON: XCTestCase, PBTestHelpers {
     }
 
 
+
+    func testMultipleFields_whenJSONEncodingInt64AsNumbers() {
+        let expected: String = ("{"
+            + "\"optionalInt32\":1,"
+            + "\"optionalInt64\":2,"
+            + "\"optionalUint32\":3,"
+            + "\"optionalUint64\":4,"
+            + "\"optionalSint32\":5,"
+            + "\"optionalSint64\":6,"
+            + "\"optionalFixed32\":7,"
+            + "\"optionalFixed64\":8,"
+            + "\"optionalSfixed32\":9,"
+            + "\"optionalSfixed64\":10,"
+            + "\"optionalFloat\":11.0,"
+            + "\"optionalDouble\":12.0,"
+            + "\"optionalBool\":true,"
+            + "\"optionalString\":\"abc\","
+            + "\"optionalBytes\":\"QUI=\","
+            + "\"optionalNestedMessage\":{\"bb\":7},"
+            + "\"optionalForeignMessage\":{\"c\":88},"
+            + "\"optionalImportMessage\":{\"d\":-9},"
+            + "\"optionalNestedEnum\":\"BAZ\","
+            + "\"optionalForeignEnum\":\"FOREIGN_BAZ\","
+            + "\"optionalPublicImportMessage\":{\"e\":-999999},"
+            + "\"repeatedInt32\":[1,2],"
+            + "\"repeatedInt64\":[3,4],"
+            + "\"repeatedUint32\":[5,6],"
+            + "\"repeatedUint64\":[7,8],"
+            + "\"repeatedSint32\":[9,10],"
+            + "\"repeatedSint64\":[11,12],"
+            + "\"repeatedFixed32\":[13,14],"
+            + "\"repeatedFixed64\":[15,16],"
+            + "\"repeatedSfixed32\":[17,18],"
+            + "\"repeatedSfixed64\":[19,20],"
+            + "\"repeatedFloat\":[21.0,22.0],"
+            + "\"repeatedDouble\":[23.0,24.0],"
+            + "\"repeatedBool\":[true,false],"
+            + "\"repeatedString\":[\"abc\",\"def\"],"
+            + "\"repeatedBytes\":[\"\",\"QUI=\"],"
+            + "\"repeatedNestedMessage\":[{\"bb\":7},{\"bb\":-7}],"
+            + "\"repeatedForeignMessage\":[{\"c\":88},{\"c\":-88}],"
+            + "\"repeatedImportMessage\":[{\"d\":-9},{\"d\":999999}],"
+            + "\"repeatedNestedEnum\":[\"BAR\",\"BAZ\"],"
+            + "\"repeatedForeignEnum\":[\"FOREIGN_BAR\",\"FOREIGN_BAZ\"],"
+            + "\"oneofUint32\":99"
+            + "}")
+
+        var encodingOptions = JSONEncodingOptions()
+        encodingOptions.alwaysPrintInt64sAsNumbers = true
+        assertJSONEncode(expected, configure: configureLargeObject, encodingOptions: encodingOptions)
+    }
+
+
     // See if we can crash the JSON parser by trying every possible
     // truncation of the large message above.
     func testTruncation() throws {

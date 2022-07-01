@@ -134,14 +134,14 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     }
 
-    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void, encodingOptions: JSONEncodingOptions = .init()) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
-            let encoded = try configured.jsonString()
-            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            let encoded = try configured.jsonString(options: encodingOptions)
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded) but expected \(expected)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(jsonString: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -153,7 +153,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
 
         do {
-            let encodedData = try configured.jsonUTF8Data()
+            let encodedData = try configured.jsonUTF8Data(options: encodingOptions)
             let encodedOptString = String(data: encodedData, encoding: String.Encoding.utf8)
             XCTAssertNotNil(encodedOptString)
             let encodedString = encodedOptString!
