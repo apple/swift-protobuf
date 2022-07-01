@@ -180,7 +180,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
         var encodingOptions = JSONEncodingOptions()
         encodingOptions.alwaysPrintInt64sAsNumbers = true
-        assertJSONEncode(expected, configure: configureLargeObject, encodingOptions: encodingOptions)
+        assertJSONEncode(expected, encodingOptions: encodingOptions, configure: configureLargeObject)
     }
 
 

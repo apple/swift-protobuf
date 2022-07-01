@@ -134,7 +134,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     }
 
-    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void, encodingOptions: JSONEncodingOptions = .init()) {
+    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), encodingOptions: JSONEncodingOptions = .init(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
