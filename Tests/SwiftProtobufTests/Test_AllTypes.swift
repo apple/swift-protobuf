@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import SwiftProtobuf
 import XCTest
 
 class Test_AllTypes: XCTestCase, PBTestHelpers {
@@ -37,13 +38,6 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         } catch {
             XCTFail("Empty decoding threw an error", file: file, line: line)
         }
-    }
-
-    func assertDebugDescription(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> ()) {
-        var m = MessageTestType()
-        configure(&m)
-        let actual = m.debugDescription
-        XCTAssertEqual(actual, expected, file: file, line: line)
     }
 
     //
@@ -1849,7 +1843,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         t.defaultInt32 = 4
         t.clearDefaultInt32()
         XCTAssertEqual(t.defaultInt32, 41)
-        XCTAssertEqual(t.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\n")
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\n", t)
 
         // The default is still not serialized
         let s = try t.serializedBytes()
@@ -2294,7 +2288,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofUint32 = 77
-        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_uint32: 77\n")
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_uint32: 77\n", m)
         var m2 = MessageTestType()
         m2.oneofUint32 = 78
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2343,7 +2337,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         nested1.bb = 1
         var m = MessageTestType()
         m.oneofNestedMessage = nested1
-        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_nested_message {\n  bb: 1\n}\n")
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_nested_message {\n  bb: 1\n}\n", m)
         var nested2 = MessageTestType.NestedMessage()
         nested2.bb = 2
         var m2 = MessageTestType()
@@ -2422,7 +2416,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         var m = MessageTestType()
         m.oneofString = "abc"
-        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_string: \"abc\"\n")
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_string: \"abc\"\n", m)
         var m2 = MessageTestType()
         m2.oneofString = "def"
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2496,7 +2490,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         m.oneofBytes = Data([1, 2, 3])
 
-        XCTAssertEqual(m.debugDescription, "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_bytes: \"\\001\\002\\003\"\n")
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noneof_bytes: \"\\001\\002\\003\"\n", m)
         var m2 = MessageTestType()
         m2.oneofBytes = Data([4, 5, 6])
         XCTAssertNotEqual(m.hashValue, m2.hashValue)
@@ -2504,35 +2498,34 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     func testDebugDescription() {
         var m = MessageTestType()
-        let d = m.debugDescription
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\n", d)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\n", m)
         m.optionalInt32 = 7
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_int32: 7\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_int32: 7\n", m)
         m.repeatedString = ["a", "b"]
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_int32: 7\nrepeated_string: \"a\"\nrepeated_string: \"b\"\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\noptional_int32: 7\nrepeated_string: \"a\"\nrepeated_string: \"b\"\n", m)
     }
 
     func testDebugDescription2() {
         // Message with only one field
         var m = ProtobufUnittest_ForeignMessage()
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_ForeignMessage:\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_ForeignMessage:\n", m)
         m.c = 3
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_ForeignMessage:\nc: 3\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_ForeignMessage:\nc: 3\n", m)
     }
 
     func testDebugDescription3() {
         // Message with only a single oneof
         var m = ProtobufUnittest_TestOneof()
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestOneof:\n", m)
         m.fooInt = 1
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nfoo_int: 1\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nfoo_int: 1\n", m)
         m.fooString = "a"
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nfoo_string: \"a\"\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nfoo_string: \"a\"\n", m)
         var g = ProtobufUnittest_TestOneof.FooGroup()
         g.a = 7
         g.b = "b"
         m.fooGroup = g
-        XCTAssertEqual("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nFooGroup {\n  a: 7\n  b: \"b\"\n}\n", m.debugDescription)
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestOneof:\nFooGroup {\n  a: 7\n  b: \"b\"\n}\n", m)
     }
 
     func testDebugDescription4() {

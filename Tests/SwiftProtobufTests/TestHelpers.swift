@@ -368,6 +368,26 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             // Yay! It failed!
         }
     }
+
+    func assertDebugDescription(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> ()) {
+        // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
+        #if DEBUG
+        var m = MessageTestType()
+        configure(&m)
+        let actual = m.debugDescription
+        XCTAssertEqual(actual, expected, file: file, line: line)
+        #endif
+    }
+}
+
+extension XCTestCase {
+    func assertDebugDescription(_ expected: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+        // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
+        #if DEBUG
+        let actual = m.debugDescription
+        XCTAssertEqual(actual, expected, fmt ?? "debugDescription did not match", file: file, line: line)
+        #endif
+    }
 }
 
 /// Protocol to help write visitor for testing.  It provides default implementaions
