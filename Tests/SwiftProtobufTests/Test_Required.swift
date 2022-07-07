@@ -172,7 +172,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
             }
-            XCTAssertEqual(msg.debugDescription, expected, "While decoding \(bytes)", file: file, line: line)
+            assertDebugDescription(expected, msg, fmt: "While decoding \(bytes)", file: file, line: line)
         } catch let e {
             XCTFail("Decoding \(bytes) failed with error: \(e)", file: file, line: line)
         }
@@ -246,7 +246,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
           allTextFormattedField.append("\n")
         }
         let fullMsg = try ProtobufUnittest_TestAllRequiredTypes(serializedData: allBytesData)
-        XCTAssertEqual(fullMsg.debugDescription, allTextFormattedField)
+        assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.
@@ -372,7 +372,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
             }
-            XCTAssertEqual(msg.debugDescription, expected, "While decoding \(bytes)", file: file, line: line)
+            assertDebugDescription(expected, msg, fmt: "While decoding \(bytes)", file: file, line: line)
         } catch let e {
             XCTFail("Decoding \(bytes) failed with error: \(e)", file: file, line: line)
         }
@@ -406,7 +406,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
           allTextFormattedField.append("\n")
         }
         let fullMsg = try ProtobufUnittest_TestSomeRequiredTypes(serializedData: allBytesData)
-        XCTAssertEqual(fullMsg.debugDescription, allTextFormattedField)
+        assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
     // Helper to assert encoding fails with a not initialized error.

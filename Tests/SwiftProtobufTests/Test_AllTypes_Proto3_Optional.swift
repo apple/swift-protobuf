@@ -39,13 +39,6 @@ class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
         }
     }
 
-    func assertDebugDescription(_ expected: String, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> ()) {
-        var m = MessageTestType()
-        configure(&m)
-        let actual = m.debugDescription
-        XCTAssertEqual(actual, expected, file: file, line: line)
-    }
-
     //
     // Optional Singular types
     //
