@@ -11,16 +11,25 @@ on:
 
 jobs:
   core:
-    runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
-        swift: ["5.6-bionic", "5.5-bionic", "5.4-bionic", "5.3.3-bionic", "5.2.5-bionic", "5.1.5-bionic", "5.0.3-bionic"]
+        swift: ["5.6-focal", "5.5-focal", "5.4-focal", "5.3.3-focal", "5.2.5-focal"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
+        run_on_image: ["ubuntu-20.04"]
+        # 5.1 & 5.0 images aren't available for ubuntu-20
+        include:
+        - swift: "5.1.5-bionic"
+          protobuf_git: "ref/heads/main"
+          run_on_image: "ubuntu-18.04"
+        - swift: "5.0.3-bionic"
+          protobuf_git: "ref/heads/main"
+          run_on_image: "ubuntu-18.04"
+    runs-on: ${{ matrix.run_on_image }}
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -88,7 +97,7 @@ jobs:
       run: make test-conformance
 
   sanitizer_testing:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
@@ -96,7 +105,7 @@ jobs:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release
-      image: swift:bionic
+      image: swift:focal
     steps:
     - uses: actions/checkout@v2
     - name: Test
@@ -118,14 +127,14 @@ jobs:
         swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
 
   fuzzing_regressions:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
         swiftpm_config: ["debug", "release"]
     container:
       # Test on the latest Swift release
-      image: swift:bionic
+      image: swift:focal
     steps:
     - uses: actions/checkout@v2
     - name: Build
