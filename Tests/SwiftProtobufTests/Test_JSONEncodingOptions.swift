@@ -25,17 +25,88 @@ class Test_JSONEncodingOptions: XCTestCase {
     var asNumbers = JSONEncodingOptions()
     asNumbers.alwaysPrintInt64sAsNumbers = true
 
+    // Toplevel fields.
     let msg1 = ProtobufUnittest_Message2.with {
       $0.optionalInt64 = 1656338459803
     }
     XCTAssertEqual(try msg1.jsonString(options: asStrings), "{\"optionalInt64\":\"1656338459803\"}")
     XCTAssertEqual(try msg1.jsonString(options: asNumbers), "{\"optionalInt64\":1656338459803}")
-
+    
     let msg2 = ProtobufUnittest_Message2.with {
+      $0.repeatedInt64 = [1656338459802, 1656338459803]
+    }
+    XCTAssertEqual(try msg2.jsonString(options: asStrings), "{\"repeatedInt64\":[\"1656338459802\",\"1656338459803\"]}")
+    XCTAssertEqual(try msg2.jsonString(options: asNumbers), "{\"repeatedInt64\":[1656338459802,1656338459803]}")
+
+    let msg3 = ProtobufUnittest_Message2.with {
       $0.mapInt64Int64[1656338459803] = 1656338459802
     }
-    XCTAssertEqual(try msg2.jsonString(options: asStrings), "{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}")
-    XCTAssertEqual(try msg2.jsonString(options: asNumbers), "{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}")
+    XCTAssertEqual(try msg3.jsonString(options: asStrings), "{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}")
+    XCTAssertEqual(try msg3.jsonString(options: asNumbers), "{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}")
+
+    // Nested down a level.
+    let msg4 = ProtobufUnittest_Message2.with {
+      $0.optionalMessage.optionalInt64 = 1656338459802
+    }
+    XCTAssertEqual(try msg4.jsonString(options: asStrings), "{\"optionalMessage\":{\"optionalInt64\":\"1656338459802\"}}")
+    XCTAssertEqual(try msg4.jsonString(options: asNumbers), "{\"optionalMessage\":{\"optionalInt64\":1656338459802}}")
+
+    let msg5 = ProtobufUnittest_Message2.with {
+      $0.optionalMessage.repeatedInt64 = [1656338459802, 1656338459803]
+    }
+    XCTAssertEqual(try msg5.jsonString(options: asStrings), "{\"optionalMessage\":{\"repeatedInt64\":[\"1656338459802\",\"1656338459803\"]}}")
+    XCTAssertEqual(try msg5.jsonString(options: asNumbers), "{\"optionalMessage\":{\"repeatedInt64\":[1656338459802,1656338459803]}}")
+
+    let msg6 = ProtobufUnittest_Message2.with {
+      $0.optionalMessage.mapInt64Int64[1656338459803] = 1656338459802
+    }
+    XCTAssertEqual(try msg6.jsonString(options: asStrings), "{\"optionalMessage\":{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}}")
+    XCTAssertEqual(try msg6.jsonString(options: asNumbers), "{\"optionalMessage\":{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}}")
+
+    // Array additions.
+    let msgArray = [msg1, msg2, msg3]
+    XCTAssertEqual(try ProtobufUnittest_Message2.jsonString(from: msgArray, options: asStrings),
+                   "[" +
+                    "{\"optionalInt64\":\"1656338459803\"}" + "," +
+                    "{\"repeatedInt64\":[\"1656338459802\",\"1656338459803\"]}" + "," +
+                    "{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}" +
+                   "]")
+    XCTAssertEqual(try ProtobufUnittest_Message2.jsonString(from: msgArray, options: asNumbers),
+                   "[" +
+                    "{\"optionalInt64\":1656338459803}" + "," +
+                    "{\"repeatedInt64\":[1656338459802,1656338459803]}" + "," +
+                    "{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}" +
+                   "]")
+
+    // Any.
+    Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
+    let content = ProtobufUnittest_TestAllTypes.with {
+      $0.optionalInt64 = 1656338459803
+    }
+    let msg7 = try! Google_Protobuf_Any(message: content)
+    XCTAssertEqual(try msg7.jsonString(options: asStrings),
+                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt64\":\"1656338459803\"}")
+    XCTAssertEqual(try msg7.jsonString(options: asNumbers),
+                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt64\":1656338459803}")
+
+    // UInt64 - Toplevel fields.
+    let msg8 = ProtobufUnittest_Message2.with {
+      $0.optionalUint64 = 1656338459803
+    }
+    XCTAssertEqual(try msg8.jsonString(options: asStrings), "{\"optionalUint64\":\"1656338459803\"}")
+    XCTAssertEqual(try msg8.jsonString(options: asNumbers), "{\"optionalUint64\":1656338459803}")
+    
+    let msg9 = ProtobufUnittest_Message2.with {
+      $0.repeatedUint64 = [1656338459802, 1656338459803]
+    }
+    XCTAssertEqual(try msg9.jsonString(options: asStrings), "{\"repeatedUint64\":[\"1656338459802\",\"1656338459803\"]}")
+    XCTAssertEqual(try msg9.jsonString(options: asNumbers), "{\"repeatedUint64\":[1656338459802,1656338459803]}")
+
+    let msg10 = ProtobufUnittest_Message2.with {
+      $0.mapUint64Uint64[1656338459803] = 1656338459802
+    }
+    XCTAssertEqual(try msg10.jsonString(options: asStrings), "{\"mapUint64Uint64\":{\"1656338459803\":\"1656338459802\"}}")
+    XCTAssertEqual(try msg10.jsonString(options: asNumbers), "{\"mapUint64Uint64\":{\"1656338459803\":1656338459802}}")
   }
 
   func testAlwaysPrintEnumsAsInts() {
