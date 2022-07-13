@@ -15,8 +15,9 @@
 /// Options for JSONEncoding.
 public struct JSONEncodingOptions {
 
-  /// Always prints int64s as numbers.
+  /// Always prints int64s values as numbers.
   /// By default, they are printed as strings as per proto3 JSON mapping rules.
+  /// NB: When used as Map keys, int64s will be printed as strings as expected.
   public var alwaysPrintInt64sAsNumbers: Bool = false
 
   /// Always print enums as ints. By default they are printed as strings.

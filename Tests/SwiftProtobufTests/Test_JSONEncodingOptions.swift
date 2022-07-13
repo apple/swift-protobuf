@@ -30,6 +30,12 @@ class Test_JSONEncodingOptions: XCTestCase {
     }
     XCTAssertEqual(try msg1.jsonString(options: asStrings), "{\"optionalInt64\":\"1656338459803\"}")
     XCTAssertEqual(try msg1.jsonString(options: asNumbers), "{\"optionalInt64\":1656338459803}")
+
+    let msg2 = ProtobufUnittest_Message2.with {
+      $0.mapInt64Int64[1656338459803] = 1656338459802
+    }
+    XCTAssertEqual(try msg2.jsonString(options: asStrings), "{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}")
+    XCTAssertEqual(try msg2.jsonString(options: asNumbers), "{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}")
   }
 
   func testAlwaysPrintEnumsAsInts() {
