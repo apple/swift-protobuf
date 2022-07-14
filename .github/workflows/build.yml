@@ -14,22 +14,34 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ["5.6-focal", "5.5-focal", "5.4-focal", "5.3.3-focal", "5.2.5-focal"]
+        swift: ["5.6.2", "5.5.3", "5.4.3", "5.3.3", "5.2.5", "5.1.5", "5.0.3"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
-        run_on_image: ["ubuntu-20.04"]
-        # 5.1 & 5.0 images aren't available for ubuntu-20
         include:
-        - swift: "5.1.5-bionic"
-          protobuf_git: "ref/heads/main"
-          run_on_image: "ubuntu-18.04"
-        - swift: "5.0.3-bionic"
-          protobuf_git: "ref/heads/main"
-          run_on_image: "ubuntu-18.04"
-    runs-on: ${{ matrix.run_on_image }}
+          - swift: 5.6.2
+            ubuntu: focal
+            generate_linux_main: false
+          - swift: 5.5.3
+            ubuntu: focal
+            generate_linux_main: false
+          - swift: 5.4.3
+            ubuntu: focal
+            generate_linux_main: false
+          - swift: 5.3.3
+            ubuntu: focal
+            generate_linux_main: true
+          - swift: 5.2.5
+            ubuntu: focal
+            generate_linux_main: true
+          - swift: 5.1.5
+            ubuntu: bionic
+            generate_linux_main: true
+          - swift: 5.0.3
+            ubuntu: bionic
+            generate_linux_main: true
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -60,6 +72,10 @@ jobs:
           echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
           ;;
         esac
+    - name: Generate LinuxMain.swift
+      if: ${{ matrix.generate_linux_main }}
+      working-directory: main
+      run: make generate-linux-main
     - name: Build
       working-directory: main
       run: make build

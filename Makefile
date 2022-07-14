@@ -199,18 +199,18 @@ default: build
 
 all: build
 
-# This also rebuilds LinuxMain.swift to include all of the test cases.
-# (The awk script is very fast, so re-running it on every build is reasonable,
-#  but we only update the file when it changes to avoid extra builds.)
-# (Someday, 'swift test' will learn how to auto-discover test cases on Linux,
-# at which time this will no longer be needed.)
-build:
+# This generates a LinuxMain.swift to include all of the test cases.
+# It is needed for all builds before 5.1
+generate-linux-main:
 	@${AWK} -f DevTools/CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
 		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
 		echo "FYI: Tests/LinuxMain.swift Updated"; \
 	fi
 	@rm Tests/LinuxMain.swift.new
+
+# Builds all the targets of the package.
+build:
 	${SWIFT} build
 
 # Anything that needs the plugin should do a build.
