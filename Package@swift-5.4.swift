@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.0
 
 // Package.swift
 //
