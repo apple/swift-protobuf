@@ -43,7 +43,7 @@ jobs:
             ubuntu: bionic
             generate_linux_main: true
     container:
-      image: swift:${{ matrix.swift }}
+      image: swift:${{ matrix.swift }}-${{ matrix.ubuntu }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2

@@ -200,7 +200,7 @@ default: build
 all: build
 
 # This generates a LinuxMain.swift to include all of the test cases.
-# It is needed for all builds before 5.1
+# It is needed for all builds before 5.4.x
 generate-linux-main:
 	@${AWK} -f DevTools/CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
