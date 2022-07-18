@@ -374,6 +374,15 @@ struct ProtobufUnittest_TestAllTypesLite {
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
+  var optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+    get {return _storage._optionalUnverifiedLazyMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+    set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
+  }
+  /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
+  var hasOptionalUnverifiedLazyMessage: Bool {return _storage._optionalUnverifiedLazyMessage != nil}
+  /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
+
   /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
@@ -2161,6 +2170,21 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension_lite)
   }
 
+  var ProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite) ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite`
+  /// has been explicitly set.
+  var hasProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite)
+  }
+
   /// Repeated
   var ProtobufUnittest_repeatedInt32ExtensionLite: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension_lite) ?? []}
@@ -2813,6 +2837,7 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_Extensions_optional_cord_extension_lite,
   ProtobufUnittest_Extensions_optional_public_import_message_extension_lite,
   ProtobufUnittest_Extensions_optional_lazy_message_extension_lite,
+  ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite,
   ProtobufUnittest_Extensions_repeated_int32_extension_lite,
   ProtobufUnittest_Extensions_repeated_int64_extension_lite,
   ProtobufUnittest_Extensions_repeated_uint32_extension_lite,
@@ -3015,6 +3040,11 @@ let ProtobufUnittest_Extensions_optional_public_import_message_extension_lite = 
 let ProtobufUnittest_Extensions_optional_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 27,
   fieldName: "protobuf_unittest.optional_lazy_message_extension_lite"
+)
+
+let ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+  _protobuf_fieldNumber: 28,
+  fieldName: "protobuf_unittest.optional_unverified_lazy_message_extension_lite"
 )
 
 /// Repeated
@@ -3417,6 +3447,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     25: .standard(proto: "optional_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
+    28: .standard(proto: "optional_unverified_lazy_message"),
     31: .standard(proto: "repeated_int32"),
     32: .standard(proto: "repeated_int64"),
     33: .standard(proto: "repeated_uint32"),
@@ -3498,6 +3529,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _optionalCord: String? = nil
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite? = nil
     var _optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
+    var _optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -3577,6 +3609,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       _optionalCord = source._optionalCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
+      _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
       _repeatedInt32 = source._repeatedInt32
       _repeatedInt64 = source._repeatedInt64
       _repeatedUint32 = source._repeatedUint32
@@ -3668,6 +3701,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         case 25: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage) }()
         case 27: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyMessage) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._optionalUnverifiedLazyMessage) }()
         case 31: try { try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32) }()
         case 32: try { try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64) }()
         case 33: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32) }()
@@ -3866,6 +3900,9 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       } }()
       try { if let v = _storage._optionalLazyMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
+      } }()
+      try { if let v = _storage._optionalUnverifiedLazyMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
@@ -4066,6 +4103,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
+        if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}
         if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
         if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}
         if _storage._repeatedUint32 != rhs_storage._repeatedUint32 {return false}

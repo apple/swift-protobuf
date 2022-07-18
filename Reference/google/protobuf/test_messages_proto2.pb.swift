@@ -1375,6 +1375,39 @@ struct ProtobufTestMessages_Proto2_OneStringProto2 {
   fileprivate var _data: String? = nil
 }
 
+struct ProtobufTestMessages_Proto2_ProtoWithKeywords {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var inline: Int32 {
+    get {return _inline ?? 0}
+    set {_inline = newValue}
+  }
+  /// Returns true if `inline` has been explicitly set.
+  var hasInline: Bool {return self._inline != nil}
+  /// Clears the value of `inline`. Subsequent reads from it will return its default value.
+  mutating func clearInline() {self._inline = nil}
+
+  var concept: String {
+    get {return _concept ?? String()}
+    set {_concept = newValue}
+  }
+  /// Returns true if `concept` has been explicitly set.
+  var hasConcept: Bool {return self._concept != nil}
+  /// Clears the value of `concept`. Subsequent reads from it will return its default value.
+  mutating func clearConcept() {self._concept = nil}
+
+  var requires: [String] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _inline: Int32? = nil
+  fileprivate var _concept: String? = nil
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.OneOf_OneofField: @unchecked Sendable {}
@@ -1389,6 +1422,7 @@ extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup: @unch
 extension ProtobufTestMessages_Proto2_NullHypothesisProto2: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_EnumOnlyProto2: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_OneStringProto2: @unchecked Sendable {}
+extension ProtobufTestMessages_Proto2_ProtoWithKeywords: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in test_messages_proto2.proto.
@@ -3144,6 +3178,54 @@ extension ProtobufTestMessages_Proto2_OneStringProto2: SwiftProtobuf.Message, Sw
 
   static func ==(lhs: ProtobufTestMessages_Proto2_OneStringProto2, rhs: ProtobufTestMessages_Proto2_OneStringProto2) -> Bool {
     if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_ProtoWithKeywords: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ProtoWithKeywords"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "inline"),
+    2: .same(proto: "concept"),
+    3: .same(proto: "requires"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._inline) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._concept) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.requires) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._inline {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._concept {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    if !self.requires.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.requires, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_ProtoWithKeywords, rhs: ProtobufTestMessages_Proto2_ProtoWithKeywords) -> Bool {
+    if lhs._inline != rhs._inline {return false}
+    if lhs._concept != rhs._concept {return false}
+    if lhs.requires != rhs.requires {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
