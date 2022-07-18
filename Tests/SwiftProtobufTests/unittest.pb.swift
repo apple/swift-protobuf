@@ -727,6 +727,15 @@ struct ProtobufUnittest_TestAllTypes {
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
+  var optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
+    get {return _storage._optionalUnverifiedLazyMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
+    set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
+  }
+  /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
+  var hasOptionalUnverifiedLazyMessage: Bool {return _storage._optionalUnverifiedLazyMessage != nil}
+  /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
+
   /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
@@ -2031,12 +2040,23 @@ struct ProtobufUnittest_TestRequiredForeign {
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
   mutating func clearDummy() {self._dummy = nil}
 
+  /// Missing required fields must not affect verification of child messages.
+  var optionalLazyMessage: ProtobufUnittest_NestedTestAllTypes {
+    get {return _optionalLazyMessage ?? ProtobufUnittest_NestedTestAllTypes()}
+    set {_optionalLazyMessage = newValue}
+  }
+  /// Returns true if `optionalLazyMessage` has been explicitly set.
+  var hasOptionalLazyMessage: Bool {return self._optionalLazyMessage != nil}
+  /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalLazyMessage() {self._optionalLazyMessage = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
   fileprivate var _optionalMessage: ProtobufUnittest_TestRequired? = nil
   fileprivate var _dummy: Int32? = nil
+  fileprivate var _optionalLazyMessage: ProtobufUnittest_NestedTestAllTypes? = nil
 }
 
 struct ProtobufUnittest_TestRequiredMessage {
@@ -5295,6 +5315,1324 @@ struct ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.ExtensibleMes
   fileprivate var _fooFour: Int32? = nil
 }
 
+struct ProtobufUnittest_TestVerifyInt32Simple {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt321: Int32 {
+    get {return _optionalInt321 ?? 0}
+    set {_optionalInt321 = newValue}
+  }
+  /// Returns true if `optionalInt321` has been explicitly set.
+  var hasOptionalInt321: Bool {return self._optionalInt321 != nil}
+  /// Clears the value of `optionalInt321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt321() {self._optionalInt321 = nil}
+
+  var optionalInt322: Int32 {
+    get {return _optionalInt322 ?? 0}
+    set {_optionalInt322 = newValue}
+  }
+  /// Returns true if `optionalInt322` has been explicitly set.
+  var hasOptionalInt322: Bool {return self._optionalInt322 != nil}
+  /// Clears the value of `optionalInt322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt322() {self._optionalInt322 = nil}
+
+  var optionalInt3263: Int32 {
+    get {return _optionalInt3263 ?? 0}
+    set {_optionalInt3263 = newValue}
+  }
+  /// Returns true if `optionalInt3263` has been explicitly set.
+  var hasOptionalInt3263: Bool {return self._optionalInt3263 != nil}
+  /// Clears the value of `optionalInt3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3263() {self._optionalInt3263 = nil}
+
+  var optionalInt3264: Int32 {
+    get {return _optionalInt3264 ?? 0}
+    set {_optionalInt3264 = newValue}
+  }
+  /// Returns true if `optionalInt3264` has been explicitly set.
+  var hasOptionalInt3264: Bool {return self._optionalInt3264 != nil}
+  /// Clears the value of `optionalInt3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3264() {self._optionalInt3264 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt321: Int32? = nil
+  fileprivate var _optionalInt322: Int32? = nil
+  fileprivate var _optionalInt3263: Int32? = nil
+  fileprivate var _optionalInt3264: Int32? = nil
+}
+
+struct ProtobufUnittest_TestVerifyInt32 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt321: Int32 {
+    get {return _optionalInt321 ?? 0}
+    set {_optionalInt321 = newValue}
+  }
+  /// Returns true if `optionalInt321` has been explicitly set.
+  var hasOptionalInt321: Bool {return self._optionalInt321 != nil}
+  /// Clears the value of `optionalInt321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt321() {self._optionalInt321 = nil}
+
+  var optionalInt322: Int32 {
+    get {return _optionalInt322 ?? 0}
+    set {_optionalInt322 = newValue}
+  }
+  /// Returns true if `optionalInt322` has been explicitly set.
+  var hasOptionalInt322: Bool {return self._optionalInt322 != nil}
+  /// Clears the value of `optionalInt322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt322() {self._optionalInt322 = nil}
+
+  var optionalInt3263: Int32 {
+    get {return _optionalInt3263 ?? 0}
+    set {_optionalInt3263 = newValue}
+  }
+  /// Returns true if `optionalInt3263` has been explicitly set.
+  var hasOptionalInt3263: Bool {return self._optionalInt3263 != nil}
+  /// Clears the value of `optionalInt3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3263() {self._optionalInt3263 = nil}
+
+  var optionalInt3264: Int32 {
+    get {return _optionalInt3264 ?? 0}
+    set {_optionalInt3264 = newValue}
+  }
+  /// Returns true if `optionalInt3264` has been explicitly set.
+  var hasOptionalInt3264: Bool {return self._optionalInt3264 != nil}
+  /// Clears the value of `optionalInt3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3264() {self._optionalInt3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt321: Int32? = nil
+  fileprivate var _optionalInt322: Int32? = nil
+  fileprivate var _optionalInt3263: Int32? = nil
+  fileprivate var _optionalInt3264: Int32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyMostlyInt32 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt6430: Int64 {
+    get {return _optionalInt6430 ?? 0}
+    set {_optionalInt6430 = newValue}
+  }
+  /// Returns true if `optionalInt6430` has been explicitly set.
+  var hasOptionalInt6430: Bool {return self._optionalInt6430 != nil}
+  /// Clears the value of `optionalInt6430`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt6430() {self._optionalInt6430 = nil}
+
+  var optionalInt321: Int32 {
+    get {return _optionalInt321 ?? 0}
+    set {_optionalInt321 = newValue}
+  }
+  /// Returns true if `optionalInt321` has been explicitly set.
+  var hasOptionalInt321: Bool {return self._optionalInt321 != nil}
+  /// Clears the value of `optionalInt321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt321() {self._optionalInt321 = nil}
+
+  var optionalInt322: Int32 {
+    get {return _optionalInt322 ?? 0}
+    set {_optionalInt322 = newValue}
+  }
+  /// Returns true if `optionalInt322` has been explicitly set.
+  var hasOptionalInt322: Bool {return self._optionalInt322 != nil}
+  /// Clears the value of `optionalInt322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt322() {self._optionalInt322 = nil}
+
+  var optionalInt323: Int32 {
+    get {return _optionalInt323 ?? 0}
+    set {_optionalInt323 = newValue}
+  }
+  /// Returns true if `optionalInt323` has been explicitly set.
+  var hasOptionalInt323: Bool {return self._optionalInt323 != nil}
+  /// Clears the value of `optionalInt323`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt323() {self._optionalInt323 = nil}
+
+  var optionalInt324: Int32 {
+    get {return _optionalInt324 ?? 0}
+    set {_optionalInt324 = newValue}
+  }
+  /// Returns true if `optionalInt324` has been explicitly set.
+  var hasOptionalInt324: Bool {return self._optionalInt324 != nil}
+  /// Clears the value of `optionalInt324`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt324() {self._optionalInt324 = nil}
+
+  var optionalInt3263: Int32 {
+    get {return _optionalInt3263 ?? 0}
+    set {_optionalInt3263 = newValue}
+  }
+  /// Returns true if `optionalInt3263` has been explicitly set.
+  var hasOptionalInt3263: Bool {return self._optionalInt3263 != nil}
+  /// Clears the value of `optionalInt3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3263() {self._optionalInt3263 = nil}
+
+  var optionalInt3264: Int32 {
+    get {return _optionalInt3264 ?? 0}
+    set {_optionalInt3264 = newValue}
+  }
+  /// Returns true if `optionalInt3264` has been explicitly set.
+  var hasOptionalInt3264: Bool {return self._optionalInt3264 != nil}
+  /// Clears the value of `optionalInt3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3264() {self._optionalInt3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt6430: Int64? = nil
+  fileprivate var _optionalInt321: Int32? = nil
+  fileprivate var _optionalInt322: Int32? = nil
+  fileprivate var _optionalInt323: Int32? = nil
+  fileprivate var _optionalInt324: Int32? = nil
+  fileprivate var _optionalInt3263: Int32? = nil
+  fileprivate var _optionalInt3264: Int32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyMostlyInt32BigFieldNumber {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt6430: Int64 {
+    get {return _optionalInt6430 ?? 0}
+    set {_optionalInt6430 = newValue}
+  }
+  /// Returns true if `optionalInt6430` has been explicitly set.
+  var hasOptionalInt6430: Bool {return self._optionalInt6430 != nil}
+  /// Clears the value of `optionalInt6430`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt6430() {self._optionalInt6430 = nil}
+
+  var optionalInt32300: Int32 {
+    get {return _optionalInt32300 ?? 0}
+    set {_optionalInt32300 = newValue}
+  }
+  /// Returns true if `optionalInt32300` has been explicitly set.
+  var hasOptionalInt32300: Bool {return self._optionalInt32300 != nil}
+  /// Clears the value of `optionalInt32300`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32300() {self._optionalInt32300 = nil}
+
+  var optionalInt321: Int32 {
+    get {return _optionalInt321 ?? 0}
+    set {_optionalInt321 = newValue}
+  }
+  /// Returns true if `optionalInt321` has been explicitly set.
+  var hasOptionalInt321: Bool {return self._optionalInt321 != nil}
+  /// Clears the value of `optionalInt321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt321() {self._optionalInt321 = nil}
+
+  var optionalInt322: Int32 {
+    get {return _optionalInt322 ?? 0}
+    set {_optionalInt322 = newValue}
+  }
+  /// Returns true if `optionalInt322` has been explicitly set.
+  var hasOptionalInt322: Bool {return self._optionalInt322 != nil}
+  /// Clears the value of `optionalInt322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt322() {self._optionalInt322 = nil}
+
+  var optionalInt323: Int32 {
+    get {return _optionalInt323 ?? 0}
+    set {_optionalInt323 = newValue}
+  }
+  /// Returns true if `optionalInt323` has been explicitly set.
+  var hasOptionalInt323: Bool {return self._optionalInt323 != nil}
+  /// Clears the value of `optionalInt323`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt323() {self._optionalInt323 = nil}
+
+  var optionalInt324: Int32 {
+    get {return _optionalInt324 ?? 0}
+    set {_optionalInt324 = newValue}
+  }
+  /// Returns true if `optionalInt324` has been explicitly set.
+  var hasOptionalInt324: Bool {return self._optionalInt324 != nil}
+  /// Clears the value of `optionalInt324`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt324() {self._optionalInt324 = nil}
+
+  var optionalInt3263: Int32 {
+    get {return _optionalInt3263 ?? 0}
+    set {_optionalInt3263 = newValue}
+  }
+  /// Returns true if `optionalInt3263` has been explicitly set.
+  var hasOptionalInt3263: Bool {return self._optionalInt3263 != nil}
+  /// Clears the value of `optionalInt3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3263() {self._optionalInt3263 = nil}
+
+  var optionalInt3264: Int32 {
+    get {return _optionalInt3264 ?? 0}
+    set {_optionalInt3264 = newValue}
+  }
+  /// Returns true if `optionalInt3264` has been explicitly set.
+  var hasOptionalInt3264: Bool {return self._optionalInt3264 != nil}
+  /// Clears the value of `optionalInt3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3264() {self._optionalInt3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt6430: Int64? = nil
+  fileprivate var _optionalInt32300: Int32? = nil
+  fileprivate var _optionalInt321: Int32? = nil
+  fileprivate var _optionalInt322: Int32? = nil
+  fileprivate var _optionalInt323: Int32? = nil
+  fileprivate var _optionalInt324: Int32? = nil
+  fileprivate var _optionalInt3263: Int32? = nil
+  fileprivate var _optionalInt3264: Int32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyUint32Simple {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalUint321: UInt32 {
+    get {return _optionalUint321 ?? 0}
+    set {_optionalUint321 = newValue}
+  }
+  /// Returns true if `optionalUint321` has been explicitly set.
+  var hasOptionalUint321: Bool {return self._optionalUint321 != nil}
+  /// Clears the value of `optionalUint321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint321() {self._optionalUint321 = nil}
+
+  var optionalUint322: UInt32 {
+    get {return _optionalUint322 ?? 0}
+    set {_optionalUint322 = newValue}
+  }
+  /// Returns true if `optionalUint322` has been explicitly set.
+  var hasOptionalUint322: Bool {return self._optionalUint322 != nil}
+  /// Clears the value of `optionalUint322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint322() {self._optionalUint322 = nil}
+
+  var optionalUint3263: UInt32 {
+    get {return _optionalUint3263 ?? 0}
+    set {_optionalUint3263 = newValue}
+  }
+  /// Returns true if `optionalUint3263` has been explicitly set.
+  var hasOptionalUint3263: Bool {return self._optionalUint3263 != nil}
+  /// Clears the value of `optionalUint3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3263() {self._optionalUint3263 = nil}
+
+  var optionalUint3264: UInt32 {
+    get {return _optionalUint3264 ?? 0}
+    set {_optionalUint3264 = newValue}
+  }
+  /// Returns true if `optionalUint3264` has been explicitly set.
+  var hasOptionalUint3264: Bool {return self._optionalUint3264 != nil}
+  /// Clears the value of `optionalUint3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3264() {self._optionalUint3264 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalUint321: UInt32? = nil
+  fileprivate var _optionalUint322: UInt32? = nil
+  fileprivate var _optionalUint3263: UInt32? = nil
+  fileprivate var _optionalUint3264: UInt32? = nil
+}
+
+struct ProtobufUnittest_TestVerifyUint32 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalUint321: UInt32 {
+    get {return _optionalUint321 ?? 0}
+    set {_optionalUint321 = newValue}
+  }
+  /// Returns true if `optionalUint321` has been explicitly set.
+  var hasOptionalUint321: Bool {return self._optionalUint321 != nil}
+  /// Clears the value of `optionalUint321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint321() {self._optionalUint321 = nil}
+
+  var optionalUint322: UInt32 {
+    get {return _optionalUint322 ?? 0}
+    set {_optionalUint322 = newValue}
+  }
+  /// Returns true if `optionalUint322` has been explicitly set.
+  var hasOptionalUint322: Bool {return self._optionalUint322 != nil}
+  /// Clears the value of `optionalUint322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint322() {self._optionalUint322 = nil}
+
+  var optionalUint3263: UInt32 {
+    get {return _optionalUint3263 ?? 0}
+    set {_optionalUint3263 = newValue}
+  }
+  /// Returns true if `optionalUint3263` has been explicitly set.
+  var hasOptionalUint3263: Bool {return self._optionalUint3263 != nil}
+  /// Clears the value of `optionalUint3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3263() {self._optionalUint3263 = nil}
+
+  var optionalUint3264: UInt32 {
+    get {return _optionalUint3264 ?? 0}
+    set {_optionalUint3264 = newValue}
+  }
+  /// Returns true if `optionalUint3264` has been explicitly set.
+  var hasOptionalUint3264: Bool {return self._optionalUint3264 != nil}
+  /// Clears the value of `optionalUint3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3264() {self._optionalUint3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalUint321: UInt32? = nil
+  fileprivate var _optionalUint322: UInt32? = nil
+  fileprivate var _optionalUint3263: UInt32? = nil
+  fileprivate var _optionalUint3264: UInt32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyOneUint32 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalUint321: UInt32 {
+    get {return _optionalUint321 ?? 0}
+    set {_optionalUint321 = newValue}
+  }
+  /// Returns true if `optionalUint321` has been explicitly set.
+  var hasOptionalUint321: Bool {return self._optionalUint321 != nil}
+  /// Clears the value of `optionalUint321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint321() {self._optionalUint321 = nil}
+
+  var optionalInt322: Int32 {
+    get {return _optionalInt322 ?? 0}
+    set {_optionalInt322 = newValue}
+  }
+  /// Returns true if `optionalInt322` has been explicitly set.
+  var hasOptionalInt322: Bool {return self._optionalInt322 != nil}
+  /// Clears the value of `optionalInt322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt322() {self._optionalInt322 = nil}
+
+  var optionalInt3263: Int32 {
+    get {return _optionalInt3263 ?? 0}
+    set {_optionalInt3263 = newValue}
+  }
+  /// Returns true if `optionalInt3263` has been explicitly set.
+  var hasOptionalInt3263: Bool {return self._optionalInt3263 != nil}
+  /// Clears the value of `optionalInt3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3263() {self._optionalInt3263 = nil}
+
+  var optionalInt3264: Int32 {
+    get {return _optionalInt3264 ?? 0}
+    set {_optionalInt3264 = newValue}
+  }
+  /// Returns true if `optionalInt3264` has been explicitly set.
+  var hasOptionalInt3264: Bool {return self._optionalInt3264 != nil}
+  /// Clears the value of `optionalInt3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3264() {self._optionalInt3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalUint321: UInt32? = nil
+  fileprivate var _optionalInt322: Int32? = nil
+  fileprivate var _optionalInt3263: Int32? = nil
+  fileprivate var _optionalInt3264: Int32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyOneInt32BigFieldNumber {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt3265: Int32 {
+    get {return _optionalInt3265 ?? 0}
+    set {_optionalInt3265 = newValue}
+  }
+  /// Returns true if `optionalInt3265` has been explicitly set.
+  var hasOptionalInt3265: Bool {return self._optionalInt3265 != nil}
+  /// Clears the value of `optionalInt3265`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3265() {self._optionalInt3265 = nil}
+
+  var optionalInt641: Int64 {
+    get {return _optionalInt641 ?? 0}
+    set {_optionalInt641 = newValue}
+  }
+  /// Returns true if `optionalInt641` has been explicitly set.
+  var hasOptionalInt641: Bool {return self._optionalInt641 != nil}
+  /// Clears the value of `optionalInt641`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt641() {self._optionalInt641 = nil}
+
+  var optionalInt642: Int64 {
+    get {return _optionalInt642 ?? 0}
+    set {_optionalInt642 = newValue}
+  }
+  /// Returns true if `optionalInt642` has been explicitly set.
+  var hasOptionalInt642: Bool {return self._optionalInt642 != nil}
+  /// Clears the value of `optionalInt642`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt642() {self._optionalInt642 = nil}
+
+  var optionalInt6463: Int64 {
+    get {return _optionalInt6463 ?? 0}
+    set {_optionalInt6463 = newValue}
+  }
+  /// Returns true if `optionalInt6463` has been explicitly set.
+  var hasOptionalInt6463: Bool {return self._optionalInt6463 != nil}
+  /// Clears the value of `optionalInt6463`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt6463() {self._optionalInt6463 = nil}
+
+  var optionalInt6464: Int64 {
+    get {return _optionalInt6464 ?? 0}
+    set {_optionalInt6464 = newValue}
+  }
+  /// Returns true if `optionalInt6464` has been explicitly set.
+  var hasOptionalInt6464: Bool {return self._optionalInt6464 != nil}
+  /// Clears the value of `optionalInt6464`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt6464() {self._optionalInt6464 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt3265: Int32? = nil
+  fileprivate var _optionalInt641: Int64? = nil
+  fileprivate var _optionalInt642: Int64? = nil
+  fileprivate var _optionalInt6463: Int64? = nil
+  fileprivate var _optionalInt6464: Int64? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyInt32BigFieldNumber {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt321000: Int32 {
+    get {return _optionalInt321000 ?? 0}
+    set {_optionalInt321000 = newValue}
+  }
+  /// Returns true if `optionalInt321000` has been explicitly set.
+  var hasOptionalInt321000: Bool {return self._optionalInt321000 != nil}
+  /// Clears the value of `optionalInt321000`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt321000() {self._optionalInt321000 = nil}
+
+  var optionalInt3265: Int32 {
+    get {return _optionalInt3265 ?? 0}
+    set {_optionalInt3265 = newValue}
+  }
+  /// Returns true if `optionalInt3265` has been explicitly set.
+  var hasOptionalInt3265: Bool {return self._optionalInt3265 != nil}
+  /// Clears the value of `optionalInt3265`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3265() {self._optionalInt3265 = nil}
+
+  var optionalInt321: Int32 {
+    get {return _optionalInt321 ?? 0}
+    set {_optionalInt321 = newValue}
+  }
+  /// Returns true if `optionalInt321` has been explicitly set.
+  var hasOptionalInt321: Bool {return self._optionalInt321 != nil}
+  /// Clears the value of `optionalInt321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt321() {self._optionalInt321 = nil}
+
+  var optionalInt322: Int32 {
+    get {return _optionalInt322 ?? 0}
+    set {_optionalInt322 = newValue}
+  }
+  /// Returns true if `optionalInt322` has been explicitly set.
+  var hasOptionalInt322: Bool {return self._optionalInt322 != nil}
+  /// Clears the value of `optionalInt322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt322() {self._optionalInt322 = nil}
+
+  var optionalInt3263: Int32 {
+    get {return _optionalInt3263 ?? 0}
+    set {_optionalInt3263 = newValue}
+  }
+  /// Returns true if `optionalInt3263` has been explicitly set.
+  var hasOptionalInt3263: Bool {return self._optionalInt3263 != nil}
+  /// Clears the value of `optionalInt3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3263() {self._optionalInt3263 = nil}
+
+  var optionalInt3264: Int32 {
+    get {return _optionalInt3264 ?? 0}
+    set {_optionalInt3264 = newValue}
+  }
+  /// Returns true if `optionalInt3264` has been explicitly set.
+  var hasOptionalInt3264: Bool {return self._optionalInt3264 != nil}
+  /// Clears the value of `optionalInt3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt3264() {self._optionalInt3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt321000: Int32? = nil
+  fileprivate var _optionalInt3265: Int32? = nil
+  fileprivate var _optionalInt321: Int32? = nil
+  fileprivate var _optionalInt322: Int32? = nil
+  fileprivate var _optionalInt3263: Int32? = nil
+  fileprivate var _optionalInt3264: Int32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyUint32BigFieldNumber {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalUint321000: UInt32 {
+    get {return _optionalUint321000 ?? 0}
+    set {_optionalUint321000 = newValue}
+  }
+  /// Returns true if `optionalUint321000` has been explicitly set.
+  var hasOptionalUint321000: Bool {return self._optionalUint321000 != nil}
+  /// Clears the value of `optionalUint321000`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint321000() {self._optionalUint321000 = nil}
+
+  var optionalUint3265: UInt32 {
+    get {return _optionalUint3265 ?? 0}
+    set {_optionalUint3265 = newValue}
+  }
+  /// Returns true if `optionalUint3265` has been explicitly set.
+  var hasOptionalUint3265: Bool {return self._optionalUint3265 != nil}
+  /// Clears the value of `optionalUint3265`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3265() {self._optionalUint3265 = nil}
+
+  var optionalUint321: UInt32 {
+    get {return _optionalUint321 ?? 0}
+    set {_optionalUint321 = newValue}
+  }
+  /// Returns true if `optionalUint321` has been explicitly set.
+  var hasOptionalUint321: Bool {return self._optionalUint321 != nil}
+  /// Clears the value of `optionalUint321`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint321() {self._optionalUint321 = nil}
+
+  var optionalUint322: UInt32 {
+    get {return _optionalUint322 ?? 0}
+    set {_optionalUint322 = newValue}
+  }
+  /// Returns true if `optionalUint322` has been explicitly set.
+  var hasOptionalUint322: Bool {return self._optionalUint322 != nil}
+  /// Clears the value of `optionalUint322`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint322() {self._optionalUint322 = nil}
+
+  var optionalUint3263: UInt32 {
+    get {return _optionalUint3263 ?? 0}
+    set {_optionalUint3263 = newValue}
+  }
+  /// Returns true if `optionalUint3263` has been explicitly set.
+  var hasOptionalUint3263: Bool {return self._optionalUint3263 != nil}
+  /// Clears the value of `optionalUint3263`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3263() {self._optionalUint3263 = nil}
+
+  var optionalUint3264: UInt32 {
+    get {return _optionalUint3264 ?? 0}
+    set {_optionalUint3264 = newValue}
+  }
+  /// Returns true if `optionalUint3264` has been explicitly set.
+  var hasOptionalUint3264: Bool {return self._optionalUint3264 != nil}
+  /// Clears the value of `optionalUint3264`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint3264() {self._optionalUint3264 = nil}
+
+  var optionalAllTypes: ProtobufUnittest_TestAllTypes {
+    get {return _optionalAllTypes ?? ProtobufUnittest_TestAllTypes()}
+    set {_optionalAllTypes = newValue}
+  }
+  /// Returns true if `optionalAllTypes` has been explicitly set.
+  var hasOptionalAllTypes: Bool {return self._optionalAllTypes != nil}
+  /// Clears the value of `optionalAllTypes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalAllTypes() {self._optionalAllTypes = nil}
+
+  var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalUint321000: UInt32? = nil
+  fileprivate var _optionalUint3265: UInt32? = nil
+  fileprivate var _optionalUint321: UInt32? = nil
+  fileprivate var _optionalUint322: UInt32? = nil
+  fileprivate var _optionalUint3263: UInt32? = nil
+  fileprivate var _optionalUint3264: UInt32? = nil
+  fileprivate var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+}
+
+struct ProtobufUnittest_TestVerifyBigFieldNumberUint32 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalNested: ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested {
+    get {return _optionalNested ?? ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested()}
+    set {_optionalNested = newValue}
+  }
+  /// Returns true if `optionalNested` has been explicitly set.
+  var hasOptionalNested: Bool {return self._optionalNested != nil}
+  /// Clears the value of `optionalNested`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalNested() {self._optionalNested = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct Nested {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var optionalUint325000: UInt32 {
+      get {return _storage._optionalUint325000 ?? 0}
+      set {_uniqueStorage()._optionalUint325000 = newValue}
+    }
+    /// Returns true if `optionalUint325000` has been explicitly set.
+    var hasOptionalUint325000: Bool {return _storage._optionalUint325000 != nil}
+    /// Clears the value of `optionalUint325000`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint325000() {_uniqueStorage()._optionalUint325000 = nil}
+
+    var optionalUint321000: UInt32 {
+      get {return _storage._optionalUint321000 ?? 0}
+      set {_uniqueStorage()._optionalUint321000 = newValue}
+    }
+    /// Returns true if `optionalUint321000` has been explicitly set.
+    var hasOptionalUint321000: Bool {return _storage._optionalUint321000 != nil}
+    /// Clears the value of `optionalUint321000`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint321000() {_uniqueStorage()._optionalUint321000 = nil}
+
+    var optionalUint3266: UInt32 {
+      get {return _storage._optionalUint3266 ?? 0}
+      set {_uniqueStorage()._optionalUint3266 = newValue}
+    }
+    /// Returns true if `optionalUint3266` has been explicitly set.
+    var hasOptionalUint3266: Bool {return _storage._optionalUint3266 != nil}
+    /// Clears the value of `optionalUint3266`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint3266() {_uniqueStorage()._optionalUint3266 = nil}
+
+    var optionalUint3265: UInt32 {
+      get {return _storage._optionalUint3265 ?? 0}
+      set {_uniqueStorage()._optionalUint3265 = newValue}
+    }
+    /// Returns true if `optionalUint3265` has been explicitly set.
+    var hasOptionalUint3265: Bool {return _storage._optionalUint3265 != nil}
+    /// Clears the value of `optionalUint3265`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint3265() {_uniqueStorage()._optionalUint3265 = nil}
+
+    var optionalUint321: UInt32 {
+      get {return _storage._optionalUint321 ?? 0}
+      set {_uniqueStorage()._optionalUint321 = newValue}
+    }
+    /// Returns true if `optionalUint321` has been explicitly set.
+    var hasOptionalUint321: Bool {return _storage._optionalUint321 != nil}
+    /// Clears the value of `optionalUint321`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint321() {_uniqueStorage()._optionalUint321 = nil}
+
+    var optionalUint322: UInt32 {
+      get {return _storage._optionalUint322 ?? 0}
+      set {_uniqueStorage()._optionalUint322 = newValue}
+    }
+    /// Returns true if `optionalUint322` has been explicitly set.
+    var hasOptionalUint322: Bool {return _storage._optionalUint322 != nil}
+    /// Clears the value of `optionalUint322`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint322() {_uniqueStorage()._optionalUint322 = nil}
+
+    var optionalUint3263: UInt32 {
+      get {return _storage._optionalUint3263 ?? 0}
+      set {_uniqueStorage()._optionalUint3263 = newValue}
+    }
+    /// Returns true if `optionalUint3263` has been explicitly set.
+    var hasOptionalUint3263: Bool {return _storage._optionalUint3263 != nil}
+    /// Clears the value of `optionalUint3263`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint3263() {_uniqueStorage()._optionalUint3263 = nil}
+
+    var optionalUint3264: UInt32 {
+      get {return _storage._optionalUint3264 ?? 0}
+      set {_uniqueStorage()._optionalUint3264 = newValue}
+    }
+    /// Returns true if `optionalUint3264` has been explicitly set.
+    var hasOptionalUint3264: Bool {return _storage._optionalUint3264 != nil}
+    /// Clears the value of `optionalUint3264`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalUint3264() {_uniqueStorage()._optionalUint3264 = nil}
+
+    var optionalNested: ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested {
+      get {return _storage._optionalNested ?? ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested()}
+      set {_uniqueStorage()._optionalNested = newValue}
+    }
+    /// Returns true if `optionalNested` has been explicitly set.
+    var hasOptionalNested: Bool {return _storage._optionalNested != nil}
+    /// Clears the value of `optionalNested`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalNested() {_uniqueStorage()._optionalNested = nil}
+
+    var repeatedNested: [ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested] {
+      get {return _storage._repeatedNested}
+      set {_uniqueStorage()._repeatedNested = newValue}
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+  }
+
+  init() {}
+
+  fileprivate var _optionalNested: ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested? = nil
+}
+
+/// This message contains different kind of enums to exercise the different
+/// parsers in table-driven.
+struct ProtobufUnittest_EnumParseTester {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalSeqSmall0Lowfield: ProtobufUnittest_EnumParseTester.SeqSmall0 {
+    get {return _storage._optionalSeqSmall0Lowfield ?? .default}
+    set {_uniqueStorage()._optionalSeqSmall0Lowfield = newValue}
+  }
+  /// Returns true if `optionalSeqSmall0Lowfield` has been explicitly set.
+  var hasOptionalSeqSmall0Lowfield: Bool {return _storage._optionalSeqSmall0Lowfield != nil}
+  /// Clears the value of `optionalSeqSmall0Lowfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqSmall0Lowfield() {_uniqueStorage()._optionalSeqSmall0Lowfield = nil}
+
+  var optionalSeqSmall0Midfield: ProtobufUnittest_EnumParseTester.SeqSmall0 {
+    get {return _storage._optionalSeqSmall0Midfield ?? .default}
+    set {_uniqueStorage()._optionalSeqSmall0Midfield = newValue}
+  }
+  /// Returns true if `optionalSeqSmall0Midfield` has been explicitly set.
+  var hasOptionalSeqSmall0Midfield: Bool {return _storage._optionalSeqSmall0Midfield != nil}
+  /// Clears the value of `optionalSeqSmall0Midfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqSmall0Midfield() {_uniqueStorage()._optionalSeqSmall0Midfield = nil}
+
+  var optionalSeqSmall0Hifield: ProtobufUnittest_EnumParseTester.SeqSmall0 {
+    get {return _storage._optionalSeqSmall0Hifield ?? .default}
+    set {_uniqueStorage()._optionalSeqSmall0Hifield = newValue}
+  }
+  /// Returns true if `optionalSeqSmall0Hifield` has been explicitly set.
+  var hasOptionalSeqSmall0Hifield: Bool {return _storage._optionalSeqSmall0Hifield != nil}
+  /// Clears the value of `optionalSeqSmall0Hifield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqSmall0Hifield() {_uniqueStorage()._optionalSeqSmall0Hifield = nil}
+
+  var repeatedSeqSmall0Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] {
+    get {return _storage._repeatedSeqSmall0Lowfield}
+    set {_uniqueStorage()._repeatedSeqSmall0Lowfield = newValue}
+  }
+
+  var repeatedSeqSmall0Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] {
+    get {return _storage._repeatedSeqSmall0Midfield}
+    set {_uniqueStorage()._repeatedSeqSmall0Midfield = newValue}
+  }
+
+  var repeatedSeqSmall0Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall0] {
+    get {return _storage._repeatedSeqSmall0Hifield}
+    set {_uniqueStorage()._repeatedSeqSmall0Hifield = newValue}
+  }
+
+  var packedSeqSmall0Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] {
+    get {return _storage._packedSeqSmall0Lowfield}
+    set {_uniqueStorage()._packedSeqSmall0Lowfield = newValue}
+  }
+
+  var packedSeqSmall0Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] {
+    get {return _storage._packedSeqSmall0Midfield}
+    set {_uniqueStorage()._packedSeqSmall0Midfield = newValue}
+  }
+
+  var packedSeqSmall0Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall0] {
+    get {return _storage._packedSeqSmall0Hifield}
+    set {_uniqueStorage()._packedSeqSmall0Hifield = newValue}
+  }
+
+  var optionalSeqSmall1Lowfield: ProtobufUnittest_EnumParseTester.SeqSmall1 {
+    get {return _storage._optionalSeqSmall1Lowfield ?? .default}
+    set {_uniqueStorage()._optionalSeqSmall1Lowfield = newValue}
+  }
+  /// Returns true if `optionalSeqSmall1Lowfield` has been explicitly set.
+  var hasOptionalSeqSmall1Lowfield: Bool {return _storage._optionalSeqSmall1Lowfield != nil}
+  /// Clears the value of `optionalSeqSmall1Lowfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqSmall1Lowfield() {_uniqueStorage()._optionalSeqSmall1Lowfield = nil}
+
+  var optionalSeqSmall1Midfield: ProtobufUnittest_EnumParseTester.SeqSmall1 {
+    get {return _storage._optionalSeqSmall1Midfield ?? .default}
+    set {_uniqueStorage()._optionalSeqSmall1Midfield = newValue}
+  }
+  /// Returns true if `optionalSeqSmall1Midfield` has been explicitly set.
+  var hasOptionalSeqSmall1Midfield: Bool {return _storage._optionalSeqSmall1Midfield != nil}
+  /// Clears the value of `optionalSeqSmall1Midfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqSmall1Midfield() {_uniqueStorage()._optionalSeqSmall1Midfield = nil}
+
+  var optionalSeqSmall1Hifield: ProtobufUnittest_EnumParseTester.SeqSmall1 {
+    get {return _storage._optionalSeqSmall1Hifield ?? .default}
+    set {_uniqueStorage()._optionalSeqSmall1Hifield = newValue}
+  }
+  /// Returns true if `optionalSeqSmall1Hifield` has been explicitly set.
+  var hasOptionalSeqSmall1Hifield: Bool {return _storage._optionalSeqSmall1Hifield != nil}
+  /// Clears the value of `optionalSeqSmall1Hifield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqSmall1Hifield() {_uniqueStorage()._optionalSeqSmall1Hifield = nil}
+
+  var repeatedSeqSmall1Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] {
+    get {return _storage._repeatedSeqSmall1Lowfield}
+    set {_uniqueStorage()._repeatedSeqSmall1Lowfield = newValue}
+  }
+
+  var repeatedSeqSmall1Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] {
+    get {return _storage._repeatedSeqSmall1Midfield}
+    set {_uniqueStorage()._repeatedSeqSmall1Midfield = newValue}
+  }
+
+  var repeatedSeqSmall1Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall1] {
+    get {return _storage._repeatedSeqSmall1Hifield}
+    set {_uniqueStorage()._repeatedSeqSmall1Hifield = newValue}
+  }
+
+  var packedSeqSmall1Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] {
+    get {return _storage._packedSeqSmall1Lowfield}
+    set {_uniqueStorage()._packedSeqSmall1Lowfield = newValue}
+  }
+
+  var packedSeqSmall1Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] {
+    get {return _storage._packedSeqSmall1Midfield}
+    set {_uniqueStorage()._packedSeqSmall1Midfield = newValue}
+  }
+
+  var packedSeqSmall1Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall1] {
+    get {return _storage._packedSeqSmall1Hifield}
+    set {_uniqueStorage()._packedSeqSmall1Hifield = newValue}
+  }
+
+  var optionalSeqLargeLowfield: ProtobufUnittest_EnumParseTester.SeqLarge {
+    get {return _storage._optionalSeqLargeLowfield ?? .default}
+    set {_uniqueStorage()._optionalSeqLargeLowfield = newValue}
+  }
+  /// Returns true if `optionalSeqLargeLowfield` has been explicitly set.
+  var hasOptionalSeqLargeLowfield: Bool {return _storage._optionalSeqLargeLowfield != nil}
+  /// Clears the value of `optionalSeqLargeLowfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqLargeLowfield() {_uniqueStorage()._optionalSeqLargeLowfield = nil}
+
+  var optionalSeqLargeMidfield: ProtobufUnittest_EnumParseTester.SeqLarge {
+    get {return _storage._optionalSeqLargeMidfield ?? .default}
+    set {_uniqueStorage()._optionalSeqLargeMidfield = newValue}
+  }
+  /// Returns true if `optionalSeqLargeMidfield` has been explicitly set.
+  var hasOptionalSeqLargeMidfield: Bool {return _storage._optionalSeqLargeMidfield != nil}
+  /// Clears the value of `optionalSeqLargeMidfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqLargeMidfield() {_uniqueStorage()._optionalSeqLargeMidfield = nil}
+
+  var optionalSeqLargeHifield: ProtobufUnittest_EnumParseTester.SeqLarge {
+    get {return _storage._optionalSeqLargeHifield ?? .default}
+    set {_uniqueStorage()._optionalSeqLargeHifield = newValue}
+  }
+  /// Returns true if `optionalSeqLargeHifield` has been explicitly set.
+  var hasOptionalSeqLargeHifield: Bool {return _storage._optionalSeqLargeHifield != nil}
+  /// Clears the value of `optionalSeqLargeHifield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSeqLargeHifield() {_uniqueStorage()._optionalSeqLargeHifield = nil}
+
+  var repeatedSeqLargeLowfield: [ProtobufUnittest_EnumParseTester.SeqLarge] {
+    get {return _storage._repeatedSeqLargeLowfield}
+    set {_uniqueStorage()._repeatedSeqLargeLowfield = newValue}
+  }
+
+  var repeatedSeqLargeMidfield: [ProtobufUnittest_EnumParseTester.SeqLarge] {
+    get {return _storage._repeatedSeqLargeMidfield}
+    set {_uniqueStorage()._repeatedSeqLargeMidfield = newValue}
+  }
+
+  var repeatedSeqLargeHifield: [ProtobufUnittest_EnumParseTester.SeqLarge] {
+    get {return _storage._repeatedSeqLargeHifield}
+    set {_uniqueStorage()._repeatedSeqLargeHifield = newValue}
+  }
+
+  var packedSeqLargeLowfield: [ProtobufUnittest_EnumParseTester.SeqLarge] {
+    get {return _storage._packedSeqLargeLowfield}
+    set {_uniqueStorage()._packedSeqLargeLowfield = newValue}
+  }
+
+  var packedSeqLargeMidfield: [ProtobufUnittest_EnumParseTester.SeqLarge] {
+    get {return _storage._packedSeqLargeMidfield}
+    set {_uniqueStorage()._packedSeqLargeMidfield = newValue}
+  }
+
+  var packedSeqLargeHifield: [ProtobufUnittest_EnumParseTester.SeqLarge] {
+    get {return _storage._packedSeqLargeHifield}
+    set {_uniqueStorage()._packedSeqLargeHifield = newValue}
+  }
+
+  var optionalArbitraryLowfield: ProtobufUnittest_EnumParseTester.Arbitrary {
+    get {return _storage._optionalArbitraryLowfield ?? .default}
+    set {_uniqueStorage()._optionalArbitraryLowfield = newValue}
+  }
+  /// Returns true if `optionalArbitraryLowfield` has been explicitly set.
+  var hasOptionalArbitraryLowfield: Bool {return _storage._optionalArbitraryLowfield != nil}
+  /// Clears the value of `optionalArbitraryLowfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalArbitraryLowfield() {_uniqueStorage()._optionalArbitraryLowfield = nil}
+
+  var optionalArbitraryMidfield: ProtobufUnittest_EnumParseTester.Arbitrary {
+    get {return _storage._optionalArbitraryMidfield ?? .default}
+    set {_uniqueStorage()._optionalArbitraryMidfield = newValue}
+  }
+  /// Returns true if `optionalArbitraryMidfield` has been explicitly set.
+  var hasOptionalArbitraryMidfield: Bool {return _storage._optionalArbitraryMidfield != nil}
+  /// Clears the value of `optionalArbitraryMidfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalArbitraryMidfield() {_uniqueStorage()._optionalArbitraryMidfield = nil}
+
+  var optionalArbitraryHifield: ProtobufUnittest_EnumParseTester.Arbitrary {
+    get {return _storage._optionalArbitraryHifield ?? .default}
+    set {_uniqueStorage()._optionalArbitraryHifield = newValue}
+  }
+  /// Returns true if `optionalArbitraryHifield` has been explicitly set.
+  var hasOptionalArbitraryHifield: Bool {return _storage._optionalArbitraryHifield != nil}
+  /// Clears the value of `optionalArbitraryHifield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalArbitraryHifield() {_uniqueStorage()._optionalArbitraryHifield = nil}
+
+  var repeatedArbitraryLowfield: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return _storage._repeatedArbitraryLowfield}
+    set {_uniqueStorage()._repeatedArbitraryLowfield = newValue}
+  }
+
+  var repeatedArbitraryMidfield: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return _storage._repeatedArbitraryMidfield}
+    set {_uniqueStorage()._repeatedArbitraryMidfield = newValue}
+  }
+
+  var repeatedArbitraryHifield: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return _storage._repeatedArbitraryHifield}
+    set {_uniqueStorage()._repeatedArbitraryHifield = newValue}
+  }
+
+  var packedArbitraryLowfield: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return _storage._packedArbitraryLowfield}
+    set {_uniqueStorage()._packedArbitraryLowfield = newValue}
+  }
+
+  var packedArbitraryMidfield: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return _storage._packedArbitraryMidfield}
+    set {_uniqueStorage()._packedArbitraryMidfield = newValue}
+  }
+
+  var packedArbitraryHifield: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return _storage._packedArbitraryHifield}
+    set {_uniqueStorage()._packedArbitraryHifield = newValue}
+  }
+
+  /// An arbitrary field we can append to to break the runs of repeated fields.
+  var otherField: Int32 {
+    get {return _storage._otherField ?? 0}
+    set {_uniqueStorage()._otherField = newValue}
+  }
+  /// Returns true if `otherField` has been explicitly set.
+  var hasOtherField: Bool {return _storage._otherField != nil}
+  /// Clears the value of `otherField`. Subsequent reads from it will return its default value.
+  mutating func clearOtherField() {_uniqueStorage()._otherField = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum SeqSmall0: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case `default` // = 0
+    case seqSmall01 // = 1
+    case seqSmall02 // = 2
+
+    init() {
+      self = .default
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .default
+      case 1: self = .seqSmall01
+      case 2: self = .seqSmall02
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .default: return 0
+      case .seqSmall01: return 1
+      case .seqSmall02: return 2
+      }
+    }
+
+  }
+
+  enum SeqSmall1: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case `default` // = 1
+    case seqSmall12 // = 2
+    case seqSmall13 // = 3
+
+    init() {
+      self = .default
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 1: self = .default
+      case 2: self = .seqSmall12
+      case 3: self = .seqSmall13
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .default: return 1
+      case .seqSmall12: return 2
+      case .seqSmall13: return 3
+      }
+    }
+
+  }
+
+  enum SeqLarge: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case `default` // = -1
+    case seqLarge0 // = 0
+    case seqLarge1 // = 1
+    case seqLarge2 // = 2
+    case seqLarge3 // = 3
+    case seqLarge4 // = 4
+    case seqLarge5 // = 5
+    case seqLarge6 // = 6
+    case seqLarge7 // = 7
+    case seqLarge8 // = 8
+    case seqLarge9 // = 9
+    case seqLarge10 // = 10
+    case seqLarge11 // = 11
+    case seqLarge12 // = 12
+    case seqLarge13 // = 13
+    case seqLarge14 // = 14
+    case seqLarge15 // = 15
+    case seqLarge16 // = 16
+    case seqLarge17 // = 17
+    case seqLarge18 // = 18
+    case seqLarge19 // = 19
+    case seqLarge20 // = 20
+    case seqLarge21 // = 21
+    case seqLarge22 // = 22
+    case seqLarge23 // = 23
+    case seqLarge24 // = 24
+    case seqLarge25 // = 25
+    case seqLarge26 // = 26
+    case seqLarge27 // = 27
+    case seqLarge28 // = 28
+    case seqLarge29 // = 29
+    case seqLarge30 // = 30
+    case seqLarge31 // = 31
+    case seqLarge32 // = 32
+    case seqLarge33 // = 33
+
+    init() {
+      self = .default
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case -1: self = .default
+      case 0: self = .seqLarge0
+      case 1: self = .seqLarge1
+      case 2: self = .seqLarge2
+      case 3: self = .seqLarge3
+      case 4: self = .seqLarge4
+      case 5: self = .seqLarge5
+      case 6: self = .seqLarge6
+      case 7: self = .seqLarge7
+      case 8: self = .seqLarge8
+      case 9: self = .seqLarge9
+      case 10: self = .seqLarge10
+      case 11: self = .seqLarge11
+      case 12: self = .seqLarge12
+      case 13: self = .seqLarge13
+      case 14: self = .seqLarge14
+      case 15: self = .seqLarge15
+      case 16: self = .seqLarge16
+      case 17: self = .seqLarge17
+      case 18: self = .seqLarge18
+      case 19: self = .seqLarge19
+      case 20: self = .seqLarge20
+      case 21: self = .seqLarge21
+      case 22: self = .seqLarge22
+      case 23: self = .seqLarge23
+      case 24: self = .seqLarge24
+      case 25: self = .seqLarge25
+      case 26: self = .seqLarge26
+      case 27: self = .seqLarge27
+      case 28: self = .seqLarge28
+      case 29: self = .seqLarge29
+      case 30: self = .seqLarge30
+      case 31: self = .seqLarge31
+      case 32: self = .seqLarge32
+      case 33: self = .seqLarge33
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .default: return -1
+      case .seqLarge0: return 0
+      case .seqLarge1: return 1
+      case .seqLarge2: return 2
+      case .seqLarge3: return 3
+      case .seqLarge4: return 4
+      case .seqLarge5: return 5
+      case .seqLarge6: return 6
+      case .seqLarge7: return 7
+      case .seqLarge8: return 8
+      case .seqLarge9: return 9
+      case .seqLarge10: return 10
+      case .seqLarge11: return 11
+      case .seqLarge12: return 12
+      case .seqLarge13: return 13
+      case .seqLarge14: return 14
+      case .seqLarge15: return 15
+      case .seqLarge16: return 16
+      case .seqLarge17: return 17
+      case .seqLarge18: return 18
+      case .seqLarge19: return 19
+      case .seqLarge20: return 20
+      case .seqLarge21: return 21
+      case .seqLarge22: return 22
+      case .seqLarge23: return 23
+      case .seqLarge24: return 24
+      case .seqLarge25: return 25
+      case .seqLarge26: return 26
+      case .seqLarge27: return 27
+      case .seqLarge28: return 28
+      case .seqLarge29: return 29
+      case .seqLarge30: return 30
+      case .seqLarge31: return 31
+      case .seqLarge32: return 32
+      case .seqLarge33: return 33
+      }
+    }
+
+  }
+
+  enum Arbitrary: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case `default` // = -123123
+    case arbitrary1 // = -123
+    case arbitrary2 // = 213
+    case arbitrary3 // = 213213
+    case min // = -2147483648
+    case max // = 2147483647
+
+    init() {
+      self = .default
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case -2147483648: self = .min
+      case -123123: self = .default
+      case -123: self = .arbitrary1
+      case 213: self = .arbitrary2
+      case 213213: self = .arbitrary3
+      case 2147483647: self = .max
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .min: return -2147483648
+      case .default: return -123123
+      case .arbitrary1: return -123
+      case .arbitrary2: return 213
+      case .arbitrary3: return 213213
+      case .max: return 2147483647
+      }
+    }
+
+  }
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestAllTypes: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
@@ -5414,6 +6752,19 @@ extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Lay
 extension ProtobufUnittest_TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedGroupExtensionInnerExtension: @unchecked Sendable {}
 extension ProtobufUnittest_TestExtensionRangeSerialize: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyInt32Simple: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyInt32: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyMostlyInt32: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyMostlyInt32BigFieldNumber: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyUint32Simple: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyUint32: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyOneUint32: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyOneInt32BigFieldNumber: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyInt32BigFieldNumber: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyUint32BigFieldNumber: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyBigFieldNumberUint32: @unchecked Sendable {}
+extension ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested: @unchecked Sendable {}
+extension ProtobufUnittest_EnumParseTester: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest.proto.
@@ -5816,6 +7167,21 @@ extension ProtobufUnittest_TestAllExtensions {
   /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalLazyMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension)
+  }
+
+  var ProtobufUnittest_optionalUnverifiedLazyMessageExtension: ProtobufUnittest_TestAllTypes.NestedMessage {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension`
+  /// has been explicitly set.
+  var hasProtobufUnittest_optionalUnverifiedLazyMessageExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_optionalUnverifiedLazyMessageExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension)
   }
 
   /// Repeated
@@ -6807,6 +8173,7 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_optional_cord_extension,
   ProtobufUnittest_Extensions_optional_public_import_message_extension,
   ProtobufUnittest_Extensions_optional_lazy_message_extension,
+  ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension,
   ProtobufUnittest_Extensions_repeated_int32_extension,
   ProtobufUnittest_Extensions_repeated_int64_extension,
   ProtobufUnittest_Extensions_repeated_uint32_extension,
@@ -7040,6 +8407,11 @@ let ProtobufUnittest_Extensions_optional_public_import_message_extension = Swift
 let ProtobufUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypes.NestedMessage>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 27,
   fieldName: "protobuf_unittest.optional_lazy_message_extension"
+)
+
+let ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypes.NestedMessage>, ProtobufUnittest_TestAllExtensions>(
+  _protobuf_fieldNumber: 28,
+  fieldName: "protobuf_unittest.optional_unverified_lazy_message_extension"
 )
 
 /// Repeated
@@ -7734,6 +9106,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     25: .standard(proto: "optional_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
+    28: .standard(proto: "optional_unverified_lazy_message"),
     31: .standard(proto: "repeated_int32"),
     32: .standard(proto: "repeated_int64"),
     33: .standard(proto: "repeated_uint32"),
@@ -7812,6 +9185,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     var _optionalCord: String? = nil
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
+    var _optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -7890,6 +9264,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
       _optionalCord = source._optionalCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
+      _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
       _repeatedInt32 = source._repeatedInt32
       _repeatedInt64 = source._repeatedInt64
       _repeatedUint32 = source._repeatedUint32
@@ -7980,6 +9355,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
         case 25: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage) }()
         case 27: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyMessage) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._optionalUnverifiedLazyMessage) }()
         case 31: try { try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32) }()
         case 32: try { try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64) }()
         case 33: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32) }()
@@ -8151,6 +9527,9 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
       } }()
       try { if let v = _storage._optionalLazyMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
+      } }()
+      try { if let v = _storage._optionalUnverifiedLazyMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
@@ -8341,6 +9720,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
+        if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}
         if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
         if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}
         if _storage._repeatedUint32 != rhs_storage._repeatedUint32 {return false}
@@ -9620,6 +11000,7 @@ extension ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProt
     1: .standard(proto: "optional_message"),
     2: .standard(proto: "repeated_message"),
     3: .same(proto: "dummy"),
+    4: .standard(proto: "optional_lazy_message"),
   ]
 
   public var isInitialized: Bool {
@@ -9637,6 +11018,7 @@ extension ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProt
       case 1: try { try decoder.decodeSingularMessageField(value: &self._optionalMessage) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedMessage) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self._dummy) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._optionalLazyMessage) }()
       default: break
       }
     }
@@ -9656,6 +11038,9 @@ extension ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProt
     try { if let v = self._dummy {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     } }()
+    try { if let v = self._optionalLazyMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -9663,6 +11048,7 @@ extension ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProt
     if lhs._optionalMessage != rhs._optionalMessage {return false}
     if lhs.repeatedMessage != rhs.repeatedMessage {return false}
     if lhs._dummy != rhs._dummy {return false}
+    if lhs._optionalLazyMessage != rhs._optionalLazyMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14552,4 +15938,1311 @@ extension ProtobufUnittest_TestExtensionRangeSerialize: SwiftProtobuf.Message, S
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_TestVerifyInt32Simple: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyInt32Simple"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_int32_1"),
+    2: .standard(proto: "optional_int32_2"),
+    63: .standard(proto: "optional_int32_63"),
+    64: .standard(proto: "optional_int32_64"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt321) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt322) }()
+      case 63: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3263) }()
+      case 64: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3264) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt321 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt322 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalInt3263 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt3264 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyInt32Simple, rhs: ProtobufUnittest_TestVerifyInt32Simple) -> Bool {
+    if lhs._optionalInt321 != rhs._optionalInt321 {return false}
+    if lhs._optionalInt322 != rhs._optionalInt322 {return false}
+    if lhs._optionalInt3263 != rhs._optionalInt3263 {return false}
+    if lhs._optionalInt3264 != rhs._optionalInt3264 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyInt32"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_int32_1"),
+    2: .standard(proto: "optional_int32_2"),
+    63: .standard(proto: "optional_int32_63"),
+    64: .standard(proto: "optional_int32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt321) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt322) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 63: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3263) }()
+      case 64: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3264) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt321 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt322 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalInt3263 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt3264 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyInt32, rhs: ProtobufUnittest_TestVerifyInt32) -> Bool {
+    if lhs._optionalInt321 != rhs._optionalInt321 {return false}
+    if lhs._optionalInt322 != rhs._optionalInt322 {return false}
+    if lhs._optionalInt3263 != rhs._optionalInt3263 {return false}
+    if lhs._optionalInt3264 != rhs._optionalInt3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyMostlyInt32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyMostlyInt32"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    30: .standard(proto: "optional_int64_30"),
+    1: .standard(proto: "optional_int32_1"),
+    2: .standard(proto: "optional_int32_2"),
+    3: .standard(proto: "optional_int32_3"),
+    4: .standard(proto: "optional_int32_4"),
+    63: .standard(proto: "optional_int32_63"),
+    64: .standard(proto: "optional_int32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt321) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt322) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt323) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt324) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 30: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt6430) }()
+      case 63: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3263) }()
+      case 64: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3264) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt321 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt322 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalInt323 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._optionalInt324 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalInt6430 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 30)
+    } }()
+    try { if let v = self._optionalInt3263 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt3264 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyMostlyInt32, rhs: ProtobufUnittest_TestVerifyMostlyInt32) -> Bool {
+    if lhs._optionalInt6430 != rhs._optionalInt6430 {return false}
+    if lhs._optionalInt321 != rhs._optionalInt321 {return false}
+    if lhs._optionalInt322 != rhs._optionalInt322 {return false}
+    if lhs._optionalInt323 != rhs._optionalInt323 {return false}
+    if lhs._optionalInt324 != rhs._optionalInt324 {return false}
+    if lhs._optionalInt3263 != rhs._optionalInt3263 {return false}
+    if lhs._optionalInt3264 != rhs._optionalInt3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyMostlyInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyMostlyInt32BigFieldNumber"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    30: .standard(proto: "optional_int64_30"),
+    300: .standard(proto: "optional_int32_300"),
+    1: .standard(proto: "optional_int32_1"),
+    2: .standard(proto: "optional_int32_2"),
+    3: .standard(proto: "optional_int32_3"),
+    4: .standard(proto: "optional_int32_4"),
+    63: .standard(proto: "optional_int32_63"),
+    64: .standard(proto: "optional_int32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt321) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt322) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt323) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt324) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 30: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt6430) }()
+      case 63: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3263) }()
+      case 64: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3264) }()
+      case 300: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt32300) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt321 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt322 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalInt323 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._optionalInt324 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalInt6430 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 30)
+    } }()
+    try { if let v = self._optionalInt3263 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt3264 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try { if let v = self._optionalInt32300 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 300)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyMostlyInt32BigFieldNumber, rhs: ProtobufUnittest_TestVerifyMostlyInt32BigFieldNumber) -> Bool {
+    if lhs._optionalInt6430 != rhs._optionalInt6430 {return false}
+    if lhs._optionalInt32300 != rhs._optionalInt32300 {return false}
+    if lhs._optionalInt321 != rhs._optionalInt321 {return false}
+    if lhs._optionalInt322 != rhs._optionalInt322 {return false}
+    if lhs._optionalInt323 != rhs._optionalInt323 {return false}
+    if lhs._optionalInt324 != rhs._optionalInt324 {return false}
+    if lhs._optionalInt3263 != rhs._optionalInt3263 {return false}
+    if lhs._optionalInt3264 != rhs._optionalInt3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyUint32Simple: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyUint32Simple"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_uint32_1"),
+    2: .standard(proto: "optional_uint32_2"),
+    63: .standard(proto: "optional_uint32_63"),
+    64: .standard(proto: "optional_uint32_64"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint321) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint322) }()
+      case 63: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3263) }()
+      case 64: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3264) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalUint321 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalUint322 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalUint3263 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalUint3264 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyUint32Simple, rhs: ProtobufUnittest_TestVerifyUint32Simple) -> Bool {
+    if lhs._optionalUint321 != rhs._optionalUint321 {return false}
+    if lhs._optionalUint322 != rhs._optionalUint322 {return false}
+    if lhs._optionalUint3263 != rhs._optionalUint3263 {return false}
+    if lhs._optionalUint3264 != rhs._optionalUint3264 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyUint32"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_uint32_1"),
+    2: .standard(proto: "optional_uint32_2"),
+    63: .standard(proto: "optional_uint32_63"),
+    64: .standard(proto: "optional_uint32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint321) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint322) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 63: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3263) }()
+      case 64: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3264) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalUint321 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalUint322 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalUint3263 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalUint3264 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyUint32, rhs: ProtobufUnittest_TestVerifyUint32) -> Bool {
+    if lhs._optionalUint321 != rhs._optionalUint321 {return false}
+    if lhs._optionalUint322 != rhs._optionalUint322 {return false}
+    if lhs._optionalUint3263 != rhs._optionalUint3263 {return false}
+    if lhs._optionalUint3264 != rhs._optionalUint3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyOneUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyOneUint32"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_uint32_1"),
+    2: .standard(proto: "optional_int32_2"),
+    63: .standard(proto: "optional_int32_63"),
+    64: .standard(proto: "optional_int32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint321) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt322) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 63: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3263) }()
+      case 64: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3264) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalUint321 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt322 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalInt3263 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt3264 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyOneUint32, rhs: ProtobufUnittest_TestVerifyOneUint32) -> Bool {
+    if lhs._optionalUint321 != rhs._optionalUint321 {return false}
+    if lhs._optionalInt322 != rhs._optionalInt322 {return false}
+    if lhs._optionalInt3263 != rhs._optionalInt3263 {return false}
+    if lhs._optionalInt3264 != rhs._optionalInt3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyOneInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyOneInt32BigFieldNumber"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    65: .standard(proto: "optional_int32_65"),
+    1: .standard(proto: "optional_int64_1"),
+    2: .standard(proto: "optional_int64_2"),
+    63: .standard(proto: "optional_int64_63"),
+    64: .standard(proto: "optional_int64_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt641) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt642) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 63: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt6463) }()
+      case 64: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt6464) }()
+      case 65: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3265) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt641 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt642 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalInt6463 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt6464 {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 64)
+    } }()
+    try { if let v = self._optionalInt3265 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyOneInt32BigFieldNumber, rhs: ProtobufUnittest_TestVerifyOneInt32BigFieldNumber) -> Bool {
+    if lhs._optionalInt3265 != rhs._optionalInt3265 {return false}
+    if lhs._optionalInt641 != rhs._optionalInt641 {return false}
+    if lhs._optionalInt642 != rhs._optionalInt642 {return false}
+    if lhs._optionalInt6463 != rhs._optionalInt6463 {return false}
+    if lhs._optionalInt6464 != rhs._optionalInt6464 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyInt32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyInt32BigFieldNumber"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1000: .standard(proto: "optional_int32_1000"),
+    65: .standard(proto: "optional_int32_65"),
+    1: .standard(proto: "optional_int32_1"),
+    2: .standard(proto: "optional_int32_2"),
+    63: .standard(proto: "optional_int32_63"),
+    64: .standard(proto: "optional_int32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt321) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt322) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 63: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3263) }()
+      case 64: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3264) }()
+      case 65: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt3265) }()
+      case 1000: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt321000) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt321 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalInt322 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalInt3263 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalInt3264 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try { if let v = self._optionalInt3265 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
+    } }()
+    try { if let v = self._optionalInt321000 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1000)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyInt32BigFieldNumber, rhs: ProtobufUnittest_TestVerifyInt32BigFieldNumber) -> Bool {
+    if lhs._optionalInt321000 != rhs._optionalInt321000 {return false}
+    if lhs._optionalInt3265 != rhs._optionalInt3265 {return false}
+    if lhs._optionalInt321 != rhs._optionalInt321 {return false}
+    if lhs._optionalInt322 != rhs._optionalInt322 {return false}
+    if lhs._optionalInt3263 != rhs._optionalInt3263 {return false}
+    if lhs._optionalInt3264 != rhs._optionalInt3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyUint32BigFieldNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyUint32BigFieldNumber"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1000: .standard(proto: "optional_uint32_1000"),
+    65: .standard(proto: "optional_uint32_65"),
+    1: .standard(proto: "optional_uint32_1"),
+    2: .standard(proto: "optional_uint32_2"),
+    63: .standard(proto: "optional_uint32_63"),
+    64: .standard(proto: "optional_uint32_64"),
+    9: .standard(proto: "optional_all_types"),
+    10: .standard(proto: "repeated_all_types"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint321) }()
+      case 2: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint322) }()
+      case 9: try { try decoder.decodeSingularMessageField(value: &self._optionalAllTypes) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedAllTypes) }()
+      case 63: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3263) }()
+      case 64: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3264) }()
+      case 65: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint3265) }()
+      case 1000: try { try decoder.decodeSingularUInt32Field(value: &self._optionalUint321000) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalUint321 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalUint322 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._optionalAllTypes {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+    } }()
+    if !self.repeatedAllTypes.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedAllTypes, fieldNumber: 10)
+    }
+    try { if let v = self._optionalUint3263 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 63)
+    } }()
+    try { if let v = self._optionalUint3264 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 64)
+    } }()
+    try { if let v = self._optionalUint3265 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 65)
+    } }()
+    try { if let v = self._optionalUint321000 {
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1000)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyUint32BigFieldNumber, rhs: ProtobufUnittest_TestVerifyUint32BigFieldNumber) -> Bool {
+    if lhs._optionalUint321000 != rhs._optionalUint321000 {return false}
+    if lhs._optionalUint3265 != rhs._optionalUint3265 {return false}
+    if lhs._optionalUint321 != rhs._optionalUint321 {return false}
+    if lhs._optionalUint322 != rhs._optionalUint322 {return false}
+    if lhs._optionalUint3263 != rhs._optionalUint3263 {return false}
+    if lhs._optionalUint3264 != rhs._optionalUint3264 {return false}
+    if lhs._optionalAllTypes != rhs._optionalAllTypes {return false}
+    if lhs.repeatedAllTypes != rhs.repeatedAllTypes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyBigFieldNumberUint32: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestVerifyBigFieldNumberUint32"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_nested"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._optionalNested) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalNested {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyBigFieldNumberUint32, rhs: ProtobufUnittest_TestVerifyBigFieldNumberUint32) -> Bool {
+    if lhs._optionalNested != rhs._optionalNested {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestVerifyBigFieldNumberUint32.protoMessageName + ".Nested"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    5000: .standard(proto: "optional_uint32_5000"),
+    1000: .standard(proto: "optional_uint32_1000"),
+    66: .standard(proto: "optional_uint32_66"),
+    65: .standard(proto: "optional_uint32_65"),
+    1: .standard(proto: "optional_uint32_1"),
+    2: .standard(proto: "optional_uint32_2"),
+    63: .standard(proto: "optional_uint32_63"),
+    64: .standard(proto: "optional_uint32_64"),
+    9: .standard(proto: "optional_nested"),
+    10: .standard(proto: "repeated_nested"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _optionalUint325000: UInt32? = nil
+    var _optionalUint321000: UInt32? = nil
+    var _optionalUint3266: UInt32? = nil
+    var _optionalUint3265: UInt32? = nil
+    var _optionalUint321: UInt32? = nil
+    var _optionalUint322: UInt32? = nil
+    var _optionalUint3263: UInt32? = nil
+    var _optionalUint3264: UInt32? = nil
+    var _optionalNested: ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested? = nil
+    var _repeatedNested: [ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested] = []
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalUint325000 = source._optionalUint325000
+      _optionalUint321000 = source._optionalUint321000
+      _optionalUint3266 = source._optionalUint3266
+      _optionalUint3265 = source._optionalUint3265
+      _optionalUint321 = source._optionalUint321
+      _optionalUint322 = source._optionalUint322
+      _optionalUint3263 = source._optionalUint3263
+      _optionalUint3264 = source._optionalUint3264
+      _optionalNested = source._optionalNested
+      _repeatedNested = source._repeatedNested
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint321) }()
+        case 2: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint322) }()
+        case 9: try { try decoder.decodeSingularMessageField(value: &_storage._optionalNested) }()
+        case 10: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedNested) }()
+        case 63: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint3263) }()
+        case 64: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint3264) }()
+        case 65: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint3265) }()
+        case 66: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint3266) }()
+        case 1000: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint321000) }()
+        case 5000: try { try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint325000) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._optionalUint321 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._optionalUint322 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._optionalNested {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      } }()
+      if !_storage._repeatedNested.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedNested, fieldNumber: 10)
+      }
+      try { if let v = _storage._optionalUint3263 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 63)
+      } }()
+      try { if let v = _storage._optionalUint3264 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 64)
+      } }()
+      try { if let v = _storage._optionalUint3265 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 65)
+      } }()
+      try { if let v = _storage._optionalUint3266 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 66)
+      } }()
+      try { if let v = _storage._optionalUint321000 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 1000)
+      } }()
+      try { if let v = _storage._optionalUint325000 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 5000)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested, rhs: ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._optionalUint325000 != rhs_storage._optionalUint325000 {return false}
+        if _storage._optionalUint321000 != rhs_storage._optionalUint321000 {return false}
+        if _storage._optionalUint3266 != rhs_storage._optionalUint3266 {return false}
+        if _storage._optionalUint3265 != rhs_storage._optionalUint3265 {return false}
+        if _storage._optionalUint321 != rhs_storage._optionalUint321 {return false}
+        if _storage._optionalUint322 != rhs_storage._optionalUint322 {return false}
+        if _storage._optionalUint3263 != rhs_storage._optionalUint3263 {return false}
+        if _storage._optionalUint3264 != rhs_storage._optionalUint3264 {return false}
+        if _storage._optionalNested != rhs_storage._optionalNested {return false}
+        if _storage._repeatedNested != rhs_storage._repeatedNested {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_EnumParseTester: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".EnumParseTester"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_seq_small_0_lowfield"),
+    1001: .standard(proto: "optional_seq_small_0_midfield"),
+    1000001: .standard(proto: "optional_seq_small_0_hifield"),
+    2: .standard(proto: "repeated_seq_small_0_lowfield"),
+    1002: .standard(proto: "repeated_seq_small_0_midfield"),
+    1000002: .standard(proto: "repeated_seq_small_0_hifield"),
+    3: .standard(proto: "packed_seq_small_0_lowfield"),
+    1003: .standard(proto: "packed_seq_small_0_midfield"),
+    1000003: .standard(proto: "packed_seq_small_0_hifield"),
+    4: .standard(proto: "optional_seq_small_1_lowfield"),
+    1004: .standard(proto: "optional_seq_small_1_midfield"),
+    1000004: .standard(proto: "optional_seq_small_1_hifield"),
+    5: .standard(proto: "repeated_seq_small_1_lowfield"),
+    1005: .standard(proto: "repeated_seq_small_1_midfield"),
+    1000005: .standard(proto: "repeated_seq_small_1_hifield"),
+    6: .standard(proto: "packed_seq_small_1_lowfield"),
+    1006: .standard(proto: "packed_seq_small_1_midfield"),
+    1000006: .standard(proto: "packed_seq_small_1_hifield"),
+    7: .standard(proto: "optional_seq_large_lowfield"),
+    1007: .standard(proto: "optional_seq_large_midfield"),
+    1000007: .standard(proto: "optional_seq_large_hifield"),
+    8: .standard(proto: "repeated_seq_large_lowfield"),
+    1008: .standard(proto: "repeated_seq_large_midfield"),
+    1000008: .standard(proto: "repeated_seq_large_hifield"),
+    9: .standard(proto: "packed_seq_large_lowfield"),
+    1009: .standard(proto: "packed_seq_large_midfield"),
+    1000009: .standard(proto: "packed_seq_large_hifield"),
+    10: .standard(proto: "optional_arbitrary_lowfield"),
+    1010: .standard(proto: "optional_arbitrary_midfield"),
+    1000010: .standard(proto: "optional_arbitrary_hifield"),
+    11: .standard(proto: "repeated_arbitrary_lowfield"),
+    1011: .standard(proto: "repeated_arbitrary_midfield"),
+    1000011: .standard(proto: "repeated_arbitrary_hifield"),
+    12: .standard(proto: "packed_arbitrary_lowfield"),
+    1012: .standard(proto: "packed_arbitrary_midfield"),
+    1000012: .standard(proto: "packed_arbitrary_hifield"),
+    99: .standard(proto: "other_field"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _optionalSeqSmall0Lowfield: ProtobufUnittest_EnumParseTester.SeqSmall0? = nil
+    var _optionalSeqSmall0Midfield: ProtobufUnittest_EnumParseTester.SeqSmall0? = nil
+    var _optionalSeqSmall0Hifield: ProtobufUnittest_EnumParseTester.SeqSmall0? = nil
+    var _repeatedSeqSmall0Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] = []
+    var _repeatedSeqSmall0Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] = []
+    var _repeatedSeqSmall0Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall0] = []
+    var _packedSeqSmall0Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] = []
+    var _packedSeqSmall0Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall0] = []
+    var _packedSeqSmall0Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall0] = []
+    var _optionalSeqSmall1Lowfield: ProtobufUnittest_EnumParseTester.SeqSmall1? = nil
+    var _optionalSeqSmall1Midfield: ProtobufUnittest_EnumParseTester.SeqSmall1? = nil
+    var _optionalSeqSmall1Hifield: ProtobufUnittest_EnumParseTester.SeqSmall1? = nil
+    var _repeatedSeqSmall1Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] = []
+    var _repeatedSeqSmall1Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] = []
+    var _repeatedSeqSmall1Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall1] = []
+    var _packedSeqSmall1Lowfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] = []
+    var _packedSeqSmall1Midfield: [ProtobufUnittest_EnumParseTester.SeqSmall1] = []
+    var _packedSeqSmall1Hifield: [ProtobufUnittest_EnumParseTester.SeqSmall1] = []
+    var _optionalSeqLargeLowfield: ProtobufUnittest_EnumParseTester.SeqLarge? = nil
+    var _optionalSeqLargeMidfield: ProtobufUnittest_EnumParseTester.SeqLarge? = nil
+    var _optionalSeqLargeHifield: ProtobufUnittest_EnumParseTester.SeqLarge? = nil
+    var _repeatedSeqLargeLowfield: [ProtobufUnittest_EnumParseTester.SeqLarge] = []
+    var _repeatedSeqLargeMidfield: [ProtobufUnittest_EnumParseTester.SeqLarge] = []
+    var _repeatedSeqLargeHifield: [ProtobufUnittest_EnumParseTester.SeqLarge] = []
+    var _packedSeqLargeLowfield: [ProtobufUnittest_EnumParseTester.SeqLarge] = []
+    var _packedSeqLargeMidfield: [ProtobufUnittest_EnumParseTester.SeqLarge] = []
+    var _packedSeqLargeHifield: [ProtobufUnittest_EnumParseTester.SeqLarge] = []
+    var _optionalArbitraryLowfield: ProtobufUnittest_EnumParseTester.Arbitrary? = nil
+    var _optionalArbitraryMidfield: ProtobufUnittest_EnumParseTester.Arbitrary? = nil
+    var _optionalArbitraryHifield: ProtobufUnittest_EnumParseTester.Arbitrary? = nil
+    var _repeatedArbitraryLowfield: [ProtobufUnittest_EnumParseTester.Arbitrary] = []
+    var _repeatedArbitraryMidfield: [ProtobufUnittest_EnumParseTester.Arbitrary] = []
+    var _repeatedArbitraryHifield: [ProtobufUnittest_EnumParseTester.Arbitrary] = []
+    var _packedArbitraryLowfield: [ProtobufUnittest_EnumParseTester.Arbitrary] = []
+    var _packedArbitraryMidfield: [ProtobufUnittest_EnumParseTester.Arbitrary] = []
+    var _packedArbitraryHifield: [ProtobufUnittest_EnumParseTester.Arbitrary] = []
+    var _otherField: Int32? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalSeqSmall0Lowfield = source._optionalSeqSmall0Lowfield
+      _optionalSeqSmall0Midfield = source._optionalSeqSmall0Midfield
+      _optionalSeqSmall0Hifield = source._optionalSeqSmall0Hifield
+      _repeatedSeqSmall0Lowfield = source._repeatedSeqSmall0Lowfield
+      _repeatedSeqSmall0Midfield = source._repeatedSeqSmall0Midfield
+      _repeatedSeqSmall0Hifield = source._repeatedSeqSmall0Hifield
+      _packedSeqSmall0Lowfield = source._packedSeqSmall0Lowfield
+      _packedSeqSmall0Midfield = source._packedSeqSmall0Midfield
+      _packedSeqSmall0Hifield = source._packedSeqSmall0Hifield
+      _optionalSeqSmall1Lowfield = source._optionalSeqSmall1Lowfield
+      _optionalSeqSmall1Midfield = source._optionalSeqSmall1Midfield
+      _optionalSeqSmall1Hifield = source._optionalSeqSmall1Hifield
+      _repeatedSeqSmall1Lowfield = source._repeatedSeqSmall1Lowfield
+      _repeatedSeqSmall1Midfield = source._repeatedSeqSmall1Midfield
+      _repeatedSeqSmall1Hifield = source._repeatedSeqSmall1Hifield
+      _packedSeqSmall1Lowfield = source._packedSeqSmall1Lowfield
+      _packedSeqSmall1Midfield = source._packedSeqSmall1Midfield
+      _packedSeqSmall1Hifield = source._packedSeqSmall1Hifield
+      _optionalSeqLargeLowfield = source._optionalSeqLargeLowfield
+      _optionalSeqLargeMidfield = source._optionalSeqLargeMidfield
+      _optionalSeqLargeHifield = source._optionalSeqLargeHifield
+      _repeatedSeqLargeLowfield = source._repeatedSeqLargeLowfield
+      _repeatedSeqLargeMidfield = source._repeatedSeqLargeMidfield
+      _repeatedSeqLargeHifield = source._repeatedSeqLargeHifield
+      _packedSeqLargeLowfield = source._packedSeqLargeLowfield
+      _packedSeqLargeMidfield = source._packedSeqLargeMidfield
+      _packedSeqLargeHifield = source._packedSeqLargeHifield
+      _optionalArbitraryLowfield = source._optionalArbitraryLowfield
+      _optionalArbitraryMidfield = source._optionalArbitraryMidfield
+      _optionalArbitraryHifield = source._optionalArbitraryHifield
+      _repeatedArbitraryLowfield = source._repeatedArbitraryLowfield
+      _repeatedArbitraryMidfield = source._repeatedArbitraryMidfield
+      _repeatedArbitraryHifield = source._repeatedArbitraryHifield
+      _packedArbitraryLowfield = source._packedArbitraryLowfield
+      _packedArbitraryMidfield = source._packedArbitraryMidfield
+      _packedArbitraryHifield = source._packedArbitraryHifield
+      _otherField = source._otherField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqSmall0Lowfield) }()
+        case 2: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqSmall0Lowfield) }()
+        case 3: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqSmall0Lowfield) }()
+        case 4: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqSmall1Lowfield) }()
+        case 5: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqSmall1Lowfield) }()
+        case 6: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqSmall1Lowfield) }()
+        case 7: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqLargeLowfield) }()
+        case 8: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqLargeLowfield) }()
+        case 9: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqLargeLowfield) }()
+        case 10: try { try decoder.decodeSingularEnumField(value: &_storage._optionalArbitraryLowfield) }()
+        case 11: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedArbitraryLowfield) }()
+        case 12: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedArbitraryLowfield) }()
+        case 99: try { try decoder.decodeSingularInt32Field(value: &_storage._otherField) }()
+        case 1001: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqSmall0Midfield) }()
+        case 1002: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqSmall0Midfield) }()
+        case 1003: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqSmall0Midfield) }()
+        case 1004: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqSmall1Midfield) }()
+        case 1005: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqSmall1Midfield) }()
+        case 1006: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqSmall1Midfield) }()
+        case 1007: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqLargeMidfield) }()
+        case 1008: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqLargeMidfield) }()
+        case 1009: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqLargeMidfield) }()
+        case 1010: try { try decoder.decodeSingularEnumField(value: &_storage._optionalArbitraryMidfield) }()
+        case 1011: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedArbitraryMidfield) }()
+        case 1012: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedArbitraryMidfield) }()
+        case 1000001: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqSmall0Hifield) }()
+        case 1000002: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqSmall0Hifield) }()
+        case 1000003: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqSmall0Hifield) }()
+        case 1000004: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqSmall1Hifield) }()
+        case 1000005: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqSmall1Hifield) }()
+        case 1000006: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqSmall1Hifield) }()
+        case 1000007: try { try decoder.decodeSingularEnumField(value: &_storage._optionalSeqLargeHifield) }()
+        case 1000008: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedSeqLargeHifield) }()
+        case 1000009: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedSeqLargeHifield) }()
+        case 1000010: try { try decoder.decodeSingularEnumField(value: &_storage._optionalArbitraryHifield) }()
+        case 1000011: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedArbitraryHifield) }()
+        case 1000012: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedArbitraryHifield) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._optionalSeqSmall0Lowfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+      } }()
+      if !_storage._repeatedSeqSmall0Lowfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqSmall0Lowfield, fieldNumber: 2)
+      }
+      if !_storage._packedSeqSmall0Lowfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqSmall0Lowfield, fieldNumber: 3)
+      }
+      try { if let v = _storage._optionalSeqSmall1Lowfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+      } }()
+      if !_storage._repeatedSeqSmall1Lowfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqSmall1Lowfield, fieldNumber: 5)
+      }
+      if !_storage._packedSeqSmall1Lowfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqSmall1Lowfield, fieldNumber: 6)
+      }
+      try { if let v = _storage._optionalSeqLargeLowfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 7)
+      } }()
+      if !_storage._repeatedSeqLargeLowfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqLargeLowfield, fieldNumber: 8)
+      }
+      if !_storage._packedSeqLargeLowfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqLargeLowfield, fieldNumber: 9)
+      }
+      try { if let v = _storage._optionalArbitraryLowfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 10)
+      } }()
+      if !_storage._repeatedArbitraryLowfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedArbitraryLowfield, fieldNumber: 11)
+      }
+      if !_storage._packedArbitraryLowfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedArbitraryLowfield, fieldNumber: 12)
+      }
+      try { if let v = _storage._otherField {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
+      } }()
+      try { if let v = _storage._optionalSeqSmall0Midfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1001)
+      } }()
+      if !_storage._repeatedSeqSmall0Midfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqSmall0Midfield, fieldNumber: 1002)
+      }
+      if !_storage._packedSeqSmall0Midfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqSmall0Midfield, fieldNumber: 1003)
+      }
+      try { if let v = _storage._optionalSeqSmall1Midfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1004)
+      } }()
+      if !_storage._repeatedSeqSmall1Midfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqSmall1Midfield, fieldNumber: 1005)
+      }
+      if !_storage._packedSeqSmall1Midfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqSmall1Midfield, fieldNumber: 1006)
+      }
+      try { if let v = _storage._optionalSeqLargeMidfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1007)
+      } }()
+      if !_storage._repeatedSeqLargeMidfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqLargeMidfield, fieldNumber: 1008)
+      }
+      if !_storage._packedSeqLargeMidfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqLargeMidfield, fieldNumber: 1009)
+      }
+      try { if let v = _storage._optionalArbitraryMidfield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1010)
+      } }()
+      if !_storage._repeatedArbitraryMidfield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedArbitraryMidfield, fieldNumber: 1011)
+      }
+      if !_storage._packedArbitraryMidfield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedArbitraryMidfield, fieldNumber: 1012)
+      }
+      try { if let v = _storage._optionalSeqSmall0Hifield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1000001)
+      } }()
+      if !_storage._repeatedSeqSmall0Hifield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqSmall0Hifield, fieldNumber: 1000002)
+      }
+      if !_storage._packedSeqSmall0Hifield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqSmall0Hifield, fieldNumber: 1000003)
+      }
+      try { if let v = _storage._optionalSeqSmall1Hifield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1000004)
+      } }()
+      if !_storage._repeatedSeqSmall1Hifield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqSmall1Hifield, fieldNumber: 1000005)
+      }
+      if !_storage._packedSeqSmall1Hifield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqSmall1Hifield, fieldNumber: 1000006)
+      }
+      try { if let v = _storage._optionalSeqLargeHifield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1000007)
+      } }()
+      if !_storage._repeatedSeqLargeHifield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedSeqLargeHifield, fieldNumber: 1000008)
+      }
+      if !_storage._packedSeqLargeHifield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedSeqLargeHifield, fieldNumber: 1000009)
+      }
+      try { if let v = _storage._optionalArbitraryHifield {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1000010)
+      } }()
+      if !_storage._repeatedArbitraryHifield.isEmpty {
+        try visitor.visitRepeatedEnumField(value: _storage._repeatedArbitraryHifield, fieldNumber: 1000011)
+      }
+      if !_storage._packedArbitraryHifield.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._packedArbitraryHifield, fieldNumber: 1000012)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_EnumParseTester, rhs: ProtobufUnittest_EnumParseTester) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._optionalSeqSmall0Lowfield != rhs_storage._optionalSeqSmall0Lowfield {return false}
+        if _storage._optionalSeqSmall0Midfield != rhs_storage._optionalSeqSmall0Midfield {return false}
+        if _storage._optionalSeqSmall0Hifield != rhs_storage._optionalSeqSmall0Hifield {return false}
+        if _storage._repeatedSeqSmall0Lowfield != rhs_storage._repeatedSeqSmall0Lowfield {return false}
+        if _storage._repeatedSeqSmall0Midfield != rhs_storage._repeatedSeqSmall0Midfield {return false}
+        if _storage._repeatedSeqSmall0Hifield != rhs_storage._repeatedSeqSmall0Hifield {return false}
+        if _storage._packedSeqSmall0Lowfield != rhs_storage._packedSeqSmall0Lowfield {return false}
+        if _storage._packedSeqSmall0Midfield != rhs_storage._packedSeqSmall0Midfield {return false}
+        if _storage._packedSeqSmall0Hifield != rhs_storage._packedSeqSmall0Hifield {return false}
+        if _storage._optionalSeqSmall1Lowfield != rhs_storage._optionalSeqSmall1Lowfield {return false}
+        if _storage._optionalSeqSmall1Midfield != rhs_storage._optionalSeqSmall1Midfield {return false}
+        if _storage._optionalSeqSmall1Hifield != rhs_storage._optionalSeqSmall1Hifield {return false}
+        if _storage._repeatedSeqSmall1Lowfield != rhs_storage._repeatedSeqSmall1Lowfield {return false}
+        if _storage._repeatedSeqSmall1Midfield != rhs_storage._repeatedSeqSmall1Midfield {return false}
+        if _storage._repeatedSeqSmall1Hifield != rhs_storage._repeatedSeqSmall1Hifield {return false}
+        if _storage._packedSeqSmall1Lowfield != rhs_storage._packedSeqSmall1Lowfield {return false}
+        if _storage._packedSeqSmall1Midfield != rhs_storage._packedSeqSmall1Midfield {return false}
+        if _storage._packedSeqSmall1Hifield != rhs_storage._packedSeqSmall1Hifield {return false}
+        if _storage._optionalSeqLargeLowfield != rhs_storage._optionalSeqLargeLowfield {return false}
+        if _storage._optionalSeqLargeMidfield != rhs_storage._optionalSeqLargeMidfield {return false}
+        if _storage._optionalSeqLargeHifield != rhs_storage._optionalSeqLargeHifield {return false}
+        if _storage._repeatedSeqLargeLowfield != rhs_storage._repeatedSeqLargeLowfield {return false}
+        if _storage._repeatedSeqLargeMidfield != rhs_storage._repeatedSeqLargeMidfield {return false}
+        if _storage._repeatedSeqLargeHifield != rhs_storage._repeatedSeqLargeHifield {return false}
+        if _storage._packedSeqLargeLowfield != rhs_storage._packedSeqLargeLowfield {return false}
+        if _storage._packedSeqLargeMidfield != rhs_storage._packedSeqLargeMidfield {return false}
+        if _storage._packedSeqLargeHifield != rhs_storage._packedSeqLargeHifield {return false}
+        if _storage._optionalArbitraryLowfield != rhs_storage._optionalArbitraryLowfield {return false}
+        if _storage._optionalArbitraryMidfield != rhs_storage._optionalArbitraryMidfield {return false}
+        if _storage._optionalArbitraryHifield != rhs_storage._optionalArbitraryHifield {return false}
+        if _storage._repeatedArbitraryLowfield != rhs_storage._repeatedArbitraryLowfield {return false}
+        if _storage._repeatedArbitraryMidfield != rhs_storage._repeatedArbitraryMidfield {return false}
+        if _storage._repeatedArbitraryHifield != rhs_storage._repeatedArbitraryHifield {return false}
+        if _storage._packedArbitraryLowfield != rhs_storage._packedArbitraryLowfield {return false}
+        if _storage._packedArbitraryMidfield != rhs_storage._packedArbitraryMidfield {return false}
+        if _storage._packedArbitraryHifield != rhs_storage._packedArbitraryHifield {return false}
+        if _storage._otherField != rhs_storage._otherField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_EnumParseTester.SeqSmall0: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SEQ_SMALL_0_DEFAULT"),
+    1: .same(proto: "SEQ_SMALL_0_1"),
+    2: .same(proto: "SEQ_SMALL_0_2"),
+  ]
+}
+
+extension ProtobufUnittest_EnumParseTester.SeqSmall1: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "SEQ_SMALL_1_DEFAULT"),
+    2: .same(proto: "SEQ_SMALL_1_2"),
+    3: .same(proto: "SEQ_SMALL_1_3"),
+  ]
+}
+
+extension ProtobufUnittest_EnumParseTester.SeqLarge: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "SEQ_LARGE_DEFAULT"),
+    0: .same(proto: "SEQ_LARGE_0"),
+    1: .same(proto: "SEQ_LARGE_1"),
+    2: .same(proto: "SEQ_LARGE_2"),
+    3: .same(proto: "SEQ_LARGE_3"),
+    4: .same(proto: "SEQ_LARGE_4"),
+    5: .same(proto: "SEQ_LARGE_5"),
+    6: .same(proto: "SEQ_LARGE_6"),
+    7: .same(proto: "SEQ_LARGE_7"),
+    8: .same(proto: "SEQ_LARGE_8"),
+    9: .same(proto: "SEQ_LARGE_9"),
+    10: .same(proto: "SEQ_LARGE_10"),
+    11: .same(proto: "SEQ_LARGE_11"),
+    12: .same(proto: "SEQ_LARGE_12"),
+    13: .same(proto: "SEQ_LARGE_13"),
+    14: .same(proto: "SEQ_LARGE_14"),
+    15: .same(proto: "SEQ_LARGE_15"),
+    16: .same(proto: "SEQ_LARGE_16"),
+    17: .same(proto: "SEQ_LARGE_17"),
+    18: .same(proto: "SEQ_LARGE_18"),
+    19: .same(proto: "SEQ_LARGE_19"),
+    20: .same(proto: "SEQ_LARGE_20"),
+    21: .same(proto: "SEQ_LARGE_21"),
+    22: .same(proto: "SEQ_LARGE_22"),
+    23: .same(proto: "SEQ_LARGE_23"),
+    24: .same(proto: "SEQ_LARGE_24"),
+    25: .same(proto: "SEQ_LARGE_25"),
+    26: .same(proto: "SEQ_LARGE_26"),
+    27: .same(proto: "SEQ_LARGE_27"),
+    28: .same(proto: "SEQ_LARGE_28"),
+    29: .same(proto: "SEQ_LARGE_29"),
+    30: .same(proto: "SEQ_LARGE_30"),
+    31: .same(proto: "SEQ_LARGE_31"),
+    32: .same(proto: "SEQ_LARGE_32"),
+    33: .same(proto: "SEQ_LARGE_33"),
+  ]
+}
+
+extension ProtobufUnittest_EnumParseTester.Arbitrary: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -2147483648: .same(proto: "ARBITRARY_MIN"),
+    -123123: .same(proto: "ARBITRARY_DEFAULT"),
+    -123: .same(proto: "ARBITRARY_1"),
+    213: .same(proto: "ARBITRARY_2"),
+    213213: .same(proto: "ARBITRARY_3"),
+    2147483647: .same(proto: "ARBITRARY_MAX"),
+  ]
 }

@@ -108,6 +108,45 @@ struct ProtobufUnittest_NestedTestMessageSetContainer {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct ProtobufUnittest_NestedTestInt {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var a: UInt32 {
+    get {return _storage._a ?? 0}
+    set {_uniqueStorage()._a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return _storage._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {_uniqueStorage()._a = nil}
+
+  var b: Int32 {
+    get {return _storage._b ?? 0}
+    set {_uniqueStorage()._b = newValue}
+  }
+  /// Returns true if `b` has been explicitly set.
+  var hasB: Bool {return _storage._b != nil}
+  /// Clears the value of `b`. Subsequent reads from it will return its default value.
+  mutating func clearB() {_uniqueStorage()._b = nil}
+
+  var child: ProtobufUnittest_NestedTestInt {
+    get {return _storage._child ?? ProtobufUnittest_NestedTestInt()}
+    set {_uniqueStorage()._child = newValue}
+  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return _storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {_uniqueStorage()._child = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 struct ProtobufUnittest_TestMessageSetExtension1 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -168,36 +207,6 @@ struct ProtobufUnittest_TestMessageSetExtension2 {
   init() {}
 
   fileprivate var _str: String? = nil
-}
-
-struct ProtobufUnittest_NestedTestInt {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var a: UInt32 {
-    get {return _storage._a ?? 0}
-    set {_uniqueStorage()._a = newValue}
-  }
-  /// Returns true if `a` has been explicitly set.
-  var hasA: Bool {return _storage._a != nil}
-  /// Clears the value of `a`. Subsequent reads from it will return its default value.
-  mutating func clearA() {_uniqueStorage()._a = nil}
-
-  var child: ProtobufUnittest_NestedTestInt {
-    get {return _storage._child ?? ProtobufUnittest_NestedTestInt()}
-    set {_uniqueStorage()._child = newValue}
-  }
-  /// Returns true if `child` has been explicitly set.
-  var hasChild: Bool {return _storage._child != nil}
-  /// Clears the value of `child`. Subsequent reads from it will return its default value.
-  mutating func clearChild() {_uniqueStorage()._child = nil}
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestMessageSetExtension3 {
@@ -268,9 +277,9 @@ struct ProtobufUnittest_RawMessageSet {
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestMessageSetContainer: @unchecked Sendable {}
 extension ProtobufUnittest_NestedTestMessageSetContainer: @unchecked Sendable {}
+extension ProtobufUnittest_NestedTestInt: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageSetExtension1: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageSetExtension2: @unchecked Sendable {}
-extension ProtobufUnittest_NestedTestInt: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageSetExtension3: @unchecked Sendable {}
 extension ProtobufUnittest_RawMessageSet: @unchecked Sendable {}
 extension ProtobufUnittest_RawMessageSet.Item: @unchecked Sendable {}
@@ -506,6 +515,90 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
   }
 }
 
+extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".NestedTestInt"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    3: .same(proto: "b"),
+    2: .same(proto: "child"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _a: UInt32? = nil
+    var _b: Int32? = nil
+    var _child: ProtobufUnittest_NestedTestInt? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _b = source._b
+      _child = source._child
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularFixed32Field(value: &_storage._a) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._b) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._a {
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._b {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_NestedTestInt, rhs: ProtobufUnittest_NestedTestInt) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._a != rhs_storage._a {return false}
+        if _storage._b != rhs_storage._b {return false}
+        if _storage._child != rhs_storage._child {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -590,82 +683,6 @@ extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, Swif
 
   static func ==(lhs: ProtobufUnittest_TestMessageSetExtension2, rhs: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
     if lhs._str != rhs._str {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_NestedTestInt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NestedTestInt"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "child"),
-  ]
-
-  fileprivate class _StorageClass {
-    var _a: UInt32? = nil
-    var _child: ProtobufUnittest_NestedTestInt? = nil
-
-    static let defaultInstance = _StorageClass()
-
-    private init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _child = source._child
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularFixed32Field(value: &_storage._a) }()
-        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
-        default: break
-        }
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._a {
-        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._child {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittest_NestedTestInt, rhs: ProtobufUnittest_NestedTestInt) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._a != rhs_storage._a {return false}
-        if _storage._child != rhs_storage._child {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

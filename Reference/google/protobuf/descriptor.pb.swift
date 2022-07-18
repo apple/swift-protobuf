@@ -139,7 +139,9 @@ struct Google_Protobuf_FileDescriptorProto {
   mutating func clearSourceCodeInfo() {self._sourceCodeInfo = nil}
 
   /// The syntax of the proto file.
-  /// The supported values are "proto2" and "proto3".
+  /// The supported values are "proto2", "proto3", and "editions".
+  ///
+  /// If `edition` is present, this value must be "editions".
   var syntax: String {
     get {return _syntax ?? String()}
     set {_syntax = newValue}
@@ -148,6 +150,16 @@ struct Google_Protobuf_FileDescriptorProto {
   var hasSyntax: Bool {return self._syntax != nil}
   /// Clears the value of `syntax`. Subsequent reads from it will return its default value.
   mutating func clearSyntax() {self._syntax = nil}
+
+  /// The edition of the proto file, which is an opaque string.
+  var edition: String {
+    get {return _edition ?? String()}
+    set {_edition = newValue}
+  }
+  /// Returns true if `edition` has been explicitly set.
+  var hasEdition: Bool {return self._edition != nil}
+  /// Clears the value of `edition`. Subsequent reads from it will return its default value.
+  mutating func clearEdition() {self._edition = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -158,6 +170,7 @@ struct Google_Protobuf_FileDescriptorProto {
   fileprivate var _options: Google_Protobuf_FileOptions? = nil
   fileprivate var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
   fileprivate var _syntax: String? = nil
+  fileprivate var _edition: String? = nil
 }
 
 /// Describes a message type.
@@ -1328,11 +1341,8 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// check its required fields, regardless of whether or not the message has
   /// been parsed.
   ///
-  /// As of 2021, lazy does no correctness checks on the byte stream during
-  /// parsing.  This may lead to crashes if and when an invalid byte stream is
-  /// finally parsed upon access.
-  ///
-  /// TODO(b/211906113):  Enable validation on lazy fields.
+  /// As of May 2022, lazy verifies the contents of the byte stream during
+  /// parsing.  An invalid byte stream will cause the overall parsing to fail.
   var lazy: Bool {
     get {return _lazy ?? false}
     set {_lazy = newValue}
@@ -1980,7 +1990,7 @@ struct Google_Protobuf_GeneratedCodeInfo {
     mutating func clearBegin() {self._begin = nil}
 
     /// Identifies the ending offset in bytes in the generated code that
-    /// relates to the identified offset. The end offset should be one past
+    /// relates to the identified object. The end offset should be one past
     /// the last relevant byte (so the length of the text = end - begin).
     var end: Int32 {
       get {return _end ?? 0}
@@ -1991,13 +2001,60 @@ struct Google_Protobuf_GeneratedCodeInfo {
     /// Clears the value of `end`. Subsequent reads from it will return its default value.
     mutating func clearEnd() {self._end = nil}
 
+    var semantic: Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic {
+      get {return _semantic ?? .none}
+      set {_semantic = newValue}
+    }
+    /// Returns true if `semantic` has been explicitly set.
+    var hasSemantic: Bool {return self._semantic != nil}
+    /// Clears the value of `semantic`. Subsequent reads from it will return its default value.
+    mutating func clearSemantic() {self._semantic = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    /// Represents the identified object's effect on the element in the original
+    /// .proto file.
+    enum Semantic: SwiftProtobuf.Enum {
+      typealias RawValue = Int
+
+      /// There is no effect or the effect is indescribable.
+      case none // = 0
+
+      /// The element is set or otherwise mutated.
+      case set // = 1
+
+      /// An alias to the element is returned.
+      case alias // = 2
+
+      init() {
+        self = .none
+      }
+
+      init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .none
+        case 1: self = .set
+        case 2: self = .alias
+        default: return nil
+        }
+      }
+
+      var rawValue: Int {
+        switch self {
+        case .none: return 0
+        case .set: return 1
+        case .alias: return 2
+        }
+      }
+
+    }
 
     init() {}
 
     fileprivate var _sourceFile: String? = nil
     fileprivate var _begin: Int32? = nil
     fileprivate var _end: Int32? = nil
+    fileprivate var _semantic: Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic? = nil
   }
 
   init() {}
@@ -2089,6 +2146,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     8: .same(proto: "options"),
     9: .standard(proto: "source_code_info"),
     12: .same(proto: "syntax"),
+    13: .same(proto: "edition"),
   ]
 
   public var isInitialized: Bool {
@@ -2118,6 +2176,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
       case 10: try { try decoder.decodeRepeatedInt32Field(value: &self.publicDependency) }()
       case 11: try { try decoder.decodeRepeatedInt32Field(value: &self.weakDependency) }()
       case 12: try { try decoder.decodeSingularStringField(value: &self._syntax) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self._edition) }()
       default: break
       }
     }
@@ -2164,6 +2223,9 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     try { if let v = self._syntax {
       try visitor.visitSingularStringField(value: v, fieldNumber: 12)
     } }()
+    try { if let v = self._edition {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 13)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2180,6 +2242,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     if lhs._options != rhs._options {return false}
     if lhs._sourceCodeInfo != rhs._sourceCodeInfo {return false}
     if lhs._syntax != rhs._syntax {return false}
+    if lhs._edition != rhs._edition {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3890,6 +3953,7 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf.Message, S
     2: .standard(proto: "source_file"),
     3: .same(proto: "begin"),
     4: .same(proto: "end"),
+    5: .same(proto: "semantic"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3902,6 +3966,7 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf.Message, S
       case 2: try { try decoder.decodeSingularStringField(value: &self._sourceFile) }()
       case 3: try { try decoder.decodeSingularInt32Field(value: &self._begin) }()
       case 4: try { try decoder.decodeSingularInt32Field(value: &self._end) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self._semantic) }()
       default: break
       }
     }
@@ -3924,6 +3989,9 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf.Message, S
     try { if let v = self._end {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
     } }()
+    try { if let v = self._semantic {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3932,7 +4000,16 @@ extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf.Message, S
     if lhs._sourceFile != rhs._sourceFile {return false}
     if lhs._begin != rhs._begin {return false}
     if lhs._end != rhs._end {return false}
+    if lhs._semantic != rhs._semantic {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Google_Protobuf_GeneratedCodeInfo.Annotation.Semantic: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE"),
+    1: .same(proto: "SET"),
+    2: .same(proto: "ALIAS"),
+  ]
 }
