@@ -126,7 +126,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
     case foo // = 0
     case bar // = 1
     case baz // = 2
-    case qux // = 3
+    case moo // = 3
     case UNRECOGNIZED(Int)
 
     init() {
@@ -138,7 +138,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
       case 0: self = .foo
       case 1: self = .bar
       case 2: self = .baz
-      case 3: self = .qux
+      case 3: self = .moo
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -148,7 +148,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
       case .foo: return 0
       case .bar: return 1
       case .baz: return 2
-      case .qux: return 3
+      case .moo: return 3
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -166,7 +166,7 @@ extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: CaseIterable 
     .foo,
     .bar,
     .baz,
-    .qux,
+    .moo,
   ]
 }
 
@@ -278,6 +278,6 @@ extension UnittestDropUnknownFields_FooWithExtraFields.NestedEnum: SwiftProtobuf
     0: .same(proto: "FOO"),
     1: .same(proto: "BAR"),
     2: .same(proto: "BAZ"),
-    3: .same(proto: "QUX"),
+    3: .same(proto: "MOO"),
   ]
 }

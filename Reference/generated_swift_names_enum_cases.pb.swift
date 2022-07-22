@@ -96,806 +96,816 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   case clearDefaultValue // = 67
   case clearDeprecated // = 68
   case clearDoubleValue // = 69
-  case clearEnd // = 70
-  case clearExtendee // = 71
-  case clearExtensionValue // = 72
-  case clearGoPackage // = 73
-  case clearIdempotencyLevel // = 74
-  case clearIdentifierValue // = 75
-  case clearInputType // = 76
-  case clearIsExtension // = 77
-  case clearJavaGenerateEqualsAndHash // = 78
-  case clearJavaGenericServices // = 79
-  case clearJavaMultipleFiles // = 80
-  case clearJavaOuterClassname // = 81
-  case clearJavaPackage // = 82
-  case clearJavaStringCheckUtf8 // = 83
-  case clearJsonName // = 84
-  case clearJstype // = 85
-  case clearLabel // = 86
-  case clearLazy // = 87
-  case clearLeadingComments // = 88
-  case clearMapEntry // = 89
-  case clearMessageSetWireFormat // = 90
-  case clearName // = 91
-  case clearNamePart // = 92
-  case clearNegativeIntValue // = 93
-  case clearNoStandardDescriptorAccessor // = 94
-  case clearNumber // = 95
-  case clearObjcClassPrefix // = 96
-  case clearOneofIndex // = 97
-  case clearOptimizeFor // = 98
-  case clearOptions // = 99
-  case clearOutputType // = 100
-  case clearPackage // = 101
-  case clearPacked // = 102
-  case clearPhpClassPrefix // = 103
-  case clearPhpGenericServices // = 104
-  case clearPhpMetadataNamespace // = 105
-  case clearPhpNamespace // = 106
-  case clearPositiveIntValue // = 107
-  case clearProto3Optional // = 108
-  case clearPyGenericServices // = 109
-  case clearRubyPackage // = 110
-  case clearServerStreaming // = 111
-  case clearSourceCodeInfo // = 112
-  case clearSourceContext // = 113
-  case clearSourceFile // = 114
-  case clearStart // = 115
-  case clearStringValue // = 116
-  case clearSwiftPrefix // = 117
-  case clearSyntax // = 118
-  case clearTrailingComments // = 119
-  case clearType // = 120
-  case clearTypeName // = 121
-  case clearValue // = 122
-  case clearWeak // = 123
-  case clientStreaming // = 124
-  case codePoint // = 125
-  case codeUnits // = 126
-  case collection // = 127
-  case com // = 128
-  case comma // = 129
-  case contentsOf // = 130
-  case contiguousBytes // = 131
-  case count // = 132
-  case countVarintsInBuffer // = 133
-  case csharpNamespace // = 134
-  case ctype // = 135
-  case customCodable // = 136
-  case customDebugStringConvertible // = 137
-  case d // = 138
-  case data // = 139
-  case dataResult // = 140
-  case date // = 141
-  case daySec // = 142
-  case daysSinceEpoch // = 143
-  case debugDescription_ // = 144
-  case decoded // = 145
-  case decodedFromJsonnull // = 146
-  case decodeExtensionField // = 147
-  case decodeExtensionFieldsAsMessageSet // = 148
-  case decodeJson // = 149
-  case decodeMapField // = 150
-  case decodeMessage // = 151
-  case decoder // = 152
-  case decodeRepeated // = 153
-  case decodeRepeatedBoolField // = 154
-  case decodeRepeatedBytesField // = 155
-  case decodeRepeatedDoubleField // = 156
-  case decodeRepeatedEnumField // = 157
-  case decodeRepeatedFixed32Field // = 158
-  case decodeRepeatedFixed64Field // = 159
-  case decodeRepeatedFloatField // = 160
-  case decodeRepeatedGroupField // = 161
-  case decodeRepeatedInt32Field // = 162
-  case decodeRepeatedInt64Field // = 163
-  case decodeRepeatedMessageField // = 164
-  case decodeRepeatedSfixed32Field // = 165
-  case decodeRepeatedSfixed64Field // = 166
-  case decodeRepeatedSint32Field // = 167
-  case decodeRepeatedSint64Field // = 168
-  case decodeRepeatedStringField // = 169
-  case decodeRepeatedUint32Field // = 170
-  case decodeRepeatedUint64Field // = 171
-  case decodeSingular // = 172
-  case decodeSingularBoolField // = 173
-  case decodeSingularBytesField // = 174
-  case decodeSingularDoubleField // = 175
-  case decodeSingularEnumField // = 176
-  case decodeSingularFixed32Field // = 177
-  case decodeSingularFixed64Field // = 178
-  case decodeSingularFloatField // = 179
-  case decodeSingularGroupField // = 180
-  case decodeSingularInt32Field // = 181
-  case decodeSingularInt64Field // = 182
-  case decodeSingularMessageField // = 183
-  case decodeSingularSfixed32Field // = 184
-  case decodeSingularSfixed64Field // = 185
-  case decodeSingularSint32Field // = 186
-  case decodeSingularSint64Field // = 187
-  case decodeSingularStringField // = 188
-  case decodeSingularUint32Field // = 189
-  case decodeSingularUint64Field // = 190
-  case decodeTextFormat // = 191
-  case defaultAnyTypeUrlprefix // = 192
-  case defaultValue // = 193
-  case dependency // = 194
-  case deprecated // = 195
-  case description_ // = 196
-  case descriptorProto // = 197
-  case dictionary // = 198
-  case dictionaryLiteral // = 199
-  case digit // = 200
-  case digit0 // = 201
-  case digit1 // = 202
-  case digitCount // = 203
-  case digits // = 204
-  case digitValue // = 205
-  case discardableResult // = 206
-  case discardUnknownFields // = 207
-  case distance // = 208
-  case double // = 209
-  case doubleValue // = 210
-  case duration // = 211
-  case e // = 212
-  case element // = 213
-  case elements // = 214
-  case emitExtensionFieldName // = 215
-  case emitFieldName // = 216
-  case emitFieldNumber // = 217
-  case empty // = 218
-  case emptyData // = 219
-  case encodeAsBytes // = 220
-  case encoded // = 221
-  case encodedJsonstring // = 222
-  case encodedSize // = 223
-  case encodeField // = 224
-  case encoder // = 225
-  case end // = 226
-  case endArray // = 227
-  case endMessageField // = 228
-  case endObject // = 229
-  case endRegularField // = 230
-  case `enum` // = 231
-  case enumDescriptorProto // = 232
-  case enumOptions // = 233
-  case enumReservedRange // = 234
-  case enumType // = 235
-  case enumvalue // = 236
-  case enumValueDescriptorProto // = 237
-  case enumValueOptions // = 238
-  case equatable // = 239
-  case error // = 240
-  case expressibleByArrayLiteral // = 241
-  case expressibleByDictionaryLiteral // = 242
-  case ext // = 243
-  case extDecoder // = 244
-  case extendedGraphemeClusterLiteral // = 245
-  case extendedGraphemeClusterLiteralType // = 246
-  case extendee // = 247
-  case extensibleMessage // = 248
-  case `extension` // = 249
-  case extensionField // = 250
-  case extensionFieldNumber // = 251
-  case extensionFieldValueSet // = 252
-  case extensionMap // = 253
-  case extensionRange // = 254
-  case extensionRangeOptions // = 255
-  case extensions // = 256
-  case extras // = 257
-  case f // = 258
-  case `false` // = 259
-  case field // = 260
-  case fieldData // = 261
-  case fieldDescriptorProto // = 262
-  case fieldMask // = 263
-  case fieldName // = 264
-  case fieldNameCount // = 265
-  case fieldNum // = 266
-  case fieldNumber // = 267
-  case fieldNumberForProto // = 268
-  case fieldOptions // = 269
-  case fields // = 270
-  case fieldSize // = 271
-  case fieldTag // = 272
-  case fieldType // = 273
-  case file // = 274
-  case fileDescriptorProto // = 275
-  case fileDescriptorSet // = 276
-  case fileName // = 277
-  case fileOptions // = 278
-  case filter // = 279
-  case first // = 280
-  case firstItem // = 281
-  case float // = 282
-  case floatLiteral // = 283
-  case floatLiteralType // = 284
-  case floatValue // = 285
-  case forMessageName // = 286
-  case formUnion // = 287
-  case forReadingFrom // = 288
-  case forTypeURL // = 289
-  case forwardParser // = 290
-  case forWritingInto // = 291
-  case from // = 292
-  case fromAscii2 // = 293
-  case fromAscii4 // = 294
-  case fromByteOffset // = 295
-  case fromHexDigit // = 296
-  case `func` // = 297
-  case g // = 298
-  case generatedCodeInfo // = 299
-  case get // = 300
-  case getExtensionValue // = 301
-  case googleapis // = 302
-  case googleProtobufAny // = 303
-  case googleProtobufApi // = 304
-  case googleProtobufBoolValue // = 305
-  case googleProtobufBytesValue // = 306
-  case googleProtobufDescriptorProto // = 307
-  case googleProtobufDoubleValue // = 308
-  case googleProtobufDuration // = 309
-  case googleProtobufEmpty // = 310
-  case googleProtobufEnum // = 311
-  case googleProtobufEnumDescriptorProto // = 312
-  case googleProtobufEnumOptions // = 313
-  case googleProtobufEnumValue // = 314
-  case googleProtobufEnumValueDescriptorProto // = 315
-  case googleProtobufEnumValueOptions // = 316
-  case googleProtobufExtensionRangeOptions // = 317
-  case googleProtobufField // = 318
-  case googleProtobufFieldDescriptorProto // = 319
-  case googleProtobufFieldMask // = 320
-  case googleProtobufFieldOptions // = 321
-  case googleProtobufFileDescriptorProto // = 322
-  case googleProtobufFileDescriptorSet // = 323
-  case googleProtobufFileOptions // = 324
-  case googleProtobufFloatValue // = 325
-  case googleProtobufGeneratedCodeInfo // = 326
-  case googleProtobufInt32Value // = 327
-  case googleProtobufInt64Value // = 328
-  case googleProtobufListValue // = 329
-  case googleProtobufMessageOptions // = 330
-  case googleProtobufMethod // = 331
-  case googleProtobufMethodDescriptorProto // = 332
-  case googleProtobufMethodOptions // = 333
-  case googleProtobufMixin // = 334
-  case googleProtobufNullValue // = 335
-  case googleProtobufOneofDescriptorProto // = 336
-  case googleProtobufOneofOptions // = 337
-  case googleProtobufOption // = 338
-  case googleProtobufServiceDescriptorProto // = 339
-  case googleProtobufServiceOptions // = 340
-  case googleProtobufSourceCodeInfo // = 341
-  case googleProtobufSourceContext // = 342
-  case googleProtobufStringValue // = 343
-  case googleProtobufStruct // = 344
-  case googleProtobufSyntax // = 345
-  case googleProtobufTimestamp // = 346
-  case googleProtobufType // = 347
-  case googleProtobufUint32Value // = 348
-  case googleProtobufUint64Value // = 349
-  case googleProtobufUninterpretedOption // = 350
-  case googleProtobufValue // = 351
-  case goPackage // = 352
-  case group // = 353
-  case groupFieldNumberStack // = 354
-  case groupSize // = 355
-  case h // = 356
-  case hadOneofValue // = 357
-  case handleConflictingOneOf // = 358
-  case hasAggregateValue // = 359
-  case hasAllowAlias // = 360
-  case hasBegin // = 361
-  case hasCcEnableArenas // = 362
-  case hasCcGenericServices // = 363
-  case hasClientStreaming // = 364
-  case hasCsharpNamespace // = 365
-  case hasCtype // = 366
-  case hasDefaultValue // = 367
-  case hasDeprecated // = 368
-  case hasDoubleValue // = 369
-  case hasEnd // = 370
-  case hasExtendee // = 371
-  case hasExtensionValue // = 372
-  case hasGoPackage // = 373
-  case hash // = 374
-  case hashable // = 375
-  case hasher // = 376
-  case hashValue_ // = 377
-  case hashVisitor // = 378
-  case hasIdempotencyLevel // = 379
-  case hasIdentifierValue // = 380
-  case hasInputType // = 381
-  case hasIsExtension // = 382
-  case hasJavaGenerateEqualsAndHash // = 383
-  case hasJavaGenericServices // = 384
-  case hasJavaMultipleFiles // = 385
-  case hasJavaOuterClassname // = 386
-  case hasJavaPackage // = 387
-  case hasJavaStringCheckUtf8 // = 388
-  case hasJsonName // = 389
-  case hasJstype // = 390
-  case hasLabel // = 391
-  case hasLazy // = 392
-  case hasLeadingComments // = 393
-  case hasMapEntry // = 394
-  case hasMessageSetWireFormat // = 395
-  case hasName // = 396
-  case hasNamePart // = 397
-  case hasNegativeIntValue // = 398
-  case hasNoStandardDescriptorAccessor // = 399
-  case hasNumber // = 400
-  case hasObjcClassPrefix // = 401
-  case hasOneofIndex // = 402
-  case hasOptimizeFor // = 403
-  case hasOptions // = 404
-  case hasOutputType // = 405
-  case hasPackage // = 406
-  case hasPacked // = 407
-  case hasPhpClassPrefix // = 408
-  case hasPhpGenericServices // = 409
-  case hasPhpMetadataNamespace // = 410
-  case hasPhpNamespace // = 411
-  case hasPositiveIntValue // = 412
-  case hasProto3Optional // = 413
-  case hasPyGenericServices // = 414
-  case hasRubyPackage // = 415
-  case hasServerStreaming // = 416
-  case hasSourceCodeInfo // = 417
-  case hasSourceContext // = 418
-  case hasSourceFile // = 419
-  case hasStart // = 420
-  case hasStringValue // = 421
-  case hasSwiftPrefix // = 422
-  case hasSyntax // = 423
-  case hasTrailingComments // = 424
-  case hasType // = 425
-  case hasTypeName // = 426
-  case hasValue // = 427
-  case hasWeak // = 428
-  case hour // = 429
-  case i // = 430
-  case idempotencyLevel // = 431
-  case identifierValue // = 432
-  case `if` // = 433
-  case ignoreUnknownFields // = 434
-  case index // = 435
-  case init_ // = 436
-  case `inout` // = 437
-  case inputType // = 438
-  case insert // = 439
-  case int // = 440
-  case int32 // = 441
-  case int32Value // = 442
-  case int64 // = 443
-  case int64Value // = 444
-  case int8 // = 445
-  case integerLiteral // = 446
-  case integerLiteralType // = 447
-  case intern // = 448
-  case `internal` // = 449
-  case internalState // = 450
-  case into // = 451
-  case ints // = 452
-  case isA // = 453
-  case isEqual // = 454
-  case isEqualTo // = 455
-  case isExtension // = 456
-  case isInitialized // = 457
-  case itemTagsEncodedSize // = 458
-  case iterator // = 459
-  case i2166136261 // = 460
-  case javaGenerateEqualsAndHash // = 461
-  case javaGenericServices // = 462
-  case javaMultipleFiles // = 463
-  case javaOuterClassname // = 464
-  case javaPackage // = 465
-  case javaStringCheckUtf8 // = 466
-  case jsondecoder // = 467
-  case jsondecodingError // = 468
-  case jsondecodingOptions // = 469
-  case jsonEncoder // = 470
-  case jsonencodingError // = 471
-  case jsonencodingOptions // = 472
-  case jsonencodingVisitor // = 473
-  case jsonmapEncodingVisitor // = 474
-  case jsonName // = 475
-  case jsonPath // = 476
-  case jsonPaths // = 477
-  case jsonscanner // = 478
-  case jsonString // = 479
-  case jsonText // = 480
-  case jsonUtf8Data // = 481
-  case jstype // = 482
-  case k // = 483
-  case key // = 484
-  case keyField // = 485
-  case keyType // = 486
-  case kind // = 487
-  case l // = 488
-  case label // = 489
-  case lazy // = 490
-  case leadingComments // = 491
-  case leadingDetachedComments // = 492
-  case length // = 493
-  case lessThan // = 494
-  case `let` // = 495
-  case lhs // = 496
-  case list // = 497
-  case listOfMessages // = 498
-  case listValue // = 499
-  case littleEndian // = 500
-  case littleEndianBytes // = 501
-  case load // = 502
-  case localHasher // = 503
-  case location // = 504
-  case m // = 505
-  case major // = 506
-  case makeIterator // = 507
-  case mapEntry // = 508
-  case mapHash // = 509
-  case mapKeyType // = 510
-  case mapNameResolver // = 511
-  case mapToMessages // = 512
-  case mapValueType // = 513
-  case mapVisitor // = 514
-  case mdayStart // = 515
-  case merge // = 516
-  case message // = 517
-  case messageDepthLimit // = 518
-  case messageExtension // = 519
-  case messageImplementationBase // = 520
-  case messageOptions // = 521
-  case messageSet // = 522
-  case messageSetWireFormat // = 523
-  case messageType // = 524
-  case method // = 525
-  case methodDescriptorProto // = 526
-  case methodOptions // = 527
-  case methods // = 528
-  case minor // = 529
-  case mixin // = 530
-  case mixins // = 531
-  case modifier // = 532
-  case modify // = 533
-  case month // = 534
-  case msgExtension // = 535
-  case mutating // = 536
-  case n // = 537
-  case name // = 538
-  case nameDescription // = 539
-  case nameMap // = 540
-  case namePart // = 541
-  case nameResolver // = 542
-  case names // = 543
-  case nanos // = 544
-  case nativeBytes // = 545
-  case nativeEndianBytes // = 546
-  case negativeIntValue // = 547
-  case nestedType // = 548
-  case newL // = 549
-  case newList // = 550
-  case newValue // = 551
-  case nextByte // = 552
-  case nextFieldNumber // = 553
-  case `nil` // = 554
-  case nilLiteral // = 555
-  case noStandardDescriptorAccessor // = 556
-  case nullValue // = 557
-  case number // = 558
-  case numberValue // = 559
-  case objcClassPrefix // = 560
-  case of // = 561
-  case oneofDecl // = 562
-  case oneofDescriptorProto // = 563
-  case oneofIndex // = 564
-  case oneofOptions // = 565
-  case oneofs // = 566
-  case oneOfKind // = 567
-  case optimizeFor // = 568
-  case optimizeMode // = 569
-  case option // = 570
-  case optionalEnumExtensionField // = 571
-  case optionalExtensionField // = 572
-  case optionalGroupExtensionField // = 573
-  case optionalMessageExtensionField // = 574
-  case options // = 575
-  case other // = 576
-  case others // = 577
-  case out // = 578
-  case outputType // = 579
-  case p // = 580
-  case package // = 581
-  case packed // = 582
-  case packedEnumExtensionField // = 583
-  case packedExtensionField // = 584
-  case padding // = 585
-  case parent // = 586
-  case parse // = 587
-  case partial // = 588
-  case path // = 589
-  case paths // = 590
-  case payload // = 591
-  case payloadSize // = 592
-  case phpClassPrefix // = 593
-  case phpGenericServices // = 594
-  case phpMetadataNamespace // = 595
-  case phpNamespace // = 596
-  case pointer // = 597
-  case pos // = 598
-  case positiveIntValue // = 599
-  case prefix // = 600
-  case preserveProtoFieldNames // = 601
-  case preTraverse // = 602
-  case printUnknownFields // = 603
-  case proto2 // = 604
-  case proto3DefaultValue // = 605
-  case proto3Optional // = 606
-  case protobufApiversionCheck // = 607
-  case protobufApiversion2 // = 608
-  case protobufBool // = 609
-  case protobufBytes // = 610
-  case protobufDouble // = 611
-  case protobufEnumMap // = 612
-  case protobufExtension // = 613
-  case protobufFixed32 // = 614
-  case protobufFixed64 // = 615
-  case protobufFloat // = 616
-  case protobufInt32 // = 617
-  case protobufInt64 // = 618
-  case protobufMap // = 619
-  case protobufMessageMap // = 620
-  case protobufSfixed32 // = 621
-  case protobufSfixed64 // = 622
-  case protobufSint32 // = 623
-  case protobufSint64 // = 624
-  case protobufString // = 625
-  case protobufUint32 // = 626
-  case protobufUint64 // = 627
-  case protobufExtensionFieldValues // = 628
-  case protobufFieldNumber // = 629
-  case protobufGeneratedIsEqualTo // = 630
-  case protobufNameMap // = 631
-  case protobufNewField // = 632
-  case protobufPackage // = 633
-  case `protocol` // = 634
-  case protoFieldName // = 635
-  case protoMessageName // = 636
-  case protoNameProviding // = 637
-  case protoPaths // = 638
-  case `public` // = 639
-  case publicDependency // = 640
-  case putBoolValue // = 641
-  case putBytesValue // = 642
-  case putDoubleValue // = 643
-  case putEnumValue // = 644
-  case putFixedUint32 // = 645
-  case putFixedUint64 // = 646
-  case putFloatValue // = 647
-  case putInt64 // = 648
-  case putStringValue // = 649
-  case putUint64 // = 650
-  case putUint64Hex // = 651
-  case putVarInt // = 652
-  case putZigZagVarInt // = 653
-  case pyGenericServices // = 654
-  case rawChars // = 655
-  case rawRepresentable // = 656
-  case rawValue_ // = 657
-  case read4HexDigits // = 658
-  case register // = 659
-  case repeatedEnumExtensionField // = 660
-  case repeatedExtensionField // = 661
-  case repeatedGroupExtensionField // = 662
-  case repeatedMessageExtensionField // = 663
-  case requestStreaming // = 664
-  case requestTypeURL // = 665
-  case requiredSize // = 666
-  case reservedName // = 667
-  case reservedRange // = 668
-  case responseStreaming // = 669
-  case responseTypeURL // = 670
-  case result // = 671
-  case `rethrows` // = 672
-  case `return` // = 673
-  case returnType // = 674
-  case revision // = 675
-  case rhs // = 676
-  case root // = 677
-  case rubyPackage // = 678
-  case s // = 679
-  case sawBackslash // = 680
-  case sawSection4Characters // = 681
-  case sawSection5Characters // = 682
-  case scanner // = 683
-  case seconds // = 684
-  case self_ // = 685
-  case separator // = 686
-  case serialize // = 687
-  case serializedData // = 688
-  case serializedSize // = 689
-  case serverStreaming // = 690
-  case service // = 691
-  case serviceDescriptorProto // = 692
-  case serviceOptions // = 693
-  case set // = 694
-  case setExtensionValue // = 695
-  case shift // = 696
-  case simpleExtensionMap // = 697
-  case sizer // = 698
-  case source // = 699
-  case sourceCodeInfo // = 700
-  case sourceContext // = 701
-  case sourceEncoding // = 702
-  case sourceFile // = 703
-  case span // = 704
-  case split // = 705
-  case start // = 706
-  case startArray // = 707
-  case startArrayObject // = 708
-  case startField // = 709
-  case startIndex // = 710
-  case startMessageField // = 711
-  case startObject // = 712
-  case startRegularField // = 713
-  case state // = 714
-  case `static` // = 715
-  case staticString // = 716
-  case storage // = 717
-  case string // = 718
-  case stringLiteral // = 719
-  case stringLiteralType // = 720
-  case stringResult // = 721
-  case stringValue // = 722
-  case `struct` // = 723
-  case structValue // = 724
-  case subDecoder // = 725
-  case `subscript` // = 726
-  case subVisitor // = 727
-  case swift // = 728
-  case swiftPrefix // = 729
-  case swiftProtobuf // = 730
-  case syntax // = 731
-  case t // = 732
-  case tag // = 733
-  case terminator // = 734
-  case testDecoder // = 735
-  case text // = 736
-  case textDecoder // = 737
-  case textFormatDecoder // = 738
-  case textFormatDecodingError // = 739
-  case textFormatDecodingOptions // = 740
-  case textFormatEncodingOptions // = 741
-  case textFormatEncodingVisitor // = 742
-  case textFormatString // = 743
-  case `throws` // = 744
-  case timeInterval // = 745
-  case timeIntervalSince1970 // = 746
-  case timeIntervalSinceReferenceDate // = 747
-  case timestamp // = 748
-  case total // = 749
-  case totalArrayDepth // = 750
-  case totalSize // = 751
-  case trailingComments // = 752
-  case traverse // = 753
-  case `true` // = 754
-  case `try` // = 755
-  case type // = 756
-  case `typealias` // = 757
-  case typeEnum // = 758
-  case typeName // = 759
-  case typePrefix // = 760
-  case typeStart // = 761
-  case typeUnknown // = 762
-  case typeURL // = 763
-  case uint32 // = 764
-  case uint32Value // = 765
-  case uint64 // = 766
-  case uint64Value // = 767
-  case uint8 // = 768
-  case unicodeScalarLiteral // = 769
-  case unicodeScalarLiteralType // = 770
-  case unicodeScalars // = 771
-  case unicodeScalarView // = 772
-  case uninterpretedOption // = 773
-  case union // = 774
-  case uniqueStorage // = 775
-  case unknown // = 776
-  case unknownFields // = 777
-  case unknownStorage // = 778
-  case unpackTo // = 779
-  case unsafeBufferPointer // = 780
-  case unsafeMutablePointer // = 781
-  case unsafeMutableRawBufferPointer // = 782
-  case unsafeMutableRawPointer // = 783
-  case unsafeRawBufferPointer // = 784
-  case unsafeRawPointer // = 785
-  case updatedOptions // = 786
-  case url // = 787
-  case utf8 // = 788
-  case utf8Ptr // = 789
-  case utf8ToDouble // = 790
-  case utf8View // = 791
-  case v // = 792
-  case value // = 793
-  case valueField // = 794
-  case values // = 795
-  case valueType // = 796
-  case `var` // = 797
-  case version // = 798
-  case versionString // = 799
-  case visitExtensionFields // = 800
-  case visitExtensionFieldsAsMessageSet // = 801
-  case visitMapField // = 802
-  case visitor // = 803
-  case visitPacked // = 804
-  case visitPackedBoolField // = 805
-  case visitPackedDoubleField // = 806
-  case visitPackedEnumField // = 807
-  case visitPackedFixed32Field // = 808
-  case visitPackedFixed64Field // = 809
-  case visitPackedFloatField // = 810
-  case visitPackedInt32Field // = 811
-  case visitPackedInt64Field // = 812
-  case visitPackedSfixed32Field // = 813
-  case visitPackedSfixed64Field // = 814
-  case visitPackedSint32Field // = 815
-  case visitPackedSint64Field // = 816
-  case visitPackedUint32Field // = 817
-  case visitPackedUint64Field // = 818
-  case visitRepeated // = 819
-  case visitRepeatedBoolField // = 820
-  case visitRepeatedBytesField // = 821
-  case visitRepeatedDoubleField // = 822
-  case visitRepeatedEnumField // = 823
-  case visitRepeatedFixed32Field // = 824
-  case visitRepeatedFixed64Field // = 825
-  case visitRepeatedFloatField // = 826
-  case visitRepeatedGroupField // = 827
-  case visitRepeatedInt32Field // = 828
-  case visitRepeatedInt64Field // = 829
-  case visitRepeatedMessageField // = 830
-  case visitRepeatedSfixed32Field // = 831
-  case visitRepeatedSfixed64Field // = 832
-  case visitRepeatedSint32Field // = 833
-  case visitRepeatedSint64Field // = 834
-  case visitRepeatedStringField // = 835
-  case visitRepeatedUint32Field // = 836
-  case visitRepeatedUint64Field // = 837
-  case visitSingular // = 838
-  case visitSingularBoolField // = 839
-  case visitSingularBytesField // = 840
-  case visitSingularDoubleField // = 841
-  case visitSingularEnumField // = 842
-  case visitSingularFixed32Field // = 843
-  case visitSingularFixed64Field // = 844
-  case visitSingularFloatField // = 845
-  case visitSingularGroupField // = 846
-  case visitSingularInt32Field // = 847
-  case visitSingularInt64Field // = 848
-  case visitSingularMessageField // = 849
-  case visitSingularSfixed32Field // = 850
-  case visitSingularSfixed64Field // = 851
-  case visitSingularSint32Field // = 852
-  case visitSingularSint64Field // = 853
-  case visitSingularStringField // = 854
-  case visitSingularUint32Field // = 855
-  case visitSingularUint64Field // = 856
-  case visitUnknown // = 857
-  case wasDecoded // = 858
-  case weak // = 859
-  case weakDependency // = 860
-  case `where` // = 861
-  case wireFormat // = 862
-  case with // = 863
-  case withUnsafeBytes // = 864
-  case withUnsafeMutableBytes // = 865
-  case work // = 866
-  case wrappedType // = 867
-  case written // = 868
-  case yday // = 869
+  case clearEdition // = 70
+  case clearEnd // = 71
+  case clearExtendee // = 72
+  case clearExtensionValue // = 73
+  case clearGoPackage // = 74
+  case clearIdempotencyLevel // = 75
+  case clearIdentifierValue // = 76
+  case clearInputType // = 77
+  case clearIsExtension // = 78
+  case clearJavaGenerateEqualsAndHash // = 79
+  case clearJavaGenericServices // = 80
+  case clearJavaMultipleFiles // = 81
+  case clearJavaOuterClassname // = 82
+  case clearJavaPackage // = 83
+  case clearJavaStringCheckUtf8 // = 84
+  case clearJsonName // = 85
+  case clearJstype // = 86
+  case clearLabel // = 87
+  case clearLazy // = 88
+  case clearLeadingComments // = 89
+  case clearMapEntry // = 90
+  case clearMessageSetWireFormat // = 91
+  case clearName // = 92
+  case clearNamePart // = 93
+  case clearNegativeIntValue // = 94
+  case clearNoStandardDescriptorAccessor // = 95
+  case clearNumber // = 96
+  case clearObjcClassPrefix // = 97
+  case clearOneofIndex // = 98
+  case clearOptimizeFor // = 99
+  case clearOptions // = 100
+  case clearOutputType // = 101
+  case clearPackage // = 102
+  case clearPacked // = 103
+  case clearPhpClassPrefix // = 104
+  case clearPhpGenericServices // = 105
+  case clearPhpMetadataNamespace // = 106
+  case clearPhpNamespace // = 107
+  case clearPositiveIntValue // = 108
+  case clearProto3Optional // = 109
+  case clearPyGenericServices // = 110
+  case clearRubyPackage // = 111
+  case clearSemantic // = 112
+  case clearServerStreaming // = 113
+  case clearSourceCodeInfo // = 114
+  case clearSourceContext // = 115
+  case clearSourceFile // = 116
+  case clearStart // = 117
+  case clearStringValue // = 118
+  case clearSwiftPrefix // = 119
+  case clearSyntax // = 120
+  case clearTrailingComments // = 121
+  case clearType // = 122
+  case clearTypeName // = 123
+  case clearUnverifiedLazy // = 124
+  case clearValue // = 125
+  case clearWeak // = 126
+  case clientStreaming // = 127
+  case codePoint // = 128
+  case codeUnits // = 129
+  case collection // = 130
+  case com // = 131
+  case comma // = 132
+  case contentsOf // = 133
+  case contiguousBytes // = 134
+  case count // = 135
+  case countVarintsInBuffer // = 136
+  case csharpNamespace // = 137
+  case ctype // = 138
+  case customCodable // = 139
+  case customDebugStringConvertible // = 140
+  case d // = 141
+  case data // = 142
+  case dataResult // = 143
+  case date // = 144
+  case daySec // = 145
+  case daysSinceEpoch // = 146
+  case debugDescription_ // = 147
+  case decoded // = 148
+  case decodedFromJsonnull // = 149
+  case decodeExtensionField // = 150
+  case decodeExtensionFieldsAsMessageSet // = 151
+  case decodeJson // = 152
+  case decodeMapField // = 153
+  case decodeMessage // = 154
+  case decoder // = 155
+  case decodeRepeated // = 156
+  case decodeRepeatedBoolField // = 157
+  case decodeRepeatedBytesField // = 158
+  case decodeRepeatedDoubleField // = 159
+  case decodeRepeatedEnumField // = 160
+  case decodeRepeatedFixed32Field // = 161
+  case decodeRepeatedFixed64Field // = 162
+  case decodeRepeatedFloatField // = 163
+  case decodeRepeatedGroupField // = 164
+  case decodeRepeatedInt32Field // = 165
+  case decodeRepeatedInt64Field // = 166
+  case decodeRepeatedMessageField // = 167
+  case decodeRepeatedSfixed32Field // = 168
+  case decodeRepeatedSfixed64Field // = 169
+  case decodeRepeatedSint32Field // = 170
+  case decodeRepeatedSint64Field // = 171
+  case decodeRepeatedStringField // = 172
+  case decodeRepeatedUint32Field // = 173
+  case decodeRepeatedUint64Field // = 174
+  case decodeSingular // = 175
+  case decodeSingularBoolField // = 176
+  case decodeSingularBytesField // = 177
+  case decodeSingularDoubleField // = 178
+  case decodeSingularEnumField // = 179
+  case decodeSingularFixed32Field // = 180
+  case decodeSingularFixed64Field // = 181
+  case decodeSingularFloatField // = 182
+  case decodeSingularGroupField // = 183
+  case decodeSingularInt32Field // = 184
+  case decodeSingularInt64Field // = 185
+  case decodeSingularMessageField // = 186
+  case decodeSingularSfixed32Field // = 187
+  case decodeSingularSfixed64Field // = 188
+  case decodeSingularSint32Field // = 189
+  case decodeSingularSint64Field // = 190
+  case decodeSingularStringField // = 191
+  case decodeSingularUint32Field // = 192
+  case decodeSingularUint64Field // = 193
+  case decodeTextFormat // = 194
+  case defaultAnyTypeUrlprefix // = 195
+  case defaultValue // = 196
+  case dependency // = 197
+  case deprecated // = 198
+  case description_ // = 199
+  case descriptorProto // = 200
+  case dictionary // = 201
+  case dictionaryLiteral // = 202
+  case digit // = 203
+  case digit0 // = 204
+  case digit1 // = 205
+  case digitCount // = 206
+  case digits // = 207
+  case digitValue // = 208
+  case discardableResult // = 209
+  case discardUnknownFields // = 210
+  case distance // = 211
+  case double // = 212
+  case doubleValue // = 213
+  case duration // = 214
+  case e // = 215
+  case edition // = 216
+  case element // = 217
+  case elements // = 218
+  case emitExtensionFieldName // = 219
+  case emitFieldName // = 220
+  case emitFieldNumber // = 221
+  case empty // = 222
+  case emptyData // = 223
+  case encodeAsBytes // = 224
+  case encoded // = 225
+  case encodedJsonstring // = 226
+  case encodedSize // = 227
+  case encodeField // = 228
+  case encoder // = 229
+  case end // = 230
+  case endArray // = 231
+  case endMessageField // = 232
+  case endObject // = 233
+  case endRegularField // = 234
+  case `enum` // = 235
+  case enumDescriptorProto // = 236
+  case enumOptions // = 237
+  case enumReservedRange // = 238
+  case enumType // = 239
+  case enumvalue // = 240
+  case enumValueDescriptorProto // = 241
+  case enumValueOptions // = 242
+  case equatable // = 243
+  case error // = 244
+  case expressibleByArrayLiteral // = 245
+  case expressibleByDictionaryLiteral // = 246
+  case ext // = 247
+  case extDecoder // = 248
+  case extendedGraphemeClusterLiteral // = 249
+  case extendedGraphemeClusterLiteralType // = 250
+  case extendee // = 251
+  case extensibleMessage // = 252
+  case `extension` // = 253
+  case extensionField // = 254
+  case extensionFieldNumber // = 255
+  case extensionFieldValueSet // = 256
+  case extensionMap // = 257
+  case extensionRange // = 258
+  case extensionRangeOptions // = 259
+  case extensions // = 260
+  case extras // = 261
+  case f // = 262
+  case `false` // = 263
+  case field // = 264
+  case fieldData // = 265
+  case fieldDescriptorProto // = 266
+  case fieldMask // = 267
+  case fieldName // = 268
+  case fieldNameCount // = 269
+  case fieldNum // = 270
+  case fieldNumber // = 271
+  case fieldNumberForProto // = 272
+  case fieldOptions // = 273
+  case fields // = 274
+  case fieldSize // = 275
+  case fieldTag // = 276
+  case fieldType // = 277
+  case file // = 278
+  case fileDescriptorProto // = 279
+  case fileDescriptorSet // = 280
+  case fileName // = 281
+  case fileOptions // = 282
+  case filter // = 283
+  case first // = 284
+  case firstItem // = 285
+  case float // = 286
+  case floatLiteral // = 287
+  case floatLiteralType // = 288
+  case floatValue // = 289
+  case forMessageName // = 290
+  case formUnion // = 291
+  case forReadingFrom // = 292
+  case forTypeURL // = 293
+  case forwardParser // = 294
+  case forWritingInto // = 295
+  case from // = 296
+  case fromAscii2 // = 297
+  case fromAscii4 // = 298
+  case fromByteOffset // = 299
+  case fromHexDigit // = 300
+  case `func` // = 301
+  case g // = 302
+  case generatedCodeInfo // = 303
+  case get // = 304
+  case getExtensionValue // = 305
+  case googleapis // = 306
+  case googleProtobufAny // = 307
+  case googleProtobufApi // = 308
+  case googleProtobufBoolValue // = 309
+  case googleProtobufBytesValue // = 310
+  case googleProtobufDescriptorProto // = 311
+  case googleProtobufDoubleValue // = 312
+  case googleProtobufDuration // = 313
+  case googleProtobufEmpty // = 314
+  case googleProtobufEnum // = 315
+  case googleProtobufEnumDescriptorProto // = 316
+  case googleProtobufEnumOptions // = 317
+  case googleProtobufEnumValue // = 318
+  case googleProtobufEnumValueDescriptorProto // = 319
+  case googleProtobufEnumValueOptions // = 320
+  case googleProtobufExtensionRangeOptions // = 321
+  case googleProtobufField // = 322
+  case googleProtobufFieldDescriptorProto // = 323
+  case googleProtobufFieldMask // = 324
+  case googleProtobufFieldOptions // = 325
+  case googleProtobufFileDescriptorProto // = 326
+  case googleProtobufFileDescriptorSet // = 327
+  case googleProtobufFileOptions // = 328
+  case googleProtobufFloatValue // = 329
+  case googleProtobufGeneratedCodeInfo // = 330
+  case googleProtobufInt32Value // = 331
+  case googleProtobufInt64Value // = 332
+  case googleProtobufListValue // = 333
+  case googleProtobufMessageOptions // = 334
+  case googleProtobufMethod // = 335
+  case googleProtobufMethodDescriptorProto // = 336
+  case googleProtobufMethodOptions // = 337
+  case googleProtobufMixin // = 338
+  case googleProtobufNullValue // = 339
+  case googleProtobufOneofDescriptorProto // = 340
+  case googleProtobufOneofOptions // = 341
+  case googleProtobufOption // = 342
+  case googleProtobufServiceDescriptorProto // = 343
+  case googleProtobufServiceOptions // = 344
+  case googleProtobufSourceCodeInfo // = 345
+  case googleProtobufSourceContext // = 346
+  case googleProtobufStringValue // = 347
+  case googleProtobufStruct // = 348
+  case googleProtobufSyntax // = 349
+  case googleProtobufTimestamp // = 350
+  case googleProtobufType // = 351
+  case googleProtobufUint32Value // = 352
+  case googleProtobufUint64Value // = 353
+  case googleProtobufUninterpretedOption // = 354
+  case googleProtobufValue // = 355
+  case goPackage // = 356
+  case group // = 357
+  case groupFieldNumberStack // = 358
+  case groupSize // = 359
+  case h // = 360
+  case hadOneofValue // = 361
+  case handleConflictingOneOf // = 362
+  case hasAggregateValue // = 363
+  case hasAllowAlias // = 364
+  case hasBegin // = 365
+  case hasCcEnableArenas // = 366
+  case hasCcGenericServices // = 367
+  case hasClientStreaming // = 368
+  case hasCsharpNamespace // = 369
+  case hasCtype // = 370
+  case hasDefaultValue // = 371
+  case hasDeprecated // = 372
+  case hasDoubleValue // = 373
+  case hasEdition // = 374
+  case hasEnd // = 375
+  case hasExtendee // = 376
+  case hasExtensionValue // = 377
+  case hasGoPackage // = 378
+  case hash // = 379
+  case hashable // = 380
+  case hasher // = 381
+  case hashValue_ // = 382
+  case hashVisitor // = 383
+  case hasIdempotencyLevel // = 384
+  case hasIdentifierValue // = 385
+  case hasInputType // = 386
+  case hasIsExtension // = 387
+  case hasJavaGenerateEqualsAndHash // = 388
+  case hasJavaGenericServices // = 389
+  case hasJavaMultipleFiles // = 390
+  case hasJavaOuterClassname // = 391
+  case hasJavaPackage // = 392
+  case hasJavaStringCheckUtf8 // = 393
+  case hasJsonName // = 394
+  case hasJstype // = 395
+  case hasLabel // = 396
+  case hasLazy // = 397
+  case hasLeadingComments // = 398
+  case hasMapEntry // = 399
+  case hasMessageSetWireFormat // = 400
+  case hasName // = 401
+  case hasNamePart // = 402
+  case hasNegativeIntValue // = 403
+  case hasNoStandardDescriptorAccessor // = 404
+  case hasNumber // = 405
+  case hasObjcClassPrefix // = 406
+  case hasOneofIndex // = 407
+  case hasOptimizeFor // = 408
+  case hasOptions // = 409
+  case hasOutputType // = 410
+  case hasPackage // = 411
+  case hasPacked // = 412
+  case hasPhpClassPrefix // = 413
+  case hasPhpGenericServices // = 414
+  case hasPhpMetadataNamespace // = 415
+  case hasPhpNamespace // = 416
+  case hasPositiveIntValue // = 417
+  case hasProto3Optional // = 418
+  case hasPyGenericServices // = 419
+  case hasRubyPackage // = 420
+  case hasSemantic // = 421
+  case hasServerStreaming // = 422
+  case hasSourceCodeInfo // = 423
+  case hasSourceContext // = 424
+  case hasSourceFile // = 425
+  case hasStart // = 426
+  case hasStringValue // = 427
+  case hasSwiftPrefix // = 428
+  case hasSyntax // = 429
+  case hasTrailingComments // = 430
+  case hasType // = 431
+  case hasTypeName // = 432
+  case hasUnverifiedLazy // = 433
+  case hasValue // = 434
+  case hasWeak // = 435
+  case hour // = 436
+  case i // = 437
+  case idempotencyLevel // = 438
+  case identifierValue // = 439
+  case `if` // = 440
+  case ignoreUnknownFields // = 441
+  case index // = 442
+  case init_ // = 443
+  case `inout` // = 444
+  case inputType // = 445
+  case insert // = 446
+  case int // = 447
+  case int32 // = 448
+  case int32Value // = 449
+  case int64 // = 450
+  case int64Value // = 451
+  case int8 // = 452
+  case integerLiteral // = 453
+  case integerLiteralType // = 454
+  case intern // = 455
+  case `internal` // = 456
+  case internalState // = 457
+  case into // = 458
+  case ints // = 459
+  case isA // = 460
+  case isEqual // = 461
+  case isEqualTo // = 462
+  case isExtension // = 463
+  case isInitialized // = 464
+  case isNegative // = 465
+  case itemTagsEncodedSize // = 466
+  case iterator // = 467
+  case i2166136261 // = 468
+  case javaGenerateEqualsAndHash // = 469
+  case javaGenericServices // = 470
+  case javaMultipleFiles // = 471
+  case javaOuterClassname // = 472
+  case javaPackage // = 473
+  case javaStringCheckUtf8 // = 474
+  case jsondecoder // = 475
+  case jsondecodingError // = 476
+  case jsondecodingOptions // = 477
+  case jsonEncoder // = 478
+  case jsonencodingError // = 479
+  case jsonencodingOptions // = 480
+  case jsonencodingVisitor // = 481
+  case jsonmapEncodingVisitor // = 482
+  case jsonName // = 483
+  case jsonPath // = 484
+  case jsonPaths // = 485
+  case jsonscanner // = 486
+  case jsonString // = 487
+  case jsonText // = 488
+  case jsonUtf8Data // = 489
+  case jstype // = 490
+  case k // = 491
+  case key // = 492
+  case keyField // = 493
+  case keyType // = 494
+  case kind // = 495
+  case l // = 496
+  case label // = 497
+  case lazy // = 498
+  case leadingComments // = 499
+  case leadingDetachedComments // = 500
+  case length // = 501
+  case lessThan // = 502
+  case `let` // = 503
+  case lhs // = 504
+  case list // = 505
+  case listOfMessages // = 506
+  case listValue // = 507
+  case littleEndian // = 508
+  case littleEndianBytes // = 509
+  case load // = 510
+  case localHasher // = 511
+  case location // = 512
+  case m // = 513
+  case major // = 514
+  case makeIterator // = 515
+  case mapEntry // = 516
+  case mapHash // = 517
+  case mapKeyType // = 518
+  case mapNameResolver // = 519
+  case mapToMessages // = 520
+  case mapValueType // = 521
+  case mapVisitor // = 522
+  case mdayStart // = 523
+  case merge // = 524
+  case message // = 525
+  case messageDepthLimit // = 526
+  case messageExtension // = 527
+  case messageImplementationBase // = 528
+  case messageOptions // = 529
+  case messageSet // = 530
+  case messageSetWireFormat // = 531
+  case messageType // = 532
+  case method // = 533
+  case methodDescriptorProto // = 534
+  case methodOptions // = 535
+  case methods // = 536
+  case minor // = 537
+  case mixin // = 538
+  case mixins // = 539
+  case modifier // = 540
+  case modify // = 541
+  case month // = 542
+  case msgExtension // = 543
+  case mutating // = 544
+  case n // = 545
+  case name // = 546
+  case nameDescription // = 547
+  case nameMap // = 548
+  case namePart // = 549
+  case nameResolver // = 550
+  case names // = 551
+  case nanos // = 552
+  case nativeBytes // = 553
+  case nativeEndianBytes // = 554
+  case negativeIntValue // = 555
+  case nestedType // = 556
+  case newL // = 557
+  case newList // = 558
+  case newValue // = 559
+  case nextByte // = 560
+  case nextFieldNumber // = 561
+  case `nil` // = 562
+  case nilLiteral // = 563
+  case noStandardDescriptorAccessor // = 564
+  case nullValue // = 565
+  case number // = 566
+  case numberValue // = 567
+  case objcClassPrefix // = 568
+  case of // = 569
+  case oneofDecl // = 570
+  case oneofDescriptorProto // = 571
+  case oneofIndex // = 572
+  case oneofOptions // = 573
+  case oneofs // = 574
+  case oneOfKind // = 575
+  case optimizeFor // = 576
+  case optimizeMode // = 577
+  case option // = 578
+  case optionalEnumExtensionField // = 579
+  case optionalExtensionField // = 580
+  case optionalGroupExtensionField // = 581
+  case optionalMessageExtensionField // = 582
+  case options // = 583
+  case other // = 584
+  case others // = 585
+  case out // = 586
+  case outputType // = 587
+  case p // = 588
+  case package // = 589
+  case packed // = 590
+  case packedEnumExtensionField // = 591
+  case packedExtensionField // = 592
+  case padding // = 593
+  case parent // = 594
+  case parse // = 595
+  case partial // = 596
+  case path // = 597
+  case paths // = 598
+  case payload // = 599
+  case payloadSize // = 600
+  case phpClassPrefix // = 601
+  case phpGenericServices // = 602
+  case phpMetadataNamespace // = 603
+  case phpNamespace // = 604
+  case pointer // = 605
+  case pos // = 606
+  case positiveIntValue // = 607
+  case prefix // = 608
+  case preserveProtoFieldNames // = 609
+  case preTraverse // = 610
+  case printUnknownFields // = 611
+  case proto2 // = 612
+  case proto3DefaultValue // = 613
+  case proto3Optional // = 614
+  case protobufApiversionCheck // = 615
+  case protobufApiversion2 // = 616
+  case protobufBool // = 617
+  case protobufBytes // = 618
+  case protobufDouble // = 619
+  case protobufEnumMap // = 620
+  case protobufExtension // = 621
+  case protobufFixed32 // = 622
+  case protobufFixed64 // = 623
+  case protobufFloat // = 624
+  case protobufInt32 // = 625
+  case protobufInt64 // = 626
+  case protobufMap // = 627
+  case protobufMessageMap // = 628
+  case protobufSfixed32 // = 629
+  case protobufSfixed64 // = 630
+  case protobufSint32 // = 631
+  case protobufSint64 // = 632
+  case protobufString // = 633
+  case protobufUint32 // = 634
+  case protobufUint64 // = 635
+  case protobufExtensionFieldValues // = 636
+  case protobufFieldNumber // = 637
+  case protobufGeneratedIsEqualTo // = 638
+  case protobufNameMap // = 639
+  case protobufNewField // = 640
+  case protobufPackage // = 641
+  case `protocol` // = 642
+  case protoFieldName // = 643
+  case protoMessageName // = 644
+  case protoNameProviding // = 645
+  case protoPaths // = 646
+  case `public` // = 647
+  case publicDependency // = 648
+  case putBoolValue // = 649
+  case putBytesValue // = 650
+  case putDoubleValue // = 651
+  case putEnumValue // = 652
+  case putFixedUint32 // = 653
+  case putFixedUint64 // = 654
+  case putFloatValue // = 655
+  case putInt64 // = 656
+  case putStringValue // = 657
+  case putUint64 // = 658
+  case putUint64Hex // = 659
+  case putVarInt // = 660
+  case putZigZagVarInt // = 661
+  case pyGenericServices // = 662
+  case rawChars // = 663
+  case rawRepresentable // = 664
+  case rawValue_ // = 665
+  case read4HexDigits // = 666
+  case register // = 667
+  case repeatedEnumExtensionField // = 668
+  case repeatedExtensionField // = 669
+  case repeatedGroupExtensionField // = 670
+  case repeatedMessageExtensionField // = 671
+  case requestStreaming // = 672
+  case requestTypeURL // = 673
+  case requiredSize // = 674
+  case reservedName // = 675
+  case reservedRange // = 676
+  case responseStreaming // = 677
+  case responseTypeURL // = 678
+  case result // = 679
+  case `rethrows` // = 680
+  case `return` // = 681
+  case returnType // = 682
+  case revision // = 683
+  case rhs // = 684
+  case root // = 685
+  case rubyPackage // = 686
+  case s // = 687
+  case sawBackslash // = 688
+  case sawSection4Characters // = 689
+  case sawSection5Characters // = 690
+  case scanner // = 691
+  case seconds // = 692
+  case self_ // = 693
+  case semantic // = 694
+  case separator // = 695
+  case serialize // = 696
+  case serializedData // = 697
+  case serializedSize // = 698
+  case serverStreaming // = 699
+  case service // = 700
+  case serviceDescriptorProto // = 701
+  case serviceOptions // = 702
+  case set // = 703
+  case setExtensionValue // = 704
+  case shift // = 705
+  case simpleExtensionMap // = 706
+  case sizer // = 707
+  case source // = 708
+  case sourceCodeInfo // = 709
+  case sourceContext // = 710
+  case sourceEncoding // = 711
+  case sourceFile // = 712
+  case span // = 713
+  case split // = 714
+  case start // = 715
+  case startArray // = 716
+  case startArrayObject // = 717
+  case startField // = 718
+  case startIndex // = 719
+  case startMessageField // = 720
+  case startObject // = 721
+  case startRegularField // = 722
+  case state // = 723
+  case `static` // = 724
+  case staticString // = 725
+  case storage // = 726
+  case string // = 727
+  case stringLiteral // = 728
+  case stringLiteralType // = 729
+  case stringResult // = 730
+  case stringValue // = 731
+  case `struct` // = 732
+  case structValue // = 733
+  case subDecoder // = 734
+  case `subscript` // = 735
+  case subVisitor // = 736
+  case swift // = 737
+  case swiftPrefix // = 738
+  case swiftProtobuf // = 739
+  case syntax // = 740
+  case t // = 741
+  case tag // = 742
+  case terminator // = 743
+  case testDecoder // = 744
+  case text // = 745
+  case textDecoder // = 746
+  case textFormatDecoder // = 747
+  case textFormatDecodingError // = 748
+  case textFormatDecodingOptions // = 749
+  case textFormatEncodingOptions // = 750
+  case textFormatEncodingVisitor // = 751
+  case textFormatString // = 752
+  case `throws` // = 753
+  case timeInterval // = 754
+  case timeIntervalSince1970 // = 755
+  case timeIntervalSinceReferenceDate // = 756
+  case timestamp // = 757
+  case total // = 758
+  case totalArrayDepth // = 759
+  case totalSize // = 760
+  case trailingComments // = 761
+  case traverse // = 762
+  case `true` // = 763
+  case `try` // = 764
+  case type // = 765
+  case `typealias` // = 766
+  case typeEnum // = 767
+  case typeName // = 768
+  case typePrefix // = 769
+  case typeStart // = 770
+  case typeUnknown // = 771
+  case typeURL // = 772
+  case uint32 // = 773
+  case uint32Value // = 774
+  case uint64 // = 775
+  case uint64Value // = 776
+  case uint8 // = 777
+  case unicodeScalarLiteral // = 778
+  case unicodeScalarLiteralType // = 779
+  case unicodeScalars // = 780
+  case unicodeScalarView // = 781
+  case uninterpretedOption // = 782
+  case union // = 783
+  case uniqueStorage // = 784
+  case unknown // = 785
+  case unknownFields // = 786
+  case unknownStorage // = 787
+  case unpackTo // = 788
+  case unsafeBufferPointer // = 789
+  case unsafeMutablePointer // = 790
+  case unsafeMutableRawBufferPointer // = 791
+  case unsafeMutableRawPointer // = 792
+  case unsafeRawBufferPointer // = 793
+  case unsafeRawPointer // = 794
+  case unverifiedLazy // = 795
+  case updatedOptions // = 796
+  case url // = 797
+  case utf8 // = 798
+  case utf8Ptr // = 799
+  case utf8ToDouble // = 800
+  case utf8View // = 801
+  case v // = 802
+  case value // = 803
+  case valueField // = 804
+  case values // = 805
+  case valueType // = 806
+  case `var` // = 807
+  case version // = 808
+  case versionString // = 809
+  case visitExtensionFields // = 810
+  case visitExtensionFieldsAsMessageSet // = 811
+  case visitMapField // = 812
+  case visitor // = 813
+  case visitPacked // = 814
+  case visitPackedBoolField // = 815
+  case visitPackedDoubleField // = 816
+  case visitPackedEnumField // = 817
+  case visitPackedFixed32Field // = 818
+  case visitPackedFixed64Field // = 819
+  case visitPackedFloatField // = 820
+  case visitPackedInt32Field // = 821
+  case visitPackedInt64Field // = 822
+  case visitPackedSfixed32Field // = 823
+  case visitPackedSfixed64Field // = 824
+  case visitPackedSint32Field // = 825
+  case visitPackedSint64Field // = 826
+  case visitPackedUint32Field // = 827
+  case visitPackedUint64Field // = 828
+  case visitRepeated // = 829
+  case visitRepeatedBoolField // = 830
+  case visitRepeatedBytesField // = 831
+  case visitRepeatedDoubleField // = 832
+  case visitRepeatedEnumField // = 833
+  case visitRepeatedFixed32Field // = 834
+  case visitRepeatedFixed64Field // = 835
+  case visitRepeatedFloatField // = 836
+  case visitRepeatedGroupField // = 837
+  case visitRepeatedInt32Field // = 838
+  case visitRepeatedInt64Field // = 839
+  case visitRepeatedMessageField // = 840
+  case visitRepeatedSfixed32Field // = 841
+  case visitRepeatedSfixed64Field // = 842
+  case visitRepeatedSint32Field // = 843
+  case visitRepeatedSint64Field // = 844
+  case visitRepeatedStringField // = 845
+  case visitRepeatedUint32Field // = 846
+  case visitRepeatedUint64Field // = 847
+  case visitSingular // = 848
+  case visitSingularBoolField // = 849
+  case visitSingularBytesField // = 850
+  case visitSingularDoubleField // = 851
+  case visitSingularEnumField // = 852
+  case visitSingularFixed32Field // = 853
+  case visitSingularFixed64Field // = 854
+  case visitSingularFloatField // = 855
+  case visitSingularGroupField // = 856
+  case visitSingularInt32Field // = 857
+  case visitSingularInt64Field // = 858
+  case visitSingularMessageField // = 859
+  case visitSingularSfixed32Field // = 860
+  case visitSingularSfixed64Field // = 861
+  case visitSingularSint32Field // = 862
+  case visitSingularSint64Field // = 863
+  case visitSingularStringField // = 864
+  case visitSingularUint32Field // = 865
+  case visitSingularUint64Field // = 866
+  case visitUnknown // = 867
+  case wasDecoded // = 868
+  case weak // = 869
+  case weakDependency // = 870
+  case `where` // = 871
+  case wireFormat // = 872
+  case with // = 873
+  case withUnsafeBytes // = 874
+  case withUnsafeMutableBytes // = 875
+  case work // = 876
+  case wrappedType // = 877
+  case written // = 878
+  case yday // = 879
   case UNRECOGNIZED(Int)
 
   init() {
@@ -974,806 +984,816 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 67: self = .clearDefaultValue
     case 68: self = .clearDeprecated
     case 69: self = .clearDoubleValue
-    case 70: self = .clearEnd
-    case 71: self = .clearExtendee
-    case 72: self = .clearExtensionValue
-    case 73: self = .clearGoPackage
-    case 74: self = .clearIdempotencyLevel
-    case 75: self = .clearIdentifierValue
-    case 76: self = .clearInputType
-    case 77: self = .clearIsExtension
-    case 78: self = .clearJavaGenerateEqualsAndHash
-    case 79: self = .clearJavaGenericServices
-    case 80: self = .clearJavaMultipleFiles
-    case 81: self = .clearJavaOuterClassname
-    case 82: self = .clearJavaPackage
-    case 83: self = .clearJavaStringCheckUtf8
-    case 84: self = .clearJsonName
-    case 85: self = .clearJstype
-    case 86: self = .clearLabel
-    case 87: self = .clearLazy
-    case 88: self = .clearLeadingComments
-    case 89: self = .clearMapEntry
-    case 90: self = .clearMessageSetWireFormat
-    case 91: self = .clearName
-    case 92: self = .clearNamePart
-    case 93: self = .clearNegativeIntValue
-    case 94: self = .clearNoStandardDescriptorAccessor
-    case 95: self = .clearNumber
-    case 96: self = .clearObjcClassPrefix
-    case 97: self = .clearOneofIndex
-    case 98: self = .clearOptimizeFor
-    case 99: self = .clearOptions
-    case 100: self = .clearOutputType
-    case 101: self = .clearPackage
-    case 102: self = .clearPacked
-    case 103: self = .clearPhpClassPrefix
-    case 104: self = .clearPhpGenericServices
-    case 105: self = .clearPhpMetadataNamespace
-    case 106: self = .clearPhpNamespace
-    case 107: self = .clearPositiveIntValue
-    case 108: self = .clearProto3Optional
-    case 109: self = .clearPyGenericServices
-    case 110: self = .clearRubyPackage
-    case 111: self = .clearServerStreaming
-    case 112: self = .clearSourceCodeInfo
-    case 113: self = .clearSourceContext
-    case 114: self = .clearSourceFile
-    case 115: self = .clearStart
-    case 116: self = .clearStringValue
-    case 117: self = .clearSwiftPrefix
-    case 118: self = .clearSyntax
-    case 119: self = .clearTrailingComments
-    case 120: self = .clearType
-    case 121: self = .clearTypeName
-    case 122: self = .clearValue
-    case 123: self = .clearWeak
-    case 124: self = .clientStreaming
-    case 125: self = .codePoint
-    case 126: self = .codeUnits
-    case 127: self = .collection
-    case 128: self = .com
-    case 129: self = .comma
-    case 130: self = .contentsOf
-    case 131: self = .contiguousBytes
-    case 132: self = .count
-    case 133: self = .countVarintsInBuffer
-    case 134: self = .csharpNamespace
-    case 135: self = .ctype
-    case 136: self = .customCodable
-    case 137: self = .customDebugStringConvertible
-    case 138: self = .d
-    case 139: self = .data
-    case 140: self = .dataResult
-    case 141: self = .date
-    case 142: self = .daySec
-    case 143: self = .daysSinceEpoch
-    case 144: self = .debugDescription_
-    case 145: self = .decoded
-    case 146: self = .decodedFromJsonnull
-    case 147: self = .decodeExtensionField
-    case 148: self = .decodeExtensionFieldsAsMessageSet
-    case 149: self = .decodeJson
-    case 150: self = .decodeMapField
-    case 151: self = .decodeMessage
-    case 152: self = .decoder
-    case 153: self = .decodeRepeated
-    case 154: self = .decodeRepeatedBoolField
-    case 155: self = .decodeRepeatedBytesField
-    case 156: self = .decodeRepeatedDoubleField
-    case 157: self = .decodeRepeatedEnumField
-    case 158: self = .decodeRepeatedFixed32Field
-    case 159: self = .decodeRepeatedFixed64Field
-    case 160: self = .decodeRepeatedFloatField
-    case 161: self = .decodeRepeatedGroupField
-    case 162: self = .decodeRepeatedInt32Field
-    case 163: self = .decodeRepeatedInt64Field
-    case 164: self = .decodeRepeatedMessageField
-    case 165: self = .decodeRepeatedSfixed32Field
-    case 166: self = .decodeRepeatedSfixed64Field
-    case 167: self = .decodeRepeatedSint32Field
-    case 168: self = .decodeRepeatedSint64Field
-    case 169: self = .decodeRepeatedStringField
-    case 170: self = .decodeRepeatedUint32Field
-    case 171: self = .decodeRepeatedUint64Field
-    case 172: self = .decodeSingular
-    case 173: self = .decodeSingularBoolField
-    case 174: self = .decodeSingularBytesField
-    case 175: self = .decodeSingularDoubleField
-    case 176: self = .decodeSingularEnumField
-    case 177: self = .decodeSingularFixed32Field
-    case 178: self = .decodeSingularFixed64Field
-    case 179: self = .decodeSingularFloatField
-    case 180: self = .decodeSingularGroupField
-    case 181: self = .decodeSingularInt32Field
-    case 182: self = .decodeSingularInt64Field
-    case 183: self = .decodeSingularMessageField
-    case 184: self = .decodeSingularSfixed32Field
-    case 185: self = .decodeSingularSfixed64Field
-    case 186: self = .decodeSingularSint32Field
-    case 187: self = .decodeSingularSint64Field
-    case 188: self = .decodeSingularStringField
-    case 189: self = .decodeSingularUint32Field
-    case 190: self = .decodeSingularUint64Field
-    case 191: self = .decodeTextFormat
-    case 192: self = .defaultAnyTypeUrlprefix
-    case 193: self = .defaultValue
-    case 194: self = .dependency
-    case 195: self = .deprecated
-    case 196: self = .description_
-    case 197: self = .descriptorProto
-    case 198: self = .dictionary
-    case 199: self = .dictionaryLiteral
-    case 200: self = .digit
-    case 201: self = .digit0
-    case 202: self = .digit1
-    case 203: self = .digitCount
-    case 204: self = .digits
-    case 205: self = .digitValue
-    case 206: self = .discardableResult
-    case 207: self = .discardUnknownFields
-    case 208: self = .distance
-    case 209: self = .double
-    case 210: self = .doubleValue
-    case 211: self = .duration
-    case 212: self = .e
-    case 213: self = .element
-    case 214: self = .elements
-    case 215: self = .emitExtensionFieldName
-    case 216: self = .emitFieldName
-    case 217: self = .emitFieldNumber
-    case 218: self = .empty
-    case 219: self = .emptyData
-    case 220: self = .encodeAsBytes
-    case 221: self = .encoded
-    case 222: self = .encodedJsonstring
-    case 223: self = .encodedSize
-    case 224: self = .encodeField
-    case 225: self = .encoder
-    case 226: self = .end
-    case 227: self = .endArray
-    case 228: self = .endMessageField
-    case 229: self = .endObject
-    case 230: self = .endRegularField
-    case 231: self = .enum
-    case 232: self = .enumDescriptorProto
-    case 233: self = .enumOptions
-    case 234: self = .enumReservedRange
-    case 235: self = .enumType
-    case 236: self = .enumvalue
-    case 237: self = .enumValueDescriptorProto
-    case 238: self = .enumValueOptions
-    case 239: self = .equatable
-    case 240: self = .error
-    case 241: self = .expressibleByArrayLiteral
-    case 242: self = .expressibleByDictionaryLiteral
-    case 243: self = .ext
-    case 244: self = .extDecoder
-    case 245: self = .extendedGraphemeClusterLiteral
-    case 246: self = .extendedGraphemeClusterLiteralType
-    case 247: self = .extendee
-    case 248: self = .extensibleMessage
-    case 249: self = .extension
-    case 250: self = .extensionField
-    case 251: self = .extensionFieldNumber
-    case 252: self = .extensionFieldValueSet
-    case 253: self = .extensionMap
-    case 254: self = .extensionRange
-    case 255: self = .extensionRangeOptions
-    case 256: self = .extensions
-    case 257: self = .extras
-    case 258: self = .f
-    case 259: self = .false
-    case 260: self = .field
-    case 261: self = .fieldData
-    case 262: self = .fieldDescriptorProto
-    case 263: self = .fieldMask
-    case 264: self = .fieldName
-    case 265: self = .fieldNameCount
-    case 266: self = .fieldNum
-    case 267: self = .fieldNumber
-    case 268: self = .fieldNumberForProto
-    case 269: self = .fieldOptions
-    case 270: self = .fields
-    case 271: self = .fieldSize
-    case 272: self = .fieldTag
-    case 273: self = .fieldType
-    case 274: self = .file
-    case 275: self = .fileDescriptorProto
-    case 276: self = .fileDescriptorSet
-    case 277: self = .fileName
-    case 278: self = .fileOptions
-    case 279: self = .filter
-    case 280: self = .first
-    case 281: self = .firstItem
-    case 282: self = .float
-    case 283: self = .floatLiteral
-    case 284: self = .floatLiteralType
-    case 285: self = .floatValue
-    case 286: self = .forMessageName
-    case 287: self = .formUnion
-    case 288: self = .forReadingFrom
-    case 289: self = .forTypeURL
-    case 290: self = .forwardParser
-    case 291: self = .forWritingInto
-    case 292: self = .from
-    case 293: self = .fromAscii2
-    case 294: self = .fromAscii4
-    case 295: self = .fromByteOffset
-    case 296: self = .fromHexDigit
-    case 297: self = .func
-    case 298: self = .g
-    case 299: self = .generatedCodeInfo
-    case 300: self = .get
-    case 301: self = .getExtensionValue
-    case 302: self = .googleapis
-    case 303: self = .googleProtobufAny
-    case 304: self = .googleProtobufApi
-    case 305: self = .googleProtobufBoolValue
-    case 306: self = .googleProtobufBytesValue
-    case 307: self = .googleProtobufDescriptorProto
-    case 308: self = .googleProtobufDoubleValue
-    case 309: self = .googleProtobufDuration
-    case 310: self = .googleProtobufEmpty
-    case 311: self = .googleProtobufEnum
-    case 312: self = .googleProtobufEnumDescriptorProto
-    case 313: self = .googleProtobufEnumOptions
-    case 314: self = .googleProtobufEnumValue
-    case 315: self = .googleProtobufEnumValueDescriptorProto
-    case 316: self = .googleProtobufEnumValueOptions
-    case 317: self = .googleProtobufExtensionRangeOptions
-    case 318: self = .googleProtobufField
-    case 319: self = .googleProtobufFieldDescriptorProto
-    case 320: self = .googleProtobufFieldMask
-    case 321: self = .googleProtobufFieldOptions
-    case 322: self = .googleProtobufFileDescriptorProto
-    case 323: self = .googleProtobufFileDescriptorSet
-    case 324: self = .googleProtobufFileOptions
-    case 325: self = .googleProtobufFloatValue
-    case 326: self = .googleProtobufGeneratedCodeInfo
-    case 327: self = .googleProtobufInt32Value
-    case 328: self = .googleProtobufInt64Value
-    case 329: self = .googleProtobufListValue
-    case 330: self = .googleProtobufMessageOptions
-    case 331: self = .googleProtobufMethod
-    case 332: self = .googleProtobufMethodDescriptorProto
-    case 333: self = .googleProtobufMethodOptions
-    case 334: self = .googleProtobufMixin
-    case 335: self = .googleProtobufNullValue
-    case 336: self = .googleProtobufOneofDescriptorProto
-    case 337: self = .googleProtobufOneofOptions
-    case 338: self = .googleProtobufOption
-    case 339: self = .googleProtobufServiceDescriptorProto
-    case 340: self = .googleProtobufServiceOptions
-    case 341: self = .googleProtobufSourceCodeInfo
-    case 342: self = .googleProtobufSourceContext
-    case 343: self = .googleProtobufStringValue
-    case 344: self = .googleProtobufStruct
-    case 345: self = .googleProtobufSyntax
-    case 346: self = .googleProtobufTimestamp
-    case 347: self = .googleProtobufType
-    case 348: self = .googleProtobufUint32Value
-    case 349: self = .googleProtobufUint64Value
-    case 350: self = .googleProtobufUninterpretedOption
-    case 351: self = .googleProtobufValue
-    case 352: self = .goPackage
-    case 353: self = .group
-    case 354: self = .groupFieldNumberStack
-    case 355: self = .groupSize
-    case 356: self = .h
-    case 357: self = .hadOneofValue
-    case 358: self = .handleConflictingOneOf
-    case 359: self = .hasAggregateValue
-    case 360: self = .hasAllowAlias
-    case 361: self = .hasBegin
-    case 362: self = .hasCcEnableArenas
-    case 363: self = .hasCcGenericServices
-    case 364: self = .hasClientStreaming
-    case 365: self = .hasCsharpNamespace
-    case 366: self = .hasCtype
-    case 367: self = .hasDefaultValue
-    case 368: self = .hasDeprecated
-    case 369: self = .hasDoubleValue
-    case 370: self = .hasEnd
-    case 371: self = .hasExtendee
-    case 372: self = .hasExtensionValue
-    case 373: self = .hasGoPackage
-    case 374: self = .hash
-    case 375: self = .hashable
-    case 376: self = .hasher
-    case 377: self = .hashValue_
-    case 378: self = .hashVisitor
-    case 379: self = .hasIdempotencyLevel
-    case 380: self = .hasIdentifierValue
-    case 381: self = .hasInputType
-    case 382: self = .hasIsExtension
-    case 383: self = .hasJavaGenerateEqualsAndHash
-    case 384: self = .hasJavaGenericServices
-    case 385: self = .hasJavaMultipleFiles
-    case 386: self = .hasJavaOuterClassname
-    case 387: self = .hasJavaPackage
-    case 388: self = .hasJavaStringCheckUtf8
-    case 389: self = .hasJsonName
-    case 390: self = .hasJstype
-    case 391: self = .hasLabel
-    case 392: self = .hasLazy
-    case 393: self = .hasLeadingComments
-    case 394: self = .hasMapEntry
-    case 395: self = .hasMessageSetWireFormat
-    case 396: self = .hasName
-    case 397: self = .hasNamePart
-    case 398: self = .hasNegativeIntValue
-    case 399: self = .hasNoStandardDescriptorAccessor
-    case 400: self = .hasNumber
-    case 401: self = .hasObjcClassPrefix
-    case 402: self = .hasOneofIndex
-    case 403: self = .hasOptimizeFor
-    case 404: self = .hasOptions
-    case 405: self = .hasOutputType
-    case 406: self = .hasPackage
-    case 407: self = .hasPacked
-    case 408: self = .hasPhpClassPrefix
-    case 409: self = .hasPhpGenericServices
-    case 410: self = .hasPhpMetadataNamespace
-    case 411: self = .hasPhpNamespace
-    case 412: self = .hasPositiveIntValue
-    case 413: self = .hasProto3Optional
-    case 414: self = .hasPyGenericServices
-    case 415: self = .hasRubyPackage
-    case 416: self = .hasServerStreaming
-    case 417: self = .hasSourceCodeInfo
-    case 418: self = .hasSourceContext
-    case 419: self = .hasSourceFile
-    case 420: self = .hasStart
-    case 421: self = .hasStringValue
-    case 422: self = .hasSwiftPrefix
-    case 423: self = .hasSyntax
-    case 424: self = .hasTrailingComments
-    case 425: self = .hasType
-    case 426: self = .hasTypeName
-    case 427: self = .hasValue
-    case 428: self = .hasWeak
-    case 429: self = .hour
-    case 430: self = .i
-    case 431: self = .idempotencyLevel
-    case 432: self = .identifierValue
-    case 433: self = .if
-    case 434: self = .ignoreUnknownFields
-    case 435: self = .index
-    case 436: self = .init_
-    case 437: self = .inout
-    case 438: self = .inputType
-    case 439: self = .insert
-    case 440: self = .int
-    case 441: self = .int32
-    case 442: self = .int32Value
-    case 443: self = .int64
-    case 444: self = .int64Value
-    case 445: self = .int8
-    case 446: self = .integerLiteral
-    case 447: self = .integerLiteralType
-    case 448: self = .intern
-    case 449: self = .internal
-    case 450: self = .internalState
-    case 451: self = .into
-    case 452: self = .ints
-    case 453: self = .isA
-    case 454: self = .isEqual
-    case 455: self = .isEqualTo
-    case 456: self = .isExtension
-    case 457: self = .isInitialized
-    case 458: self = .itemTagsEncodedSize
-    case 459: self = .iterator
-    case 460: self = .i2166136261
-    case 461: self = .javaGenerateEqualsAndHash
-    case 462: self = .javaGenericServices
-    case 463: self = .javaMultipleFiles
-    case 464: self = .javaOuterClassname
-    case 465: self = .javaPackage
-    case 466: self = .javaStringCheckUtf8
-    case 467: self = .jsondecoder
-    case 468: self = .jsondecodingError
-    case 469: self = .jsondecodingOptions
-    case 470: self = .jsonEncoder
-    case 471: self = .jsonencodingError
-    case 472: self = .jsonencodingOptions
-    case 473: self = .jsonencodingVisitor
-    case 474: self = .jsonmapEncodingVisitor
-    case 475: self = .jsonName
-    case 476: self = .jsonPath
-    case 477: self = .jsonPaths
-    case 478: self = .jsonscanner
-    case 479: self = .jsonString
-    case 480: self = .jsonText
-    case 481: self = .jsonUtf8Data
-    case 482: self = .jstype
-    case 483: self = .k
-    case 484: self = .key
-    case 485: self = .keyField
-    case 486: self = .keyType
-    case 487: self = .kind
-    case 488: self = .l
-    case 489: self = .label
-    case 490: self = .lazy
-    case 491: self = .leadingComments
-    case 492: self = .leadingDetachedComments
-    case 493: self = .length
-    case 494: self = .lessThan
-    case 495: self = .let
-    case 496: self = .lhs
-    case 497: self = .list
-    case 498: self = .listOfMessages
-    case 499: self = .listValue
-    case 500: self = .littleEndian
-    case 501: self = .littleEndianBytes
-    case 502: self = .load
-    case 503: self = .localHasher
-    case 504: self = .location
-    case 505: self = .m
-    case 506: self = .major
-    case 507: self = .makeIterator
-    case 508: self = .mapEntry
-    case 509: self = .mapHash
-    case 510: self = .mapKeyType
-    case 511: self = .mapNameResolver
-    case 512: self = .mapToMessages
-    case 513: self = .mapValueType
-    case 514: self = .mapVisitor
-    case 515: self = .mdayStart
-    case 516: self = .merge
-    case 517: self = .message
-    case 518: self = .messageDepthLimit
-    case 519: self = .messageExtension
-    case 520: self = .messageImplementationBase
-    case 521: self = .messageOptions
-    case 522: self = .messageSet
-    case 523: self = .messageSetWireFormat
-    case 524: self = .messageType
-    case 525: self = .method
-    case 526: self = .methodDescriptorProto
-    case 527: self = .methodOptions
-    case 528: self = .methods
-    case 529: self = .minor
-    case 530: self = .mixin
-    case 531: self = .mixins
-    case 532: self = .modifier
-    case 533: self = .modify
-    case 534: self = .month
-    case 535: self = .msgExtension
-    case 536: self = .mutating
-    case 537: self = .n
-    case 538: self = .name
-    case 539: self = .nameDescription
-    case 540: self = .nameMap
-    case 541: self = .namePart
-    case 542: self = .nameResolver
-    case 543: self = .names
-    case 544: self = .nanos
-    case 545: self = .nativeBytes
-    case 546: self = .nativeEndianBytes
-    case 547: self = .negativeIntValue
-    case 548: self = .nestedType
-    case 549: self = .newL
-    case 550: self = .newList
-    case 551: self = .newValue
-    case 552: self = .nextByte
-    case 553: self = .nextFieldNumber
-    case 554: self = .nil
-    case 555: self = .nilLiteral
-    case 556: self = .noStandardDescriptorAccessor
-    case 557: self = .nullValue
-    case 558: self = .number
-    case 559: self = .numberValue
-    case 560: self = .objcClassPrefix
-    case 561: self = .of
-    case 562: self = .oneofDecl
-    case 563: self = .oneofDescriptorProto
-    case 564: self = .oneofIndex
-    case 565: self = .oneofOptions
-    case 566: self = .oneofs
-    case 567: self = .oneOfKind
-    case 568: self = .optimizeFor
-    case 569: self = .optimizeMode
-    case 570: self = .option
-    case 571: self = .optionalEnumExtensionField
-    case 572: self = .optionalExtensionField
-    case 573: self = .optionalGroupExtensionField
-    case 574: self = .optionalMessageExtensionField
-    case 575: self = .options
-    case 576: self = .other
-    case 577: self = .others
-    case 578: self = .out
-    case 579: self = .outputType
-    case 580: self = .p
-    case 581: self = .package
-    case 582: self = .packed
-    case 583: self = .packedEnumExtensionField
-    case 584: self = .packedExtensionField
-    case 585: self = .padding
-    case 586: self = .parent
-    case 587: self = .parse
-    case 588: self = .partial
-    case 589: self = .path
-    case 590: self = .paths
-    case 591: self = .payload
-    case 592: self = .payloadSize
-    case 593: self = .phpClassPrefix
-    case 594: self = .phpGenericServices
-    case 595: self = .phpMetadataNamespace
-    case 596: self = .phpNamespace
-    case 597: self = .pointer
-    case 598: self = .pos
-    case 599: self = .positiveIntValue
-    case 600: self = .prefix
-    case 601: self = .preserveProtoFieldNames
-    case 602: self = .preTraverse
-    case 603: self = .printUnknownFields
-    case 604: self = .proto2
-    case 605: self = .proto3DefaultValue
-    case 606: self = .proto3Optional
-    case 607: self = .protobufApiversionCheck
-    case 608: self = .protobufApiversion2
-    case 609: self = .protobufBool
-    case 610: self = .protobufBytes
-    case 611: self = .protobufDouble
-    case 612: self = .protobufEnumMap
-    case 613: self = .protobufExtension
-    case 614: self = .protobufFixed32
-    case 615: self = .protobufFixed64
-    case 616: self = .protobufFloat
-    case 617: self = .protobufInt32
-    case 618: self = .protobufInt64
-    case 619: self = .protobufMap
-    case 620: self = .protobufMessageMap
-    case 621: self = .protobufSfixed32
-    case 622: self = .protobufSfixed64
-    case 623: self = .protobufSint32
-    case 624: self = .protobufSint64
-    case 625: self = .protobufString
-    case 626: self = .protobufUint32
-    case 627: self = .protobufUint64
-    case 628: self = .protobufExtensionFieldValues
-    case 629: self = .protobufFieldNumber
-    case 630: self = .protobufGeneratedIsEqualTo
-    case 631: self = .protobufNameMap
-    case 632: self = .protobufNewField
-    case 633: self = .protobufPackage
-    case 634: self = .protocol
-    case 635: self = .protoFieldName
-    case 636: self = .protoMessageName
-    case 637: self = .protoNameProviding
-    case 638: self = .protoPaths
-    case 639: self = .public
-    case 640: self = .publicDependency
-    case 641: self = .putBoolValue
-    case 642: self = .putBytesValue
-    case 643: self = .putDoubleValue
-    case 644: self = .putEnumValue
-    case 645: self = .putFixedUint32
-    case 646: self = .putFixedUint64
-    case 647: self = .putFloatValue
-    case 648: self = .putInt64
-    case 649: self = .putStringValue
-    case 650: self = .putUint64
-    case 651: self = .putUint64Hex
-    case 652: self = .putVarInt
-    case 653: self = .putZigZagVarInt
-    case 654: self = .pyGenericServices
-    case 655: self = .rawChars
-    case 656: self = .rawRepresentable
-    case 657: self = .rawValue_
-    case 658: self = .read4HexDigits
-    case 659: self = .register
-    case 660: self = .repeatedEnumExtensionField
-    case 661: self = .repeatedExtensionField
-    case 662: self = .repeatedGroupExtensionField
-    case 663: self = .repeatedMessageExtensionField
-    case 664: self = .requestStreaming
-    case 665: self = .requestTypeURL
-    case 666: self = .requiredSize
-    case 667: self = .reservedName
-    case 668: self = .reservedRange
-    case 669: self = .responseStreaming
-    case 670: self = .responseTypeURL
-    case 671: self = .result
-    case 672: self = .rethrows
-    case 673: self = .return
-    case 674: self = .returnType
-    case 675: self = .revision
-    case 676: self = .rhs
-    case 677: self = .root
-    case 678: self = .rubyPackage
-    case 679: self = .s
-    case 680: self = .sawBackslash
-    case 681: self = .sawSection4Characters
-    case 682: self = .sawSection5Characters
-    case 683: self = .scanner
-    case 684: self = .seconds
-    case 685: self = .self_
-    case 686: self = .separator
-    case 687: self = .serialize
-    case 688: self = .serializedData
-    case 689: self = .serializedSize
-    case 690: self = .serverStreaming
-    case 691: self = .service
-    case 692: self = .serviceDescriptorProto
-    case 693: self = .serviceOptions
-    case 694: self = .set
-    case 695: self = .setExtensionValue
-    case 696: self = .shift
-    case 697: self = .simpleExtensionMap
-    case 698: self = .sizer
-    case 699: self = .source
-    case 700: self = .sourceCodeInfo
-    case 701: self = .sourceContext
-    case 702: self = .sourceEncoding
-    case 703: self = .sourceFile
-    case 704: self = .span
-    case 705: self = .split
-    case 706: self = .start
-    case 707: self = .startArray
-    case 708: self = .startArrayObject
-    case 709: self = .startField
-    case 710: self = .startIndex
-    case 711: self = .startMessageField
-    case 712: self = .startObject
-    case 713: self = .startRegularField
-    case 714: self = .state
-    case 715: self = .static
-    case 716: self = .staticString
-    case 717: self = .storage
-    case 718: self = .string
-    case 719: self = .stringLiteral
-    case 720: self = .stringLiteralType
-    case 721: self = .stringResult
-    case 722: self = .stringValue
-    case 723: self = .struct
-    case 724: self = .structValue
-    case 725: self = .subDecoder
-    case 726: self = .subscript
-    case 727: self = .subVisitor
-    case 728: self = .swift
-    case 729: self = .swiftPrefix
-    case 730: self = .swiftProtobuf
-    case 731: self = .syntax
-    case 732: self = .t
-    case 733: self = .tag
-    case 734: self = .terminator
-    case 735: self = .testDecoder
-    case 736: self = .text
-    case 737: self = .textDecoder
-    case 738: self = .textFormatDecoder
-    case 739: self = .textFormatDecodingError
-    case 740: self = .textFormatDecodingOptions
-    case 741: self = .textFormatEncodingOptions
-    case 742: self = .textFormatEncodingVisitor
-    case 743: self = .textFormatString
-    case 744: self = .throws
-    case 745: self = .timeInterval
-    case 746: self = .timeIntervalSince1970
-    case 747: self = .timeIntervalSinceReferenceDate
-    case 748: self = .timestamp
-    case 749: self = .total
-    case 750: self = .totalArrayDepth
-    case 751: self = .totalSize
-    case 752: self = .trailingComments
-    case 753: self = .traverse
-    case 754: self = .true
-    case 755: self = .try
-    case 756: self = .type
-    case 757: self = .typealias
-    case 758: self = .typeEnum
-    case 759: self = .typeName
-    case 760: self = .typePrefix
-    case 761: self = .typeStart
-    case 762: self = .typeUnknown
-    case 763: self = .typeURL
-    case 764: self = .uint32
-    case 765: self = .uint32Value
-    case 766: self = .uint64
-    case 767: self = .uint64Value
-    case 768: self = .uint8
-    case 769: self = .unicodeScalarLiteral
-    case 770: self = .unicodeScalarLiteralType
-    case 771: self = .unicodeScalars
-    case 772: self = .unicodeScalarView
-    case 773: self = .uninterpretedOption
-    case 774: self = .union
-    case 775: self = .uniqueStorage
-    case 776: self = .unknown
-    case 777: self = .unknownFields
-    case 778: self = .unknownStorage
-    case 779: self = .unpackTo
-    case 780: self = .unsafeBufferPointer
-    case 781: self = .unsafeMutablePointer
-    case 782: self = .unsafeMutableRawBufferPointer
-    case 783: self = .unsafeMutableRawPointer
-    case 784: self = .unsafeRawBufferPointer
-    case 785: self = .unsafeRawPointer
-    case 786: self = .updatedOptions
-    case 787: self = .url
-    case 788: self = .utf8
-    case 789: self = .utf8Ptr
-    case 790: self = .utf8ToDouble
-    case 791: self = .utf8View
-    case 792: self = .v
-    case 793: self = .value
-    case 794: self = .valueField
-    case 795: self = .values
-    case 796: self = .valueType
-    case 797: self = .var
-    case 798: self = .version
-    case 799: self = .versionString
-    case 800: self = .visitExtensionFields
-    case 801: self = .visitExtensionFieldsAsMessageSet
-    case 802: self = .visitMapField
-    case 803: self = .visitor
-    case 804: self = .visitPacked
-    case 805: self = .visitPackedBoolField
-    case 806: self = .visitPackedDoubleField
-    case 807: self = .visitPackedEnumField
-    case 808: self = .visitPackedFixed32Field
-    case 809: self = .visitPackedFixed64Field
-    case 810: self = .visitPackedFloatField
-    case 811: self = .visitPackedInt32Field
-    case 812: self = .visitPackedInt64Field
-    case 813: self = .visitPackedSfixed32Field
-    case 814: self = .visitPackedSfixed64Field
-    case 815: self = .visitPackedSint32Field
-    case 816: self = .visitPackedSint64Field
-    case 817: self = .visitPackedUint32Field
-    case 818: self = .visitPackedUint64Field
-    case 819: self = .visitRepeated
-    case 820: self = .visitRepeatedBoolField
-    case 821: self = .visitRepeatedBytesField
-    case 822: self = .visitRepeatedDoubleField
-    case 823: self = .visitRepeatedEnumField
-    case 824: self = .visitRepeatedFixed32Field
-    case 825: self = .visitRepeatedFixed64Field
-    case 826: self = .visitRepeatedFloatField
-    case 827: self = .visitRepeatedGroupField
-    case 828: self = .visitRepeatedInt32Field
-    case 829: self = .visitRepeatedInt64Field
-    case 830: self = .visitRepeatedMessageField
-    case 831: self = .visitRepeatedSfixed32Field
-    case 832: self = .visitRepeatedSfixed64Field
-    case 833: self = .visitRepeatedSint32Field
-    case 834: self = .visitRepeatedSint64Field
-    case 835: self = .visitRepeatedStringField
-    case 836: self = .visitRepeatedUint32Field
-    case 837: self = .visitRepeatedUint64Field
-    case 838: self = .visitSingular
-    case 839: self = .visitSingularBoolField
-    case 840: self = .visitSingularBytesField
-    case 841: self = .visitSingularDoubleField
-    case 842: self = .visitSingularEnumField
-    case 843: self = .visitSingularFixed32Field
-    case 844: self = .visitSingularFixed64Field
-    case 845: self = .visitSingularFloatField
-    case 846: self = .visitSingularGroupField
-    case 847: self = .visitSingularInt32Field
-    case 848: self = .visitSingularInt64Field
-    case 849: self = .visitSingularMessageField
-    case 850: self = .visitSingularSfixed32Field
-    case 851: self = .visitSingularSfixed64Field
-    case 852: self = .visitSingularSint32Field
-    case 853: self = .visitSingularSint64Field
-    case 854: self = .visitSingularStringField
-    case 855: self = .visitSingularUint32Field
-    case 856: self = .visitSingularUint64Field
-    case 857: self = .visitUnknown
-    case 858: self = .wasDecoded
-    case 859: self = .weak
-    case 860: self = .weakDependency
-    case 861: self = .where
-    case 862: self = .wireFormat
-    case 863: self = .with
-    case 864: self = .withUnsafeBytes
-    case 865: self = .withUnsafeMutableBytes
-    case 866: self = .work
-    case 867: self = .wrappedType
-    case 868: self = .written
-    case 869: self = .yday
+    case 70: self = .clearEdition
+    case 71: self = .clearEnd
+    case 72: self = .clearExtendee
+    case 73: self = .clearExtensionValue
+    case 74: self = .clearGoPackage
+    case 75: self = .clearIdempotencyLevel
+    case 76: self = .clearIdentifierValue
+    case 77: self = .clearInputType
+    case 78: self = .clearIsExtension
+    case 79: self = .clearJavaGenerateEqualsAndHash
+    case 80: self = .clearJavaGenericServices
+    case 81: self = .clearJavaMultipleFiles
+    case 82: self = .clearJavaOuterClassname
+    case 83: self = .clearJavaPackage
+    case 84: self = .clearJavaStringCheckUtf8
+    case 85: self = .clearJsonName
+    case 86: self = .clearJstype
+    case 87: self = .clearLabel
+    case 88: self = .clearLazy
+    case 89: self = .clearLeadingComments
+    case 90: self = .clearMapEntry
+    case 91: self = .clearMessageSetWireFormat
+    case 92: self = .clearName
+    case 93: self = .clearNamePart
+    case 94: self = .clearNegativeIntValue
+    case 95: self = .clearNoStandardDescriptorAccessor
+    case 96: self = .clearNumber
+    case 97: self = .clearObjcClassPrefix
+    case 98: self = .clearOneofIndex
+    case 99: self = .clearOptimizeFor
+    case 100: self = .clearOptions
+    case 101: self = .clearOutputType
+    case 102: self = .clearPackage
+    case 103: self = .clearPacked
+    case 104: self = .clearPhpClassPrefix
+    case 105: self = .clearPhpGenericServices
+    case 106: self = .clearPhpMetadataNamespace
+    case 107: self = .clearPhpNamespace
+    case 108: self = .clearPositiveIntValue
+    case 109: self = .clearProto3Optional
+    case 110: self = .clearPyGenericServices
+    case 111: self = .clearRubyPackage
+    case 112: self = .clearSemantic
+    case 113: self = .clearServerStreaming
+    case 114: self = .clearSourceCodeInfo
+    case 115: self = .clearSourceContext
+    case 116: self = .clearSourceFile
+    case 117: self = .clearStart
+    case 118: self = .clearStringValue
+    case 119: self = .clearSwiftPrefix
+    case 120: self = .clearSyntax
+    case 121: self = .clearTrailingComments
+    case 122: self = .clearType
+    case 123: self = .clearTypeName
+    case 124: self = .clearUnverifiedLazy
+    case 125: self = .clearValue
+    case 126: self = .clearWeak
+    case 127: self = .clientStreaming
+    case 128: self = .codePoint
+    case 129: self = .codeUnits
+    case 130: self = .collection
+    case 131: self = .com
+    case 132: self = .comma
+    case 133: self = .contentsOf
+    case 134: self = .contiguousBytes
+    case 135: self = .count
+    case 136: self = .countVarintsInBuffer
+    case 137: self = .csharpNamespace
+    case 138: self = .ctype
+    case 139: self = .customCodable
+    case 140: self = .customDebugStringConvertible
+    case 141: self = .d
+    case 142: self = .data
+    case 143: self = .dataResult
+    case 144: self = .date
+    case 145: self = .daySec
+    case 146: self = .daysSinceEpoch
+    case 147: self = .debugDescription_
+    case 148: self = .decoded
+    case 149: self = .decodedFromJsonnull
+    case 150: self = .decodeExtensionField
+    case 151: self = .decodeExtensionFieldsAsMessageSet
+    case 152: self = .decodeJson
+    case 153: self = .decodeMapField
+    case 154: self = .decodeMessage
+    case 155: self = .decoder
+    case 156: self = .decodeRepeated
+    case 157: self = .decodeRepeatedBoolField
+    case 158: self = .decodeRepeatedBytesField
+    case 159: self = .decodeRepeatedDoubleField
+    case 160: self = .decodeRepeatedEnumField
+    case 161: self = .decodeRepeatedFixed32Field
+    case 162: self = .decodeRepeatedFixed64Field
+    case 163: self = .decodeRepeatedFloatField
+    case 164: self = .decodeRepeatedGroupField
+    case 165: self = .decodeRepeatedInt32Field
+    case 166: self = .decodeRepeatedInt64Field
+    case 167: self = .decodeRepeatedMessageField
+    case 168: self = .decodeRepeatedSfixed32Field
+    case 169: self = .decodeRepeatedSfixed64Field
+    case 170: self = .decodeRepeatedSint32Field
+    case 171: self = .decodeRepeatedSint64Field
+    case 172: self = .decodeRepeatedStringField
+    case 173: self = .decodeRepeatedUint32Field
+    case 174: self = .decodeRepeatedUint64Field
+    case 175: self = .decodeSingular
+    case 176: self = .decodeSingularBoolField
+    case 177: self = .decodeSingularBytesField
+    case 178: self = .decodeSingularDoubleField
+    case 179: self = .decodeSingularEnumField
+    case 180: self = .decodeSingularFixed32Field
+    case 181: self = .decodeSingularFixed64Field
+    case 182: self = .decodeSingularFloatField
+    case 183: self = .decodeSingularGroupField
+    case 184: self = .decodeSingularInt32Field
+    case 185: self = .decodeSingularInt64Field
+    case 186: self = .decodeSingularMessageField
+    case 187: self = .decodeSingularSfixed32Field
+    case 188: self = .decodeSingularSfixed64Field
+    case 189: self = .decodeSingularSint32Field
+    case 190: self = .decodeSingularSint64Field
+    case 191: self = .decodeSingularStringField
+    case 192: self = .decodeSingularUint32Field
+    case 193: self = .decodeSingularUint64Field
+    case 194: self = .decodeTextFormat
+    case 195: self = .defaultAnyTypeUrlprefix
+    case 196: self = .defaultValue
+    case 197: self = .dependency
+    case 198: self = .deprecated
+    case 199: self = .description_
+    case 200: self = .descriptorProto
+    case 201: self = .dictionary
+    case 202: self = .dictionaryLiteral
+    case 203: self = .digit
+    case 204: self = .digit0
+    case 205: self = .digit1
+    case 206: self = .digitCount
+    case 207: self = .digits
+    case 208: self = .digitValue
+    case 209: self = .discardableResult
+    case 210: self = .discardUnknownFields
+    case 211: self = .distance
+    case 212: self = .double
+    case 213: self = .doubleValue
+    case 214: self = .duration
+    case 215: self = .e
+    case 216: self = .edition
+    case 217: self = .element
+    case 218: self = .elements
+    case 219: self = .emitExtensionFieldName
+    case 220: self = .emitFieldName
+    case 221: self = .emitFieldNumber
+    case 222: self = .empty
+    case 223: self = .emptyData
+    case 224: self = .encodeAsBytes
+    case 225: self = .encoded
+    case 226: self = .encodedJsonstring
+    case 227: self = .encodedSize
+    case 228: self = .encodeField
+    case 229: self = .encoder
+    case 230: self = .end
+    case 231: self = .endArray
+    case 232: self = .endMessageField
+    case 233: self = .endObject
+    case 234: self = .endRegularField
+    case 235: self = .enum
+    case 236: self = .enumDescriptorProto
+    case 237: self = .enumOptions
+    case 238: self = .enumReservedRange
+    case 239: self = .enumType
+    case 240: self = .enumvalue
+    case 241: self = .enumValueDescriptorProto
+    case 242: self = .enumValueOptions
+    case 243: self = .equatable
+    case 244: self = .error
+    case 245: self = .expressibleByArrayLiteral
+    case 246: self = .expressibleByDictionaryLiteral
+    case 247: self = .ext
+    case 248: self = .extDecoder
+    case 249: self = .extendedGraphemeClusterLiteral
+    case 250: self = .extendedGraphemeClusterLiteralType
+    case 251: self = .extendee
+    case 252: self = .extensibleMessage
+    case 253: self = .extension
+    case 254: self = .extensionField
+    case 255: self = .extensionFieldNumber
+    case 256: self = .extensionFieldValueSet
+    case 257: self = .extensionMap
+    case 258: self = .extensionRange
+    case 259: self = .extensionRangeOptions
+    case 260: self = .extensions
+    case 261: self = .extras
+    case 262: self = .f
+    case 263: self = .false
+    case 264: self = .field
+    case 265: self = .fieldData
+    case 266: self = .fieldDescriptorProto
+    case 267: self = .fieldMask
+    case 268: self = .fieldName
+    case 269: self = .fieldNameCount
+    case 270: self = .fieldNum
+    case 271: self = .fieldNumber
+    case 272: self = .fieldNumberForProto
+    case 273: self = .fieldOptions
+    case 274: self = .fields
+    case 275: self = .fieldSize
+    case 276: self = .fieldTag
+    case 277: self = .fieldType
+    case 278: self = .file
+    case 279: self = .fileDescriptorProto
+    case 280: self = .fileDescriptorSet
+    case 281: self = .fileName
+    case 282: self = .fileOptions
+    case 283: self = .filter
+    case 284: self = .first
+    case 285: self = .firstItem
+    case 286: self = .float
+    case 287: self = .floatLiteral
+    case 288: self = .floatLiteralType
+    case 289: self = .floatValue
+    case 290: self = .forMessageName
+    case 291: self = .formUnion
+    case 292: self = .forReadingFrom
+    case 293: self = .forTypeURL
+    case 294: self = .forwardParser
+    case 295: self = .forWritingInto
+    case 296: self = .from
+    case 297: self = .fromAscii2
+    case 298: self = .fromAscii4
+    case 299: self = .fromByteOffset
+    case 300: self = .fromHexDigit
+    case 301: self = .func
+    case 302: self = .g
+    case 303: self = .generatedCodeInfo
+    case 304: self = .get
+    case 305: self = .getExtensionValue
+    case 306: self = .googleapis
+    case 307: self = .googleProtobufAny
+    case 308: self = .googleProtobufApi
+    case 309: self = .googleProtobufBoolValue
+    case 310: self = .googleProtobufBytesValue
+    case 311: self = .googleProtobufDescriptorProto
+    case 312: self = .googleProtobufDoubleValue
+    case 313: self = .googleProtobufDuration
+    case 314: self = .googleProtobufEmpty
+    case 315: self = .googleProtobufEnum
+    case 316: self = .googleProtobufEnumDescriptorProto
+    case 317: self = .googleProtobufEnumOptions
+    case 318: self = .googleProtobufEnumValue
+    case 319: self = .googleProtobufEnumValueDescriptorProto
+    case 320: self = .googleProtobufEnumValueOptions
+    case 321: self = .googleProtobufExtensionRangeOptions
+    case 322: self = .googleProtobufField
+    case 323: self = .googleProtobufFieldDescriptorProto
+    case 324: self = .googleProtobufFieldMask
+    case 325: self = .googleProtobufFieldOptions
+    case 326: self = .googleProtobufFileDescriptorProto
+    case 327: self = .googleProtobufFileDescriptorSet
+    case 328: self = .googleProtobufFileOptions
+    case 329: self = .googleProtobufFloatValue
+    case 330: self = .googleProtobufGeneratedCodeInfo
+    case 331: self = .googleProtobufInt32Value
+    case 332: self = .googleProtobufInt64Value
+    case 333: self = .googleProtobufListValue
+    case 334: self = .googleProtobufMessageOptions
+    case 335: self = .googleProtobufMethod
+    case 336: self = .googleProtobufMethodDescriptorProto
+    case 337: self = .googleProtobufMethodOptions
+    case 338: self = .googleProtobufMixin
+    case 339: self = .googleProtobufNullValue
+    case 340: self = .googleProtobufOneofDescriptorProto
+    case 341: self = .googleProtobufOneofOptions
+    case 342: self = .googleProtobufOption
+    case 343: self = .googleProtobufServiceDescriptorProto
+    case 344: self = .googleProtobufServiceOptions
+    case 345: self = .googleProtobufSourceCodeInfo
+    case 346: self = .googleProtobufSourceContext
+    case 347: self = .googleProtobufStringValue
+    case 348: self = .googleProtobufStruct
+    case 349: self = .googleProtobufSyntax
+    case 350: self = .googleProtobufTimestamp
+    case 351: self = .googleProtobufType
+    case 352: self = .googleProtobufUint32Value
+    case 353: self = .googleProtobufUint64Value
+    case 354: self = .googleProtobufUninterpretedOption
+    case 355: self = .googleProtobufValue
+    case 356: self = .goPackage
+    case 357: self = .group
+    case 358: self = .groupFieldNumberStack
+    case 359: self = .groupSize
+    case 360: self = .h
+    case 361: self = .hadOneofValue
+    case 362: self = .handleConflictingOneOf
+    case 363: self = .hasAggregateValue
+    case 364: self = .hasAllowAlias
+    case 365: self = .hasBegin
+    case 366: self = .hasCcEnableArenas
+    case 367: self = .hasCcGenericServices
+    case 368: self = .hasClientStreaming
+    case 369: self = .hasCsharpNamespace
+    case 370: self = .hasCtype
+    case 371: self = .hasDefaultValue
+    case 372: self = .hasDeprecated
+    case 373: self = .hasDoubleValue
+    case 374: self = .hasEdition
+    case 375: self = .hasEnd
+    case 376: self = .hasExtendee
+    case 377: self = .hasExtensionValue
+    case 378: self = .hasGoPackage
+    case 379: self = .hash
+    case 380: self = .hashable
+    case 381: self = .hasher
+    case 382: self = .hashValue_
+    case 383: self = .hashVisitor
+    case 384: self = .hasIdempotencyLevel
+    case 385: self = .hasIdentifierValue
+    case 386: self = .hasInputType
+    case 387: self = .hasIsExtension
+    case 388: self = .hasJavaGenerateEqualsAndHash
+    case 389: self = .hasJavaGenericServices
+    case 390: self = .hasJavaMultipleFiles
+    case 391: self = .hasJavaOuterClassname
+    case 392: self = .hasJavaPackage
+    case 393: self = .hasJavaStringCheckUtf8
+    case 394: self = .hasJsonName
+    case 395: self = .hasJstype
+    case 396: self = .hasLabel
+    case 397: self = .hasLazy
+    case 398: self = .hasLeadingComments
+    case 399: self = .hasMapEntry
+    case 400: self = .hasMessageSetWireFormat
+    case 401: self = .hasName
+    case 402: self = .hasNamePart
+    case 403: self = .hasNegativeIntValue
+    case 404: self = .hasNoStandardDescriptorAccessor
+    case 405: self = .hasNumber
+    case 406: self = .hasObjcClassPrefix
+    case 407: self = .hasOneofIndex
+    case 408: self = .hasOptimizeFor
+    case 409: self = .hasOptions
+    case 410: self = .hasOutputType
+    case 411: self = .hasPackage
+    case 412: self = .hasPacked
+    case 413: self = .hasPhpClassPrefix
+    case 414: self = .hasPhpGenericServices
+    case 415: self = .hasPhpMetadataNamespace
+    case 416: self = .hasPhpNamespace
+    case 417: self = .hasPositiveIntValue
+    case 418: self = .hasProto3Optional
+    case 419: self = .hasPyGenericServices
+    case 420: self = .hasRubyPackage
+    case 421: self = .hasSemantic
+    case 422: self = .hasServerStreaming
+    case 423: self = .hasSourceCodeInfo
+    case 424: self = .hasSourceContext
+    case 425: self = .hasSourceFile
+    case 426: self = .hasStart
+    case 427: self = .hasStringValue
+    case 428: self = .hasSwiftPrefix
+    case 429: self = .hasSyntax
+    case 430: self = .hasTrailingComments
+    case 431: self = .hasType
+    case 432: self = .hasTypeName
+    case 433: self = .hasUnverifiedLazy
+    case 434: self = .hasValue
+    case 435: self = .hasWeak
+    case 436: self = .hour
+    case 437: self = .i
+    case 438: self = .idempotencyLevel
+    case 439: self = .identifierValue
+    case 440: self = .if
+    case 441: self = .ignoreUnknownFields
+    case 442: self = .index
+    case 443: self = .init_
+    case 444: self = .inout
+    case 445: self = .inputType
+    case 446: self = .insert
+    case 447: self = .int
+    case 448: self = .int32
+    case 449: self = .int32Value
+    case 450: self = .int64
+    case 451: self = .int64Value
+    case 452: self = .int8
+    case 453: self = .integerLiteral
+    case 454: self = .integerLiteralType
+    case 455: self = .intern
+    case 456: self = .internal
+    case 457: self = .internalState
+    case 458: self = .into
+    case 459: self = .ints
+    case 460: self = .isA
+    case 461: self = .isEqual
+    case 462: self = .isEqualTo
+    case 463: self = .isExtension
+    case 464: self = .isInitialized
+    case 465: self = .isNegative
+    case 466: self = .itemTagsEncodedSize
+    case 467: self = .iterator
+    case 468: self = .i2166136261
+    case 469: self = .javaGenerateEqualsAndHash
+    case 470: self = .javaGenericServices
+    case 471: self = .javaMultipleFiles
+    case 472: self = .javaOuterClassname
+    case 473: self = .javaPackage
+    case 474: self = .javaStringCheckUtf8
+    case 475: self = .jsondecoder
+    case 476: self = .jsondecodingError
+    case 477: self = .jsondecodingOptions
+    case 478: self = .jsonEncoder
+    case 479: self = .jsonencodingError
+    case 480: self = .jsonencodingOptions
+    case 481: self = .jsonencodingVisitor
+    case 482: self = .jsonmapEncodingVisitor
+    case 483: self = .jsonName
+    case 484: self = .jsonPath
+    case 485: self = .jsonPaths
+    case 486: self = .jsonscanner
+    case 487: self = .jsonString
+    case 488: self = .jsonText
+    case 489: self = .jsonUtf8Data
+    case 490: self = .jstype
+    case 491: self = .k
+    case 492: self = .key
+    case 493: self = .keyField
+    case 494: self = .keyType
+    case 495: self = .kind
+    case 496: self = .l
+    case 497: self = .label
+    case 498: self = .lazy
+    case 499: self = .leadingComments
+    case 500: self = .leadingDetachedComments
+    case 501: self = .length
+    case 502: self = .lessThan
+    case 503: self = .let
+    case 504: self = .lhs
+    case 505: self = .list
+    case 506: self = .listOfMessages
+    case 507: self = .listValue
+    case 508: self = .littleEndian
+    case 509: self = .littleEndianBytes
+    case 510: self = .load
+    case 511: self = .localHasher
+    case 512: self = .location
+    case 513: self = .m
+    case 514: self = .major
+    case 515: self = .makeIterator
+    case 516: self = .mapEntry
+    case 517: self = .mapHash
+    case 518: self = .mapKeyType
+    case 519: self = .mapNameResolver
+    case 520: self = .mapToMessages
+    case 521: self = .mapValueType
+    case 522: self = .mapVisitor
+    case 523: self = .mdayStart
+    case 524: self = .merge
+    case 525: self = .message
+    case 526: self = .messageDepthLimit
+    case 527: self = .messageExtension
+    case 528: self = .messageImplementationBase
+    case 529: self = .messageOptions
+    case 530: self = .messageSet
+    case 531: self = .messageSetWireFormat
+    case 532: self = .messageType
+    case 533: self = .method
+    case 534: self = .methodDescriptorProto
+    case 535: self = .methodOptions
+    case 536: self = .methods
+    case 537: self = .minor
+    case 538: self = .mixin
+    case 539: self = .mixins
+    case 540: self = .modifier
+    case 541: self = .modify
+    case 542: self = .month
+    case 543: self = .msgExtension
+    case 544: self = .mutating
+    case 545: self = .n
+    case 546: self = .name
+    case 547: self = .nameDescription
+    case 548: self = .nameMap
+    case 549: self = .namePart
+    case 550: self = .nameResolver
+    case 551: self = .names
+    case 552: self = .nanos
+    case 553: self = .nativeBytes
+    case 554: self = .nativeEndianBytes
+    case 555: self = .negativeIntValue
+    case 556: self = .nestedType
+    case 557: self = .newL
+    case 558: self = .newList
+    case 559: self = .newValue
+    case 560: self = .nextByte
+    case 561: self = .nextFieldNumber
+    case 562: self = .nil
+    case 563: self = .nilLiteral
+    case 564: self = .noStandardDescriptorAccessor
+    case 565: self = .nullValue
+    case 566: self = .number
+    case 567: self = .numberValue
+    case 568: self = .objcClassPrefix
+    case 569: self = .of
+    case 570: self = .oneofDecl
+    case 571: self = .oneofDescriptorProto
+    case 572: self = .oneofIndex
+    case 573: self = .oneofOptions
+    case 574: self = .oneofs
+    case 575: self = .oneOfKind
+    case 576: self = .optimizeFor
+    case 577: self = .optimizeMode
+    case 578: self = .option
+    case 579: self = .optionalEnumExtensionField
+    case 580: self = .optionalExtensionField
+    case 581: self = .optionalGroupExtensionField
+    case 582: self = .optionalMessageExtensionField
+    case 583: self = .options
+    case 584: self = .other
+    case 585: self = .others
+    case 586: self = .out
+    case 587: self = .outputType
+    case 588: self = .p
+    case 589: self = .package
+    case 590: self = .packed
+    case 591: self = .packedEnumExtensionField
+    case 592: self = .packedExtensionField
+    case 593: self = .padding
+    case 594: self = .parent
+    case 595: self = .parse
+    case 596: self = .partial
+    case 597: self = .path
+    case 598: self = .paths
+    case 599: self = .payload
+    case 600: self = .payloadSize
+    case 601: self = .phpClassPrefix
+    case 602: self = .phpGenericServices
+    case 603: self = .phpMetadataNamespace
+    case 604: self = .phpNamespace
+    case 605: self = .pointer
+    case 606: self = .pos
+    case 607: self = .positiveIntValue
+    case 608: self = .prefix
+    case 609: self = .preserveProtoFieldNames
+    case 610: self = .preTraverse
+    case 611: self = .printUnknownFields
+    case 612: self = .proto2
+    case 613: self = .proto3DefaultValue
+    case 614: self = .proto3Optional
+    case 615: self = .protobufApiversionCheck
+    case 616: self = .protobufApiversion2
+    case 617: self = .protobufBool
+    case 618: self = .protobufBytes
+    case 619: self = .protobufDouble
+    case 620: self = .protobufEnumMap
+    case 621: self = .protobufExtension
+    case 622: self = .protobufFixed32
+    case 623: self = .protobufFixed64
+    case 624: self = .protobufFloat
+    case 625: self = .protobufInt32
+    case 626: self = .protobufInt64
+    case 627: self = .protobufMap
+    case 628: self = .protobufMessageMap
+    case 629: self = .protobufSfixed32
+    case 630: self = .protobufSfixed64
+    case 631: self = .protobufSint32
+    case 632: self = .protobufSint64
+    case 633: self = .protobufString
+    case 634: self = .protobufUint32
+    case 635: self = .protobufUint64
+    case 636: self = .protobufExtensionFieldValues
+    case 637: self = .protobufFieldNumber
+    case 638: self = .protobufGeneratedIsEqualTo
+    case 639: self = .protobufNameMap
+    case 640: self = .protobufNewField
+    case 641: self = .protobufPackage
+    case 642: self = .protocol
+    case 643: self = .protoFieldName
+    case 644: self = .protoMessageName
+    case 645: self = .protoNameProviding
+    case 646: self = .protoPaths
+    case 647: self = .public
+    case 648: self = .publicDependency
+    case 649: self = .putBoolValue
+    case 650: self = .putBytesValue
+    case 651: self = .putDoubleValue
+    case 652: self = .putEnumValue
+    case 653: self = .putFixedUint32
+    case 654: self = .putFixedUint64
+    case 655: self = .putFloatValue
+    case 656: self = .putInt64
+    case 657: self = .putStringValue
+    case 658: self = .putUint64
+    case 659: self = .putUint64Hex
+    case 660: self = .putVarInt
+    case 661: self = .putZigZagVarInt
+    case 662: self = .pyGenericServices
+    case 663: self = .rawChars
+    case 664: self = .rawRepresentable
+    case 665: self = .rawValue_
+    case 666: self = .read4HexDigits
+    case 667: self = .register
+    case 668: self = .repeatedEnumExtensionField
+    case 669: self = .repeatedExtensionField
+    case 670: self = .repeatedGroupExtensionField
+    case 671: self = .repeatedMessageExtensionField
+    case 672: self = .requestStreaming
+    case 673: self = .requestTypeURL
+    case 674: self = .requiredSize
+    case 675: self = .reservedName
+    case 676: self = .reservedRange
+    case 677: self = .responseStreaming
+    case 678: self = .responseTypeURL
+    case 679: self = .result
+    case 680: self = .rethrows
+    case 681: self = .return
+    case 682: self = .returnType
+    case 683: self = .revision
+    case 684: self = .rhs
+    case 685: self = .root
+    case 686: self = .rubyPackage
+    case 687: self = .s
+    case 688: self = .sawBackslash
+    case 689: self = .sawSection4Characters
+    case 690: self = .sawSection5Characters
+    case 691: self = .scanner
+    case 692: self = .seconds
+    case 693: self = .self_
+    case 694: self = .semantic
+    case 695: self = .separator
+    case 696: self = .serialize
+    case 697: self = .serializedData
+    case 698: self = .serializedSize
+    case 699: self = .serverStreaming
+    case 700: self = .service
+    case 701: self = .serviceDescriptorProto
+    case 702: self = .serviceOptions
+    case 703: self = .set
+    case 704: self = .setExtensionValue
+    case 705: self = .shift
+    case 706: self = .simpleExtensionMap
+    case 707: self = .sizer
+    case 708: self = .source
+    case 709: self = .sourceCodeInfo
+    case 710: self = .sourceContext
+    case 711: self = .sourceEncoding
+    case 712: self = .sourceFile
+    case 713: self = .span
+    case 714: self = .split
+    case 715: self = .start
+    case 716: self = .startArray
+    case 717: self = .startArrayObject
+    case 718: self = .startField
+    case 719: self = .startIndex
+    case 720: self = .startMessageField
+    case 721: self = .startObject
+    case 722: self = .startRegularField
+    case 723: self = .state
+    case 724: self = .static
+    case 725: self = .staticString
+    case 726: self = .storage
+    case 727: self = .string
+    case 728: self = .stringLiteral
+    case 729: self = .stringLiteralType
+    case 730: self = .stringResult
+    case 731: self = .stringValue
+    case 732: self = .struct
+    case 733: self = .structValue
+    case 734: self = .subDecoder
+    case 735: self = .subscript
+    case 736: self = .subVisitor
+    case 737: self = .swift
+    case 738: self = .swiftPrefix
+    case 739: self = .swiftProtobuf
+    case 740: self = .syntax
+    case 741: self = .t
+    case 742: self = .tag
+    case 743: self = .terminator
+    case 744: self = .testDecoder
+    case 745: self = .text
+    case 746: self = .textDecoder
+    case 747: self = .textFormatDecoder
+    case 748: self = .textFormatDecodingError
+    case 749: self = .textFormatDecodingOptions
+    case 750: self = .textFormatEncodingOptions
+    case 751: self = .textFormatEncodingVisitor
+    case 752: self = .textFormatString
+    case 753: self = .throws
+    case 754: self = .timeInterval
+    case 755: self = .timeIntervalSince1970
+    case 756: self = .timeIntervalSinceReferenceDate
+    case 757: self = .timestamp
+    case 758: self = .total
+    case 759: self = .totalArrayDepth
+    case 760: self = .totalSize
+    case 761: self = .trailingComments
+    case 762: self = .traverse
+    case 763: self = .true
+    case 764: self = .try
+    case 765: self = .type
+    case 766: self = .typealias
+    case 767: self = .typeEnum
+    case 768: self = .typeName
+    case 769: self = .typePrefix
+    case 770: self = .typeStart
+    case 771: self = .typeUnknown
+    case 772: self = .typeURL
+    case 773: self = .uint32
+    case 774: self = .uint32Value
+    case 775: self = .uint64
+    case 776: self = .uint64Value
+    case 777: self = .uint8
+    case 778: self = .unicodeScalarLiteral
+    case 779: self = .unicodeScalarLiteralType
+    case 780: self = .unicodeScalars
+    case 781: self = .unicodeScalarView
+    case 782: self = .uninterpretedOption
+    case 783: self = .union
+    case 784: self = .uniqueStorage
+    case 785: self = .unknown
+    case 786: self = .unknownFields
+    case 787: self = .unknownStorage
+    case 788: self = .unpackTo
+    case 789: self = .unsafeBufferPointer
+    case 790: self = .unsafeMutablePointer
+    case 791: self = .unsafeMutableRawBufferPointer
+    case 792: self = .unsafeMutableRawPointer
+    case 793: self = .unsafeRawBufferPointer
+    case 794: self = .unsafeRawPointer
+    case 795: self = .unverifiedLazy
+    case 796: self = .updatedOptions
+    case 797: self = .url
+    case 798: self = .utf8
+    case 799: self = .utf8Ptr
+    case 800: self = .utf8ToDouble
+    case 801: self = .utf8View
+    case 802: self = .v
+    case 803: self = .value
+    case 804: self = .valueField
+    case 805: self = .values
+    case 806: self = .valueType
+    case 807: self = .var
+    case 808: self = .version
+    case 809: self = .versionString
+    case 810: self = .visitExtensionFields
+    case 811: self = .visitExtensionFieldsAsMessageSet
+    case 812: self = .visitMapField
+    case 813: self = .visitor
+    case 814: self = .visitPacked
+    case 815: self = .visitPackedBoolField
+    case 816: self = .visitPackedDoubleField
+    case 817: self = .visitPackedEnumField
+    case 818: self = .visitPackedFixed32Field
+    case 819: self = .visitPackedFixed64Field
+    case 820: self = .visitPackedFloatField
+    case 821: self = .visitPackedInt32Field
+    case 822: self = .visitPackedInt64Field
+    case 823: self = .visitPackedSfixed32Field
+    case 824: self = .visitPackedSfixed64Field
+    case 825: self = .visitPackedSint32Field
+    case 826: self = .visitPackedSint64Field
+    case 827: self = .visitPackedUint32Field
+    case 828: self = .visitPackedUint64Field
+    case 829: self = .visitRepeated
+    case 830: self = .visitRepeatedBoolField
+    case 831: self = .visitRepeatedBytesField
+    case 832: self = .visitRepeatedDoubleField
+    case 833: self = .visitRepeatedEnumField
+    case 834: self = .visitRepeatedFixed32Field
+    case 835: self = .visitRepeatedFixed64Field
+    case 836: self = .visitRepeatedFloatField
+    case 837: self = .visitRepeatedGroupField
+    case 838: self = .visitRepeatedInt32Field
+    case 839: self = .visitRepeatedInt64Field
+    case 840: self = .visitRepeatedMessageField
+    case 841: self = .visitRepeatedSfixed32Field
+    case 842: self = .visitRepeatedSfixed64Field
+    case 843: self = .visitRepeatedSint32Field
+    case 844: self = .visitRepeatedSint64Field
+    case 845: self = .visitRepeatedStringField
+    case 846: self = .visitRepeatedUint32Field
+    case 847: self = .visitRepeatedUint64Field
+    case 848: self = .visitSingular
+    case 849: self = .visitSingularBoolField
+    case 850: self = .visitSingularBytesField
+    case 851: self = .visitSingularDoubleField
+    case 852: self = .visitSingularEnumField
+    case 853: self = .visitSingularFixed32Field
+    case 854: self = .visitSingularFixed64Field
+    case 855: self = .visitSingularFloatField
+    case 856: self = .visitSingularGroupField
+    case 857: self = .visitSingularInt32Field
+    case 858: self = .visitSingularInt64Field
+    case 859: self = .visitSingularMessageField
+    case 860: self = .visitSingularSfixed32Field
+    case 861: self = .visitSingularSfixed64Field
+    case 862: self = .visitSingularSint32Field
+    case 863: self = .visitSingularSint64Field
+    case 864: self = .visitSingularStringField
+    case 865: self = .visitSingularUint32Field
+    case 866: self = .visitSingularUint64Field
+    case 867: self = .visitUnknown
+    case 868: self = .wasDecoded
+    case 869: self = .weak
+    case 870: self = .weakDependency
+    case 871: self = .where
+    case 872: self = .wireFormat
+    case 873: self = .with
+    case 874: self = .withUnsafeBytes
+    case 875: self = .withUnsafeMutableBytes
+    case 876: self = .work
+    case 877: self = .wrappedType
+    case 878: self = .written
+    case 879: self = .yday
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -1850,809 +1870,819 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .clearDefaultValue: return 67
     case .clearDeprecated: return 68
     case .clearDoubleValue: return 69
-    case .clearEnd: return 70
-    case .clearExtendee: return 71
-    case .clearExtensionValue: return 72
-    case .clearGoPackage: return 73
-    case .clearIdempotencyLevel: return 74
-    case .clearIdentifierValue: return 75
-    case .clearInputType: return 76
-    case .clearIsExtension: return 77
-    case .clearJavaGenerateEqualsAndHash: return 78
-    case .clearJavaGenericServices: return 79
-    case .clearJavaMultipleFiles: return 80
-    case .clearJavaOuterClassname: return 81
-    case .clearJavaPackage: return 82
-    case .clearJavaStringCheckUtf8: return 83
-    case .clearJsonName: return 84
-    case .clearJstype: return 85
-    case .clearLabel: return 86
-    case .clearLazy: return 87
-    case .clearLeadingComments: return 88
-    case .clearMapEntry: return 89
-    case .clearMessageSetWireFormat: return 90
-    case .clearName: return 91
-    case .clearNamePart: return 92
-    case .clearNegativeIntValue: return 93
-    case .clearNoStandardDescriptorAccessor: return 94
-    case .clearNumber: return 95
-    case .clearObjcClassPrefix: return 96
-    case .clearOneofIndex: return 97
-    case .clearOptimizeFor: return 98
-    case .clearOptions: return 99
-    case .clearOutputType: return 100
-    case .clearPackage: return 101
-    case .clearPacked: return 102
-    case .clearPhpClassPrefix: return 103
-    case .clearPhpGenericServices: return 104
-    case .clearPhpMetadataNamespace: return 105
-    case .clearPhpNamespace: return 106
-    case .clearPositiveIntValue: return 107
-    case .clearProto3Optional: return 108
-    case .clearPyGenericServices: return 109
-    case .clearRubyPackage: return 110
-    case .clearServerStreaming: return 111
-    case .clearSourceCodeInfo: return 112
-    case .clearSourceContext: return 113
-    case .clearSourceFile: return 114
-    case .clearStart: return 115
-    case .clearStringValue: return 116
-    case .clearSwiftPrefix: return 117
-    case .clearSyntax: return 118
-    case .clearTrailingComments: return 119
-    case .clearType: return 120
-    case .clearTypeName: return 121
-    case .clearValue: return 122
-    case .clearWeak: return 123
-    case .clientStreaming: return 124
-    case .codePoint: return 125
-    case .codeUnits: return 126
-    case .collection: return 127
-    case .com: return 128
-    case .comma: return 129
-    case .contentsOf: return 130
-    case .contiguousBytes: return 131
-    case .count: return 132
-    case .countVarintsInBuffer: return 133
-    case .csharpNamespace: return 134
-    case .ctype: return 135
-    case .customCodable: return 136
-    case .customDebugStringConvertible: return 137
-    case .d: return 138
-    case .data: return 139
-    case .dataResult: return 140
-    case .date: return 141
-    case .daySec: return 142
-    case .daysSinceEpoch: return 143
-    case .debugDescription_: return 144
-    case .decoded: return 145
-    case .decodedFromJsonnull: return 146
-    case .decodeExtensionField: return 147
-    case .decodeExtensionFieldsAsMessageSet: return 148
-    case .decodeJson: return 149
-    case .decodeMapField: return 150
-    case .decodeMessage: return 151
-    case .decoder: return 152
-    case .decodeRepeated: return 153
-    case .decodeRepeatedBoolField: return 154
-    case .decodeRepeatedBytesField: return 155
-    case .decodeRepeatedDoubleField: return 156
-    case .decodeRepeatedEnumField: return 157
-    case .decodeRepeatedFixed32Field: return 158
-    case .decodeRepeatedFixed64Field: return 159
-    case .decodeRepeatedFloatField: return 160
-    case .decodeRepeatedGroupField: return 161
-    case .decodeRepeatedInt32Field: return 162
-    case .decodeRepeatedInt64Field: return 163
-    case .decodeRepeatedMessageField: return 164
-    case .decodeRepeatedSfixed32Field: return 165
-    case .decodeRepeatedSfixed64Field: return 166
-    case .decodeRepeatedSint32Field: return 167
-    case .decodeRepeatedSint64Field: return 168
-    case .decodeRepeatedStringField: return 169
-    case .decodeRepeatedUint32Field: return 170
-    case .decodeRepeatedUint64Field: return 171
-    case .decodeSingular: return 172
-    case .decodeSingularBoolField: return 173
-    case .decodeSingularBytesField: return 174
-    case .decodeSingularDoubleField: return 175
-    case .decodeSingularEnumField: return 176
-    case .decodeSingularFixed32Field: return 177
-    case .decodeSingularFixed64Field: return 178
-    case .decodeSingularFloatField: return 179
-    case .decodeSingularGroupField: return 180
-    case .decodeSingularInt32Field: return 181
-    case .decodeSingularInt64Field: return 182
-    case .decodeSingularMessageField: return 183
-    case .decodeSingularSfixed32Field: return 184
-    case .decodeSingularSfixed64Field: return 185
-    case .decodeSingularSint32Field: return 186
-    case .decodeSingularSint64Field: return 187
-    case .decodeSingularStringField: return 188
-    case .decodeSingularUint32Field: return 189
-    case .decodeSingularUint64Field: return 190
-    case .decodeTextFormat: return 191
-    case .defaultAnyTypeUrlprefix: return 192
-    case .defaultValue: return 193
-    case .dependency: return 194
-    case .deprecated: return 195
-    case .description_: return 196
-    case .descriptorProto: return 197
-    case .dictionary: return 198
-    case .dictionaryLiteral: return 199
-    case .digit: return 200
-    case .digit0: return 201
-    case .digit1: return 202
-    case .digitCount: return 203
-    case .digits: return 204
-    case .digitValue: return 205
-    case .discardableResult: return 206
-    case .discardUnknownFields: return 207
-    case .distance: return 208
-    case .double: return 209
-    case .doubleValue: return 210
-    case .duration: return 211
-    case .e: return 212
-    case .element: return 213
-    case .elements: return 214
-    case .emitExtensionFieldName: return 215
-    case .emitFieldName: return 216
-    case .emitFieldNumber: return 217
-    case .empty: return 218
-    case .emptyData: return 219
-    case .encodeAsBytes: return 220
-    case .encoded: return 221
-    case .encodedJsonstring: return 222
-    case .encodedSize: return 223
-    case .encodeField: return 224
-    case .encoder: return 225
-    case .end: return 226
-    case .endArray: return 227
-    case .endMessageField: return 228
-    case .endObject: return 229
-    case .endRegularField: return 230
-    case .enum: return 231
-    case .enumDescriptorProto: return 232
-    case .enumOptions: return 233
-    case .enumReservedRange: return 234
-    case .enumType: return 235
-    case .enumvalue: return 236
-    case .enumValueDescriptorProto: return 237
-    case .enumValueOptions: return 238
-    case .equatable: return 239
-    case .error: return 240
-    case .expressibleByArrayLiteral: return 241
-    case .expressibleByDictionaryLiteral: return 242
-    case .ext: return 243
-    case .extDecoder: return 244
-    case .extendedGraphemeClusterLiteral: return 245
-    case .extendedGraphemeClusterLiteralType: return 246
-    case .extendee: return 247
-    case .extensibleMessage: return 248
-    case .extension: return 249
-    case .extensionField: return 250
-    case .extensionFieldNumber: return 251
-    case .extensionFieldValueSet: return 252
-    case .extensionMap: return 253
-    case .extensionRange: return 254
-    case .extensionRangeOptions: return 255
-    case .extensions: return 256
-    case .extras: return 257
-    case .f: return 258
-    case .false: return 259
-    case .field: return 260
-    case .fieldData: return 261
-    case .fieldDescriptorProto: return 262
-    case .fieldMask: return 263
-    case .fieldName: return 264
-    case .fieldNameCount: return 265
-    case .fieldNum: return 266
-    case .fieldNumber: return 267
-    case .fieldNumberForProto: return 268
-    case .fieldOptions: return 269
-    case .fields: return 270
-    case .fieldSize: return 271
-    case .fieldTag: return 272
-    case .fieldType: return 273
-    case .file: return 274
-    case .fileDescriptorProto: return 275
-    case .fileDescriptorSet: return 276
-    case .fileName: return 277
-    case .fileOptions: return 278
-    case .filter: return 279
-    case .first: return 280
-    case .firstItem: return 281
-    case .float: return 282
-    case .floatLiteral: return 283
-    case .floatLiteralType: return 284
-    case .floatValue: return 285
-    case .forMessageName: return 286
-    case .formUnion: return 287
-    case .forReadingFrom: return 288
-    case .forTypeURL: return 289
-    case .forwardParser: return 290
-    case .forWritingInto: return 291
-    case .from: return 292
-    case .fromAscii2: return 293
-    case .fromAscii4: return 294
-    case .fromByteOffset: return 295
-    case .fromHexDigit: return 296
-    case .func: return 297
-    case .g: return 298
-    case .generatedCodeInfo: return 299
-    case .get: return 300
-    case .getExtensionValue: return 301
-    case .googleapis: return 302
-    case .googleProtobufAny: return 303
-    case .googleProtobufApi: return 304
-    case .googleProtobufBoolValue: return 305
-    case .googleProtobufBytesValue: return 306
-    case .googleProtobufDescriptorProto: return 307
-    case .googleProtobufDoubleValue: return 308
-    case .googleProtobufDuration: return 309
-    case .googleProtobufEmpty: return 310
-    case .googleProtobufEnum: return 311
-    case .googleProtobufEnumDescriptorProto: return 312
-    case .googleProtobufEnumOptions: return 313
-    case .googleProtobufEnumValue: return 314
-    case .googleProtobufEnumValueDescriptorProto: return 315
-    case .googleProtobufEnumValueOptions: return 316
-    case .googleProtobufExtensionRangeOptions: return 317
-    case .googleProtobufField: return 318
-    case .googleProtobufFieldDescriptorProto: return 319
-    case .googleProtobufFieldMask: return 320
-    case .googleProtobufFieldOptions: return 321
-    case .googleProtobufFileDescriptorProto: return 322
-    case .googleProtobufFileDescriptorSet: return 323
-    case .googleProtobufFileOptions: return 324
-    case .googleProtobufFloatValue: return 325
-    case .googleProtobufGeneratedCodeInfo: return 326
-    case .googleProtobufInt32Value: return 327
-    case .googleProtobufInt64Value: return 328
-    case .googleProtobufListValue: return 329
-    case .googleProtobufMessageOptions: return 330
-    case .googleProtobufMethod: return 331
-    case .googleProtobufMethodDescriptorProto: return 332
-    case .googleProtobufMethodOptions: return 333
-    case .googleProtobufMixin: return 334
-    case .googleProtobufNullValue: return 335
-    case .googleProtobufOneofDescriptorProto: return 336
-    case .googleProtobufOneofOptions: return 337
-    case .googleProtobufOption: return 338
-    case .googleProtobufServiceDescriptorProto: return 339
-    case .googleProtobufServiceOptions: return 340
-    case .googleProtobufSourceCodeInfo: return 341
-    case .googleProtobufSourceContext: return 342
-    case .googleProtobufStringValue: return 343
-    case .googleProtobufStruct: return 344
-    case .googleProtobufSyntax: return 345
-    case .googleProtobufTimestamp: return 346
-    case .googleProtobufType: return 347
-    case .googleProtobufUint32Value: return 348
-    case .googleProtobufUint64Value: return 349
-    case .googleProtobufUninterpretedOption: return 350
-    case .googleProtobufValue: return 351
-    case .goPackage: return 352
-    case .group: return 353
-    case .groupFieldNumberStack: return 354
-    case .groupSize: return 355
-    case .h: return 356
-    case .hadOneofValue: return 357
-    case .handleConflictingOneOf: return 358
-    case .hasAggregateValue: return 359
-    case .hasAllowAlias: return 360
-    case .hasBegin: return 361
-    case .hasCcEnableArenas: return 362
-    case .hasCcGenericServices: return 363
-    case .hasClientStreaming: return 364
-    case .hasCsharpNamespace: return 365
-    case .hasCtype: return 366
-    case .hasDefaultValue: return 367
-    case .hasDeprecated: return 368
-    case .hasDoubleValue: return 369
-    case .hasEnd: return 370
-    case .hasExtendee: return 371
-    case .hasExtensionValue: return 372
-    case .hasGoPackage: return 373
-    case .hash: return 374
-    case .hashable: return 375
-    case .hasher: return 376
-    case .hashValue_: return 377
-    case .hashVisitor: return 378
-    case .hasIdempotencyLevel: return 379
-    case .hasIdentifierValue: return 380
-    case .hasInputType: return 381
-    case .hasIsExtension: return 382
-    case .hasJavaGenerateEqualsAndHash: return 383
-    case .hasJavaGenericServices: return 384
-    case .hasJavaMultipleFiles: return 385
-    case .hasJavaOuterClassname: return 386
-    case .hasJavaPackage: return 387
-    case .hasJavaStringCheckUtf8: return 388
-    case .hasJsonName: return 389
-    case .hasJstype: return 390
-    case .hasLabel: return 391
-    case .hasLazy: return 392
-    case .hasLeadingComments: return 393
-    case .hasMapEntry: return 394
-    case .hasMessageSetWireFormat: return 395
-    case .hasName: return 396
-    case .hasNamePart: return 397
-    case .hasNegativeIntValue: return 398
-    case .hasNoStandardDescriptorAccessor: return 399
-    case .hasNumber: return 400
-    case .hasObjcClassPrefix: return 401
-    case .hasOneofIndex: return 402
-    case .hasOptimizeFor: return 403
-    case .hasOptions: return 404
-    case .hasOutputType: return 405
-    case .hasPackage: return 406
-    case .hasPacked: return 407
-    case .hasPhpClassPrefix: return 408
-    case .hasPhpGenericServices: return 409
-    case .hasPhpMetadataNamespace: return 410
-    case .hasPhpNamespace: return 411
-    case .hasPositiveIntValue: return 412
-    case .hasProto3Optional: return 413
-    case .hasPyGenericServices: return 414
-    case .hasRubyPackage: return 415
-    case .hasServerStreaming: return 416
-    case .hasSourceCodeInfo: return 417
-    case .hasSourceContext: return 418
-    case .hasSourceFile: return 419
-    case .hasStart: return 420
-    case .hasStringValue: return 421
-    case .hasSwiftPrefix: return 422
-    case .hasSyntax: return 423
-    case .hasTrailingComments: return 424
-    case .hasType: return 425
-    case .hasTypeName: return 426
-    case .hasValue: return 427
-    case .hasWeak: return 428
-    case .hour: return 429
-    case .i: return 430
-    case .idempotencyLevel: return 431
-    case .identifierValue: return 432
-    case .if: return 433
-    case .ignoreUnknownFields: return 434
-    case .index: return 435
-    case .init_: return 436
-    case .inout: return 437
-    case .inputType: return 438
-    case .insert: return 439
-    case .int: return 440
-    case .int32: return 441
-    case .int32Value: return 442
-    case .int64: return 443
-    case .int64Value: return 444
-    case .int8: return 445
-    case .integerLiteral: return 446
-    case .integerLiteralType: return 447
-    case .intern: return 448
-    case .internal: return 449
-    case .internalState: return 450
-    case .into: return 451
-    case .ints: return 452
-    case .isA: return 453
-    case .isEqual: return 454
-    case .isEqualTo: return 455
-    case .isExtension: return 456
-    case .isInitialized: return 457
-    case .itemTagsEncodedSize: return 458
-    case .iterator: return 459
-    case .i2166136261: return 460
-    case .javaGenerateEqualsAndHash: return 461
-    case .javaGenericServices: return 462
-    case .javaMultipleFiles: return 463
-    case .javaOuterClassname: return 464
-    case .javaPackage: return 465
-    case .javaStringCheckUtf8: return 466
-    case .jsondecoder: return 467
-    case .jsondecodingError: return 468
-    case .jsondecodingOptions: return 469
-    case .jsonEncoder: return 470
-    case .jsonencodingError: return 471
-    case .jsonencodingOptions: return 472
-    case .jsonencodingVisitor: return 473
-    case .jsonmapEncodingVisitor: return 474
-    case .jsonName: return 475
-    case .jsonPath: return 476
-    case .jsonPaths: return 477
-    case .jsonscanner: return 478
-    case .jsonString: return 479
-    case .jsonText: return 480
-    case .jsonUtf8Data: return 481
-    case .jstype: return 482
-    case .k: return 483
-    case .key: return 484
-    case .keyField: return 485
-    case .keyType: return 486
-    case .kind: return 487
-    case .l: return 488
-    case .label: return 489
-    case .lazy: return 490
-    case .leadingComments: return 491
-    case .leadingDetachedComments: return 492
-    case .length: return 493
-    case .lessThan: return 494
-    case .let: return 495
-    case .lhs: return 496
-    case .list: return 497
-    case .listOfMessages: return 498
-    case .listValue: return 499
+    case .clearEdition: return 70
+    case .clearEnd: return 71
+    case .clearExtendee: return 72
+    case .clearExtensionValue: return 73
+    case .clearGoPackage: return 74
+    case .clearIdempotencyLevel: return 75
+    case .clearIdentifierValue: return 76
+    case .clearInputType: return 77
+    case .clearIsExtension: return 78
+    case .clearJavaGenerateEqualsAndHash: return 79
+    case .clearJavaGenericServices: return 80
+    case .clearJavaMultipleFiles: return 81
+    case .clearJavaOuterClassname: return 82
+    case .clearJavaPackage: return 83
+    case .clearJavaStringCheckUtf8: return 84
+    case .clearJsonName: return 85
+    case .clearJstype: return 86
+    case .clearLabel: return 87
+    case .clearLazy: return 88
+    case .clearLeadingComments: return 89
+    case .clearMapEntry: return 90
+    case .clearMessageSetWireFormat: return 91
+    case .clearName: return 92
+    case .clearNamePart: return 93
+    case .clearNegativeIntValue: return 94
+    case .clearNoStandardDescriptorAccessor: return 95
+    case .clearNumber: return 96
+    case .clearObjcClassPrefix: return 97
+    case .clearOneofIndex: return 98
+    case .clearOptimizeFor: return 99
+    case .clearOptions: return 100
+    case .clearOutputType: return 101
+    case .clearPackage: return 102
+    case .clearPacked: return 103
+    case .clearPhpClassPrefix: return 104
+    case .clearPhpGenericServices: return 105
+    case .clearPhpMetadataNamespace: return 106
+    case .clearPhpNamespace: return 107
+    case .clearPositiveIntValue: return 108
+    case .clearProto3Optional: return 109
+    case .clearPyGenericServices: return 110
+    case .clearRubyPackage: return 111
+    case .clearSemantic: return 112
+    case .clearServerStreaming: return 113
+    case .clearSourceCodeInfo: return 114
+    case .clearSourceContext: return 115
+    case .clearSourceFile: return 116
+    case .clearStart: return 117
+    case .clearStringValue: return 118
+    case .clearSwiftPrefix: return 119
+    case .clearSyntax: return 120
+    case .clearTrailingComments: return 121
+    case .clearType: return 122
+    case .clearTypeName: return 123
+    case .clearUnverifiedLazy: return 124
+    case .clearValue: return 125
+    case .clearWeak: return 126
+    case .clientStreaming: return 127
+    case .codePoint: return 128
+    case .codeUnits: return 129
+    case .collection: return 130
+    case .com: return 131
+    case .comma: return 132
+    case .contentsOf: return 133
+    case .contiguousBytes: return 134
+    case .count: return 135
+    case .countVarintsInBuffer: return 136
+    case .csharpNamespace: return 137
+    case .ctype: return 138
+    case .customCodable: return 139
+    case .customDebugStringConvertible: return 140
+    case .d: return 141
+    case .data: return 142
+    case .dataResult: return 143
+    case .date: return 144
+    case .daySec: return 145
+    case .daysSinceEpoch: return 146
+    case .debugDescription_: return 147
+    case .decoded: return 148
+    case .decodedFromJsonnull: return 149
+    case .decodeExtensionField: return 150
+    case .decodeExtensionFieldsAsMessageSet: return 151
+    case .decodeJson: return 152
+    case .decodeMapField: return 153
+    case .decodeMessage: return 154
+    case .decoder: return 155
+    case .decodeRepeated: return 156
+    case .decodeRepeatedBoolField: return 157
+    case .decodeRepeatedBytesField: return 158
+    case .decodeRepeatedDoubleField: return 159
+    case .decodeRepeatedEnumField: return 160
+    case .decodeRepeatedFixed32Field: return 161
+    case .decodeRepeatedFixed64Field: return 162
+    case .decodeRepeatedFloatField: return 163
+    case .decodeRepeatedGroupField: return 164
+    case .decodeRepeatedInt32Field: return 165
+    case .decodeRepeatedInt64Field: return 166
+    case .decodeRepeatedMessageField: return 167
+    case .decodeRepeatedSfixed32Field: return 168
+    case .decodeRepeatedSfixed64Field: return 169
+    case .decodeRepeatedSint32Field: return 170
+    case .decodeRepeatedSint64Field: return 171
+    case .decodeRepeatedStringField: return 172
+    case .decodeRepeatedUint32Field: return 173
+    case .decodeRepeatedUint64Field: return 174
+    case .decodeSingular: return 175
+    case .decodeSingularBoolField: return 176
+    case .decodeSingularBytesField: return 177
+    case .decodeSingularDoubleField: return 178
+    case .decodeSingularEnumField: return 179
+    case .decodeSingularFixed32Field: return 180
+    case .decodeSingularFixed64Field: return 181
+    case .decodeSingularFloatField: return 182
+    case .decodeSingularGroupField: return 183
+    case .decodeSingularInt32Field: return 184
+    case .decodeSingularInt64Field: return 185
+    case .decodeSingularMessageField: return 186
+    case .decodeSingularSfixed32Field: return 187
+    case .decodeSingularSfixed64Field: return 188
+    case .decodeSingularSint32Field: return 189
+    case .decodeSingularSint64Field: return 190
+    case .decodeSingularStringField: return 191
+    case .decodeSingularUint32Field: return 192
+    case .decodeSingularUint64Field: return 193
+    case .decodeTextFormat: return 194
+    case .defaultAnyTypeUrlprefix: return 195
+    case .defaultValue: return 196
+    case .dependency: return 197
+    case .deprecated: return 198
+    case .description_: return 199
+    case .descriptorProto: return 200
+    case .dictionary: return 201
+    case .dictionaryLiteral: return 202
+    case .digit: return 203
+    case .digit0: return 204
+    case .digit1: return 205
+    case .digitCount: return 206
+    case .digits: return 207
+    case .digitValue: return 208
+    case .discardableResult: return 209
+    case .discardUnknownFields: return 210
+    case .distance: return 211
+    case .double: return 212
+    case .doubleValue: return 213
+    case .duration: return 214
+    case .e: return 215
+    case .edition: return 216
+    case .element: return 217
+    case .elements: return 218
+    case .emitExtensionFieldName: return 219
+    case .emitFieldName: return 220
+    case .emitFieldNumber: return 221
+    case .empty: return 222
+    case .emptyData: return 223
+    case .encodeAsBytes: return 224
+    case .encoded: return 225
+    case .encodedJsonstring: return 226
+    case .encodedSize: return 227
+    case .encodeField: return 228
+    case .encoder: return 229
+    case .end: return 230
+    case .endArray: return 231
+    case .endMessageField: return 232
+    case .endObject: return 233
+    case .endRegularField: return 234
+    case .enum: return 235
+    case .enumDescriptorProto: return 236
+    case .enumOptions: return 237
+    case .enumReservedRange: return 238
+    case .enumType: return 239
+    case .enumvalue: return 240
+    case .enumValueDescriptorProto: return 241
+    case .enumValueOptions: return 242
+    case .equatable: return 243
+    case .error: return 244
+    case .expressibleByArrayLiteral: return 245
+    case .expressibleByDictionaryLiteral: return 246
+    case .ext: return 247
+    case .extDecoder: return 248
+    case .extendedGraphemeClusterLiteral: return 249
+    case .extendedGraphemeClusterLiteralType: return 250
+    case .extendee: return 251
+    case .extensibleMessage: return 252
+    case .extension: return 253
+    case .extensionField: return 254
+    case .extensionFieldNumber: return 255
+    case .extensionFieldValueSet: return 256
+    case .extensionMap: return 257
+    case .extensionRange: return 258
+    case .extensionRangeOptions: return 259
+    case .extensions: return 260
+    case .extras: return 261
+    case .f: return 262
+    case .false: return 263
+    case .field: return 264
+    case .fieldData: return 265
+    case .fieldDescriptorProto: return 266
+    case .fieldMask: return 267
+    case .fieldName: return 268
+    case .fieldNameCount: return 269
+    case .fieldNum: return 270
+    case .fieldNumber: return 271
+    case .fieldNumberForProto: return 272
+    case .fieldOptions: return 273
+    case .fields: return 274
+    case .fieldSize: return 275
+    case .fieldTag: return 276
+    case .fieldType: return 277
+    case .file: return 278
+    case .fileDescriptorProto: return 279
+    case .fileDescriptorSet: return 280
+    case .fileName: return 281
+    case .fileOptions: return 282
+    case .filter: return 283
+    case .first: return 284
+    case .firstItem: return 285
+    case .float: return 286
+    case .floatLiteral: return 287
+    case .floatLiteralType: return 288
+    case .floatValue: return 289
+    case .forMessageName: return 290
+    case .formUnion: return 291
+    case .forReadingFrom: return 292
+    case .forTypeURL: return 293
+    case .forwardParser: return 294
+    case .forWritingInto: return 295
+    case .from: return 296
+    case .fromAscii2: return 297
+    case .fromAscii4: return 298
+    case .fromByteOffset: return 299
+    case .fromHexDigit: return 300
+    case .func: return 301
+    case .g: return 302
+    case .generatedCodeInfo: return 303
+    case .get: return 304
+    case .getExtensionValue: return 305
+    case .googleapis: return 306
+    case .googleProtobufAny: return 307
+    case .googleProtobufApi: return 308
+    case .googleProtobufBoolValue: return 309
+    case .googleProtobufBytesValue: return 310
+    case .googleProtobufDescriptorProto: return 311
+    case .googleProtobufDoubleValue: return 312
+    case .googleProtobufDuration: return 313
+    case .googleProtobufEmpty: return 314
+    case .googleProtobufEnum: return 315
+    case .googleProtobufEnumDescriptorProto: return 316
+    case .googleProtobufEnumOptions: return 317
+    case .googleProtobufEnumValue: return 318
+    case .googleProtobufEnumValueDescriptorProto: return 319
+    case .googleProtobufEnumValueOptions: return 320
+    case .googleProtobufExtensionRangeOptions: return 321
+    case .googleProtobufField: return 322
+    case .googleProtobufFieldDescriptorProto: return 323
+    case .googleProtobufFieldMask: return 324
+    case .googleProtobufFieldOptions: return 325
+    case .googleProtobufFileDescriptorProto: return 326
+    case .googleProtobufFileDescriptorSet: return 327
+    case .googleProtobufFileOptions: return 328
+    case .googleProtobufFloatValue: return 329
+    case .googleProtobufGeneratedCodeInfo: return 330
+    case .googleProtobufInt32Value: return 331
+    case .googleProtobufInt64Value: return 332
+    case .googleProtobufListValue: return 333
+    case .googleProtobufMessageOptions: return 334
+    case .googleProtobufMethod: return 335
+    case .googleProtobufMethodDescriptorProto: return 336
+    case .googleProtobufMethodOptions: return 337
+    case .googleProtobufMixin: return 338
+    case .googleProtobufNullValue: return 339
+    case .googleProtobufOneofDescriptorProto: return 340
+    case .googleProtobufOneofOptions: return 341
+    case .googleProtobufOption: return 342
+    case .googleProtobufServiceDescriptorProto: return 343
+    case .googleProtobufServiceOptions: return 344
+    case .googleProtobufSourceCodeInfo: return 345
+    case .googleProtobufSourceContext: return 346
+    case .googleProtobufStringValue: return 347
+    case .googleProtobufStruct: return 348
+    case .googleProtobufSyntax: return 349
+    case .googleProtobufTimestamp: return 350
+    case .googleProtobufType: return 351
+    case .googleProtobufUint32Value: return 352
+    case .googleProtobufUint64Value: return 353
+    case .googleProtobufUninterpretedOption: return 354
+    case .googleProtobufValue: return 355
+    case .goPackage: return 356
+    case .group: return 357
+    case .groupFieldNumberStack: return 358
+    case .groupSize: return 359
+    case .h: return 360
+    case .hadOneofValue: return 361
+    case .handleConflictingOneOf: return 362
+    case .hasAggregateValue: return 363
+    case .hasAllowAlias: return 364
+    case .hasBegin: return 365
+    case .hasCcEnableArenas: return 366
+    case .hasCcGenericServices: return 367
+    case .hasClientStreaming: return 368
+    case .hasCsharpNamespace: return 369
+    case .hasCtype: return 370
+    case .hasDefaultValue: return 371
+    case .hasDeprecated: return 372
+    case .hasDoubleValue: return 373
+    case .hasEdition: return 374
+    case .hasEnd: return 375
+    case .hasExtendee: return 376
+    case .hasExtensionValue: return 377
+    case .hasGoPackage: return 378
+    case .hash: return 379
+    case .hashable: return 380
+    case .hasher: return 381
+    case .hashValue_: return 382
+    case .hashVisitor: return 383
+    case .hasIdempotencyLevel: return 384
+    case .hasIdentifierValue: return 385
+    case .hasInputType: return 386
+    case .hasIsExtension: return 387
+    case .hasJavaGenerateEqualsAndHash: return 388
+    case .hasJavaGenericServices: return 389
+    case .hasJavaMultipleFiles: return 390
+    case .hasJavaOuterClassname: return 391
+    case .hasJavaPackage: return 392
+    case .hasJavaStringCheckUtf8: return 393
+    case .hasJsonName: return 394
+    case .hasJstype: return 395
+    case .hasLabel: return 396
+    case .hasLazy: return 397
+    case .hasLeadingComments: return 398
+    case .hasMapEntry: return 399
+    case .hasMessageSetWireFormat: return 400
+    case .hasName: return 401
+    case .hasNamePart: return 402
+    case .hasNegativeIntValue: return 403
+    case .hasNoStandardDescriptorAccessor: return 404
+    case .hasNumber: return 405
+    case .hasObjcClassPrefix: return 406
+    case .hasOneofIndex: return 407
+    case .hasOptimizeFor: return 408
+    case .hasOptions: return 409
+    case .hasOutputType: return 410
+    case .hasPackage: return 411
+    case .hasPacked: return 412
+    case .hasPhpClassPrefix: return 413
+    case .hasPhpGenericServices: return 414
+    case .hasPhpMetadataNamespace: return 415
+    case .hasPhpNamespace: return 416
+    case .hasPositiveIntValue: return 417
+    case .hasProto3Optional: return 418
+    case .hasPyGenericServices: return 419
+    case .hasRubyPackage: return 420
+    case .hasSemantic: return 421
+    case .hasServerStreaming: return 422
+    case .hasSourceCodeInfo: return 423
+    case .hasSourceContext: return 424
+    case .hasSourceFile: return 425
+    case .hasStart: return 426
+    case .hasStringValue: return 427
+    case .hasSwiftPrefix: return 428
+    case .hasSyntax: return 429
+    case .hasTrailingComments: return 430
+    case .hasType: return 431
+    case .hasTypeName: return 432
+    case .hasUnverifiedLazy: return 433
+    case .hasValue: return 434
+    case .hasWeak: return 435
+    case .hour: return 436
+    case .i: return 437
+    case .idempotencyLevel: return 438
+    case .identifierValue: return 439
+    case .if: return 440
+    case .ignoreUnknownFields: return 441
+    case .index: return 442
+    case .init_: return 443
+    case .inout: return 444
+    case .inputType: return 445
+    case .insert: return 446
+    case .int: return 447
+    case .int32: return 448
+    case .int32Value: return 449
+    case .int64: return 450
+    case .int64Value: return 451
+    case .int8: return 452
+    case .integerLiteral: return 453
+    case .integerLiteralType: return 454
+    case .intern: return 455
+    case .internal: return 456
+    case .internalState: return 457
+    case .into: return 458
+    case .ints: return 459
+    case .isA: return 460
+    case .isEqual: return 461
+    case .isEqualTo: return 462
+    case .isExtension: return 463
+    case .isInitialized: return 464
+    case .isNegative: return 465
+    case .itemTagsEncodedSize: return 466
+    case .iterator: return 467
+    case .i2166136261: return 468
+    case .javaGenerateEqualsAndHash: return 469
+    case .javaGenericServices: return 470
+    case .javaMultipleFiles: return 471
+    case .javaOuterClassname: return 472
+    case .javaPackage: return 473
+    case .javaStringCheckUtf8: return 474
+    case .jsondecoder: return 475
+    case .jsondecodingError: return 476
+    case .jsondecodingOptions: return 477
+    case .jsonEncoder: return 478
+    case .jsonencodingError: return 479
+    case .jsonencodingOptions: return 480
+    case .jsonencodingVisitor: return 481
+    case .jsonmapEncodingVisitor: return 482
+    case .jsonName: return 483
+    case .jsonPath: return 484
+    case .jsonPaths: return 485
+    case .jsonscanner: return 486
+    case .jsonString: return 487
+    case .jsonText: return 488
+    case .jsonUtf8Data: return 489
+    case .jstype: return 490
+    case .k: return 491
+    case .key: return 492
+    case .keyField: return 493
+    case .keyType: return 494
+    case .kind: return 495
+    case .l: return 496
+    case .label: return 497
+    case .lazy: return 498
+    case .leadingComments: return 499
     default: break
     }
     switch self {
-    case .littleEndian: return 500
-    case .littleEndianBytes: return 501
-    case .load: return 502
-    case .localHasher: return 503
-    case .location: return 504
-    case .m: return 505
-    case .major: return 506
-    case .makeIterator: return 507
-    case .mapEntry: return 508
-    case .mapHash: return 509
-    case .mapKeyType: return 510
-    case .mapNameResolver: return 511
-    case .mapToMessages: return 512
-    case .mapValueType: return 513
-    case .mapVisitor: return 514
-    case .mdayStart: return 515
-    case .merge: return 516
-    case .message: return 517
-    case .messageDepthLimit: return 518
-    case .messageExtension: return 519
-    case .messageImplementationBase: return 520
-    case .messageOptions: return 521
-    case .messageSet: return 522
-    case .messageSetWireFormat: return 523
-    case .messageType: return 524
-    case .method: return 525
-    case .methodDescriptorProto: return 526
-    case .methodOptions: return 527
-    case .methods: return 528
-    case .minor: return 529
-    case .mixin: return 530
-    case .mixins: return 531
-    case .modifier: return 532
-    case .modify: return 533
-    case .month: return 534
-    case .msgExtension: return 535
-    case .mutating: return 536
-    case .n: return 537
-    case .name: return 538
-    case .nameDescription: return 539
-    case .nameMap: return 540
-    case .namePart: return 541
-    case .nameResolver: return 542
-    case .names: return 543
-    case .nanos: return 544
-    case .nativeBytes: return 545
-    case .nativeEndianBytes: return 546
-    case .negativeIntValue: return 547
-    case .nestedType: return 548
-    case .newL: return 549
-    case .newList: return 550
-    case .newValue: return 551
-    case .nextByte: return 552
-    case .nextFieldNumber: return 553
-    case .nil: return 554
-    case .nilLiteral: return 555
-    case .noStandardDescriptorAccessor: return 556
-    case .nullValue: return 557
-    case .number: return 558
-    case .numberValue: return 559
-    case .objcClassPrefix: return 560
-    case .of: return 561
-    case .oneofDecl: return 562
-    case .oneofDescriptorProto: return 563
-    case .oneofIndex: return 564
-    case .oneofOptions: return 565
-    case .oneofs: return 566
-    case .oneOfKind: return 567
-    case .optimizeFor: return 568
-    case .optimizeMode: return 569
-    case .option: return 570
-    case .optionalEnumExtensionField: return 571
-    case .optionalExtensionField: return 572
-    case .optionalGroupExtensionField: return 573
-    case .optionalMessageExtensionField: return 574
-    case .options: return 575
-    case .other: return 576
-    case .others: return 577
-    case .out: return 578
-    case .outputType: return 579
-    case .p: return 580
-    case .package: return 581
-    case .packed: return 582
-    case .packedEnumExtensionField: return 583
-    case .packedExtensionField: return 584
-    case .padding: return 585
-    case .parent: return 586
-    case .parse: return 587
-    case .partial: return 588
-    case .path: return 589
-    case .paths: return 590
-    case .payload: return 591
-    case .payloadSize: return 592
-    case .phpClassPrefix: return 593
-    case .phpGenericServices: return 594
-    case .phpMetadataNamespace: return 595
-    case .phpNamespace: return 596
-    case .pointer: return 597
-    case .pos: return 598
-    case .positiveIntValue: return 599
-    case .prefix: return 600
-    case .preserveProtoFieldNames: return 601
-    case .preTraverse: return 602
-    case .printUnknownFields: return 603
-    case .proto2: return 604
-    case .proto3DefaultValue: return 605
-    case .proto3Optional: return 606
-    case .protobufApiversionCheck: return 607
-    case .protobufApiversion2: return 608
-    case .protobufBool: return 609
-    case .protobufBytes: return 610
-    case .protobufDouble: return 611
-    case .protobufEnumMap: return 612
-    case .protobufExtension: return 613
-    case .protobufFixed32: return 614
-    case .protobufFixed64: return 615
-    case .protobufFloat: return 616
-    case .protobufInt32: return 617
-    case .protobufInt64: return 618
-    case .protobufMap: return 619
-    case .protobufMessageMap: return 620
-    case .protobufSfixed32: return 621
-    case .protobufSfixed64: return 622
-    case .protobufSint32: return 623
-    case .protobufSint64: return 624
-    case .protobufString: return 625
-    case .protobufUint32: return 626
-    case .protobufUint64: return 627
-    case .protobufExtensionFieldValues: return 628
-    case .protobufFieldNumber: return 629
-    case .protobufGeneratedIsEqualTo: return 630
-    case .protobufNameMap: return 631
-    case .protobufNewField: return 632
-    case .protobufPackage: return 633
-    case .protocol: return 634
-    case .protoFieldName: return 635
-    case .protoMessageName: return 636
-    case .protoNameProviding: return 637
-    case .protoPaths: return 638
-    case .public: return 639
-    case .publicDependency: return 640
-    case .putBoolValue: return 641
-    case .putBytesValue: return 642
-    case .putDoubleValue: return 643
-    case .putEnumValue: return 644
-    case .putFixedUint32: return 645
-    case .putFixedUint64: return 646
-    case .putFloatValue: return 647
-    case .putInt64: return 648
-    case .putStringValue: return 649
-    case .putUint64: return 650
-    case .putUint64Hex: return 651
-    case .putVarInt: return 652
-    case .putZigZagVarInt: return 653
-    case .pyGenericServices: return 654
-    case .rawChars: return 655
-    case .rawRepresentable: return 656
-    case .rawValue_: return 657
-    case .read4HexDigits: return 658
-    case .register: return 659
-    case .repeatedEnumExtensionField: return 660
-    case .repeatedExtensionField: return 661
-    case .repeatedGroupExtensionField: return 662
-    case .repeatedMessageExtensionField: return 663
-    case .requestStreaming: return 664
-    case .requestTypeURL: return 665
-    case .requiredSize: return 666
-    case .reservedName: return 667
-    case .reservedRange: return 668
-    case .responseStreaming: return 669
-    case .responseTypeURL: return 670
-    case .result: return 671
-    case .rethrows: return 672
-    case .return: return 673
-    case .returnType: return 674
-    case .revision: return 675
-    case .rhs: return 676
-    case .root: return 677
-    case .rubyPackage: return 678
-    case .s: return 679
-    case .sawBackslash: return 680
-    case .sawSection4Characters: return 681
-    case .sawSection5Characters: return 682
-    case .scanner: return 683
-    case .seconds: return 684
-    case .self_: return 685
-    case .separator: return 686
-    case .serialize: return 687
-    case .serializedData: return 688
-    case .serializedSize: return 689
-    case .serverStreaming: return 690
-    case .service: return 691
-    case .serviceDescriptorProto: return 692
-    case .serviceOptions: return 693
-    case .set: return 694
-    case .setExtensionValue: return 695
-    case .shift: return 696
-    case .simpleExtensionMap: return 697
-    case .sizer: return 698
-    case .source: return 699
-    case .sourceCodeInfo: return 700
-    case .sourceContext: return 701
-    case .sourceEncoding: return 702
-    case .sourceFile: return 703
-    case .span: return 704
-    case .split: return 705
-    case .start: return 706
-    case .startArray: return 707
-    case .startArrayObject: return 708
-    case .startField: return 709
-    case .startIndex: return 710
-    case .startMessageField: return 711
-    case .startObject: return 712
-    case .startRegularField: return 713
-    case .state: return 714
-    case .static: return 715
-    case .staticString: return 716
-    case .storage: return 717
-    case .string: return 718
-    case .stringLiteral: return 719
-    case .stringLiteralType: return 720
-    case .stringResult: return 721
-    case .stringValue: return 722
-    case .struct: return 723
-    case .structValue: return 724
-    case .subDecoder: return 725
-    case .subscript: return 726
-    case .subVisitor: return 727
-    case .swift: return 728
-    case .swiftPrefix: return 729
-    case .swiftProtobuf: return 730
-    case .syntax: return 731
-    case .t: return 732
-    case .tag: return 733
-    case .terminator: return 734
-    case .testDecoder: return 735
-    case .text: return 736
-    case .textDecoder: return 737
-    case .textFormatDecoder: return 738
-    case .textFormatDecodingError: return 739
-    case .textFormatDecodingOptions: return 740
-    case .textFormatEncodingOptions: return 741
-    case .textFormatEncodingVisitor: return 742
-    case .textFormatString: return 743
-    case .throws: return 744
-    case .timeInterval: return 745
-    case .timeIntervalSince1970: return 746
-    case .timeIntervalSinceReferenceDate: return 747
-    case .timestamp: return 748
-    case .total: return 749
-    case .totalArrayDepth: return 750
-    case .totalSize: return 751
-    case .trailingComments: return 752
-    case .traverse: return 753
-    case .true: return 754
-    case .try: return 755
-    case .type: return 756
-    case .typealias: return 757
-    case .typeEnum: return 758
-    case .typeName: return 759
-    case .typePrefix: return 760
-    case .typeStart: return 761
-    case .typeUnknown: return 762
-    case .typeURL: return 763
-    case .uint32: return 764
-    case .uint32Value: return 765
-    case .uint64: return 766
-    case .uint64Value: return 767
-    case .uint8: return 768
-    case .unicodeScalarLiteral: return 769
-    case .unicodeScalarLiteralType: return 770
-    case .unicodeScalars: return 771
-    case .unicodeScalarView: return 772
-    case .uninterpretedOption: return 773
-    case .union: return 774
-    case .uniqueStorage: return 775
-    case .unknown: return 776
-    case .unknownFields: return 777
-    case .unknownStorage: return 778
-    case .unpackTo: return 779
-    case .unsafeBufferPointer: return 780
-    case .unsafeMutablePointer: return 781
-    case .unsafeMutableRawBufferPointer: return 782
-    case .unsafeMutableRawPointer: return 783
-    case .unsafeRawBufferPointer: return 784
-    case .unsafeRawPointer: return 785
-    case .updatedOptions: return 786
-    case .url: return 787
-    case .utf8: return 788
-    case .utf8Ptr: return 789
-    case .utf8ToDouble: return 790
-    case .utf8View: return 791
-    case .v: return 792
-    case .value: return 793
-    case .valueField: return 794
-    case .values: return 795
-    case .valueType: return 796
-    case .var: return 797
-    case .version: return 798
-    case .versionString: return 799
-    case .visitExtensionFields: return 800
-    case .visitExtensionFieldsAsMessageSet: return 801
-    case .visitMapField: return 802
-    case .visitor: return 803
-    case .visitPacked: return 804
-    case .visitPackedBoolField: return 805
-    case .visitPackedDoubleField: return 806
-    case .visitPackedEnumField: return 807
-    case .visitPackedFixed32Field: return 808
-    case .visitPackedFixed64Field: return 809
-    case .visitPackedFloatField: return 810
-    case .visitPackedInt32Field: return 811
-    case .visitPackedInt64Field: return 812
-    case .visitPackedSfixed32Field: return 813
-    case .visitPackedSfixed64Field: return 814
-    case .visitPackedSint32Field: return 815
-    case .visitPackedSint64Field: return 816
-    case .visitPackedUint32Field: return 817
-    case .visitPackedUint64Field: return 818
-    case .visitRepeated: return 819
-    case .visitRepeatedBoolField: return 820
-    case .visitRepeatedBytesField: return 821
-    case .visitRepeatedDoubleField: return 822
-    case .visitRepeatedEnumField: return 823
-    case .visitRepeatedFixed32Field: return 824
-    case .visitRepeatedFixed64Field: return 825
-    case .visitRepeatedFloatField: return 826
-    case .visitRepeatedGroupField: return 827
-    case .visitRepeatedInt32Field: return 828
-    case .visitRepeatedInt64Field: return 829
-    case .visitRepeatedMessageField: return 830
-    case .visitRepeatedSfixed32Field: return 831
-    case .visitRepeatedSfixed64Field: return 832
-    case .visitRepeatedSint32Field: return 833
-    case .visitRepeatedSint64Field: return 834
-    case .visitRepeatedStringField: return 835
-    case .visitRepeatedUint32Field: return 836
-    case .visitRepeatedUint64Field: return 837
-    case .visitSingular: return 838
-    case .visitSingularBoolField: return 839
-    case .visitSingularBytesField: return 840
-    case .visitSingularDoubleField: return 841
-    case .visitSingularEnumField: return 842
-    case .visitSingularFixed32Field: return 843
-    case .visitSingularFixed64Field: return 844
-    case .visitSingularFloatField: return 845
-    case .visitSingularGroupField: return 846
-    case .visitSingularInt32Field: return 847
-    case .visitSingularInt64Field: return 848
-    case .visitSingularMessageField: return 849
-    case .visitSingularSfixed32Field: return 850
-    case .visitSingularSfixed64Field: return 851
-    case .visitSingularSint32Field: return 852
-    case .visitSingularSint64Field: return 853
-    case .visitSingularStringField: return 854
-    case .visitSingularUint32Field: return 855
-    case .visitSingularUint64Field: return 856
-    case .visitUnknown: return 857
-    case .wasDecoded: return 858
-    case .weak: return 859
-    case .weakDependency: return 860
-    case .where: return 861
-    case .wireFormat: return 862
-    case .with: return 863
-    case .withUnsafeBytes: return 864
-    case .withUnsafeMutableBytes: return 865
-    case .work: return 866
-    case .wrappedType: return 867
-    case .written: return 868
-    case .yday: return 869
+    case .leadingDetachedComments: return 500
+    case .length: return 501
+    case .lessThan: return 502
+    case .let: return 503
+    case .lhs: return 504
+    case .list: return 505
+    case .listOfMessages: return 506
+    case .listValue: return 507
+    case .littleEndian: return 508
+    case .littleEndianBytes: return 509
+    case .load: return 510
+    case .localHasher: return 511
+    case .location: return 512
+    case .m: return 513
+    case .major: return 514
+    case .makeIterator: return 515
+    case .mapEntry: return 516
+    case .mapHash: return 517
+    case .mapKeyType: return 518
+    case .mapNameResolver: return 519
+    case .mapToMessages: return 520
+    case .mapValueType: return 521
+    case .mapVisitor: return 522
+    case .mdayStart: return 523
+    case .merge: return 524
+    case .message: return 525
+    case .messageDepthLimit: return 526
+    case .messageExtension: return 527
+    case .messageImplementationBase: return 528
+    case .messageOptions: return 529
+    case .messageSet: return 530
+    case .messageSetWireFormat: return 531
+    case .messageType: return 532
+    case .method: return 533
+    case .methodDescriptorProto: return 534
+    case .methodOptions: return 535
+    case .methods: return 536
+    case .minor: return 537
+    case .mixin: return 538
+    case .mixins: return 539
+    case .modifier: return 540
+    case .modify: return 541
+    case .month: return 542
+    case .msgExtension: return 543
+    case .mutating: return 544
+    case .n: return 545
+    case .name: return 546
+    case .nameDescription: return 547
+    case .nameMap: return 548
+    case .namePart: return 549
+    case .nameResolver: return 550
+    case .names: return 551
+    case .nanos: return 552
+    case .nativeBytes: return 553
+    case .nativeEndianBytes: return 554
+    case .negativeIntValue: return 555
+    case .nestedType: return 556
+    case .newL: return 557
+    case .newList: return 558
+    case .newValue: return 559
+    case .nextByte: return 560
+    case .nextFieldNumber: return 561
+    case .nil: return 562
+    case .nilLiteral: return 563
+    case .noStandardDescriptorAccessor: return 564
+    case .nullValue: return 565
+    case .number: return 566
+    case .numberValue: return 567
+    case .objcClassPrefix: return 568
+    case .of: return 569
+    case .oneofDecl: return 570
+    case .oneofDescriptorProto: return 571
+    case .oneofIndex: return 572
+    case .oneofOptions: return 573
+    case .oneofs: return 574
+    case .oneOfKind: return 575
+    case .optimizeFor: return 576
+    case .optimizeMode: return 577
+    case .option: return 578
+    case .optionalEnumExtensionField: return 579
+    case .optionalExtensionField: return 580
+    case .optionalGroupExtensionField: return 581
+    case .optionalMessageExtensionField: return 582
+    case .options: return 583
+    case .other: return 584
+    case .others: return 585
+    case .out: return 586
+    case .outputType: return 587
+    case .p: return 588
+    case .package: return 589
+    case .packed: return 590
+    case .packedEnumExtensionField: return 591
+    case .packedExtensionField: return 592
+    case .padding: return 593
+    case .parent: return 594
+    case .parse: return 595
+    case .partial: return 596
+    case .path: return 597
+    case .paths: return 598
+    case .payload: return 599
+    case .payloadSize: return 600
+    case .phpClassPrefix: return 601
+    case .phpGenericServices: return 602
+    case .phpMetadataNamespace: return 603
+    case .phpNamespace: return 604
+    case .pointer: return 605
+    case .pos: return 606
+    case .positiveIntValue: return 607
+    case .prefix: return 608
+    case .preserveProtoFieldNames: return 609
+    case .preTraverse: return 610
+    case .printUnknownFields: return 611
+    case .proto2: return 612
+    case .proto3DefaultValue: return 613
+    case .proto3Optional: return 614
+    case .protobufApiversionCheck: return 615
+    case .protobufApiversion2: return 616
+    case .protobufBool: return 617
+    case .protobufBytes: return 618
+    case .protobufDouble: return 619
+    case .protobufEnumMap: return 620
+    case .protobufExtension: return 621
+    case .protobufFixed32: return 622
+    case .protobufFixed64: return 623
+    case .protobufFloat: return 624
+    case .protobufInt32: return 625
+    case .protobufInt64: return 626
+    case .protobufMap: return 627
+    case .protobufMessageMap: return 628
+    case .protobufSfixed32: return 629
+    case .protobufSfixed64: return 630
+    case .protobufSint32: return 631
+    case .protobufSint64: return 632
+    case .protobufString: return 633
+    case .protobufUint32: return 634
+    case .protobufUint64: return 635
+    case .protobufExtensionFieldValues: return 636
+    case .protobufFieldNumber: return 637
+    case .protobufGeneratedIsEqualTo: return 638
+    case .protobufNameMap: return 639
+    case .protobufNewField: return 640
+    case .protobufPackage: return 641
+    case .protocol: return 642
+    case .protoFieldName: return 643
+    case .protoMessageName: return 644
+    case .protoNameProviding: return 645
+    case .protoPaths: return 646
+    case .public: return 647
+    case .publicDependency: return 648
+    case .putBoolValue: return 649
+    case .putBytesValue: return 650
+    case .putDoubleValue: return 651
+    case .putEnumValue: return 652
+    case .putFixedUint32: return 653
+    case .putFixedUint64: return 654
+    case .putFloatValue: return 655
+    case .putInt64: return 656
+    case .putStringValue: return 657
+    case .putUint64: return 658
+    case .putUint64Hex: return 659
+    case .putVarInt: return 660
+    case .putZigZagVarInt: return 661
+    case .pyGenericServices: return 662
+    case .rawChars: return 663
+    case .rawRepresentable: return 664
+    case .rawValue_: return 665
+    case .read4HexDigits: return 666
+    case .register: return 667
+    case .repeatedEnumExtensionField: return 668
+    case .repeatedExtensionField: return 669
+    case .repeatedGroupExtensionField: return 670
+    case .repeatedMessageExtensionField: return 671
+    case .requestStreaming: return 672
+    case .requestTypeURL: return 673
+    case .requiredSize: return 674
+    case .reservedName: return 675
+    case .reservedRange: return 676
+    case .responseStreaming: return 677
+    case .responseTypeURL: return 678
+    case .result: return 679
+    case .rethrows: return 680
+    case .return: return 681
+    case .returnType: return 682
+    case .revision: return 683
+    case .rhs: return 684
+    case .root: return 685
+    case .rubyPackage: return 686
+    case .s: return 687
+    case .sawBackslash: return 688
+    case .sawSection4Characters: return 689
+    case .sawSection5Characters: return 690
+    case .scanner: return 691
+    case .seconds: return 692
+    case .self_: return 693
+    case .semantic: return 694
+    case .separator: return 695
+    case .serialize: return 696
+    case .serializedData: return 697
+    case .serializedSize: return 698
+    case .serverStreaming: return 699
+    case .service: return 700
+    case .serviceDescriptorProto: return 701
+    case .serviceOptions: return 702
+    case .set: return 703
+    case .setExtensionValue: return 704
+    case .shift: return 705
+    case .simpleExtensionMap: return 706
+    case .sizer: return 707
+    case .source: return 708
+    case .sourceCodeInfo: return 709
+    case .sourceContext: return 710
+    case .sourceEncoding: return 711
+    case .sourceFile: return 712
+    case .span: return 713
+    case .split: return 714
+    case .start: return 715
+    case .startArray: return 716
+    case .startArrayObject: return 717
+    case .startField: return 718
+    case .startIndex: return 719
+    case .startMessageField: return 720
+    case .startObject: return 721
+    case .startRegularField: return 722
+    case .state: return 723
+    case .static: return 724
+    case .staticString: return 725
+    case .storage: return 726
+    case .string: return 727
+    case .stringLiteral: return 728
+    case .stringLiteralType: return 729
+    case .stringResult: return 730
+    case .stringValue: return 731
+    case .struct: return 732
+    case .structValue: return 733
+    case .subDecoder: return 734
+    case .subscript: return 735
+    case .subVisitor: return 736
+    case .swift: return 737
+    case .swiftPrefix: return 738
+    case .swiftProtobuf: return 739
+    case .syntax: return 740
+    case .t: return 741
+    case .tag: return 742
+    case .terminator: return 743
+    case .testDecoder: return 744
+    case .text: return 745
+    case .textDecoder: return 746
+    case .textFormatDecoder: return 747
+    case .textFormatDecodingError: return 748
+    case .textFormatDecodingOptions: return 749
+    case .textFormatEncodingOptions: return 750
+    case .textFormatEncodingVisitor: return 751
+    case .textFormatString: return 752
+    case .throws: return 753
+    case .timeInterval: return 754
+    case .timeIntervalSince1970: return 755
+    case .timeIntervalSinceReferenceDate: return 756
+    case .timestamp: return 757
+    case .total: return 758
+    case .totalArrayDepth: return 759
+    case .totalSize: return 760
+    case .trailingComments: return 761
+    case .traverse: return 762
+    case .true: return 763
+    case .try: return 764
+    case .type: return 765
+    case .typealias: return 766
+    case .typeEnum: return 767
+    case .typeName: return 768
+    case .typePrefix: return 769
+    case .typeStart: return 770
+    case .typeUnknown: return 771
+    case .typeURL: return 772
+    case .uint32: return 773
+    case .uint32Value: return 774
+    case .uint64: return 775
+    case .uint64Value: return 776
+    case .uint8: return 777
+    case .unicodeScalarLiteral: return 778
+    case .unicodeScalarLiteralType: return 779
+    case .unicodeScalars: return 780
+    case .unicodeScalarView: return 781
+    case .uninterpretedOption: return 782
+    case .union: return 783
+    case .uniqueStorage: return 784
+    case .unknown: return 785
+    case .unknownFields: return 786
+    case .unknownStorage: return 787
+    case .unpackTo: return 788
+    case .unsafeBufferPointer: return 789
+    case .unsafeMutablePointer: return 790
+    case .unsafeMutableRawBufferPointer: return 791
+    case .unsafeMutableRawPointer: return 792
+    case .unsafeRawBufferPointer: return 793
+    case .unsafeRawPointer: return 794
+    case .unverifiedLazy: return 795
+    case .updatedOptions: return 796
+    case .url: return 797
+    case .utf8: return 798
+    case .utf8Ptr: return 799
+    case .utf8ToDouble: return 800
+    case .utf8View: return 801
+    case .v: return 802
+    case .value: return 803
+    case .valueField: return 804
+    case .values: return 805
+    case .valueType: return 806
+    case .var: return 807
+    case .version: return 808
+    case .versionString: return 809
+    case .visitExtensionFields: return 810
+    case .visitExtensionFieldsAsMessageSet: return 811
+    case .visitMapField: return 812
+    case .visitor: return 813
+    case .visitPacked: return 814
+    case .visitPackedBoolField: return 815
+    case .visitPackedDoubleField: return 816
+    case .visitPackedEnumField: return 817
+    case .visitPackedFixed32Field: return 818
+    case .visitPackedFixed64Field: return 819
+    case .visitPackedFloatField: return 820
+    case .visitPackedInt32Field: return 821
+    case .visitPackedInt64Field: return 822
+    case .visitPackedSfixed32Field: return 823
+    case .visitPackedSfixed64Field: return 824
+    case .visitPackedSint32Field: return 825
+    case .visitPackedSint64Field: return 826
+    case .visitPackedUint32Field: return 827
+    case .visitPackedUint64Field: return 828
+    case .visitRepeated: return 829
+    case .visitRepeatedBoolField: return 830
+    case .visitRepeatedBytesField: return 831
+    case .visitRepeatedDoubleField: return 832
+    case .visitRepeatedEnumField: return 833
+    case .visitRepeatedFixed32Field: return 834
+    case .visitRepeatedFixed64Field: return 835
+    case .visitRepeatedFloatField: return 836
+    case .visitRepeatedGroupField: return 837
+    case .visitRepeatedInt32Field: return 838
+    case .visitRepeatedInt64Field: return 839
+    case .visitRepeatedMessageField: return 840
+    case .visitRepeatedSfixed32Field: return 841
+    case .visitRepeatedSfixed64Field: return 842
+    case .visitRepeatedSint32Field: return 843
+    case .visitRepeatedSint64Field: return 844
+    case .visitRepeatedStringField: return 845
+    case .visitRepeatedUint32Field: return 846
+    case .visitRepeatedUint64Field: return 847
+    case .visitSingular: return 848
+    case .visitSingularBoolField: return 849
+    case .visitSingularBytesField: return 850
+    case .visitSingularDoubleField: return 851
+    case .visitSingularEnumField: return 852
+    case .visitSingularFixed32Field: return 853
+    case .visitSingularFixed64Field: return 854
+    case .visitSingularFloatField: return 855
+    case .visitSingularGroupField: return 856
+    case .visitSingularInt32Field: return 857
+    case .visitSingularInt64Field: return 858
+    case .visitSingularMessageField: return 859
+    case .visitSingularSfixed32Field: return 860
+    case .visitSingularSfixed64Field: return 861
+    case .visitSingularSint32Field: return 862
+    case .visitSingularSint64Field: return 863
+    case .visitSingularStringField: return 864
+    case .visitSingularUint32Field: return 865
+    case .visitSingularUint64Field: return 866
+    case .visitUnknown: return 867
+    case .wasDecoded: return 868
+    case .weak: return 869
+    case .weakDependency: return 870
+    case .where: return 871
+    case .wireFormat: return 872
+    case .with: return 873
+    case .withUnsafeBytes: return 874
+    case .withUnsafeMutableBytes: return 875
+    case .work: return 876
+    case .wrappedType: return 877
+    case .written: return 878
+    case .yday: return 879
     case .UNRECOGNIZED(let i): return i
     default: break
     }
@@ -2739,6 +2769,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .clearDefaultValue,
     .clearDeprecated,
     .clearDoubleValue,
+    .clearEdition,
     .clearEnd,
     .clearExtendee,
     .clearExtensionValue,
@@ -2780,6 +2811,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .clearProto3Optional,
     .clearPyGenericServices,
     .clearRubyPackage,
+    .clearSemantic,
     .clearServerStreaming,
     .clearSourceCodeInfo,
     .clearSourceContext,
@@ -2791,6 +2823,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .clearTrailingComments,
     .clearType,
     .clearTypeName,
+    .clearUnverifiedLazy,
     .clearValue,
     .clearWeak,
     .clientStreaming,
@@ -2882,6 +2915,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .doubleValue,
     .duration,
     .e,
+    .edition,
     .element,
     .elements,
     .emitExtensionFieldName,
@@ -3039,6 +3073,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .hasDefaultValue,
     .hasDeprecated,
     .hasDoubleValue,
+    .hasEdition,
     .hasEnd,
     .hasExtendee,
     .hasExtensionValue,
@@ -3085,6 +3120,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .hasProto3Optional,
     .hasPyGenericServices,
     .hasRubyPackage,
+    .hasSemantic,
     .hasServerStreaming,
     .hasSourceCodeInfo,
     .hasSourceContext,
@@ -3096,6 +3132,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .hasTrailingComments,
     .hasType,
     .hasTypeName,
+    .hasUnverifiedLazy,
     .hasValue,
     .hasWeak,
     .hour,
@@ -3127,6 +3164,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .isEqualTo,
     .isExtension,
     .isInitialized,
+    .isNegative,
     .itemTagsEncodedSize,
     .iterator,
     .i2166136261,
@@ -3355,6 +3393,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .scanner,
     .seconds,
     .self_,
+    .semantic,
     .separator,
     .serialize,
     .serializedData,
@@ -3455,6 +3494,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .unsafeMutableRawPointer,
     .unsafeRawBufferPointer,
     .unsafeRawPointer,
+    .unverifiedLazy,
     .updatedOptions,
     .url,
     .utf8,
@@ -3622,805 +3662,815 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf._P
     67: .same(proto: "clearDefaultValue"),
     68: .same(proto: "clearDeprecated"),
     69: .same(proto: "clearDoubleValue"),
-    70: .same(proto: "clearEnd"),
-    71: .same(proto: "clearExtendee"),
-    72: .same(proto: "clearExtensionValue"),
-    73: .same(proto: "clearGoPackage"),
-    74: .same(proto: "clearIdempotencyLevel"),
-    75: .same(proto: "clearIdentifierValue"),
-    76: .same(proto: "clearInputType"),
-    77: .same(proto: "clearIsExtension"),
-    78: .same(proto: "clearJavaGenerateEqualsAndHash"),
-    79: .same(proto: "clearJavaGenericServices"),
-    80: .same(proto: "clearJavaMultipleFiles"),
-    81: .same(proto: "clearJavaOuterClassname"),
-    82: .same(proto: "clearJavaPackage"),
-    83: .same(proto: "clearJavaStringCheckUtf8"),
-    84: .same(proto: "clearJsonName"),
-    85: .same(proto: "clearJstype"),
-    86: .same(proto: "clearLabel"),
-    87: .same(proto: "clearLazy"),
-    88: .same(proto: "clearLeadingComments"),
-    89: .same(proto: "clearMapEntry"),
-    90: .same(proto: "clearMessageSetWireFormat"),
-    91: .same(proto: "clearName"),
-    92: .same(proto: "clearNamePart"),
-    93: .same(proto: "clearNegativeIntValue"),
-    94: .same(proto: "clearNoStandardDescriptorAccessor"),
-    95: .same(proto: "clearNumber"),
-    96: .same(proto: "clearObjcClassPrefix"),
-    97: .same(proto: "clearOneofIndex"),
-    98: .same(proto: "clearOptimizeFor"),
-    99: .same(proto: "clearOptions"),
-    100: .same(proto: "clearOutputType"),
-    101: .same(proto: "clearPackage"),
-    102: .same(proto: "clearPacked"),
-    103: .same(proto: "clearPhpClassPrefix"),
-    104: .same(proto: "clearPhpGenericServices"),
-    105: .same(proto: "clearPhpMetadataNamespace"),
-    106: .same(proto: "clearPhpNamespace"),
-    107: .same(proto: "clearPositiveIntValue"),
-    108: .same(proto: "clearProto3Optional"),
-    109: .same(proto: "clearPyGenericServices"),
-    110: .same(proto: "clearRubyPackage"),
-    111: .same(proto: "clearServerStreaming"),
-    112: .same(proto: "clearSourceCodeInfo"),
-    113: .same(proto: "clearSourceContext"),
-    114: .same(proto: "clearSourceFile"),
-    115: .same(proto: "clearStart"),
-    116: .same(proto: "clearStringValue"),
-    117: .same(proto: "clearSwiftPrefix"),
-    118: .same(proto: "clearSyntax"),
-    119: .same(proto: "clearTrailingComments"),
-    120: .same(proto: "clearType"),
-    121: .same(proto: "clearTypeName"),
-    122: .same(proto: "clearValue"),
-    123: .same(proto: "clearWeak"),
-    124: .same(proto: "clientStreaming"),
-    125: .same(proto: "codePoint"),
-    126: .same(proto: "codeUnits"),
-    127: .same(proto: "Collection"),
-    128: .same(proto: "com"),
-    129: .same(proto: "comma"),
-    130: .same(proto: "contentsOf"),
-    131: .same(proto: "ContiguousBytes"),
-    132: .same(proto: "count"),
-    133: .same(proto: "countVarintsInBuffer"),
-    134: .same(proto: "csharpNamespace"),
-    135: .same(proto: "ctype"),
-    136: .same(proto: "customCodable"),
-    137: .same(proto: "CustomDebugStringConvertible"),
-    138: .same(proto: "d"),
-    139: .same(proto: "Data"),
-    140: .same(proto: "dataResult"),
-    141: .same(proto: "date"),
-    142: .same(proto: "daySec"),
-    143: .same(proto: "daysSinceEpoch"),
-    144: .same(proto: "debugDescription"),
-    145: .same(proto: "decoded"),
-    146: .same(proto: "decodedFromJSONNull"),
-    147: .same(proto: "decodeExtensionField"),
-    148: .same(proto: "decodeExtensionFieldsAsMessageSet"),
-    149: .same(proto: "decodeJSON"),
-    150: .same(proto: "decodeMapField"),
-    151: .same(proto: "decodeMessage"),
-    152: .same(proto: "decoder"),
-    153: .same(proto: "decodeRepeated"),
-    154: .same(proto: "decodeRepeatedBoolField"),
-    155: .same(proto: "decodeRepeatedBytesField"),
-    156: .same(proto: "decodeRepeatedDoubleField"),
-    157: .same(proto: "decodeRepeatedEnumField"),
-    158: .same(proto: "decodeRepeatedFixed32Field"),
-    159: .same(proto: "decodeRepeatedFixed64Field"),
-    160: .same(proto: "decodeRepeatedFloatField"),
-    161: .same(proto: "decodeRepeatedGroupField"),
-    162: .same(proto: "decodeRepeatedInt32Field"),
-    163: .same(proto: "decodeRepeatedInt64Field"),
-    164: .same(proto: "decodeRepeatedMessageField"),
-    165: .same(proto: "decodeRepeatedSFixed32Field"),
-    166: .same(proto: "decodeRepeatedSFixed64Field"),
-    167: .same(proto: "decodeRepeatedSInt32Field"),
-    168: .same(proto: "decodeRepeatedSInt64Field"),
-    169: .same(proto: "decodeRepeatedStringField"),
-    170: .same(proto: "decodeRepeatedUInt32Field"),
-    171: .same(proto: "decodeRepeatedUInt64Field"),
-    172: .same(proto: "decodeSingular"),
-    173: .same(proto: "decodeSingularBoolField"),
-    174: .same(proto: "decodeSingularBytesField"),
-    175: .same(proto: "decodeSingularDoubleField"),
-    176: .same(proto: "decodeSingularEnumField"),
-    177: .same(proto: "decodeSingularFixed32Field"),
-    178: .same(proto: "decodeSingularFixed64Field"),
-    179: .same(proto: "decodeSingularFloatField"),
-    180: .same(proto: "decodeSingularGroupField"),
-    181: .same(proto: "decodeSingularInt32Field"),
-    182: .same(proto: "decodeSingularInt64Field"),
-    183: .same(proto: "decodeSingularMessageField"),
-    184: .same(proto: "decodeSingularSFixed32Field"),
-    185: .same(proto: "decodeSingularSFixed64Field"),
-    186: .same(proto: "decodeSingularSInt32Field"),
-    187: .same(proto: "decodeSingularSInt64Field"),
-    188: .same(proto: "decodeSingularStringField"),
-    189: .same(proto: "decodeSingularUInt32Field"),
-    190: .same(proto: "decodeSingularUInt64Field"),
-    191: .same(proto: "decodeTextFormat"),
-    192: .same(proto: "defaultAnyTypeURLPrefix"),
-    193: .same(proto: "defaultValue"),
-    194: .same(proto: "dependency"),
-    195: .same(proto: "deprecated"),
-    196: .same(proto: "description"),
-    197: .same(proto: "DescriptorProto"),
-    198: .same(proto: "Dictionary"),
-    199: .same(proto: "dictionaryLiteral"),
-    200: .same(proto: "digit"),
-    201: .same(proto: "digit0"),
-    202: .same(proto: "digit1"),
-    203: .same(proto: "digitCount"),
-    204: .same(proto: "digits"),
-    205: .same(proto: "digitValue"),
-    206: .same(proto: "discardableResult"),
-    207: .same(proto: "discardUnknownFields"),
-    208: .same(proto: "distance"),
-    209: .same(proto: "double"),
-    210: .same(proto: "doubleValue"),
-    211: .same(proto: "Duration"),
-    212: .same(proto: "E"),
-    213: .same(proto: "Element"),
-    214: .same(proto: "elements"),
-    215: .same(proto: "emitExtensionFieldName"),
-    216: .same(proto: "emitFieldName"),
-    217: .same(proto: "emitFieldNumber"),
-    218: .same(proto: "Empty"),
-    219: .same(proto: "emptyData"),
-    220: .same(proto: "encodeAsBytes"),
-    221: .same(proto: "encoded"),
-    222: .same(proto: "encodedJSONString"),
-    223: .same(proto: "encodedSize"),
-    224: .same(proto: "encodeField"),
-    225: .same(proto: "encoder"),
-    226: .same(proto: "end"),
-    227: .same(proto: "endArray"),
-    228: .same(proto: "endMessageField"),
-    229: .same(proto: "endObject"),
-    230: .same(proto: "endRegularField"),
-    231: .same(proto: "enum"),
-    232: .same(proto: "EnumDescriptorProto"),
-    233: .same(proto: "EnumOptions"),
-    234: .same(proto: "EnumReservedRange"),
-    235: .same(proto: "enumType"),
-    236: .same(proto: "enumvalue"),
-    237: .same(proto: "EnumValueDescriptorProto"),
-    238: .same(proto: "EnumValueOptions"),
-    239: .same(proto: "Equatable"),
-    240: .same(proto: "Error"),
-    241: .same(proto: "ExpressibleByArrayLiteral"),
-    242: .same(proto: "ExpressibleByDictionaryLiteral"),
-    243: .same(proto: "ext"),
-    244: .same(proto: "extDecoder"),
-    245: .same(proto: "extendedGraphemeClusterLiteral"),
-    246: .same(proto: "ExtendedGraphemeClusterLiteralType"),
-    247: .same(proto: "extendee"),
-    248: .same(proto: "ExtensibleMessage"),
-    249: .same(proto: "extension"),
-    250: .same(proto: "ExtensionField"),
-    251: .same(proto: "extensionFieldNumber"),
-    252: .same(proto: "ExtensionFieldValueSet"),
-    253: .same(proto: "ExtensionMap"),
-    254: .same(proto: "extensionRange"),
-    255: .same(proto: "ExtensionRangeOptions"),
-    256: .same(proto: "extensions"),
-    257: .same(proto: "extras"),
-    258: .same(proto: "F"),
-    259: .same(proto: "false"),
-    260: .same(proto: "field"),
-    261: .same(proto: "fieldData"),
-    262: .same(proto: "FieldDescriptorProto"),
-    263: .same(proto: "FieldMask"),
-    264: .same(proto: "fieldName"),
-    265: .same(proto: "fieldNameCount"),
-    266: .same(proto: "fieldNum"),
-    267: .same(proto: "fieldNumber"),
-    268: .same(proto: "fieldNumberForProto"),
-    269: .same(proto: "FieldOptions"),
-    270: .same(proto: "fields"),
-    271: .same(proto: "fieldSize"),
-    272: .same(proto: "FieldTag"),
-    273: .same(proto: "fieldType"),
-    274: .same(proto: "file"),
-    275: .same(proto: "FileDescriptorProto"),
-    276: .same(proto: "FileDescriptorSet"),
-    277: .same(proto: "fileName"),
-    278: .same(proto: "FileOptions"),
-    279: .same(proto: "filter"),
-    280: .same(proto: "first"),
-    281: .same(proto: "firstItem"),
-    282: .same(proto: "float"),
-    283: .same(proto: "floatLiteral"),
-    284: .same(proto: "FloatLiteralType"),
-    285: .same(proto: "FloatValue"),
-    286: .same(proto: "forMessageName"),
-    287: .same(proto: "formUnion"),
-    288: .same(proto: "forReadingFrom"),
-    289: .same(proto: "forTypeURL"),
-    290: .same(proto: "ForwardParser"),
-    291: .same(proto: "forWritingInto"),
-    292: .same(proto: "from"),
-    293: .same(proto: "fromAscii2"),
-    294: .same(proto: "fromAscii4"),
-    295: .same(proto: "fromByteOffset"),
-    296: .same(proto: "fromHexDigit"),
-    297: .same(proto: "func"),
-    298: .same(proto: "G"),
-    299: .same(proto: "GeneratedCodeInfo"),
-    300: .same(proto: "get"),
-    301: .same(proto: "getExtensionValue"),
-    302: .same(proto: "googleapis"),
-    303: .same(proto: "Google_Protobuf_Any"),
-    304: .same(proto: "Google_Protobuf_Api"),
-    305: .same(proto: "Google_Protobuf_BoolValue"),
-    306: .same(proto: "Google_Protobuf_BytesValue"),
-    307: .same(proto: "Google_Protobuf_DescriptorProto"),
-    308: .same(proto: "Google_Protobuf_DoubleValue"),
-    309: .same(proto: "Google_Protobuf_Duration"),
-    310: .same(proto: "Google_Protobuf_Empty"),
-    311: .same(proto: "Google_Protobuf_Enum"),
-    312: .same(proto: "Google_Protobuf_EnumDescriptorProto"),
-    313: .same(proto: "Google_Protobuf_EnumOptions"),
-    314: .same(proto: "Google_Protobuf_EnumValue"),
-    315: .same(proto: "Google_Protobuf_EnumValueDescriptorProto"),
-    316: .same(proto: "Google_Protobuf_EnumValueOptions"),
-    317: .same(proto: "Google_Protobuf_ExtensionRangeOptions"),
-    318: .same(proto: "Google_Protobuf_Field"),
-    319: .same(proto: "Google_Protobuf_FieldDescriptorProto"),
-    320: .same(proto: "Google_Protobuf_FieldMask"),
-    321: .same(proto: "Google_Protobuf_FieldOptions"),
-    322: .same(proto: "Google_Protobuf_FileDescriptorProto"),
-    323: .same(proto: "Google_Protobuf_FileDescriptorSet"),
-    324: .same(proto: "Google_Protobuf_FileOptions"),
-    325: .same(proto: "Google_Protobuf_FloatValue"),
-    326: .same(proto: "Google_Protobuf_GeneratedCodeInfo"),
-    327: .same(proto: "Google_Protobuf_Int32Value"),
-    328: .same(proto: "Google_Protobuf_Int64Value"),
-    329: .same(proto: "Google_Protobuf_ListValue"),
-    330: .same(proto: "Google_Protobuf_MessageOptions"),
-    331: .same(proto: "Google_Protobuf_Method"),
-    332: .same(proto: "Google_Protobuf_MethodDescriptorProto"),
-    333: .same(proto: "Google_Protobuf_MethodOptions"),
-    334: .same(proto: "Google_Protobuf_Mixin"),
-    335: .same(proto: "Google_Protobuf_NullValue"),
-    336: .same(proto: "Google_Protobuf_OneofDescriptorProto"),
-    337: .same(proto: "Google_Protobuf_OneofOptions"),
-    338: .same(proto: "Google_Protobuf_Option"),
-    339: .same(proto: "Google_Protobuf_ServiceDescriptorProto"),
-    340: .same(proto: "Google_Protobuf_ServiceOptions"),
-    341: .same(proto: "Google_Protobuf_SourceCodeInfo"),
-    342: .same(proto: "Google_Protobuf_SourceContext"),
-    343: .same(proto: "Google_Protobuf_StringValue"),
-    344: .same(proto: "Google_Protobuf_Struct"),
-    345: .same(proto: "Google_Protobuf_Syntax"),
-    346: .same(proto: "Google_Protobuf_Timestamp"),
-    347: .same(proto: "Google_Protobuf_Type"),
-    348: .same(proto: "Google_Protobuf_UInt32Value"),
-    349: .same(proto: "Google_Protobuf_UInt64Value"),
-    350: .same(proto: "Google_Protobuf_UninterpretedOption"),
-    351: .same(proto: "Google_Protobuf_Value"),
-    352: .same(proto: "goPackage"),
-    353: .same(proto: "group"),
-    354: .same(proto: "groupFieldNumberStack"),
-    355: .same(proto: "groupSize"),
-    356: .same(proto: "h"),
-    357: .same(proto: "hadOneofValue"),
-    358: .same(proto: "handleConflictingOneOf"),
-    359: .same(proto: "hasAggregateValue"),
-    360: .same(proto: "hasAllowAlias"),
-    361: .same(proto: "hasBegin"),
-    362: .same(proto: "hasCcEnableArenas"),
-    363: .same(proto: "hasCcGenericServices"),
-    364: .same(proto: "hasClientStreaming"),
-    365: .same(proto: "hasCsharpNamespace"),
-    366: .same(proto: "hasCtype"),
-    367: .same(proto: "hasDefaultValue"),
-    368: .same(proto: "hasDeprecated"),
-    369: .same(proto: "hasDoubleValue"),
-    370: .same(proto: "hasEnd"),
-    371: .same(proto: "hasExtendee"),
-    372: .same(proto: "hasExtensionValue"),
-    373: .same(proto: "hasGoPackage"),
-    374: .same(proto: "hash"),
-    375: .same(proto: "Hashable"),
-    376: .same(proto: "hasher"),
-    377: .same(proto: "hashValue"),
-    378: .same(proto: "HashVisitor"),
-    379: .same(proto: "hasIdempotencyLevel"),
-    380: .same(proto: "hasIdentifierValue"),
-    381: .same(proto: "hasInputType"),
-    382: .same(proto: "hasIsExtension"),
-    383: .same(proto: "hasJavaGenerateEqualsAndHash"),
-    384: .same(proto: "hasJavaGenericServices"),
-    385: .same(proto: "hasJavaMultipleFiles"),
-    386: .same(proto: "hasJavaOuterClassname"),
-    387: .same(proto: "hasJavaPackage"),
-    388: .same(proto: "hasJavaStringCheckUtf8"),
-    389: .same(proto: "hasJsonName"),
-    390: .same(proto: "hasJstype"),
-    391: .same(proto: "hasLabel"),
-    392: .same(proto: "hasLazy"),
-    393: .same(proto: "hasLeadingComments"),
-    394: .same(proto: "hasMapEntry"),
-    395: .same(proto: "hasMessageSetWireFormat"),
-    396: .same(proto: "hasName"),
-    397: .same(proto: "hasNamePart"),
-    398: .same(proto: "hasNegativeIntValue"),
-    399: .same(proto: "hasNoStandardDescriptorAccessor"),
-    400: .same(proto: "hasNumber"),
-    401: .same(proto: "hasObjcClassPrefix"),
-    402: .same(proto: "hasOneofIndex"),
-    403: .same(proto: "hasOptimizeFor"),
-    404: .same(proto: "hasOptions"),
-    405: .same(proto: "hasOutputType"),
-    406: .same(proto: "hasPackage"),
-    407: .same(proto: "hasPacked"),
-    408: .same(proto: "hasPhpClassPrefix"),
-    409: .same(proto: "hasPhpGenericServices"),
-    410: .same(proto: "hasPhpMetadataNamespace"),
-    411: .same(proto: "hasPhpNamespace"),
-    412: .same(proto: "hasPositiveIntValue"),
-    413: .same(proto: "hasProto3Optional"),
-    414: .same(proto: "hasPyGenericServices"),
-    415: .same(proto: "hasRubyPackage"),
-    416: .same(proto: "hasServerStreaming"),
-    417: .same(proto: "hasSourceCodeInfo"),
-    418: .same(proto: "hasSourceContext"),
-    419: .same(proto: "hasSourceFile"),
-    420: .same(proto: "hasStart"),
-    421: .same(proto: "hasStringValue"),
-    422: .same(proto: "hasSwiftPrefix"),
-    423: .same(proto: "hasSyntax"),
-    424: .same(proto: "hasTrailingComments"),
-    425: .same(proto: "hasType"),
-    426: .same(proto: "hasTypeName"),
-    427: .same(proto: "hasValue"),
-    428: .same(proto: "hasWeak"),
-    429: .same(proto: "hour"),
-    430: .same(proto: "i"),
-    431: .same(proto: "idempotencyLevel"),
-    432: .same(proto: "identifierValue"),
-    433: .same(proto: "if"),
-    434: .same(proto: "ignoreUnknownFields"),
-    435: .same(proto: "index"),
-    436: .same(proto: "init"),
-    437: .same(proto: "inout"),
-    438: .same(proto: "inputType"),
-    439: .same(proto: "insert"),
-    440: .same(proto: "Int"),
-    441: .same(proto: "Int32"),
-    442: .same(proto: "Int32Value"),
-    443: .same(proto: "Int64"),
-    444: .same(proto: "Int64Value"),
-    445: .same(proto: "Int8"),
-    446: .same(proto: "integerLiteral"),
-    447: .same(proto: "IntegerLiteralType"),
-    448: .same(proto: "intern"),
-    449: .same(proto: "Internal"),
-    450: .same(proto: "InternalState"),
-    451: .same(proto: "into"),
-    452: .same(proto: "ints"),
-    453: .same(proto: "isA"),
-    454: .same(proto: "isEqual"),
-    455: .same(proto: "isEqualTo"),
-    456: .same(proto: "isExtension"),
-    457: .same(proto: "isInitialized"),
-    458: .same(proto: "itemTagsEncodedSize"),
-    459: .same(proto: "Iterator"),
-    460: .same(proto: "i_2166136261"),
-    461: .same(proto: "javaGenerateEqualsAndHash"),
-    462: .same(proto: "javaGenericServices"),
-    463: .same(proto: "javaMultipleFiles"),
-    464: .same(proto: "javaOuterClassname"),
-    465: .same(proto: "javaPackage"),
-    466: .same(proto: "javaStringCheckUtf8"),
-    467: .same(proto: "JSONDecoder"),
-    468: .same(proto: "JSONDecodingError"),
-    469: .same(proto: "JSONDecodingOptions"),
-    470: .same(proto: "jsonEncoder"),
-    471: .same(proto: "JSONEncodingError"),
-    472: .same(proto: "JSONEncodingOptions"),
-    473: .same(proto: "JSONEncodingVisitor"),
-    474: .same(proto: "JSONMapEncodingVisitor"),
-    475: .same(proto: "jsonName"),
-    476: .same(proto: "jsonPath"),
-    477: .same(proto: "jsonPaths"),
-    478: .same(proto: "JSONScanner"),
-    479: .same(proto: "jsonString"),
-    480: .same(proto: "jsonText"),
-    481: .same(proto: "jsonUTF8Data"),
-    482: .same(proto: "jstype"),
-    483: .same(proto: "k"),
-    484: .same(proto: "Key"),
-    485: .same(proto: "keyField"),
-    486: .same(proto: "KeyType"),
-    487: .same(proto: "kind"),
-    488: .same(proto: "l"),
-    489: .same(proto: "label"),
-    490: .same(proto: "lazy"),
-    491: .same(proto: "leadingComments"),
-    492: .same(proto: "leadingDetachedComments"),
-    493: .same(proto: "length"),
-    494: .same(proto: "lessThan"),
-    495: .same(proto: "let"),
-    496: .same(proto: "lhs"),
-    497: .same(proto: "list"),
-    498: .same(proto: "listOfMessages"),
-    499: .same(proto: "listValue"),
-    500: .same(proto: "littleEndian"),
-    501: .same(proto: "littleEndianBytes"),
-    502: .same(proto: "load"),
-    503: .same(proto: "localHasher"),
-    504: .same(proto: "location"),
-    505: .same(proto: "M"),
-    506: .same(proto: "major"),
-    507: .same(proto: "makeIterator"),
-    508: .same(proto: "mapEntry"),
-    509: .same(proto: "mapHash"),
-    510: .same(proto: "MapKeyType"),
-    511: .same(proto: "mapNameResolver"),
-    512: .same(proto: "mapToMessages"),
-    513: .same(proto: "MapValueType"),
-    514: .same(proto: "mapVisitor"),
-    515: .same(proto: "mdayStart"),
-    516: .same(proto: "merge"),
-    517: .same(proto: "message"),
-    518: .same(proto: "messageDepthLimit"),
-    519: .same(proto: "MessageExtension"),
-    520: .same(proto: "MessageImplementationBase"),
-    521: .same(proto: "MessageOptions"),
-    522: .same(proto: "MessageSet"),
-    523: .same(proto: "messageSetWireFormat"),
-    524: .same(proto: "messageType"),
-    525: .same(proto: "Method"),
-    526: .same(proto: "MethodDescriptorProto"),
-    527: .same(proto: "MethodOptions"),
-    528: .same(proto: "methods"),
-    529: .same(proto: "minor"),
-    530: .same(proto: "Mixin"),
-    531: .same(proto: "mixins"),
-    532: .same(proto: "modifier"),
-    533: .same(proto: "modify"),
-    534: .same(proto: "month"),
-    535: .same(proto: "msgExtension"),
-    536: .same(proto: "mutating"),
-    537: .same(proto: "n"),
-    538: .same(proto: "name"),
-    539: .same(proto: "NameDescription"),
-    540: .same(proto: "NameMap"),
-    541: .same(proto: "NamePart"),
-    542: .same(proto: "nameResolver"),
-    543: .same(proto: "names"),
-    544: .same(proto: "nanos"),
-    545: .same(proto: "nativeBytes"),
-    546: .same(proto: "nativeEndianBytes"),
-    547: .same(proto: "negativeIntValue"),
-    548: .same(proto: "nestedType"),
-    549: .same(proto: "newL"),
-    550: .same(proto: "newList"),
-    551: .same(proto: "newValue"),
-    552: .same(proto: "nextByte"),
-    553: .same(proto: "nextFieldNumber"),
-    554: .same(proto: "nil"),
-    555: .same(proto: "nilLiteral"),
-    556: .same(proto: "noStandardDescriptorAccessor"),
-    557: .same(proto: "nullValue"),
-    558: .same(proto: "number"),
-    559: .same(proto: "numberValue"),
-    560: .same(proto: "objcClassPrefix"),
-    561: .same(proto: "of"),
-    562: .same(proto: "oneofDecl"),
-    563: .same(proto: "OneofDescriptorProto"),
-    564: .same(proto: "oneofIndex"),
-    565: .same(proto: "OneofOptions"),
-    566: .same(proto: "oneofs"),
-    567: .same(proto: "OneOf_Kind"),
-    568: .same(proto: "optimizeFor"),
-    569: .same(proto: "OptimizeMode"),
-    570: .same(proto: "Option"),
-    571: .same(proto: "OptionalEnumExtensionField"),
-    572: .same(proto: "OptionalExtensionField"),
-    573: .same(proto: "OptionalGroupExtensionField"),
-    574: .same(proto: "OptionalMessageExtensionField"),
-    575: .same(proto: "options"),
-    576: .same(proto: "other"),
-    577: .same(proto: "others"),
-    578: .same(proto: "out"),
-    579: .same(proto: "outputType"),
-    580: .same(proto: "p"),
-    581: .same(proto: "package"),
-    582: .same(proto: "packed"),
-    583: .same(proto: "PackedEnumExtensionField"),
-    584: .same(proto: "PackedExtensionField"),
-    585: .same(proto: "padding"),
-    586: .same(proto: "parent"),
-    587: .same(proto: "parse"),
-    588: .same(proto: "partial"),
-    589: .same(proto: "path"),
-    590: .same(proto: "paths"),
-    591: .same(proto: "payload"),
-    592: .same(proto: "payloadSize"),
-    593: .same(proto: "phpClassPrefix"),
-    594: .same(proto: "phpGenericServices"),
-    595: .same(proto: "phpMetadataNamespace"),
-    596: .same(proto: "phpNamespace"),
-    597: .same(proto: "pointer"),
-    598: .same(proto: "pos"),
-    599: .same(proto: "positiveIntValue"),
-    600: .same(proto: "prefix"),
-    601: .same(proto: "preserveProtoFieldNames"),
-    602: .same(proto: "preTraverse"),
-    603: .same(proto: "printUnknownFields"),
-    604: .same(proto: "proto2"),
-    605: .same(proto: "proto3DefaultValue"),
-    606: .same(proto: "proto3Optional"),
-    607: .same(proto: "ProtobufAPIVersionCheck"),
-    608: .same(proto: "ProtobufAPIVersion_2"),
-    609: .same(proto: "ProtobufBool"),
-    610: .same(proto: "ProtobufBytes"),
-    611: .same(proto: "ProtobufDouble"),
-    612: .same(proto: "ProtobufEnumMap"),
-    613: .same(proto: "protobufExtension"),
-    614: .same(proto: "ProtobufFixed32"),
-    615: .same(proto: "ProtobufFixed64"),
-    616: .same(proto: "ProtobufFloat"),
-    617: .same(proto: "ProtobufInt32"),
-    618: .same(proto: "ProtobufInt64"),
-    619: .same(proto: "ProtobufMap"),
-    620: .same(proto: "ProtobufMessageMap"),
-    621: .same(proto: "ProtobufSFixed32"),
-    622: .same(proto: "ProtobufSFixed64"),
-    623: .same(proto: "ProtobufSInt32"),
-    624: .same(proto: "ProtobufSInt64"),
-    625: .same(proto: "ProtobufString"),
-    626: .same(proto: "ProtobufUInt32"),
-    627: .same(proto: "ProtobufUInt64"),
-    628: .same(proto: "protobuf_extensionFieldValues"),
-    629: .same(proto: "protobuf_fieldNumber"),
-    630: .same(proto: "protobuf_generated_isEqualTo"),
-    631: .same(proto: "protobuf_nameMap"),
-    632: .same(proto: "protobuf_newField"),
-    633: .same(proto: "protobuf_package"),
-    634: .same(proto: "protocol"),
-    635: .same(proto: "protoFieldName"),
-    636: .same(proto: "protoMessageName"),
-    637: .same(proto: "ProtoNameProviding"),
-    638: .same(proto: "protoPaths"),
-    639: .same(proto: "public"),
-    640: .same(proto: "publicDependency"),
-    641: .same(proto: "putBoolValue"),
-    642: .same(proto: "putBytesValue"),
-    643: .same(proto: "putDoubleValue"),
-    644: .same(proto: "putEnumValue"),
-    645: .same(proto: "putFixedUInt32"),
-    646: .same(proto: "putFixedUInt64"),
-    647: .same(proto: "putFloatValue"),
-    648: .same(proto: "putInt64"),
-    649: .same(proto: "putStringValue"),
-    650: .same(proto: "putUInt64"),
-    651: .same(proto: "putUInt64Hex"),
-    652: .same(proto: "putVarInt"),
-    653: .same(proto: "putZigZagVarInt"),
-    654: .same(proto: "pyGenericServices"),
-    655: .same(proto: "rawChars"),
-    656: .same(proto: "RawRepresentable"),
-    657: .same(proto: "RawValue"),
-    658: .same(proto: "read4HexDigits"),
-    659: .same(proto: "register"),
-    660: .same(proto: "RepeatedEnumExtensionField"),
-    661: .same(proto: "RepeatedExtensionField"),
-    662: .same(proto: "RepeatedGroupExtensionField"),
-    663: .same(proto: "RepeatedMessageExtensionField"),
-    664: .same(proto: "requestStreaming"),
-    665: .same(proto: "requestTypeURL"),
-    666: .same(proto: "requiredSize"),
-    667: .same(proto: "reservedName"),
-    668: .same(proto: "reservedRange"),
-    669: .same(proto: "responseStreaming"),
-    670: .same(proto: "responseTypeURL"),
-    671: .same(proto: "result"),
-    672: .same(proto: "rethrows"),
-    673: .same(proto: "return"),
-    674: .same(proto: "ReturnType"),
-    675: .same(proto: "revision"),
-    676: .same(proto: "rhs"),
-    677: .same(proto: "root"),
-    678: .same(proto: "rubyPackage"),
-    679: .same(proto: "s"),
-    680: .same(proto: "sawBackslash"),
-    681: .same(proto: "sawSection4Characters"),
-    682: .same(proto: "sawSection5Characters"),
-    683: .same(proto: "scanner"),
-    684: .same(proto: "seconds"),
-    685: .same(proto: "self"),
-    686: .same(proto: "separator"),
-    687: .same(proto: "serialize"),
-    688: .same(proto: "serializedData"),
-    689: .same(proto: "serializedSize"),
-    690: .same(proto: "serverStreaming"),
-    691: .same(proto: "service"),
-    692: .same(proto: "ServiceDescriptorProto"),
-    693: .same(proto: "ServiceOptions"),
-    694: .same(proto: "set"),
-    695: .same(proto: "setExtensionValue"),
-    696: .same(proto: "shift"),
-    697: .same(proto: "SimpleExtensionMap"),
-    698: .same(proto: "sizer"),
-    699: .same(proto: "source"),
-    700: .same(proto: "sourceCodeInfo"),
-    701: .same(proto: "sourceContext"),
-    702: .same(proto: "sourceEncoding"),
-    703: .same(proto: "sourceFile"),
-    704: .same(proto: "span"),
-    705: .same(proto: "split"),
-    706: .same(proto: "start"),
-    707: .same(proto: "startArray"),
-    708: .same(proto: "startArrayObject"),
-    709: .same(proto: "startField"),
-    710: .same(proto: "startIndex"),
-    711: .same(proto: "startMessageField"),
-    712: .same(proto: "startObject"),
-    713: .same(proto: "startRegularField"),
-    714: .same(proto: "state"),
-    715: .same(proto: "static"),
-    716: .same(proto: "StaticString"),
-    717: .same(proto: "storage"),
-    718: .same(proto: "String"),
-    719: .same(proto: "stringLiteral"),
-    720: .same(proto: "StringLiteralType"),
-    721: .same(proto: "stringResult"),
-    722: .same(proto: "stringValue"),
-    723: .same(proto: "struct"),
-    724: .same(proto: "structValue"),
-    725: .same(proto: "subDecoder"),
-    726: .same(proto: "subscript"),
-    727: .same(proto: "subVisitor"),
-    728: .same(proto: "Swift"),
-    729: .same(proto: "swiftPrefix"),
-    730: .same(proto: "SwiftProtobuf"),
-    731: .same(proto: "syntax"),
-    732: .same(proto: "T"),
-    733: .same(proto: "tag"),
-    734: .same(proto: "terminator"),
-    735: .same(proto: "testDecoder"),
-    736: .same(proto: "text"),
-    737: .same(proto: "textDecoder"),
-    738: .same(proto: "TextFormatDecoder"),
-    739: .same(proto: "TextFormatDecodingError"),
-    740: .same(proto: "TextFormatDecodingOptions"),
-    741: .same(proto: "TextFormatEncodingOptions"),
-    742: .same(proto: "TextFormatEncodingVisitor"),
-    743: .same(proto: "textFormatString"),
-    744: .same(proto: "throws"),
-    745: .same(proto: "timeInterval"),
-    746: .same(proto: "timeIntervalSince1970"),
-    747: .same(proto: "timeIntervalSinceReferenceDate"),
-    748: .same(proto: "Timestamp"),
-    749: .same(proto: "total"),
-    750: .same(proto: "totalArrayDepth"),
-    751: .same(proto: "totalSize"),
-    752: .same(proto: "trailingComments"),
-    753: .same(proto: "traverse"),
-    754: .same(proto: "true"),
-    755: .same(proto: "try"),
-    756: .same(proto: "type"),
-    757: .same(proto: "typealias"),
-    758: .same(proto: "TypeEnum"),
-    759: .same(proto: "typeName"),
-    760: .same(proto: "typePrefix"),
-    761: .same(proto: "typeStart"),
-    762: .same(proto: "typeUnknown"),
-    763: .same(proto: "typeURL"),
-    764: .same(proto: "UInt32"),
-    765: .same(proto: "UInt32Value"),
-    766: .same(proto: "UInt64"),
-    767: .same(proto: "UInt64Value"),
-    768: .same(proto: "UInt8"),
-    769: .same(proto: "unicodeScalarLiteral"),
-    770: .same(proto: "UnicodeScalarLiteralType"),
-    771: .same(proto: "unicodeScalars"),
-    772: .same(proto: "UnicodeScalarView"),
-    773: .same(proto: "uninterpretedOption"),
-    774: .same(proto: "union"),
-    775: .same(proto: "uniqueStorage"),
-    776: .same(proto: "unknown"),
-    777: .same(proto: "unknownFields"),
-    778: .same(proto: "UnknownStorage"),
-    779: .same(proto: "unpackTo"),
-    780: .same(proto: "UnsafeBufferPointer"),
-    781: .same(proto: "UnsafeMutablePointer"),
-    782: .same(proto: "UnsafeMutableRawBufferPointer"),
-    783: .same(proto: "UnsafeMutableRawPointer"),
-    784: .same(proto: "UnsafeRawBufferPointer"),
-    785: .same(proto: "UnsafeRawPointer"),
-    786: .same(proto: "updatedOptions"),
-    787: .same(proto: "url"),
-    788: .same(proto: "utf8"),
-    789: .same(proto: "utf8Ptr"),
-    790: .same(proto: "utf8ToDouble"),
-    791: .same(proto: "UTF8View"),
-    792: .same(proto: "v"),
-    793: .same(proto: "value"),
-    794: .same(proto: "valueField"),
-    795: .same(proto: "values"),
-    796: .same(proto: "ValueType"),
-    797: .same(proto: "var"),
-    798: .same(proto: "Version"),
-    799: .same(proto: "versionString"),
-    800: .same(proto: "visitExtensionFields"),
-    801: .same(proto: "visitExtensionFieldsAsMessageSet"),
-    802: .same(proto: "visitMapField"),
-    803: .same(proto: "visitor"),
-    804: .same(proto: "visitPacked"),
-    805: .same(proto: "visitPackedBoolField"),
-    806: .same(proto: "visitPackedDoubleField"),
-    807: .same(proto: "visitPackedEnumField"),
-    808: .same(proto: "visitPackedFixed32Field"),
-    809: .same(proto: "visitPackedFixed64Field"),
-    810: .same(proto: "visitPackedFloatField"),
-    811: .same(proto: "visitPackedInt32Field"),
-    812: .same(proto: "visitPackedInt64Field"),
-    813: .same(proto: "visitPackedSFixed32Field"),
-    814: .same(proto: "visitPackedSFixed64Field"),
-    815: .same(proto: "visitPackedSInt32Field"),
-    816: .same(proto: "visitPackedSInt64Field"),
-    817: .same(proto: "visitPackedUInt32Field"),
-    818: .same(proto: "visitPackedUInt64Field"),
-    819: .same(proto: "visitRepeated"),
-    820: .same(proto: "visitRepeatedBoolField"),
-    821: .same(proto: "visitRepeatedBytesField"),
-    822: .same(proto: "visitRepeatedDoubleField"),
-    823: .same(proto: "visitRepeatedEnumField"),
-    824: .same(proto: "visitRepeatedFixed32Field"),
-    825: .same(proto: "visitRepeatedFixed64Field"),
-    826: .same(proto: "visitRepeatedFloatField"),
-    827: .same(proto: "visitRepeatedGroupField"),
-    828: .same(proto: "visitRepeatedInt32Field"),
-    829: .same(proto: "visitRepeatedInt64Field"),
-    830: .same(proto: "visitRepeatedMessageField"),
-    831: .same(proto: "visitRepeatedSFixed32Field"),
-    832: .same(proto: "visitRepeatedSFixed64Field"),
-    833: .same(proto: "visitRepeatedSInt32Field"),
-    834: .same(proto: "visitRepeatedSInt64Field"),
-    835: .same(proto: "visitRepeatedStringField"),
-    836: .same(proto: "visitRepeatedUInt32Field"),
-    837: .same(proto: "visitRepeatedUInt64Field"),
-    838: .same(proto: "visitSingular"),
-    839: .same(proto: "visitSingularBoolField"),
-    840: .same(proto: "visitSingularBytesField"),
-    841: .same(proto: "visitSingularDoubleField"),
-    842: .same(proto: "visitSingularEnumField"),
-    843: .same(proto: "visitSingularFixed32Field"),
-    844: .same(proto: "visitSingularFixed64Field"),
-    845: .same(proto: "visitSingularFloatField"),
-    846: .same(proto: "visitSingularGroupField"),
-    847: .same(proto: "visitSingularInt32Field"),
-    848: .same(proto: "visitSingularInt64Field"),
-    849: .same(proto: "visitSingularMessageField"),
-    850: .same(proto: "visitSingularSFixed32Field"),
-    851: .same(proto: "visitSingularSFixed64Field"),
-    852: .same(proto: "visitSingularSInt32Field"),
-    853: .same(proto: "visitSingularSInt64Field"),
-    854: .same(proto: "visitSingularStringField"),
-    855: .same(proto: "visitSingularUInt32Field"),
-    856: .same(proto: "visitSingularUInt64Field"),
-    857: .same(proto: "visitUnknown"),
-    858: .same(proto: "wasDecoded"),
-    859: .same(proto: "weak"),
-    860: .same(proto: "weakDependency"),
-    861: .same(proto: "where"),
-    862: .same(proto: "wireFormat"),
-    863: .same(proto: "with"),
-    864: .same(proto: "withUnsafeBytes"),
-    865: .same(proto: "withUnsafeMutableBytes"),
-    866: .same(proto: "work"),
-    867: .same(proto: "WrappedType"),
-    868: .same(proto: "written"),
-    869: .same(proto: "yday"),
+    70: .same(proto: "clearEdition"),
+    71: .same(proto: "clearEnd"),
+    72: .same(proto: "clearExtendee"),
+    73: .same(proto: "clearExtensionValue"),
+    74: .same(proto: "clearGoPackage"),
+    75: .same(proto: "clearIdempotencyLevel"),
+    76: .same(proto: "clearIdentifierValue"),
+    77: .same(proto: "clearInputType"),
+    78: .same(proto: "clearIsExtension"),
+    79: .same(proto: "clearJavaGenerateEqualsAndHash"),
+    80: .same(proto: "clearJavaGenericServices"),
+    81: .same(proto: "clearJavaMultipleFiles"),
+    82: .same(proto: "clearJavaOuterClassname"),
+    83: .same(proto: "clearJavaPackage"),
+    84: .same(proto: "clearJavaStringCheckUtf8"),
+    85: .same(proto: "clearJsonName"),
+    86: .same(proto: "clearJstype"),
+    87: .same(proto: "clearLabel"),
+    88: .same(proto: "clearLazy"),
+    89: .same(proto: "clearLeadingComments"),
+    90: .same(proto: "clearMapEntry"),
+    91: .same(proto: "clearMessageSetWireFormat"),
+    92: .same(proto: "clearName"),
+    93: .same(proto: "clearNamePart"),
+    94: .same(proto: "clearNegativeIntValue"),
+    95: .same(proto: "clearNoStandardDescriptorAccessor"),
+    96: .same(proto: "clearNumber"),
+    97: .same(proto: "clearObjcClassPrefix"),
+    98: .same(proto: "clearOneofIndex"),
+    99: .same(proto: "clearOptimizeFor"),
+    100: .same(proto: "clearOptions"),
+    101: .same(proto: "clearOutputType"),
+    102: .same(proto: "clearPackage"),
+    103: .same(proto: "clearPacked"),
+    104: .same(proto: "clearPhpClassPrefix"),
+    105: .same(proto: "clearPhpGenericServices"),
+    106: .same(proto: "clearPhpMetadataNamespace"),
+    107: .same(proto: "clearPhpNamespace"),
+    108: .same(proto: "clearPositiveIntValue"),
+    109: .same(proto: "clearProto3Optional"),
+    110: .same(proto: "clearPyGenericServices"),
+    111: .same(proto: "clearRubyPackage"),
+    112: .same(proto: "clearSemantic"),
+    113: .same(proto: "clearServerStreaming"),
+    114: .same(proto: "clearSourceCodeInfo"),
+    115: .same(proto: "clearSourceContext"),
+    116: .same(proto: "clearSourceFile"),
+    117: .same(proto: "clearStart"),
+    118: .same(proto: "clearStringValue"),
+    119: .same(proto: "clearSwiftPrefix"),
+    120: .same(proto: "clearSyntax"),
+    121: .same(proto: "clearTrailingComments"),
+    122: .same(proto: "clearType"),
+    123: .same(proto: "clearTypeName"),
+    124: .same(proto: "clearUnverifiedLazy"),
+    125: .same(proto: "clearValue"),
+    126: .same(proto: "clearWeak"),
+    127: .same(proto: "clientStreaming"),
+    128: .same(proto: "codePoint"),
+    129: .same(proto: "codeUnits"),
+    130: .same(proto: "Collection"),
+    131: .same(proto: "com"),
+    132: .same(proto: "comma"),
+    133: .same(proto: "contentsOf"),
+    134: .same(proto: "ContiguousBytes"),
+    135: .same(proto: "count"),
+    136: .same(proto: "countVarintsInBuffer"),
+    137: .same(proto: "csharpNamespace"),
+    138: .same(proto: "ctype"),
+    139: .same(proto: "customCodable"),
+    140: .same(proto: "CustomDebugStringConvertible"),
+    141: .same(proto: "d"),
+    142: .same(proto: "Data"),
+    143: .same(proto: "dataResult"),
+    144: .same(proto: "date"),
+    145: .same(proto: "daySec"),
+    146: .same(proto: "daysSinceEpoch"),
+    147: .same(proto: "debugDescription"),
+    148: .same(proto: "decoded"),
+    149: .same(proto: "decodedFromJSONNull"),
+    150: .same(proto: "decodeExtensionField"),
+    151: .same(proto: "decodeExtensionFieldsAsMessageSet"),
+    152: .same(proto: "decodeJSON"),
+    153: .same(proto: "decodeMapField"),
+    154: .same(proto: "decodeMessage"),
+    155: .same(proto: "decoder"),
+    156: .same(proto: "decodeRepeated"),
+    157: .same(proto: "decodeRepeatedBoolField"),
+    158: .same(proto: "decodeRepeatedBytesField"),
+    159: .same(proto: "decodeRepeatedDoubleField"),
+    160: .same(proto: "decodeRepeatedEnumField"),
+    161: .same(proto: "decodeRepeatedFixed32Field"),
+    162: .same(proto: "decodeRepeatedFixed64Field"),
+    163: .same(proto: "decodeRepeatedFloatField"),
+    164: .same(proto: "decodeRepeatedGroupField"),
+    165: .same(proto: "decodeRepeatedInt32Field"),
+    166: .same(proto: "decodeRepeatedInt64Field"),
+    167: .same(proto: "decodeRepeatedMessageField"),
+    168: .same(proto: "decodeRepeatedSFixed32Field"),
+    169: .same(proto: "decodeRepeatedSFixed64Field"),
+    170: .same(proto: "decodeRepeatedSInt32Field"),
+    171: .same(proto: "decodeRepeatedSInt64Field"),
+    172: .same(proto: "decodeRepeatedStringField"),
+    173: .same(proto: "decodeRepeatedUInt32Field"),
+    174: .same(proto: "decodeRepeatedUInt64Field"),
+    175: .same(proto: "decodeSingular"),
+    176: .same(proto: "decodeSingularBoolField"),
+    177: .same(proto: "decodeSingularBytesField"),
+    178: .same(proto: "decodeSingularDoubleField"),
+    179: .same(proto: "decodeSingularEnumField"),
+    180: .same(proto: "decodeSingularFixed32Field"),
+    181: .same(proto: "decodeSingularFixed64Field"),
+    182: .same(proto: "decodeSingularFloatField"),
+    183: .same(proto: "decodeSingularGroupField"),
+    184: .same(proto: "decodeSingularInt32Field"),
+    185: .same(proto: "decodeSingularInt64Field"),
+    186: .same(proto: "decodeSingularMessageField"),
+    187: .same(proto: "decodeSingularSFixed32Field"),
+    188: .same(proto: "decodeSingularSFixed64Field"),
+    189: .same(proto: "decodeSingularSInt32Field"),
+    190: .same(proto: "decodeSingularSInt64Field"),
+    191: .same(proto: "decodeSingularStringField"),
+    192: .same(proto: "decodeSingularUInt32Field"),
+    193: .same(proto: "decodeSingularUInt64Field"),
+    194: .same(proto: "decodeTextFormat"),
+    195: .same(proto: "defaultAnyTypeURLPrefix"),
+    196: .same(proto: "defaultValue"),
+    197: .same(proto: "dependency"),
+    198: .same(proto: "deprecated"),
+    199: .same(proto: "description"),
+    200: .same(proto: "DescriptorProto"),
+    201: .same(proto: "Dictionary"),
+    202: .same(proto: "dictionaryLiteral"),
+    203: .same(proto: "digit"),
+    204: .same(proto: "digit0"),
+    205: .same(proto: "digit1"),
+    206: .same(proto: "digitCount"),
+    207: .same(proto: "digits"),
+    208: .same(proto: "digitValue"),
+    209: .same(proto: "discardableResult"),
+    210: .same(proto: "discardUnknownFields"),
+    211: .same(proto: "distance"),
+    212: .same(proto: "double"),
+    213: .same(proto: "doubleValue"),
+    214: .same(proto: "Duration"),
+    215: .same(proto: "E"),
+    216: .same(proto: "edition"),
+    217: .same(proto: "Element"),
+    218: .same(proto: "elements"),
+    219: .same(proto: "emitExtensionFieldName"),
+    220: .same(proto: "emitFieldName"),
+    221: .same(proto: "emitFieldNumber"),
+    222: .same(proto: "Empty"),
+    223: .same(proto: "emptyData"),
+    224: .same(proto: "encodeAsBytes"),
+    225: .same(proto: "encoded"),
+    226: .same(proto: "encodedJSONString"),
+    227: .same(proto: "encodedSize"),
+    228: .same(proto: "encodeField"),
+    229: .same(proto: "encoder"),
+    230: .same(proto: "end"),
+    231: .same(proto: "endArray"),
+    232: .same(proto: "endMessageField"),
+    233: .same(proto: "endObject"),
+    234: .same(proto: "endRegularField"),
+    235: .same(proto: "enum"),
+    236: .same(proto: "EnumDescriptorProto"),
+    237: .same(proto: "EnumOptions"),
+    238: .same(proto: "EnumReservedRange"),
+    239: .same(proto: "enumType"),
+    240: .same(proto: "enumvalue"),
+    241: .same(proto: "EnumValueDescriptorProto"),
+    242: .same(proto: "EnumValueOptions"),
+    243: .same(proto: "Equatable"),
+    244: .same(proto: "Error"),
+    245: .same(proto: "ExpressibleByArrayLiteral"),
+    246: .same(proto: "ExpressibleByDictionaryLiteral"),
+    247: .same(proto: "ext"),
+    248: .same(proto: "extDecoder"),
+    249: .same(proto: "extendedGraphemeClusterLiteral"),
+    250: .same(proto: "ExtendedGraphemeClusterLiteralType"),
+    251: .same(proto: "extendee"),
+    252: .same(proto: "ExtensibleMessage"),
+    253: .same(proto: "extension"),
+    254: .same(proto: "ExtensionField"),
+    255: .same(proto: "extensionFieldNumber"),
+    256: .same(proto: "ExtensionFieldValueSet"),
+    257: .same(proto: "ExtensionMap"),
+    258: .same(proto: "extensionRange"),
+    259: .same(proto: "ExtensionRangeOptions"),
+    260: .same(proto: "extensions"),
+    261: .same(proto: "extras"),
+    262: .same(proto: "F"),
+    263: .same(proto: "false"),
+    264: .same(proto: "field"),
+    265: .same(proto: "fieldData"),
+    266: .same(proto: "FieldDescriptorProto"),
+    267: .same(proto: "FieldMask"),
+    268: .same(proto: "fieldName"),
+    269: .same(proto: "fieldNameCount"),
+    270: .same(proto: "fieldNum"),
+    271: .same(proto: "fieldNumber"),
+    272: .same(proto: "fieldNumberForProto"),
+    273: .same(proto: "FieldOptions"),
+    274: .same(proto: "fields"),
+    275: .same(proto: "fieldSize"),
+    276: .same(proto: "FieldTag"),
+    277: .same(proto: "fieldType"),
+    278: .same(proto: "file"),
+    279: .same(proto: "FileDescriptorProto"),
+    280: .same(proto: "FileDescriptorSet"),
+    281: .same(proto: "fileName"),
+    282: .same(proto: "FileOptions"),
+    283: .same(proto: "filter"),
+    284: .same(proto: "first"),
+    285: .same(proto: "firstItem"),
+    286: .same(proto: "float"),
+    287: .same(proto: "floatLiteral"),
+    288: .same(proto: "FloatLiteralType"),
+    289: .same(proto: "FloatValue"),
+    290: .same(proto: "forMessageName"),
+    291: .same(proto: "formUnion"),
+    292: .same(proto: "forReadingFrom"),
+    293: .same(proto: "forTypeURL"),
+    294: .same(proto: "ForwardParser"),
+    295: .same(proto: "forWritingInto"),
+    296: .same(proto: "from"),
+    297: .same(proto: "fromAscii2"),
+    298: .same(proto: "fromAscii4"),
+    299: .same(proto: "fromByteOffset"),
+    300: .same(proto: "fromHexDigit"),
+    301: .same(proto: "func"),
+    302: .same(proto: "G"),
+    303: .same(proto: "GeneratedCodeInfo"),
+    304: .same(proto: "get"),
+    305: .same(proto: "getExtensionValue"),
+    306: .same(proto: "googleapis"),
+    307: .same(proto: "Google_Protobuf_Any"),
+    308: .same(proto: "Google_Protobuf_Api"),
+    309: .same(proto: "Google_Protobuf_BoolValue"),
+    310: .same(proto: "Google_Protobuf_BytesValue"),
+    311: .same(proto: "Google_Protobuf_DescriptorProto"),
+    312: .same(proto: "Google_Protobuf_DoubleValue"),
+    313: .same(proto: "Google_Protobuf_Duration"),
+    314: .same(proto: "Google_Protobuf_Empty"),
+    315: .same(proto: "Google_Protobuf_Enum"),
+    316: .same(proto: "Google_Protobuf_EnumDescriptorProto"),
+    317: .same(proto: "Google_Protobuf_EnumOptions"),
+    318: .same(proto: "Google_Protobuf_EnumValue"),
+    319: .same(proto: "Google_Protobuf_EnumValueDescriptorProto"),
+    320: .same(proto: "Google_Protobuf_EnumValueOptions"),
+    321: .same(proto: "Google_Protobuf_ExtensionRangeOptions"),
+    322: .same(proto: "Google_Protobuf_Field"),
+    323: .same(proto: "Google_Protobuf_FieldDescriptorProto"),
+    324: .same(proto: "Google_Protobuf_FieldMask"),
+    325: .same(proto: "Google_Protobuf_FieldOptions"),
+    326: .same(proto: "Google_Protobuf_FileDescriptorProto"),
+    327: .same(proto: "Google_Protobuf_FileDescriptorSet"),
+    328: .same(proto: "Google_Protobuf_FileOptions"),
+    329: .same(proto: "Google_Protobuf_FloatValue"),
+    330: .same(proto: "Google_Protobuf_GeneratedCodeInfo"),
+    331: .same(proto: "Google_Protobuf_Int32Value"),
+    332: .same(proto: "Google_Protobuf_Int64Value"),
+    333: .same(proto: "Google_Protobuf_ListValue"),
+    334: .same(proto: "Google_Protobuf_MessageOptions"),
+    335: .same(proto: "Google_Protobuf_Method"),
+    336: .same(proto: "Google_Protobuf_MethodDescriptorProto"),
+    337: .same(proto: "Google_Protobuf_MethodOptions"),
+    338: .same(proto: "Google_Protobuf_Mixin"),
+    339: .same(proto: "Google_Protobuf_NullValue"),
+    340: .same(proto: "Google_Protobuf_OneofDescriptorProto"),
+    341: .same(proto: "Google_Protobuf_OneofOptions"),
+    342: .same(proto: "Google_Protobuf_Option"),
+    343: .same(proto: "Google_Protobuf_ServiceDescriptorProto"),
+    344: .same(proto: "Google_Protobuf_ServiceOptions"),
+    345: .same(proto: "Google_Protobuf_SourceCodeInfo"),
+    346: .same(proto: "Google_Protobuf_SourceContext"),
+    347: .same(proto: "Google_Protobuf_StringValue"),
+    348: .same(proto: "Google_Protobuf_Struct"),
+    349: .same(proto: "Google_Protobuf_Syntax"),
+    350: .same(proto: "Google_Protobuf_Timestamp"),
+    351: .same(proto: "Google_Protobuf_Type"),
+    352: .same(proto: "Google_Protobuf_UInt32Value"),
+    353: .same(proto: "Google_Protobuf_UInt64Value"),
+    354: .same(proto: "Google_Protobuf_UninterpretedOption"),
+    355: .same(proto: "Google_Protobuf_Value"),
+    356: .same(proto: "goPackage"),
+    357: .same(proto: "group"),
+    358: .same(proto: "groupFieldNumberStack"),
+    359: .same(proto: "groupSize"),
+    360: .same(proto: "h"),
+    361: .same(proto: "hadOneofValue"),
+    362: .same(proto: "handleConflictingOneOf"),
+    363: .same(proto: "hasAggregateValue"),
+    364: .same(proto: "hasAllowAlias"),
+    365: .same(proto: "hasBegin"),
+    366: .same(proto: "hasCcEnableArenas"),
+    367: .same(proto: "hasCcGenericServices"),
+    368: .same(proto: "hasClientStreaming"),
+    369: .same(proto: "hasCsharpNamespace"),
+    370: .same(proto: "hasCtype"),
+    371: .same(proto: "hasDefaultValue"),
+    372: .same(proto: "hasDeprecated"),
+    373: .same(proto: "hasDoubleValue"),
+    374: .same(proto: "hasEdition"),
+    375: .same(proto: "hasEnd"),
+    376: .same(proto: "hasExtendee"),
+    377: .same(proto: "hasExtensionValue"),
+    378: .same(proto: "hasGoPackage"),
+    379: .same(proto: "hash"),
+    380: .same(proto: "Hashable"),
+    381: .same(proto: "hasher"),
+    382: .same(proto: "hashValue"),
+    383: .same(proto: "HashVisitor"),
+    384: .same(proto: "hasIdempotencyLevel"),
+    385: .same(proto: "hasIdentifierValue"),
+    386: .same(proto: "hasInputType"),
+    387: .same(proto: "hasIsExtension"),
+    388: .same(proto: "hasJavaGenerateEqualsAndHash"),
+    389: .same(proto: "hasJavaGenericServices"),
+    390: .same(proto: "hasJavaMultipleFiles"),
+    391: .same(proto: "hasJavaOuterClassname"),
+    392: .same(proto: "hasJavaPackage"),
+    393: .same(proto: "hasJavaStringCheckUtf8"),
+    394: .same(proto: "hasJsonName"),
+    395: .same(proto: "hasJstype"),
+    396: .same(proto: "hasLabel"),
+    397: .same(proto: "hasLazy"),
+    398: .same(proto: "hasLeadingComments"),
+    399: .same(proto: "hasMapEntry"),
+    400: .same(proto: "hasMessageSetWireFormat"),
+    401: .same(proto: "hasName"),
+    402: .same(proto: "hasNamePart"),
+    403: .same(proto: "hasNegativeIntValue"),
+    404: .same(proto: "hasNoStandardDescriptorAccessor"),
+    405: .same(proto: "hasNumber"),
+    406: .same(proto: "hasObjcClassPrefix"),
+    407: .same(proto: "hasOneofIndex"),
+    408: .same(proto: "hasOptimizeFor"),
+    409: .same(proto: "hasOptions"),
+    410: .same(proto: "hasOutputType"),
+    411: .same(proto: "hasPackage"),
+    412: .same(proto: "hasPacked"),
+    413: .same(proto: "hasPhpClassPrefix"),
+    414: .same(proto: "hasPhpGenericServices"),
+    415: .same(proto: "hasPhpMetadataNamespace"),
+    416: .same(proto: "hasPhpNamespace"),
+    417: .same(proto: "hasPositiveIntValue"),
+    418: .same(proto: "hasProto3Optional"),
+    419: .same(proto: "hasPyGenericServices"),
+    420: .same(proto: "hasRubyPackage"),
+    421: .same(proto: "hasSemantic"),
+    422: .same(proto: "hasServerStreaming"),
+    423: .same(proto: "hasSourceCodeInfo"),
+    424: .same(proto: "hasSourceContext"),
+    425: .same(proto: "hasSourceFile"),
+    426: .same(proto: "hasStart"),
+    427: .same(proto: "hasStringValue"),
+    428: .same(proto: "hasSwiftPrefix"),
+    429: .same(proto: "hasSyntax"),
+    430: .same(proto: "hasTrailingComments"),
+    431: .same(proto: "hasType"),
+    432: .same(proto: "hasTypeName"),
+    433: .same(proto: "hasUnverifiedLazy"),
+    434: .same(proto: "hasValue"),
+    435: .same(proto: "hasWeak"),
+    436: .same(proto: "hour"),
+    437: .same(proto: "i"),
+    438: .same(proto: "idempotencyLevel"),
+    439: .same(proto: "identifierValue"),
+    440: .same(proto: "if"),
+    441: .same(proto: "ignoreUnknownFields"),
+    442: .same(proto: "index"),
+    443: .same(proto: "init"),
+    444: .same(proto: "inout"),
+    445: .same(proto: "inputType"),
+    446: .same(proto: "insert"),
+    447: .same(proto: "Int"),
+    448: .same(proto: "Int32"),
+    449: .same(proto: "Int32Value"),
+    450: .same(proto: "Int64"),
+    451: .same(proto: "Int64Value"),
+    452: .same(proto: "Int8"),
+    453: .same(proto: "integerLiteral"),
+    454: .same(proto: "IntegerLiteralType"),
+    455: .same(proto: "intern"),
+    456: .same(proto: "Internal"),
+    457: .same(proto: "InternalState"),
+    458: .same(proto: "into"),
+    459: .same(proto: "ints"),
+    460: .same(proto: "isA"),
+    461: .same(proto: "isEqual"),
+    462: .same(proto: "isEqualTo"),
+    463: .same(proto: "isExtension"),
+    464: .same(proto: "isInitialized"),
+    465: .same(proto: "isNegative"),
+    466: .same(proto: "itemTagsEncodedSize"),
+    467: .same(proto: "Iterator"),
+    468: .same(proto: "i_2166136261"),
+    469: .same(proto: "javaGenerateEqualsAndHash"),
+    470: .same(proto: "javaGenericServices"),
+    471: .same(proto: "javaMultipleFiles"),
+    472: .same(proto: "javaOuterClassname"),
+    473: .same(proto: "javaPackage"),
+    474: .same(proto: "javaStringCheckUtf8"),
+    475: .same(proto: "JSONDecoder"),
+    476: .same(proto: "JSONDecodingError"),
+    477: .same(proto: "JSONDecodingOptions"),
+    478: .same(proto: "jsonEncoder"),
+    479: .same(proto: "JSONEncodingError"),
+    480: .same(proto: "JSONEncodingOptions"),
+    481: .same(proto: "JSONEncodingVisitor"),
+    482: .same(proto: "JSONMapEncodingVisitor"),
+    483: .same(proto: "jsonName"),
+    484: .same(proto: "jsonPath"),
+    485: .same(proto: "jsonPaths"),
+    486: .same(proto: "JSONScanner"),
+    487: .same(proto: "jsonString"),
+    488: .same(proto: "jsonText"),
+    489: .same(proto: "jsonUTF8Data"),
+    490: .same(proto: "jstype"),
+    491: .same(proto: "k"),
+    492: .same(proto: "Key"),
+    493: .same(proto: "keyField"),
+    494: .same(proto: "KeyType"),
+    495: .same(proto: "kind"),
+    496: .same(proto: "l"),
+    497: .same(proto: "label"),
+    498: .same(proto: "lazy"),
+    499: .same(proto: "leadingComments"),
+    500: .same(proto: "leadingDetachedComments"),
+    501: .same(proto: "length"),
+    502: .same(proto: "lessThan"),
+    503: .same(proto: "let"),
+    504: .same(proto: "lhs"),
+    505: .same(proto: "list"),
+    506: .same(proto: "listOfMessages"),
+    507: .same(proto: "listValue"),
+    508: .same(proto: "littleEndian"),
+    509: .same(proto: "littleEndianBytes"),
+    510: .same(proto: "load"),
+    511: .same(proto: "localHasher"),
+    512: .same(proto: "location"),
+    513: .same(proto: "M"),
+    514: .same(proto: "major"),
+    515: .same(proto: "makeIterator"),
+    516: .same(proto: "mapEntry"),
+    517: .same(proto: "mapHash"),
+    518: .same(proto: "MapKeyType"),
+    519: .same(proto: "mapNameResolver"),
+    520: .same(proto: "mapToMessages"),
+    521: .same(proto: "MapValueType"),
+    522: .same(proto: "mapVisitor"),
+    523: .same(proto: "mdayStart"),
+    524: .same(proto: "merge"),
+    525: .same(proto: "message"),
+    526: .same(proto: "messageDepthLimit"),
+    527: .same(proto: "MessageExtension"),
+    528: .same(proto: "MessageImplementationBase"),
+    529: .same(proto: "MessageOptions"),
+    530: .same(proto: "MessageSet"),
+    531: .same(proto: "messageSetWireFormat"),
+    532: .same(proto: "messageType"),
+    533: .same(proto: "Method"),
+    534: .same(proto: "MethodDescriptorProto"),
+    535: .same(proto: "MethodOptions"),
+    536: .same(proto: "methods"),
+    537: .same(proto: "minor"),
+    538: .same(proto: "Mixin"),
+    539: .same(proto: "mixins"),
+    540: .same(proto: "modifier"),
+    541: .same(proto: "modify"),
+    542: .same(proto: "month"),
+    543: .same(proto: "msgExtension"),
+    544: .same(proto: "mutating"),
+    545: .same(proto: "n"),
+    546: .same(proto: "name"),
+    547: .same(proto: "NameDescription"),
+    548: .same(proto: "NameMap"),
+    549: .same(proto: "NamePart"),
+    550: .same(proto: "nameResolver"),
+    551: .same(proto: "names"),
+    552: .same(proto: "nanos"),
+    553: .same(proto: "nativeBytes"),
+    554: .same(proto: "nativeEndianBytes"),
+    555: .same(proto: "negativeIntValue"),
+    556: .same(proto: "nestedType"),
+    557: .same(proto: "newL"),
+    558: .same(proto: "newList"),
+    559: .same(proto: "newValue"),
+    560: .same(proto: "nextByte"),
+    561: .same(proto: "nextFieldNumber"),
+    562: .same(proto: "nil"),
+    563: .same(proto: "nilLiteral"),
+    564: .same(proto: "noStandardDescriptorAccessor"),
+    565: .same(proto: "nullValue"),
+    566: .same(proto: "number"),
+    567: .same(proto: "numberValue"),
+    568: .same(proto: "objcClassPrefix"),
+    569: .same(proto: "of"),
+    570: .same(proto: "oneofDecl"),
+    571: .same(proto: "OneofDescriptorProto"),
+    572: .same(proto: "oneofIndex"),
+    573: .same(proto: "OneofOptions"),
+    574: .same(proto: "oneofs"),
+    575: .same(proto: "OneOf_Kind"),
+    576: .same(proto: "optimizeFor"),
+    577: .same(proto: "OptimizeMode"),
+    578: .same(proto: "Option"),
+    579: .same(proto: "OptionalEnumExtensionField"),
+    580: .same(proto: "OptionalExtensionField"),
+    581: .same(proto: "OptionalGroupExtensionField"),
+    582: .same(proto: "OptionalMessageExtensionField"),
+    583: .same(proto: "options"),
+    584: .same(proto: "other"),
+    585: .same(proto: "others"),
+    586: .same(proto: "out"),
+    587: .same(proto: "outputType"),
+    588: .same(proto: "p"),
+    589: .same(proto: "package"),
+    590: .same(proto: "packed"),
+    591: .same(proto: "PackedEnumExtensionField"),
+    592: .same(proto: "PackedExtensionField"),
+    593: .same(proto: "padding"),
+    594: .same(proto: "parent"),
+    595: .same(proto: "parse"),
+    596: .same(proto: "partial"),
+    597: .same(proto: "path"),
+    598: .same(proto: "paths"),
+    599: .same(proto: "payload"),
+    600: .same(proto: "payloadSize"),
+    601: .same(proto: "phpClassPrefix"),
+    602: .same(proto: "phpGenericServices"),
+    603: .same(proto: "phpMetadataNamespace"),
+    604: .same(proto: "phpNamespace"),
+    605: .same(proto: "pointer"),
+    606: .same(proto: "pos"),
+    607: .same(proto: "positiveIntValue"),
+    608: .same(proto: "prefix"),
+    609: .same(proto: "preserveProtoFieldNames"),
+    610: .same(proto: "preTraverse"),
+    611: .same(proto: "printUnknownFields"),
+    612: .same(proto: "proto2"),
+    613: .same(proto: "proto3DefaultValue"),
+    614: .same(proto: "proto3Optional"),
+    615: .same(proto: "ProtobufAPIVersionCheck"),
+    616: .same(proto: "ProtobufAPIVersion_2"),
+    617: .same(proto: "ProtobufBool"),
+    618: .same(proto: "ProtobufBytes"),
+    619: .same(proto: "ProtobufDouble"),
+    620: .same(proto: "ProtobufEnumMap"),
+    621: .same(proto: "protobufExtension"),
+    622: .same(proto: "ProtobufFixed32"),
+    623: .same(proto: "ProtobufFixed64"),
+    624: .same(proto: "ProtobufFloat"),
+    625: .same(proto: "ProtobufInt32"),
+    626: .same(proto: "ProtobufInt64"),
+    627: .same(proto: "ProtobufMap"),
+    628: .same(proto: "ProtobufMessageMap"),
+    629: .same(proto: "ProtobufSFixed32"),
+    630: .same(proto: "ProtobufSFixed64"),
+    631: .same(proto: "ProtobufSInt32"),
+    632: .same(proto: "ProtobufSInt64"),
+    633: .same(proto: "ProtobufString"),
+    634: .same(proto: "ProtobufUInt32"),
+    635: .same(proto: "ProtobufUInt64"),
+    636: .same(proto: "protobuf_extensionFieldValues"),
+    637: .same(proto: "protobuf_fieldNumber"),
+    638: .same(proto: "protobuf_generated_isEqualTo"),
+    639: .same(proto: "protobuf_nameMap"),
+    640: .same(proto: "protobuf_newField"),
+    641: .same(proto: "protobuf_package"),
+    642: .same(proto: "protocol"),
+    643: .same(proto: "protoFieldName"),
+    644: .same(proto: "protoMessageName"),
+    645: .same(proto: "ProtoNameProviding"),
+    646: .same(proto: "protoPaths"),
+    647: .same(proto: "public"),
+    648: .same(proto: "publicDependency"),
+    649: .same(proto: "putBoolValue"),
+    650: .same(proto: "putBytesValue"),
+    651: .same(proto: "putDoubleValue"),
+    652: .same(proto: "putEnumValue"),
+    653: .same(proto: "putFixedUInt32"),
+    654: .same(proto: "putFixedUInt64"),
+    655: .same(proto: "putFloatValue"),
+    656: .same(proto: "putInt64"),
+    657: .same(proto: "putStringValue"),
+    658: .same(proto: "putUInt64"),
+    659: .same(proto: "putUInt64Hex"),
+    660: .same(proto: "putVarInt"),
+    661: .same(proto: "putZigZagVarInt"),
+    662: .same(proto: "pyGenericServices"),
+    663: .same(proto: "rawChars"),
+    664: .same(proto: "RawRepresentable"),
+    665: .same(proto: "RawValue"),
+    666: .same(proto: "read4HexDigits"),
+    667: .same(proto: "register"),
+    668: .same(proto: "RepeatedEnumExtensionField"),
+    669: .same(proto: "RepeatedExtensionField"),
+    670: .same(proto: "RepeatedGroupExtensionField"),
+    671: .same(proto: "RepeatedMessageExtensionField"),
+    672: .same(proto: "requestStreaming"),
+    673: .same(proto: "requestTypeURL"),
+    674: .same(proto: "requiredSize"),
+    675: .same(proto: "reservedName"),
+    676: .same(proto: "reservedRange"),
+    677: .same(proto: "responseStreaming"),
+    678: .same(proto: "responseTypeURL"),
+    679: .same(proto: "result"),
+    680: .same(proto: "rethrows"),
+    681: .same(proto: "return"),
+    682: .same(proto: "ReturnType"),
+    683: .same(proto: "revision"),
+    684: .same(proto: "rhs"),
+    685: .same(proto: "root"),
+    686: .same(proto: "rubyPackage"),
+    687: .same(proto: "s"),
+    688: .same(proto: "sawBackslash"),
+    689: .same(proto: "sawSection4Characters"),
+    690: .same(proto: "sawSection5Characters"),
+    691: .same(proto: "scanner"),
+    692: .same(proto: "seconds"),
+    693: .same(proto: "self"),
+    694: .same(proto: "semantic"),
+    695: .same(proto: "separator"),
+    696: .same(proto: "serialize"),
+    697: .same(proto: "serializedData"),
+    698: .same(proto: "serializedSize"),
+    699: .same(proto: "serverStreaming"),
+    700: .same(proto: "service"),
+    701: .same(proto: "ServiceDescriptorProto"),
+    702: .same(proto: "ServiceOptions"),
+    703: .same(proto: "set"),
+    704: .same(proto: "setExtensionValue"),
+    705: .same(proto: "shift"),
+    706: .same(proto: "SimpleExtensionMap"),
+    707: .same(proto: "sizer"),
+    708: .same(proto: "source"),
+    709: .same(proto: "sourceCodeInfo"),
+    710: .same(proto: "sourceContext"),
+    711: .same(proto: "sourceEncoding"),
+    712: .same(proto: "sourceFile"),
+    713: .same(proto: "span"),
+    714: .same(proto: "split"),
+    715: .same(proto: "start"),
+    716: .same(proto: "startArray"),
+    717: .same(proto: "startArrayObject"),
+    718: .same(proto: "startField"),
+    719: .same(proto: "startIndex"),
+    720: .same(proto: "startMessageField"),
+    721: .same(proto: "startObject"),
+    722: .same(proto: "startRegularField"),
+    723: .same(proto: "state"),
+    724: .same(proto: "static"),
+    725: .same(proto: "StaticString"),
+    726: .same(proto: "storage"),
+    727: .same(proto: "String"),
+    728: .same(proto: "stringLiteral"),
+    729: .same(proto: "StringLiteralType"),
+    730: .same(proto: "stringResult"),
+    731: .same(proto: "stringValue"),
+    732: .same(proto: "struct"),
+    733: .same(proto: "structValue"),
+    734: .same(proto: "subDecoder"),
+    735: .same(proto: "subscript"),
+    736: .same(proto: "subVisitor"),
+    737: .same(proto: "Swift"),
+    738: .same(proto: "swiftPrefix"),
+    739: .same(proto: "SwiftProtobuf"),
+    740: .same(proto: "syntax"),
+    741: .same(proto: "T"),
+    742: .same(proto: "tag"),
+    743: .same(proto: "terminator"),
+    744: .same(proto: "testDecoder"),
+    745: .same(proto: "text"),
+    746: .same(proto: "textDecoder"),
+    747: .same(proto: "TextFormatDecoder"),
+    748: .same(proto: "TextFormatDecodingError"),
+    749: .same(proto: "TextFormatDecodingOptions"),
+    750: .same(proto: "TextFormatEncodingOptions"),
+    751: .same(proto: "TextFormatEncodingVisitor"),
+    752: .same(proto: "textFormatString"),
+    753: .same(proto: "throws"),
+    754: .same(proto: "timeInterval"),
+    755: .same(proto: "timeIntervalSince1970"),
+    756: .same(proto: "timeIntervalSinceReferenceDate"),
+    757: .same(proto: "Timestamp"),
+    758: .same(proto: "total"),
+    759: .same(proto: "totalArrayDepth"),
+    760: .same(proto: "totalSize"),
+    761: .same(proto: "trailingComments"),
+    762: .same(proto: "traverse"),
+    763: .same(proto: "true"),
+    764: .same(proto: "try"),
+    765: .same(proto: "type"),
+    766: .same(proto: "typealias"),
+    767: .same(proto: "TypeEnum"),
+    768: .same(proto: "typeName"),
+    769: .same(proto: "typePrefix"),
+    770: .same(proto: "typeStart"),
+    771: .same(proto: "typeUnknown"),
+    772: .same(proto: "typeURL"),
+    773: .same(proto: "UInt32"),
+    774: .same(proto: "UInt32Value"),
+    775: .same(proto: "UInt64"),
+    776: .same(proto: "UInt64Value"),
+    777: .same(proto: "UInt8"),
+    778: .same(proto: "unicodeScalarLiteral"),
+    779: .same(proto: "UnicodeScalarLiteralType"),
+    780: .same(proto: "unicodeScalars"),
+    781: .same(proto: "UnicodeScalarView"),
+    782: .same(proto: "uninterpretedOption"),
+    783: .same(proto: "union"),
+    784: .same(proto: "uniqueStorage"),
+    785: .same(proto: "unknown"),
+    786: .same(proto: "unknownFields"),
+    787: .same(proto: "UnknownStorage"),
+    788: .same(proto: "unpackTo"),
+    789: .same(proto: "UnsafeBufferPointer"),
+    790: .same(proto: "UnsafeMutablePointer"),
+    791: .same(proto: "UnsafeMutableRawBufferPointer"),
+    792: .same(proto: "UnsafeMutableRawPointer"),
+    793: .same(proto: "UnsafeRawBufferPointer"),
+    794: .same(proto: "UnsafeRawPointer"),
+    795: .same(proto: "unverifiedLazy"),
+    796: .same(proto: "updatedOptions"),
+    797: .same(proto: "url"),
+    798: .same(proto: "utf8"),
+    799: .same(proto: "utf8Ptr"),
+    800: .same(proto: "utf8ToDouble"),
+    801: .same(proto: "UTF8View"),
+    802: .same(proto: "v"),
+    803: .same(proto: "value"),
+    804: .same(proto: "valueField"),
+    805: .same(proto: "values"),
+    806: .same(proto: "ValueType"),
+    807: .same(proto: "var"),
+    808: .same(proto: "Version"),
+    809: .same(proto: "versionString"),
+    810: .same(proto: "visitExtensionFields"),
+    811: .same(proto: "visitExtensionFieldsAsMessageSet"),
+    812: .same(proto: "visitMapField"),
+    813: .same(proto: "visitor"),
+    814: .same(proto: "visitPacked"),
+    815: .same(proto: "visitPackedBoolField"),
+    816: .same(proto: "visitPackedDoubleField"),
+    817: .same(proto: "visitPackedEnumField"),
+    818: .same(proto: "visitPackedFixed32Field"),
+    819: .same(proto: "visitPackedFixed64Field"),
+    820: .same(proto: "visitPackedFloatField"),
+    821: .same(proto: "visitPackedInt32Field"),
+    822: .same(proto: "visitPackedInt64Field"),
+    823: .same(proto: "visitPackedSFixed32Field"),
+    824: .same(proto: "visitPackedSFixed64Field"),
+    825: .same(proto: "visitPackedSInt32Field"),
+    826: .same(proto: "visitPackedSInt64Field"),
+    827: .same(proto: "visitPackedUInt32Field"),
+    828: .same(proto: "visitPackedUInt64Field"),
+    829: .same(proto: "visitRepeated"),
+    830: .same(proto: "visitRepeatedBoolField"),
+    831: .same(proto: "visitRepeatedBytesField"),
+    832: .same(proto: "visitRepeatedDoubleField"),
+    833: .same(proto: "visitRepeatedEnumField"),
+    834: .same(proto: "visitRepeatedFixed32Field"),
+    835: .same(proto: "visitRepeatedFixed64Field"),
+    836: .same(proto: "visitRepeatedFloatField"),
+    837: .same(proto: "visitRepeatedGroupField"),
+    838: .same(proto: "visitRepeatedInt32Field"),
+    839: .same(proto: "visitRepeatedInt64Field"),
+    840: .same(proto: "visitRepeatedMessageField"),
+    841: .same(proto: "visitRepeatedSFixed32Field"),
+    842: .same(proto: "visitRepeatedSFixed64Field"),
+    843: .same(proto: "visitRepeatedSInt32Field"),
+    844: .same(proto: "visitRepeatedSInt64Field"),
+    845: .same(proto: "visitRepeatedStringField"),
+    846: .same(proto: "visitRepeatedUInt32Field"),
+    847: .same(proto: "visitRepeatedUInt64Field"),
+    848: .same(proto: "visitSingular"),
+    849: .same(proto: "visitSingularBoolField"),
+    850: .same(proto: "visitSingularBytesField"),
+    851: .same(proto: "visitSingularDoubleField"),
+    852: .same(proto: "visitSingularEnumField"),
+    853: .same(proto: "visitSingularFixed32Field"),
+    854: .same(proto: "visitSingularFixed64Field"),
+    855: .same(proto: "visitSingularFloatField"),
+    856: .same(proto: "visitSingularGroupField"),
+    857: .same(proto: "visitSingularInt32Field"),
+    858: .same(proto: "visitSingularInt64Field"),
+    859: .same(proto: "visitSingularMessageField"),
+    860: .same(proto: "visitSingularSFixed32Field"),
+    861: .same(proto: "visitSingularSFixed64Field"),
+    862: .same(proto: "visitSingularSInt32Field"),
+    863: .same(proto: "visitSingularSInt64Field"),
+    864: .same(proto: "visitSingularStringField"),
+    865: .same(proto: "visitSingularUInt32Field"),
+    866: .same(proto: "visitSingularUInt64Field"),
+    867: .same(proto: "visitUnknown"),
+    868: .same(proto: "wasDecoded"),
+    869: .same(proto: "weak"),
+    870: .same(proto: "weakDependency"),
+    871: .same(proto: "where"),
+    872: .same(proto: "wireFormat"),
+    873: .same(proto: "with"),
+    874: .same(proto: "withUnsafeBytes"),
+    875: .same(proto: "withUnsafeMutableBytes"),
+    876: .same(proto: "work"),
+    877: .same(proto: "WrappedType"),
+    878: .same(proto: "written"),
+    879: .same(proto: "yday"),
   ]
 }

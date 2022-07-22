@@ -247,6 +247,15 @@ struct Proto3ArenaUnittest_TestAllTypes {
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
+  var optionalUnverifiedLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
+    get {return _storage._optionalUnverifiedLazyMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
+    set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
+  }
+  /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
+  var hasOptionalUnverifiedLazyMessage: Bool {return _storage._optionalUnverifiedLazyMessage != nil}
+  /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
+
   var optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage {
     get {return _storage._optionalLazyImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._optionalLazyImportMessage = newValue}
@@ -884,6 +893,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     25: .standard(proto: "optional_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
+    28: .standard(proto: "optional_unverified_lazy_message"),
     115: .standard(proto: "optional_lazy_import_message"),
     31: .standard(proto: "repeated_int32"),
     32: .standard(proto: "repeated_int64"),
@@ -954,6 +964,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _optionalCord: String = String()
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
+    var _optionalUnverifiedLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -1024,6 +1035,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       _optionalCord = source._optionalCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
+      _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
       _optionalLazyImportMessage = source._optionalLazyImportMessage
       _repeatedInt32 = source._repeatedInt32
       _repeatedInt64 = source._repeatedInt64
@@ -1106,6 +1118,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
         case 25: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage) }()
         case 27: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyMessage) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._optionalUnverifiedLazyMessage) }()
         case 31: try { try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32) }()
         case 32: try { try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64) }()
         case 33: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32) }()
@@ -1265,6 +1278,9 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       } }()
       try { if let v = _storage._optionalLazyMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
+      } }()
+      try { if let v = _storage._optionalUnverifiedLazyMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitPackedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
@@ -1435,6 +1451,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
+        if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}
         if _storage._optionalLazyImportMessage != rhs_storage._optionalLazyImportMessage {return false}
         if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
         if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}

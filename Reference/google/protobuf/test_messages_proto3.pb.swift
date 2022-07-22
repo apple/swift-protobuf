@@ -1089,7 +1089,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     case aliasFoo // = 0
     case aliasBar // = 1
     case aliasBaz // = 2
-    static let qux = aliasBaz
+    static let moo = aliasBaz
     static let bAz = aliasBaz
     case UNRECOGNIZED(Int)
 
@@ -2610,7 +2610,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum: SwiftProto
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ALIAS_FOO"),
     1: .same(proto: "ALIAS_BAR"),
-    2: .aliased(proto: "ALIAS_BAZ", aliases: ["QUX", "qux", "bAz"]),
+    2: .aliased(proto: "ALIAS_BAZ", aliases: ["MOO", "moo", "bAz"]),
   ]
 }
 

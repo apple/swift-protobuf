@@ -73,6 +73,7 @@ message GeneratedSwiftReservedMessages {
   message clearDefaultValue { int32 clearDefaultValue = 1; }
   message clearDeprecated { int32 clearDeprecated = 1; }
   message clearDoubleValue { int32 clearDoubleValue = 1; }
+  message clearEdition { int32 clearEdition = 1; }
   message clearEnd { int32 clearEnd = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
   message clearExtensionValue { int32 clearExtensionValue = 1; }
@@ -114,6 +115,7 @@ message GeneratedSwiftReservedMessages {
   message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
   message clearRubyPackage { int32 clearRubyPackage = 1; }
+  message clearSemantic { int32 clearSemantic = 1; }
   message clearServerStreaming { int32 clearServerStreaming = 1; }
   message clearSourceCodeInfo { int32 clearSourceCodeInfo = 1; }
   message clearSourceContext { int32 clearSourceContext = 1; }
@@ -125,6 +127,7 @@ message GeneratedSwiftReservedMessages {
   message clearTrailingComments { int32 clearTrailingComments = 1; }
   message clearType { int32 clearType = 1; }
   message clearTypeName { int32 clearTypeName = 1; }
+  message clearUnverifiedLazy { int32 clearUnverifiedLazy = 1; }
   message clearValue { int32 clearValue = 1; }
   message clearWeak { int32 clearWeak = 1; }
   message clientStreaming { int32 clientStreaming = 1; }
@@ -216,6 +219,7 @@ message GeneratedSwiftReservedMessages {
   message doubleValue { int32 doubleValue = 1; }
   message Duration { int32 Duration = 1; }
   message E { int32 E = 1; }
+  message edition { int32 edition = 1; }
   message Element { int32 Element = 1; }
   message elements { int32 elements = 1; }
   message emitExtensionFieldName { int32 emitExtensionFieldName = 1; }
@@ -373,6 +377,7 @@ message GeneratedSwiftReservedMessages {
   message hasDefaultValue { int32 hasDefaultValue = 1; }
   message hasDeprecated { int32 hasDeprecated = 1; }
   message hasDoubleValue { int32 hasDoubleValue = 1; }
+  message hasEdition { int32 hasEdition = 1; }
   message hasEnd { int32 hasEnd = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
   message hasExtensionValue { int32 hasExtensionValue = 1; }
@@ -419,6 +424,7 @@ message GeneratedSwiftReservedMessages {
   message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
   message hasRubyPackage { int32 hasRubyPackage = 1; }
+  message hasSemantic { int32 hasSemantic = 1; }
   message hasServerStreaming { int32 hasServerStreaming = 1; }
   message hasSourceCodeInfo { int32 hasSourceCodeInfo = 1; }
   message hasSourceContext { int32 hasSourceContext = 1; }
@@ -430,6 +436,7 @@ message GeneratedSwiftReservedMessages {
   message hasTrailingComments { int32 hasTrailingComments = 1; }
   message hasType { int32 hasType = 1; }
   message hasTypeName { int32 hasTypeName = 1; }
+  message hasUnverifiedLazy { int32 hasUnverifiedLazy = 1; }
   message hasValue { int32 hasValue = 1; }
   message hasWeak { int32 hasWeak = 1; }
   message hour { int32 hour = 1; }
@@ -461,6 +468,7 @@ message GeneratedSwiftReservedMessages {
   message isEqualTo { int32 isEqualTo = 1; }
   message isExtension { int32 isExtension = 1; }
   message isInitialized { int32 isInitialized = 1; }
+  message isNegative { int32 isNegative = 1; }
   message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
   message Iterator { int32 Iterator = 1; }
   message i_2166136261 { int32 i_2166136261 = 1; }
@@ -689,6 +697,7 @@ message GeneratedSwiftReservedMessages {
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
   message self { int32 self = 1; }
+  message semantic { int32 semantic = 1; }
   message separator { int32 separator = 1; }
   message serialize { int32 serialize = 1; }
   message serializedData { int32 serializedData = 1; }
@@ -789,6 +798,7 @@ message GeneratedSwiftReservedMessages {
   message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
   message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
+  message unverifiedLazy { int32 unverifiedLazy = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message utf8 { int32 utf8 = 1; }
