@@ -25,6 +25,14 @@ class Test_Duration: XCTestCase, PBTestHelpers {
             o.seconds = 100
             o.nanos = 0
         }
+        assertJSONEncode("\"-5s\"") { (o: inout MessageTestType) in
+            o.seconds = -5
+            o.nanos = 0
+        }
+        assertJSONEncode("\"-0.500s\"") { (o: inout MessageTestType) in
+            o.seconds = 0
+            o.nanos = -500000000
+        }
         // Always prints exactly 3, 6, or 9 digits
         assertJSONEncode("\"100.100s\"") { (o: inout MessageTestType) in
             o.seconds = 100
@@ -61,6 +69,13 @@ class Test_Duration: XCTestCase, PBTestHelpers {
     func testJSON_decode() throws {
         assertJSONDecodeSucceeds("\"1.000000000s\"") {(o:MessageTestType) in
             o.seconds == 1 && o.nanos == 0
+        }
+
+        assertJSONDecodeSucceeds("\"-5s\"") {(o:MessageTestType) in
+            o.seconds == -5 && o.nanos == 0
+        }
+        assertJSONDecodeSucceeds("\"-0.5s\"") {(o:MessageTestType) in
+            o.seconds == 0 && o.nanos == -500000000
         }
 
         assertJSONDecodeSucceeds("\"-315576000000.999999999s\"") {(o:MessageTestType) in

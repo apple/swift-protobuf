@@ -26,6 +26,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
   var chars = text.makeIterator()
   var seconds: Int64?
   var nanos: Int32 = 0
+  var isNegative = false
   while let c = chars.next() {
     switch c {
     case "-":
@@ -34,6 +35,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
         throw JSONDecodingError.malformedDuration
       }
       digits.append(c)
+      isNegative = true
     case "0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
       digits.append(c)
       digitCount += 1
@@ -51,7 +53,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
       digits.removeAll()
       digitCount = 0
     case "s":
-      if let seconds = seconds {
+      if let _ = seconds {
         // Seconds already set, digits holds nanos
         while (digitCount < 9) {
           digits.append(Character("0"))
@@ -63,7 +65,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
         }
         let digitString = String(digits)
         if let rawNanos = Int32(digitString) {
-          if seconds < 0 {
+          if isNegative {
             nanos = -rawNanos
           } else {
             nanos = rawNanos
@@ -100,6 +102,9 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
     return nil
   }
   let nanosString = nanosToString(nanos: nanos) // Includes leading '.' if needed
+  if seconds == 0 && nanos < 0 {
+    return "-0\(nanosString)s"
+  }
   return "\(seconds)\(nanosString)s"
 }
 
