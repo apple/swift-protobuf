@@ -154,7 +154,7 @@ extension Google_Protobuf_Value {
     case .nullValue?: encoder.putNullValue()
     case .numberValue(let v)?: encoder.putDoubleValue(value: v)
     case .stringValue(let v)?: encoder.putStringValue(value: v)
-    case .boolValue(let v)?: encoder.putBoolValue(value: v)
+    case .boolValue(let v)?: encoder.putNonQuotedBoolValue(value: v)
     case .structValue(let v)?: encoder.append(text: try v.jsonString(options: options))
     case .listValue(let v)?: encoder.append(text: try v.jsonString(options: options))
     case nil: throw JSONEncodingError.missingValue

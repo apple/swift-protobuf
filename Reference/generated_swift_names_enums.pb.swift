@@ -181,6 +181,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum alwaysPrintInt64sAsNumbers: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneAlwaysPrintInt64SAsNumbers // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAlwaysPrintInt64SAsNumbers
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAlwaysPrintInt64SAsNumbers
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAlwaysPrintInt64SAsNumbers: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers] = [
+      .noneAlwaysPrintInt64SAsNumbers,
+    ]
+
+  }
+
   enum annotation: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneAnnotation // = 0
@@ -26128,6 +26158,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allowAlias: Swif
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_alwaysPrintEnumsAsInts"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_alwaysPrintInt64sAsNumbers"),
   ]
 }
 

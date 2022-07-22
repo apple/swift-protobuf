@@ -114,7 +114,11 @@ extension Google_Protobuf_Int64Value:
   }
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return "\"" + String(value) + "\""
+    var encoded = value.description
+    if !options.alwaysPrintInt64sAsNumbers {
+      encoded = "\"" + encoded + "\""
+    }
+    return encoded
   }
 }
 
@@ -134,7 +138,11 @@ extension Google_Protobuf_UInt64Value:
   }
 
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
-    return "\"" + String(value) + "\""
+    var encoded = String(value)
+    if !options.alwaysPrintInt64sAsNumbers {
+      encoded = "\"" + encoded + "\""
+    }
+    return encoded
   }
 }
 

@@ -91,6 +91,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct alwaysPrintInt64sAsNumbers {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var alwaysPrintInt64SAsNumbers: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   struct annotation {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -10457,6 +10469,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.aggregateValu
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.allCases: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.allowAlias: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintEnumsAsInts: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintInt64sAsNumbers: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.annotation: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.any: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.AnyExtensionField: @unchecked Sendable {}
@@ -11500,6 +11513,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintEn
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintEnumsAsInts, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintEnumsAsInts) -> Bool {
     if lhs.alwaysPrintEnumsAsInts != rhs.alwaysPrintEnumsAsInts {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintInt64sAsNumbers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".alwaysPrintInt64sAsNumbers"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "alwaysPrintInt64sAsNumbers"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.alwaysPrintInt64SAsNumbers) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.alwaysPrintInt64SAsNumbers != 0 {
+      try visitor.visitSingularInt32Field(value: self.alwaysPrintInt64SAsNumbers, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintInt64sAsNumbers, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.alwaysPrintInt64sAsNumbers) -> Bool {
+    if lhs.alwaysPrintInt64SAsNumbers != rhs.alwaysPrintInt64SAsNumbers {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
