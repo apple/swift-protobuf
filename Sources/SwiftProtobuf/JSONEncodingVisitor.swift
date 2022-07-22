@@ -216,12 +216,16 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    let options = self.options
-    try _visitRepeated(value: value, fieldNumber: fieldNumber) {
-      (encoder: inout JSONEncoder, v: Int64) in
-      options.alwaysPrintInt64sAsNumbers
-        ? encoder.putNonQuotedInt64(value: v)
-        : encoder.putInt64(value: v)
+    if options.alwaysPrintInt64sAsNumbers {
+      try _visitRepeated(value: value, fieldNumber: fieldNumber) {
+        (encoder: inout JSONEncoder, v: Int64) in
+        encoder.putNonQuotedInt64(value: v)
+      }
+    } else {
+      try _visitRepeated(value: value, fieldNumber: fieldNumber) {
+        (encoder: inout JSONEncoder, v: Int64) in
+        encoder.putInt64(value: v)
+      }
     }
   }
 
@@ -233,12 +237,16 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    let options = self.options
-    try _visitRepeated(value: value, fieldNumber: fieldNumber) {
-      (encoder: inout JSONEncoder, v: UInt64) in
-      options.alwaysPrintInt64sAsNumbers
-        ? encoder.putNonQuotedUInt64(value: v)
-        : encoder.putUInt64(value: v)
+    if options.alwaysPrintInt64sAsNumbers {
+      try _visitRepeated(value: value, fieldNumber: fieldNumber) {
+        (encoder: inout JSONEncoder, v: UInt64) in
+        encoder.putNonQuotedUInt64(value: v)
+      }
+    } else {
+      try _visitRepeated(value: value, fieldNumber: fieldNumber) {
+        (encoder: inout JSONEncoder, v: UInt64) in
+        encoder.putUInt64(value: v)
+      }
     }
   }
 
