@@ -1,1 +1,2 @@
-# No known failures
+Required.Proto3.JsonInput.DurationNegativeNanos.JsonOutput
+Required.Proto3.JsonInput.DurationNegativeNanos.ProtobufOutput
