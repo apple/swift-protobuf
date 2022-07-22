@@ -5,9 +5,9 @@ name: Build and Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 1_x_release_branch ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, 1_x_release_branch ]
 
 jobs:
   core:
