@@ -62,19 +62,19 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
           encoder.putQuotedInt32(value: value)
       } else {
           startValue()
-          encoder.putInt32(value: value)
+          encoder.putNonQuotedInt32(value: value)
       }
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
       if fieldNumber == 1 {
           startKey()
-          encoder.putInt64(value: value)
+          encoder.putQuotedInt64(value: value)
       } else {
           startValue()
           options.alwaysPrintInt64sAsNumbers
             ? encoder.putNonQuotedInt64(value: value)
-            : encoder.putInt64(value: value)
+            : encoder.putQuotedInt64(value: value)
       }
   }
 
@@ -84,19 +84,19 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
           encoder.putQuotedUInt32(value: value)
       } else {
           startValue()
-          encoder.putUInt32(value: value)
+          encoder.putNonQuotedUInt32(value: value)
       }
   }
 
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
       if fieldNumber == 1 {
           startKey()
-          encoder.putUInt64(value: value)
+          encoder.putQuotedUInt64(value: value)
       } else {
           startValue()
           options.alwaysPrintInt64sAsNumbers
             ? encoder.putNonQuotedUInt64(value: value)
-            : encoder.putUInt64(value: value)
+            : encoder.putQuotedUInt64(value: value)
       }
   }
 
@@ -130,7 +130,7 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
           encoder.putQuotedBoolValue(value: value)
       } else {
           startValue()
-          encoder.putBoolValue(value: value)
+          encoder.putNonQuotedBoolValue(value: value)
       }
   }
 

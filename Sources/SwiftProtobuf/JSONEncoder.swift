@@ -244,7 +244,7 @@ internal struct JSONEncoder {
     }
 
     /// Write an `Int64` using protobuf JSON quoting conventions.
-    internal mutating func putInt64(value: Int64) {
+    internal mutating func putQuotedInt64(value: Int64) {
         data.append(asciiDoubleQuote)
         appendInt(value: value)
         data.append(asciiDoubleQuote)
@@ -263,12 +263,12 @@ internal struct JSONEncoder {
     }
 
     /// Write an `Int32` in the default format.
-    internal mutating func putInt32(value: Int32) {
+    internal mutating func putNonQuotedInt32(value: Int32) {
         appendInt(value: Int64(value))
     }
 
     /// Write a `UInt64` using protobuf JSON quoting conventions.
-    internal mutating func putUInt64(value: UInt64) {
+    internal mutating func putQuotedUInt64(value: UInt64) {
         data.append(asciiDoubleQuote)
         appendUInt(value: value)
         data.append(asciiDoubleQuote)
@@ -287,7 +287,7 @@ internal struct JSONEncoder {
     }
 
     /// Write a `UInt32` in the default format.
-    internal mutating func putUInt32(value: UInt32) {
+    internal mutating func putNonQuotedUInt32(value: UInt32) {
         appendUInt(value: UInt64(value))
     }
 
@@ -295,12 +295,12 @@ internal struct JSONEncoder {
     /// using the value as a map key.
     internal mutating func putQuotedBoolValue(value: Bool) {
         data.append(asciiDoubleQuote)
-        putBoolValue(value: value)
+        putNonQuotedBoolValue(value: value)
         data.append(asciiDoubleQuote)
     }
 
     /// Write a `Bool` in the default format.
-    internal mutating func putBoolValue(value: Bool) {
+    internal mutating func putNonQuotedBoolValue(value: Bool) {
         if value {
             append(staticText: "true")
         } else {

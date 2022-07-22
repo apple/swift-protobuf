@@ -91,41 +91,41 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    encoder.putInt32(value: value)
+    encoder.putNonQuotedInt32(value: value)
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     options.alwaysPrintInt64sAsNumbers
       ? encoder.putNonQuotedInt64(value: value)
-      : encoder.putInt64(value: value)
+      : encoder.putQuotedInt64(value: value)
   }
 
   mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    encoder.putUInt32(value: value)
+    encoder.putNonQuotedUInt32(value: value)
   }
 
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     options.alwaysPrintInt64sAsNumbers
       ? encoder.putNonQuotedUInt64(value: value)
-      : encoder.putUInt64(value: value)
+      : encoder.putQuotedUInt64(value: value)
   }
 
   mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    encoder.putUInt32(value: value)
+    encoder.putNonQuotedUInt32(value: value)
   }
 
   mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    encoder.putInt32(value: value)
+    encoder.putNonQuotedInt32(value: value)
   }
 
   mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    encoder.putBoolValue(value: value)
+    encoder.putNonQuotedBoolValue(value: value)
   }
 
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
@@ -211,7 +211,7 @@ internal struct JSONEncodingVisitor: Visitor {
   mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: Int32) in
-      encoder.putInt32(value: v)
+      encoder.putNonQuotedInt32(value: v)
     }
   }
 
@@ -224,7 +224,7 @@ internal struct JSONEncodingVisitor: Visitor {
     } else {
       try _visitRepeated(value: value, fieldNumber: fieldNumber) {
         (encoder: inout JSONEncoder, v: Int64) in
-        encoder.putInt64(value: v)
+        encoder.putQuotedInt64(value: v)
       }
     }
   }
@@ -232,7 +232,7 @@ internal struct JSONEncodingVisitor: Visitor {
    mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: UInt32) in
-      encoder.putUInt32(value: v)
+      encoder.putNonQuotedUInt32(value: v)
     }
   }
 
@@ -245,7 +245,7 @@ internal struct JSONEncodingVisitor: Visitor {
     } else {
       try _visitRepeated(value: value, fieldNumber: fieldNumber) {
         (encoder: inout JSONEncoder, v: UInt64) in
-        encoder.putUInt64(value: v)
+        encoder.putQuotedUInt64(value: v)
       }
     }
   }
@@ -277,7 +277,7 @@ internal struct JSONEncodingVisitor: Visitor {
   mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: Bool) in
-      encoder.putBoolValue(value: v)
+      encoder.putNonQuotedBoolValue(value: v)
     }
   }
 
