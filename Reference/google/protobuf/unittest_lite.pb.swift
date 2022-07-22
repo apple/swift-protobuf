@@ -398,6 +398,15 @@ struct ProtobufUnittest_TestAllTypesLite {
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_uniqueStorage()._optionalLazyMessage = nil}
 
+  var optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+    get {return _storage._optionalUnverifiedLazyMessage ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+    set {_uniqueStorage()._optionalUnverifiedLazyMessage = newValue}
+  }
+  /// Returns true if `optionalUnverifiedLazyMessage` has been explicitly set.
+  var hasOptionalUnverifiedLazyMessage: Bool {return _storage._optionalUnverifiedLazyMessage != nil}
+  /// Clears the value of `optionalUnverifiedLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnverifiedLazyMessage() {_uniqueStorage()._optionalUnverifiedLazyMessage = nil}
+
   /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
@@ -1292,6 +1301,29 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil
 }
 
+/// Test that the correct exception is thrown by parseFrom in a corner case
+/// involving merging, extensions, and required fields.
+struct ProtobufUnittest_TestMergeExceptionLite {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var allExtensions: ProtobufUnittest_TestAllExtensionsLite {
+    get {return _allExtensions ?? ProtobufUnittest_TestAllExtensionsLite()}
+    set {_allExtensions = newValue}
+  }
+  /// Returns true if `allExtensions` has been explicitly set.
+  var hasAllExtensions: Bool {return self._allExtensions != nil}
+  /// Clears the value of `allExtensions`. Subsequent reads from it will return its default value.
+  mutating func clearAllExtensions() {self._allExtensions = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _allExtensions: ProtobufUnittest_TestAllExtensionsLite? = nil
+}
+
 /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
 struct ProtobufUnittest_TestEmptyMessageLite {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -1699,6 +1731,18 @@ struct ProtobufUnittest_TestOneofParsingLite {
   init() {}
 }
 
+struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 /// The following four messages are set up to test for wire compatibility between
 /// packed and non-packed repeated fields. We use the field number 2048, because
 /// that is large enough to require a 3-byte varint for the tag.
@@ -1855,6 +1899,7 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: 
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestMergeExceptionLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestEmptyMessageLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: @unchecked Sendable {}
 extension ProtobufUnittest_V1MessageLite: @unchecked Sendable {}
@@ -1864,6 +1909,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField: @unchecked
 extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField: @unchecked Sendable {}
+extension ProtobufUnittest_TestMessageSetLite: @unchecked Sendable {}
 extension ProtobufUnittest_PackedInt32: @unchecked Sendable {}
 extension ProtobufUnittest_NonPackedInt32: @unchecked Sendable {}
 extension ProtobufUnittest_PackedFixed32: @unchecked Sendable {}
@@ -2273,6 +2319,21 @@ extension ProtobufUnittest_TestAllExtensionsLite {
   /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalLazyMessageExtensionLite() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension_lite)
+  }
+
+  var ProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite: ProtobufUnittest_TestAllTypesLite.NestedMessage {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite) ?? ProtobufUnittest_TestAllTypesLite.NestedMessage()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite`
+  /// has been explicitly set.
+  var hasProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_optionalUnverifiedLazyMessageExtensionLite() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite)
   }
 
   /// Repeated
@@ -3327,6 +3388,7 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_Extensions_optional_cord_extension_lite,
   ProtobufUnittest_Extensions_optional_public_import_message_extension_lite,
   ProtobufUnittest_Extensions_optional_lazy_message_extension_lite,
+  ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite,
   ProtobufUnittest_Extensions_repeated_int32_extension_lite,
   ProtobufUnittest_Extensions_repeated_int64_extension_lite,
   ProtobufUnittest_Extensions_repeated_uint32_extension_lite,
@@ -3529,6 +3591,11 @@ let ProtobufUnittest_Extensions_optional_public_import_message_extension_lite = 
 let ProtobufUnittest_Extensions_optional_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 27,
   fieldName: "protobuf_unittest.optional_lazy_message_extension_lite"
+)
+
+let ProtobufUnittest_Extensions_optional_unverified_lazy_message_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite.NestedMessage>, ProtobufUnittest_TestAllExtensionsLite>(
+  _protobuf_fieldNumber: 28,
+  fieldName: "protobuf_unittest.optional_unverified_lazy_message_extension_lite"
 )
 
 /// Repeated
@@ -3931,6 +3998,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     25: .standard(proto: "optional_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
+    28: .standard(proto: "optional_unverified_lazy_message"),
     31: .standard(proto: "repeated_int32"),
     32: .standard(proto: "repeated_int64"),
     33: .standard(proto: "repeated_uint32"),
@@ -4012,6 +4080,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _optionalCord: String? = nil
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite? = nil
     var _optionalLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
+    var _optionalUnverifiedLazyMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -4091,6 +4160,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       _optionalCord = source._optionalCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
+      _optionalUnverifiedLazyMessage = source._optionalUnverifiedLazyMessage
       _repeatedInt32 = source._repeatedInt32
       _repeatedInt64 = source._repeatedInt64
       _repeatedUint32 = source._repeatedUint32
@@ -4182,6 +4252,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         case 25: try { try decoder.decodeSingularStringField(value: &_storage._optionalCord) }()
         case 26: try { try decoder.decodeSingularMessageField(value: &_storage._optionalPublicImportMessage) }()
         case 27: try { try decoder.decodeSingularMessageField(value: &_storage._optionalLazyMessage) }()
+        case 28: try { try decoder.decodeSingularMessageField(value: &_storage._optionalUnverifiedLazyMessage) }()
         case 31: try { try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32) }()
         case 32: try { try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64) }()
         case 33: try { try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32) }()
@@ -4380,6 +4451,9 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
       } }()
       try { if let v = _storage._optionalLazyMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
+      } }()
+      try { if let v = _storage._optionalUnverifiedLazyMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 28)
       } }()
       if !_storage._repeatedInt32.isEmpty {
         try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
@@ -4580,6 +4654,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
         if _storage._optionalCord != rhs_storage._optionalCord {return false}
         if _storage._optionalPublicImportMessage != rhs_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != rhs_storage._optionalLazyMessage {return false}
+        if _storage._optionalUnverifiedLazyMessage != rhs_storage._optionalUnverifiedLazyMessage {return false}
         if _storage._repeatedInt32 != rhs_storage._repeatedInt32 {return false}
         if _storage._repeatedInt64 != rhs_storage._repeatedInt64 {return false}
         if _storage._repeatedUint32 != rhs_storage._repeatedUint32 {return false}
@@ -5471,6 +5546,47 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf.Mes
   }
 }
 
+extension ProtobufUnittest_TestMergeExceptionLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMergeExceptionLite"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "all_extensions"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._allExtensions, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._allExtensions) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._allExtensions {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMergeExceptionLite, rhs: ProtobufUnittest_TestMergeExceptionLite) -> Bool {
+    if lhs._allExtensions != rhs._allExtensions {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageLite"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -5961,6 +6077,31 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
   static func ==(lhs: ProtobufUnittest_TestOneofParsingLite, rhs: ProtobufUnittest_TestOneofParsingLite) -> Bool {
     if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageSetLite"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestMessageSetLite.self)
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFieldsAsMessageSet(fields: _protobuf_extensionFieldValues, start: 100, end: 2147483647)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMessageSetLite, rhs: ProtobufUnittest_TestMessageSetLite) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }

@@ -734,6 +734,142 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
   mutating func clearData() {_uniqueStorage()._data = nil}
 
+  /// default values
+  var defaultInt32: Int32 {
+    get {return _storage._defaultInt32 ?? -123456789}
+    set {_uniqueStorage()._defaultInt32 = newValue}
+  }
+  /// Returns true if `defaultInt32` has been explicitly set.
+  var hasDefaultInt32: Bool {return _storage._defaultInt32 != nil}
+  /// Clears the value of `defaultInt32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultInt32() {_uniqueStorage()._defaultInt32 = nil}
+
+  var defaultInt64: Int64 {
+    get {return _storage._defaultInt64 ?? -9123456789123456789}
+    set {_uniqueStorage()._defaultInt64 = newValue}
+  }
+  /// Returns true if `defaultInt64` has been explicitly set.
+  var hasDefaultInt64: Bool {return _storage._defaultInt64 != nil}
+  /// Clears the value of `defaultInt64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultInt64() {_uniqueStorage()._defaultInt64 = nil}
+
+  var defaultUint32: UInt32 {
+    get {return _storage._defaultUint32 ?? 2123456789}
+    set {_uniqueStorage()._defaultUint32 = newValue}
+  }
+  /// Returns true if `defaultUint32` has been explicitly set.
+  var hasDefaultUint32: Bool {return _storage._defaultUint32 != nil}
+  /// Clears the value of `defaultUint32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultUint32() {_uniqueStorage()._defaultUint32 = nil}
+
+  var defaultUint64: UInt64 {
+    get {return _storage._defaultUint64 ?? 10123456789123456789}
+    set {_uniqueStorage()._defaultUint64 = newValue}
+  }
+  /// Returns true if `defaultUint64` has been explicitly set.
+  var hasDefaultUint64: Bool {return _storage._defaultUint64 != nil}
+  /// Clears the value of `defaultUint64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultUint64() {_uniqueStorage()._defaultUint64 = nil}
+
+  var defaultSint32: Int32 {
+    get {return _storage._defaultSint32 ?? -123456789}
+    set {_uniqueStorage()._defaultSint32 = newValue}
+  }
+  /// Returns true if `defaultSint32` has been explicitly set.
+  var hasDefaultSint32: Bool {return _storage._defaultSint32 != nil}
+  /// Clears the value of `defaultSint32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSint32() {_uniqueStorage()._defaultSint32 = nil}
+
+  var defaultSint64: Int64 {
+    get {return _storage._defaultSint64 ?? -9123456789123456789}
+    set {_uniqueStorage()._defaultSint64 = newValue}
+  }
+  /// Returns true if `defaultSint64` has been explicitly set.
+  var hasDefaultSint64: Bool {return _storage._defaultSint64 != nil}
+  /// Clears the value of `defaultSint64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSint64() {_uniqueStorage()._defaultSint64 = nil}
+
+  var defaultFixed32: UInt32 {
+    get {return _storage._defaultFixed32 ?? 2123456789}
+    set {_uniqueStorage()._defaultFixed32 = newValue}
+  }
+  /// Returns true if `defaultFixed32` has been explicitly set.
+  var hasDefaultFixed32: Bool {return _storage._defaultFixed32 != nil}
+  /// Clears the value of `defaultFixed32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultFixed32() {_uniqueStorage()._defaultFixed32 = nil}
+
+  var defaultFixed64: UInt64 {
+    get {return _storage._defaultFixed64 ?? 10123456789123456789}
+    set {_uniqueStorage()._defaultFixed64 = newValue}
+  }
+  /// Returns true if `defaultFixed64` has been explicitly set.
+  var hasDefaultFixed64: Bool {return _storage._defaultFixed64 != nil}
+  /// Clears the value of `defaultFixed64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultFixed64() {_uniqueStorage()._defaultFixed64 = nil}
+
+  var defaultSfixed32: Int32 {
+    get {return _storage._defaultSfixed32 ?? -123456789}
+    set {_uniqueStorage()._defaultSfixed32 = newValue}
+  }
+  /// Returns true if `defaultSfixed32` has been explicitly set.
+  var hasDefaultSfixed32: Bool {return _storage._defaultSfixed32 != nil}
+  /// Clears the value of `defaultSfixed32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSfixed32() {_uniqueStorage()._defaultSfixed32 = nil}
+
+  var defaultSfixed64: Int64 {
+    get {return _storage._defaultSfixed64 ?? -9123456789123456789}
+    set {_uniqueStorage()._defaultSfixed64 = newValue}
+  }
+  /// Returns true if `defaultSfixed64` has been explicitly set.
+  var hasDefaultSfixed64: Bool {return _storage._defaultSfixed64 != nil}
+  /// Clears the value of `defaultSfixed64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSfixed64() {_uniqueStorage()._defaultSfixed64 = nil}
+
+  var defaultFloat: Float {
+    get {return _storage._defaultFloat ?? 9e+09}
+    set {_uniqueStorage()._defaultFloat = newValue}
+  }
+  /// Returns true if `defaultFloat` has been explicitly set.
+  var hasDefaultFloat: Bool {return _storage._defaultFloat != nil}
+  /// Clears the value of `defaultFloat`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultFloat() {_uniqueStorage()._defaultFloat = nil}
+
+  var defaultDouble: Double {
+    get {return _storage._defaultDouble ?? 7e+22}
+    set {_uniqueStorage()._defaultDouble = newValue}
+  }
+  /// Returns true if `defaultDouble` has been explicitly set.
+  var hasDefaultDouble: Bool {return _storage._defaultDouble != nil}
+  /// Clears the value of `defaultDouble`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultDouble() {_uniqueStorage()._defaultDouble = nil}
+
+  var defaultBool: Bool {
+    get {return _storage._defaultBool ?? true}
+    set {_uniqueStorage()._defaultBool = newValue}
+  }
+  /// Returns true if `defaultBool` has been explicitly set.
+  var hasDefaultBool: Bool {return _storage._defaultBool != nil}
+  /// Clears the value of `defaultBool`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultBool() {_uniqueStorage()._defaultBool = nil}
+
+  var defaultString: String {
+    get {return _storage._defaultString ?? "Rosebud"}
+    set {_uniqueStorage()._defaultString = newValue}
+  }
+  /// Returns true if `defaultString` has been explicitly set.
+  var hasDefaultString: Bool {return _storage._defaultString != nil}
+  /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
+
+  var defaultBytes: Data {
+    get {return _storage._defaultBytes ?? Data([106, 111, 115, 104, 117, 97])}
+    set {_uniqueStorage()._defaultBytes = newValue}
+  }
+  /// Returns true if `defaultBytes` has been explicitly set.
+  var hasDefaultBytes: Bool {return _storage._defaultBytes != nil}
+  /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultBytes() {_uniqueStorage()._defaultBytes = nil}
+
   /// Test field-name-to-JSON-name convention.
   /// (protobuf says names can be any valid C/C++ identifier.)
   var fieldname1: Int32 {
@@ -1288,6 +1424,60 @@ extension ProtobufTestMessages_Proto2_EnumOnlyProto2.BoolEnum: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+struct ProtobufTestMessages_Proto2_OneStringProto2 {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var data: String {
+    get {return _data ?? String()}
+    set {_data = newValue}
+  }
+  /// Returns true if `data` has been explicitly set.
+  var hasData: Bool {return self._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  mutating func clearData() {self._data = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _data: String? = nil
+}
+
+struct ProtobufTestMessages_Proto2_ProtoWithKeywords {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var inline: Int32 {
+    get {return _inline ?? 0}
+    set {_inline = newValue}
+  }
+  /// Returns true if `inline` has been explicitly set.
+  var hasInline: Bool {return self._inline != nil}
+  /// Clears the value of `inline`. Subsequent reads from it will return its default value.
+  mutating func clearInline() {self._inline = nil}
+
+  var concept: String {
+    get {return _concept ?? String()}
+    set {_concept = newValue}
+  }
+  /// Returns true if `concept` has been explicitly set.
+  var hasConcept: Bool {return self._concept != nil}
+  /// Clears the value of `concept`. Subsequent reads from it will return its default value.
+  mutating func clearConcept() {self._concept = nil}
+
+  var requires: [String] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _inline: Int32? = nil
+  fileprivate var _concept: String? = nil
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufTestMessages_Proto2_ForeignEnumProto2: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sendable {}
@@ -1304,6 +1494,8 @@ extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup: @unch
 extension ProtobufTestMessages_Proto2_NullHypothesisProto2: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_EnumOnlyProto2: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_EnumOnlyProto2.BoolEnum: @unchecked Sendable {}
+extension ProtobufTestMessages_Proto2_OneStringProto2: @unchecked Sendable {}
+extension ProtobufTestMessages_Proto2_ProtoWithKeywords: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in test_messages_proto2.proto.
@@ -1521,6 +1713,21 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
     118: .standard(proto: "oneof_double"),
     119: .standard(proto: "oneof_enum"),
     201: .unique(proto: "Data", json: "data"),
+    241: .standard(proto: "default_int32"),
+    242: .standard(proto: "default_int64"),
+    243: .standard(proto: "default_uint32"),
+    244: .standard(proto: "default_uint64"),
+    245: .standard(proto: "default_sint32"),
+    246: .standard(proto: "default_sint64"),
+    247: .standard(proto: "default_fixed32"),
+    248: .standard(proto: "default_fixed64"),
+    249: .standard(proto: "default_sfixed32"),
+    250: .standard(proto: "default_sfixed64"),
+    251: .standard(proto: "default_float"),
+    252: .standard(proto: "default_double"),
+    253: .standard(proto: "default_bool"),
+    254: .standard(proto: "default_string"),
+    255: .standard(proto: "default_bytes"),
     401: .same(proto: "fieldname1"),
     402: .standard(proto: "field_name2"),
     403: .standard(proto: "_field_name3"),
@@ -1634,6 +1841,21 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
     var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto2_ForeignEnumProto2> = [:]
     var _oneofField: ProtobufTestMessages_Proto2_TestAllTypesProto2.OneOf_OneofField?
     var _data: ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage? = nil
+    var _defaultInt32: Int32? = nil
+    var _defaultInt64: Int64? = nil
+    var _defaultUint32: UInt32? = nil
+    var _defaultUint64: UInt64? = nil
+    var _defaultSint32: Int32? = nil
+    var _defaultSint64: Int64? = nil
+    var _defaultFixed32: UInt32? = nil
+    var _defaultFixed64: UInt64? = nil
+    var _defaultSfixed32: Int32? = nil
+    var _defaultSfixed64: Int64? = nil
+    var _defaultFloat: Float? = nil
+    var _defaultDouble: Double? = nil
+    var _defaultBool: Bool? = nil
+    var _defaultString: String? = nil
+    var _defaultBytes: Data? = nil
     var _fieldname1: Int32? = nil
     var _fieldName2: Int32? = nil
     var _fieldName3: Int32? = nil
@@ -1750,6 +1972,21 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       _mapStringForeignEnum = source._mapStringForeignEnum
       _oneofField = source._oneofField
       _data = source._data
+      _defaultInt32 = source._defaultInt32
+      _defaultInt64 = source._defaultInt64
+      _defaultUint32 = source._defaultUint32
+      _defaultUint64 = source._defaultUint64
+      _defaultSint32 = source._defaultSint32
+      _defaultSint64 = source._defaultSint64
+      _defaultFixed32 = source._defaultFixed32
+      _defaultFixed64 = source._defaultFixed64
+      _defaultSfixed32 = source._defaultSfixed32
+      _defaultSfixed64 = source._defaultSfixed64
+      _defaultFloat = source._defaultFloat
+      _defaultDouble = source._defaultDouble
+      _defaultBool = source._defaultBool
+      _defaultString = source._defaultString
+      _defaultBytes = source._defaultBytes
       _fieldname1 = source._fieldname1
       _fieldName2 = source._fieldName2
       _fieldName3 = source._fieldName3
@@ -1966,6 +2203,21 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
           }
         }()
         case 201: try { try decoder.decodeSingularGroupField(value: &_storage._data) }()
+        case 241: try { try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32) }()
+        case 242: try { try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64) }()
+        case 243: try { try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32) }()
+        case 244: try { try decoder.decodeSingularUInt64Field(value: &_storage._defaultUint64) }()
+        case 245: try { try decoder.decodeSingularSInt32Field(value: &_storage._defaultSint32) }()
+        case 246: try { try decoder.decodeSingularSInt64Field(value: &_storage._defaultSint64) }()
+        case 247: try { try decoder.decodeSingularFixed32Field(value: &_storage._defaultFixed32) }()
+        case 248: try { try decoder.decodeSingularFixed64Field(value: &_storage._defaultFixed64) }()
+        case 249: try { try decoder.decodeSingularSFixed32Field(value: &_storage._defaultSfixed32) }()
+        case 250: try { try decoder.decodeSingularSFixed64Field(value: &_storage._defaultSfixed64) }()
+        case 251: try { try decoder.decodeSingularFloatField(value: &_storage._defaultFloat) }()
+        case 252: try { try decoder.decodeSingularDoubleField(value: &_storage._defaultDouble) }()
+        case 253: try { try decoder.decodeSingularBoolField(value: &_storage._defaultBool) }()
+        case 254: try { try decoder.decodeSingularStringField(value: &_storage._defaultString) }()
+        case 255: try { try decoder.decodeSingularBytesField(value: &_storage._defaultBytes) }()
         case 401: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldname1) }()
         case 402: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldName2) }()
         case 403: try { try decoder.decodeSingularInt32Field(value: &_storage._fieldName3) }()
@@ -2311,6 +2563,51 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
       try { if let v = _storage._data {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 201)
       } }()
+      try { if let v = _storage._defaultInt32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
+      } }()
+      try { if let v = _storage._defaultInt64 {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 242)
+      } }()
+      try { if let v = _storage._defaultUint32 {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 243)
+      } }()
+      try { if let v = _storage._defaultUint64 {
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 244)
+      } }()
+      try { if let v = _storage._defaultSint32 {
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 245)
+      } }()
+      try { if let v = _storage._defaultSint64 {
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 246)
+      } }()
+      try { if let v = _storage._defaultFixed32 {
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 247)
+      } }()
+      try { if let v = _storage._defaultFixed64 {
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 248)
+      } }()
+      try { if let v = _storage._defaultSfixed32 {
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 249)
+      } }()
+      try { if let v = _storage._defaultSfixed64 {
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 250)
+      } }()
+      try { if let v = _storage._defaultFloat {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 251)
+      } }()
+      try { if let v = _storage._defaultDouble {
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 252)
+      } }()
+      try { if let v = _storage._defaultBool {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 253)
+      } }()
+      try { if let v = _storage._defaultString {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 254)
+      } }()
+      try { if let v = _storage._defaultBytes {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 255)
+      } }()
       try { if let v = _storage._fieldname1 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 401)
       } }()
@@ -2466,6 +2763,21 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message,
         if _storage._mapStringForeignEnum != rhs_storage._mapStringForeignEnum {return false}
         if _storage._oneofField != rhs_storage._oneofField {return false}
         if _storage._data != rhs_storage._data {return false}
+        if _storage._defaultInt32 != rhs_storage._defaultInt32 {return false}
+        if _storage._defaultInt64 != rhs_storage._defaultInt64 {return false}
+        if _storage._defaultUint32 != rhs_storage._defaultUint32 {return false}
+        if _storage._defaultUint64 != rhs_storage._defaultUint64 {return false}
+        if _storage._defaultSint32 != rhs_storage._defaultSint32 {return false}
+        if _storage._defaultSint64 != rhs_storage._defaultSint64 {return false}
+        if _storage._defaultFixed32 != rhs_storage._defaultFixed32 {return false}
+        if _storage._defaultFixed64 != rhs_storage._defaultFixed64 {return false}
+        if _storage._defaultSfixed32 != rhs_storage._defaultSfixed32 {return false}
+        if _storage._defaultSfixed64 != rhs_storage._defaultSfixed64 {return false}
+        if _storage._defaultFloat != rhs_storage._defaultFloat {return false}
+        if _storage._defaultDouble != rhs_storage._defaultDouble {return false}
+        if _storage._defaultBool != rhs_storage._defaultBool {return false}
+        if _storage._defaultString != rhs_storage._defaultString {return false}
+        if _storage._defaultBytes != rhs_storage._defaultBytes {return false}
         if _storage._fieldname1 != rhs_storage._fieldname1 {return false}
         if _storage._fieldName2 != rhs_storage._fieldName2 {return false}
         if _storage._fieldName3 != rhs_storage._fieldName3 {return false}
@@ -2906,4 +3218,88 @@ extension ProtobufTestMessages_Proto2_EnumOnlyProto2.BoolEnum: SwiftProtobuf._Pr
     0: .same(proto: "kFalse"),
     1: .same(proto: "kTrue"),
   ]
+}
+
+extension ProtobufTestMessages_Proto2_OneStringProto2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".OneStringProto2"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "data"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._data) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._data {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_OneStringProto2, rhs: ProtobufTestMessages_Proto2_OneStringProto2) -> Bool {
+    if lhs._data != rhs._data {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufTestMessages_Proto2_ProtoWithKeywords: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ProtoWithKeywords"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "inline"),
+    2: .same(proto: "concept"),
+    3: .same(proto: "requires"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._inline) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._concept) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.requires) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._inline {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._concept {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    if !self.requires.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.requires, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufTestMessages_Proto2_ProtoWithKeywords, rhs: ProtobufTestMessages_Proto2_ProtoWithKeywords) -> Bool {
+    if lhs._inline != rhs._inline {return false}
+    if lhs._concept != rhs._concept {return false}
+    if lhs.requires != rhs.requires {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

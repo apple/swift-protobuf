@@ -492,6 +492,57 @@ extension ProtobufUnittest_TestRequiredLite: @unchecked Sendable {}
 extension ProtobufUnittest_ForeignMessageArenaLite: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
+// MARK: - Extension support defined in map_lite_unittest.proto.
+
+// MARK: - Extension Properties
+
+// Swift Extensions on the exteneded Messages to add easy access to the declared
+// extension fields. The names are based on the extension field name from the proto
+// declaration. To avoid naming collisions, the names are prefixed with the name of
+// the scope where the extend directive occurs.
+
+extension ProtobufUnittest_TestAllExtensionsLite {
+
+  var ProtobufUnittest_TestRequiredLite_single: ProtobufUnittest_TestRequiredLite {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestRequiredLite.Extensions.single) ?? ProtobufUnittest_TestRequiredLite()}
+    set {setExtensionValue(ext: ProtobufUnittest_TestRequiredLite.Extensions.single, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_TestRequiredLite.Extensions.single`
+  /// has been explicitly set.
+  var hasProtobufUnittest_TestRequiredLite_single: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestRequiredLite.Extensions.single)
+  }
+  /// Clears the value of extension `ProtobufUnittest_TestRequiredLite.Extensions.single`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_TestRequiredLite_single() {
+    clearExtensionValue(ext: ProtobufUnittest_TestRequiredLite.Extensions.single)
+  }
+
+}
+
+// MARK: - File's ExtensionMap: ProtobufUnittest_MapLiteUnittest_Extensions
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
+let ProtobufUnittest_MapLiteUnittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  ProtobufUnittest_TestRequiredLite.Extensions.single
+]
+
+// Extension Objects - The only reason these might be needed is when manually
+// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+// accessors for the extension fields on the messages directly.
+
+extension ProtobufUnittest_TestRequiredLite {
+  enum Extensions {
+    static let single = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestRequiredLite>, ProtobufUnittest_TestAllExtensionsLite>(
+      _protobuf_fieldNumber: 1000,
+      fieldName: "protobuf_unittest.TestRequiredLite.single"
+    )
+  }
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"
