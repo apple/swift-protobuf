@@ -114,14 +114,15 @@ jobs:
       run: make test-conformance
 
   sanitizer_testing:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         sanitizer: ["address", "thread"]
         swiftpm_config: ["debug", "release"]
     container:
-      # Test on the latest Swift release
+      # Test on the latest Swift release. https://hub.docker.com/_/swift says
+      # swift:latest is still bionic, so explicitly use swift:focal.
       image: swift:focal
     steps:
     - uses: actions/checkout@v2
@@ -144,13 +145,14 @@ jobs:
         swift test -c ${{ matrix.swiftpm_config }} --sanitize=${{ matrix.sanitizer }} ${EXTRAS:-}
 
   fuzzing_regressions:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         swiftpm_config: ["debug", "release"]
     container:
-      # Test on the latest Swift release
+      # Test on the latest Swift release. https://hub.docker.com/_/swift says
+      # swift:latest is still bionic, so explicitly use swift:focal.
       image: swift:focal
     steps:
     - uses: actions/checkout@v2
