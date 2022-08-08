@@ -17,7 +17,7 @@ These structs conform to `SwiftProtobuf.Message` and provide Swift properties fo
 field, basic information about the message, standard initializers, and
 serialization and deserialization methods.
 
-Here is a simple proto3 input file to motivate the example below:
+Here is a simple proto3 syntax input file to motivate the example below:
 
 ```protobuf
 syntax = "proto3";
@@ -156,7 +156,7 @@ The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which ext
 `RawRepresentable` with a `RawValue` of `Int`.
 The generated Swift enum will have a case for each enum value in the proto file.
 
-Proto3 enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
+Proto3 syntax enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
 an unrecognized value is parsed from protobuf serialization or from other
 serializations that store integer enum values.
 Proto2 enums lack this extra case.
@@ -319,7 +319,7 @@ If no default value was specified, the default value is the same
 as for proto3 singular fields above.
 
 **Proto2 `required` fields** Required fields behave the same as
-optional fields, except that serialization or deserialization may
+optional fields, except that binary serialization or deserialization may
 fail if the field is not provided.
 
 To illustrate the handling of proto2 fields, consider the following
@@ -353,7 +353,7 @@ The fields are initialized with default instances of the struct.
 (This initialization is usually done lazily the first time you read such
 a field.)
 Message fields generate `has` and `clear` methods as above for both proto2
-and proto3.
+and proto3 syntax files.
 
 **Proto2 groups** act exactly like messages in all respects, except that
 they are serialized differently when they appear as a field value.
@@ -621,7 +621,7 @@ public func +(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Duration) -> 
 Extensions are used to add additional properties to messages defined elsewhere.
 They are fully supported in proto2 files.
 
-They are supported in proto3 only when extending the standard Descriptor type.
+They are supported in proto3 syntax only when extending the standard Descriptor type.
 
 Extensions are ignored when serializing or deserializing to JSON.
 
@@ -696,13 +696,13 @@ Descriptor objects. It is something that could get revisited in the future,
 but will need careful consideration; the bloat/size issues is of the most
 concern because of Swift's common use for mobile applications.
 
-## Aside:  proto2 vs. proto3
+## Aside:  proto2 vs. proto3 syntax
 
 The terms *proto2* and *proto3* refer to two different dialects of the proto
 *language.*  The older proto2 language dates back to 2008, the proto3 language
 was introduced in 2015.  These should not be confused with versions of the
-protobuf *project* or the protoc *program*.  In particular, the protoc 3.0
-program has solid support for both proto2 and proto3 language dialects.  Many
-people continue to use the proto2 language with protoc 3.0 because they have
+protobuf *project* or the protoc *software*.  In particular, the protoc 3.x
+software has solid support for both proto2 and proto3 language dialects.  Many
+people continue to use the proto2 language with protoc 3.x software because they have
 existing systems that depend on particular features of the proto2 language that
-were changed in proto3.
+were changed in the proto3 language.
