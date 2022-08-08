@@ -1,4 +1,8 @@
-# protoc-gen-swift
+# ``protoc_gen_swift``
+
+@Metadata {
+  @DisplayName("protoc-gen-swift")
+}
 
 Code generation helper for use with Google's `protoc` command.
 
@@ -10,7 +14,8 @@ Swift code.
 
 ## Getting Started
 
-If you've worked with Protocol Buffers before, adding Swift support is
+If you've worked with Protocol Buffers in other programming
+languages before, adding Swift support is
 very simple: you just need to build the `protoc-gen-swift` program and
 copy it into any directory in your PATH.  The protoc program will find
 and use it automatically, allowing you to build Swift sources for your
@@ -192,10 +197,22 @@ If you are using Xcode, then you should:
 
 
 
-TODO
+## Internals
 
-## Topics
+When you give `protoc` an option of the form `--XYZ-out`,
+it will find and run a program called `protoc-gen-XYZ`.
 
-### See also
+The `protoc` program then proceeds to read, parse, and validate
+all of your proto files.
+It feeds this information (as a set of "Descriptor" objects)
+to the `protoc-gen-XYZ` program and expects the program to
+produce one or more source code files
+that `protoc` will then save to the correct output location.
 
-- <doc:API>
+The `protoc-gen-swift` program relies heavily
+on the `SwiftProtobuf` library to handle serializing and
+deserializing the protobuf-encoded data used to
+communicate with `protoc`.
+It also relies on another library called `SwiftProtobufPluginLibrary`
+that incorporates a lot of the key knowledge about how
+to produce Swift source code.
