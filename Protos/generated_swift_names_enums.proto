@@ -75,6 +75,7 @@ message GeneratedSwiftReservedEnums {
   enum clearDefaultValue { NONE_clearDefaultValue = 0; }
   enum clearDeprecated { NONE_clearDeprecated = 0; }
   enum clearDoubleValue { NONE_clearDoubleValue = 0; }
+  enum clearEdition { NONE_clearEdition = 0; }
   enum clearEnd { NONE_clearEnd = 0; }
   enum clearExtendee { NONE_clearExtendee = 0; }
   enum clearExtensionValue { NONE_clearExtensionValue = 0; }
@@ -116,6 +117,7 @@ message GeneratedSwiftReservedEnums {
   enum clearProto3Optional { NONE_clearProto3Optional = 0; }
   enum clearPyGenericServices { NONE_clearPyGenericServices = 0; }
   enum clearRubyPackage { NONE_clearRubyPackage = 0; }
+  enum clearSemantic { NONE_clearSemantic = 0; }
   enum clearServerStreaming { NONE_clearServerStreaming = 0; }
   enum clearSourceCodeInfo { NONE_clearSourceCodeInfo = 0; }
   enum clearSourceContext { NONE_clearSourceContext = 0; }
@@ -219,6 +221,7 @@ message GeneratedSwiftReservedEnums {
   enum doubleValue { NONE_doubleValue = 0; }
   enum Duration { NONE_Duration = 0; }
   enum E { NONE_E = 0; }
+  enum edition { NONE_edition = 0; }
   enum Element { NONE_Element = 0; }
   enum elements { NONE_elements = 0; }
   enum emitExtensionFieldName { NONE_emitExtensionFieldName = 0; }
@@ -375,6 +378,7 @@ message GeneratedSwiftReservedEnums {
   enum hasDefaultValue { NONE_hasDefaultValue = 0; }
   enum hasDeprecated { NONE_hasDeprecated = 0; }
   enum hasDoubleValue { NONE_hasDoubleValue = 0; }
+  enum hasEdition { NONE_hasEdition = 0; }
   enum hasEnd { NONE_hasEnd = 0; }
   enum hasExtendee { NONE_hasExtendee = 0; }
   enum hasExtensionValue { NONE_hasExtensionValue = 0; }
@@ -420,6 +424,7 @@ message GeneratedSwiftReservedEnums {
   enum hasProto3Optional { NONE_hasProto3Optional = 0; }
   enum hasPyGenericServices { NONE_hasPyGenericServices = 0; }
   enum hasRubyPackage { NONE_hasRubyPackage = 0; }
+  enum hasSemantic { NONE_hasSemantic = 0; }
   enum hasServerStreaming { NONE_hasServerStreaming = 0; }
   enum hasSourceCodeInfo { NONE_hasSourceCodeInfo = 0; }
   enum hasSourceContext { NONE_hasSourceContext = 0; }
@@ -463,6 +468,7 @@ message GeneratedSwiftReservedEnums {
   enum isEqualTo { NONE_isEqualTo = 0; }
   enum isExtension { NONE_isExtension = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
+  enum isNegative { NONE_isNegative = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
   enum Iterator { NONE_Iterator = 0; }
   enum javaGenerateEqualsAndHash { NONE_javaGenerateEqualsAndHash = 0; }
@@ -690,6 +696,7 @@ message GeneratedSwiftReservedEnums {
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }
   enum self { NONE_self = 0; }
+  enum semantic { NONE_semantic = 0; }
   enum Sendable { NONE_Sendable = 0; }
   enum separator { NONE_separator = 0; }
   enum serialize { NONE_serialize = 0; }
