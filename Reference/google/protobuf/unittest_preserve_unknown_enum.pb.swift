@@ -80,7 +80,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [
+  static let allCases: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [
     .foo,
     .bar,
     .baz,
@@ -121,7 +121,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [
+  static let allCases: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [
     .eFoo,
     .eBar,
     .eBaz,

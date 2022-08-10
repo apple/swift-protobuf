@@ -81,7 +81,7 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Google_Protobuf_Syntax] = [
+  static let allCases: [Google_Protobuf_Syntax] = [
     .proto2,
     .proto3,
   ]
@@ -283,7 +283,7 @@ struct Google_Protobuf_Field {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Google_Protobuf_Field.Kind] = [
+    static let allCases: [Google_Protobuf_Field.Kind] = [
       .typeUnknown,
       .typeDouble,
       .typeFloat,
@@ -349,7 +349,7 @@ struct Google_Protobuf_Field {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Google_Protobuf_Field.Cardinality] = [
+    static let allCases: [Google_Protobuf_Field.Cardinality] = [
       .unknown,
       .optional,
       .required,

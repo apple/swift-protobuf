@@ -86,7 +86,7 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufTestMessages_Proto3_ForeignEnum] = [
+  static let allCases: [ProtobufTestMessages_Proto3_ForeignEnum] = [
     .foreignFoo,
     .foreignBar,
     .foreignBaz,
@@ -1027,7 +1027,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
+    static let allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
       .foo,
       .bar,
       .baz,
@@ -1068,7 +1068,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum] = [
+    static let allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.AliasedEnum] = [
       .aliasFoo,
       .aliasBar,
       .aliasBaz,
@@ -1163,7 +1163,7 @@ struct ProtobufTestMessages_Proto3_EnumOnlyProto3 {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum] = [
+    static let allCases: [ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum] = [
       .kFalse,
       .kTrue,
     ]

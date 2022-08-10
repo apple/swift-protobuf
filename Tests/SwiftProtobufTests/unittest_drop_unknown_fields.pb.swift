@@ -91,7 +91,7 @@ struct UnittestDropUnknownFields_Foo {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [UnittestDropUnknownFields_Foo.NestedEnum] = [
+    static let allCases: [UnittestDropUnknownFields_Foo.NestedEnum] = [
       .foo,
       .bar,
       .baz,
@@ -148,7 +148,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [UnittestDropUnknownFields_FooWithExtraFields.NestedEnum] = [
+    static let allCases: [UnittestDropUnknownFields_FooWithExtraFields.NestedEnum] = [
       .foo,
       .bar,
       .baz,
