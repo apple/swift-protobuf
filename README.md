@@ -69,8 +69,6 @@ More information is available in the associated documentation:
  * [API.md](Documentation/API.md) documents how to use the generated code.
    This is recommended reading for anyone using SwiftProtobuf in their
    project.
- * [cocoadocs.org](http://cocoadocs.org/docsets/SwiftProtobuf/) has the generated
-   API documentation
  * [INTERNALS.md](Documentation/INTERNALS.md) documents the internal structure
    of the generated code and the library.  This
    should only be needed by folks interested in working on SwiftProtobuf
