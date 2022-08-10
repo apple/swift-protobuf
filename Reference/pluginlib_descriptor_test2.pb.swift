@@ -174,7 +174,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [SwiftDescriptorTest_Proto3MessageForPresence.SubEnum] = [
+    static let allCases: [SwiftDescriptorTest_Proto3MessageForPresence.SubEnum] = [
       .subValue0,
       .subValue1,
       .subValue2,

@@ -83,7 +83,7 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto3ArenaLiteUnittest_ForeignEnum] = [
+  static let allCases: [Proto3ArenaLiteUnittest_ForeignEnum] = [
     .foreignZero,
     .foreignFoo,
     .foreignBar,
@@ -442,7 +442,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum] = [
+    static let allCases: [Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum] = [
       .zero,
       .foo,
       .bar,

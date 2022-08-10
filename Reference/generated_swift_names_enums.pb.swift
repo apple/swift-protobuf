@@ -55,7 +55,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.adjusted] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.adjusted] = [
       .noneAdjusted,
     ]
 
@@ -85,7 +85,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.aggregateValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.aggregateValue] = [
       .noneAggregateValue,
     ]
 
@@ -115,7 +115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allCases] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allCases] = [
       .noneAllCases,
     ]
 
@@ -145,7 +145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allowAlias] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allowAlias] = [
       .noneAllowAlias,
     ]
 
@@ -175,7 +175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintEnumsAsInts] = [
       .noneAlwaysPrintEnumsAsInts,
     ]
 
@@ -205,7 +205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.alwaysPrintInt64sAsNumbers] = [
       .noneAlwaysPrintInt64SAsNumbers,
     ]
 
@@ -235,7 +235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.annotation] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.annotation] = [
       .noneAnnotation,
     ]
 
@@ -265,7 +265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.any] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.any] = [
       .noneAny,
     ]
 
@@ -295,7 +295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyExtensionField] = [
       .noneAnyExtensionField,
     ]
 
@@ -325,7 +325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyMessageExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyMessageExtension] = [
       .noneAnyMessageExtension,
     ]
 
@@ -355,7 +355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyMessageStorage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyMessageStorage] = [
       .noneAnyMessageStorage,
     ]
 
@@ -385,7 +385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyUnpackError] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyUnpackError] = [
       .noneAnyUnpackError,
     ]
 
@@ -415,7 +415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Api] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Api] = [
       .noneApi,
     ]
 
@@ -445,7 +445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appended] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appended] = [
       .noneAppended,
     ]
 
@@ -475,7 +475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appendUIntHex] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appendUIntHex] = [
       .noneAppendUintHex,
     ]
 
@@ -505,7 +505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appendUnknown] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appendUnknown] = [
       .noneAppendUnknown,
     ]
 
@@ -535,7 +535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.areAllInitialized] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.areAllInitialized] = [
       .noneAreAllInitialized,
     ]
 
@@ -565,7 +565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array] = [
       .noneArray,
     ]
 
@@ -595,7 +595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arrayDepth] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arrayDepth] = [
       .noneArrayDepth,
     ]
 
@@ -625,7 +625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arrayLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arrayLiteral] = [
       .noneArrayLiteral,
     ]
 
@@ -655,7 +655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arraySeparator] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arraySeparator] = [
       .noneArraySeparator,
     ]
 
@@ -685,7 +685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asEnum] = [
       .noneAs,
     ]
 
@@ -715,7 +715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asciiOpenCurlyBracket] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asciiOpenCurlyBracket] = [
       .noneAsciiOpenCurlyBracket,
     ]
 
@@ -745,7 +745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asciiZero] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asciiZero] = [
       .noneAsciiZero,
     ]
 
@@ -775,7 +775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.available] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.available] = [
       .noneAvailable,
     ]
 
@@ -805,7 +805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.b] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.b] = [
       .noneB,
     ]
 
@@ -835,7 +835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.base64Values] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.base64Values] = [
       .noneBase64Values,
     ]
 
@@ -865,7 +865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.baseAddress] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.baseAddress] = [
       .noneBaseAddress,
     ]
 
@@ -895,7 +895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BaseType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BaseType] = [
       .noneBaseType,
     ]
 
@@ -925,7 +925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.begin] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.begin] = [
       .noneBegin,
     ]
 
@@ -955,7 +955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binary] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binary] = [
       .noneBinary,
     ]
 
@@ -985,7 +985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecoder] = [
       .noneBinaryDecoder,
     ]
 
@@ -1015,7 +1015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecodingError] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecodingError] = [
       .noneBinaryDecodingError,
     ]
 
@@ -1045,7 +1045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecodingOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecodingOptions] = [
       .noneBinaryDecodingOptions,
     ]
 
@@ -1075,7 +1075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDelimited] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDelimited] = [
       .noneBinaryDelimited,
     ]
 
@@ -1105,7 +1105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncoder] = [
       .noneBinaryEncoder,
     ]
 
@@ -1135,7 +1135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingError] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingError] = [
       .noneBinaryEncodingError,
     ]
 
@@ -1165,7 +1165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetSizeVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetSizeVisitor] = [
       .noneBinaryEncodingMessageSetSizeVisitor,
     ]
 
@@ -1195,7 +1195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor] = [
       .noneBinaryEncodingMessageSetVisitor,
     ]
 
@@ -1225,7 +1225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingSizeVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingSizeVisitor] = [
       .noneBinaryEncodingSizeVisitor,
     ]
 
@@ -1255,7 +1255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingVisitor] = [
       .noneBinaryEncodingVisitor,
     ]
 
@@ -1285,7 +1285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binaryOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binaryOptions] = [
       .noneBinaryOptions,
     ]
 
@@ -1315,7 +1315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.body] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.body] = [
       .noneBody,
     ]
 
@@ -1345,7 +1345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BoolEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BoolEnum] = [
       .noneBool,
     ]
 
@@ -1375,7 +1375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.booleanLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.booleanLiteral] = [
       .noneBooleanLiteral,
     ]
 
@@ -1405,7 +1405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BooleanLiteralType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BooleanLiteralType] = [
       .noneBooleanLiteralType,
     ]
 
@@ -1435,7 +1435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.boolValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.boolValue] = [
       .noneBoolValue,
     ]
 
@@ -1465,7 +1465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytes] = [
       .noneBytes,
     ]
 
@@ -1495,7 +1495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesInGroup] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesInGroup] = [
       .noneBytesInGroup,
     ]
 
@@ -1525,7 +1525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesRead] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesRead] = [
       .noneBytesRead,
     ]
 
@@ -1555,7 +1555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BytesValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BytesValue] = [
       .noneBytesValue,
     ]
 
@@ -1585,7 +1585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.c] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.c] = [
       .noneC,
     ]
 
@@ -1615,7 +1615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.capitalizeNext] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.capitalizeNext] = [
       .noneCapitalizeNext,
     ]
 
@@ -1645,7 +1645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.cardinality] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.cardinality] = [
       .noneCardinality,
     ]
 
@@ -1675,7 +1675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.CaseIterable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.CaseIterable] = [
       .noneCaseIterable,
     ]
 
@@ -1705,7 +1705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ccEnableArenas] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ccEnableArenas] = [
       .noneCcEnableArenas,
     ]
 
@@ -1735,7 +1735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ccGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ccGenericServices] = [
       .noneCcGenericServices,
     ]
 
@@ -1765,7 +1765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Character] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Character] = [
       .noneCharacter,
     ]
 
@@ -1795,7 +1795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars] = [
       .noneChars,
     ]
 
@@ -1825,7 +1825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.classEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.classEnum] = [
       .noneClass,
     ]
 
@@ -1855,7 +1855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearAggregateValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearAggregateValue] = [
       .noneClearAggregateValue,
     ]
 
@@ -1885,7 +1885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearAllowAlias] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearAllowAlias] = [
       .noneClearAllowAlias,
     ]
 
@@ -1915,7 +1915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearBegin] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearBegin] = [
       .noneClearBegin,
     ]
 
@@ -1945,7 +1945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCcEnableArenas] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCcEnableArenas] = [
       .noneClearCcEnableArenas,
     ]
 
@@ -1975,7 +1975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCcGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCcGenericServices] = [
       .noneClearCcGenericServices,
     ]
 
@@ -2005,7 +2005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearClientStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearClientStreaming] = [
       .noneClearClientStreaming,
     ]
 
@@ -2035,7 +2035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCsharpNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCsharpNamespace] = [
       .noneClearCsharpNamespace,
     ]
 
@@ -2065,7 +2065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCtype] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCtype] = [
       .noneClearCtype,
     ]
 
@@ -2095,7 +2095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue] = [
       .noneClearDefaultValue,
     ]
 
@@ -2125,7 +2125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated] = [
       .noneClearDeprecated,
     ]
 
@@ -2155,7 +2155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDoubleValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDoubleValue] = [
       .noneClearDoubleValue,
     ]
 
@@ -2185,7 +2185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearEdition] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearEdition] = [
       .noneClearEdition,
     ]
 
@@ -2215,7 +2215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearEnd] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearEnd] = [
       .noneClearEnd,
     ]
 
@@ -2245,7 +2245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearExtendee] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearExtendee] = [
       .noneClearExtendee,
     ]
 
@@ -2275,7 +2275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearExtensionValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearExtensionValue] = [
       .noneClearExtensionValue,
     ]
 
@@ -2305,7 +2305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearGoPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearGoPackage] = [
       .noneClearGoPackage,
     ]
 
@@ -2335,7 +2335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearIdempotencyLevel] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearIdempotencyLevel] = [
       .noneClearIdempotencyLevel,
     ]
 
@@ -2365,7 +2365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearIdentifierValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearIdentifierValue] = [
       .noneClearIdentifierValue,
     ]
 
@@ -2395,7 +2395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearInputType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearInputType] = [
       .noneClearInputType,
     ]
 
@@ -2425,7 +2425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearIsExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearIsExtension] = [
       .noneClearIsExtension,
     ]
 
@@ -2455,7 +2455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaGenerateEqualsAndHash] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaGenerateEqualsAndHash] = [
       .noneClearJavaGenerateEqualsAndHash,
     ]
 
@@ -2485,7 +2485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaGenericServices] = [
       .noneClearJavaGenericServices,
     ]
 
@@ -2515,7 +2515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaMultipleFiles] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaMultipleFiles] = [
       .noneClearJavaMultipleFiles,
     ]
 
@@ -2545,7 +2545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaOuterClassname] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaOuterClassname] = [
       .noneClearJavaOuterClassname,
     ]
 
@@ -2575,7 +2575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaPackage] = [
       .noneClearJavaPackage,
     ]
 
@@ -2605,7 +2605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaStringCheckUtf8] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJavaStringCheckUtf8] = [
       .noneClearJavaStringCheckUtf8,
     ]
 
@@ -2635,7 +2635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJsonName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJsonName] = [
       .noneClearJsonName,
     ]
 
@@ -2665,7 +2665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJstype] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearJstype] = [
       .noneClearJstype,
     ]
 
@@ -2695,7 +2695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearLabel] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearLabel] = [
       .noneClearLabel,
     ]
 
@@ -2725,7 +2725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearLazy] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearLazy] = [
       .noneClearLazy,
     ]
 
@@ -2755,7 +2755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearLeadingComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearLeadingComments] = [
       .noneClearLeadingComments,
     ]
 
@@ -2785,7 +2785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearMapEntry] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearMapEntry] = [
       .noneClearMapEntry,
     ]
 
@@ -2815,7 +2815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearMessageSetWireFormat] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearMessageSetWireFormat] = [
       .noneClearMessageSetWireFormat,
     ]
 
@@ -2845,7 +2845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearName] = [
       .noneClearName,
     ]
 
@@ -2875,7 +2875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNamePart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNamePart] = [
       .noneClearNamePart,
     ]
 
@@ -2905,7 +2905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNegativeIntValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNegativeIntValue] = [
       .noneClearNegativeIntValue,
     ]
 
@@ -2935,7 +2935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNoStandardDescriptorAccessor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNoStandardDescriptorAccessor] = [
       .noneClearNoStandardDescriptorAccessor,
     ]
 
@@ -2965,7 +2965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearNumber] = [
       .noneClearNumber,
     ]
 
@@ -2995,7 +2995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearObjcClassPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearObjcClassPrefix] = [
       .noneClearObjcClassPrefix,
     ]
 
@@ -3025,7 +3025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOneofIndex] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOneofIndex] = [
       .noneClearOneofIndex,
     ]
 
@@ -3055,7 +3055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOptimizeFor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOptimizeFor] = [
       .noneClearOptimizeFor,
     ]
 
@@ -3085,7 +3085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOptions] = [
       .noneClearOptions,
     ]
 
@@ -3115,7 +3115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOutputType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOutputType] = [
       .noneClearOutputType,
     ]
 
@@ -3145,7 +3145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPackage] = [
       .noneClearPackage,
     ]
 
@@ -3175,7 +3175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPacked] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPacked] = [
       .noneClearPacked,
     ]
 
@@ -3205,7 +3205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpClassPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpClassPrefix] = [
       .noneClearPhpClassPrefix,
     ]
 
@@ -3235,7 +3235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpGenericServices] = [
       .noneClearPhpGenericServices,
     ]
 
@@ -3265,7 +3265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpMetadataNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpMetadataNamespace] = [
       .noneClearPhpMetadataNamespace,
     ]
 
@@ -3295,7 +3295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpNamespace] = [
       .noneClearPhpNamespace,
     ]
 
@@ -3325,7 +3325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPositiveIntValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPositiveIntValue] = [
       .noneClearPositiveIntValue,
     ]
 
@@ -3355,7 +3355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearProto3Optional] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearProto3Optional] = [
       .noneClearProto3Optional,
     ]
 
@@ -3385,7 +3385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPyGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPyGenericServices] = [
       .noneClearPyGenericServices,
     ]
 
@@ -3415,7 +3415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearRubyPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearRubyPackage] = [
       .noneClearRubyPackage,
     ]
 
@@ -3445,7 +3445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSemantic] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSemantic] = [
       .noneClearSemantic,
     ]
 
@@ -3475,7 +3475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearServerStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearServerStreaming] = [
       .noneClearServerStreaming,
     ]
 
@@ -3505,7 +3505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceCodeInfo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceCodeInfo] = [
       .noneClearSourceCodeInfo,
     ]
 
@@ -3535,7 +3535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceContext] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceContext] = [
       .noneClearSourceContext,
     ]
 
@@ -3565,7 +3565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceFile] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceFile] = [
       .noneClearSourceFile,
     ]
 
@@ -3595,7 +3595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearStart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearStart] = [
       .noneClearStart,
     ]
 
@@ -3625,7 +3625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearStringValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearStringValue] = [
       .noneClearStringValue,
     ]
 
@@ -3655,7 +3655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSwiftPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSwiftPrefix] = [
       .noneClearSwiftPrefix,
     ]
 
@@ -3685,7 +3685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSyntax] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSyntax] = [
       .noneClearSyntax,
     ]
 
@@ -3715,7 +3715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearTrailingComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearTrailingComments] = [
       .noneClearTrailingComments,
     ]
 
@@ -3745,7 +3745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearType] = [
       .noneClearType,
     ]
 
@@ -3775,7 +3775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearTypeName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearTypeName] = [
       .noneClearTypeName,
     ]
 
@@ -3805,7 +3805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearUnverifiedLazy] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearUnverifiedLazy] = [
       .noneClearUnverifiedLazy,
     ]
 
@@ -3835,7 +3835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearValue] = [
       .noneClearValue,
     ]
 
@@ -3865,7 +3865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearWeak] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearWeak] = [
       .noneClearWeak,
     ]
 
@@ -3895,7 +3895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clientStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clientStreaming] = [
       .noneClientStreaming,
     ]
 
@@ -3925,7 +3925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.codePoint] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.codePoint] = [
       .noneCodePoint,
     ]
 
@@ -3955,7 +3955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.codeUnits] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.codeUnits] = [
       .noneCodeUnits,
     ]
 
@@ -3985,7 +3985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Collection] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Collection] = [
       .noneCollection,
     ]
 
@@ -4015,7 +4015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.com] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.com] = [
       .noneCom,
     ]
 
@@ -4045,7 +4045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.comma] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.comma] = [
       .noneComma,
     ]
 
@@ -4075,7 +4075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.contentsOf] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.contentsOf] = [
       .noneContentsOf,
     ]
 
@@ -4105,7 +4105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ContiguousBytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ContiguousBytes] = [
       .noneContiguousBytes,
     ]
 
@@ -4135,7 +4135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.count] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.count] = [
       .noneCount,
     ]
 
@@ -4165,7 +4165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.countVarintsInBuffer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.countVarintsInBuffer] = [
       .noneCountVarintsInBuffer,
     ]
 
@@ -4195,7 +4195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.csharpNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.csharpNamespace] = [
       .noneCsharpNamespace,
     ]
 
@@ -4225,7 +4225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ctype] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ctype] = [
       .noneCtype,
     ]
 
@@ -4255,7 +4255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.customCodable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.customCodable] = [
       .noneCustomCodable,
     ]
 
@@ -4285,7 +4285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.CustomDebugStringConvertible] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.CustomDebugStringConvertible] = [
       .noneCustomDebugStringConvertible,
     ]
 
@@ -4315,7 +4315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.d] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.d] = [
       .noneD,
     ]
 
@@ -4345,7 +4345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DataEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DataEnum] = [
       .noneData,
     ]
 
@@ -4375,7 +4375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dataResult] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dataResult] = [
       .noneDataResult,
     ]
 
@@ -4405,7 +4405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.date] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.date] = [
       .noneDate,
     ]
 
@@ -4435,7 +4435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daySec] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daySec] = [
       .noneDaySec,
     ]
 
@@ -4465,7 +4465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daysSinceEpoch] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daysSinceEpoch] = [
       .noneDaysSinceEpoch,
     ]
 
@@ -4495,7 +4495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescriptionEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescriptionEnum] = [
       .noneDebugDescription,
     ]
 
@@ -4525,7 +4525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded] = [
       .noneDecoded,
     ]
 
@@ -4555,7 +4555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodedFromJSONNull] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodedFromJSONNull] = [
       .noneDecodedFromJsonnull,
     ]
 
@@ -4585,7 +4585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionField] = [
       .noneDecodeExtensionField,
     ]
 
@@ -4615,7 +4615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionFieldsAsMessageSet] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionFieldsAsMessageSet] = [
       .noneDecodeExtensionFieldsAsMessageSet,
     ]
 
@@ -4645,7 +4645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeJSON] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeJSON] = [
       .noneDecodeJson,
     ]
 
@@ -4675,7 +4675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeMapField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeMapField] = [
       .noneDecodeMapField,
     ]
 
@@ -4705,7 +4705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeMessageEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeMessageEnum] = [
       .noneDecodeMessage,
     ]
 
@@ -4735,7 +4735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoder] = [
       .noneDecoder,
     ]
 
@@ -4765,7 +4765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeated] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeated] = [
       .noneDecodeRepeated,
     ]
 
@@ -4795,7 +4795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedBoolField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedBoolField] = [
       .noneDecodeRepeatedBoolField,
     ]
 
@@ -4825,7 +4825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedBytesField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedBytesField] = [
       .noneDecodeRepeatedBytesField,
     ]
 
@@ -4855,7 +4855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedDoubleField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedDoubleField] = [
       .noneDecodeRepeatedDoubleField,
     ]
 
@@ -4885,7 +4885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedEnumField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedEnumField] = [
       .noneDecodeRepeatedEnumField,
     ]
 
@@ -4915,7 +4915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFixed32Field] = [
       .noneDecodeRepeatedFixed32Field,
     ]
 
@@ -4945,7 +4945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFixed64Field] = [
       .noneDecodeRepeatedFixed64Field,
     ]
 
@@ -4975,7 +4975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFloatField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFloatField] = [
       .noneDecodeRepeatedFloatField,
     ]
 
@@ -5005,7 +5005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedGroupField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedGroupField] = [
       .noneDecodeRepeatedGroupField,
     ]
 
@@ -5035,7 +5035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedInt32Field] = [
       .noneDecodeRepeatedInt32Field,
     ]
 
@@ -5065,7 +5065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedInt64Field] = [
       .noneDecodeRepeatedInt64Field,
     ]
 
@@ -5095,7 +5095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedMessageField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedMessageField] = [
       .noneDecodeRepeatedMessageField,
     ]
 
@@ -5125,7 +5125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSFixed32Field] = [
       .noneDecodeRepeatedSfixed32Field,
     ]
 
@@ -5155,7 +5155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSFixed64Field] = [
       .noneDecodeRepeatedSfixed64Field,
     ]
 
@@ -5185,7 +5185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSInt32Field] = [
       .noneDecodeRepeatedSint32Field,
     ]
 
@@ -5215,7 +5215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSInt64Field] = [
       .noneDecodeRepeatedSint64Field,
     ]
 
@@ -5245,7 +5245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedStringField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedStringField] = [
       .noneDecodeRepeatedStringField,
     ]
 
@@ -5275,7 +5275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedUInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedUInt32Field] = [
       .noneDecodeRepeatedUint32Field,
     ]
 
@@ -5305,7 +5305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedUInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedUInt64Field] = [
       .noneDecodeRepeatedUint64Field,
     ]
 
@@ -5335,7 +5335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingular] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingular] = [
       .noneDecodeSingular,
     ]
 
@@ -5365,7 +5365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularBoolField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularBoolField] = [
       .noneDecodeSingularBoolField,
     ]
 
@@ -5395,7 +5395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularBytesField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularBytesField] = [
       .noneDecodeSingularBytesField,
     ]
 
@@ -5425,7 +5425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularDoubleField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularDoubleField] = [
       .noneDecodeSingularDoubleField,
     ]
 
@@ -5455,7 +5455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularEnumField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularEnumField] = [
       .noneDecodeSingularEnumField,
     ]
 
@@ -5485,7 +5485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFixed32Field] = [
       .noneDecodeSingularFixed32Field,
     ]
 
@@ -5515,7 +5515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFixed64Field] = [
       .noneDecodeSingularFixed64Field,
     ]
 
@@ -5545,7 +5545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFloatField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFloatField] = [
       .noneDecodeSingularFloatField,
     ]
 
@@ -5575,7 +5575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularGroupField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularGroupField] = [
       .noneDecodeSingularGroupField,
     ]
 
@@ -5605,7 +5605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularInt32Field] = [
       .noneDecodeSingularInt32Field,
     ]
 
@@ -5635,7 +5635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularInt64Field] = [
       .noneDecodeSingularInt64Field,
     ]
 
@@ -5665,7 +5665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularMessageField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularMessageField] = [
       .noneDecodeSingularMessageField,
     ]
 
@@ -5695,7 +5695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSFixed32Field] = [
       .noneDecodeSingularSfixed32Field,
     ]
 
@@ -5725,7 +5725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSFixed64Field] = [
       .noneDecodeSingularSfixed64Field,
     ]
 
@@ -5755,7 +5755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSInt32Field] = [
       .noneDecodeSingularSint32Field,
     ]
 
@@ -5785,7 +5785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSInt64Field] = [
       .noneDecodeSingularSint64Field,
     ]
 
@@ -5815,7 +5815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularStringField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularStringField] = [
       .noneDecodeSingularStringField,
     ]
 
@@ -5845,7 +5845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularUInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularUInt32Field] = [
       .noneDecodeSingularUint32Field,
     ]
 
@@ -5875,7 +5875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularUInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularUInt64Field] = [
       .noneDecodeSingularUint64Field,
     ]
 
@@ -5905,7 +5905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeTextFormat] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeTextFormat] = [
       .noneDecodeTextFormat,
     ]
 
@@ -5935,7 +5935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultAnyTypeURLPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultAnyTypeURLPrefix] = [
       .noneDefaultAnyTypeUrlprefix,
     ]
 
@@ -5965,7 +5965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultValue] = [
       .noneDefaultValue,
     ]
 
@@ -5995,7 +5995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dependency] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dependency] = [
       .noneDependency,
     ]
 
@@ -6025,7 +6025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated] = [
       .noneDeprecated,
     ]
 
@@ -6055,7 +6055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.descriptionEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.descriptionEnum] = [
       .noneDescription,
     ]
 
@@ -6085,7 +6085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DescriptorProto] = [
       .noneDescriptorProto,
     ]
 
@@ -6115,7 +6115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Dictionary] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Dictionary] = [
       .noneDictionary,
     ]
 
@@ -6145,7 +6145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dictionaryLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dictionaryLiteral] = [
       .noneDictionaryLiteral,
     ]
 
@@ -6175,7 +6175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit] = [
       .noneDigit,
     ]
 
@@ -6205,7 +6205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit0] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit0] = [
       .noneDigit0,
     ]
 
@@ -6235,7 +6235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit1] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit1] = [
       .noneDigit1,
     ]
 
@@ -6265,7 +6265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digitCount] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digitCount] = [
       .noneDigitCount,
     ]
 
@@ -6295,7 +6295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digits] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digits] = [
       .noneDigits,
     ]
 
@@ -6325,7 +6325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digitValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digitValue] = [
       .noneDigitValue,
     ]
 
@@ -6355,7 +6355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.discardableResult] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.discardableResult] = [
       .noneDiscardableResult,
     ]
 
@@ -6385,7 +6385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.discardUnknownFields] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.discardUnknownFields] = [
       .noneDiscardUnknownFields,
     ]
 
@@ -6415,7 +6415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.distance] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.distance] = [
       .noneDistance,
     ]
 
@@ -6445,7 +6445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.double] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.double] = [
       .noneDouble,
     ]
 
@@ -6475,7 +6475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.doubleValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.doubleValue] = [
       .noneDoubleValue,
     ]
 
@@ -6505,7 +6505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Duration] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Duration] = [
       .noneDuration,
     ]
 
@@ -6535,7 +6535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.E] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.E] = [
       .noneE,
     ]
 
@@ -6565,7 +6565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.edition] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.edition] = [
       .noneEdition,
     ]
 
@@ -6595,7 +6595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Element] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Element] = [
       .noneElement,
     ]
 
@@ -6625,7 +6625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.elements] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.elements] = [
       .noneElements,
     ]
 
@@ -6655,7 +6655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitExtensionFieldName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitExtensionFieldName] = [
       .noneEmitExtensionFieldName,
     ]
 
@@ -6685,7 +6685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitFieldName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitFieldName] = [
       .noneEmitFieldName,
     ]
 
@@ -6715,7 +6715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitFieldNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitFieldNumber] = [
       .noneEmitFieldNumber,
     ]
 
@@ -6745,7 +6745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Empty] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Empty] = [
       .noneEmpty,
     ]
 
@@ -6775,7 +6775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emptyData] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emptyData] = [
       .noneEmptyData,
     ]
 
@@ -6805,7 +6805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeAsBytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeAsBytes] = [
       .noneEncodeAsBytes,
     ]
 
@@ -6835,7 +6835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoded] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoded] = [
       .noneEncoded,
     ]
 
@@ -6865,7 +6865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodedJSONString] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodedJSONString] = [
       .noneEncodedJsonstring,
     ]
 
@@ -6895,7 +6895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodedSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodedSize] = [
       .noneEncodedSize,
     ]
 
@@ -6925,7 +6925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeField] = [
       .noneEncodeField,
     ]
 
@@ -6955,7 +6955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoder] = [
       .noneEncoder,
     ]
 
@@ -6985,7 +6985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.end] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.end] = [
       .noneEnd,
     ]
 
@@ -7015,7 +7015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endArray] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endArray] = [
       .noneEndArray,
     ]
 
@@ -7045,7 +7045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endMessageField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endMessageField] = [
       .noneEndMessageField,
     ]
 
@@ -7075,7 +7075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endObject] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endObject] = [
       .noneEndObject,
     ]
 
@@ -7105,7 +7105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endRegularField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endRegularField] = [
       .noneEndRegularField,
     ]
 
@@ -7135,7 +7135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumEnum] = [
       .noneEnum,
     ]
 
@@ -7165,7 +7165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumDescriptorProto] = [
       .noneEnumDescriptorProto,
     ]
 
@@ -7195,7 +7195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumOptions] = [
       .noneEnumOptions,
     ]
 
@@ -7225,7 +7225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumReservedRange] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumReservedRange] = [
       .noneEnumReservedRange,
     ]
 
@@ -7255,7 +7255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumType] = [
       .noneEnumType,
     ]
 
@@ -7285,7 +7285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumvalue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumvalue] = [
       .noneEnumvalue,
     ]
 
@@ -7315,7 +7315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueDescriptorProto] = [
       .noneEnumValueDescriptorProto,
     ]
 
@@ -7345,7 +7345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueOptions] = [
       .noneEnumValueOptions,
     ]
 
@@ -7375,7 +7375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable] = [
       .noneEquatable,
     ]
 
@@ -7405,7 +7405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Error] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Error] = [
       .noneError,
     ]
 
@@ -7435,7 +7435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral] = [
       .noneExpressibleByArrayLiteral,
     ]
 
@@ -7465,7 +7465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByDictionaryLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByDictionaryLiteral] = [
       .noneExpressibleByDictionaryLiteral,
     ]
 
@@ -7495,7 +7495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ext] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ext] = [
       .noneExt,
     ]
 
@@ -7525,7 +7525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extDecoder] = [
       .noneExtDecoder,
     ]
 
@@ -7555,7 +7555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extendedGraphemeClusterLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extendedGraphemeClusterLiteral] = [
       .noneExtendedGraphemeClusterLiteral,
     ]
 
@@ -7585,7 +7585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtendedGraphemeClusterLiteralType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtendedGraphemeClusterLiteralType] = [
       .noneExtendedGraphemeClusterLiteralType,
     ]
 
@@ -7615,7 +7615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extendee] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extendee] = [
       .noneExtendee,
     ]
 
@@ -7645,7 +7645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensibleMessage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensibleMessage] = [
       .noneExtensibleMessage,
     ]
 
@@ -7675,7 +7675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionEnum] = [
       .noneExtension,
     ]
 
@@ -7705,7 +7705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionField] = [
       .noneExtensionField,
     ]
 
@@ -7735,7 +7735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionFieldNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionFieldNumber] = [
       .noneExtensionFieldNumber,
     ]
 
@@ -7765,7 +7765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionFieldValueSet] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionFieldValueSet] = [
       .noneExtensionFieldValueSet,
     ]
 
@@ -7795,7 +7795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionMap] = [
       .noneExtensionMap,
     ]
 
@@ -7825,7 +7825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionRange] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionRange] = [
       .noneExtensionRange,
     ]
 
@@ -7855,7 +7855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionRangeOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionRangeOptions] = [
       .noneExtensionRangeOptions,
     ]
 
@@ -7885,7 +7885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensions] = [
       .noneExtensions,
     ]
 
@@ -7915,7 +7915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extras] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extras] = [
       .noneExtras,
     ]
 
@@ -7945,7 +7945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.F] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.F] = [
       .noneF,
     ]
 
@@ -7975,7 +7975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.falseEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.falseEnum] = [
       .noneFalse,
     ]
 
@@ -8005,7 +8005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.field] = [
       .noneField,
     ]
 
@@ -8035,7 +8035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldData] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldData] = [
       .noneFieldData,
     ]
 
@@ -8065,7 +8065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldDescriptorProto] = [
       .noneFieldDescriptorProto,
     ]
 
@@ -8095,7 +8095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldMask] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldMask] = [
       .noneFieldMask,
     ]
 
@@ -8125,7 +8125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldName] = [
       .noneFieldName,
     ]
 
@@ -8155,7 +8155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNameCount] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNameCount] = [
       .noneFieldNameCount,
     ]
 
@@ -8185,7 +8185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNum] = [
       .noneFieldNum,
     ]
 
@@ -8215,7 +8215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNumber] = [
       .noneFieldNumber,
     ]
 
@@ -8245,7 +8245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNumberForProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNumberForProto] = [
       .noneFieldNumberForProto,
     ]
 
@@ -8275,7 +8275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldOptions] = [
       .noneFieldOptions,
     ]
 
@@ -8305,7 +8305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fields] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fields] = [
       .noneFields,
     ]
 
@@ -8335,7 +8335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldSize] = [
       .noneFieldSize,
     ]
 
@@ -8365,7 +8365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldTag] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldTag] = [
       .noneFieldTag,
     ]
 
@@ -8395,7 +8395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldType] = [
       .noneFieldType,
     ]
 
@@ -8425,7 +8425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.file] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.file] = [
       .noneFile,
     ]
 
@@ -8455,7 +8455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FileDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FileDescriptorProto] = [
       .noneFileDescriptorProto,
     ]
 
@@ -8485,7 +8485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FileDescriptorSet] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FileDescriptorSet] = [
       .noneFileDescriptorSet,
     ]
 
@@ -8515,7 +8515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fileName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fileName] = [
       .noneFileName,
     ]
 
@@ -8545,7 +8545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FileOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FileOptions] = [
       .noneFileOptions,
     ]
 
@@ -8575,7 +8575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.filter] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.filter] = [
       .noneFilter,
     ]
 
@@ -8605,7 +8605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.first] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.first] = [
       .noneFirst,
     ]
 
@@ -8635,7 +8635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.firstItem] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.firstItem] = [
       .noneFirstItem,
     ]
 
@@ -8665,7 +8665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.float] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.float] = [
       .noneFloat,
     ]
 
@@ -8695,7 +8695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatLiteral] = [
       .noneFloatLiteral,
     ]
 
@@ -8725,7 +8725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatLiteralType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatLiteralType] = [
       .noneFloatLiteralType,
     ]
 
@@ -8755,7 +8755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatValue] = [
       .noneFloatValue,
     ]
 
@@ -8785,7 +8785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forMessageName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forMessageName] = [
       .noneForMessageName,
     ]
 
@@ -8815,7 +8815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.formUnion] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.formUnion] = [
       .noneFormUnion,
     ]
 
@@ -8845,7 +8845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forReadingFrom] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forReadingFrom] = [
       .noneForReadingFrom,
     ]
 
@@ -8875,7 +8875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forTypeURL] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forTypeURL] = [
       .noneForTypeURL,
     ]
 
@@ -8905,7 +8905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ForwardParser] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ForwardParser] = [
       .noneForwardParser,
     ]
 
@@ -8935,7 +8935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forWritingInto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forWritingInto] = [
       .noneForWritingInto,
     ]
 
@@ -8965,7 +8965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.from] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.from] = [
       .noneFrom,
     ]
 
@@ -8995,7 +8995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromAscii2] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromAscii2] = [
       .noneFromAscii2,
     ]
 
@@ -9025,7 +9025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromAscii4] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromAscii4] = [
       .noneFromAscii4,
     ]
 
@@ -9055,7 +9055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromByteOffset] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromByteOffset] = [
       .noneFromByteOffset,
     ]
 
@@ -9085,7 +9085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromHexDigit] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromHexDigit] = [
       .noneFromHexDigit,
     ]
 
@@ -9115,7 +9115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.funcEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.funcEnum] = [
       .noneFunc,
     ]
 
@@ -9145,7 +9145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.G] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.G] = [
       .noneG,
     ]
 
@@ -9175,7 +9175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.GeneratedCodeInfo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.GeneratedCodeInfo] = [
       .noneGeneratedCodeInfo,
     ]
 
@@ -9205,7 +9205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.get] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.get] = [
       .noneGet,
     ]
 
@@ -9235,7 +9235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.getExtensionValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.getExtensionValue] = [
       .noneGetExtensionValue,
     ]
 
@@ -9265,7 +9265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.googleapis] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.googleapis] = [
       .noneGoogleapis,
     ]
 
@@ -9295,7 +9295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Any] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Any] = [
       .noneGoogleProtobufAny,
     ]
 
@@ -9325,7 +9325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Api] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Api] = [
       .noneGoogleProtobufApi,
     ]
 
@@ -9355,7 +9355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_BoolValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_BoolValue] = [
       .noneGoogleProtobufBoolValue,
     ]
 
@@ -9385,7 +9385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_BytesValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_BytesValue] = [
       .noneGoogleProtobufBytesValue,
     ]
 
@@ -9415,7 +9415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_DescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_DescriptorProto] = [
       .noneGoogleProtobufDescriptorProto,
     ]
 
@@ -9445,7 +9445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_DoubleValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_DoubleValue] = [
       .noneGoogleProtobufDoubleValue,
     ]
 
@@ -9475,7 +9475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Duration] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Duration] = [
       .noneGoogleProtobufDuration,
     ]
 
@@ -9505,7 +9505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Empty] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Empty] = [
       .noneGoogleProtobufEmpty,
     ]
 
@@ -9535,7 +9535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Enum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Enum] = [
       .noneGoogleProtobufEnum,
     ]
 
@@ -9565,7 +9565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumDescriptorProto] = [
       .noneGoogleProtobufEnumDescriptorProto,
     ]
 
@@ -9595,7 +9595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumOptions] = [
       .noneGoogleProtobufEnumOptions,
     ]
 
@@ -9625,7 +9625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValue] = [
       .noneGoogleProtobufEnumValue,
     ]
 
@@ -9655,7 +9655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValueDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValueDescriptorProto] = [
       .noneGoogleProtobufEnumValueDescriptorProto,
     ]
 
@@ -9685,7 +9685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValueOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValueOptions] = [
       .noneGoogleProtobufEnumValueOptions,
     ]
 
@@ -9715,7 +9715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ExtensionRangeOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ExtensionRangeOptions] = [
       .noneGoogleProtobufExtensionRangeOptions,
     ]
 
@@ -9745,7 +9745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Field] = [
       .noneGoogleProtobufField,
     ]
 
@@ -9775,7 +9775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldDescriptorProto] = [
       .noneGoogleProtobufFieldDescriptorProto,
     ]
 
@@ -9805,7 +9805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldMask] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldMask] = [
       .noneGoogleProtobufFieldMask,
     ]
 
@@ -9835,7 +9835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldOptions] = [
       .noneGoogleProtobufFieldOptions,
     ]
 
@@ -9865,7 +9865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FileDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FileDescriptorProto] = [
       .noneGoogleProtobufFileDescriptorProto,
     ]
 
@@ -9895,7 +9895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FileDescriptorSet] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FileDescriptorSet] = [
       .noneGoogleProtobufFileDescriptorSet,
     ]
 
@@ -9925,7 +9925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FileOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FileOptions] = [
       .noneGoogleProtobufFileOptions,
     ]
 
@@ -9955,7 +9955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FloatValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FloatValue] = [
       .noneGoogleProtobufFloatValue,
     ]
 
@@ -9985,7 +9985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_GeneratedCodeInfo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_GeneratedCodeInfo] = [
       .noneGoogleProtobufGeneratedCodeInfo,
     ]
 
@@ -10015,7 +10015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Int32Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Int32Value] = [
       .noneGoogleProtobufInt32Value,
     ]
 
@@ -10045,7 +10045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Int64Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Int64Value] = [
       .noneGoogleProtobufInt64Value,
     ]
 
@@ -10075,7 +10075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ListValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ListValue] = [
       .noneGoogleProtobufListValue,
     ]
 
@@ -10105,7 +10105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_MessageOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_MessageOptions] = [
       .noneGoogleProtobufMessageOptions,
     ]
 
@@ -10135,7 +10135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Method] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Method] = [
       .noneGoogleProtobufMethod,
     ]
 
@@ -10165,7 +10165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_MethodDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_MethodDescriptorProto] = [
       .noneGoogleProtobufMethodDescriptorProto,
     ]
 
@@ -10195,7 +10195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_MethodOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_MethodOptions] = [
       .noneGoogleProtobufMethodOptions,
     ]
 
@@ -10225,7 +10225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Mixin] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Mixin] = [
       .noneGoogleProtobufMixin,
     ]
 
@@ -10255,7 +10255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_NullValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_NullValue] = [
       .noneGoogleProtobufNullValue,
     ]
 
@@ -10285,7 +10285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_OneofDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_OneofDescriptorProto] = [
       .noneGoogleProtobufOneofDescriptorProto,
     ]
 
@@ -10315,7 +10315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_OneofOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_OneofOptions] = [
       .noneGoogleProtobufOneofOptions,
     ]
 
@@ -10345,7 +10345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Option] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Option] = [
       .noneGoogleProtobufOption,
     ]
 
@@ -10375,7 +10375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ServiceDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ServiceDescriptorProto] = [
       .noneGoogleProtobufServiceDescriptorProto,
     ]
 
@@ -10405,7 +10405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ServiceOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ServiceOptions] = [
       .noneGoogleProtobufServiceOptions,
     ]
 
@@ -10435,7 +10435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_SourceCodeInfo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_SourceCodeInfo] = [
       .noneGoogleProtobufSourceCodeInfo,
     ]
 
@@ -10465,7 +10465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_SourceContext] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_SourceContext] = [
       .noneGoogleProtobufSourceContext,
     ]
 
@@ -10495,7 +10495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_StringValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_StringValue] = [
       .noneGoogleProtobufStringValue,
     ]
 
@@ -10525,7 +10525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Struct] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Struct] = [
       .noneGoogleProtobufStruct,
     ]
 
@@ -10555,7 +10555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Syntax] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Syntax] = [
       .noneGoogleProtobufSyntax,
     ]
 
@@ -10585,7 +10585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Timestamp] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Timestamp] = [
       .noneGoogleProtobufTimestamp,
     ]
 
@@ -10615,7 +10615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Type] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Type] = [
       .noneGoogleProtobufType,
     ]
 
@@ -10645,7 +10645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UInt32Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UInt32Value] = [
       .noneGoogleProtobufUint32Value,
     ]
 
@@ -10675,7 +10675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UInt64Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UInt64Value] = [
       .noneGoogleProtobufUint64Value,
     ]
 
@@ -10705,7 +10705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UninterpretedOption] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UninterpretedOption] = [
       .noneGoogleProtobufUninterpretedOption,
     ]
 
@@ -10735,7 +10735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Value] = [
       .noneGoogleProtobufValue,
     ]
 
@@ -10765,7 +10765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.goPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.goPackage] = [
       .noneGoPackage,
     ]
 
@@ -10795,7 +10795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.group] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.group] = [
       .noneGroup,
     ]
 
@@ -10825,7 +10825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupFieldNumberStack] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupFieldNumberStack] = [
       .noneGroupFieldNumberStack,
     ]
 
@@ -10855,7 +10855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupSize] = [
       .noneGroupSize,
     ]
 
@@ -10885,7 +10885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hadOneofValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hadOneofValue] = [
       .noneHadOneofValue,
     ]
 
@@ -10915,7 +10915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.handleConflictingOneOf] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.handleConflictingOneOf] = [
       .noneHandleConflictingOneOf,
     ]
 
@@ -10945,7 +10945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasAggregateValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasAggregateValue] = [
       .noneHasAggregateValue,
     ]
 
@@ -10975,7 +10975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasAllowAlias] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasAllowAlias] = [
       .noneHasAllowAlias,
     ]
 
@@ -11005,7 +11005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasBegin] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasBegin] = [
       .noneHasBegin,
     ]
 
@@ -11035,7 +11035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCcEnableArenas] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCcEnableArenas] = [
       .noneHasCcEnableArenas,
     ]
 
@@ -11065,7 +11065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCcGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCcGenericServices] = [
       .noneHasCcGenericServices,
     ]
 
@@ -11095,7 +11095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasClientStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasClientStreaming] = [
       .noneHasClientStreaming,
     ]
 
@@ -11125,7 +11125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCsharpNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCsharpNamespace] = [
       .noneHasCsharpNamespace,
     ]
 
@@ -11155,7 +11155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCtype] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCtype] = [
       .noneHasCtype,
     ]
 
@@ -11185,7 +11185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue] = [
       .noneHasDefaultValue,
     ]
 
@@ -11215,7 +11215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated] = [
       .noneHasDeprecated,
     ]
 
@@ -11245,7 +11245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDoubleValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDoubleValue] = [
       .noneHasDoubleValue,
     ]
 
@@ -11275,7 +11275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasEdition] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasEdition] = [
       .noneHasEdition,
     ]
 
@@ -11305,7 +11305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasEnd] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasEnd] = [
       .noneHasEnd,
     ]
 
@@ -11335,7 +11335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasExtendee] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasExtendee] = [
       .noneHasExtendee,
     ]
 
@@ -11365,7 +11365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasExtensionValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasExtensionValue] = [
       .noneHasExtensionValue,
     ]
 
@@ -11395,7 +11395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasGoPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasGoPackage] = [
       .noneHasGoPackage,
     ]
 
@@ -11425,7 +11425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hash] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hash] = [
       .noneHash,
     ]
 
@@ -11455,7 +11455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable] = [
       .noneHashable,
     ]
 
@@ -11485,7 +11485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher] = [
       .noneHasher,
     ]
 
@@ -11515,7 +11515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashVisitor] = [
       .noneHashVisitor,
     ]
 
@@ -11545,7 +11545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasIdempotencyLevel] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasIdempotencyLevel] = [
       .noneHasIdempotencyLevel,
     ]
 
@@ -11575,7 +11575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasIdentifierValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasIdentifierValue] = [
       .noneHasIdentifierValue,
     ]
 
@@ -11605,7 +11605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasInputType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasInputType] = [
       .noneHasInputType,
     ]
 
@@ -11635,7 +11635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasIsExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasIsExtension] = [
       .noneHasIsExtension,
     ]
 
@@ -11665,7 +11665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaGenerateEqualsAndHash] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaGenerateEqualsAndHash] = [
       .noneHasJavaGenerateEqualsAndHash,
     ]
 
@@ -11695,7 +11695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaGenericServices] = [
       .noneHasJavaGenericServices,
     ]
 
@@ -11725,7 +11725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaMultipleFiles] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaMultipleFiles] = [
       .noneHasJavaMultipleFiles,
     ]
 
@@ -11755,7 +11755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaOuterClassname] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaOuterClassname] = [
       .noneHasJavaOuterClassname,
     ]
 
@@ -11785,7 +11785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaPackage] = [
       .noneHasJavaPackage,
     ]
 
@@ -11815,7 +11815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaStringCheckUtf8] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJavaStringCheckUtf8] = [
       .noneHasJavaStringCheckUtf8,
     ]
 
@@ -11845,7 +11845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJsonName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJsonName] = [
       .noneHasJsonName,
     ]
 
@@ -11875,7 +11875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJstype] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasJstype] = [
       .noneHasJstype,
     ]
 
@@ -11905,7 +11905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasLabel] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasLabel] = [
       .noneHasLabel,
     ]
 
@@ -11935,7 +11935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasLazy] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasLazy] = [
       .noneHasLazy,
     ]
 
@@ -11965,7 +11965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasLeadingComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasLeadingComments] = [
       .noneHasLeadingComments,
     ]
 
@@ -11995,7 +11995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasMapEntry] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasMapEntry] = [
       .noneHasMapEntry,
     ]
 
@@ -12025,7 +12025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasMessageSetWireFormat] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasMessageSetWireFormat] = [
       .noneHasMessageSetWireFormat,
     ]
 
@@ -12055,7 +12055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasName] = [
       .noneHasName,
     ]
 
@@ -12085,7 +12085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNamePart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNamePart] = [
       .noneHasNamePart,
     ]
 
@@ -12115,7 +12115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNegativeIntValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNegativeIntValue] = [
       .noneHasNegativeIntValue,
     ]
 
@@ -12145,7 +12145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNoStandardDescriptorAccessor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNoStandardDescriptorAccessor] = [
       .noneHasNoStandardDescriptorAccessor,
     ]
 
@@ -12175,7 +12175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasNumber] = [
       .noneHasNumber,
     ]
 
@@ -12205,7 +12205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasObjcClassPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasObjcClassPrefix] = [
       .noneHasObjcClassPrefix,
     ]
 
@@ -12235,7 +12235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOneofIndex] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOneofIndex] = [
       .noneHasOneofIndex,
     ]
 
@@ -12265,7 +12265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOptimizeFor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOptimizeFor] = [
       .noneHasOptimizeFor,
     ]
 
@@ -12295,7 +12295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOptions] = [
       .noneHasOptions,
     ]
 
@@ -12325,7 +12325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOutputType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOutputType] = [
       .noneHasOutputType,
     ]
 
@@ -12355,7 +12355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPackage] = [
       .noneHasPackage,
     ]
 
@@ -12385,7 +12385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPacked] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPacked] = [
       .noneHasPacked,
     ]
 
@@ -12415,7 +12415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpClassPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpClassPrefix] = [
       .noneHasPhpClassPrefix,
     ]
 
@@ -12445,7 +12445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpGenericServices] = [
       .noneHasPhpGenericServices,
     ]
 
@@ -12475,7 +12475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpMetadataNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpMetadataNamespace] = [
       .noneHasPhpMetadataNamespace,
     ]
 
@@ -12505,7 +12505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpNamespace] = [
       .noneHasPhpNamespace,
     ]
 
@@ -12535,7 +12535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPositiveIntValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPositiveIntValue] = [
       .noneHasPositiveIntValue,
     ]
 
@@ -12565,7 +12565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasProto3Optional] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasProto3Optional] = [
       .noneHasProto3Optional,
     ]
 
@@ -12595,7 +12595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPyGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPyGenericServices] = [
       .noneHasPyGenericServices,
     ]
 
@@ -12625,7 +12625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasRubyPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasRubyPackage] = [
       .noneHasRubyPackage,
     ]
 
@@ -12655,7 +12655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSemantic] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSemantic] = [
       .noneHasSemantic,
     ]
 
@@ -12685,7 +12685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasServerStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasServerStreaming] = [
       .noneHasServerStreaming,
     ]
 
@@ -12715,7 +12715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceCodeInfo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceCodeInfo] = [
       .noneHasSourceCodeInfo,
     ]
 
@@ -12745,7 +12745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceContext] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceContext] = [
       .noneHasSourceContext,
     ]
 
@@ -12775,7 +12775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceFile] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceFile] = [
       .noneHasSourceFile,
     ]
 
@@ -12805,7 +12805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasStart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasStart] = [
       .noneHasStart,
     ]
 
@@ -12835,7 +12835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasStringValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasStringValue] = [
       .noneHasStringValue,
     ]
 
@@ -12865,7 +12865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSwiftPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSwiftPrefix] = [
       .noneHasSwiftPrefix,
     ]
 
@@ -12895,7 +12895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSyntax] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSyntax] = [
       .noneHasSyntax,
     ]
 
@@ -12925,7 +12925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTrailingComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTrailingComments] = [
       .noneHasTrailingComments,
     ]
 
@@ -12955,7 +12955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasType] = [
       .noneHasType,
     ]
 
@@ -12985,7 +12985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTypeName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasTypeName] = [
       .noneHasTypeName,
     ]
 
@@ -13015,7 +13015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasUnverifiedLazy] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasUnverifiedLazy] = [
       .noneHasUnverifiedLazy,
     ]
 
@@ -13045,7 +13045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasValue] = [
       .noneHasValue,
     ]
 
@@ -13075,7 +13075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasWeak] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasWeak] = [
       .noneHasWeak,
     ]
 
@@ -13105,7 +13105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hour] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hour] = [
       .noneHour,
     ]
 
@@ -13135,7 +13135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i] = [
       .noneI,
     ]
 
@@ -13165,7 +13165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.idempotencyLevel] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.idempotencyLevel] = [
       .noneIdempotencyLevel,
     ]
 
@@ -13195,7 +13195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.identifierValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.identifierValue] = [
       .noneIdentifierValue,
     ]
 
@@ -13225,7 +13225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ifEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ifEnum] = [
       .noneIf,
     ]
 
@@ -13255,7 +13255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ignoreUnknownFields] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ignoreUnknownFields] = [
       .noneIgnoreUnknownFields,
     ]
 
@@ -13285,7 +13285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index] = [
       .noneIndex,
     ]
 
@@ -13315,7 +13315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.initEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.initEnum] = [
       .noneInit,
     ]
 
@@ -13345,7 +13345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.inoutEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.inoutEnum] = [
       .noneInout,
     ]
 
@@ -13375,7 +13375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.inputType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.inputType] = [
       .noneInputType,
     ]
 
@@ -13405,7 +13405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.insert] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.insert] = [
       .noneInsert,
     ]
 
@@ -13435,7 +13435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IntEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IntEnum] = [
       .noneInt,
     ]
 
@@ -13465,7 +13465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int32Enum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int32Enum] = [
       .noneInt32,
     ]
 
@@ -13495,7 +13495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int32Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int32Value] = [
       .noneInt32Value,
     ]
 
@@ -13525,7 +13525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int64Enum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int64Enum] = [
       .noneInt64,
     ]
 
@@ -13555,7 +13555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int64Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int64Value] = [
       .noneInt64Value,
     ]
 
@@ -13585,7 +13585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int8] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int8] = [
       .noneInt8,
     ]
 
@@ -13615,7 +13615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.integerLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.integerLiteral] = [
       .noneIntegerLiteral,
     ]
 
@@ -13645,7 +13645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IntegerLiteralType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IntegerLiteralType] = [
       .noneIntegerLiteralType,
     ]
 
@@ -13675,7 +13675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.intern] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.intern] = [
       .noneIntern,
     ]
 
@@ -13705,7 +13705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Internal] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Internal] = [
       .noneInternal,
     ]
 
@@ -13735,7 +13735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.InternalState] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.InternalState] = [
       .noneInternalState,
     ]
 
@@ -13765,7 +13765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.into] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.into] = [
       .noneInto,
     ]
 
@@ -13795,7 +13795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ints] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ints] = [
       .noneInts,
     ]
 
@@ -13825,7 +13825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isA] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isA] = [
       .noneIsA,
     ]
 
@@ -13855,7 +13855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isEqual] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isEqual] = [
       .noneIsEqual,
     ]
 
@@ -13885,7 +13885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isEqualTo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isEqualTo] = [
       .noneIsEqualTo,
     ]
 
@@ -13915,7 +13915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isExtension] = [
       .noneIsExtension,
     ]
 
@@ -13945,7 +13945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isInitializedEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isInitializedEnum] = [
       .noneIsInitialized,
     ]
 
@@ -13975,7 +13975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isNegative] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isNegative] = [
       .noneIsNegative,
     ]
 
@@ -14005,7 +14005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedSize] = [
       .noneItemTagsEncodedSize,
     ]
 
@@ -14035,7 +14035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator] = [
       .noneIterator,
     ]
 
@@ -14065,7 +14065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaGenerateEqualsAndHash] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaGenerateEqualsAndHash] = [
       .noneJavaGenerateEqualsAndHash,
     ]
 
@@ -14095,7 +14095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaGenericServices] = [
       .noneJavaGenericServices,
     ]
 
@@ -14125,7 +14125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaMultipleFiles] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaMultipleFiles] = [
       .noneJavaMultipleFiles,
     ]
 
@@ -14155,7 +14155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaOuterClassname] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaOuterClassname] = [
       .noneJavaOuterClassname,
     ]
 
@@ -14185,7 +14185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaPackage] = [
       .noneJavaPackage,
     ]
 
@@ -14215,7 +14215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaStringCheckUtf8] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.javaStringCheckUtf8] = [
       .noneJavaStringCheckUtf8,
     ]
 
@@ -14245,7 +14245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecoder] = [
       .noneJsondecoder,
     ]
 
@@ -14275,7 +14275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecodingError] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecodingError] = [
       .noneJsondecodingError,
     ]
 
@@ -14305,7 +14305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecodingOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecodingOptions] = [
       .noneJsondecodingOptions,
     ]
 
@@ -14335,7 +14335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonEncoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonEncoder] = [
       .noneJsonEncoder,
     ]
 
@@ -14365,7 +14365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingError] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingError] = [
       .noneJsonencodingError,
     ]
 
@@ -14395,7 +14395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingOptions] = [
       .noneJsonencodingOptions,
     ]
 
@@ -14425,7 +14425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingVisitor] = [
       .noneJsonencodingVisitor,
     ]
 
@@ -14455,7 +14455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONMapEncodingVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONMapEncodingVisitor] = [
       .noneJsonmapEncodingVisitor,
     ]
 
@@ -14485,7 +14485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonName] = [
       .noneJsonName,
     ]
 
@@ -14515,7 +14515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonPath] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonPath] = [
       .noneJsonPath,
     ]
 
@@ -14545,7 +14545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonPaths] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonPaths] = [
       .noneJsonPaths,
     ]
 
@@ -14575,7 +14575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONScanner] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONScanner] = [
       .noneJsonscanner,
     ]
 
@@ -14605,7 +14605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonString] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonString] = [
       .noneJsonString,
     ]
 
@@ -14635,7 +14635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonText] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonText] = [
       .noneJsonText,
     ]
 
@@ -14665,7 +14665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonUTF8Data] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonUTF8Data] = [
       .noneJsonUtf8Data,
     ]
 
@@ -14695,7 +14695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jstype] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jstype] = [
       .noneJstype,
     ]
 
@@ -14725,7 +14725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.k] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.k] = [
       .noneK,
     ]
 
@@ -14755,7 +14755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Key] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Key] = [
       .noneKey,
     ]
 
@@ -14785,7 +14785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField] = [
       .noneKeyField,
     ]
 
@@ -14815,7 +14815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType] = [
       .noneKeyType,
     ]
 
@@ -14845,7 +14845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.kind] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.kind] = [
       .noneKind,
     ]
 
@@ -14875,7 +14875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.l] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.l] = [
       .noneL,
     ]
 
@@ -14905,7 +14905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.label] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.label] = [
       .noneLabel,
     ]
 
@@ -14935,7 +14935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lazy] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lazy] = [
       .noneLazy,
     ]
 
@@ -14965,7 +14965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.leadingComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.leadingComments] = [
       .noneLeadingComments,
     ]
 
@@ -14995,7 +14995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.leadingDetachedComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.leadingDetachedComments] = [
       .noneLeadingDetachedComments,
     ]
 
@@ -15025,7 +15025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.length] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.length] = [
       .noneLength,
     ]
 
@@ -15055,7 +15055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lessThan] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lessThan] = [
       .noneLessThan,
     ]
 
@@ -15085,7 +15085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.letEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.letEnum] = [
       .noneLet,
     ]
 
@@ -15115,7 +15115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lhs] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lhs] = [
       .noneLhs,
     ]
 
@@ -15145,7 +15145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.list] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.list] = [
       .noneList,
     ]
 
@@ -15175,7 +15175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.listOfMessages] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.listOfMessages] = [
       .noneListOfMessages,
     ]
 
@@ -15205,7 +15205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.listValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.listValue] = [
       .noneListValue,
     ]
 
@@ -15235,7 +15235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndian] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndian] = [
       .noneLittleEndian,
     ]
 
@@ -15265,7 +15265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndianBytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndianBytes] = [
       .noneLittleEndianBytes,
     ]
 
@@ -15295,7 +15295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.load] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.load] = [
       .noneLoad,
     ]
 
@@ -15325,7 +15325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.localHasher] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.localHasher] = [
       .noneLocalHasher,
     ]
 
@@ -15355,7 +15355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.location] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.location] = [
       .noneLocation,
     ]
 
@@ -15385,7 +15385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.M] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.M] = [
       .noneM,
     ]
 
@@ -15415,7 +15415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.major] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.major] = [
       .noneMajor,
     ]
 
@@ -15445,7 +15445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.makeIterator] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.makeIterator] = [
       .noneMakeIterator,
     ]
 
@@ -15475,7 +15475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapEntry] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapEntry] = [
       .noneMapEntry,
     ]
 
@@ -15505,7 +15505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapKeyType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapKeyType] = [
       .noneMapKeyType,
     ]
 
@@ -15535,7 +15535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapNameResolver] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapNameResolver] = [
       .noneMapNameResolver,
     ]
 
@@ -15565,7 +15565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapToMessages] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapToMessages] = [
       .noneMapToMessages,
     ]
 
@@ -15595,7 +15595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapValueType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapValueType] = [
       .noneMapValueType,
     ]
 
@@ -15625,7 +15625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapVisitor] = [
       .noneMapVisitor,
     ]
 
@@ -15655,7 +15655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mdayStart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mdayStart] = [
       .noneMdayStart,
     ]
 
@@ -15685,7 +15685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.merge] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.merge] = [
       .noneMerge,
     ]
 
@@ -15715,7 +15715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.message] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.message] = [
       .noneMessage,
     ]
 
@@ -15745,7 +15745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageDepthLimit] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageDepthLimit] = [
       .noneMessageDepthLimit,
     ]
 
@@ -15775,7 +15775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageExtension] = [
       .noneMessageExtension,
     ]
 
@@ -15805,7 +15805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageImplementationBase] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageImplementationBase] = [
       .noneMessageImplementationBase,
     ]
 
@@ -15835,7 +15835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageOptions] = [
       .noneMessageOptions,
     ]
 
@@ -15865,7 +15865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageSet] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageSet] = [
       .noneMessageSet,
     ]
 
@@ -15895,7 +15895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageSetWireFormat] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageSetWireFormat] = [
       .noneMessageSetWireFormat,
     ]
 
@@ -15925,7 +15925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageType] = [
       .noneMessageType,
     ]
 
@@ -15955,7 +15955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Method] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Method] = [
       .noneMethod,
     ]
 
@@ -15985,7 +15985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MethodDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MethodDescriptorProto] = [
       .noneMethodDescriptorProto,
     ]
 
@@ -16015,7 +16015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MethodOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MethodOptions] = [
       .noneMethodOptions,
     ]
 
@@ -16045,7 +16045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.methods] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.methods] = [
       .noneMethods,
     ]
 
@@ -16075,7 +16075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.minor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.minor] = [
       .noneMinor,
     ]
 
@@ -16105,7 +16105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Mixin] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Mixin] = [
       .noneMixin,
     ]
 
@@ -16135,7 +16135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mixins] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mixins] = [
       .noneMixins,
     ]
 
@@ -16165,7 +16165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.modifier] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.modifier] = [
       .noneModifier,
     ]
 
@@ -16195,7 +16195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.modify] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.modify] = [
       .noneModify,
     ]
 
@@ -16225,7 +16225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.month] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.month] = [
       .noneMonth,
     ]
 
@@ -16255,7 +16255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.msgExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.msgExtension] = [
       .noneMsgExtension,
     ]
 
@@ -16285,7 +16285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mutating] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mutating] = [
       .noneMutating,
     ]
 
@@ -16315,7 +16315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.n] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.n] = [
       .oneN,
     ]
 
@@ -16345,7 +16345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.name] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.name] = [
       .noneName,
     ]
 
@@ -16375,7 +16375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameDescription] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameDescription] = [
       .noneNameDescription,
     ]
 
@@ -16405,7 +16405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameMap] = [
       .noneNameMap,
     ]
 
@@ -16435,7 +16435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NamePart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NamePart] = [
       .noneNamePart,
     ]
 
@@ -16465,7 +16465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nameResolver] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nameResolver] = [
       .noneNameResolver,
     ]
 
@@ -16495,7 +16495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.names] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.names] = [
       .noneNames,
     ]
 
@@ -16525,7 +16525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nanos] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nanos] = [
       .noneNanos,
     ]
 
@@ -16555,7 +16555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeBytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeBytes] = [
       .noneNativeBytes,
     ]
 
@@ -16585,7 +16585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeEndianBytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeEndianBytes] = [
       .noneNativeEndianBytes,
     ]
 
@@ -16615,7 +16615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.negativeIntValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.negativeIntValue] = [
       .noneNegativeIntValue,
     ]
 
@@ -16645,7 +16645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nestedType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nestedType] = [
       .noneNestedType,
     ]
 
@@ -16675,7 +16675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newL] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newL] = [
       .noneNewL,
     ]
 
@@ -16705,7 +16705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newList] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newList] = [
       .noneNewList,
     ]
 
@@ -16735,7 +16735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newValue] = [
       .noneNewValue,
     ]
 
@@ -16765,7 +16765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nextByte] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nextByte] = [
       .noneNextByte,
     ]
 
@@ -16795,7 +16795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nextFieldNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nextFieldNumber] = [
       .noneNextFieldNumber,
     ]
 
@@ -16825,7 +16825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nilEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nilEnum] = [
       .noneNil,
     ]
 
@@ -16855,7 +16855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nilLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nilLiteral] = [
       .noneNilLiteral,
     ]
 
@@ -16885,7 +16885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.noStandardDescriptorAccessor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.noStandardDescriptorAccessor] = [
       .noneNoStandardDescriptorAccessor,
     ]
 
@@ -16915,7 +16915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nullValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nullValue] = [
       .noneNullValue,
     ]
 
@@ -16945,7 +16945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.number] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.number] = [
       .noneNumber,
     ]
 
@@ -16975,7 +16975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.numberValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.numberValue] = [
       .noneNumberValue,
     ]
 
@@ -17005,7 +17005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.objcClassPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.objcClassPrefix] = [
       .noneObjcClassPrefix,
     ]
 
@@ -17035,7 +17035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.of] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.of] = [
       .noneOf,
     ]
 
@@ -17065,7 +17065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofDecl] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofDecl] = [
       .noneOneofDecl,
     ]
 
@@ -17095,7 +17095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneofDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneofDescriptorProto] = [
       .noneOneofDescriptorProto,
     ]
 
@@ -17125,7 +17125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofIndex] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofIndex] = [
       .noneOneofIndex,
     ]
 
@@ -17155,7 +17155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneofOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneofOptions] = [
       .noneOneofOptions,
     ]
 
@@ -17185,7 +17185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofs] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofs] = [
       .noneOneofs,
     ]
 
@@ -17215,7 +17215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneOf_Kind] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneOf_Kind] = [
       .noneOneOfKind,
     ]
 
@@ -17245,7 +17245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.optimizeFor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.optimizeFor] = [
       .noneOptimizeFor,
     ]
 
@@ -17275,7 +17275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptimizeMode] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptimizeMode] = [
       .noneOptimizeMode,
     ]
 
@@ -17305,7 +17305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Option] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Option] = [
       .noneOption,
     ]
 
@@ -17335,7 +17335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalEnumExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalEnumExtensionField] = [
       .noneOptionalEnumExtensionField,
     ]
 
@@ -17365,7 +17365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalExtensionField] = [
       .noneOptionalExtensionField,
     ]
 
@@ -17395,7 +17395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalGroupExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalGroupExtensionField] = [
       .noneOptionalGroupExtensionField,
     ]
 
@@ -17425,7 +17425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageExtensionField] = [
       .noneOptionalMessageExtensionField,
     ]
 
@@ -17455,7 +17455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options] = [
       .noneOptions,
     ]
 
@@ -17485,7 +17485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.other] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.other] = [
       .noneOther,
     ]
 
@@ -17515,7 +17515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.others] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.others] = [
       .noneOthers,
     ]
 
@@ -17545,7 +17545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.out] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.out] = [
       .noneOut,
     ]
 
@@ -17575,7 +17575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.outputType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.outputType] = [
       .noneOutputType,
     ]
 
@@ -17605,7 +17605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.p] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.p] = [
       .noneP,
     ]
 
@@ -17635,7 +17635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.package] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.package] = [
       .nonePackage,
     ]
 
@@ -17665,7 +17665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.packed] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.packed] = [
       .nonePacked,
     ]
 
@@ -17695,7 +17695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.PackedEnumExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.PackedEnumExtensionField] = [
       .nonePackedEnumExtensionField,
     ]
 
@@ -17725,7 +17725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.PackedExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.PackedExtensionField] = [
       .nonePackedExtensionField,
     ]
 
@@ -17755,7 +17755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.padding] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.padding] = [
       .nonePadding,
     ]
 
@@ -17785,7 +17785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.parent] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.parent] = [
       .noneParent,
     ]
 
@@ -17815,7 +17815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.parse] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.parse] = [
       .noneParse,
     ]
 
@@ -17845,7 +17845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.partial] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.partial] = [
       .nonePartial,
     ]
 
@@ -17875,7 +17875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.path] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.path] = [
       .nonePath,
     ]
 
@@ -17905,7 +17905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.paths] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.paths] = [
       .nonePaths,
     ]
 
@@ -17935,7 +17935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payload] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payload] = [
       .nonePayload,
     ]
 
@@ -17965,7 +17965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payloadSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payloadSize] = [
       .nonePayloadSize,
     ]
 
@@ -17995,7 +17995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpClassPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpClassPrefix] = [
       .nonePhpClassPrefix,
     ]
 
@@ -18025,7 +18025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpGenericServices] = [
       .nonePhpGenericServices,
     ]
 
@@ -18055,7 +18055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpMetadataNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpMetadataNamespace] = [
       .nonePhpMetadataNamespace,
     ]
 
@@ -18085,7 +18085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpNamespace] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpNamespace] = [
       .nonePhpNamespace,
     ]
 
@@ -18115,7 +18115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pointer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pointer] = [
       .nonePointer,
     ]
 
@@ -18145,7 +18145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pos] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pos] = [
       .nonePos,
     ]
 
@@ -18175,7 +18175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.positiveIntValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.positiveIntValue] = [
       .nonePositiveIntValue,
     ]
 
@@ -18205,7 +18205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.prefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.prefix] = [
       .nonePrefix,
     ]
 
@@ -18235,7 +18235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preserveProtoFieldNames] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preserveProtoFieldNames] = [
       .nonePreserveProtoFieldNames,
     ]
 
@@ -18265,7 +18265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preTraverse] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preTraverse] = [
       .nonePreTraverse,
     ]
 
@@ -18295,7 +18295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.printUnknownFields] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.printUnknownFields] = [
       .nonePrintUnknownFields,
     ]
 
@@ -18325,7 +18325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto2] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto2] = [
       .noneProto2,
     ]
 
@@ -18355,7 +18355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto3DefaultValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto3DefaultValue] = [
       .noneProto3DefaultValue,
     ]
 
@@ -18385,7 +18385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto3Optional] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto3Optional] = [
       .noneProto3Optional,
     ]
 
@@ -18415,7 +18415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck] = [
       .noneProtobufApiversionCheck,
     ]
 
@@ -18445,7 +18445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_3] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_3] = [
       .noneProtobufApiversion3,
     ]
 
@@ -18475,7 +18475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufBool] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufBool] = [
       .noneProtobufBool,
     ]
 
@@ -18505,7 +18505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufBytes] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufBytes] = [
       .noneProtobufBytes,
     ]
 
@@ -18535,7 +18535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufDouble] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufDouble] = [
       .noneProtobufDouble,
     ]
 
@@ -18565,7 +18565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufEnumMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufEnumMap] = [
       .noneProtobufEnumMap,
     ]
 
@@ -18595,7 +18595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobufExtension] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobufExtension] = [
       .noneProtobufExtension,
     ]
 
@@ -18625,7 +18625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFixed32] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFixed32] = [
       .noneProtobufFixed32,
     ]
 
@@ -18655,7 +18655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFixed64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFixed64] = [
       .noneProtobufFixed64,
     ]
 
@@ -18685,7 +18685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFloat] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFloat] = [
       .noneProtobufFloat,
     ]
 
@@ -18715,7 +18715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufInt32] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufInt32] = [
       .noneProtobufInt32,
     ]
 
@@ -18745,7 +18745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufInt64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufInt64] = [
       .noneProtobufInt64,
     ]
 
@@ -18775,7 +18775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufMap] = [
       .noneProtobufMap,
     ]
 
@@ -18805,7 +18805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufMessageMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufMessageMap] = [
       .noneProtobufMessageMap,
     ]
 
@@ -18835,7 +18835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSFixed32] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSFixed32] = [
       .noneProtobufSfixed32,
     ]
 
@@ -18865,7 +18865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSFixed64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSFixed64] = [
       .noneProtobufSfixed64,
     ]
 
@@ -18895,7 +18895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSInt32] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSInt32] = [
       .noneProtobufSint32,
     ]
 
@@ -18925,7 +18925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSInt64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSInt64] = [
       .noneProtobufSint64,
     ]
 
@@ -18955,7 +18955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufString] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufString] = [
       .noneProtobufString,
     ]
 
@@ -18985,7 +18985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufUInt32] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufUInt32] = [
       .noneProtobufUint32,
     ]
 
@@ -19015,7 +19015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufUInt64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufUInt64] = [
       .noneProtobufUint64,
     ]
 
@@ -19045,7 +19045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_extensionFieldValues] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_extensionFieldValues] = [
       .noneProtobufExtensionFieldValues,
     ]
 
@@ -19075,7 +19075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_fieldNumber] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_fieldNumber] = [
       .noneProtobufFieldNumber,
     ]
 
@@ -19105,7 +19105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_generated_isEqualTo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_generated_isEqualTo] = [
       .noneProtobufGeneratedIsEqualTo,
     ]
 
@@ -19135,7 +19135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_nameMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_nameMap] = [
       .noneProtobufNameMap,
     ]
 
@@ -19165,7 +19165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_newField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_newField] = [
       .noneProtobufNewField,
     ]
 
@@ -19195,7 +19195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_package] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_package] = [
       .noneProtobufPackage,
     ]
 
@@ -19225,7 +19225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protocolEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protocolEnum] = [
       .noneProtocol,
     ]
 
@@ -19255,7 +19255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoFieldName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoFieldName] = [
       .noneProtoFieldName,
     ]
 
@@ -19285,7 +19285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoMessageNameEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoMessageNameEnum] = [
       .noneProtoMessageName,
     ]
 
@@ -19315,7 +19315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoNameProviding] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoNameProviding] = [
       .noneProtoNameProviding,
     ]
 
@@ -19345,7 +19345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoPaths] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoPaths] = [
       .noneProtoPaths,
     ]
 
@@ -19375,7 +19375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoSendable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoSendable] = [
       .noneProtoSendable,
     ]
 
@@ -19405,7 +19405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicEnum] = [
       .nonePublic,
     ]
 
@@ -19435,7 +19435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicDependency] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicDependency] = [
       .nonePublicDependency,
     ]
 
@@ -19465,7 +19465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putBoolValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putBoolValue] = [
       .nonePutBoolValue,
     ]
 
@@ -19495,7 +19495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putBytesValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putBytesValue] = [
       .nonePutBytesValue,
     ]
 
@@ -19525,7 +19525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putDoubleValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putDoubleValue] = [
       .nonePutDoubleValue,
     ]
 
@@ -19555,7 +19555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putEnumValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putEnumValue] = [
       .nonePutEnumValue,
     ]
 
@@ -19585,7 +19585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFixedUInt32] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFixedUInt32] = [
       .nonePutFixedUint32,
     ]
 
@@ -19615,7 +19615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFixedUInt64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFixedUInt64] = [
       .nonePutFixedUint64,
     ]
 
@@ -19645,7 +19645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFloatValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFloatValue] = [
       .nonePutFloatValue,
     ]
 
@@ -19675,7 +19675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putInt64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putInt64] = [
       .nonePutInt64,
     ]
 
@@ -19705,7 +19705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putStringValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putStringValue] = [
       .nonePutStringValue,
     ]
 
@@ -19735,7 +19735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putUInt64] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putUInt64] = [
       .nonePutUint64,
     ]
 
@@ -19765,7 +19765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putUInt64Hex] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putUInt64Hex] = [
       .nonePutUint64Hex,
     ]
 
@@ -19795,7 +19795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putVarInt] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putVarInt] = [
       .nonePutVarInt,
     ]
 
@@ -19825,7 +19825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putZigZagVarInt] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putZigZagVarInt] = [
       .nonePutZigZagVarInt,
     ]
 
@@ -19855,7 +19855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pyGenericServices] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pyGenericServices] = [
       .nonePyGenericServices,
     ]
 
@@ -19885,7 +19885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rawChars] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rawChars] = [
       .noneRawChars,
     ]
 
@@ -19915,7 +19915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RawRepresentable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RawRepresentable] = [
       .noneRawRepresentable,
     ]
 
@@ -19945,7 +19945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RawValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RawValue] = [
       .noneRawValue,
     ]
 
@@ -19975,7 +19975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.read4HexDigits] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.read4HexDigits] = [
       .noneRead4HexDigits,
     ]
 
@@ -20005,7 +20005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.register] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.register] = [
       .noneRegister,
     ]
 
@@ -20035,7 +20035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedEnumExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedEnumExtensionField] = [
       .noneRepeatedEnumExtensionField,
     ]
 
@@ -20065,7 +20065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedExtensionField] = [
       .noneRepeatedExtensionField,
     ]
 
@@ -20095,7 +20095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedGroupExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedGroupExtensionField] = [
       .noneRepeatedGroupExtensionField,
     ]
 
@@ -20125,7 +20125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedMessageExtensionField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedMessageExtensionField] = [
       .noneRepeatedMessageExtensionField,
     ]
 
@@ -20155,7 +20155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestStreaming] = [
       .noneRequestStreaming,
     ]
 
@@ -20185,7 +20185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestTypeURL] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestTypeURL] = [
       .noneRequestTypeURL,
     ]
 
@@ -20215,7 +20215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requiredSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requiredSize] = [
       .noneRequiredSize,
     ]
 
@@ -20245,7 +20245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedName] = [
       .noneReservedName,
     ]
 
@@ -20275,7 +20275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedRange] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedRange] = [
       .noneReservedRange,
     ]
 
@@ -20305,7 +20305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseStreaming] = [
       .noneResponseStreaming,
     ]
 
@@ -20335,7 +20335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseTypeURL] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseTypeURL] = [
       .noneResponseTypeURL,
     ]
 
@@ -20365,7 +20365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.result] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.result] = [
       .noneResult,
     ]
 
@@ -20395,7 +20395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rethrowsEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rethrowsEnum] = [
       .noneRethrows,
     ]
 
@@ -20425,7 +20425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.returnEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.returnEnum] = [
       .noneReturn,
     ]
 
@@ -20455,7 +20455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ReturnType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ReturnType] = [
       .noneReturnType,
     ]
 
@@ -20485,7 +20485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.revision] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.revision] = [
       .noneRevision,
     ]
 
@@ -20515,7 +20515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rhs] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rhs] = [
       .noneRhs,
     ]
 
@@ -20545,7 +20545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.root] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.root] = [
       .noneRoot,
     ]
 
@@ -20575,7 +20575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rubyPackage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rubyPackage] = [
       .noneRubyPackage,
     ]
 
@@ -20605,7 +20605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.s] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.s] = [
       .noneS,
     ]
 
@@ -20635,7 +20635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawBackslash] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawBackslash] = [
       .noneSawBackslash,
     ]
 
@@ -20665,7 +20665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawSection4Characters] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawSection4Characters] = [
       .noneSawSection4Characters,
     ]
 
@@ -20695,7 +20695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawSection5Characters] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawSection5Characters] = [
       .noneSawSection5Characters,
     ]
 
@@ -20725,7 +20725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.scanner] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.scanner] = [
       .noneScanner,
     ]
 
@@ -20755,7 +20755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.seconds] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.seconds] = [
       .noneSeconds,
     ]
 
@@ -20785,7 +20785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.selfEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.selfEnum] = [
       .noneSelf,
     ]
 
@@ -20815,7 +20815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.semantic] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.semantic] = [
       .noneSemantic,
     ]
 
@@ -20845,7 +20845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Sendable] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Sendable] = [
       .noneSendable,
     ]
 
@@ -20875,7 +20875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.separator] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.separator] = [
       .noneSeparator,
     ]
 
@@ -20905,7 +20905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serialize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serialize] = [
       .noneSerialize,
     ]
 
@@ -20935,7 +20935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData] = [
       .noneSerializedData,
     ]
 
@@ -20965,7 +20965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedSize] = [
       .noneSerializedSize,
     ]
 
@@ -20995,7 +20995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serverStreaming] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serverStreaming] = [
       .noneServerStreaming,
     ]
 
@@ -21025,7 +21025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.service] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.service] = [
       .noneService,
     ]
 
@@ -21055,7 +21055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ServiceDescriptorProto] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ServiceDescriptorProto] = [
       .noneServiceDescriptorProto,
     ]
 
@@ -21085,7 +21085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ServiceOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ServiceOptions] = [
       .noneServiceOptions,
     ]
 
@@ -21115,7 +21115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.set] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.set] = [
       .noneSet,
     ]
 
@@ -21145,7 +21145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.setExtensionValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.setExtensionValue] = [
       .noneSetExtensionValue,
     ]
 
@@ -21175,7 +21175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.shift] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.shift] = [
       .noneShift,
     ]
 
@@ -21205,7 +21205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SimpleExtensionMap] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SimpleExtensionMap] = [
       .noneSimpleExtensionMap,
     ]
 
@@ -21235,7 +21235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sizer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sizer] = [
       .noneSizer,
     ]
 
@@ -21265,7 +21265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.source] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.source] = [
       .noneSource,
     ]
 
@@ -21295,7 +21295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceCodeInfo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceCodeInfo] = [
       .noneSourceCodeInfo,
     ]
 
@@ -21325,7 +21325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceContext] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceContext] = [
       .noneSourceContext,
     ]
 
@@ -21355,7 +21355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceEncoding] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceEncoding] = [
       .noneSourceEncoding,
     ]
 
@@ -21385,7 +21385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceFile] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceFile] = [
       .noneSourceFile,
     ]
 
@@ -21415,7 +21415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.span] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.span] = [
       .noneSpan,
     ]
 
@@ -21445,7 +21445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.split] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.split] = [
       .noneSplit,
     ]
 
@@ -21475,7 +21475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.start] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.start] = [
       .noneStart,
     ]
 
@@ -21505,7 +21505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startArray] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startArray] = [
       .noneStartArray,
     ]
 
@@ -21535,7 +21535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startArrayObject] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startArrayObject] = [
       .noneStartArrayObject,
     ]
 
@@ -21565,7 +21565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startField] = [
       .noneStartField,
     ]
 
@@ -21595,7 +21595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startIndex] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startIndex] = [
       .noneStartIndex,
     ]
 
@@ -21625,7 +21625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startMessageField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startMessageField] = [
       .noneStartMessageField,
     ]
 
@@ -21655,7 +21655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startObject] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startObject] = [
       .noneStartObject,
     ]
 
@@ -21685,7 +21685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startRegularField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startRegularField] = [
       .noneStartRegularField,
     ]
 
@@ -21715,7 +21715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.state] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.state] = [
       .noneState,
     ]
 
@@ -21745,7 +21745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.staticEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.staticEnum] = [
       .noneStatic,
     ]
 
@@ -21775,7 +21775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StaticString] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StaticString] = [
       .noneStaticString,
     ]
 
@@ -21805,7 +21805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.storage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.storage] = [
       .noneStorage,
     ]
 
@@ -21835,7 +21835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StringEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StringEnum] = [
       .noneString,
     ]
 
@@ -21865,7 +21865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringLiteral] = [
       .noneStringLiteral,
     ]
 
@@ -21895,7 +21895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StringLiteralType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StringLiteralType] = [
       .noneStringLiteralType,
     ]
 
@@ -21925,7 +21925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringResult] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringResult] = [
       .noneStringResult,
     ]
 
@@ -21955,7 +21955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringValue] = [
       .noneStringValue,
     ]
 
@@ -21985,7 +21985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structEnum] = [
       .noneStruct,
     ]
 
@@ -22015,7 +22015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structValue] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structValue] = [
       .noneStructValue,
     ]
 
@@ -22045,7 +22045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subDecoder] = [
       .noneSubDecoder,
     ]
 
@@ -22075,7 +22075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subscriptEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subscriptEnum] = [
       .noneSubscript,
     ]
 
@@ -22105,7 +22105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subVisitor] = [
       .noneSubVisitor,
     ]
 
@@ -22135,7 +22135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift] = [
       .noneSwift,
     ]
 
@@ -22165,7 +22165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.swiftPrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.swiftPrefix] = [
       .noneSwiftPrefix,
     ]
 
@@ -22195,7 +22195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftProtobufEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftProtobufEnum] = [
       .noneSwiftProtobuf,
     ]
 
@@ -22225,7 +22225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.syntax] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.syntax] = [
       .noneSyntax,
     ]
 
@@ -22255,7 +22255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.T] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.T] = [
       .noneT,
     ]
 
@@ -22285,7 +22285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tag] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tag] = [
       .noneTag,
     ]
 
@@ -22315,7 +22315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.terminator] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.terminator] = [
       .noneTerminator,
     ]
 
@@ -22345,7 +22345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.testDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.testDecoder] = [
       .noneTestDecoder,
     ]
 
@@ -22375,7 +22375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.text] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.text] = [
       .noneText,
     ]
 
@@ -22405,7 +22405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textDecoder] = [
       .noneTextDecoder,
     ]
 
@@ -22435,7 +22435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecoder] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecoder] = [
       .noneTextFormatDecoder,
     ]
 
@@ -22465,7 +22465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingError] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingError] = [
       .noneTextFormatDecodingError,
     ]
 
@@ -22495,7 +22495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingOptions] = [
       .noneTextFormatDecodingOptions,
     ]
 
@@ -22525,7 +22525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingOptions] = [
       .noneTextFormatEncodingOptions,
     ]
 
@@ -22555,7 +22555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingVisitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingVisitor] = [
       .noneTextFormatEncodingVisitor,
     ]
 
@@ -22585,7 +22585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString] = [
       .noneTextFormatString,
     ]
 
@@ -22615,7 +22615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwsEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwsEnum] = [
       .noneThrows,
     ]
 
@@ -22645,7 +22645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeInterval] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeInterval] = [
       .noneTimeInterval,
     ]
 
@@ -22675,7 +22675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSince1970] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSince1970] = [
       .noneTimeIntervalSince1970,
     ]
 
@@ -22705,7 +22705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSinceReferenceDate] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSinceReferenceDate] = [
       .noneTimeIntervalSinceReferenceDate,
     ]
 
@@ -22735,7 +22735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Timestamp] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Timestamp] = [
       .noneTimestamp,
     ]
 
@@ -22765,7 +22765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.total] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.total] = [
       .noneTotal,
     ]
 
@@ -22795,7 +22795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.totalArrayDepth] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.totalArrayDepth] = [
       .noneTotalArrayDepth,
     ]
 
@@ -22825,7 +22825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.totalSize] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.totalSize] = [
       .noneTotalSize,
     ]
 
@@ -22855,7 +22855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.trailingComments] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.trailingComments] = [
       .noneTrailingComments,
     ]
 
@@ -22885,7 +22885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.traverseEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.traverseEnum] = [
       .noneTraverse,
     ]
 
@@ -22915,7 +22915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.trueEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.trueEnum] = [
       .noneTrue,
     ]
 
@@ -22945,7 +22945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tryEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tryEnum] = [
       .noneTry,
     ]
 
@@ -22975,7 +22975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.type] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.type] = [
       .noneType,
     ]
 
@@ -23005,7 +23005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typealiasEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typealiasEnum] = [
       .noneTypealias,
     ]
 
@@ -23035,7 +23035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TypeEnumEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TypeEnumEnum] = [
       .noneTypeEnum,
     ]
 
@@ -23065,7 +23065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeName] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeName] = [
       .noneTypeName,
     ]
 
@@ -23095,7 +23095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typePrefix] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typePrefix] = [
       .noneTypePrefix,
     ]
 
@@ -23125,7 +23125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeStart] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeStart] = [
       .noneTypeStart,
     ]
 
@@ -23155,7 +23155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeUnknown] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeUnknown] = [
       .noneTypeUnknown,
     ]
 
@@ -23185,7 +23185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeURL] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeURL] = [
       .noneTypeURL,
     ]
 
@@ -23215,7 +23215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt32Enum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt32Enum] = [
       .noneUint32,
     ]
 
@@ -23245,7 +23245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt32Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt32Value] = [
       .noneUint32Value,
     ]
 
@@ -23275,7 +23275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt64Enum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt64Enum] = [
       .noneUint64,
     ]
 
@@ -23305,7 +23305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt64Value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt64Value] = [
       .noneUint64Value,
     ]
 
@@ -23335,7 +23335,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt8] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt8] = [
       .noneUint8,
     ]
 
@@ -23365,7 +23365,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unicodeScalarLiteral] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unicodeScalarLiteral] = [
       .noneUnicodeScalarLiteral,
     ]
 
@@ -23395,7 +23395,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarLiteralType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarLiteralType] = [
       .noneUnicodeScalarLiteralType,
     ]
 
@@ -23425,7 +23425,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unicodeScalars] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unicodeScalars] = [
       .noneUnicodeScalars,
     ]
 
@@ -23455,7 +23455,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarView] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarView] = [
       .noneUnicodeScalarView,
     ]
 
@@ -23485,7 +23485,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uninterpretedOption] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uninterpretedOption] = [
       .noneUninterpretedOption,
     ]
 
@@ -23515,7 +23515,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.union] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.union] = [
       .noneUnion,
     ]
 
@@ -23545,7 +23545,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uniqueStorage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.uniqueStorage] = [
       .noneUniqueStorage,
     ]
 
@@ -23575,7 +23575,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknown] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknown] = [
       .noneUnknown,
     ]
 
@@ -23605,7 +23605,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknownFieldsEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknownFieldsEnum] = [
       .noneUnknownFields,
     ]
 
@@ -23635,7 +23635,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnknownStorage] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnknownStorage] = [
       .noneUnknownStorage,
     ]
 
@@ -23665,7 +23665,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unpackTo] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unpackTo] = [
       .noneUnpackTo,
     ]
 
@@ -23695,7 +23695,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeBufferPointer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeBufferPointer] = [
       .noneUnsafeBufferPointer,
     ]
 
@@ -23725,7 +23725,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutablePointer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutablePointer] = [
       .noneUnsafeMutablePointer,
     ]
 
@@ -23755,7 +23755,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutableRawPointer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutableRawPointer] = [
       .noneUnsafeMutableRawPointer,
     ]
 
@@ -23785,7 +23785,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawBufferPointer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawBufferPointer] = [
       .noneUnsafeRawBufferPointer,
     ]
 
@@ -23815,7 +23815,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawPointer] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawPointer] = [
       .noneUnsafeRawPointer,
     ]
 
@@ -23845,7 +23845,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unverifiedLazy] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unverifiedLazy] = [
       .noneUnverifiedLazy,
     ]
 
@@ -23875,7 +23875,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions] = [
       .noneUpdatedOptions,
     ]
 
@@ -23905,7 +23905,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.url] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.url] = [
       .noneURL,
     ]
 
@@ -23935,7 +23935,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8] = [
       .noneUtf8,
     ]
 
@@ -23965,7 +23965,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8Ptr] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8Ptr] = [
       .noneUtf8Ptr,
     ]
 
@@ -23995,7 +23995,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8ToDouble] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8ToDouble] = [
       .noneUtf8ToDouble,
     ]
 
@@ -24025,7 +24025,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UTF8View] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UTF8View] = [
       .noneUtf8View,
     ]
 
@@ -24055,7 +24055,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.v] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.v] = [
       .noneV,
     ]
 
@@ -24085,7 +24085,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.value] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.value] = [
       .noneValue,
     ]
 
@@ -24115,7 +24115,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.valueField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.valueField] = [
       .noneValueField,
     ]
 
@@ -24145,7 +24145,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.values] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.values] = [
       .noneValues,
     ]
 
@@ -24175,7 +24175,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ValueType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ValueType] = [
       .noneValueType,
     ]
 
@@ -24205,7 +24205,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.varEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.varEnum] = [
       .noneVar,
     ]
 
@@ -24235,7 +24235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Version] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Version] = [
       .noneVersion,
     ]
 
@@ -24265,7 +24265,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.versionString] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.versionString] = [
       .noneVersionString,
     ]
 
@@ -24295,7 +24295,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitExtensionFields] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitExtensionFields] = [
       .noneVisitExtensionFields,
     ]
 
@@ -24325,7 +24325,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitExtensionFieldsAsMessageSet] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitExtensionFieldsAsMessageSet] = [
       .noneVisitExtensionFieldsAsMessageSet,
     ]
 
@@ -24355,7 +24355,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitMapField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitMapField] = [
       .noneVisitMapField,
     ]
 
@@ -24385,7 +24385,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitor] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitor] = [
       .noneVisitor,
     ]
 
@@ -24415,7 +24415,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPacked] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPacked] = [
       .noneVisitPacked,
     ]
 
@@ -24445,7 +24445,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedBoolField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedBoolField] = [
       .noneVisitPackedBoolField,
     ]
 
@@ -24475,7 +24475,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedDoubleField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedDoubleField] = [
       .noneVisitPackedDoubleField,
     ]
 
@@ -24505,7 +24505,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedEnumField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedEnumField] = [
       .noneVisitPackedEnumField,
     ]
 
@@ -24535,7 +24535,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFixed32Field] = [
       .noneVisitPackedFixed32Field,
     ]
 
@@ -24565,7 +24565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFixed64Field] = [
       .noneVisitPackedFixed64Field,
     ]
 
@@ -24595,7 +24595,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFloatField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFloatField] = [
       .noneVisitPackedFloatField,
     ]
 
@@ -24625,7 +24625,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedInt32Field] = [
       .noneVisitPackedInt32Field,
     ]
 
@@ -24655,7 +24655,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedInt64Field] = [
       .noneVisitPackedInt64Field,
     ]
 
@@ -24685,7 +24685,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSFixed32Field] = [
       .noneVisitPackedSfixed32Field,
     ]
 
@@ -24715,7 +24715,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSFixed64Field] = [
       .noneVisitPackedSfixed64Field,
     ]
 
@@ -24745,7 +24745,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSInt32Field] = [
       .noneVisitPackedSint32Field,
     ]
 
@@ -24775,7 +24775,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSInt64Field] = [
       .noneVisitPackedSint64Field,
     ]
 
@@ -24805,7 +24805,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedUInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedUInt32Field] = [
       .noneVisitPackedUint32Field,
     ]
 
@@ -24835,7 +24835,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedUInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedUInt64Field] = [
       .noneVisitPackedUint64Field,
     ]
 
@@ -24865,7 +24865,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeated] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeated] = [
       .noneVisitRepeated,
     ]
 
@@ -24895,7 +24895,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedBoolField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedBoolField] = [
       .noneVisitRepeatedBoolField,
     ]
 
@@ -24925,7 +24925,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedBytesField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedBytesField] = [
       .noneVisitRepeatedBytesField,
     ]
 
@@ -24955,7 +24955,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedDoubleField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedDoubleField] = [
       .noneVisitRepeatedDoubleField,
     ]
 
@@ -24985,7 +24985,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedEnumField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedEnumField] = [
       .noneVisitRepeatedEnumField,
     ]
 
@@ -25015,7 +25015,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFixed32Field] = [
       .noneVisitRepeatedFixed32Field,
     ]
 
@@ -25045,7 +25045,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFixed64Field] = [
       .noneVisitRepeatedFixed64Field,
     ]
 
@@ -25075,7 +25075,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFloatField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFloatField] = [
       .noneVisitRepeatedFloatField,
     ]
 
@@ -25105,7 +25105,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedGroupField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedGroupField] = [
       .noneVisitRepeatedGroupField,
     ]
 
@@ -25135,7 +25135,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedInt32Field] = [
       .noneVisitRepeatedInt32Field,
     ]
 
@@ -25165,7 +25165,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedInt64Field] = [
       .noneVisitRepeatedInt64Field,
     ]
 
@@ -25195,7 +25195,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedMessageField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedMessageField] = [
       .noneVisitRepeatedMessageField,
     ]
 
@@ -25225,7 +25225,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSFixed32Field] = [
       .noneVisitRepeatedSfixed32Field,
     ]
 
@@ -25255,7 +25255,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSFixed64Field] = [
       .noneVisitRepeatedSfixed64Field,
     ]
 
@@ -25285,7 +25285,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSInt32Field] = [
       .noneVisitRepeatedSint32Field,
     ]
 
@@ -25315,7 +25315,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSInt64Field] = [
       .noneVisitRepeatedSint64Field,
     ]
 
@@ -25345,7 +25345,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedStringField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedStringField] = [
       .noneVisitRepeatedStringField,
     ]
 
@@ -25375,7 +25375,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedUInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedUInt32Field] = [
       .noneVisitRepeatedUint32Field,
     ]
 
@@ -25405,7 +25405,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedUInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedUInt64Field] = [
       .noneVisitRepeatedUint64Field,
     ]
 
@@ -25435,7 +25435,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingular] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingular] = [
       .noneVisitSingular,
     ]
 
@@ -25465,7 +25465,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularBoolField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularBoolField] = [
       .noneVisitSingularBoolField,
     ]
 
@@ -25495,7 +25495,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularBytesField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularBytesField] = [
       .noneVisitSingularBytesField,
     ]
 
@@ -25525,7 +25525,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularDoubleField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularDoubleField] = [
       .noneVisitSingularDoubleField,
     ]
 
@@ -25555,7 +25555,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularEnumField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularEnumField] = [
       .noneVisitSingularEnumField,
     ]
 
@@ -25585,7 +25585,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFixed32Field] = [
       .noneVisitSingularFixed32Field,
     ]
 
@@ -25615,7 +25615,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFixed64Field] = [
       .noneVisitSingularFixed64Field,
     ]
 
@@ -25645,7 +25645,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFloatField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFloatField] = [
       .noneVisitSingularFloatField,
     ]
 
@@ -25675,7 +25675,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularGroupField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularGroupField] = [
       .noneVisitSingularGroupField,
     ]
 
@@ -25705,7 +25705,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularInt32Field] = [
       .noneVisitSingularInt32Field,
     ]
 
@@ -25735,7 +25735,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularInt64Field] = [
       .noneVisitSingularInt64Field,
     ]
 
@@ -25765,7 +25765,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularMessageField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularMessageField] = [
       .noneVisitSingularMessageField,
     ]
 
@@ -25795,7 +25795,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSFixed32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSFixed32Field] = [
       .noneVisitSingularSfixed32Field,
     ]
 
@@ -25825,7 +25825,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSFixed64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSFixed64Field] = [
       .noneVisitSingularSfixed64Field,
     ]
 
@@ -25855,7 +25855,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSInt32Field] = [
       .noneVisitSingularSint32Field,
     ]
 
@@ -25885,7 +25885,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSInt64Field] = [
       .noneVisitSingularSint64Field,
     ]
 
@@ -25915,7 +25915,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularStringField] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularStringField] = [
       .noneVisitSingularStringField,
     ]
 
@@ -25945,7 +25945,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularUInt32Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularUInt32Field] = [
       .noneVisitSingularUint32Field,
     ]
 
@@ -25975,7 +25975,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularUInt64Field] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularUInt64Field] = [
       .noneVisitSingularUint64Field,
     ]
 
@@ -26005,7 +26005,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitUnknown] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitUnknown] = [
       .noneVisitUnknown,
     ]
 
@@ -26035,7 +26035,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wasDecoded] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wasDecoded] = [
       .noneWasDecoded,
     ]
 
@@ -26065,7 +26065,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.weak] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.weak] = [
       .noneWeak,
     ]
 
@@ -26095,7 +26095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.weakDependency] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.weakDependency] = [
       .noneWeakDependency,
     ]
 
@@ -26125,7 +26125,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.whereEnum] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.whereEnum] = [
       .noneWhere,
     ]
 
@@ -26155,7 +26155,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wireFormat] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wireFormat] = [
       .noneWireFormat,
     ]
 
@@ -26185,7 +26185,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.with] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.with] = [
       .noneWith,
     ]
 
@@ -26215,7 +26215,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.work] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.work] = [
       .noneWork,
     ]
 
@@ -26245,7 +26245,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType] = [
       .noneWrappedType,
     ]
 
@@ -26275,7 +26275,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.written] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.written] = [
       .noneWritten,
     ]
 
@@ -26305,7 +26305,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday] = [
       .noneYday,
     ]
 

@@ -79,7 +79,7 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Google_Protobuf_NullValue] = [
+  static let allCases: [Google_Protobuf_NullValue] = [
     .nullValue,
   ]
 

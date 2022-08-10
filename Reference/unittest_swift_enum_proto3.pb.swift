@@ -92,7 +92,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = [
+    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = [
       .firstValue,
       .secondValue,
     ]
@@ -126,7 +126,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest2] = [
+    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest2] = [
       .firstValue,
       .secondValue,
     ]
@@ -160,7 +160,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem] = [
+    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem] = [
       .enumTestNoStem1,
       .enumTestNoStem2,
     ]
@@ -194,7 +194,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord] = [
+    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord] = [
       .var,
       .notReserved,
     ]
@@ -247,7 +247,7 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = [
+    static let allCases: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = [
       .foo1,
       .baz1,
       .bar1,

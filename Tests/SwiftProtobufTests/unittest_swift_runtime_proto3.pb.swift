@@ -525,7 +525,7 @@ struct ProtobufUnittest_Message3 {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittest_Message3.Enum] = [
+    static let allCases: [ProtobufUnittest_Message3.Enum] = [
       .foo,
       .bar,
       .baz,

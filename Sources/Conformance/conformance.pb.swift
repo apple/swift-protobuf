@@ -88,7 +88,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Conformance_WireFormat] = [
+  static let allCases: [Conformance_WireFormat] = [
     .unspecified,
     .protobuf,
     .json,
@@ -152,7 +152,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Conformance_TestCategory] = [
+  static let allCases: [Conformance_TestCategory] = [
     .unspecifiedTest,
     .binaryTest,
     .jsonTest,

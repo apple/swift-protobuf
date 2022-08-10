@@ -80,7 +80,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittest_MapEnum] = [
+  static let allCases: [ProtobufUnittest_MapEnum] = [
     .foo,
     .bar,
     .baz,
@@ -389,7 +389,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static var allCases: [ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum] = [
+    static let allCases: [ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum] = [
       .foo,
     ]
 
