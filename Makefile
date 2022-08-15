@@ -520,10 +520,9 @@ test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/
 # It generates test cases, feeds them to our plugin, and verifies the results:
 conformance-host $(CONFORMANCE_HOST): check-for-protobuf-checkout
 	@if [ ! -f "${GOOGLE_PROTOBUF_CHECKOUT}/Makefile" ]; then \
-		echo "No Makefile, running autogen.sh and configure." ; \
+		echo "No Makefile, running cmake." ; \
 		( cd ${GOOGLE_PROTOBUF_CHECKOUT} && \
-		  ./autogen.sh && \
-		  ./configure ) \
+		  cmake -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_ABSL_PROVIDER=package . ) \
 	fi
 	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/src
 	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/conformance
