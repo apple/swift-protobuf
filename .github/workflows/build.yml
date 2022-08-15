@@ -17,10 +17,10 @@ jobs:
       matrix:
         swift: ["5.6.2", "5.5.3", "5.4.3", "5.3.3", "5.2.5", "5.1.5", "5.0.3"]
         # protobuf_git can reference a commit, tag, or branch
-        # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
-        # tag: "ref/tags/v3.11.4"
-        # branch: "ref/heads/main"
-        protobuf_git: ["ref/heads/main"]
+        # commit: "6935eae45c99926a000ecbef0be20dfd3d159e71"
+        # tag: "v3.11.4"
+        # branch: "main"
+        protobuf_git: ["main"]
         include:
           - swift: 5.6.2
             ubuntu: focal
@@ -52,27 +52,21 @@ jobs:
         path: main
     - name: Update and install dependencies
       # dependencies from https://github.com/protocolbuffers/protobuf/blob/main/src/README.md
-      # this step is run before get-sha because we need curl and jq for get-sha
       # NOTE: zlib1g-dev is added to fix the Swift 5.0.x builds, when those builds aren't needed
       # that dep likely can be removed.
       run: |
         set -eu
         apt-get update
-        apt-get install -y autoconf automake libtool curl make g++ unzip jq
+        apt-get install -y make g++
         [ \"${{ matrix.swift }}\" != \"5.0.3\" ] || apt-get install -y zlib1g-dev
-    - name: Get Protobuf Commit SHA
-      id: get-sha
-      run: |
-        set -eu
-        url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
-        case ${{ matrix.protobuf_git }} in
-        ref/*)
-          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )
-          ;;
-        commits/*)
-          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
-          ;;
-        esac
+    # Can't simple install bazel or bazelisk via app-get because bazel doesn't
+    # support focal yet - https://bazel.build/install/ubuntu
+    - name: Setup Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: '>=1.18.0'
+    - name: Install bazelisk/bazel
+      run: go install github.com/bazelbuild/bazelisk@latest
     - name: Generate LinuxMain.swift
       if: ${{ matrix.generate_linux_main }}
       working-directory: main
@@ -83,32 +77,18 @@ jobs:
     - name: Test runtime
       working-directory: main
       run: make test-runtime
-    - name: Cache protobuf
-      id: cache-protobuf
-      uses: actions/cache@v2
-      with:
-        path: protobuf
-        # NOTE: for refs that can float like 'main' the cache might be out of date!
-        key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
       uses: actions/checkout@v2
       with:
         repository: protocolbuffers/protobuf
-        ref: ${{ steps.get-sha.outputs.sha }}
+        ref: ${{ matrix.protobuf_git }}
         path: protobuf
     - name: Build protobuf
-      if: steps.cache-protobuf.outputs.cache-hit != 'true'
       working-directory: protobuf
-      run: |
-        ./autogen.sh
-        ./configure
-        NUM_CPUS=$(getconf _NPROCESSORS_ONLN)
-        make -C ./src -j "${NUM_CPUS}" protoc
-        make -C ./conformance conformance-test-runner
+      run: bazelisk build -c opt :protoc //conformance:conformance_test_runner
     - name: Test plugin
       working-directory: main
-      run: make test-plugin PROTOC=../protobuf/src/protoc
+      run: make test-plugin PROTOC=../protobuf/bazel-bin/protoc
     - name: Test conformance
       working-directory: main
       run: make test-conformance

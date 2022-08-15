@@ -60,7 +60,7 @@ SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 # If you have already build conformance-test-runner in
 # a nearby directory, just set the full path here and
 # we'll use it instead.
-CONFORMANCE_HOST=${GOOGLE_PROTOBUF_CHECKOUT}/conformance/conformance-test-runner
+CONFORMANCE_HOST=${GOOGLE_PROTOBUF_CHECKOUT}/bazel-bin/conformance/conformance_test_runner
 
 # NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
 # eventually we might be able to do proper dependencies and use them as inputs
@@ -507,23 +507,17 @@ check-proto-files: check-for-protobuf-checkout
 
 # Runs the conformance tests.
 test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt Sources/Conformance/text_format_failure_list_swift.txt
-	( \
-		ABS_PBDIR=`cd ${GOOGLE_PROTOBUF_CHECKOUT}; pwd`; \
-		$${ABS_PBDIR}/conformance/conformance-test-runner \
-		  --enforce_recommended \
-		  --failure_list Sources/Conformance/failure_list_swift.txt \
-		  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt\
-		  $(SWIFT_CONFORMANCE_PLUGIN); \
-	)
+	$(CONFORMANCE_HOST) \
+	  --enforce_recommended \
+	  --failure_list Sources/Conformance/failure_list_swift.txt \
+	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt \
+	  $(SWIFT_CONFORMANCE_PLUGIN)
 
 # The 'conformance-host' program is part of the protobuf project.
 # It generates test cases, feeds them to our plugin, and verifies the results:
 conformance-host $(CONFORMANCE_HOST): check-for-protobuf-checkout
-	@if [ ! -f "${GOOGLE_PROTOBUF_CHECKOUT}/Makefile" ]; then \
-		echo "No Makefile, running autogen.sh and configure." ; \
-		( cd ${GOOGLE_PROTOBUF_CHECKOUT} && \
-		  ./autogen.sh && \
-		  ./configure ) \
-	fi
-	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/src
-	$(MAKE) -C ${GOOGLE_PROTOBUF_CHECKOUT}/conformance
+	( \
+		cd ${GOOGLE_PROTOBUF_CHECKOUT} && \
+		bazelisk build -c opt //conformance:conformance_test_runner || \
+		bazel build -c opt //conformance:conformance_test_runner \
+	)
