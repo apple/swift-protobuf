@@ -1,0 +1,26 @@
+name: API Check
+
+# This checks PRs to see if they have any api breaking changes.
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      # Test on the latest Swift release. https://hub.docker.com/_/swift says
+      # swift:latest is still bionic, so explicitly use swift:focal.
+      image: swift:focal
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        set-safe-directory: '/__w/swift-protobuf/swift-protobuf'
+    - name: 'swift package diagnose-api-breaking-changes'
+      run: |
+        set -eux
+        git fetch origin '+refs/pull/*:refs/remotes/origin/pr/*'
+        git checkout "${GITHUB_HEAD_REF}"
+        swift package diagnose-api-breaking-changes "${GITHUB_BASE_REF}"
