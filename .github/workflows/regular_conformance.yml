@@ -17,6 +17,8 @@ on:
   schedule:
     # Every Sunday at 5am.
     - cron: '0 5 * * 0'
+  # Also allow manual triggering from the github UX to revalidate things.
+  workflow_dispatch:
 
 jobs:
   build:
