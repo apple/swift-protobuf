@@ -7,8 +7,8 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     enum PluginError: Error {
         /// Indicates that the target where the plugin was applied to was not `SourceModuleTarget`.
         case invalidTarget
-        /// Indicates that no config file was present in the root of the target directory.
-        case noConfigFile
+        /// Indicates that the file extension of an input file was not `.proto`.
+        case invalidInputFileExtension
     }
 
     /// The configuration of the plugin.
@@ -41,20 +41,17 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     static let configurationFileName = "swift-protobuf-config.json"
 
     func createBuildCommands(context: PluginContext, target: Target) throws -> [Command] {
-        print("Creating build commands (\(UUID()))")
-
         // Let's check that this is a source target
         guard let target = target as? SourceModuleTarget else {
             throw PluginError.invalidTarget
         }
 
         // We need to find the configuration file at the root of the target
-        guard let configurationFilePath = target.sourceFiles.first(where: { $0.path.lastComponent == Self.configurationFileName }) else {
-            throw PluginError.noConfigFile
-        }
-
-        let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath.path)"))
+        let configurationFilePath = target.directory.appending(subpath: Self.configurationFileName)
+        let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
+
+        try self.validateConfiguration(configuration)
 
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
@@ -112,14 +109,17 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         var inputFiles = [Path]()
         var outputFiles = [Path]()
 
-        for file in invocation.protoFiles {
+        for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append("\(file)")
             inputFiles.append(target.directory.appending(file))
 
             // The name of the output file is based on the name of the input file.
-            let protobufOutputName = file.replacingOccurrences(of: ".proto", with: ".pb.swift")
-            let protobufOutputPath = outputDirectory.appending(protobufOutputName)
+            // We validated in the beginning that every file has the suffix of .proto
+            // This means we can just drop the last 5 elements and append the new suffix
+            file.removeLast(5)
+            file.append("pb.swift")
+            let protobufOutputPath = outputDirectory.appending(file)
 
             // Add the outputPath as an output file
             outputFiles.append(protobufOutputPath)
@@ -135,5 +135,16 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             inputFiles: inputFiles + [protocGenSwiftPath],
             outputFiles: outputFiles
         )
+    }
+
+    /// Validates the configuration file for various user errors.
+    private func validateConfiguration(_ configuration: Configuration) throws {
+        for invocation in configuration.invocations {
+            for protoFile in invocation.protoFiles {
+                if !protoFile.hasSuffix(".proto") {
+                    throw PluginError.invalidInputFileExtension
+                }
+            }
+        }
     }
 }
