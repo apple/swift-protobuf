@@ -56,8 +56,13 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
         if let configuredProtocPath = configuration.protocPath {
+            // The user set the config path in the file. So let's take that
             protocPath = Path(configuredProtocPath)
+        } else if let environmentPath = ProcessInfo.processInfo.environment["PROTOC_PATH"] {
+            // The user set the env variable. So let's take that
+            protocPath = Path(environmentPath)
         } else {
+            // The user didn't set anything so let's try see if SPM can find a binary for us
             protocPath = try context.tool(named: "protoc").path
         }
         let protocGenSwiftPath = try context.tool(named: "protoc-gen-swift").path
