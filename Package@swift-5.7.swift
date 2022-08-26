@@ -26,9 +26,9 @@ let package = Package(
     .target(name: "SwiftProtobuf"),
     .target(name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"]),
-    .target(name: "protoc-gen-swift",
+    .executableTarget(name: "protoc-gen-swift",
             dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"]),
-    .target(name: "Conformance",
+    .executableTarget(name: "Conformance",
             dependencies: ["SwiftProtobuf"]),
     .plugin(
         name: "SwiftProtobufPlugin",
