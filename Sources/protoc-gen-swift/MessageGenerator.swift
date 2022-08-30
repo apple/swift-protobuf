@@ -356,14 +356,14 @@ class MessageGenerator {
       var ranges = descriptor.ambitiousExtensionRanges.makeIterator()
       var nextRange = ranges.next()
       for f in fieldsSortedByNumber {
-        while nextRange != nil && Int(nextRange!.start) < f.number {
-          p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+        while nextRange != nil && Int(nextRange!.lowerBound) < f.number {
+          p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))\n")
           nextRange = ranges.next()
         }
         f.generateTraverse(printer: &p)
       }
       while nextRange != nil {
-        p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+        p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))\n")
         nextRange = ranges.next()
       }
     }

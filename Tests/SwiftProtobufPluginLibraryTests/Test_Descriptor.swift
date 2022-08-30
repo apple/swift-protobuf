@@ -354,22 +354,22 @@ class Test_Descriptor: XCTestCase {
 
     // Check sorting/merging
     XCTAssertEqual(msgDescriptor.normalizedExtensionRanges.count, 5)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[0].start, 1)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[0].end, 5)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[1].start, 7)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[1].end, 8)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[2].start, 9)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[2].end, 10)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[3].start, 100)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[3].end, 121)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[4].start, 126)
-    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[4].end, 131)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[0].lowerBound, 1)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[0].upperBound, 5)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[1].lowerBound, 7)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[1].upperBound, 8)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[2].lowerBound, 9)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[2].upperBound, 10)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[3].lowerBound, 100)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[3].upperBound, 121)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[4].lowerBound, 126)
+    XCTAssertEqual(msgDescriptor.normalizedExtensionRanges[4].upperBound, 131)
 
 
     // Check the "ambitious" merging.
     XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges.count, 1)
-    XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges[0].start, 1)
-    XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges[0].end, 131)
+    XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges[0].lowerBound, 1)
+    XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges[0].upperBound, 131)
 
     let msgDescriptor2 = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.MsgExtensionRangeOrderingWithFields")
     // Quick check of what should be in the proto file
@@ -386,26 +386,26 @@ class Test_Descriptor: XCTestCase {
 
     // Check sorting/merging
     XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges.count, 5)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[0].start, 1)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[0].end, 5)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[1].start, 7)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[1].end, 8)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[2].start, 9)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[2].end, 10)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[3].start, 100)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[3].end, 121)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[4].start, 126)
-    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[4].end, 131)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[0].lowerBound, 1)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[0].upperBound, 5)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[1].lowerBound, 7)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[1].upperBound, 8)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[2].lowerBound, 9)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[2].upperBound, 10)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[3].lowerBound, 100)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[3].upperBound, 121)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[4].lowerBound, 126)
+    XCTAssertEqual(msgDescriptor2.normalizedExtensionRanges[4].upperBound, 131)
 
 
     // Check the "ambitious" merging.
     XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges.count, 3)
-    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[0].start, 1)
-    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[0].end, 5)
-    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[1].start, 7)
-    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[1].end, 121)
-    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[2].start, 126)
-    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[2].end, 131)
+    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[0].lowerBound, 1)
+    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[0].upperBound, 5)
+    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[1].lowerBound, 7)
+    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[1].upperBound, 121)
+    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[2].lowerBound, 126)
+    XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[2].upperBound, 131)
 
     let msgDescriptor3 = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.MsgExtensionRangeOrderingNoMerging")
     // Quick check of what should be in the proto file
@@ -416,21 +416,21 @@ class Test_Descriptor: XCTestCase {
 
     // Check sorting/merging
     XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges.count, 3)
-    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[0].start, 3)
-    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[0].end, 6)
-    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[1].start, 7)
-    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[1].end, 13)
-    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[2].start, 16)
-    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[2].end, 21)
+    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[0].lowerBound, 3)
+    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[0].upperBound, 6)
+    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[1].lowerBound, 7)
+    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[1].upperBound, 13)
+    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[2].lowerBound, 16)
+    XCTAssertEqual(msgDescriptor3.normalizedExtensionRanges[2].upperBound, 21)
 
     // Check the "ambitious" merging.
     XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges.count, 3)
-    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[0].start, 3)
-    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[0].end, 6)
-    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[1].start, 7)
-    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[1].end, 13)
-    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[2].start, 16)
-    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[2].end, 21)
+    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[0].lowerBound, 3)
+    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[0].upperBound, 6)
+    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[1].lowerBound, 7)
+    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[1].upperBound, 13)
+    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[2].lowerBound, 16)
+    XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[2].upperBound, 21)
   }
 
 }
