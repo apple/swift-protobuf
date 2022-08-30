@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/Google_Protobuf_DescriptorProto+Extensions.swift - Descriptor extensions
+// Sources/protoc-gen-swift/Range+Extensions.swift - Descriptor extensions
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `DescriptorProto` that provide Swift-generation-specific
+/// Extensions to `Range` that provide Swift-generation-specific
 /// functionality.
 ///
 // -----------------------------------------------------------------------------
@@ -17,26 +17,27 @@ import Foundation
 import SwiftProtobufPluginLibrary
 import SwiftProtobuf
 
-extension Google_Protobuf_DescriptorProto.ExtensionRange {
+extension Range where Bound == Int32 {
 
-  /// A `String` containing the Swift expression that represents this
-  /// extension range to be used in a `case` statement.
+  /// A `String` containing the Swift expression that represents this range to
+  /// be used in a `case` statement.
   var swiftCaseExpression: String {
-    if start == end - 1 {
-      return "\(start)"
+    if lowerBound == upperBound - 1 {
+      return "\(lowerBound)"
     }
-    return "\(start)..<\(end)"
+    return "\(lowerBound)..<\(upperBound)"
   }
 
   /// A `String` containing the Swift Boolean expression that tests the given
-  /// variable for containment within this extension range.
+  /// variable for containment within this range.
   ///
   /// - Parameter variable: The name of the variable to test in the expression.
   /// - Returns: A `String` containing the Boolean expression.
   func swiftBooleanExpression(variable: String) -> String {
-    if start == end - 1 {
-      return "\(start) == \(variable)"
+    if lowerBound == upperBound - 1 {
+      return "\(lowerBound) == \(variable)"
     }
-    return "\(start) <= \(variable) && \(variable) < \(end)"
+    return "\(lowerBound) <= \(variable) && \(variable) < \(upperBound)"
   }
+
 }

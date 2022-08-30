@@ -8,7 +8,6 @@ add_executable(protoc-gen-swift
   FileIo.swift
   GenerationError.swift
   GeneratorOptions.swift
-  Google_Protobuf_DescriptorProto+Extensions.swift
   Google_Protobuf_FileDescriptorProto+Extensions.swift
   main.swift
   MessageFieldGenerator.swift
@@ -16,6 +15,7 @@ add_executable(protoc-gen-swift
   MessageStorageClassGenerator.swift
   MessageStorageDecision.swift
   OneofGenerator.swift
+  Range+Extensions.swift
   StringUtils.swift
   Version.swift)
 target_link_libraries(protoc-gen-swift PRIVATE
