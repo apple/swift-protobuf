@@ -178,7 +178,7 @@ extension FieldDescriptor {
       return "[]"
     }
 
-    if let defaultValue = explicitDefaultValue {
+    if let defaultValue = defaultValue {
       switch type {
       case .double:
         switch defaultValue {
