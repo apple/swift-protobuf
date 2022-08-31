@@ -767,8 +767,10 @@ public final class FieldDescriptor {
   /// The FieldOptions for this field.
   public var options: Google_Protobuf_FieldOptions
 
-  let proto: Google_Protobuf_FieldDescriptorProto
   let proto3Optional: Bool
+  // These next two cache values until bind().
+  var extendee: String?
+  var typeName: String?
 
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
                    index: Int,
@@ -779,13 +781,13 @@ public final class FieldDescriptor {
     self.defaultValue = proto.hasDefaultValue ? proto.defaultValue : nil
     assert(proto.hasJsonName)  // protoc should always set the name
     self.jsonName = proto.jsonName
+    assert(isExtension == !proto.extendee.isEmpty)
     self.isExtension = isExtension
     self.number = proto.number
     self.type = proto.type
     self.label = proto.label
     self.options = proto.options
-    self.proto = proto
-    self.proto3Optional = proto.proto3Optional
+
     if proto.hasOneofIndex {
       assert(!isExtension)
       oneofIndex = proto.oneofIndex
@@ -799,27 +801,37 @@ public final class FieldDescriptor {
       // is checked on the oneof side.
       assert(!proto.proto3Optional || isExtension)
     }
+
+    self.proto3Optional = proto.proto3Optional
+    self.extendee = isExtension ? proto.extendee : nil
+    switch type {
+    case .group, .message, .enum:
+      typeName = proto.typeName
+    default:
+      typeName = nil
+    }
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
     self.file = file
 
-    assert(isExtension == !proto.extendee.isEmpty)
-    if isExtension {
+    if let extendee = extendee {
+      assert(isExtension)
       extensionScope = containingType
-      self.containingType = registry.descriptor(name: proto.extendee)
+      self.containingType = registry.descriptor(name: extendee)
     } else {
       self.containingType = containingType
     }
+    extendee = nil
 
-    switch type {
-    case .group, .message:
-      messageType = registry.descriptor(name: proto.typeName)
-    case .enum:
-      enumType = registry.enumDescriptor(name: proto.typeName)
-    default:
-      break
+    if let typeName = typeName {
+      if type == .enum {
+        enumType = registry.enumDescriptor(name: typeName)
+      } else {
+        messageType = registry.descriptor(name: typeName)
+      }
     }
+    typeName = nil
   }
 }
 
