@@ -683,10 +683,14 @@ public final class FieldDescriptor {
     // This logic comes from the C++ FieldDescriptor::is_packed() impl.
     // NOTE: It does not match what is in the C++ header for is_packed().
     guard isPackable else { return false }
+    // The C++ imp also checks if the `options_` are null, but that is only for
+    // their placeholder descriptor support, as once the FieldDescriptor is
+    // fully wired it gets a default FileOptions instance, rendering nullptr
+    // meaningless.
     if file.syntax == .proto2 {
-      return proto.hasOptions && proto.options.packed
+      return options.packed
     } else {
-      return !proto.hasOptions || !proto.options.hasPacked || proto.options.packed
+      return !options.hasPacked || options.packed
     }
   }
   /// True if this field is a map.
