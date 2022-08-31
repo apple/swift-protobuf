@@ -724,16 +724,13 @@ public final class FieldDescriptor {
   /// extension scope's extensions.
   public let index: Int
 
-  /// Does this field have an explicitly-declared default value?
-  public var hasDefaultValue: Bool { return proto.hasDefaultValue }
-  // TODO(TVL): C++ FieldDescriptor doesn't have explicitDefaultValue, instead
-  // it has a bunch of apis to do the transforms, should there be apis like
-  // that?
-  /// The default value (string) set in the proto file.
-  public var explicitDefaultValue: String? {
-    guard hasDefaultValue else { return nil }
-    return proto.defaultValue
-  }
+  /// The explicitly declared default value for this field.
+  ///
+  /// This is the *raw* string value from the .proto file that was listed as
+  /// the default, it is up to the consumer to convert it correctly for the
+  /// type of this field. The C++ FieldDescriptor does offer some apis to
+  /// help with that, but at this time, that is not provided here.
+  public let defaultValue: String?
 
   /// The `Descriptor` of the message which this is a field of. For extensions,
   /// this is the extended type.
@@ -775,6 +772,7 @@ public final class FieldDescriptor {
                    isExtension: Bool = false) {
     self.name = proto.name
     self.index = index
+    self.defaultValue = proto.hasDefaultValue ? proto.defaultValue : nil
     assert(proto.hasJsonName)  // protoc should always set the name
     self.jsonName = proto.jsonName
     self.isExtension = isExtension
