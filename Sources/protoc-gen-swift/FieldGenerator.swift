@@ -76,7 +76,7 @@ class FieldGeneratorBase {
       protoName = fieldDescriptor.name
     }
 
-    let jsonName = fieldDescriptor.jsonName ?? protoName
+    let jsonName = fieldDescriptor.jsonName
     if jsonName == protoName {
       /// The proto and JSON names are identical:
       return ".same(proto: \"\(protoName)\")"

@@ -639,12 +639,7 @@ public final class FieldDescriptor {
     return "\(prefix).\(name)"
   }
   /// JSON name of this field.
-  public var jsonName: String? {
-    // TODO(TVL): Revisit, doesn't seem like we should have this fallback since
-    // protoc is always supposed to provide it.
-    guard proto.hasJsonName else { return nil }
-    return proto.jsonName
-  }
+  public let jsonName: String
 
   /// File in which this field was defined.
   public private(set) weak var file: FileDescriptor!
@@ -780,6 +775,8 @@ public final class FieldDescriptor {
                    isExtension: Bool = false) {
     self.name = proto.name
     self.index = index
+    assert(proto.hasJsonName)  // protoc should always set the name
+    self.jsonName = proto.jsonName
     self.isExtension = isExtension
     self.number = proto.number
     self.type = proto.type
