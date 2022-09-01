@@ -76,8 +76,6 @@ class ExtensionSetGenerator {
             } else {
                 fieldNamePath = fieldDescriptor.fullName
             }
-            assert(fieldNamePath.hasPrefix("."))
-            fieldNamePath.remove(at: fieldNamePath.startIndex)  // Remove the leading '.'
 
             p.print(
               comments,
