@@ -79,17 +79,17 @@ class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    XCTAssertTrue(descriptorSet.lookupFileDescriptor(protoName: "google/protobuf/descriptor.proto") === descriptorSet.files[0])
-    XCTAssertTrue(descriptorSet.lookupFileDescriptor(protoName: "google/protobuf/compiler/plugin.proto") === descriptorSet.files[1])
+    XCTAssertTrue(descriptorSet.fileDescriptor(named: "google/protobuf/descriptor.proto") === descriptorSet.files[0])
+    XCTAssertTrue(descriptorSet.fileDescriptor(named: "google/protobuf/compiler/plugin.proto") === descriptorSet.files[1])
 
-    XCTAssertTrue(descriptorSet.lookupDescriptor(protoName: ".google.protobuf.compiler.CodeGeneratorRequest") === descriptorSet.files[1].messages[1])
-    XCTAssertTrue(descriptorSet.lookupDescriptor(protoName: ".google.protobuf.DescriptorProto") === descriptorSet.files[0].messages[2])
-    XCTAssertTrue(descriptorSet.lookupDescriptor(protoName: ".google.protobuf.DescriptorProto.ExtensionRange") === descriptorSet.files[0].messages[2].messages[0])
+    XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.compiler.CodeGeneratorRequest") === descriptorSet.files[1].messages[1])
+    XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.DescriptorProto") === descriptorSet.files[0].messages[2])
+    XCTAssertTrue(descriptorSet.descriptor(named: "google.protobuf.DescriptorProto.ExtensionRange") === descriptorSet.files[0].messages[2].messages[0])
 
-    XCTAssertTrue(descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Type") === descriptorSet.files[0].messages[4].enums[0])
-    XCTAssertTrue(descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Label") === descriptorSet.files[0].messages[4].enums[1])
+    XCTAssertTrue(descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Type") === descriptorSet.files[0].messages[4].enums[0])
+    XCTAssertTrue(descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Label") === descriptorSet.files[0].messages[4].enums[1])
 
-    XCTAssertTrue(descriptorSet.lookupServiceDescriptor(protoName: ".swift_descriptor_test.SomeService") === descriptorSet.files[2].services[0])
+    XCTAssertTrue(descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService") === descriptorSet.files[2].services[0])
   }
 
   func testParents() throws {
@@ -97,18 +97,18 @@ class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    let codeGenResponse = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.compiler.CodeGeneratorResponse")
+    let codeGenResponse = descriptorSet.descriptor(named: "google.protobuf.compiler.CodeGeneratorResponse")!
     XCTAssertTrue(codeGenResponse.containingType == nil)
-    let codeGenResponseFile = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.compiler.CodeGeneratorResponse.File")
+    let codeGenResponseFile = descriptorSet.descriptor(named: "google.protobuf.compiler.CodeGeneratorResponse.File")!
     XCTAssertTrue(codeGenResponseFile.containingType === codeGenResponse)
 
-    let fieldDescProto = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.FieldDescriptorProto")
-    let fieldDescType = descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Type")
+    let fieldDescProto = descriptorSet.descriptor(named: "google.protobuf.FieldDescriptorProto")!
+    let fieldDescType = descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Type")!
     XCTAssertTrue(fieldDescType.containingType === fieldDescProto)
-    let fieldDescLabel = descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Label")
+    let fieldDescLabel = descriptorSet.enumDescriptor(named: "google.protobuf.FieldDescriptorProto.Label")!
     XCTAssertTrue(fieldDescLabel.containingType === fieldDescProto)
 
-    let serviceDescProto = descriptorSet.lookupServiceDescriptor(protoName: ".swift_descriptor_test.SomeService")
+    let serviceDescProto = descriptorSet.serviceDescriptor(named: "swift_descriptor_test.SomeService")!
     let fooMethod = serviceDescProto.methods[0]
     XCTAssertTrue(fooMethod.service === serviceDescProto)
     let barMethod = serviceDescProto.methods[1]
@@ -133,11 +133,11 @@ class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    let topLevelEnum = descriptorSet.lookupEnumDescriptor(protoName: ".swift_descriptor_test.TopLevelEnum")
-    let topLevelMessage = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.TopLevelMessage")
+    let topLevelEnum = descriptorSet.enumDescriptor(named: "swift_descriptor_test.TopLevelEnum")!
+    let topLevelMessage = descriptorSet.descriptor(named: "swift_descriptor_test.TopLevelMessage")!
     let subEnum = topLevelMessage.enums[0]
     let subMessage = topLevelMessage.messages[0]
-    let topLevelMessage2 = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.TopLevelMessage2")
+    let topLevelMessage2 = descriptorSet.descriptor(named: "swift_descriptor_test.TopLevelMessage2")!
 
     XCTAssertEqual(topLevelMessage.fields.count, 6)
     XCTAssertEqual(topLevelMessage.fields[0].name, "field1")
@@ -165,9 +165,9 @@ class Test_Descriptor: XCTestCase {
     XCTAssertTrue(topLevelMessage2.fields[0].messageType === topLevelMessage)
     XCTAssertTrue(topLevelMessage2.fields[1].messageType === topLevelMessage2)
 
-    let externalRefs = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.ExternalRefs")
-    let googleProtobufDescriptorProto = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.DescriptorProto")
-    let googleProtobufCompilerVersion = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.compiler.Version")
+    let externalRefs = descriptorSet.descriptor(named: "swift_descriptor_test.ExternalRefs")!
+    let googleProtobufDescriptorProto = descriptorSet.descriptor(named: "google.protobuf.DescriptorProto")!
+    let googleProtobufCompilerVersion = descriptorSet.descriptor(named: "google.protobuf.compiler.Version")!
 
     XCTAssertEqual(externalRefs.fields.count, 2)
     XCTAssertEqual(externalRefs.fields[0].name, "desc")
@@ -177,7 +177,7 @@ class Test_Descriptor: XCTestCase {
 
     // Proto2 Presence
 
-    let proto2ForPresence = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.Proto2MessageForPresence")
+    let proto2ForPresence = descriptorSet.descriptor(named: "swift_descriptor_test.Proto2MessageForPresence")!
 
     XCTAssertEqual(proto2ForPresence.fields.count, 16)
     XCTAssertEqual(proto2ForPresence.fields[0].name, "req_str_field")
@@ -239,7 +239,7 @@ class Test_Descriptor: XCTestCase {
 
     // Proto3 Presence
 
-    let proto3ForPresence = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.Proto3MessageForPresence")
+    let proto3ForPresence = descriptorSet.descriptor(named: "swift_descriptor_test.Proto3MessageForPresence")!
     XCTAssertEqual(proto3ForPresence.fields.count, 16)
     XCTAssertEqual(proto3ForPresence.fields[0].name, "str_field")
     XCTAssertEqual(proto3ForPresence.fields[1].name, "int32_field")
@@ -309,8 +309,8 @@ class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    let googleProtobufFieldOptions = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.FieldOptions")
-    let googleProtobufMessageOptions = descriptorSet.lookupDescriptor(protoName: ".google.protobuf.MessageOptions")
+    let googleProtobufFieldOptions = descriptorSet.descriptor(named: "google.protobuf.FieldOptions")!
+    let googleProtobufMessageOptions = descriptorSet.descriptor(named: "google.protobuf.MessageOptions")!
 
     let descriptorTestFile = descriptorSet.files[2]
 
@@ -318,7 +318,7 @@ class Test_Descriptor: XCTestCase {
     XCTAssertNil(topLevelExt.extensionScope)
     XCTAssertTrue(topLevelExt.containingType === googleProtobufFieldOptions)
 
-    let extScoper = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.ScoperForExt")
+    let extScoper = descriptorSet.descriptor(named: "swift_descriptor_test.ScoperForExt")!
     let nestedExt1 = descriptorTestFile.messages[3].extensions[0]
     let nestedExt2 = descriptorTestFile.messages[3].extensions[1]
     XCTAssertTrue(nestedExt1.extensionScope === extScoper)
@@ -339,7 +339,7 @@ class Test_Descriptor: XCTestCase {
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 
-    let msgDescriptor = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.MsgExtensionRangeOrdering")
+    let msgDescriptor = descriptorSet.descriptor(named: "swift_descriptor_test.MsgExtensionRangeOrdering")!
     // Quick check of what should be in the proto file
     XCTAssertEqual(msgDescriptor.extensionRanges.count, 9)
     XCTAssertEqual(msgDescriptor.extensionRanges[0].start, 1)
@@ -371,7 +371,7 @@ class Test_Descriptor: XCTestCase {
     XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges[0].lowerBound, 1)
     XCTAssertEqual(msgDescriptor.ambitiousExtensionRanges[0].upperBound, 131)
 
-    let msgDescriptor2 = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.MsgExtensionRangeOrderingWithFields")
+    let msgDescriptor2 = descriptorSet.descriptor(named: "swift_descriptor_test.MsgExtensionRangeOrderingWithFields")!
     // Quick check of what should be in the proto file
     XCTAssertEqual(msgDescriptor2.extensionRanges.count, 9)
     XCTAssertEqual(msgDescriptor2.extensionRanges[0].start, 1)
@@ -407,7 +407,7 @@ class Test_Descriptor: XCTestCase {
     XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[2].lowerBound, 126)
     XCTAssertEqual(msgDescriptor2.ambitiousExtensionRanges[2].upperBound, 131)
 
-    let msgDescriptor3 = descriptorSet.lookupDescriptor(protoName: ".swift_descriptor_test.MsgExtensionRangeOrderingNoMerging")
+    let msgDescriptor3 = descriptorSet.descriptor(named: "swift_descriptor_test.MsgExtensionRangeOrderingNoMerging")!
     // Quick check of what should be in the proto file
     XCTAssertEqual(msgDescriptor3.extensionRanges.count, 3)
     XCTAssertEqual(msgDescriptor3.extensionRanges[0].start, 3)

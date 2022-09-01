@@ -60,10 +60,10 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
                          protoFileToModuleMappings: ProtoFileToModuleMappings())
 
-    let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
+    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
     let values = e.values
     XCTAssertEqual(values.count, 6)
 
@@ -124,10 +124,10 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
                          protoFileToModuleMappings: ProtoFileToModuleMappings())
 
-    let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
+    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
     let values = e.values
     XCTAssertEqual(values.count, 4)
 
@@ -207,10 +207,10 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
                          protoFileToModuleMappings: ProtoFileToModuleMappings())
 
-    let e = descriptorSet.lookupEnumDescriptor(protoName: ".TestEnum")
+    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
     let values = e.values
     XCTAssertEqual(values.count, 8)
 
@@ -293,10 +293,10 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     let descriptorSet = DescriptorSet(protos: [fileProto])
     let namer =
-      SwiftProtobufNamer(currentFile: descriptorSet.lookupFileDescriptor(protoName: "test.proto"),
+      SwiftProtobufNamer(currentFile: descriptorSet.fileDescriptor(named: "test.proto")!,
                          protoFileToModuleMappings: ProtoFileToModuleMappings())
 
-    let e = descriptorSet.lookupEnumDescriptor(protoName: ".AliasedEnum")
+    let e = descriptorSet.enumDescriptor(named: "AliasedEnum")!
     let values = e.values
     XCTAssertEqual(values.count, 6)
 

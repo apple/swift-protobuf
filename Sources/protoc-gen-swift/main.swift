@@ -223,7 +223,7 @@ struct GeneratorPlugin {
     var errorString: String? = nil
     var responseFiles: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
     for name in request.fileToGenerate {
-      let fileDescriptor = descriptorSet.lookupFileDescriptor(protoName: name)
+      let fileDescriptor = descriptorSet.fileDescriptor(named: name)!
       let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
       var printer = CodePrinter()
       fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
