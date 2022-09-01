@@ -153,25 +153,18 @@ public final class FileDescriptor {
     self.syntax = Syntax(rawValue: proto.syntax)!
     self.options = proto.options
 
-    let prefix: String
     let protoPackage = proto.package
-    if protoPackage.isEmpty {
-      prefix = ""
-    } else {
-      prefix = "." + protoPackage
-    }
-
     self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
+      return EnumDescriptor(proto: $1, index: $0, registry: registry, scope: protoPackage)
     }
     self.messages = proto.messageType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
+      return Descriptor(proto: $1, index: $0, registry: registry, scope: protoPackage)
     }
     self.extensions = proto.extension.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
     }
     self.services = proto.service.enumeratedMap {
-      return ServiceDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
+      return ServiceDescriptor(proto: $1, index: $0, registry: registry, scope: protoPackage)
     }
 
     // The compiler ensures there aren't cycles between a file and dependencies, so
@@ -388,23 +381,22 @@ public final class Descriptor {
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
-                   fullNamePrefix prefix: String) {
+                   scope: String) {
     self.name = proto.name
-    let fullName = "\(prefix).\(proto.name)"
+    let fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.fullName = fullName
     self.index = index
     self.options = proto.options
-    assert(fullName.hasPrefix("."))
-    self.wellKnownType = WellKnownType(rawValue: String(fullName.dropFirst()))
+    self.wellKnownType = WellKnownType(rawValue: fullName)
     self.extensionRanges = proto.extensionRange
     self.reservedRanges = proto.reservedRange.map { return $0.start ..< $0.end }
     self.reservedNames = proto.reservedName
 
     self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
+      return EnumDescriptor(proto: $1, index: $0, registry: registry, scope: fullName)
     }
     self.messages = proto.nestedType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
+      return Descriptor(proto: $1, index: $0, registry: registry, scope: fullName)
     }
     self.fields = proto.field.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry)
@@ -472,7 +464,7 @@ public final class EnumDescriptor {
     var i = 0
     for p in _values {
       let aliasing = firstValues[p.number]
-      let d = EnumValueDescriptor(proto: p, index: i, enumType: self, aliasing: aliasing)
+      let d = EnumValueDescriptor(proto: p, index: i, enumType: self, aliasing: aliasing, scope: _valuesScope)
       result.append(d)
       i += 1
 
@@ -486,6 +478,7 @@ public final class EnumDescriptor {
     return result
   }()
   private var _values: [Google_Protobuf_EnumValueDescriptorProto]
+  private let _valuesScope: String
 
   /// The `Google_Protobuf_MessageOptions` set on this enum.
   public let options: Google_Protobuf_EnumOptions
@@ -500,12 +493,13 @@ public final class EnumDescriptor {
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
-                   fullNamePrefix prefix: String) {
+                   scope: String) {
     self.name = proto.name
-    self.fullName = "\(prefix).\(proto.name)"
+    self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
     self.options = proto.options
     self._values = proto.value
+    self._valuesScope = scope
     self.reservedRanges = proto.reservedRange.map { return $0.start ... $0.end }
     self.reservedNames = proto.reservedName
 
@@ -554,16 +548,15 @@ public final class EnumValueDescriptor {
   fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
                    index: Int,
                    enumType: EnumDescriptor,
-                   aliasing: EnumValueDescriptor?) {
+                   aliasing: EnumValueDescriptor?,
+                   scope: String) {
     self.name = proto.name
+    self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
     self.number = proto.number
     self.options = proto.options
     self.enumType = enumType
     aliasOf = aliasing
-
-    let fullName = "\(enumType.fullName).\(proto.name)"
-    self.fullName = fullName
   }
 }
 
@@ -621,22 +614,15 @@ public final class FieldDescriptor {
   /// Fully-qualified name of the field.
   public var fullName: String {
     // Since the fullName isn't needed on fields that often, compute it on demand.
-    let prefix: String
-    if isExtension {
-      if let extensionScope = extensionScope {
-        prefix = extensionScope.fullName
-      } else {
-        let package = file.package
-        if package.isEmpty {
-          prefix = ""
-        } else {
-          prefix = ".\(package)"
-        }
-      }
-    } else {
-      prefix = containingType.fullName
+    guard isExtension else {
+      // Normal field on a message.
+      return "\(containingType.fullName).\(name)"
     }
-    return "\(prefix).\(name)"
+    if let extensionScope = extensionScope {
+      return "\(extensionScope.fullName).\(name)"
+    }
+    let package = file.package
+    return package.isEmpty ? name : "\(package).\(name)"
   }
   /// JSON name of this field.
   public let jsonName: String
@@ -861,9 +847,9 @@ public final class ServiceDescriptor {
   fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
                    index: Int,
                    registry: Registry,
-                   fullNamePrefix prefix: String) {
+                   scope: String) {
     self.name = proto.name
-    self.fullName = "\(prefix).\(proto.name)"
+    self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
     self.options = proto.options
 
@@ -929,6 +915,9 @@ public final class MethodDescriptor {
 /// Helper used under the hood to build the mapping tables and look things up.
 fileprivate final class Registry {
   private var fileMap = [String:FileDescriptor]()
+  // These three are all keyed by the full_name prefixed with a '.', this way
+  // they match the strings that protoc uses to cross reference the types in
+  // the object graph.
   private var messageMap = [String:Descriptor]()
   private var enumMap = [String:EnumDescriptor]()
   private var serviceMap = [String:ServiceDescriptor]()
@@ -939,13 +928,13 @@ fileprivate final class Registry {
     fileMap[file.name] = file
   }
   func register(message: Descriptor) {
-    messageMap[message.fullName] = message
+    messageMap[".\(message.fullName)"] = message
   }
   func register(enum e: EnumDescriptor) {
-    enumMap[e.fullName] = e
+    enumMap[".\(e.fullName)"] = e
   }
   func register(service: ServiceDescriptor) {
-    serviceMap[service.fullName] = service
+    serviceMap[".\(service.fullName)"] = service
   }
 
   // These are forced unwraps as the FileDescriptorSet should always be valid from protoc.

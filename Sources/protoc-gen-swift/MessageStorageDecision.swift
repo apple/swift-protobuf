@@ -92,7 +92,7 @@ fileprivate struct AnalyzeResult {
 /// times.
 fileprivate var analysisCache: Dictionary<String,AnalyzeResult> = [
   // google.protobuf.Any can be seeded.
-  ".google.protobuf.Any": .useStorage,
+  "google.protobuf.Any": .useStorage,
 ]
 
 /// Analyze the given descriptor to decide if it should use storage and what
