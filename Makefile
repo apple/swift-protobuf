@@ -385,9 +385,9 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 # public protocol, struct, enum, or class name, as well as every
 # method or property defined in a public protocol, struct, or class.
 # It also gives us a large collection of Swift names.
-Protos/mined_words.txt: Sources/SwiftProtobuf/*
+Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 	@echo Building $@
-	@cat Sources/SwiftProtobuf/* | \
+	@cat $^ | \
 	grep -E '\b(public|func|var)\b' | \
 	grep -vE '\b(private|internal|fileprivate)\b' | \
 	sed -e 's|//.*$$||g' | \
