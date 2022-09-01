@@ -42,6 +42,7 @@ import SwiftProtobuf
 ///
 /// This is like the `DescriptorPool` class in the C++ protobuf library.
 public final class DescriptorSet {
+  /// The list of `FileDescriptor`s in this set.
   public let files: [FileDescriptor]
   private let registry = Registry()
 
@@ -64,20 +65,30 @@ public final class DescriptorSet {
   /// Lookup a specific file. The names for files are what was captured in
   /// the `Google_Protobuf_FileDescriptorProto` when it was created, protoc
   /// uses the path name for how the file was found.
+  ///
+  /// This is a legacy api since it requires the file to be found or it aborts.
+  /// Mainly kept for grpc-swift compatibility.
   public func lookupFileDescriptor(protoName name: String) -> FileDescriptor {
-    return registry.fileDescriptor(name: name)
+    return registry.fileDescriptor(named: name)!
   }
-  /// Lookup a proto message. The name is a fully qualified name.
-  public func lookupDescriptor(protoName name: String) -> Descriptor {
-    return registry.descriptor(name: name)
+
+  /// Find a specific file. The names for files are what was captured in
+  /// the `Google_Protobuf_FileDescriptorProto` when it was created, protoc
+  /// uses the path name for how the file was found.
+  public func fileDescriptor(named name: String) -> FileDescriptor? {
+    return registry.fileDescriptor(named: name)
   }
-  /// Lookup a proto enum. The name is a fully qualified name.
-  public func lookupEnumDescriptor(protoName name: String) -> EnumDescriptor {
-    return registry.enumDescriptor(name: name)
+  /// Find the `Descriptor` for a named proto message.
+  public func descriptor(named fullName: String) -> Descriptor? {
+    return registry.descriptor(named: ".\(fullName)")
   }
-  /// Lookup a proto service. The name is a fully qualified name.
-  public func lookupServiceDescriptor(protoName name: String) -> ServiceDescriptor {
-    return registry.serviceDescriptor(name: name)
+  /// Find the `EnumDescriptor` for a named proto enum.
+  public func enumDescriptor(named fullName: String) -> EnumDescriptor? {
+    return registry.enumDescriptor(named: ".\(fullName)")
+  }
+  /// Find the `ServiceDescriptor` for a named proto service.
+  public func serviceDescriptor(named fullName: String) -> ServiceDescriptor? {
+    return registry.serviceDescriptor(named: ".\(fullName)")
   }
 }
 
@@ -170,7 +181,7 @@ public final class FileDescriptor {
     // The compiler ensures there aren't cycles between a file and dependencies, so
     // this doesn't run the risk of creating any retain cycles that would force these
     // to have to be weak.
-    let dependencies = proto.dependency.map { return registry.fileDescriptor(name: $0) }
+    let dependencies = proto.dependency.map { return registry.fileDescriptor(named: $0)! }
     self.dependencies = dependencies
     self.publicDependencies = proto.publicDependency.map { dependencies[Int($0)] }
     self.weakDependencies = proto.weakDependency.map { dependencies[Int($0)] }
@@ -804,7 +815,7 @@ public final class FieldDescriptor {
     if let extendee = extendee {
       assert(isExtension)
       extensionScope = containingType
-      self.containingType = registry.descriptor(name: extendee)
+      self.containingType = registry.descriptor(named: extendee)!
     } else {
       self.containingType = containingType
     }
@@ -812,9 +823,9 @@ public final class FieldDescriptor {
 
     if let typeName = typeName {
       if type == .enum {
-        enumType = registry.enumDescriptor(name: typeName)
+        enumType = registry.enumDescriptor(named: typeName)!
       } else {
-        messageType = registry.descriptor(name: typeName)
+        messageType = registry.descriptor(named: typeName)!
       }
     }
     typeName = nil
@@ -903,8 +914,8 @@ public final class MethodDescriptor {
     self.clientStreaming = proto.clientStreaming
     self.serverStreaming = proto.serverStreaming
     // Can look these up because all the Descriptors are already registered
-    self.inputType = registry.descriptor(name: proto.inputType)
-    self.outputType = registry.descriptor(name: proto.outputType)
+    self.inputType = registry.descriptor(named: proto.inputType)!
+    self.outputType = registry.descriptor(named: proto.outputType)!
   }
 
   fileprivate func bind(service: ServiceDescriptor, registry: Registry) {
@@ -913,11 +924,13 @@ public final class MethodDescriptor {
 }
 
 /// Helper used under the hood to build the mapping tables and look things up.
+///
+/// All fullNames are like defined in descriptor.proto, they start with a
+/// leading '.'. This simplifies the string ops when assembling the message
+/// graph.
 fileprivate final class Registry {
   private var fileMap = [String:FileDescriptor]()
-  // These three are all keyed by the full_name prefixed with a '.', this way
-  // they match the strings that protoc uses to cross reference the types in
-  // the object graph.
+  // These three are all keyed by the full_name prefixed with a '.'.
   private var messageMap = [String:Descriptor]()
   private var enumMap = [String:EnumDescriptor]()
   private var serviceMap = [String:ServiceDescriptor]()
@@ -937,17 +950,16 @@ fileprivate final class Registry {
     serviceMap[".\(service.fullName)"] = service
   }
 
-  // These are forced unwraps as the FileDescriptorSet should always be valid from protoc.
-  func fileDescriptor(name: String) -> FileDescriptor {
-    return fileMap[name]!
+  func fileDescriptor(named name: String) -> FileDescriptor? {
+    return fileMap[name]
   }
-  func descriptor(name: String) -> Descriptor {
-    return messageMap[name]!
+  func descriptor(named fullName: String) -> Descriptor? {
+    return messageMap[fullName]
   }
-  func enumDescriptor(name: String) -> EnumDescriptor {
-    return enumMap[name]!
+  func enumDescriptor(named fullName: String) -> EnumDescriptor? {
+    return enumMap[fullName]
   }
-  func serviceDescriptor(name: String) -> ServiceDescriptor {
-    return serviceMap[name]!
+  func serviceDescriptor(named fullName: String) -> ServiceDescriptor? {
+    return serviceMap[fullName]
   }
 }
