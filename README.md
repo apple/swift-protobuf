@@ -188,10 +188,13 @@ the plugin above:
 
 ```swift
 dependencies: [
-    .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
+    .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
 ],
 targets: [
-    .target(name: "MyTarget", dependencies: ["SwiftProtobuf"]),
+    .target(
+      name: "MyTarget", 
+      dependencies: [.product(name: "SwiftProtobuf", package: "swift-protobuf")]
+    ),
 ]
 ```
 
