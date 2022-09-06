@@ -54,6 +54,13 @@ public final class DescriptorSet {
   public func lookupServiceDescriptor(protoName name: String) -> ServiceDescriptor {
     return registry.serviceDescriptor(name: name)
   }
+
+  /// Find a specific file. The names for files are what was captured in
+  /// the `Google_Protobuf_FileDescriptorProto` when it was created, protoc
+  /// uses the path name for how the file was found.
+  public func fileDescriptor(named name: String) -> FileDescriptor? {
+    return registry.fileDescriptor(named: name)
+  }
 }
 
 public final class FileDescriptor {
@@ -616,12 +623,19 @@ public final class MethodDescriptor {
   public private(set) var inputType: Descriptor!
   public private(set) var outputType: Descriptor!
 
+  /// Whether the client streams multiple requests.
+  public let clientStreaming: Bool
+  // Whether the server streams multiple responses.
+  public let serverStreaming: Bool
+
   fileprivate init(proto: Google_Protobuf_MethodDescriptorProto,
                    index: Int,
                    registry: Registry) {
     self.proto = proto
     self.index = index
-  }
+    self.clientStreaming = proto.clientStreaming
+    self.serverStreaming = proto.serverStreaming
+}
 
   fileprivate func bind(service: ServiceDescriptor, registry: Registry) {
     self.service = service
@@ -665,5 +679,9 @@ fileprivate final class Registry {
   }
   func serviceDescriptor(name: String) -> ServiceDescriptor {
     return serviceMap[name]!
+  }
+
+  func fileDescriptor(named name: String) -> FileDescriptor? {
+    return fileMap[name]
   }
 }
