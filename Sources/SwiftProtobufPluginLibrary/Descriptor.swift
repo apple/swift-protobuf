@@ -22,15 +22,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// NOTES:
-// 1. `lazy` and `weak` (or `unowned`) doesn't seem to work, so the impl here
-//    can't simply keep the `Resolver` and look things up when first accessed
-//    instead `bind()` is used to force those lookups to happen.
-// 2. Despite the Swift docs seeming to say `unowned` should work, there are
-//    compile errors, `weak` ends up being used even though this code doesn't
-//    need the zeroing behaviors.  If it did, things will be a little faster
-//    as the tracking for weak references wouldn't be needed.
-
 import Foundation
 import SwiftProtobuf
 
@@ -280,10 +271,10 @@ public final class Descriptor {
   public let index: Int
 
   /// The .proto file in which this message type was defined.
-  public private(set) weak var file: FileDescriptor!
+  public private(set) unowned var file: FileDescriptor!
   /// If this Descriptor describes a nested type, this returns the type
   /// in which it is nested.
-  public private(set) weak var containingType: Descriptor?
+  public private(set) unowned var containingType: Descriptor?
 
   /// The `Google_Protobuf_MessageOptions` set on this Message.
   public let options: Google_Protobuf_MessageOptions
@@ -459,10 +450,10 @@ public final class EnumDescriptor {
   public let index: Int
 
   /// The .proto file in which this message type was defined.
-  public private(set) weak var file: FileDescriptor!
+  public private(set) unowned var file: FileDescriptor!
   /// If this Descriptor describes a nested type, this returns the type
   /// in which it is nested.
-  public private(set) weak var containingType: Descriptor?
+  public private(set) unowned var containingType: Descriptor?
 
   /// The values defined for this enum. Guaranteed (by protoc) to be atleast
   /// one item. These are returned in the order they were defined in the .proto
@@ -543,9 +534,9 @@ public final class EnumValueDescriptor {
   public let number: Int32
 
   /// The .proto file in which this message type was defined.
-  public weak var file: FileDescriptor! { return enumType.file }
+  public unowned var file: FileDescriptor! { return enumType.file }
   /// The type of this value.
-  public private(set) weak var enumType: EnumDescriptor!
+  public private(set) unowned var enumType: EnumDescriptor!
 
   /// The `Google_Protobuf_EnumValueOptions` set on this value.
   public let options: Google_Protobuf_EnumValueOptions
@@ -554,7 +545,7 @@ public final class EnumValueDescriptor {
   // namer has apis around them, so figure out what's the right way  to deal
   // with it, maybe moving it (and the naming support?) to the actual plugin
   // directory.
-  public private(set) weak var aliasOf: EnumValueDescriptor?
+  public private(set) unowned var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
 
   fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
@@ -588,9 +579,9 @@ public final class OneofDescriptor {
   }
 
   /// The .proto file in which this oneof type was defined.
-  public weak var file: FileDescriptor! { return containingType.file }
+  public unowned var file: FileDescriptor! { return containingType.file }
   /// If this Descriptor of the message that defines this oneof.
-  public private(set) weak var containingType: Descriptor!
+  public private(set) unowned var containingType: Descriptor!
 
   /// The `Google_Protobuf_OneofOptions` set on this oneof.
   public let options: Google_Protobuf_OneofOptions
@@ -640,7 +631,7 @@ public final class FieldDescriptor {
   public let jsonName: String
 
   /// File in which this field was defined.
-  public private(set) weak var file: FileDescriptor!
+  public private(set) unowned var file: FileDescriptor!
 
   /// If this is an extension field.
   public let isExtension: Bool
@@ -736,7 +727,7 @@ public final class FieldDescriptor {
 
   /// The `Descriptor` of the message which this is a field of. For extensions,
   /// this is the extended type.
-  public private(set) weak var containingType: Descriptor!
+  public private(set) unowned var containingType: Descriptor!
 
   /// The oneof this field is a member of.
   public var containingOneof: OneofDescriptor? {
@@ -755,12 +746,12 @@ public final class FieldDescriptor {
   /// Extensions can be declared within the scope of another message. If this
   /// is an extension field, then this will be the scope it was declared in
   /// nil if was declared at a global scope.
-  public private(set) weak var extensionScope: Descriptor?
+  public private(set) unowned var extensionScope: Descriptor?
 
   /// When this is a message field, the message's `Desciptor`.
-  public private(set) weak var messageType: Descriptor!
+  public private(set) unowned var messageType: Descriptor!
   /// When this is a enum field, the enum's `EnumDesciptor`.
-  public private(set) weak var enumType: EnumDescriptor!
+  public private(set) unowned var enumType: EnumDescriptor!
 
   /// The FieldOptions for this field.
   public var options: Google_Protobuf_FieldOptions
@@ -847,7 +838,7 @@ public final class ServiceDescriptor {
   public let index: Int
 
   /// The .proto file in which this service was defined
-  public private(set) weak var file: FileDescriptor!
+  public private(set) unowned var file: FileDescriptor!
 
   /// Get `Google_Protobuf_ServiceOptions` for this service.
   public let options: Google_Protobuf_ServiceOptions
@@ -893,9 +884,9 @@ public final class MethodDescriptor {
   public let index: Int
 
   /// The .proto file in which this service was defined
-  public weak var file: FileDescriptor! { return service.file }
+  public unowned var file: FileDescriptor! { return service.file }
   /// The service tha defines this method.
-  public private(set) weak var service: ServiceDescriptor!
+  public private(set) unowned var service: ServiceDescriptor!
 
   /// The type of protocol message which this method accepts as input.
   public private(set) var inputType: Descriptor!
