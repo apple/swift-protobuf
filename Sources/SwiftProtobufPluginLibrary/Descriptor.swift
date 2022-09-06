@@ -68,6 +68,7 @@ public final class DescriptorSet {
   ///
   /// This is a legacy api since it requires the file to be found or it aborts.
   /// Mainly kept for grpc-swift compatibility.
+  @available(*, deprecated, renamed: "fileDescriptor(named:)")
   public func lookupFileDescriptor(protoName name: String) -> FileDescriptor {
     return registry.fileDescriptor(named: name)!
   }
@@ -906,6 +907,12 @@ public final class MethodDescriptor {
   // Whether the server streams multiple responses.
   public let serverStreaming: Bool
 
+  /// The proto version of the descriptor that defines this method.
+  @available(*, deprecated,
+             message: "Use the properties directly or open a GitHub issue for something missing")
+  public var proto: Google_Protobuf_MethodDescriptorProto { return _proto }
+  private let _proto: Google_Protobuf_MethodDescriptorProto
+
   fileprivate init(proto: Google_Protobuf_MethodDescriptorProto,
                    index: Int,
                    registry: Registry) {
@@ -916,6 +923,8 @@ public final class MethodDescriptor {
     // Can look these up because all the Descriptors are already registered
     self.inputType = registry.descriptor(named: proto.inputType)!
     self.outputType = registry.descriptor(named: proto.outputType)!
+
+    self._proto = proto
   }
 
   fileprivate func bind(service: ServiceDescriptor, registry: Registry) {
