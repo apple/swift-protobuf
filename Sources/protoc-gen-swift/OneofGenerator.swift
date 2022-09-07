@@ -238,10 +238,9 @@ class OneofGenerator {
                   """)
               for f in fieldsToCheck {
                   p.print("case \(f.dottedSwiftName): return {\n")
-                  p.indent()
-                  p.print("guard case \(f.dottedSwiftName)(let v) = self else { preconditionFailure() }\n")
-                  p.print("return v.isInitialized\n")
-                  p.outdent()
+                  p.printlnIndented(
+                        "guard case \(f.dottedSwiftName)(let v) = self else { preconditionFailure() }",
+                        "return v.isInitialized")
                   p.print("}()\n")
               }
               // If there were other cases, add a default.
@@ -271,11 +270,9 @@ class OneofGenerator {
         if usesHeapStorage {
             p.print(
               "\(visibility)var \(swiftFieldName): \(swiftRelativeName)? {\n")
-            p.indent()
-            p.print(
-              "get {return _storage.\(underscoreSwiftFieldName)}\n",
-              "set {_uniqueStorage().\(underscoreSwiftFieldName) = newValue}\n")
-            p.outdent()
+            p.printlnIndented(
+              "get {return _storage.\(underscoreSwiftFieldName)}",
+              "set {_uniqueStorage().\(underscoreSwiftFieldName) = newValue}")
             p.print("}\n")
         } else {
             p.print(
@@ -305,11 +302,9 @@ class OneofGenerator {
           "\(visibility)var \(field.swiftName): \(field.swiftType) {\n")
         p.indent()
         p.print("get {\n")
-        p.indent()
-        p.print(
-          "if case \(field.dottedSwiftName)(let v)? = \(getter) {return v}\n",
-          "return \(field.swiftDefaultValue)\n")
-        p.outdent()
+        p.printlnIndented(
+          "if case \(field.dottedSwiftName)(let v)? = \(getter) {return v}",
+          "return \(field.swiftDefaultValue)")
         p.print(
           "}\n",
           "set {\(setter) = \(field.dottedSwiftName)(newValue)}\n")
@@ -348,11 +343,9 @@ class OneofGenerator {
               "var v: \(field.swiftType)?\n",
               "var hadOneofValue = false\n",
               "if let current = \(storedProperty) {\n")
-            p.indent()
-            p.print(
-              "hadOneofValue = true\n",
-              "if case \(field.dottedSwiftName)(let m) = current {v = m}\n")
-            p.outdent()
+            p.printlnIndented(
+              "hadOneofValue = true",
+              "if case \(field.dottedSwiftName)(let m) = current {v = m}")
             p.print("}\n")
             hadValueTest = "hadOneofValue"
         } else {
@@ -363,11 +356,9 @@ class OneofGenerator {
         p.print(
           "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
           "if let v = v {\n")
-        p.indent()
-        p.print(
-          "if \(hadValueTest) {try decoder.handleConflictingOneOf()}\n",
-          "\(storedProperty) = \(field.dottedSwiftName)(v)\n")
-        p.outdent()
+        p.printlnIndented(
+          "if \(hadValueTest) {try decoder.handleConflictingOneOf()}",
+          "\(storedProperty) = \(field.dottedSwiftName)(v)")
         p.print("}\n")
         p.outdent()
         p.print("}()\n")
@@ -382,18 +373,15 @@ class OneofGenerator {
 
         if group.count == 1 {
             p.print("try { if case \(field.dottedSwiftName)(let v)? = \(storedProperty) {\n")
-            p.indent()
-            p.print("try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))\n")
-            p.outdent()
+            p.printlnIndented("try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))")
             p.print("} }()\n")
         } else {
             p.print("switch \(storedProperty) {\n")
             for f in group {
                 p.print("case \(f.dottedSwiftName)?: try {\n")
-                p.indent()
-                p.print("guard case \(f.dottedSwiftName)(let v)? = \(storedProperty) else { preconditionFailure() }\n")
-                p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
-                p.outdent()
+                p.printlnIndented(
+                  "guard case \(f.dottedSwiftName)(let v)? = \(storedProperty) else { preconditionFailure() }",
+                  "try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))")
                 p.print("}()\n")
             }
             if fieldSortedGrouped.count == 1 {

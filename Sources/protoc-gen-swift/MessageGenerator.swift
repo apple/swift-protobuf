@@ -306,9 +306,7 @@ class MessageGenerator {
           }
           if isExtensible {
             p.print("case \(descriptor.swiftExtensionRangeCaseExpressions):\n")
-            p.indent()
-            p.print("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()\n")
-            p.outdent()
+            p.printlnIndented("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()")
           }
           p.print("default: break\n",
                   "}\n")
@@ -316,9 +314,7 @@ class MessageGenerator {
           // Just output a simple if-statement if the message had no fields of its
           // own but we still need to generate a decode statement for extensions.
           p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
-          p.indent()
-          p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)\n")
-          p.outdent()
+          p.printlnIndented("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)")
           p.print("}\n")
         }
         p.outdent()

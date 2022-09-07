@@ -195,11 +195,9 @@ class FileGenerator {
             // that was used to generate this file.
             fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(namer.swiftProtobufModuleName).ProtobufAPIVersionCheck {\n
             """)
-        p.indent()
-        p.print(
-            "struct _\(v): \(namer.swiftProtobufModuleName).ProtobufAPIVersion_\(v) {}\n",
-            "typealias Version = _\(v)\n")
-        p.outdent()
+        p.printlnIndented(
+            "struct _\(v): \(namer.swiftProtobufModuleName).ProtobufAPIVersion_\(v) {}",
+            "typealias Version = _\(v)")
         p.print("}\n")
     }
 }

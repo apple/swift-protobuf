@@ -102,21 +102,17 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         if usesHeapStorage {
             p.print(
               "\(visibility)var \(swiftName): \(swiftType) {\n")
-            p.indent()
             let defaultClause = hasFieldPresence ? " ?? \(swiftDefaultValue)" : ""
-            p.print(
-              "get {return _storage.\(underscoreSwiftName)\(defaultClause)}\n",
-              "set {_uniqueStorage().\(underscoreSwiftName) = newValue}\n")
-            p.outdent()
+            p.printlnIndented(
+              "get {return _storage.\(underscoreSwiftName)\(defaultClause)}",
+              "set {_uniqueStorage().\(underscoreSwiftName) = newValue}")
             p.print("}\n")
         } else {
             if hasFieldPresence {
                 p.print("\(visibility)var \(swiftName): \(swiftType) {\n")
-                p.indent()
-                p.print(
-                  "get {return \(underscoreSwiftName) ?? \(swiftDefaultValue)}\n",
-                  "set {\(underscoreSwiftName) = newValue}\n")
-                p.outdent()
+                p.printlnIndented(
+                  "get {return \(underscoreSwiftName) ?? \(swiftDefaultValue)}",
+                  "set {\(underscoreSwiftName) = newValue}")
                 p.print("}\n")
             } else {
                 p.print("\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)\n")
@@ -225,9 +221,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         let suffix = usesLocals ? " }()" : ""
 
         p.print("\(prefix)if \(conditional) {\n")
-        p.indent()
-        p.print("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))\n")
-        p.outdent()
+        p.printlnIndented("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))")
         p.print("}\(suffix)\n")
     }
 }
