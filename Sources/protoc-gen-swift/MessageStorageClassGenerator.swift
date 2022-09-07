@@ -68,9 +68,7 @@ class MessageStorageClassGenerator {
     p.print("\(storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
     p.indent()
     p.print("if !isKnownUniquelyReferenced(&_storage) {\n")
-    p.indent()
-    p.print("_storage = _StorageClass(copying: _storage)\n")
-    p.outdent()
+    p.printlnIndented("_storage = _StorageClass(copying: _storage)")
     p.print(
       "}\n",
       "return _storage\n")

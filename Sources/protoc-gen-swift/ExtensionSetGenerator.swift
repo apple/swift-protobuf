@@ -80,11 +80,9 @@ class ExtensionSetGenerator {
             p.print(
               comments,
               "\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModuleName).MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
-            p.indent()
-            p.print(
-              "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
-              "fieldName: \"\(fieldNamePath)\"\n")
-            p.outdent()
+            p.printlnIndented(
+              "_protobuf_fieldNumber: \(fieldDescriptor.number),",
+              "fieldName: \"\(fieldNamePath)\"")
             p.print(")\n")
         }
 
@@ -112,17 +110,14 @@ class ExtensionSetGenerator {
                 p.print(
                     "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
                     "\(visibility)var \(extensionNames.has): Bool {\n")
-                p.indent()
-                p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
-                p.outdent()
+                p.printlnIndented("return hasExtensionValue(ext: \(swiftFullExtensionName))")
                 p.print("}\n")
 
                 p.print(
-                    "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
+                    "/// Clears the value of extension `\(swiftFullExtensionName)`.\n",
+                    "/// Subsequent reads from it will return its default value.\n",
                     "\(visibility)mutating func \(extensionNames.clear)() {\n")
-                p.indent()
-                p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
-                p.outdent()
+                p.printlnIndented("clearExtensionValue(ext: \(swiftFullExtensionName))")
                 p.print("}\n")
             }
         }

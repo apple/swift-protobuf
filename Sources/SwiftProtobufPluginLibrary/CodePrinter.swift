@@ -49,20 +49,43 @@ public struct CodePrinter {
 
   /// Writes the given strings to the printer.
   ///
+  /// Newlines within the strings are honored and indentention is applied.
+  ///
   /// - Parameter text: A variable-length list of strings to be printed.
   public mutating func print(_ text: String...) {
+    printInternal(text, false)
+  }
+
+  /// Indents, writes the given strings to the printer with a newline added
+  /// to each one, and then outdents.
+  ///
+  /// Newlines within the strings are honored and indentention is applied.
+  ///
+  /// - Parameter text: A variable-length list of strings to be printed.
+  public mutating func printlnIndented(_ text: String...) {
+    indent()
+    printInternal(text, true)
+    outdent()
+  }
+
+  private static let kNewline : String.UnicodeScalarView.Element = "\n"
+
+  private mutating func printInternal(_ text: [String], _ newline: Bool) {
     for t in text {
       for scalar in t.unicodeScalars {
         // Indent at the start of a new line, unless it's a blank line.
-        if atLineStart && scalar != "\n" {
+        if atLineStart && scalar != CodePrinter.kNewline {
           contentScalars.append(contentsOf: indentation)
         }
         contentScalars.append(scalar)
-        atLineStart = (scalar == "\n")
+        atLineStart = (scalar == CodePrinter.kNewline)
+      }
+      if newline {
+        contentScalars.append(CodePrinter.kNewline)
+        atLineStart = true
       }
     }
   }
-
   /// Increases the printer's indentation level.
   public mutating func indent() {
     indentation.append(contentsOf: singleIndent)
