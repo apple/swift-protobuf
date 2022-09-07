@@ -40,7 +40,7 @@ class OneofGenerator {
         }
 
         // Only valid on message fields.
-        var messageType: Descriptor { return fieldDescriptor.messageType }
+        var messageType: Descriptor? { return fieldDescriptor.messageType }
 
         init(descriptor: FieldDescriptor, namer: SwiftProtobufNamer) {
             precondition(descriptor.oneofIndex != nil)
@@ -217,7 +217,7 @@ class OneofGenerator {
 
         // A helper for isInitialized
         let fieldsToCheck = fields.filter {
-            $0.isGroupOrMessage && $0.messageType.containsRequiredFields()
+            $0.isGroupOrMessage && $0.messageType!.containsRequiredFields()
         }
         if !fieldsToCheck.isEmpty {
           p.print(
@@ -430,7 +430,7 @@ class OneofGenerator {
 
         // Confirm there is message field with required fields.
         let firstRequired = fields.first {
-            $0.isGroupOrMessage && $0.messageType.containsRequiredFields()
+            $0.isGroupOrMessage && $0.messageType!.containsRequiredFields()
         }
         guard firstRequired != nil else { return }
 

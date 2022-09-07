@@ -160,7 +160,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter) {
-        guard isGroupOrMessage && fieldDescriptor.messageType.containsRequiredFields() else { return }
+        guard isGroupOrMessage && fieldDescriptor.messageType!.containsRequiredFields() else { return }
 
         if isRepeated {  // Map or Array
             p.print("if !\(namer.swiftProtobufModuleName).Internal.areAllInitialized(\(storedProperty)) {return false}\n")
