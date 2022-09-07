@@ -18,5 +18,5 @@ public protocol ProvidesLocationPath {
   /// `GetSourceLocation()` in the C++ Descriptor apis.
   func getLocationPath(path: inout IndexPath)
   /// Returns the File this conforming object is in.
-  var file: FileDescriptor! { get }
+  var file: FileDescriptor { get }
 }

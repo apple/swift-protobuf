@@ -103,7 +103,7 @@ fileprivate func analyze(descriptor: Descriptor) -> AnalyzeResult {
   }
 
   func containsRecursiveSingularField(_ descriptor: Descriptor) -> Bool {
-    let initialFile = descriptor.file!
+    let initialFile = descriptor.file
 
     func recursionHelper(_ descriptor: Descriptor, messageStack: [Descriptor]) -> Bool {
       var messageStack = messageStack

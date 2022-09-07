@@ -271,7 +271,7 @@ public final class Descriptor {
   public let index: Int
 
   /// The .proto file in which this message type was defined.
-  public private(set) unowned var file: FileDescriptor!
+  public var file: FileDescriptor { return _file! }
   /// If this Descriptor describes a nested type, this returns the type
   /// in which it is nested.
   public private(set) unowned var containingType: Descriptor?
@@ -381,6 +381,9 @@ public final class Descriptor {
     return (key: fields[0], value: fields[1])
   }
 
+  // Storage for `file`, will be set by bind()
+  private unowned var _file: FileDescriptor?
+
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -416,18 +419,18 @@ public final class Descriptor {
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
-    self.file = file
+    _file = file
     self.containingType = containingType
-    self.enums.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-    self.messages.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-    self.fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }
-    self.oneofs.forEach { $0.bind(registry: registry, containingType: self) }
-    self.extensions.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+    enums.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+    messages.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+    fields.forEach { $0.bind(file: file, registry: registry, containingType: self) }
+    oneofs.forEach { $0.bind(registry: registry, containingType: self) }
+    extensions.forEach { $0.bind(file: file, registry: registry, containingType: self) }
 
     // Synthetic oneofs come after normal oneofs. The C++ Descriptor enforces this, only
     // here as a secondary validation because other code can rely on it.
     var seenSynthetic = false
-    for o in self.oneofs {
+    for o in oneofs {
       if o.isSynthetic {
         seenSynthetic = true
       } else {
@@ -450,7 +453,7 @@ public final class EnumDescriptor {
   public let index: Int
 
   /// The .proto file in which this message type was defined.
-  public private(set) unowned var file: FileDescriptor!
+  public var file: FileDescriptor { return _file! }
   /// If this Descriptor describes a nested type, this returns the type
   /// in which it is nested.
   public private(set) unowned var containingType: Descriptor?
@@ -493,6 +496,9 @@ public final class EnumDescriptor {
   /// they are defined in the .proto file.
   public let reservedNames: [String]
 
+  // Storage for `file`, will be set by bind()
+  private unowned var _file: FileDescriptor?
+
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -511,7 +517,7 @@ public final class EnumDescriptor {
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
-    self.file = file
+    _file = file
     self.containingType = containingType
   }
 }
@@ -534,7 +540,7 @@ public final class EnumValueDescriptor {
   public let number: Int32
 
   /// The .proto file in which this message type was defined.
-  public var file: FileDescriptor! { return enumType.file }
+  public var file: FileDescriptor { return enumType.file }
   /// The type of this value.
   public unowned let enumType: EnumDescriptor
 
@@ -579,7 +585,7 @@ public final class OneofDescriptor {
   }
 
   /// The .proto file in which this oneof type was defined.
-  public var file: FileDescriptor! { return containingType.file }
+  public var file: FileDescriptor { return containingType.file }
   /// The Descriptor of the message that defines this oneof.
   public var containingType: Descriptor { return _containingType! }
 
@@ -634,7 +640,7 @@ public final class FieldDescriptor {
   public let jsonName: String
 
   /// File in which this field was defined.
-  public private(set) unowned var file: FileDescriptor!
+  public var file: FileDescriptor { return _file! }
 
   /// If this is an extension field.
   public let isExtension: Bool
@@ -766,6 +772,8 @@ public final class FieldDescriptor {
 
   // Storage for `containingType`, will be set by bind()
   private unowned var _containingType: Descriptor?
+  // Storage for `file`, will be set by bind()
+  private unowned var _file: FileDescriptor?
 
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
                    index: Int,
@@ -808,7 +816,7 @@ public final class FieldDescriptor {
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
-    self.file = file
+    _file = file
 
     if let extendee = extendee {
       assert(isExtension)
@@ -844,7 +852,7 @@ public final class ServiceDescriptor {
   public let index: Int
 
   /// The .proto file in which this service was defined
-  public private(set) unowned var file: FileDescriptor!
+  public var file: FileDescriptor { return _file! }
 
   /// Get `Google_Protobuf_ServiceOptions` for this service.
   public let options: Google_Protobuf_ServiceOptions
@@ -852,6 +860,9 @@ public final class ServiceDescriptor {
   /// The methods defined on this service. These are returned in the order they
   /// were defined in the .proto file.
   public let methods: [MethodDescriptor]
+
+  // Storage for `file`, will be set by bind()
+  private unowned var _file: FileDescriptor?
 
   fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
                    index: Int,
@@ -871,7 +882,7 @@ public final class ServiceDescriptor {
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry) {
-    self.file = file
+    _file = file
     methods.forEach { $0.bind(service: self, registry: registry) }
   }
 }
@@ -890,7 +901,7 @@ public final class MethodDescriptor {
   public let index: Int
 
   /// The .proto file in which this service was defined
-  public var file: FileDescriptor! { return service.file }
+  public var file: FileDescriptor { return service.file }
   /// The service tha defines this method.
   public var service: ServiceDescriptor { return _service! }
 
