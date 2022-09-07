@@ -130,14 +130,14 @@ class FileGenerator {
             m.generateMainStruct(printer: &p, parent: nil, errorString: &errorString)
         }
 
-        var sendablePrinter = CodePrinter()
+        var sendablePrinter = CodePrinter(p)
         for m in messages {
             m.generateSendable(printer: &sendablePrinter)
         }
 
         if !sendablePrinter.isEmpty {
             p.println("", "#if swift(>=5.5) && canImport(_Concurrency)")
-            p.print(sendablePrinter.content)
+            p.append(sendablePrinter)
             p.println("#endif  // swift(>=5.5) && canImport(_Concurrency)")
         }
 

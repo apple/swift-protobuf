@@ -170,7 +170,7 @@ class MessageGenerator {
       }
       p.println("\(storage.storageVisibility) var _storage = _StorageClass.defaultInstance")
     } else {
-      var subMessagePrinter = CodePrinter()
+      var subMessagePrinter = CodePrinter(p)
       for f in fields {
         f.generateStorage(printer: &subMessagePrinter)
       }
@@ -178,7 +178,7 @@ class MessageGenerator {
         if !isExtensible {
           p.println()
         }
-        p.print(subMessagePrinter.content)
+        p.append(subMessagePrinter)
       }
     }
 
@@ -451,7 +451,7 @@ class MessageGenerator {
     }
     if generatedChecks {
       generateWithLifetimeExtension(printer: &p, returns: true) { p in
-        p.print(fieldCheckPrinter.content)
+        p.append(fieldCheckPrinter, indenting: true)
         p.println("return true")
       }
     } else {
