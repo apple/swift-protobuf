@@ -72,7 +72,7 @@ class ExtensionSetGenerator {
                 fieldDescriptor.type == .message &&
                 fieldDescriptor.label == .optional &&
                 fieldDescriptor.messageType === fieldDescriptor.extensionScope {
-                fieldNamePath = fieldDescriptor.messageType.fullName
+                fieldNamePath = fieldDescriptor.messageType!.fullName
             } else {
                 fieldNamePath = fieldDescriptor.fullName
             }

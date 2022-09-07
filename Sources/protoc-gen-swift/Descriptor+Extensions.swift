@@ -53,13 +53,8 @@ extension Descriptor {
         if f.isRequired {
           return true
         }
-        switch f.type {
-        case .group, .message:
-          if helper(f.messageType) {
-            return true
-          }
-        default:
-          break
+        if let messageType = f.messageType, helper(messageType) {
+          return true
         }
       }
 
@@ -111,11 +106,11 @@ extension FieldDescriptor {
     case .fixed32: result = "UInt32"
     case .bool: result = "Bool"
     case .string: result = "String"
-    case .group: result = namer.fullName(message: messageType)
-    case .message: result = namer.fullName(message: messageType)
+    case .group: result = namer.fullName(message: messageType!)
+    case .message: result = namer.fullName(message: messageType!)
     case .bytes: result = "Data"
     case .uint32: result = "UInt32"
-    case .enum: result = namer.fullName(enum: enumType)
+    case .enum: result = namer.fullName(enum: enumType!)
     case .sfixed32: result = "Int32"
     case .sfixed64: result = "Int64"
     case .sint32: result = "Int32"
@@ -199,7 +194,7 @@ extension FieldDescriptor {
       case .bytes:
         return escapedToDataLiteral(defaultValue)
       case .enum:
-        let enumValue = enumType.value(named: defaultValue)!
+        let enumValue = enumType!.value(named: defaultValue)!
         return namer.dottedRelativeName(enumValue: enumValue)
       default:
         return defaultValue
@@ -211,9 +206,9 @@ extension FieldDescriptor {
     case .string: return "String()"
     case .bytes: return "Data()"
     case .group, .message:
-      return namer.fullName(message: messageType) + "()"
+      return namer.fullName(message: messageType!) + "()"
     case .enum:
-      return namer.dottedRelativeName(enumValue: enumType.values.first!)
+      return namer.dottedRelativeName(enumValue: enumType!.values.first!)
     default:
       return "0"
     }
@@ -244,10 +239,10 @@ extension FieldDescriptor {
     case .fixed32: return "\(namer.swiftProtobufModuleName).ProtobufFixed32"
     case .bool: return "\(namer.swiftProtobufModuleName).ProtobufBool"
     case .string: return "\(namer.swiftProtobufModuleName).ProtobufString"
-    case .group, .message: return namer.fullName(message: messageType)
+    case .group, .message: return namer.fullName(message: messageType!)
     case .bytes: return "\(namer.swiftProtobufModuleName).ProtobufBytes"
     case .uint32: return "\(namer.swiftProtobufModuleName).ProtobufUInt32"
-    case .enum: return namer.fullName(enum: enumType)
+    case .enum: return namer.fullName(enum: enumType!)
     case .sfixed32: return "\(namer.swiftProtobufModuleName).ProtobufSFixed32"
     case .sfixed64: return "\(namer.swiftProtobufModuleName).ProtobufSFixed64"
     case .sint32: return "\(namer.swiftProtobufModuleName).ProtobufSInt32"

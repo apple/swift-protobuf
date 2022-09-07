@@ -71,7 +71,7 @@ class FieldGeneratorBase {
     // actually uses here.
     let protoName: String
     if fieldDescriptor.type == .group {
-      protoName = fieldDescriptor.messageType.name
+      protoName = fieldDescriptor.messageType!.name
     } else {
       protoName = fieldDescriptor.name
     }

@@ -91,7 +91,7 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   /// proto files, the filed names is derived by lowercasing the Group's name,
   /// so there are no underscores, etc. to rebuild a camel case name from.
   var namingBase: String {
-    return type == .group ? messageType.name : name
+    return type == .group ? messageType!.name : name
   }
 }
 

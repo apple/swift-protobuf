@@ -685,7 +685,7 @@ public final class FieldDescriptor {
   /// True if this field is a map.
   public var isMap: Bool {
     // This logic comes from the C++ FieldDescriptor::is_map() impl.
-    return type == .message && messageType.options.mapEntry
+    return type == .message && messageType!.options.mapEntry
   }
 
   /// Returns true if this field was syntactically written with "optional" in the
@@ -748,10 +748,10 @@ public final class FieldDescriptor {
   /// nil if was declared at a global scope.
   public private(set) unowned var extensionScope: Descriptor?
 
-  /// When this is a message field, the message's `Desciptor`.
-  public private(set) unowned var messageType: Descriptor!
-  /// When this is a enum field, the enum's `EnumDesciptor`.
-  public private(set) unowned var enumType: EnumDescriptor!
+  /// When this is a message/group field, that message's `Desciptor`.
+  public private(set) unowned var messageType: Descriptor?
+  /// When this is a enum field, that enum's `EnumDesciptor`.
+  public private(set) unowned var enumType: EnumDescriptor?
 
   /// The FieldOptions for this field.
   public var options: Google_Protobuf_FieldOptions
