@@ -889,9 +889,9 @@ public final class MethodDescriptor {
   public private(set) unowned var service: ServiceDescriptor!
 
   /// The type of protocol message which this method accepts as input.
-  public private(set) var inputType: Descriptor!
+  public private(set) var inputType: Descriptor
   /// The type of protocol message which this message produces as output.
-  public private(set) var outputType: Descriptor!
+  public private(set) var outputType: Descriptor
 
   /// Whether the client streams multiple requests.
   public let clientStreaming: Bool
