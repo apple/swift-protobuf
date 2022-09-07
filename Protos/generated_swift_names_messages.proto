@@ -527,6 +527,7 @@ message GeneratedSwiftReservedMessages {
   message mdayStart { int32 mdayStart = 1; }
   message merge { int32 merge = 1; }
   message message { int32 message = 1; }
+  message MessageBase { int32 MessageBase = 1; }
   message messageDepthLimit { int32 messageDepthLimit = 1; }
   message MessageExtension { int32 MessageExtension = 1; }
   message MessageImplementationBase { int32 MessageImplementationBase = 1; }
