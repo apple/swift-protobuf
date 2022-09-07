@@ -215,13 +215,14 @@ class EnumGenerator {
       if enumDescriptor.hasUnknownPreservingSemantics {
         p.print("case .\(unrecognizedCaseName)(let i): return i\n")
       }
-      p.print(
-        "default: break\n",
-        "}\n",
-        "\n",
-        "// Can't get here, all the cases are listed in the above switches.\n",
-        "// See https://github.com/apple/swift-protobuf/issues/904 for more details.\n",
-        "fatalError()\n")
+      p.print("""
+        default: break
+        }
+
+        // Can't get here, all the cases are listed in the above switches.
+        // See https://github.com/apple/swift-protobuf/issues/904 for more details.
+        fatalError()\n
+        """)
     } else {
       p.print("switch self {\n")
       for v in mainEnumValueDescriptorsSorted {
