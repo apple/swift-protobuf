@@ -119,24 +119,23 @@ class MessageGenerator {
     } else {
       conformances = ""
     }
-    p.print(
-        "\n",
-        descriptor.protoSourceComments(),
-        "\(visibility)struct \(swiftRelativeName)\(conformances) {\n")
+    p.println(
+        "",
+        "\(descriptor.protoSourceComments())\(visibility)struct \(swiftRelativeName)\(conformances) {")
     p.indent()
-    p.print("""
+    p.println("""
             // \(namer.swiftProtobufModuleName).Message conformance is added in an extension below. See the
             // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-            // methods supported on all messages.\n
+            // methods supported on all messages.
             """)
 
     for f in fields {
       f.generateInterface(printer: &p)
     }
 
-    p.print(
-        "\n",
-        "\(visibility)var unknownFields = \(namer.swiftProtobufModuleName).UnknownStorage()\n")
+    p.println(
+        "",
+        "\(visibility)var unknownFields = \(namer.swiftProtobufModuleName).UnknownStorage()")
 
     for o in oneofs {
       o.generateMainEnum(printer: &p)
@@ -155,21 +154,21 @@ class MessageGenerator {
     // Generate the default initializer. If we don't, Swift seems to sometimes
     // generate it along with others that can take public proprerties. When it
     // generates the others doesn't seem to be documented.
-    p.print(
-        "\n",
-        "\(visibility)init() {}\n")
+    p.println(
+        "",
+        "\(visibility)init() {}")
 
     // Optional extension support
     if isExtensible {
-      p.print(
-          "\n",
-          "\(visibility)var _protobuf_extensionFieldValues = \(namer.swiftProtobufModuleName).ExtensionFieldValueSet()\n")
+      p.println(
+          "",
+          "\(visibility)var _protobuf_extensionFieldValues = \(namer.swiftProtobufModuleName).ExtensionFieldValueSet()")
     }
     if let storage = storage {
       if !isExtensible {
-        p.print("\n")
+        p.println()
       }
-      p.print("\(storage.storageVisibility) var _storage = _StorageClass.defaultInstance\n")
+      p.println("\(storage.storageVisibility) var _storage = _StorageClass.defaultInstance")
     } else {
       var subMessagePrinter = CodePrinter()
       for f in fields {
@@ -177,14 +176,14 @@ class MessageGenerator {
       }
       if !subMessagePrinter.isEmpty {
         if !isExtensible {
-          p.print("\n")
+          p.println()
         }
         p.print(subMessagePrinter.content)
       }
     }
 
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 
   func generateSendable(printer p: inout CodePrinter) {
@@ -193,7 +192,7 @@ class MessageGenerator {
     // in the library are marked Sendable.
     //
     // Messages that have a storage class will always need @unchecked.
-    p.print("extension \(swiftFullName): @unchecked Sendable {}\n")
+    p.println("extension \(swiftFullName): @unchecked Sendable {}")
 
     for o in oneofs {
       o.generateSendable(printer: &p)
@@ -205,35 +204,35 @@ class MessageGenerator {
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
-    p.print(
-        "\n",
-        "extension \(swiftFullName): \(namer.swiftProtobufModuleName).Message, \(namer.swiftProtobufModuleName)._MessageImplementationBase, \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
+    p.println(
+        "",
+        "extension \(swiftFullName): \(namer.swiftProtobufModuleName).Message, \(namer.swiftProtobufModuleName)._MessageImplementationBase, \(namer.swiftProtobufModuleName)._ProtoNameProviding {")
     p.indent()
 
     if let parent = parent {
-      p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\"\n")
+      p.println("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\"")
     } else if !descriptor.file.package.isEmpty {
-      p.print("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(descriptor.name)\"\n")
+      p.println("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(descriptor.name)\"")
     } else {
-      p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"\n")
+      p.println("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"")
     }
     generateProtoNameProviding(printer: &p)
     if let storage = storage {
-      p.print("\n")
+      p.println()
       storage.generateTypeDeclaration(printer: &p)
-      p.print("\n")
+      p.println()
       storage.generateUniqueStorage(printer: &p)
     }
-    p.print("\n")
+    p.println()
     generateIsInitialized(printer:&p)
     // generateIsInitialized provides a blank line after itself.
     generateDecodeMessage(printer: &p)
-    p.print("\n")
+    p.println()
     generateTraverse(printer: &p)
-    p.print("\n")
+    p.println()
     generateMessageEquality(printer: &p)
     p.outdent()
-    p.print("}\n")
+    p.println("}")
 
     // Nested enums and messages
     for e in enums {
@@ -246,15 +245,15 @@ class MessageGenerator {
 
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     if fields.isEmpty {
-      p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModuleName)._NameMap()\n")
+      p.println("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModuleName)._NameMap()")
     } else {
-      p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [\n")
+      p.println("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [")
       p.indent()
       for f in fields {
-        p.print("\(f.number): \(f.fieldMapNames),\n")
+        p.println("\(f.number): \(f.fieldMapNames),")
       }
       p.outdent()
-      p.print("]\n")
+      p.println("]")
     }
   }
 
@@ -263,10 +262,10 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func decodeMessage<D: \(namer.swiftProtobufModuleName).Decoder>(decoder: inout D) throws {\n")
+    p.println("\(visibility)mutating func decodeMessage<D: \(namer.swiftProtobufModuleName).Decoder>(decoder: inout D) throws {")
     p.indent()
     if storage != nil {
-      p.print("_ = _uniqueStorage()\n")
+      p.println("_ = _uniqueStorage()")
     }
 
     // protoc allows message_set_wire_format without any extension ranges; no clue what that
@@ -276,7 +275,7 @@ class MessageGenerator {
     if descriptor.useMessageSetWireFormat && isExtensible {
 
       // MessageSet hands off the decode to the decoder to do the custom logic into the extensions.
-      p.print("try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self)\n")
+      p.println("try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self)")
 
     } else {
 
@@ -287,7 +286,7 @@ class MessageGenerator {
         varName = "fieldNumber"
       }
       generateWithLifetimeExtension(printer: &p, throws: true) { p in
-        p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
+        p.println("while let \(varName) = try decoder.nextFieldNumber() {")
         p.indent()
         // If a message only has extensions and there are multiple extension
         // ranges, get more compact source gen by still using the `switch..case`
@@ -295,42 +294,43 @@ class MessageGenerator {
         // dozens of ranges because we aren't constructing a single large
         // expression containing untyped integer literals.
         if !fields.isEmpty || descriptor.extensionRanges.count > 3 {
-          p.print("""
+          p.println("""
               // The use of inline closures is to circumvent an issue where the compiler
               // allocates stack space for every case branch when no optimizations are
               // enabled. https://github.com/apple/swift-protobuf/issues/1034
-              switch fieldNumber {\n
+              switch fieldNumber {
               """)
           for f in fieldsSortedByNumber {
             f.generateDecodeFieldCase(printer: &p)
           }
           if isExtensible {
-            p.print("case \(descriptor.swiftExtensionRangeCaseExpressions):\n")
+            p.println("case \(descriptor.swiftExtensionRangeCaseExpressions):")
             p.printlnIndented("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()")
           }
-          p.print("default: break\n",
-                  "}\n")
+          p.println(
+              "default: break",
+              "}")
         } else if isExtensible {
           // Just output a simple if-statement if the message had no fields of its
           // own but we still need to generate a decode statement for extensions.
-          p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
+          p.println("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {")
           p.printlnIndented("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)")
-          p.print("}\n")
+          p.println("}")
         }
         p.outdent()
-        p.print("}\n")
+        p.println("}")
       }
 
     }
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 
   /// Generates the `traverse` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModuleName).Visitor>(visitor: inout V) throws {\n")
+    p.println("\(visibility)func traverse<V: \(namer.swiftProtobufModuleName).Visitor>(visitor: inout V) throws {")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
       if let storage = storage {
@@ -342,11 +342,11 @@ class MessageGenerator {
 
       let usesLocals = fields.reduce(false) { $0 || $1.generateTraverseUsesLocals }
       if usesLocals {
-        p.print("""
+        p.println("""
           // The use of inline closures is to circumvent an issue where the compiler
           // allocates stack space for every if/case branch local when no optimizations
           // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-          // https://github.com/apple/swift-protobuf/issues/1182\n
+          // https://github.com/apple/swift-protobuf/issues/1182
           """)
       }
 
@@ -357,31 +357,31 @@ class MessageGenerator {
       var nextRange = ranges.next()
       for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.lowerBound) < f.number {
-          p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))\n")
+          p.println("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))")
           nextRange = ranges.next()
         }
         f.generateTraverse(printer: &p)
       }
       while nextRange != nil {
-        p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))\n")
+        p.println("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))")
         nextRange = ranges.next()
       }
     }
-    p.print("try unknownFields.traverse(visitor: &visitor)\n")
+    p.println("try unknownFields.traverse(visitor: &visitor)")
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 
   private func generateMessageEquality(printer p: inout CodePrinter) {
-    p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
+    p.println("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
     p.indent()
     var compareFields = true
     if let storage = storage {
-      p.print("if lhs._storage !== rhs._storage {\n")
+      p.println("if lhs._storage !== rhs._storage {")
       p.indent()
       p.print("let storagesAreEqual: Bool = ")
       if storage.storageProvidesEqualTo {
-        p.print("lhs._storage.isEqualTo(other: rhs._storage)\n")
+        p.println("lhs._storage.isEqualTo(other: rhs._storage)")
         compareFields = false
       }
     }
@@ -393,22 +393,22 @@ class MessageGenerator {
           f.generateFieldComparison(printer: &p)
         }
         if storage != nil {
-          p.print("return true\n")
+          p.println("return true")
         }
       }
     }
     if storage != nil {
-      p.print("if !storagesAreEqual {return false}\n")
+      p.println("if !storagesAreEqual {return false}")
       p.outdent()
-      p.print("}\n")
+      p.println("}")
     }
-    p.print("if lhs.unknownFields != rhs.unknownFields {return false}\n")
+    p.println("if lhs.unknownFields != rhs.unknownFields {return false}")
     if isExtensible {
-      p.print("if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}\n")
+      p.println("if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}")
     }
-    p.print("return true\n")
+    p.println("return true")
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 
   /// Generates the `isInitialized` property for the message, if needed.
@@ -444,23 +444,23 @@ class MessageGenerator {
       return
     }
 
-    p.print(
-        "public var isInitialized: Bool {\n")
+    p.println("public var isInitialized: Bool {")
     p.indent()
     if isExtensible {
-      p.print("if !_protobuf_extensionFieldValues.isInitialized {return false}\n")
+      p.println("if !_protobuf_extensionFieldValues.isInitialized {return false}")
     }
     if generatedChecks {
       generateWithLifetimeExtension(printer: &p, returns: true) { p in
         p.print(fieldCheckPrinter.content)
-        p.print("return true\n")
+        p.println("return true")
       }
     } else {
-      p.print("return true\n")
+      p.println("return true")
     }
     p.outdent()
-    p.print("}\n",
-            "\n")
+    p.println(
+      "}",
+      "")
   }
 
   /// Executes the given closure, wrapping the code that it prints in a call
@@ -489,9 +489,7 @@ class MessageGenerator {
     body: (inout CodePrinter) -> Void
   ) {
     if storage != nil {
-      let prefixKeywords = "\(returns ? "return " : "")" +
-        "\(canThrow ? "try " : "")"
-      p.print(prefixKeywords)
+      let prefixKeywords = "\(returns ? "return " : "")\(canThrow ? "try " : "")"
 
       let selfQualifier: String
       if let qualifier = qualifier {
@@ -505,13 +503,13 @@ class MessageGenerator {
         // so we have to build and deconstruct a tuple in this case:
         let actualArgs = "(\(selfQualifier)_storage, \(capturedVariable)._storage)"
         let formalArgs = "(_args: (_StorageClass, _StorageClass))"
-        p.print("withExtendedLifetime(\(actualArgs)) { \(formalArgs) in\n")
+        p.println("\(prefixKeywords)withExtendedLifetime(\(actualArgs)) { \(formalArgs) in")
         p.indent()
-        p.print("let _storage = _args.0\n")
-        p.print("let \(capturedVariable)_storage = _args.1\n")
+        p.println("let _storage = _args.0")
+        p.println("let \(capturedVariable)_storage = _args.1")
       } else {
         // Single argument can be passed directly:
-        p.print("withExtendedLifetime(\(selfQualifier)_storage) { (_storage: _StorageClass) in\n")
+        p.println("\(prefixKeywords)withExtendedLifetime(\(selfQualifier)_storage) { (_storage: _StorageClass) in")
         p.indent()
       }
     }
@@ -520,7 +518,7 @@ class MessageGenerator {
 
     if storage != nil {
       p.outdent()
-      p.print("}\n")
+      p.println("}")
     }
   }
 }

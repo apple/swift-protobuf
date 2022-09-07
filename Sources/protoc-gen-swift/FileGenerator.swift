@@ -56,7 +56,7 @@ class FileGenerator {
           errorString = "\(fileDescriptor.name) has an 'swift_prefix' that isn't a valid Swift identifier (\(fileDescriptor.options.swiftPrefix))."
           return
         }
-        p.print("""
+        p.println("""
             // DO NOT EDIT.
             // swift-format-ignore-file
             //
@@ -65,7 +65,7 @@ class FileGenerator {
             //
             // For information on using the generated types, please see the documentation:
             //   https://github.com/apple/swift-protobuf/
-            \n
+
             """)
 
         // Attempt to bring over the comments at the top of the .proto file as
@@ -76,34 +76,32 @@ class FileGenerator {
         // https://github.com/protocolbuffers/protobuf/issues/2249 opened to
         // figure out the right way to do this since the syntax entry is
         // optional.
+        var comments = String()
         let syntaxPath = IndexPath(index: Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax)
         if let syntaxLocation = fileDescriptor.sourceCodeInfoLocation(path: syntaxPath) {
-          let comments = syntaxLocation.asSourceComment(commentPrefix: "///",
-                                                        leadingDetachedPrefix: "//")
-          if !comments.isEmpty {
-              p.print(comments)
-              // If the was a leading or tailing comment it won't have a blank
-              // line, after it, so ensure there is one.
-              if !comments.hasSuffix("\n\n") {
-                  p.print("\n")
-              }
+          comments = syntaxLocation.asSourceComment(commentPrefix: "///",
+                                                    leadingDetachedPrefix: "//")
+          // If the was a leading or tailing comment it won't have a blank
+          // line, after it, so ensure there is one.
+          if !comments.isEmpty && !comments.hasSuffix("\n\n") {
+            comments.append("\n")
           }
         }
 
-        p.print("import Foundation\n")
+        p.println("\(comments)import Foundation")
         if !fileDescriptor.isBundledProto {
             // The well known types ship with the runtime, everything else needs
             // to import the runtime.
-            p.print("import \(namer.swiftProtobufModuleName)\n")
+            p.println("import \(namer.swiftProtobufModuleName)")
         }
         if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
-            p.print("\n")
+            p.println()
             for i in neededImports {
-                p.print("import \(i)\n")
+                p.println("import \(i)")
             }
         }
 
-        p.print("\n")
+        p.println()
         generateVersionCheck(printer: &p)
 
         let extensionSet =
@@ -138,17 +136,17 @@ class FileGenerator {
         }
 
         if !sendablePrinter.isEmpty {
-            p.print("\n#if swift(>=5.5) && canImport(_Concurrency)\n")
+            p.println("", "#if swift(>=5.5) && canImport(_Concurrency)")
             p.print(sendablePrinter.content)
-            p.print("#endif  // swift(>=5.5) && canImport(_Concurrency)\n")
+            p.println("#endif  // swift(>=5.5) && canImport(_Concurrency)")
         }
 
         if !extensionSet.isEmpty {
             let pathParts = splitPath(pathname: fileDescriptor.name)
             let filename = pathParts.base + pathParts.suffix
-            p.print(
-                "\n",
-                "// MARK: - Extension support defined in \(filename).\n")
+            p.println(
+                "",
+                "// MARK: - Extension support defined in \(filename).")
 
             // Generate the Swift Extensions on the Messages that provide the api
             // for using the protobuf extension.
@@ -168,13 +166,13 @@ class FileGenerator {
         let protoPackage = fileDescriptor.package
         let needsProtoPackage: Bool = !protoPackage.isEmpty && !messages.isEmpty
         if needsProtoPackage || !enums.isEmpty || !messages.isEmpty {
-            p.print(
-                "\n",
-                "// MARK: - Code below here is support for the SwiftProtobuf runtime.\n")
+            p.println(
+                "",
+                "// MARK: - Code below here is support for the SwiftProtobuf runtime.")
             if needsProtoPackage {
-                p.print(
-                    "\n",
-                    "fileprivate let _protobuf_package = \"\(protoPackage)\"\n")
+                p.println(
+                    "",
+                    "fileprivate let _protobuf_package = \"\(protoPackage)\"")
             }
             for e in enums {
                 e.generateRuntimeSupport(printer: &p)
@@ -187,17 +185,17 @@ class FileGenerator {
 
     private func generateVersionCheck(printer p: inout CodePrinter) {
         let v = Version.compatibilityVersion
-        p.print("""
+        p.println("""
             // If the compiler emits an error on this type, it is because this file
             // was generated by a version of the `protoc` Swift plug-in that is
             // incompatible with the version of SwiftProtobuf to which you are linking.
             // Please ensure that you are building against the same version of the API
             // that was used to generate this file.
-            fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(namer.swiftProtobufModuleName).ProtobufAPIVersionCheck {\n
+            fileprivate struct _GeneratedWithProtocGenSwiftVersion: \(namer.swiftProtobufModuleName).ProtobufAPIVersionCheck {
             """)
         p.printlnIndented(
             "struct _\(v): \(namer.swiftProtobufModuleName).ProtobufAPIVersion_\(v) {}",
             "typealias Version = _\(v)")
-        p.print("}\n")
+        p.println("}")
     }
 }

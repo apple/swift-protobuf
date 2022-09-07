@@ -56,55 +56,59 @@ class EnumGenerator {
   func generateMainEnum(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
-    p.print("\n")
-    p.print(enumDescriptor.protoSourceComments())
-    p.print("\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModuleName).Enum {\n")
+    p.println(
+      "",
+      "\(enumDescriptor.protoSourceComments())\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModuleName).Enum {")
     p.indent()
-    p.print("\(visibility)typealias RawValue = Int\n")
+    p.println("\(visibility)typealias RawValue = Int")
 
     // Cases/aliases
     generateCasesOrAliases(printer: &p)
 
     // Generate the default initializer.
-    p.print("\n")
-    p.print("\(visibility)init() {\n")
+    p.println(
+      "",
+      "\(visibility)init() {")
     p.printlnIndented("self = \(namer.dottedRelativeName(enumValue: enumDescriptor.values.first!))")
-    p.print("}\n")
+    p.println("}")
 
-    p.print("\n")
+    p.println()
     generateInitRawValue(printer: &p)
 
-    p.print("\n")
+    p.println()
     generateRawValueProperty(printer: &p)
 
     maybeGenerateCaseIterable(printer: &p)
 
     p.outdent()
-    p.print("\n")
-    p.print("}\n")
+    p.println(
+      "",
+      "}")
   }
 
   func maybeGenerateCaseIterable(printer p: inout CodePrinter) {
     guard enumDescriptor.hasUnknownPreservingSemantics else { return }
 
     let visibility = generatorOptions.visibilitySourceSnippet
-    p.print("\n")
-    p.print("// The compiler won't synthesize support with the \(unrecognizedCaseName) case.\n")
-    p.print("\(visibility)static let allCases: [\(swiftFullName)] = [\n")
+    p.println(
+      "",
+      "// The compiler won't synthesize support with the \(unrecognizedCaseName) case.",
+      "\(visibility)static let allCases: [\(swiftFullName)] = [")
     for v in mainEnumValueDescriptors {
       let dottedName = namer.dottedRelativeName(enumValue: v)
-      p.print("  \(dottedName),\n")
+      p.printlnIndented("\(dottedName),")
     }
-    p.print("]\n")
+    p.println("]")
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter) {
-    p.print("\n")
-    p.print("extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {\n")
+    p.println(
+      "",
+      "extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {")
     p.indent()
     generateProtoNameProviding(printer: &p)
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 
   /// Generates the cases or statics (for alias) for the values.
@@ -115,18 +119,18 @@ class EnumGenerator {
     for enumValueDescriptor in namer.uniquelyNamedValues(enum: enumDescriptor) {
       let comments = enumValueDescriptor.protoSourceComments()
       if !comments.isEmpty {
-        p.print("\n", comments)
+        p.println()
       }
       let relativeName = namer.relativeName(enumValue: enumValueDescriptor)
       if let aliasOf = enumValueDescriptor.aliasOf {
         let aliasOfName = namer.relativeName(enumValue: aliasOf)
-        p.print("\(visibility)static let \(relativeName) = \(aliasOfName)\n")
+        p.println("\(comments)\(visibility)static let \(relativeName) = \(aliasOfName)")
       } else {
-        p.print("case \(relativeName) // = \(enumValueDescriptor.number)\n")
+        p.println("\(comments)case \(relativeName) // = \(enumValueDescriptor.number)")
       }
     }
     if enumDescriptor.hasUnknownPreservingSemantics {
-      p.print("case \(unrecognizedCaseName)(Int)\n")
+      p.println("case \(unrecognizedCaseName)(Int)")
     }
   }
 
@@ -136,18 +140,18 @@ class EnumGenerator {
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
-    p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [\n")
+    p.println("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [")
     p.indent()
     for v in mainEnumValueDescriptorsSorted {
       if v.aliases.isEmpty {
-        p.print("\(v.number): .same(proto: \"\(v.name)\"),\n")
+        p.println("\(v.number): .same(proto: \"\(v.name)\"),")
       } else {
         let aliasNames = v.aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
-        p.print("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),\n")
+        p.println("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),")
       }
     }
     p.outdent()
-    p.print("]\n")
+    p.println("]")
   }
 
   /// Generates `init?(rawValue:)` for the enum.
@@ -156,21 +160,21 @@ class EnumGenerator {
   private func generateInitRawValue(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
-    p.print("\(visibility)init?(rawValue: Int) {\n")
+    p.println("\(visibility)init?(rawValue: Int) {")
     p.indent()
-    p.print("switch rawValue {\n")
+    p.println("switch rawValue {")
     for v in mainEnumValueDescriptorsSorted {
       let dottedName = namer.dottedRelativeName(enumValue: v)
-      p.print("case \(v.number): self = \(dottedName)\n")
+      p.println("case \(v.number): self = \(dottedName)")
     }
     if enumDescriptor.hasUnknownPreservingSemantics {
-      p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
+      p.println("default: self = .\(unrecognizedCaseName)(rawValue)")
     } else {
-      p.print("default: return nil\n")
+      p.println("default: return nil")
     }
-    p.print("}\n")
+    p.println("}")
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 
   /// Generates the `rawValue` property of the enum.
@@ -193,46 +197,46 @@ class EnumGenerator {
       (enumDescriptor.hasUnknownPreservingSemantics ? 1 : 0)
     let useMultipleSwitches = neededCases > maxCasesInSwitch
 
-    p.print("\(visibility)var rawValue: Int {\n")
+    p.println("\(visibility)var rawValue: Int {")
     p.indent()
 
     if useMultipleSwitches {
       for (i, v) in mainEnumValueDescriptorsSorted.enumerated() {
         if (i % maxCasesInSwitch) == 0 {
           if i > 0 {
-            p.print(
-              "default: break\n",
-              "}\n")
+            p.println(
+              "default: break",
+              "}")
           }
-          p.print("switch self {\n")
+          p.println("switch self {")
         }
         let dottedName = namer.dottedRelativeName(enumValue: v)
-        p.print("case \(dottedName): return \(v.number)\n")
+        p.println("case \(dottedName): return \(v.number)")
       }
       if enumDescriptor.hasUnknownPreservingSemantics {
-        p.print("case .\(unrecognizedCaseName)(let i): return i\n")
+        p.println("case .\(unrecognizedCaseName)(let i): return i")
       }
-      p.print("""
+      p.println("""
         default: break
         }
 
         // Can't get here, all the cases are listed in the above switches.
         // See https://github.com/apple/swift-protobuf/issues/904 for more details.
-        fatalError()\n
+        fatalError()
         """)
     } else {
-      p.print("switch self {\n")
+      p.println("switch self {")
       for v in mainEnumValueDescriptorsSorted {
         let dottedName = namer.dottedRelativeName(enumValue: v)
-        p.print("case \(dottedName): return \(v.number)\n")
+        p.println("case \(dottedName): return \(v.number)")
       }
       if enumDescriptor.hasUnknownPreservingSemantics {
-        p.print("case .\(unrecognizedCaseName)(let i): return i\n")
+        p.println("case .\(unrecognizedCaseName)(let i): return i")
       }
-      p.print("}\n")
+      p.println("}")
     }
 
     p.outdent()
-    p.print("}\n")
+    p.println("}")
   }
 }
