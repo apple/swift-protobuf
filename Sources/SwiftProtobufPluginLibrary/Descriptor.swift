@@ -536,7 +536,7 @@ public final class EnumValueDescriptor {
   /// The .proto file in which this message type was defined.
   public var file: FileDescriptor! { return enumType.file }
   /// The type of this value.
-  public private(set) unowned var enumType: EnumDescriptor!
+  public unowned let enumType: EnumDescriptor
 
   /// The `Google_Protobuf_EnumValueOptions` set on this value.
   public let options: Google_Protobuf_EnumValueOptions
@@ -580,8 +580,8 @@ public final class OneofDescriptor {
 
   /// The .proto file in which this oneof type was defined.
   public var file: FileDescriptor! { return containingType.file }
-  /// If this Descriptor of the message that defines this oneof.
-  public private(set) unowned var containingType: Descriptor!
+  /// The Descriptor of the message that defines this oneof.
+  public var containingType: Descriptor { return _containingType! }
 
   /// The `Google_Protobuf_OneofOptions` set on this oneof.
   public let options: Google_Protobuf_OneofOptions
@@ -593,6 +593,9 @@ public final class OneofDescriptor {
     return containingType.fields.filter { $0.oneofIndex == myIndex }
   }()
 
+  // Storage for `containingType`, will be set by bind()
+  private unowned var _containingType: Descriptor?
+
   fileprivate init(proto: Google_Protobuf_OneofDescriptorProto,
                    index: Int,
                    registry: Registry) {
@@ -602,7 +605,7 @@ public final class OneofDescriptor {
   }
 
   fileprivate func bind(registry: Registry, containingType: Descriptor) {
-    self.containingType = containingType
+    _containingType = containingType
   }
 }
 
@@ -727,13 +730,13 @@ public final class FieldDescriptor {
 
   /// The `Descriptor` of the message which this is a field of. For extensions,
   /// this is the extended type.
-  public private(set) unowned var containingType: Descriptor!
+  public var containingType: Descriptor { return _containingType! }
 
   /// The oneof this field is a member of.
   public var containingOneof: OneofDescriptor? {
     guard let oneofIndex = oneofIndex else { return nil }
     assert(!isExtension)
-    return containingType!.oneofs[Int(oneofIndex)]
+    return containingType.oneofs[Int(oneofIndex)]
   }
   /// The non synthetic oneof this field is a member of.
   public var realContainingOneof: OneofDescriptor? {
@@ -760,6 +763,9 @@ public final class FieldDescriptor {
   // These next two cache values until bind().
   var extendee: String?
   var typeName: String?
+
+  // Storage for `containingType`, will be set by bind()
+  private unowned var _containingType: Descriptor?
 
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
                    index: Int,
@@ -807,9 +813,9 @@ public final class FieldDescriptor {
     if let extendee = extendee {
       assert(isExtension)
       extensionScope = containingType
-      self.containingType = registry.descriptor(named: extendee)!
+      _containingType = registry.descriptor(named: extendee)!
     } else {
-      self.containingType = containingType
+      _containingType = containingType
     }
     extendee = nil
 
@@ -886,7 +892,7 @@ public final class MethodDescriptor {
   /// The .proto file in which this service was defined
   public var file: FileDescriptor! { return service.file }
   /// The service tha defines this method.
-  public private(set) unowned var service: ServiceDescriptor!
+  public var service: ServiceDescriptor { return _service! }
 
   /// The type of protocol message which this method accepts as input.
   public private(set) var inputType: Descriptor
@@ -904,6 +910,9 @@ public final class MethodDescriptor {
   public var proto: Google_Protobuf_MethodDescriptorProto { return _proto }
   private let _proto: Google_Protobuf_MethodDescriptorProto
 
+  // Storage for `service`, will be set by bind()
+  private unowned var _service: ServiceDescriptor?
+
   fileprivate init(proto: Google_Protobuf_MethodDescriptorProto,
                    index: Int,
                    registry: Registry) {
@@ -919,7 +928,7 @@ public final class MethodDescriptor {
   }
 
   fileprivate func bind(service: ServiceDescriptor, registry: Registry) {
-    self.service = service
+    self._service = service
   }
 }
 
