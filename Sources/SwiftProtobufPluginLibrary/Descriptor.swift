@@ -534,7 +534,7 @@ public final class EnumValueDescriptor {
   public let number: Int32
 
   /// The .proto file in which this message type was defined.
-  public unowned var file: FileDescriptor! { return enumType.file }
+  public var file: FileDescriptor! { return enumType.file }
   /// The type of this value.
   public private(set) unowned var enumType: EnumDescriptor!
 
@@ -579,7 +579,7 @@ public final class OneofDescriptor {
   }
 
   /// The .proto file in which this oneof type was defined.
-  public unowned var file: FileDescriptor! { return containingType.file }
+  public var file: FileDescriptor! { return containingType.file }
   /// If this Descriptor of the message that defines this oneof.
   public private(set) unowned var containingType: Descriptor!
 
@@ -884,7 +884,7 @@ public final class MethodDescriptor {
   public let index: Int
 
   /// The .proto file in which this service was defined
-  public unowned var file: FileDescriptor! { return service.file }
+  public var file: FileDescriptor! { return service.file }
   /// The service tha defines this method.
   public private(set) unowned var service: ServiceDescriptor!
 
