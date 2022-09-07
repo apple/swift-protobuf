@@ -21,13 +21,15 @@ public struct CodePrinter {
   /// in smaller files.
   private static let initialBufferSize = 65536
 
+  private static let kNewline : String.UnicodeScalarView.Element = "\n"
+
   /// The string content that was printed.
   public var content: String {
     return String(contentScalars)
   }
 
   /// See if anything was printed.
-  public var isEmpty: Bool { return content.isEmpty }
+  public var isEmpty: Bool { return contentScalars.isEmpty }
 
   /// The Unicode scalar buffer used to build up the printed contents.
   private var contentScalars = String.UnicodeScalarView()
@@ -42,9 +44,19 @@ public struct CodePrinter {
   /// of a line.
   private var atLineStart = true
 
+  /// Initialize the printer to use the give indent.
   public init(indent: String.UnicodeScalarView = "  ".unicodeScalars) {
     contentScalars.reserveCapacity(CodePrinter.initialBufferSize)
     singleIndent = indent
+  }
+
+  /// Initialize a printer using the existing indention information from
+  /// another CodePrinter.
+  ///
+  /// This is most useful to then use `append` to add the new content.
+  public init(_ parent: Self) {
+    self.init(indent: parent.singleIndent)
+    indentation = parent.indentation
   }
 
   /// Writes the given strings to the printer.
@@ -54,7 +66,7 @@ public struct CodePrinter {
   /// - Parameter text: A variable-length list of strings to be printed.
   public mutating func print(_ text: String...) {
     for t in text {
-      printInternal(t, false)
+      printInternal(t.unicodeScalars)
     }
   }
 
@@ -71,7 +83,9 @@ public struct CodePrinter {
       atLineStart = true
     } else {
       for t in text {
-        printInternal(t, true)
+        printInternal(t.unicodeScalars)
+        contentScalars.append(CodePrinter.kNewline)
+        atLineStart = true
       }
     }
   }
@@ -85,15 +99,15 @@ public struct CodePrinter {
   public mutating func printlnIndented(_ text: String...) {
     indent()
     for t in text {
-      printInternal(t, true)
+      printInternal(t.unicodeScalars)
+      contentScalars.append(CodePrinter.kNewline)
+      atLineStart = true
     }
     outdent()
   }
 
-  private static let kNewline : String.UnicodeScalarView.Element = "\n"
-
-  private mutating func printInternal(_ text: String, _ newline: Bool) {
-    for scalar in text.unicodeScalars {
+  private mutating func printInternal(_ scalars: String.UnicodeScalarView) {
+    for scalar in scalars {
       // Indent at the start of a new line, unless it's a blank line.
       if atLineStart && scalar != CodePrinter.kNewline {
         contentScalars.append(contentsOf: indentation)
@@ -101,11 +115,24 @@ public struct CodePrinter {
       contentScalars.append(scalar)
       atLineStart = (scalar == CodePrinter.kNewline)
     }
-    if newline {
-      contentScalars.append(CodePrinter.kNewline)
-      atLineStart = true
+  }
+
+  /// Appended the content of another `CodePrinter`to this one.
+  ///
+  /// - Parameters:
+  ///   - printer: The other `CodePrinter` to copy from.
+  ///   - indenting: Boolean, if the text being appended should be reindented
+  ///       to the current state of this printer. If the `printer` was
+  ///       initialized off of this printer, there isn't a need to reindent.
+  public mutating func append(_ printer: Self, indenting: Bool = false) {
+    if indenting {
+      printInternal(printer.contentScalars)
+    } else {
+      contentScalars.append(contentsOf: printer.contentScalars)
+      atLineStart = printer.atLineStart
     }
   }
+
   /// Increases the printer's indentation level.
   public mutating func indent() {
     indentation.append(contentsOf: singleIndent)
