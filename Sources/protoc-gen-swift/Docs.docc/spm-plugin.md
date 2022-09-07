@@ -48,7 +48,7 @@ let package = Package(
     .executableTarget(
         name: "YourTarget",
         plugins: [
-            .plugin(name: "SwiftProtobufPlugin")
+            .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
         ]
     ),
     ...
