@@ -124,9 +124,11 @@ class MessageGenerator {
         descriptor.protoSourceComments(),
         "\(visibility)struct \(swiftRelativeName)\(conformances) {\n")
     p.indent()
-    p.print("// \(namer.swiftProtobufModuleName).Message conformance is added in an extension below. See the\n",
-            "// `Message` and `Message+*Additions` files in the SwiftProtobuf library for\n",
-            "// methods supported on all messages.\n")
+    p.print("""
+            // \(namer.swiftProtobufModuleName).Message conformance is added in an extension below. See the
+            // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+            // methods supported on all messages.\n
+            """)
 
     for f in fields {
       f.generateInterface(printer: &p)
@@ -293,11 +295,12 @@ class MessageGenerator {
         // dozens of ranges because we aren't constructing a single large
         // expression containing untyped integer literals.
         if !fields.isEmpty || descriptor.extensionRanges.count > 3 {
-          p.print(
-              "// The use of inline closures is to circumvent an issue where the compiler\n",
-              "// allocates stack space for every case branch when no optimizations are\n",
-              "// enabled. https://github.com/apple/swift-protobuf/issues/1034\n",
-              "switch fieldNumber {\n")
+          p.print("""
+              // The use of inline closures is to circumvent an issue where the compiler
+              // allocates stack space for every case branch when no optimizations are
+              // enabled. https://github.com/apple/swift-protobuf/issues/1034
+              switch fieldNumber {\n
+              """)
           for f in fieldsSortedByNumber {
             f.generateDecodeFieldCase(printer: &p)
           }
@@ -343,11 +346,12 @@ class MessageGenerator {
 
       let usesLocals = fields.reduce(false) { $0 || $1.generateTraverseUsesLocals }
       if usesLocals {
-        p.print(
-          "// The use of inline closures is to circumvent an issue where the compiler\n",
-          "// allocates stack space for every if/case branch local when no optimizations\n",
-          "// are enabled. https://github.com/apple/swift-protobuf/issues/1034 and\n",
-          "// https://github.com/apple/swift-protobuf/issues/1182\n")
+        p.print("""
+          // The use of inline closures is to circumvent an issue where the compiler
+          // allocates stack space for every if/case branch local when no optimizations
+          // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+          // https://github.com/apple/swift-protobuf/issues/1182\n
+          """)
       }
 
       // Use the "ambitious" ranges because for visit because subranges with no

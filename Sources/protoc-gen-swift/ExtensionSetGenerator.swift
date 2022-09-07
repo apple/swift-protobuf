@@ -161,14 +161,15 @@ class ExtensionSetGenerator {
     func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
         guard !extensions.isEmpty else { return }
 
-        p.print(
-            "\n",
-            "// MARK: - Extension Properties\n",
-            "\n",
-            "// Swift Extensions on the exteneded Messages to add easy access to the declared\n",
-            "// extension fields. The names are based on the extension field name from the proto\n",
-            "// declaration. To avoid naming collisions, the names are prefixed with the name of\n",
-            "// the scope where the extend directive occurs.\n")
+        p.print("""
+
+            // MARK: - Extension Properties
+
+            // Swift Extensions on the exteneded Messages to add easy access to the declared
+            // extension fields. The names are based on the extension field name from the proto
+            // declaration. To avoid naming collisions, the names are prefixed with the name of
+            // the scope where the extend directive occurs.\n
+            """)
 
         // Reorder the list so they are grouped by the Message being extended, but
         // maintaining the order they were within the file within those groups.
@@ -216,15 +217,16 @@ class ExtensionSetGenerator {
         let pathParts = splitPath(pathname: fileDescriptor.name)
         let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
         let filePrefix = namer.typePrefix(forFile: fileDescriptor)
-        p.print(
-          "\n",
-          "// MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifer)_Extensions\n",
-          "\n",
-          "/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n",
-          "/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n",
-          "/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n",
-          "/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n",
-          "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(namer.swiftProtobufModuleName).SimpleExtensionMap = [\n")
+        p.print("""
+
+          // MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifer)_Extensions
+
+          /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+          /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+          /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+          /// a larger `SwiftProtobuf.SimpleExtensionMap`.
+          \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(namer.swiftProtobufModuleName).SimpleExtensionMap = [\n
+          """)
         p.indent()
         var separator = ""
         for e in extensions {
@@ -239,11 +241,12 @@ class ExtensionSetGenerator {
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
       guard !extensions.isEmpty else { return }
 
-      p.print(
-          "\n",
-          "// Extension Objects - The only reason these might be needed is when manually\n",
-          "// constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_\n",
-          "// accessors for the extension fields on the messages directly.\n")
+      p.print("""
+
+          // Extension Objects - The only reason these might be needed is when manually
+          // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
+          // accessors for the extension fields on the messages directly.\n
+          """)
 
       func endScope() {
           p.outdent()

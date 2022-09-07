@@ -49,12 +49,14 @@ class MessageStorageClassGenerator {
     // the message is used as a field in another message as it causes
     // returning the default to not require that heap allocation, i.e. -
     // readonly usage never causes the allocation.
-    p.print(
-        "\n",
-        "static let defaultInstance = _StorageClass()\n",
-        "\n",
-        "private init() {}\n",
-        "\n")
+    p.print("""
+
+        static let defaultInstance = _StorageClass()
+
+        private init() {}
+
+
+        """)
     generateClone(printer: &p)
 
     p.outdent()
