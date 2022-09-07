@@ -85,11 +85,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     func generateStorage(printer p: inout CodePrinter) {
         let defaultValue = hasFieldPresence ? "nil" : swiftDefaultValue
         if usesHeapStorage {
-            p.print("var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)\n")
+            p.println("var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)")
         } else {
           // If this field has field presence, the there is a private storage variable.
           if hasFieldPresence {
-              p.print("fileprivate var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)\n")
+              p.println("fileprivate var \(underscoreSwiftName): \(swiftStorageType) = \(defaultValue)")
           }
         }
     }
@@ -97,43 +97,41 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     func generateInterface(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
-        p.print("\n", comments)
-
+        p.println()
         if usesHeapStorage {
-            p.print(
-              "\(visibility)var \(swiftName): \(swiftType) {\n")
+            p.println("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
             let defaultClause = hasFieldPresence ? " ?? \(swiftDefaultValue)" : ""
             p.printlnIndented(
               "get {return _storage.\(underscoreSwiftName)\(defaultClause)}",
               "set {_uniqueStorage().\(underscoreSwiftName) = newValue}")
-            p.print("}\n")
+            p.println("}")
         } else {
             if hasFieldPresence {
-                p.print("\(visibility)var \(swiftName): \(swiftType) {\n")
+                p.println("\(comments)\(visibility)var \(swiftName): \(swiftType) {")
                 p.printlnIndented(
                   "get {return \(underscoreSwiftName) ?? \(swiftDefaultValue)}",
                   "set {\(underscoreSwiftName) = newValue}")
-                p.print("}\n")
+                p.println("}")
             } else {
-                p.print("\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)\n")
+                p.println("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)")
             }
         }
 
         guard hasFieldPresence else { return }
 
         let immutableStoragePrefix = usesHeapStorage ? "_storage." : "self."
-        p.print(
-            "/// Returns true if `\(swiftName)` has been explicitly set.\n",
-            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(underscoreSwiftName) != nil}\n")
+        p.println(
+            "/// Returns true if `\(swiftName)` has been explicitly set.",
+            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(underscoreSwiftName) != nil}")
 
         let mutableStoragePrefix = usesHeapStorage ? "_uniqueStorage()." : "self."
-        p.print(
-            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.\n",
-            "\(visibility)mutating func \(swiftClearName)() {\(mutableStoragePrefix)\(underscoreSwiftName) = nil}\n")
+        p.println(
+            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.",
+            "\(visibility)mutating func \(swiftClearName)() {\(mutableStoragePrefix)\(underscoreSwiftName) = nil}")
     }
 
     func generateStorageClassClone(printer p: inout CodePrinter) {
-        p.print("\(underscoreSwiftName) = source.\(underscoreSwiftName)\n")
+        p.println("\(underscoreSwiftName) = source.\(underscoreSwiftName)")
     }
 
     func generateFieldComparison(printer p: inout CodePrinter) {
@@ -147,21 +145,21 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             otherStoredProperty = "rhs.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
         }
 
-        p.print("if \(lhsProperty) != \(otherStoredProperty) {return false}\n")
+        p.println("if \(lhsProperty) != \(otherStoredProperty) {return false}")
     }
 
    func generateRequiredFieldCheck(printer p: inout CodePrinter) {
        guard fieldDescriptor.isRequired else { return }
-       p.print("if \(storedProperty) == nil {return false}\n")
+       p.println("if \(storedProperty) == nil {return false}")
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter) {
         guard isGroupOrMessage && fieldDescriptor.messageType!.containsRequiredFields() else { return }
 
         if isRepeated {  // Map or Array
-            p.print("if !\(namer.swiftProtobufModuleName).Internal.areAllInitialized(\(storedProperty)) {return false}\n")
+            p.println("if !\(namer.swiftProtobufModuleName).Internal.areAllInitialized(\(storedProperty)) {return false}")
         } else {
-            p.print("if let v = \(storedProperty), !v.isInitialized {return false}\n")
+            p.println("if let v = \(storedProperty), !v.isInitialized {return false}")
         }
     }
 
@@ -177,7 +175,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
             traitsArg = ""
         }
 
-        p.print("case \(number): try { try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty)) }()\n")
+        p.println("case \(number): try { try decoder.\(decoderMethod)(\(traitsArg)value: &\(storedProperty)) }()")
     }
 
     var generateTraverseUsesLocals: Bool {
@@ -220,8 +218,8 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         let prefix = usesLocals ? "try { " : ""
         let suffix = usesLocals ? " }()" : ""
 
-        p.print("\(prefix)if \(conditional) {\n")
+        p.println("\(prefix)if \(conditional) {")
         p.printlnIndented("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))")
-        p.print("}\(suffix)\n")
+        p.println("}\(suffix)")
     }
 }

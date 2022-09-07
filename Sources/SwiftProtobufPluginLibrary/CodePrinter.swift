@@ -53,7 +53,27 @@ public struct CodePrinter {
   ///
   /// - Parameter text: A variable-length list of strings to be printed.
   public mutating func print(_ text: String...) {
-    printInternal(text, false)
+    for t in text {
+      printInternal(t, false)
+    }
+  }
+
+  /// Writes the given strings to the printer, adding a newline after
+  /// each string. If called with no strings, a blank line is added to the
+  /// printer.
+  ///
+  /// Newlines within the strings are honored and indentention is applied.
+  ///
+  /// - Parameter text: A variable-length list of strings to be printed.
+  public mutating func println(_ text: String...) {
+    if text.isEmpty {
+      contentScalars.append(CodePrinter.kNewline)
+      atLineStart = true
+    } else {
+      for t in text {
+        printInternal(t, true)
+      }
+    }
   }
 
   /// Indents, writes the given strings to the printer with a newline added
@@ -64,26 +84,26 @@ public struct CodePrinter {
   /// - Parameter text: A variable-length list of strings to be printed.
   public mutating func printlnIndented(_ text: String...) {
     indent()
-    printInternal(text, true)
+    for t in text {
+      printInternal(t, true)
+    }
     outdent()
   }
 
   private static let kNewline : String.UnicodeScalarView.Element = "\n"
 
-  private mutating func printInternal(_ text: [String], _ newline: Bool) {
-    for t in text {
-      for scalar in t.unicodeScalars {
-        // Indent at the start of a new line, unless it's a blank line.
-        if atLineStart && scalar != CodePrinter.kNewline {
-          contentScalars.append(contentsOf: indentation)
-        }
-        contentScalars.append(scalar)
-        atLineStart = (scalar == CodePrinter.kNewline)
+  private mutating func printInternal(_ text: String, _ newline: Bool) {
+    for scalar in text.unicodeScalars {
+      // Indent at the start of a new line, unless it's a blank line.
+      if atLineStart && scalar != CodePrinter.kNewline {
+        contentScalars.append(contentsOf: indentation)
       }
-      if newline {
-        contentScalars.append(CodePrinter.kNewline)
-        atLineStart = true
-      }
+      contentScalars.append(scalar)
+      atLineStart = (scalar == CodePrinter.kNewline)
+    }
+    if newline {
+      contentScalars.append(CodePrinter.kNewline)
+      atLineStart = true
     }
   }
   /// Increases the printer's indentation level.
