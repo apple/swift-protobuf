@@ -15721,6 +15721,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum MessageBase: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneMessageBase // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMessageBase
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMessageBase
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMessageBase: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageBase] = [
+      .noneMessageBase,
+    ]
+
+  }
+
   enum messageDepthLimit: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneMessageDepthLimit // = 0
@@ -29476,6 +29506,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.merge: SwiftProt
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.message: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_message"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageBase: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_MessageBase"),
   ]
 }
 

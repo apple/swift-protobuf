@@ -527,6 +527,7 @@ message GeneratedSwiftReservedEnums {
   enum mdayStart { NONE_mdayStart = 0; }
   enum merge { NONE_merge = 0; }
   enum message { NONE_message = 0; }
+  enum MessageBase { NONE_MessageBase = 0; }
   enum messageDepthLimit { NONE_messageDepthLimit = 0; }
   enum MessageExtension { NONE_MessageExtension = 0; }
   enum MessageImplementationBase { NONE_MessageImplementationBase = 0; }
