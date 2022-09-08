@@ -12,6 +12,7 @@ import XCTest
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import SwiftProtobufTestHelpers
+@testable import protoc_gen_swift
 
 class Test_SwiftProtobufNamer: XCTestCase {
 
@@ -68,14 +69,17 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let values = e.values
     XCTAssertEqual(values.count, 6)
 
-    // Test relativeName(enumValue:)
+    // Test uniquelyNamedValues(enum:)
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 3)
+
+    XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
+    XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
+    XCTAssertEqual(filtered[2].name, "TEST_ENUM_ALIAS")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "alias")
   }
 
   func testEnumValueHandling_NameCollisions() {
@@ -120,12 +124,19 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let values = e.values
     XCTAssertEqual(values.count, 4)
 
-    // Test relativeName(enumValue:)
+    // Test uniquelyNamedValues(enum:)
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_2")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_n1")
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 4)
+
+    XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
+    XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
+    XCTAssertEqual(filtered[2].name, "TESTENUM_FOO")
+    XCTAssertEqual(filtered[3].name, "_FOO")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo_0")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "foo_2")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "foo_n1")
   }
 
   func testEnumValueHandling_NameCollisionsAndAliasMatches() {
@@ -189,16 +200,23 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let values = e.values
     XCTAssertEqual(values.count, 8)
 
-    // Test relativeName(enumValue:)
+    // Test uniquelyNamedValues(enum:)
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_0")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_2")
-    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo_2")
-    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
-    XCTAssertEqual(namer.relativeName(enumValue: values[6]), "mumble_1")
-    XCTAssertEqual(namer.relativeName(enumValue: values[7]), "mumble_0")
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 6)
+
+    XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
+    XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
+    XCTAssertEqual(filtered[2].name, "_FOO")
+    XCTAssertEqual(filtered[3].name, "TEST_ENUM_ALIAS")
+    XCTAssertEqual(filtered[4].name, "mumble")
+    XCTAssertEqual(filtered[5].name, "MUMBLE")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo_0")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "foo_2")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "alias")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[4]), "mumble_1")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[5]), "mumble_0")
   }
 
   func testEnumValueHandling_UniqueAliasNameCollisions() {
@@ -264,14 +282,23 @@ class Test_SwiftProtobufNamer: XCTestCase {
     XCTAssertEqual(values[4].name, "qux")
     XCTAssertEqual(values[5].name, "bAz")
 
-    // Test relativeName(enumValue:)
+    // Test uniquelyNamedValues(enum:)
 
-    XCTAssertEqual(namer.relativeName(enumValue: values[0]), "aliasFoo")
-    XCTAssertEqual(namer.relativeName(enumValue: values[1]), "aliasBar")
-    XCTAssertEqual(namer.relativeName(enumValue: values[2]), "aliasBaz")
-    XCTAssertEqual(namer.relativeName(enumValue: values[3]), "qux")
-    XCTAssertEqual(namer.relativeName(enumValue: values[4]), "qux")
-    XCTAssertEqual(namer.relativeName(enumValue: values[5]), "bAz")
+    // QUX & qux collided, so only one remains.
+
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 5)
+
+    XCTAssertEqual(filtered[0].name, "ALIAS_FOO")
+    XCTAssertEqual(filtered[1].name, "ALIAS_BAR")
+    XCTAssertEqual(filtered[2].name, "ALIAS_BAZ")
+    XCTAssertEqual(filtered[3].name, "QUX")
+    XCTAssertEqual(filtered[4].name, "bAz")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "aliasFoo")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "aliasBar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "aliasBaz")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "qux")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[4]), "bAz")
   }
 
 }
