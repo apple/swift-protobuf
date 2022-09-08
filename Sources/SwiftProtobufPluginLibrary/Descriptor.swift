@@ -403,30 +403,7 @@ public final class EnumDescriptor {
   /// The values defined for this enum. Guaranteed (by protoc) to be atleast
   /// one item. These are returned in the order they were defined in the .proto
   /// file.
-  public private(set) lazy var values: [EnumValueDescriptor] = {
-    // This is lazy so it is they are created only when needed, that way an
-    // import doesn't have to do all this work unless the enum is used by
-    // the importer.
-    var firstValues = [Int32:EnumValueDescriptor]()
-    var result = [EnumValueDescriptor]()
-    var i = 0
-    for p in _values {
-      let aliasing = firstValues[p.number]
-      let d = EnumValueDescriptor(proto: p, index: i, enumType: self, aliasing: aliasing, scope: _valuesScope)
-      result.append(d)
-      i += 1
-
-      if let aliasing = aliasing {
-        aliasing.aliases.append(d)
-      } else {
-        firstValues[d.number] = d
-      }
-    }
-    _values.removeAll()
-    return result
-  }()
-  private var _values: [Google_Protobuf_EnumValueDescriptorProto]
-  private let _valuesScope: String
+  public let values: [EnumValueDescriptor]
 
   /// The `Google_Protobuf_MessageOptions` set on this enum.
   public let options: Google_Protobuf_EnumOptions
@@ -449,13 +426,17 @@ public final class EnumDescriptor {
     self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
     self.options = proto.options
-    self._values = proto.value
-    self._valuesScope = scope
     self.reservedRanges = proto.reservedRange.map { return $0.start ... $0.end }
     self.reservedNames = proto.reservedName
 
+    self.values = proto.value.enumeratedMap {
+      return EnumValueDescriptor(proto: $1, index: $0, scope: scope)
+    }
+
     // Done initializing, register ourselves.
     registry.register(enum: self)
+
+    values.forEach { $0.bind(enumType: self) }
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
@@ -484,30 +465,26 @@ public final class EnumValueDescriptor {
   /// The .proto file in which this message type was defined.
   public var file: FileDescriptor { return enumType.file }
   /// The type of this value.
-  public unowned let enumType: EnumDescriptor
+  public var enumType: EnumDescriptor { return _enumType! }
 
   /// The `Google_Protobuf_EnumValueOptions` set on this value.
   public let options: Google_Protobuf_EnumValueOptions
 
-  // TODO(TVL): These aren't really part of the C++ descriptor api, but the
-  // namer has apis around them, so figure out what's the right way  to deal
-  // with it, maybe moving it (and the naming support?) to the actual plugin
-  // directory.
-  public private(set) unowned var aliasOf: EnumValueDescriptor?
-  public fileprivate(set) var aliases: [EnumValueDescriptor] = []
+  // Storage for `service`, will be set by bind()
+  private unowned var _enumType: EnumDescriptor?
 
   fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
                    index: Int,
-                   enumType: EnumDescriptor,
-                   aliasing: EnumValueDescriptor?,
                    scope: String) {
     self.name = proto.name
     self.fullName = scope.isEmpty ? proto.name : "\(scope).\(proto.name)"
     self.index = index
     self.number = proto.number
     self.options = proto.options
-    self.enumType = enumType
-    aliasOf = aliasing
+  }
+
+  fileprivate func bind(enumType: EnumDescriptor) {
+    self._enumType = enumType
   }
 }
 
