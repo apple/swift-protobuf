@@ -40,38 +40,35 @@ class MessageStorageClassGenerator {
   /// - Parameter p: The code printer.
   func generateTypeDeclaration(printer p: inout CodePrinter) {
     p.println("fileprivate class _StorageClass {")
-    p.indent()
+    p.withIndentation { p in
+      generateStoredProperties(printer: &p)
+      // Generate a default instance to be used so the heap allocation is
+      // delayed until mutation is needed. This is the largest savings when
+      // the message is used as a field in another message as it causes
+      // returning the default to not require that heap allocation, i.e. -
+      // readonly usage never causes the allocation.
+      p.println("""
 
-    generateStoredProperties(printer: &p)
+          static let defaultInstance = _StorageClass()
 
-    // Generate a default instance to be used so the heap allocation is
-    // delayed until mutation is needed. This is the largest savings when
-    // the message is used as a field in another message as it causes
-    // returning the default to not require that heap allocation, i.e. -
-    // readonly usage never causes the allocation.
-    p.println("""
+          private init() {}
 
-        static let defaultInstance = _StorageClass()
-
-        private init() {}
-
-        """)
-    generateClone(printer: &p)
-
-    p.outdent()
+          """)
+      generateClone(printer: &p)
+    }
     p.println("}")
   }
 
   /// Generated the uniqueStorage() implementation.
   func generateUniqueStorage(printer p: inout CodePrinter) {
     p.println("\(storageVisibility) mutating func _uniqueStorage() -> _StorageClass {")
-    p.indent()
-    p.println("if !isKnownUniquelyReferenced(&_storage) {")
-    p.printlnIndented("_storage = _StorageClass(copying: _storage)")
-    p.println(
-      "}",
-      "return _storage")
-    p.outdent()
+    p.withIndentation { p in
+      p.println("if !isKnownUniquelyReferenced(&_storage) {")
+      p.printlnIndented("_storage = _StorageClass(copying: _storage)")
+      p.println(
+        "}",
+        "return _storage")
+    }
     p.println("}")
   }
 
@@ -93,11 +90,11 @@ class MessageStorageClassGenerator {
   /// - Parameter p: The code printer.
   private func generateClone(printer p: inout CodePrinter) {
     p.println("init(copying source: _StorageClass) {")
-    p.indent()
-    for f in fields {
-      f.generateStorageClassClone(printer: &p)
+    p.withIndentation { p in
+      for f in fields {
+        f.generateStorageClassClone(printer: &p)
+      }
     }
-    p.outdent()
     p.println("}")
   }
 }
