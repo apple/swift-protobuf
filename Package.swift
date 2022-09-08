@@ -75,7 +75,7 @@ let package = Package(
     ),
     .testTarget(
         name: "protoc-gen-swiftTests",
-        dependencies: ["protoc-gen-swift"]
+        dependencies: ["protoc-gen-swift", "SwiftProtobufTestHelpers"]
     ),
   ],
   swiftLanguageVersions: [.v5]

@@ -164,32 +164,6 @@ public final class SwiftProtobufNamer {
     return "." + NamingUtils.trimBackticks(relativeName)
   }
 
-  /// Filters the Enum's values to those that will have unique Swift
-  /// names. Only poorly named proto enum alias values get filtered
-  /// away, so the assumption is they aren't really needed from an
-  /// api pov.
-  public func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
-    return e.values.filter {
-      // Original are kept as is. The computations for relative
-      // name already adds values for collisions with different
-      // values.
-      guard let aliasOf = $0.aliasOf else { return true }
-      let relativeName = self.relativeName(enumValue: $0)
-      let aliasOfRelativeName = self.relativeName(enumValue: aliasOf)
-      // If the relative name matches for the alias and original, drop
-      // the alias.
-      guard relativeName != aliasOfRelativeName else { return false }
-      // Only include this alias if it is the first one with this name.
-      // (handles alias with different cases in their names that get
-      // mangled to a single Swift name.)
-      let firstAlias = aliasOf.aliases.firstIndex {
-        let otherRelativeName = self.relativeName(enumValue: $0)
-        return relativeName == otherRelativeName
-      }
-      return aliasOf.aliases[firstAlias!] === $0
-    }
-  }
-
   /// Calculate the relative name for the given oneof.
   public func relativeName(oneof: OneofDescriptor) -> String {
     let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
