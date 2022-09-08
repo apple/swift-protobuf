@@ -26,8 +26,8 @@ class EnumGenerator {
   private let generatorOptions: GeneratorOptions
   private let namer: SwiftProtobufNamer
 
-  /// The values that aren't aliases, as ordered in the .proto.
-  private let mainEnumValueDescriptors: [EnumValueDescriptor]
+  /// The aliasInfo for the values.
+  private let aliasInfo: EnumDescriptor.ValueAliasInfo
   /// The values that aren't aliases, sorted by number.
   private let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
 
@@ -41,11 +41,9 @@ class EnumGenerator {
     self.enumDescriptor = descriptor
     self.generatorOptions = generatorOptions
     self.namer = namer
+    aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: descriptor)
 
-    mainEnumValueDescriptors = descriptor.values.filter({
-      return $0.aliasOf == nil
-    })
-    mainEnumValueDescriptorsSorted = mainEnumValueDescriptors.sorted(by: {
+    mainEnumValueDescriptorsSorted = aliasInfo.mainValues.sorted(by: {
       return $0.number < $1.number
     })
 
@@ -95,7 +93,7 @@ class EnumGenerator {
       "// The compiler won't synthesize support with the \(unrecognizedCaseName) case.",
       "\(visibility)static let allCases: [\(swiftFullName)] = [")
     p.withIndentation { p in
-      for v in mainEnumValueDescriptors {
+      for v in aliasInfo.mainValues {
         let dottedName = namer.dottedRelativeName(enumValue: v)
         p.print("\(dottedName),")
       }
@@ -124,7 +122,7 @@ class EnumGenerator {
         p.print()
       }
       let relativeName = namer.relativeName(enumValue: enumValueDescriptor)
-      if let aliasOf = enumValueDescriptor.aliasOf {
+      if let aliasOf = aliasInfo.original(of: enumValueDescriptor) {
         let aliasOfName = namer.relativeName(enumValue: aliasOf)
         p.print("\(comments)\(visibility)static let \(relativeName) = \(aliasOfName)")
       } else {
@@ -145,11 +143,11 @@ class EnumGenerator {
     p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [")
     p.withIndentation { p in
       for v in mainEnumValueDescriptorsSorted {
-        if v.aliases.isEmpty {
-          p.print("\(v.number): .same(proto: \"\(v.name)\"),")
-        } else {
-          let aliasNames = v.aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
+        if let aliases = aliasInfo.aliases(v) {
+          let aliasNames = aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
           p.print("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),")
+        } else {
+          p.print("\(v.number): .same(proto: \"\(v.name)\"),")
         }
       }
     }
