@@ -77,12 +77,12 @@ class ExtensionSetGenerator {
                 fieldNamePath = fieldDescriptor.fullName
             }
 
-            p.println(
+            p.print(
               "\(comments)\(visibility)\(scope)let \(swiftRelativeExtensionName) = \(namer.swiftProtobufModuleName).MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(")
-            p.printlnIndented(
+            p.printIndented(
               "_protobuf_fieldNumber: \(fieldDescriptor.number),",
               "fieldName: \"\(fieldNamePath)\"")
-            p.println(")")
+            p.print(")")
         }
 
         func generateMessageSwiftExtension(printer p: inout CodePrinter) {
@@ -93,28 +93,28 @@ class ExtensionSetGenerator {
 
             // ExtensionSetGenerator provides the context to write out the properties.
 
-            p.println(
+            p.print(
               "",
               "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {")
-            p.printlnIndented(
+            p.printIndented(
               "get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}",
               "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}")
-            p.println("}")
+            p.print("}")
 
             // Repeated extension fields can use .isEmpty and clear by setting to the empty list.
             if fieldDescriptor.label != .repeated {
-                p.println(
+                p.print(
                     "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.",
                     "\(visibility)var \(extensionNames.has): Bool {")
-                p.printlnIndented("return hasExtensionValue(ext: \(swiftFullExtensionName))")
-                p.println("}")
+                p.printIndented("return hasExtensionValue(ext: \(swiftFullExtensionName))")
+                p.print("}")
 
-                p.println(
+                p.print(
                     "/// Clears the value of extension `\(swiftFullExtensionName)`.",
                     "/// Subsequent reads from it will return its default value.",
                     "\(visibility)mutating func \(extensionNames.clear)() {")
-                p.printlnIndented("clearExtensionValue(ext: \(swiftFullExtensionName))")
-                p.println("}")
+                p.printIndented("clearExtensionValue(ext: \(swiftFullExtensionName))")
+                p.print("}")
             }
         }
     }
@@ -152,7 +152,7 @@ class ExtensionSetGenerator {
     func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
         guard !extensions.isEmpty else { return }
 
-        p.println("""
+        p.print("""
 
             // MARK: - Extension Properties
 
@@ -186,10 +186,10 @@ class ExtensionSetGenerator {
             if currentType != e.containingTypeSwiftFullName {
                 if !currentType.isEmpty {
                     p.outdent()
-                    p.println("}")
+                    p.print("}")
                 }
                 currentType = e.containingTypeSwiftFullName
-                p.println(
+                p.print(
                   "",
                   "extension \(currentType) {")
                 p.indent()
@@ -197,7 +197,7 @@ class ExtensionSetGenerator {
             e.generateMessageSwiftExtension(printer: &p)
         }
         p.outdent()
-        p.println(
+        p.print(
           "",
           "}")
     }
@@ -208,7 +208,7 @@ class ExtensionSetGenerator {
         let pathParts = splitPath(pathname: fileDescriptor.name)
         let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
         let filePrefix = namer.typePrefix(forFile: fileDescriptor)
-        p.println("""
+        p.print("""
 
           // MARK: - File's ExtensionMap: \(filePrefix)\(filenameAsIdentifer)_Extensions
 
@@ -221,16 +221,16 @@ class ExtensionSetGenerator {
         p.withIndentation { p in
           let lastIndex = extensions.count - 1
           for (i, e) in extensions.enumerated() {
-            p.println("\(e.swiftFullExtensionName)\(i != lastIndex ? "," : "")")
+            p.print("\(e.swiftFullExtensionName)\(i != lastIndex ? "," : "")")
           }
         }
-        p.println("]")
+        p.print("]")
     }
 
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
       guard !extensions.isEmpty else { return }
 
-      p.println("""
+      p.print("""
 
           // Extension Objects - The only reason these might be needed is when manually
           // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
@@ -239,9 +239,9 @@ class ExtensionSetGenerator {
 
       func endScope() {
           p.outdent()
-          p.println("}")
+          p.print("}")
           p.outdent()
-          p.println("}")
+          p.print("}")
       }
 
       let visibility = generatorOptions.visibilitySourceSnippet
@@ -252,17 +252,17 @@ class ExtensionSetGenerator {
           if currentScope != nil { endScope() }
           currentScope = e.fieldDescriptor.extensionScope
           let scopeSwiftFullName = namer.fullName(message: currentScope!)
-          p.println(
+          p.print(
             "",
             "extension \(scopeSwiftFullName) {")
           p.indent()
-          p.println("\(visibility)enum Extensions {")
+          p.print("\(visibility)enum Extensions {")
           p.indent()
           addNewline = false
         }
 
         if addNewline {
-          p.println()
+          p.print()
         } else {
           addNewline = true
         }

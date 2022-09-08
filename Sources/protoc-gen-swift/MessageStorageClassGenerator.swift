@@ -39,7 +39,7 @@ class MessageStorageClassGenerator {
   ///
   /// - Parameter p: The code printer.
   func generateTypeDeclaration(printer p: inout CodePrinter) {
-    p.println("fileprivate class _StorageClass {")
+    p.print("fileprivate class _StorageClass {")
     p.withIndentation { p in
       generateStoredProperties(printer: &p)
       // Generate a default instance to be used so the heap allocation is
@@ -47,7 +47,7 @@ class MessageStorageClassGenerator {
       // the message is used as a field in another message as it causes
       // returning the default to not require that heap allocation, i.e. -
       // readonly usage never causes the allocation.
-      p.println("""
+      p.print("""
 
           static let defaultInstance = _StorageClass()
 
@@ -56,20 +56,20 @@ class MessageStorageClassGenerator {
           """)
       generateClone(printer: &p)
     }
-    p.println("}")
+    p.print("}")
   }
 
   /// Generated the uniqueStorage() implementation.
   func generateUniqueStorage(printer p: inout CodePrinter) {
-    p.println("\(storageVisibility) mutating func _uniqueStorage() -> _StorageClass {")
+    p.print("\(storageVisibility) mutating func _uniqueStorage() -> _StorageClass {")
     p.withIndentation { p in
-      p.println("if !isKnownUniquelyReferenced(&_storage) {")
-      p.printlnIndented("_storage = _StorageClass(copying: _storage)")
-      p.println(
+      p.print("if !isKnownUniquelyReferenced(&_storage) {")
+      p.printIndented("_storage = _StorageClass(copying: _storage)")
+      p.print(
         "}",
         "return _storage")
     }
-    p.println("}")
+    p.print("}")
   }
 
   func generatePreTraverse(printer p: inout CodePrinter) {
@@ -89,13 +89,13 @@ class MessageStorageClassGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateClone(printer p: inout CodePrinter) {
-    p.println("init(copying source: _StorageClass) {")
+    p.print("init(copying source: _StorageClass) {")
     p.withIndentation { p in
       for f in fields {
         f.generateStorageClassClone(printer: &p)
       }
     }
-    p.println("}")
+    p.print("}")
   }
 }
 
@@ -106,10 +106,10 @@ class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
 
   override func generateTypeDeclaration(printer p: inout CodePrinter) {
     // Just need an alias to the hand coded Storage.
-    p.println("typealias _StorageClass = AnyMessageStorage")
+    p.print("typealias _StorageClass = AnyMessageStorage")
   }
 
   override func generatePreTraverse(printer p: inout CodePrinter) {
-    p.println("try _storage.preTraverse()")
+    p.print("try _storage.preTraverse()")
   }
 }
