@@ -71,7 +71,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     // Test uniquelyNamedValues(enum:)
 
-    let filtered = namer.uniquelyNamedValues(enum: e)
+    let aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: e)
+    let filtered = namer.uniquelyNamedValues(valueAliasInfo: aliasInfo)
     XCTAssertEqual(filtered.count, 3)
 
     XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
@@ -126,7 +127,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     // Test uniquelyNamedValues(enum:)
 
-    let filtered = namer.uniquelyNamedValues(enum: e)
+    let aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: e)
+    let filtered = namer.uniquelyNamedValues(valueAliasInfo: aliasInfo)
     XCTAssertEqual(filtered.count, 4)
 
     XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
@@ -202,7 +204,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     // Test uniquelyNamedValues(enum:)
 
-    let filtered = namer.uniquelyNamedValues(enum: e)
+    let aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: e)
+    let filtered = namer.uniquelyNamedValues(valueAliasInfo: aliasInfo)
     XCTAssertEqual(filtered.count, 6)
 
     XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
@@ -286,7 +289,8 @@ class Test_SwiftProtobufNamer: XCTestCase {
 
     // QUX & qux collided, so only one remains.
 
-    let filtered = namer.uniquelyNamedValues(enum: e)
+    let aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: e)
+    let filtered = namer.uniquelyNamedValues(valueAliasInfo: aliasInfo)
     XCTAssertEqual(filtered.count, 5)
 
     XCTAssertEqual(filtered[0].name, "ALIAS_FOO")
