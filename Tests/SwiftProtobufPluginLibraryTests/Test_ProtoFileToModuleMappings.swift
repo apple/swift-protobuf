@@ -10,6 +10,7 @@
 
 import XCTest
 import SwiftProtobuf
+import SwiftProtobufTestHelpers
 @testable import SwiftProtobufPluginLibrary
 
 // Support equality to simplify testing of getting the correct errors.

@@ -11,6 +11,7 @@
 import XCTest
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
+import SwiftProtobufTestHelpers
 
 class Test_SwiftProtobufNamer: XCTestCase {
 
