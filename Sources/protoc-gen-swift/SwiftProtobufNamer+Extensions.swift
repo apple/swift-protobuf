@@ -20,12 +20,14 @@ extension SwiftProtobufNamer {
   /// names. Only poorly named proto enum alias values get filtered
   /// away, so the assumption is they aren't really needed from an
   /// api pov.
-  func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
-    return e.values.filter {
+  func uniquelyNamedValues(
+    valueAliasInfo aliasInfo: EnumDescriptor.ValueAliasInfo
+  ) -> [EnumValueDescriptor] {
+    return aliasInfo.mainValues.first!.enumType.values.filter {
       // Original are kept as is. The computations for relative
       // name already adds values for collisions with different
       // values.
-      guard let aliasOf = $0.aliasOf else { return true }
+      guard let aliasOf = aliasInfo.original(of: $0) else { return true }
       let relativeName = self.relativeName(enumValue: $0)
       let aliasOfRelativeName = self.relativeName(enumValue: aliasOf)
       // If the relative name matches for the alias and original, drop
@@ -34,11 +36,11 @@ extension SwiftProtobufNamer {
       // Only include this alias if it is the first one with this name.
       // (handles alias with different cases in their names that get
       // mangled to a single Swift name.)
-      let firstAlias = aliasOf.aliases.firstIndex {
+      let firstAlias = aliasInfo.aliases(aliasOf)!.firstIndex {
         let otherRelativeName = self.relativeName(enumValue: $0)
         return relativeName == otherRelativeName
       }
-      return aliasOf.aliases[firstAlias!] === $0
+      return aliasInfo.aliases(aliasOf)![firstAlias!] === $0
     }
   }
 }
