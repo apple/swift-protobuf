@@ -22,6 +22,8 @@ let package = Package(
     .target(name: "SwiftProtobuf"),
     .target(name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"]),
+    .target(name: "SwiftProtobufTestHelpers",
+            dependencies: ["SwiftProtobuf"]),
     .target(name: "protoc-gen-swift",
             dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"]),
     .target(name: "Conformance",
@@ -29,7 +31,7 @@ let package = Package(
     .testTarget(name: "SwiftProtobufTests",
                 dependencies: ["SwiftProtobuf"]),
     .testTarget(name: "SwiftProtobufPluginLibraryTests",
-                dependencies: ["SwiftProtobufPluginLibrary"]),
+                dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobufTestHelpers"]),
   ],
   swiftLanguageVersions: [.v5]
 )

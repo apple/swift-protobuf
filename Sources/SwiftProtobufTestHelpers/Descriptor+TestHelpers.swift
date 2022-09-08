@@ -9,9 +9,8 @@
 // -----------------------------------------------------------------------------
 
 import SwiftProtobuf
-import SwiftProtobufPluginLibrary
 
-extension Google_Protobuf_FileDescriptorProto {
+public extension Google_Protobuf_FileDescriptorProto {
   init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = []) {
     for idx in publicDependencies { precondition(Int(idx) <= dependencies.count) }
     self.init()
@@ -25,7 +24,7 @@ extension Google_Protobuf_FileDescriptorProto {
   }
 }
 
-extension Google_Protobuf_FileDescriptorSet {
+public extension Google_Protobuf_FileDescriptorSet {
   init(files: [Google_Protobuf_FileDescriptorProto]) {
     self.init()
     file = files
@@ -36,7 +35,7 @@ extension Google_Protobuf_FileDescriptorSet {
   }
 }
 
-extension Google_Protobuf_EnumValueDescriptorProto {
+public extension Google_Protobuf_EnumValueDescriptorProto {
   init(name: String, number: Int32) {
     self.init()
     self.name = name
