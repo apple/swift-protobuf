@@ -285,6 +285,7 @@ extension FieldDescriptor {
 }
 
 extension EnumDescriptor {
+
   // True if this enum should perserve unknown enums within the enum.
   var hasUnknownPreservingSemantics: Bool {
     return file.hasUnknownEnumPreservingSemantics
@@ -298,4 +299,60 @@ extension EnumDescriptor {
     }
     return nil
   }
+
+  /// Helper object that computes the alias relationships of
+  /// `EnumValueDescriptor`s for a given `EnumDescriptor`.
+  final class ValueAliasInfo {
+    /// The `EnumValueDescriptor`s that are not aliases of another value. In
+    /// the same order as the values on the `EnumDescriptor`.
+    let mainValues : [EnumValueDescriptor]
+
+    /// Find the alias values for the given value.
+    ///
+    /// - Parameter value: The value descriptor to look up.
+    /// - Returns The list of value descriptors that are aliases for this
+    ///     value, or `nil` if there are no alias (or if this was an alias).
+    func aliases(_ value: EnumValueDescriptor) -> [EnumValueDescriptor]? {
+      assert(mainValues.first!.enumType === value.enumType)
+      return aliasesMap[value.index]
+    }
+
+    /// Find the original for an alias.
+    ///
+    /// - Parameter value: The value descriptor to look up.
+    /// - Returns The original/main value if this was an alias otherwise `nil`.
+    func original(of: EnumValueDescriptor) -> EnumValueDescriptor? {
+      assert(mainValues.first!.enumType === of.enumType)
+      return aliasOfMap[of.index]
+    }
+
+    /// Mapping from index of a "main" value to the aliases for it.
+    private let aliasesMap: [Int:[EnumValueDescriptor]]
+
+    /// Mapping from value's index the main value if it was an alias.
+    private let aliasOfMap: [Int:EnumValueDescriptor]
+
+    /// Initialize the mappings for the given `EnumDescriptor`.
+    init(enumDescriptor descriptor: EnumDescriptor) {
+      var mainValues = [EnumValueDescriptor]()
+      var aliasesMap = [Int:[EnumValueDescriptor]]()
+      var aliasOfMap = [Int:EnumValueDescriptor]()
+
+      var firstValues = [Int32:EnumValueDescriptor]()
+      for v in descriptor.values {
+        if let aliasing = firstValues[v.number] {
+          aliasesMap[aliasing.index, default: []].append(v)
+          aliasOfMap[v.index] = aliasing
+        } else {
+          firstValues[v.number] = v
+          mainValues.append(v)
+        }
+      }
+
+      self.mainValues = mainValues
+      self.aliasesMap = aliasesMap
+      self.aliasOfMap = aliasOfMap
+    }
+  }
+
 }

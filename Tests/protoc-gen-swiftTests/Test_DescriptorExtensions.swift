@@ -114,4 +114,84 @@ class Test_DescriptorExtensions: XCTestCase {
     XCTAssertEqual(msgDescriptor3.ambitiousExtensionRanges[2].upperBound, 21)
   }
 
+  func testEnumValueAliasing() throws {
+    let txt = [
+      "name: \"test.proto\"",
+      "syntax: \"proto2\"",
+      "enum_type {",
+      "  name: \"TestEnum\"",
+      "  options {",
+      "     allow_alias: true",
+      "  }",
+      "  value {",
+      "    name: \"TEST_ENUM_FOO\"",
+      "    number: 0",  // Primary
+      "  }",
+      "  value {",
+      "    name: \"TEST_ENUM_BAR\"",
+      "    number: 1",
+      "  }",
+      "  value {",
+      "    name: \"TESTENUM_FOO\"",
+      "    number: 0",  // Alias
+      "  }",
+      "  value {",
+      "    name: \"_FOO\"",
+      "    number: 0",  // Alias
+      "  }",
+      "  value {",
+      "    name: \"FOO\"",
+      "    number: 0",  // Alias
+      "  }",
+      "  value {",
+      "    name: \"TEST_ENUM_ALIAS\"",
+      "    number: 0",  // Alias (unique name)
+      "  }",
+      "}"
+    ]
+
+    let fileProto: Google_Protobuf_FileDescriptorProto
+    do {
+      fileProto = try Google_Protobuf_FileDescriptorProto(textFormatStrings: txt)
+    } catch let e {
+      XCTFail("Error: \(e)")
+      return
+    }
+
+    let descriptorSet = DescriptorSet(protos: [fileProto])
+    let e = descriptorSet.enumDescriptor(named: "TestEnum")!
+    let values = e.values
+    XCTAssertEqual(values.count, 6)
+
+    let aliasInfo = EnumDescriptor.ValueAliasInfo(enumDescriptor: e)
+
+    // Check mainValues
+
+    XCTAssertEqual(aliasInfo.mainValues.count, 2)
+    XCTAssertIdentical(aliasInfo.mainValues[0], e.values[0])
+    XCTAssertIdentical(aliasInfo.mainValues[1], e.values[1])
+
+    // Check aliases(_:)
+
+    XCTAssertEqual(aliasInfo.aliases(e.values[0])!.count, 4)
+    XCTAssertIdentical(aliasInfo.aliases(e.values[0])![0], e.values[2])
+    XCTAssertIdentical(aliasInfo.aliases(e.values[0])![1], e.values[3])
+    XCTAssertIdentical(aliasInfo.aliases(e.values[0])![2], e.values[4])
+    XCTAssertIdentical(aliasInfo.aliases(e.values[0])![3], e.values[5])
+    XCTAssertNil(aliasInfo.aliases(e.values[1]))  // primary with no aliases
+    XCTAssertNil(aliasInfo.aliases(e.values[2]))  // it itself is an alias
+    XCTAssertNil(aliasInfo.aliases(e.values[3]))  // it itself is an alias
+    XCTAssertNil(aliasInfo.aliases(e.values[4]))  // it itself is an alias
+    XCTAssertNil(aliasInfo.aliases(e.values[5]))  // it itself is an alias
+
+    // Check original(of:)
+
+    XCTAssertNil(aliasInfo.original(of: e.values[0]))
+    XCTAssertNil(aliasInfo.original(of: e.values[1]))
+    XCTAssertIdentical(aliasInfo.original(of: e.values[2]), e.values[0])
+    XCTAssertIdentical(aliasInfo.original(of: e.values[3]), e.values[0])
+    XCTAssertIdentical(aliasInfo.original(of: e.values[4]), e.values[0])
+    XCTAssertIdentical(aliasInfo.original(of: e.values[5]), e.values[0])
+  }
+
 }
