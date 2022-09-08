@@ -291,7 +291,8 @@ class MessageGenerator {
             // code. This also avoids typechecking performance issues if there are
             // dozens of ranges because we aren't constructing a single large
             // expression containing untyped integer literals.
-            if !fields.isEmpty || descriptor.extensionRanges.count > 3 {
+            let normalizedExtensionRanges = descriptor.normalizedExtensionRanges
+            if !fields.isEmpty || normalizedExtensionRanges.count > 3 {
               p.print("""
                   // The use of inline closures is to circumvent an issue where the compiler
                   // allocates stack space for every case branch when no optimizations are
@@ -302,7 +303,7 @@ class MessageGenerator {
                 f.generateDecodeFieldCase(printer: &p)
               }
               if isExtensible {
-                p.print("case \(descriptor.swiftExtensionRangeCaseExpressions):")
+                p.print("case \(normalizedExtensionRanges.swiftCaseExpression):")
                 p.printIndented("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()")
               }
               p.print(
@@ -311,7 +312,7 @@ class MessageGenerator {
             } else if isExtensible {
               // Just output a simple if-statement if the message had no fields of its
               // own but we still need to generate a decode statement for extensions.
-              p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {")
+              p.print("if \(normalizedExtensionRanges.swiftBooleanExpression(variable: "fieldNumber")) {")
               p.printIndented("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)")
               p.print("}")
             }

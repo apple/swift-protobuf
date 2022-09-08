@@ -164,10 +164,13 @@ CONFORMANCE_PROTOS= \
 	Protos/google/protobuf/test_messages_proto2.proto \
 	Protos/google/protobuf/test_messages_proto3.proto
 
-SWIFT_DESCRIPTOR_TEST_PROTOS= \
+SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
 	Protos/pluginlib_descriptor_test.proto \
 	Protos/pluginlib_descriptor_test2.proto \
 	${PLUGIN_PROTOS}
+
+SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
+	Protos/plugin_descriptor_test.proto
 
 .PHONY: \
 	all \
@@ -200,8 +203,13 @@ all: build
 
 # This generates a LinuxMain.swift to include all of the test cases.
 # It is needed for all builds before 5.4.x
+# NOTE: This doesn't include Tests/protoc-gen-swiftTests because the older
+# SwiftPM versions could have a test depend on an executable target.
 generate-linux-main:
-	@${AWK} -f DevTools/CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
+	@${AWK} -f DevTools/CollectTests.awk \
+	    Tests/SwiftProtobufPluginLibraryTests/Test_*.swift \
+	    Tests/SwiftProtobufTests/Test_*.swift \
+	  > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
 		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
 		echo "FYI: Tests/LinuxMain.swift Updated"; \
@@ -222,7 +230,7 @@ install: build
 
 clean:
 	swift package clean
-	rm -rf .build _test ${PROTOC_GEN_SWIFT} DescriptorTestData.bin \
+	rm -rf .build _test ${PROTOC_GEN_SWIFT} *DescriptorTestData.bin \
 	  Performance/_generated Performance/_results Protos/mined_words.txt \
 	  docs build
 	find . -name '*~' | xargs rm -f
@@ -313,6 +321,7 @@ regenerate: \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
 	regenerate-conformance-protos \
+	Tests/protoc-gen-swiftTests/DescriptorTestData.swift \
 	Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift
 
 # Rebuild just the protos included in the runtime library
@@ -353,20 +362,37 @@ regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT}
 		--tfiws_out=FuzzTesting/Sources/FuzzCommon \
 		Protos/fuzz_testing.proto
 
-Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
+Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
 	# Until the flag isn't needed, add the flag to enable proto3 optional.
 	@${PROTOC} \
 		--experimental_allow_proto3_optional \
 		--include_imports \
-		--descriptor_set_out=DescriptorTestData.bin \
+		--descriptor_set_out=PluginLibDescriptorTestData.bin \
 		-I Protos \
-		${SWIFT_DESCRIPTOR_TEST_PROTOS}
+		${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
 	@rm -f $@
 	@echo '// See Makefile how this is generated.' >> $@
 	@echo '// swift-format-ignore-file' >> $@
 	@echo 'import Foundation' >> $@
 	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
-	@xxd -i < DescriptorTestData.bin >> $@
+	@xxd -i < PluginLibDescriptorTestData.bin >> $@
+	@echo ']' >> $@
+	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
+
+Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
+	# Until the flag isn't needed, add the flag to enable proto3 optional.
+	@${PROTOC} \
+		--experimental_allow_proto3_optional \
+		--include_imports \
+		--descriptor_set_out=PluginDescriptorTestData.bin \
+		-I Protos \
+		${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
+	@rm -f $@
+	@echo '// See Makefile how this is generated.' >> $@
+	@echo '// swift-format-ignore-file' >> $@
+	@echo 'import Foundation' >> $@
+	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
+	@xxd -i < PluginDescriptorTestData.bin >> $@
 	@echo ']' >> $@
 	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
