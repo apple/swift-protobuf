@@ -69,6 +69,10 @@ let package = Package(
         name: "SwiftProtobufPluginLibraryTests",
         dependencies: ["SwiftProtobufPluginLibrary"]
     ),
+    .testTarget(
+        name: "protoc-gen-swiftTests",
+        dependencies: ["protoc-gen-swift"]
+    ),
   ],
   swiftLanguageVersions: [.v5]
 )

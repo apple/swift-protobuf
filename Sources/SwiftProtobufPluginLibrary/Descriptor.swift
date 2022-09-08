@@ -306,64 +306,6 @@ public final class Descriptor {
   /// the order they are defined in the .proto file.
   public let extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]
 
-  // TODO(TVL): These next two aren't part of the C++ descriptor api, but since
-  // they cache for performance, they currently need to be here; should likely
-  // revisit this and potentilally move them into the plugin in some way.
-
-  /// The `extensionRanges` are in the order they appear in the original .proto
-  /// file; this orders them and then merges any ranges that are actually
-  /// contiguious (i.e. - [(21,30),(10,20)] -> [(10,30)])
-  ///
-  /// This also uses Range<> since the options that could be on
-  /// `extensionRanges` no longer can apply as the things have been merged.
-  public private(set) lazy var normalizedExtensionRanges: [Range<Int32>] = {
-    var ordered: [Range<Int32>] = self.extensionRanges.sorted(by: { return $0.start < $1.start }).map { return $0.start ..< $0.end }
-    if ordered.count > 1 {
-      for i in (0..<(ordered.count - 1)).reversed() {
-        if ordered[i].upperBound == ordered[i+1].lowerBound {
-          ordered[i] = ordered[i].lowerBound ..< ordered[i+1].upperBound
-          ordered.remove(at: i + 1)
-        }
-      }
-    }
-    return ordered
-  }()
-
-  /// The `extensionRanges` from `normalizedExtensionRanges`, but takes a step
-  /// further in that any ranges that do _not_ have any fields inbetween them
-  /// are also merged together. These can then be used in context where it is
-  /// ok to include field numbers that have to be extension or unknown fields.
-  ///
-  /// This also uses Range<> since the options that could be on
-  /// `extensionRanges` no longer can apply as the things have been merged.
-  public private(set) lazy var ambitiousExtensionRanges: [Range<Int32>] = {
-    var merged = self.normalizedExtensionRanges
-    var sortedFields = self.fields.sorted {$0.number < $1.number}
-    if merged.count > 1 {
-      var fieldNumbersReversedIterator =
-        self.fields.map({ Int($0.number) }).sorted(by: { $0 > $1 }).makeIterator()
-      var nextFieldNumber = fieldNumbersReversedIterator.next()
-      while nextFieldNumber != nil && merged.last!.lowerBound < nextFieldNumber! {
-        nextFieldNumber = fieldNumbersReversedIterator.next()
-      }
-
-      for i in (0..<(merged.count - 1)).reversed() {
-        if nextFieldNumber == nil || merged[i].lowerBound > nextFieldNumber! {
-          // No fields left or range starts after the next field, merge it with
-          // the previous one.
-          merged[i] = merged[i].lowerBound ..< merged[i+1].upperBound
-          merged.remove(at: i + 1)
-        } else {
-          // can't merge, find the next field number below this range.
-          while nextFieldNumber != nil && merged[i].lowerBound < nextFieldNumber! {
-            nextFieldNumber = fieldNumbersReversedIterator.next()
-          }
-        }
-      }
-    }
-    return merged
-  }()
-
   /// The reserved field number ranges for this message. These are returned
   /// in the order they are defined in the .proto file.
   public let reservedRanges: [Range<Int32>]
