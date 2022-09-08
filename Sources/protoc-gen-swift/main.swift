@@ -224,7 +224,7 @@ struct GeneratorPlugin {
     for name in request.fileToGenerate {
       let fileDescriptor = descriptorSet.fileDescriptor(named: name)!
       let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
-      var printer = CodePrinter()
+      var printer = CodePrinter(addNewlines: true)
       fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
       if let errorString = errorString {
         // If generating multiple files, scope the message with the file that triggered it.
