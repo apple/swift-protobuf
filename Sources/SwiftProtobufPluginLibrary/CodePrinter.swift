@@ -146,4 +146,15 @@ public struct CodePrinter {
     precondition(indentation.count >= indentCount, "Cannot outdent past the left margin")
     indentation.removeLast(indentCount)
   }
+
+  /// Indents, calls `body` to do other work relaying along the printer, and
+  /// the outdents after wards.
+  ///
+  /// - Parameter body: A closure that is invoked after the indent is
+  ///     increasted.
+  public mutating func withIndentation(body: (_ p: inout CodePrinter) -> Void) {
+    indent()
+    body(&self)
+    outdent()
+  }
 }

@@ -205,53 +205,51 @@ class OneofGenerator {
         p.println(
             "",
             "\(comments)\(visibility)enum \(swiftRelativeName): Equatable {")
-        p.indent()
-
-        // Oneof case for each ivar
-        for f in fields {
-            p.println("\(f.comments)case \(f.swiftName)(\(f.swiftType))")
-        }
-
-        // A helper for isInitialized
-        let fieldsToCheck = fields.filter {
-            $0.isGroupOrMessage && $0.messageType!.containsRequiredFields()
-        }
-        if !fieldsToCheck.isEmpty {
-          p.println(
-              "",
-              "fileprivate var isInitialized: Bool {")
-          p.indent()
-          if fieldsToCheck.count == 1 {
-              let f = fieldsToCheck.first!
-              p.println(
-                  "guard case \(f.dottedSwiftName)(let v) = self else {return true}",
-                  "return v.isInitialized")
-          } else if fieldsToCheck.count > 1 {
-              p.println("""
-                  // The use of inline closures is to circumvent an issue where the compiler
-                  // allocates stack space for every case branch when no optimizations are
-                  // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                  switch self {
-                  """)
-              for f in fieldsToCheck {
-                  p.println("case \(f.dottedSwiftName): return {")
-                  p.printlnIndented(
-                        "guard case \(f.dottedSwiftName)(let v) = self else { preconditionFailure() }",
-                        "return v.isInitialized")
-                  p.println("}()")
-              }
-              // If there were other cases, add a default.
-              if fieldsToCheck.count != fields.count {
-                  p.println("default: return true")
-              }
-              p.println("}")
+        p.withIndentation { p in
+          // Oneof case for each ivar
+          for f in fields {
+              p.println("\(f.comments)case \(f.swiftName)(\(f.swiftType))")
           }
-          p.outdent()
-          p.println("}")
-        }
 
-        p.println()
-        p.outdent()
+          // A helper for isInitialized
+          let fieldsToCheck = fields.filter {
+              $0.isGroupOrMessage && $0.messageType!.containsRequiredFields()
+          }
+          if !fieldsToCheck.isEmpty {
+            p.println(
+                "",
+                "fileprivate var isInitialized: Bool {")
+            p.withIndentation { p in
+              if fieldsToCheck.count == 1 {
+                  let f = fieldsToCheck.first!
+                  p.println(
+                      "guard case \(f.dottedSwiftName)(let v) = self else {return true}",
+                      "return v.isInitialized")
+              } else if fieldsToCheck.count > 1 {
+                  p.println("""
+                      // The use of inline closures is to circumvent an issue where the compiler
+                      // allocates stack space for every case branch when no optimizations are
+                      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                      switch self {
+                      """)
+                  for f in fieldsToCheck {
+                      p.println("case \(f.dottedSwiftName): return {")
+                      p.printlnIndented(
+                            "guard case \(f.dottedSwiftName)(let v) = self else { preconditionFailure() }",
+                            "return v.isInitialized")
+                      p.println("}()")
+                  }
+                  // If there were other cases, add a default.
+                  if fieldsToCheck.count != fields.count {
+                      p.println("default: return true")
+                  }
+                  p.println("}")
+              }
+            }
+            p.println("}")
+          }
+          p.println()
+        }
         p.println("}")
     }
 
@@ -295,15 +293,15 @@ class OneofGenerator {
         p.println(
           "",
           "\(field.comments)\(visibility)var \(field.swiftName): \(field.swiftType) {")
-        p.indent()
-        p.println("get {")
-        p.printlnIndented(
-          "if case \(field.dottedSwiftName)(let v)? = \(getter) {return v}",
-          "return \(field.swiftDefaultValue)")
-        p.println(
-          "}",
-          "set {\(setter) = \(field.dottedSwiftName)(newValue)}")
-        p.outdent()
+        p.withIndentation { p in
+          p.println("get {")
+          p.printlnIndented(
+            "if case \(field.dottedSwiftName)(let v)? = \(getter) {return v}",
+            "return \(field.swiftDefaultValue)")
+          p.println(
+            "}",
+            "set {\(setter) = \(field.dottedSwiftName)(newValue)}")
+        }
         p.println("}")
     }
 
@@ -328,34 +326,33 @@ class OneofGenerator {
 
     func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
         p.println("case \(field.number): try {")
-        p.indent()
+        p.withIndentation { p in
+          let hadValueTest: String
+          if field.isGroupOrMessage {
+              // Messages need to fetch the current value so new fields are merged into the existing
+              // value
+              p.println(
+                "var v: \(field.swiftType)?",
+                "var hadOneofValue = false",
+                "if let current = \(storedProperty) {")
+              p.printlnIndented(
+                "hadOneofValue = true",
+                "if case \(field.dottedSwiftName)(let m) = current {v = m}")
+              p.println("}")
+              hadValueTest = "hadOneofValue"
+          } else {
+              p.println("var v: \(field.swiftType)?")
+              hadValueTest = "\(storedProperty) != nil"
+          }
 
-        let hadValueTest: String
-        if field.isGroupOrMessage {
-            // Messages need to fetch the current value so new fields are merged into the existing
-            // value
-            p.println(
-              "var v: \(field.swiftType)?",
-              "var hadOneofValue = false",
-              "if let current = \(storedProperty) {")
-            p.printlnIndented(
-              "hadOneofValue = true",
-              "if case \(field.dottedSwiftName)(let m) = current {v = m}")
-            p.println("}")
-            hadValueTest = "hadOneofValue"
-        } else {
-            p.println("var v: \(field.swiftType)?")
-            hadValueTest = "\(storedProperty) != nil"
+          p.println(
+            "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)",
+            "if let v = v {")
+          p.printlnIndented(
+            "if \(hadValueTest) {try decoder.handleConflictingOneOf()}",
+            "\(storedProperty) = \(field.dottedSwiftName)(v)")
+          p.println("}")
         }
-
-        p.println(
-          "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)",
-          "if let v = v {")
-        p.printlnIndented(
-          "if \(hadValueTest) {try decoder.handleConflictingOneOf()}",
-          "\(storedProperty) = \(field.dottedSwiftName)(v)")
-        p.println("}")
-        p.outdent()
         p.println("}()")
     }
 

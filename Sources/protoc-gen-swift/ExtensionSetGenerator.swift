@@ -96,11 +96,9 @@ class ExtensionSetGenerator {
             p.println(
               "",
               "\(comments)\(visibility)var \(extensionNames.value): \(apiType) {")
-            p.indent()
-            p.println(
+            p.printlnIndented(
               "get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}",
               "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}")
-            p.outdent()
             p.println("}")
 
             // Repeated extension fields can use .isEmpty and clear by setting to the empty list.
@@ -220,12 +218,12 @@ class ExtensionSetGenerator {
           /// a larger `SwiftProtobuf.SimpleExtensionMap`.
           \(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: \(namer.swiftProtobufModuleName).SimpleExtensionMap = [
           """)
-        p.indent()
-        let lastIndex = extensions.count - 1
-        for (i, e) in extensions.enumerated() {
-          p.println("\(e.swiftFullExtensionName)\(i != lastIndex ? "," : "")")
+        p.withIndentation { p in
+          let lastIndex = extensions.count - 1
+          for (i, e) in extensions.enumerated() {
+            p.println("\(e.swiftFullExtensionName)\(i != lastIndex ? "," : "")")
+          }
         }
-        p.outdent()
         p.println("]")
     }
 
