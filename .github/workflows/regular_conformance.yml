@@ -17,20 +17,23 @@ on:
   schedule:
     # Every Sunday at 5am.
     - cron: '0 5 * * 0'
+  # Also allow manual triggering from the github UX to revalidate things.
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        swift: ["5.5-bionic"]
+        swift: ["5.7.0"]
+        ubuntu: ["focal"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
     container:
-      image: swift:${{ matrix.swift }}
+      image: swift:${{ matrix.swift }}-${{ matrix.ubuntu }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
