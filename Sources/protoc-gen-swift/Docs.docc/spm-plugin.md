@@ -34,6 +34,9 @@ After adding the `.proto` files you can now add the plugin to the target inside 
 First, you need to add a dependency on `swift-protobuf`. Afterwards, you can declare the usage of the plugin
 for your target. Here is an example snippet of a `Package.swift` manifest:
 
+> Note: imports on your `.proto` files will have to include the relative path from the target source to the `.proto` file you wish to import. 
+> Files **must** be contained within the target source directory.
+
 ```swift
 let package = Package(
   name: "YourPackage",
@@ -81,6 +84,9 @@ to the root of your target's source folder. An example configuration file looks 
 }
 
 ```
+
+> Note: paths to your `.proto` files will have to include the relative path from the target source to the `.proto` file location.
+> Files **must** be contained within the target source directory.
 
 In the above configuration, you declared two invocations to the `protoc` compiler. The first invocation
 is generating Swift types for the `Foo.proto` file with `internal` visibility. The second invocation
