@@ -17,9 +17,34 @@ class GeneratorOptions {
     case dropPath = "DropPath"
   }
 
-  enum Visibility : String {
-    case `internal` = "Internal"
-    case `public` = "Public"
+  enum Visibility {
+    case `internal`
+    case `public`
+    case spi(String)
+
+    init?(rawValue: String) {
+      if rawValue == "Internal" {
+        self = .internal
+      } else if rawValue == "Public" {
+        self = .public
+      } else if rawValue.hasPrefix("_SPI(") && rawValue.hasSuffix(")") {
+        let identifier = String(rawValue.dropFirst(5).dropLast(1))
+        self = .spi(identifier)
+      } else {
+        return nil
+      }
+    }
+
+    var rawValue: String {
+      switch self {
+      case .internal:
+        return "Internal"
+      case .public:
+        return "Public"
+      case .spi(let identifier):
+        return "_SPI(\(identifier))"
+      }
+    }
   }
 
   let outputNaming: OutputNaming
@@ -89,6 +114,8 @@ class GeneratorOptions {
       visibilitySourceSnippet = ""
     case .public:
       visibilitySourceSnippet = "public "
+    case .spi(let identifier):
+      visibilitySourceSnippet = "@_spi(\(identifier)) public "
     }
 
   }
