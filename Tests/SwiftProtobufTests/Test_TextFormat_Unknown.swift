@@ -20,8 +20,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestEmptyMessage
 
     func test_unknown_varint() throws {
-        let bytes = Data([8, 0])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [8, 0]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 0\n")
 
@@ -39,8 +39,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     }
 
     func test_unknown_fixed64() throws {
-        let bytes = Data([9, 0, 1, 2, 3, 4, 5, 6, 7])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [9, 0, 1, 2, 3, 4, 5, 6, 7]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 0x0706050403020100\n")
 
@@ -58,8 +58,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     }
 
     func test_unknown_lengthDelimited_string() throws {
-        let bytes = Data([10, 3, 97, 98, 99])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [10, 3, 97, 98, 99]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: \"abc\"\n")
 
@@ -78,8 +78,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
 
     func test_unknown_lengthDelimited_message() throws {
         // If inner data looks like a message, display it as such:
-        let bytes = Data([10, 6, 8, 1, 18, 2, 97, 98])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [10, 6, 8, 1, 18, 2, 97, 98]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1 {\n  1: 1\n  2: \"ab\"\n}\n")
 
@@ -99,8 +99,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     func test_unknown_lengthDelimited_notmessage() throws {
         // Inner data is almost a message, but has an error at the end...
         // This should cause it to be displayed as a string.
-        let bytes = Data([10, 6, 8, 1, 18, 3, 97, 98])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [10, 6, 8, 1, 18, 3, 97, 98]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: \"\\b\\001\\022\\003ab\"\n")
 
@@ -118,8 +118,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     }
 
     func test_unknown_lengthDelimited_nested_message() throws {
-        let bytes = Data([8, 1, 18, 6, 8, 2, 18, 2, 8, 3])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [8, 1, 18, 6, 8, 2, 18, 2, 8, 3]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  1: 2\n  2 {\n    1: 3\n  }\n}\n")
 
@@ -155,7 +155,7 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
             bytes.appendVarInt(value: len)
         }
 
-        let msg = try MessageTestType(serializedData: bytes)
+        let msg = try MessageTestType(serializedBytes: Array(bytes))
         let text = msg.textFormatString()
         // Internally, the limit is 10, so we'll get 10 objects and then a
         // string for the bytes.
@@ -178,8 +178,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     }
 
     func test_unknown_group() throws {
-        let bytes = Data([8, 1, 19, 26, 2, 8, 1, 20])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [8, 1, 19, 26, 2, 8, 1, 20]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  3 {\n    1: 1\n  }\n}\n")
 
@@ -197,8 +197,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     }
 
     func test_unknown_nested_group() throws {
-        let bytes = Data([8, 1, 19, 26, 2, 8, 1, 35, 40, 7, 36, 20])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [8, 1, 19, 26, 2, 8, 1, 35, 40, 7, 36, 20]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  3 {\n    1: 1\n  }\n  4 {\n    5: 7\n  }\n}\n")
 
@@ -266,8 +266,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     }
 
     func test_unknown_fixed32() throws {
-        let bytes = Data([13, 0, 1, 2, 3])
-        let msg = try MessageTestType(serializedData: bytes)
+        let bytes: [UInt8] = [13, 0, 1, 2, 3]
+        let msg = try MessageTestType(serializedBytes: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 0x03020100\n")
 

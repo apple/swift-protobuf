@@ -1,5 +1,3 @@
-import Foundation
-
 import FuzzCommon
 
 @_cdecl("LLVMFuzzerTestOneInput")
@@ -8,7 +6,7 @@ public func FuzzJSON(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   var msg: Fuzz_Testing_Message?
   do {
     msg = try Fuzz_Testing_Message(
-      jsonUTF8Data: Data(bytes),
+      jsonUTF8Bytes: Array(bytes),
       extensions: Fuzz_Testing_FuzzTesting_Extensions)
   } catch {
     // Error parsing are to be expected since not all input will be well formed.

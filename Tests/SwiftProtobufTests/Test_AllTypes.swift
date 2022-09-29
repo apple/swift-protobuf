@@ -995,7 +995,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [146, 1, 2, 8, 1, // nested message with bb=1
                               208, 41, 0] // Unknown field 666 with varint 0
         do {
-            let m = try MessageTestType(serializedData: Data(bytes))
+            let m = try MessageTestType(serializedBytes: bytes)
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
                 let recoded = try m.serializedData()
@@ -1013,7 +1013,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [208, 41, 0, // Unknown 666 with varint 0
                               146, 1, 2, 8, 1] // Nested msg with bb=1
         do {
-            let m = try MessageTestType(serializedData: Data(bytes))
+            let m = try MessageTestType(serializedBytes: bytes)
             XCTAssertEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             do {
                 let recoded = try m.serializedData()
@@ -1035,7 +1035,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         let bytes: [UInt8] = [146, 1, 5, 8, 1, 208, 41, 99,
                               208, 41, 0]
         do {
-            let m = try MessageTestType(serializedData: Data(bytes))
+            let m = try MessageTestType(serializedBytes: bytes)
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
@@ -1055,7 +1055,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         // first in outer and inner message
         let bytes: [UInt8] = [208, 41, 0, 146, 1, 5, 208, 41, 99, 8, 1]
         do {
-            let m = try MessageTestType(serializedData: Data(bytes))
+            let m = try MessageTestType(serializedBytes: bytes)
             XCTAssertNotEqual(m.optionalNestedMessage, MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.optionalNestedMessage.bb, 1)
             do {
@@ -1160,7 +1160,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
 
         // The out-of-range enum value should be preserved as an unknown field
-        let decoded = try ProtobufUnittest_TestAllTypes(serializedData: Data([168, 1, 128, 1]))
+        let decoded = try ProtobufUnittest_TestAllTypes(serializedBytes: [168, 1, 128, 1])
         XCTAssertFalse(decoded.hasOptionalNestedEnum)
         let recoded = try decoded.serializedBytes()
         XCTAssertEqual(recoded, [168, 1, 128, 1])
@@ -1747,7 +1747,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         ]
 
         do {
-            let m = try MessageTestType(serializedData: Data(bytes))
+            let m = try MessageTestType(serializedBytes: bytes)
             XCTAssertEqual(m.repeatedNestedMessage.count, 2)
             XCTAssertNotEqual(m.repeatedNestedMessage[0], MessageTestType.NestedMessage.with{$0.bb = 1})
             XCTAssertEqual(m.repeatedNestedMessage[0].bb, 1)
@@ -1785,7 +1785,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // The out-of-range enum value should be preserved as an unknown field
         do {
-            let decoded1 = try ProtobufUnittest_TestAllTypes(serializedData: Data([152, 3, 1, 152, 3, 128, 1]))
+            let decoded1 = try ProtobufUnittest_TestAllTypes(serializedBytes: [152, 3, 1, 152, 3, 128, 1])
             XCTAssertEqual(decoded1.repeatedNestedEnum, [.foo])
             let recoded1 = try decoded1.serializedBytes()
             XCTAssertEqual(recoded1, [152, 3, 1, 152, 3, 128, 1])
@@ -1795,7 +1795,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Unknown fields always get reserialized last, which trashes order here:
         do {
-            let decoded2 = try ProtobufUnittest_TestAllTypes(serializedData: Data([152, 3, 128, 1, 152, 3, 2]))
+            let decoded2 = try ProtobufUnittest_TestAllTypes(serializedBytes: [152, 3, 128, 1, 152, 3, 2])
             XCTAssertEqual(decoded2.repeatedNestedEnum, [.bar])
             let recoded2 = try decoded2.serializedBytes()
             XCTAssertEqual(recoded2, [152, 3, 2, 152, 3, 128, 1])
@@ -1805,7 +1805,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         // Unknown enums within packed behave as if it were plain repeated
         do {
-            let decoded3 = try ProtobufUnittest_TestAllTypes(serializedData: Data([154, 3, 3, 128, 1, 2]))
+            let decoded3 = try ProtobufUnittest_TestAllTypes(serializedBytes: [154, 3, 3, 128, 1, 2])
             XCTAssertEqual(decoded3.repeatedNestedEnum, [.bar])
             let recoded3 = try decoded3.serializedBytes()
             XCTAssertEqual(recoded3, [152, 3, 2, 154, 3, 2, 128, 1])

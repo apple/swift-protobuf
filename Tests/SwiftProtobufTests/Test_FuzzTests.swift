@@ -27,13 +27,13 @@ class Test_FuzzTests: XCTestCase {
 
   func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(serializedData: Data(bytes), extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(serializedBytes: bytes, extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
   func assertJSONFails(_ jsonBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(jsonUTF8Data: Data(jsonBytes), extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try Fuzz_Testing_Message(jsonUTF8Bytes: jsonBytes, extensions: Fuzz_Testing_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
@@ -149,7 +149,7 @@ class Test_FuzzTests: XCTestCase {
       0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9, 0xa9,
       0xa9, 0xa9, 0xa9, 0xa9, 0x31, 0x27, 0x3e,
     ]
-    let str = String(data: Data(bytes), encoding: .utf8)!
+    let str = String(bytes: bytes, encoding: .utf8)!
     let msg = try! Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions)
     let _ = msg.textFormatString()
   }

@@ -16,7 +16,7 @@ import SwiftProtobufPluginLibrary
 class Test_DescriptorExtensions: XCTestCase {
 
   func testExtensionRanges() throws {
-    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedData: fileDescriptorSetData)
+    let fileSet = try Google_Protobuf_FileDescriptorSet(serializedBytes: fileDescriptorSetBytes)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
 

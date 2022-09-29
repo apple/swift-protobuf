@@ -69,13 +69,13 @@ public struct Example: SwiftProtobuf.Message {
   // proto2-format messages that utilize extensions.
   // See below for more details.
   func serializedData() throws -> Data
-  init(serializedData: Data) throws {
-  init(serializedData: Data, extensions: ExtensionMap? = nil, partial: Bool = false) throws
+  init<Bytes: SwiftProtobufContiguousBytes>(serializedBytes: Bytes) throws {
+  init<Bytes: SwiftProtobufContiguousBytes>(serializedBytes: Bytes, extensions: ExtensionMap? = nil, partial: Bool = false) throws
 
   // Messages can be serialized or deserialized to JSON format
-  // as either UTF8-encoded Data objects or as Strings.
+  // as either UTF8-encoded ``SwiftProtobufContiguousBytes``-conforming objects or as Strings.
   func jsonUTF8Data() throws -> Data
-  init(jsonUTF8Data: Data) throws
+  init<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes) throws
   func jsonString() throws -> String
   init(jsonString: String) throws
 

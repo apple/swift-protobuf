@@ -123,7 +123,7 @@ extension Harness {
         return try message.jsonUTF8Data()
       }
       _ = try measureSubtask("Decode JSON") {
-        return try PerfMessage(jsonUTF8Data: json)
+        return try PerfMessage(jsonUTF8Bytes: json)
       }
 
       // Exercise text serialization.

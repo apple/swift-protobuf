@@ -107,10 +107,9 @@ class Test_BinaryDecodingOptions: XCTestCase {
                 do {
                     var options = BinaryDecodingOptions()
                     options.messageDepthLimit = limit
-                    let _ =
-                        try messageType.init(serializedData: Data(binaryInput),
-                                             extensions: extensions,
-                                             options: options)
+                    let _ = try messageType.init(serializedBytes: binaryInput,
+                                                 extensions: extensions,
+                                                 options: options)
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
@@ -127,7 +126,7 @@ class Test_BinaryDecodingOptions: XCTestCase {
         }
     }
 
-    func testDiscaringUnknownFields() throws {
+    func testDiscardingUnknownFields() throws {
         // All tests decode once confirming things show up in unknowns, then decode
         // a second time confirming they were dropped.
 
@@ -154,12 +153,11 @@ class Test_BinaryDecodingOptions: XCTestCase {
             // Field 5, fixed32 of 5
             53, 5, 0, 0, 0,
         ]
-        let inputCurrentLevelData = Data(inputCurrentLevel)
         do {
-            let msg1 = try ProtobufUnittest_TestEmptyMessage(serializedData: inputCurrentLevelData)
-            XCTAssertEqual(msg1.unknownFields.data, inputCurrentLevelData)
+            let msg1 = try ProtobufUnittest_TestEmptyMessage(serializedBytes: inputCurrentLevel)
+            XCTAssertEqual(Array(msg1.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestEmptyMessage(serializedData: inputCurrentLevelData,
+            let msg2 = try ProtobufUnittest_TestEmptyMessage(serializedBytes: inputCurrentLevel,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
         }
@@ -175,16 +173,15 @@ class Test_BinaryDecodingOptions: XCTestCase {
         //     6: 0x00000005
         //   }
         let inputSubMessage: [UInt8] = [
-            // Field 18, length of data, pluse the data
+            // Field 18, length of data, plus the data
             146, 1, UInt8(inputCurrentLevel.count),
         ] + inputCurrentLevel
-        let inputSubMessageData = Data(inputSubMessage)
         do {
-            let msg1 = try ProtobufUnittest_TestAllTypes(serializedData: inputSubMessageData)
+            let msg1 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputSubMessage)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
-            XCTAssertEqual(msg1.optionalNestedMessage.unknownFields.data, inputCurrentLevelData)
+            XCTAssertEqual(Array(msg1.optionalNestedMessage.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestAllTypes(serializedData: inputSubMessageData,
+            let msg2 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputSubMessage,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
             XCTAssertTrue(msg2.optionalNestedMessage.unknownFields.data.isEmpty)
@@ -202,14 +199,14 @@ class Test_BinaryDecodingOptions: XCTestCase {
         //   }
         do {
             let msg1 = try ProtobufUnittest_TestAllExtensions(
-              serializedData: inputSubMessageData,
+              serializedBytes: inputSubMessage,
               extensions: ProtobufUnittest_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
-            XCTAssertEqual(msg1.ProtobufUnittest_optionalNestedMessageExtension.unknownFields.data,
-                           inputCurrentLevelData)
+            XCTAssertEqual(Array(msg1.ProtobufUnittest_optionalNestedMessageExtension.unknownFields.data),
+                           inputCurrentLevel)
 
             let msg2 = try ProtobufUnittest_TestAllExtensions(
-              serializedData: inputSubMessageData,
+              serializedBytes: inputSubMessage,
               extensions: ProtobufUnittest_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
@@ -233,17 +230,16 @@ class Test_BinaryDecodingOptions: XCTestCase {
             // Field 16, end_group
             132, 1,
         ]
-        let inputGroupData = Data(inputGroup)
         do {
             let msg1 = try ProtobufUnittest_TestAllExtensions(
-              serializedData: inputGroupData,
+              serializedBytes: inputGroup,
               extensions: ProtobufUnittest_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
-            XCTAssertEqual(msg1.ProtobufUnittest_optionalGroupExtension.unknownFields.data,
-                           inputCurrentLevelData)
+            XCTAssertEqual(Array(msg1.ProtobufUnittest_optionalGroupExtension.unknownFields.data),
+                           inputCurrentLevel)
 
             let msg2 = try ProtobufUnittest_TestAllExtensions(
-              serializedData: inputGroupData,
+              serializedBytes: inputGroup,
               extensions: ProtobufUnittest_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
@@ -261,11 +257,11 @@ class Test_BinaryDecodingOptions: XCTestCase {
         //     6: 0x00000005
         //   }
         do {
-            let msg1 = try ProtobufUnittest_TestAllTypes(serializedData: inputGroupData)
+            let msg1 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputGroup)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
-            XCTAssertEqual(msg1.optionalGroup.unknownFields.data, inputCurrentLevelData)
+            XCTAssertEqual(Array(msg1.optionalGroup.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestAllTypes(serializedData: inputGroupData,
+            let msg2 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputGroup,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
             XCTAssertTrue(msg2.optionalGroup.unknownFields.data.isEmpty)
@@ -279,12 +275,11 @@ class Test_BinaryDecodingOptions: XCTestCase {
             // Field 21, varint
             168, 1, 13
         ]
-        let inputUnknownEnumData = Data(inputUnknownEnum)
         do {
-            let msg1 = try ProtobufUnittest_TestAllTypes(serializedData: inputUnknownEnumData)
-            XCTAssertEqual(msg1.unknownFields.data, inputUnknownEnumData)
+            let msg1 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputUnknownEnum)
+            XCTAssertEqual(Array(msg1.unknownFields.data), inputUnknownEnum)
 
-            let msg2 = try ProtobufUnittest_TestAllTypes(serializedData: inputUnknownEnumData,
+            let msg2 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputUnknownEnum,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
         }

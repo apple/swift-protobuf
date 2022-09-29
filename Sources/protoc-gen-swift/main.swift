@@ -147,7 +147,7 @@ struct GeneratorPlugin {
 
     let request: Google_Protobuf_Compiler_CodeGeneratorRequest
     do {
-      request = try Google_Protobuf_Compiler_CodeGeneratorRequest(serializedData: requestData)
+      request = try Google_Protobuf_Compiler_CodeGeneratorRequest(serializedBytes: requestData)
     } catch let e {
       Stderr.print("Request failed to decode: \(e)")
       return 1
@@ -163,7 +163,7 @@ struct GeneratorPlugin {
     var result: Int32 = 0
 
     for p in paths {
-      let requestData: Data
+      let requestData: [UInt8]
       do {
         requestData = try readFileData(filename: p)
       } catch let e {
@@ -175,7 +175,7 @@ struct GeneratorPlugin {
 
       let request: Google_Protobuf_Compiler_CodeGeneratorRequest
       do {
-        request = try Google_Protobuf_Compiler_CodeGeneratorRequest(serializedData: requestData)
+        request = try Google_Protobuf_Compiler_CodeGeneratorRequest(serializedBytes: requestData)
       } catch let e {
         Stderr.print("Request failed to decode \(p): \(e)")
         result = 1

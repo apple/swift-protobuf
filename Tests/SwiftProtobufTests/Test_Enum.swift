@@ -49,7 +49,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
         }
 
         let origSerialized = try orig.serializedData()
-        let msg = try Proto3PreserveUnknownEnumUnittest_MyMessage(serializedData: origSerialized)
+        let msg = try Proto3PreserveUnknownEnumUnittest_MyMessage(serializedBytes: origSerialized)
 
         // Nothing in unknowns, they should just be unrecognized.
         XCTAssertEqual(msg.e, .UNRECOGNIZED(3))
