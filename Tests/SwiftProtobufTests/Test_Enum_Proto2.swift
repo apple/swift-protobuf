@@ -62,7 +62,7 @@ class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
         }
 
         let origSerialized = try orig.serializedData()
-        let msg = try Proto2PreserveUnknownEnumUnittest_MyMessage(serializedData: origSerialized)
+        let msg = try Proto2PreserveUnknownEnumUnittest_MyMessage(contiguousBytes: Array(origSerialized))
 
         // Nothing should be set, should all be in unknowns.
         XCTAssertFalse(msg.hasE)
@@ -72,7 +72,7 @@ class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
         XCTAssertFalse(msg.unknownFields.data.isEmpty)
 
         let msgSerialized = try msg.serializedData()
-        let msgPrime = try Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra(serializedData: msgSerialized)
+        let msgPrime = try Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra(contiguousBytes: Array(msgSerialized))
 
         // They should be back in the right fields.
         XCTAssertEqual(msgPrime.e, .eExtra)

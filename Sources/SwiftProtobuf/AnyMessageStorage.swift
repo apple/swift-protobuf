@@ -99,7 +99,7 @@ internal class AnyMessageStorage {
     get {
       switch state {
       case .binary(let value):
-        return value
+        return Data(value)
       case .message(let message):
         do {
           return try message.serializedData(partial: true)
@@ -122,7 +122,7 @@ internal class AnyMessageStorage {
       }
     }
     set {
-      state = .binary(newValue)
+      state = .binary(Array(newValue))
     }
   }
 
@@ -133,13 +133,13 @@ internal class AnyMessageStorage {
     // blob, i.e. - when decoding from binary, the spec doesn't include decoding
     // the binary blob, it is pass through. Instead there is a public api for
     // unpacking that takes new options when a developer decides to decode it.
-    case binary(Data)
+    case binary([UInt8])
     // a message
     case message(Message)
     // parsed JSON with the @type removed and the decoding options.
     case contentJSON(Data, JSONDecodingOptions)
   }
-  var state: InternalState = .binary(Data())
+  var state: InternalState = .binary([])
 
   static let defaultInstance = AnyMessageStorage()
 
@@ -171,7 +171,7 @@ internal class AnyMessageStorage {
 
     switch state {
     case .binary(let data):
-      target = try M(serializedData: data, extensions: extensions, partial: true, options: options)
+      target = try M(contiguousBytes: data, extensions: extensions, partial: true, options: options)
 
     case .message(let msg):
       if let message = msg as? M {
@@ -180,7 +180,7 @@ internal class AnyMessageStorage {
       } else {
         // Different type, serialize and parse.
         let data = try msg.serializedData(partial: true)
-        target = try M(serializedData: data, extensions: extensions, partial: true)
+        target = try M(contiguousBytes: Array(data), extensions: extensions, partial: true)
       }
 
     case .contentJSON(let contentJSON, let options):
@@ -264,7 +264,7 @@ extension AnyMessageStorage {
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         // If we can decode it, we can write the readable verbose form:
         do {
-          let m = try messageType.init(serializedData: valueData, partial: true)
+          let m = try messageType.init(contiguousBytes: valueData, partial: true)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
@@ -275,7 +275,7 @@ extension AnyMessageStorage {
         try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
       }
       if !valueData.isEmpty {
-        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
+        try! visitor.visitSingularBytesField(value: Data(valueData), fieldNumber: 2)
       }
 
     case .message(let msg):
@@ -416,7 +416,7 @@ extension AnyMessageStorage {
         // else to decode later.)
         throw JSONEncodingError.anyTranscodeFailure
       }
-      let m = try messageType.init(serializedData: valueData, partial: true)
+      let m = try messageType.init(contiguousBytes: valueData, partial: true)
       return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)
 
     case .message(let msg):
@@ -451,7 +451,7 @@ extension AnyMessageStorage {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
     _typeURL = String()
-    state = .binary(Data())
+    state = .binary([])
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }

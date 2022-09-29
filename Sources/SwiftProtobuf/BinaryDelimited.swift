@@ -161,15 +161,13 @@ public enum BinaryDelimited {
       return
     }
 
-    var data = Data(count: length)
+    var data: [UInt8] = Array(repeating: 0, count: length)
     var bytesRead: Int = 0
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
-        // This assumingMemoryBound is technically unsafe, but without SR-11078
-        // (https://bugs.swift.org/browse/SR-11087) we don't have another option.
-        // It should be "safe enough".
-        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
-        bytesRead = stream.read(pointer, maxLength: length)
+        baseAddress.withMemoryRebound(to: UInt8.self, capacity: length) { pointer in
+          bytesRead = stream.read(pointer, maxLength: length)
+        }
       }
     }
 
@@ -183,7 +181,7 @@ public enum BinaryDelimited {
       throw BinaryDelimited.Error.truncated
     }
 
-    try message.merge(serializedData: data,
+    try message.merge(contiguousBytes: data,
                       extensions: extensions,
                       partial: partial,
                       options: options)

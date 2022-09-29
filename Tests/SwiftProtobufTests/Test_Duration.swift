@@ -148,12 +148,12 @@ class Test_Duration: XCTestCase, PBTestHelpers {
     }
 
     func testConformance() throws {
-        let tooSmall = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedData: Data([234, 18, 11, 8, 255, 195, 209, 177, 232, 246, 255, 255, 255, 1]))
+        let tooSmall = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: [234, 18, 11, 8, 255, 195, 209, 177, 232, 246, 255, 255, 255, 1])
         XCTAssertEqual(tooSmall.optionalDuration.seconds, -315576000001)
         XCTAssertEqual(tooSmall.optionalDuration.nanos, 0)
         XCTAssertThrowsError(try tooSmall.jsonString())
 
-        let tooBig = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedData: Data([234, 18, 7, 8, 129, 188, 174, 206, 151, 9]))
+        let tooBig = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: [234, 18, 7, 8, 129, 188, 174, 206, 151, 9])
         XCTAssertEqual(tooBig.optionalDuration.seconds, 315576000001)
         XCTAssertEqual(tooBig.optionalDuration.nanos, 0)
         XCTAssertThrowsError(try tooBig.jsonString())

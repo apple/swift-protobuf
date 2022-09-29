@@ -57,7 +57,7 @@ class Test_ParsingMerge: XCTestCase {
         do {
             let encoded = try m.serializedData()
             do {
-                let decoded = try ProtobufUnittest_TestParsingMerge(serializedData: encoded)
+                let decoded = try ProtobufUnittest_TestParsingMerge(contiguousBytes: Array(encoded))
 
                 // requiredAllTypes <== merge of field1
                 let field1 = decoded.requiredAllTypes
@@ -112,7 +112,7 @@ class Test_ParsingMerge: XCTestCase {
         do {
             let encoded = try m.serializedData()
             do {
-                let decoded = try SwiftUnittest_TestParsingMerge(serializedData: encoded)
+                let decoded = try SwiftUnittest_TestParsingMerge(contiguousBytes: Array(encoded))
 
                 // optional_message <== merge of field1
                 let field1 = decoded.optionalMessage
@@ -143,7 +143,7 @@ class Test_ParsingMerge: XCTestCase {
         do {
             let encoded = try m.serializedData()
             do {
-                let decoded = try SwiftUnittest_TestParsingMerge(serializedData: encoded)
+                let decoded = try SwiftUnittest_TestParsingMerge(contiguousBytes: Array(encoded))
 
                 // optional_message <== merge of field1
                 let field1 = decoded.optionalMessage
@@ -174,7 +174,7 @@ class Test_ParsingMerge: XCTestCase {
         do {
             let encoded = try m.serializedData()
             do {
-                let decoded = try SwiftUnittest_TestParsingMerge(serializedData: encoded)
+                let decoded = try SwiftUnittest_TestParsingMerge(contiguousBytes: Array(encoded))
 
                 // optional_message <== merge of field1
                 let field1 = decoded.optionalMessage

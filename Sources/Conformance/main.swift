@@ -24,7 +24,7 @@ import Darwin.C
 import Foundation
 import SwiftProtobuf
 
-func readRequest() -> Data? {
+func readRequest() -> [UInt8]? {
     var rawCount: UInt32 = 0
     let read1 = fread(&rawCount, 1, 4, stdin)
     let count = Int(rawCount)
@@ -36,7 +36,7 @@ func readRequest() -> Data? {
     if read2 < count {
         return nil
     }
-    return Data(buff)
+    return buff
 }
 
 func writeResponse(data: Data) {
@@ -49,12 +49,12 @@ func writeResponse(data: Data) {
     fflush(stdout)
 }
 
-func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
+func buildResponse(serializedData: SwiftProtobufContiguousBytes) -> Conformance_ConformanceResponse {
     var response = Conformance_ConformanceResponse()
 
     let request: Conformance_ConformanceRequest
     do {
-        request = try Conformance_ConformanceRequest(serializedData: serializedData)
+        request = try Conformance_ConformanceRequest(contiguousBytes: serializedData)
     } catch {
         response.runtimeError = "Failed to parse conformance request"
         return response
@@ -106,7 +106,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     switch request.payload {
     case .protobufPayload(let data)?:
         do {
-            testMessage = try msgType.init(serializedData: data, extensions: extensions)
+            testMessage = try msgType.init(contiguousBytes: Array(data), extensions: extensions)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response

@@ -19,7 +19,7 @@ import SwiftProtobuf
 
 extension SwiftProtobuf.Message {
     init(serializedBytes: [UInt8], extensions: SwiftProtobuf.SimpleExtensionMap? = nil) throws {
-        try self.init(serializedData: Data(serializedBytes), extensions: extensions)
+        try self.init(contiguousBytes: serializedBytes, extensions: extensions)
     }
 
     func serializedBytes() throws -> [UInt8] {

@@ -57,31 +57,6 @@ extension Message {
     return visitor.serializedSize
   }
 
-  /// Creates a new message by decoding the given `Data` value containing a
-  /// serialized message in Protocol Buffer binary format.
-  ///
-  /// - Parameters:
-  ///   - serializedData: The binary-encoded message data to decode.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
-  ///     extensions in this message or messages nested within this message's
-  ///     fields.
-  ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
-  ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails.
-  @inlinable
-  public init(
-    serializedData data: Data,
-    extensions: ExtensionMap? = nil,
-    partial: Bool = false,
-    options: BinaryDecodingOptions = BinaryDecodingOptions()
-  ) throws {
-    self.init()
-    try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
-  }
-
   /// Creates a new message by decoding the given `ContiguousBytes` value
   /// containing a serialized message in Protocol Buffer binary format.
   ///
@@ -97,7 +72,7 @@ extension Message {
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   @inlinable
-  public init<Bytes: ContiguousBytes>(
+  public init<Bytes: SwiftProtobufContiguousBytes>(
     contiguousBytes bytes: Bytes,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
@@ -105,34 +80,6 @@ extension Message {
   ) throws {
     self.init()
     try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
-  }
-
-  /// Updates the message by decoding the given `Data` value containing a
-  /// serialized message in Protocol Buffer binary format into the receiver.
-  ///
-  /// - Note: If this method throws an error, the message may still have been
-  ///   partially mutated by the binary data that was decoded before the error
-  ///   occurred.
-  ///
-  /// - Parameters:
-  ///   - serializedData: The binary-encoded message data to decode.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any
-  ///     extensions in this message or messages nested within this message's
-  ///     fields.
-  ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
-  ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  ///   - options: The BinaryDecodingOptions to use.
-  /// - Throws: `BinaryDecodingError` if decoding fails.
-  @inlinable
-  public mutating func merge(
-    serializedData data: Data,
-    extensions: ExtensionMap? = nil,
-    partial: Bool = false,
-    options: BinaryDecodingOptions = BinaryDecodingOptions()
-  ) throws {
-    try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
   }
 
   /// Updates the message by decoding the given `ContiguousBytes` value
@@ -155,7 +102,7 @@ extension Message {
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   @inlinable
-  public mutating func merge<Bytes: ContiguousBytes>(
+  public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
     contiguousBytes bytes: Bytes,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
