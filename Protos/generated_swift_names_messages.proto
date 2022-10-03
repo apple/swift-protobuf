@@ -21,7 +21,7 @@ message GeneratedSwiftReservedMessages {
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
-  message array { int32 array = 1; }
+  message Array { int32 Array = 1; }
   message arrayDepth { int32 arrayDepth = 1; }
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
@@ -51,7 +51,7 @@ message GeneratedSwiftReservedMessages {
   message booleanLiteral { int32 booleanLiteral = 1; }
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
   message boolValue { int32 boolValue = 1; }
-  message bytes { int32 bytes = 1; }
+  message Bytes { int32 Bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
   message bytesRead { int32 bytesRead = 1; }
   message BytesValue { int32 BytesValue = 1; }
@@ -139,7 +139,6 @@ message GeneratedSwiftReservedMessages {
   message com { int32 com = 1; }
   message comma { int32 comma = 1; }
   message contentsOf { int32 contentsOf = 1; }
-  message ContiguousBytes { int32 ContiguousBytes = 1; }
   message count { int32 count = 1; }
   message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message csharpNamespace { int32 csharpNamespace = 1; }
@@ -147,7 +146,7 @@ message GeneratedSwiftReservedMessages {
   message customCodable { int32 customCodable = 1; }
   message CustomDebugStringConvertible { int32 CustomDebugStringConvertible = 1; }
   message d { int32 d = 1; }
-  message Data { int32 Data = 1; }
+  message data { int32 data = 1; }
   message dataResult { int32 dataResult = 1; }
   message date { int32 date = 1; }
   message daySec { int32 daySec = 1; }
@@ -520,7 +519,6 @@ message GeneratedSwiftReservedMessages {
   message makeIterator { int32 makeIterator = 1; }
   message mapEntry { int32 mapEntry = 1; }
   message MapKeyType { int32 MapKeyType = 1; }
-  message mapNameResolver { int32 mapNameResolver = 1; }
   message mapToMessages { int32 mapToMessages = 1; }
   message MapValueType { int32 MapValueType = 1; }
   message mapVisitor { int32 mapVisitor = 1; }
@@ -552,7 +550,6 @@ message GeneratedSwiftReservedMessages {
   message NameDescription { int32 NameDescription = 1; }
   message NameMap { int32 NameMap = 1; }
   message NamePart { int32 NamePart = 1; }
-  message nameResolver { int32 nameResolver = 1; }
   message names { int32 names = 1; }
   message nanos { int32 nanos = 1; }
   message nativeBytes { int32 nativeBytes = 1; }
@@ -666,6 +663,7 @@ message GeneratedSwiftReservedMessages {
   message putVarInt { int32 putVarInt = 1; }
   message putZigZagVarInt { int32 putZigZagVarInt = 1; }
   message pyGenericServices { int32 pyGenericServices = 1; }
+  message R { int32 R = 1; }
   message rawChars { int32 rawChars = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
@@ -675,6 +673,7 @@ message GeneratedSwiftReservedMessages {
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
   message RepeatedGroupExtensionField { int32 RepeatedGroupExtensionField = 1; }
   message RepeatedMessageExtensionField { int32 RepeatedMessageExtensionField = 1; }
+  message repeating { int32 repeating = 1; }
   message requestStreaming { int32 requestStreaming = 1; }
   message requestTypeURL { int32 requestTypeURL = 1; }
   message requiredSize { int32 requiredSize = 1; }
@@ -744,6 +743,7 @@ message GeneratedSwiftReservedMessages {
   message Swift { int32 Swift = 1; }
   message swiftPrefix { int32 swiftPrefix = 1; }
   message SwiftProtobuf { int32 SwiftProtobuf = 1; }
+  message SwiftProtobufContiguousBytes { int32 SwiftProtobufContiguousBytes = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }
@@ -877,6 +877,7 @@ message GeneratedSwiftReservedMessages {
   message where { int32 where = 1; }
   message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
+  message withUnsafeBytes { int32 withUnsafeBytes = 1; }
   message work { int32 work = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message written { int32 written = 1; }

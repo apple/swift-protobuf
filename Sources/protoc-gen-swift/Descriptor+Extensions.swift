@@ -141,7 +141,7 @@ extension FieldDescriptor {
     case .string: result = "String"
     case .group: result = namer.fullName(message: messageType!)
     case .message: result = namer.fullName(message: messageType!)
-    case .bytes: result = "Data"
+    case .bytes: result = "[UInt8]"
     case .uint32: result = "UInt32"
     case .enum: result = namer.fullName(enum: enumType!)
     case .sfixed32: result = "Int32"
@@ -237,7 +237,7 @@ extension FieldDescriptor {
     switch type {
     case .bool: return "false"
     case .string: return "String()"
-    case .bytes: return "Data()"
+    case .bytes: return "[]"
     case .group, .message:
       return namer.fullName(message: messageType!) + "()"
     case .enum:

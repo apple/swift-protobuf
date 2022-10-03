@@ -41,7 +41,7 @@
 //
 // This is like unittest.proto but with optimize_for = LITE_RUNTIME.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -265,8 +265,8 @@ struct ProtobufUnittest_TestAllTypesLite {
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
-  var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+  var optionalBytes: [UInt8] {
+    get {return _storage._optionalBytes ?? []}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -454,7 +454,7 @@ struct ProtobufUnittest_TestAllTypesLite {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -636,8 +636,8 @@ struct ProtobufUnittest_TestAllTypesLite {
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
   mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
 
-  var defaultBytes: Data {
-    get {return _storage._defaultBytes ?? Data([119, 111, 114, 108, 100])}
+  var defaultBytes: [UInt8] {
+    get {return _storage._defaultBytes ?? [119, 111, 114, 108, 100]}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
   /// Returns true if `defaultBytes` has been explicitly set.
@@ -720,10 +720,10 @@ struct ProtobufUnittest_TestAllTypesLite {
     set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return Data()
+      return []
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -761,7 +761,7 @@ struct ProtobufUnittest_TestAllTypesLite {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
     case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case oneofNestedMessage2(ProtobufUnittest_TestAllTypesLite.NestedMessage2)
 
@@ -1390,8 +1390,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {self._optionalString = nil}
 
-  var optionalBytes: Data {
-    get {return _optionalBytes ?? Data()}
+  var optionalBytes: [UInt8] {
+    get {return _optionalBytes ?? []}
     set {_optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -1445,10 +1445,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
     set {oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return Data()
+      return []
     }
     set {oneofField = .oneofBytes(newValue)}
   }
@@ -1459,7 +1459,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
     case oneofUint32(UInt32)
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypesLite)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
   }
 
@@ -1491,7 +1491,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   fileprivate var _fixed32: Int32? = nil
   fileprivate var _optionalEnum: ProtobufUnittest_ForeignEnumLite? = nil
   fileprivate var _optionalString: String? = nil
-  fileprivate var _optionalBytes: Data? = nil
+  fileprivate var _optionalBytes: [UInt8]? = nil
   fileprivate var _optionalMessage: ProtobufUnittest_ForeignMessageLite? = nil
   fileprivate var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
 }
@@ -1527,10 +1527,10 @@ struct ProtobufUnittest_TestOneofParsingLite {
     set {oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return Data([100, 101, 102, 97, 117, 108, 116, 32, 98, 121, 116, 101, 115])
+      return [100, 101, 102, 97, 117, 108, 116, 32, 98, 121, 116, 101, 115]
     }
     set {oneofField = .oneofBytes(newValue)}
   }
@@ -1543,10 +1543,10 @@ struct ProtobufUnittest_TestOneofParsingLite {
     set {oneofField = .oneofStringCord(newValue)}
   }
 
-  var oneofBytesCord: Data {
+  var oneofBytesCord: [UInt8] {
     get {
       if case .oneofBytesCord(let v)? = oneofField {return v}
-      return Data()
+      return []
     }
     set {oneofField = .oneofBytesCord(newValue)}
   }
@@ -1559,10 +1559,10 @@ struct ProtobufUnittest_TestOneofParsingLite {
     set {oneofField = .oneofStringStringPiece(newValue)}
   }
 
-  var oneofBytesStringPiece: Data {
+  var oneofBytesStringPiece: [UInt8] {
     get {
       if case .oneofBytesStringPiece(let v)? = oneofField {return v}
-      return Data([100, 101, 102, 97, 117, 108, 116, 32, 83, 116, 114, 105, 110, 103, 80, 105, 101, 99, 101])
+      return [100, 101, 102, 97, 117, 108, 116, 32, 83, 116, 114, 105, 110, 103, 80, 105, 101, 99, 101]
     }
     set {oneofField = .oneofBytesStringPiece(newValue)}
   }
@@ -1581,11 +1581,11 @@ struct ProtobufUnittest_TestOneofParsingLite {
     case oneofInt32(Int32)
     case oneofSubmessage(ProtobufUnittest_TestAllTypesLite)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
     case oneofStringCord(String)
-    case oneofBytesCord(Data)
+    case oneofBytesCord([UInt8])
     case oneofStringStringPiece(String)
-    case oneofBytesStringPiece(Data)
+    case oneofBytesStringPiece([UInt8])
     case oneofEnum(ProtobufUnittest_V2EnumLite)
 
   }
@@ -1712,8 +1712,8 @@ struct ProtobufUnittest_RecursiveMessage {
   /// Clears the value of `recurse`. Subsequent reads from it will return its default value.
   mutating func clearRecurse() {_uniqueStorage()._recurse = nil}
 
-  var payload: Data {
-    get {return _storage._payload ?? Data()}
+  var payload: [UInt8] {
+    get {return _storage._payload ?? []}
     set {_uniqueStorage()._payload = newValue}
   }
   /// Returns true if `payload` has been explicitly set.
@@ -1990,8 +1990,8 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite)
   }
 
-  var ProtobufUnittest_optionalBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? Data()}
+  var ProtobufUnittest_optionalBytesExtensionLite: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_extension_lite`
@@ -2256,7 +2256,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension_lite, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedBytesExtensionLite: [Data] {
+  var ProtobufUnittest_repeatedBytesExtensionLite: [[UInt8]] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension_lite) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension_lite, value: newValue)}
   }
@@ -2522,8 +2522,8 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension_lite)
   }
 
-  var ProtobufUnittest_defaultBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite) ?? Data([119, 111, 114, 108, 100])}
+  var ProtobufUnittest_defaultBytesExtensionLite: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite) ?? [119, 111, 114, 108, 100]}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension_lite, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_bytes_extension_lite`
@@ -2658,8 +2658,8 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite)
   }
 
-  var ProtobufUnittest_oneofBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? Data()}
+  var ProtobufUnittest_oneofBytesExtensionLite: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_oneof_bytes_extension_lite`
@@ -3517,7 +3517,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _optionalDouble: Double? = nil
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
-    var _optionalBytes: Data? = nil
+    var _optionalBytes: [UInt8]? = nil
     var _optionalGroup: ProtobufUnittest_TestAllTypesLite.OptionalGroup? = nil
     var _optionalNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufUnittest_ForeignMessageLite? = nil
@@ -3544,7 +3544,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _repeatedGroup: [ProtobufUnittest_TestAllTypesLite.RepeatedGroup] = []
     var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypesLite.NestedMessage] = []
     var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessageLite] = []
@@ -3569,7 +3569,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
     var _defaultDouble: Double? = nil
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
-    var _defaultBytes: Data? = nil
+    var _defaultBytes: [UInt8]? = nil
     var _defaultNestedEnum: ProtobufUnittest_TestAllTypesLite.NestedEnum? = nil
     var _defaultForeignEnum: ProtobufUnittest_ForeignEnumLite? = nil
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnumLite? = nil
@@ -3777,7 +3777,7 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobu
           }
         }()
         case 114: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -5248,7 +5248,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, Swif
         }
       }()
       case 536870014: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -5424,7 +5424,7 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
         }
       }()
       case 4: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -5440,7 +5440,7 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
         }
       }()
       case 6: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -5456,7 +5456,7 @@ extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message, SwiftPro
         }
       }()
       case 8: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -5719,7 +5719,7 @@ extension ProtobufUnittest_RecursiveMessage: SwiftProtobuf.Message, SwiftProtobu
 
   fileprivate class _StorageClass {
     var _recurse: ProtobufUnittest_RecursiveMessage? = nil
-    var _payload: Data? = nil
+    var _payload: [UInt8]? = nil
 
     static let defaultInstance = _StorageClass()
 

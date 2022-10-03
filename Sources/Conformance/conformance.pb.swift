@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -194,10 +194,10 @@ struct Conformance_ConformanceRequest {
   /// src/google/protobuf/proto3_test_messages.proto).
   var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
-  var protobufPayload: Data {
+  var protobufPayload: [UInt8] {
     get {
       if case .protobufPayload(let v)? = payload {return v}
-      return Data()
+      return []
     }
     set {payload = .protobufPayload(newValue)}
   }
@@ -260,7 +260,7 @@ struct Conformance_ConformanceRequest {
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
   enum OneOf_Payload: Equatable {
-    case protobufPayload(Data)
+    case protobufPayload([UInt8])
     case jsonPayload(String)
     /// Google internal only.  Opensource testees just skip it.
     case jspbPayload(String)
@@ -329,10 +329,10 @@ struct Conformance_ConformanceResponse {
 
   /// If the input was successfully parsed and the requested output was
   /// protobuf, serialize it to protobuf and set it in this field.
-  var protobufPayload: Data {
+  var protobufPayload: [UInt8] {
     get {
       if case .protobufPayload(let v)? = result {return v}
-      return Data()
+      return []
     }
     set {result = .protobufPayload(newValue)}
   }
@@ -401,7 +401,7 @@ struct Conformance_ConformanceResponse {
     case runtimeError(String)
     /// If the input was successfully parsed and the requested output was
     /// protobuf, serialize it to protobuf and set it in this field.
-    case protobufPayload(Data)
+    case protobufPayload([UInt8])
     /// If the input was successfully parsed and the requested output was JSON,
     /// serialize to JSON and set it in this field.
     case jsonPayload(String)
@@ -522,7 +522,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.payload != nil {try decoder.handleConflictingOneOf()}
@@ -657,7 +657,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
         }
       }()
       case 3: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.result != nil {try decoder.handleConflictingOneOf()}

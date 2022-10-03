@@ -39,7 +39,7 @@
 
 // Author: liujisi@google.com (Pherl Liu)
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

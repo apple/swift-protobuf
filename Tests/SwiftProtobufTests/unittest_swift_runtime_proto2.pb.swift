@@ -36,7 +36,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -180,8 +180,8 @@ struct ProtobufUnittest_Message2 {
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
-  var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+  var optionalBytes: [UInt8] {
+    get {return _storage._optionalBytes ?? []}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -286,7 +286,7 @@ struct ProtobufUnittest_Message2 {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -423,10 +423,10 @@ struct ProtobufUnittest_Message2 {
     set {_uniqueStorage()._o = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._o {return v}
-      return Data([100, 97, 116, 97])
+      return [100, 97, 116, 97]
     }
     set {_uniqueStorage()._o = .oneofBytes(newValue)}
   }
@@ -526,7 +526,7 @@ struct ProtobufUnittest_Message2 {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  var mapStringBytes: Dictionary<String,Data> {
+  var mapStringBytes: Dictionary<String,[UInt8]> {
     get {return _storage._mapStringBytes}
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
@@ -536,7 +536,7 @@ struct ProtobufUnittest_Message2 {
     set {_uniqueStorage()._mapStringMessage = newValue}
   }
 
-  var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -568,7 +568,7 @@ struct ProtobufUnittest_Message2 {
     case oneofDouble(Double)
     case oneofBool(Bool)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
     case oneofGroup(ProtobufUnittest_Message2.OneofGroup)
     case oneofMessage(ProtobufUnittest_Message2)
     case oneofEnum(ProtobufUnittest_Message2.Enum)
@@ -911,7 +911,7 @@ extension ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _optionalDouble: Double? = nil
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
-    var _optionalBytes: Data? = nil
+    var _optionalBytes: [UInt8]? = nil
     var _optionalGroup: ProtobufUnittest_Message2.OptionalGroup? = nil
     var _optionalMessage: ProtobufUnittest_Message2? = nil
     var _optionalEnum: ProtobufUnittest_Message2.Enum? = nil
@@ -929,7 +929,7 @@ extension ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _repeatedGroup: [ProtobufUnittest_Message2.RepeatedGroup] = []
     var _repeatedMessage: [ProtobufUnittest_Message2] = []
     var _repeatedEnum: [ProtobufUnittest_Message2.Enum] = []
@@ -948,9 +948,9 @@ extension ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapStringBytes: Dictionary<String,Data> = [:]
+    var _mapStringBytes: Dictionary<String,[UInt8]> = [:]
     var _mapStringMessage: Dictionary<String,ProtobufUnittest_Message2> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message2.Enum> = [:]
     var _mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message2> = [:]
 
@@ -1182,7 +1182,7 @@ extension ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._Messa
           }
         }()
         case 65: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}

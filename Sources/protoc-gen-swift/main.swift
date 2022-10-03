@@ -250,14 +250,14 @@ struct GeneratorPlugin {
   }
 
   private func sendReply(response: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    let serializedResponse: Data
+    let serializedResponse: [UInt8]
     do {
       serializedResponse = try response.serializedData()
     } catch let e {
       Stderr.print("Failure while serializing response: \(e)")
       return false
     }
-    FileHandle.standardOutput.write(serializedResponse)
+    FileHandle.standardOutput.write(Data(serializedResponse))
     return true
   }
 

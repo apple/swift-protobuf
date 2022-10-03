@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -164,7 +164,7 @@ struct ProtobufUnittest_TestMap {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -332,7 +332,7 @@ struct ProtobufUnittest_TestArenaMap {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -486,7 +486,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messag
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> = [:]
     var _mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> = [:]
@@ -835,7 +835,7 @@ extension ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._M
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> = [:]
 

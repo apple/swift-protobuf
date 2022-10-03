@@ -88,7 +88,7 @@ class FileGenerator {
           }
         }
 
-        p.print("\(comments)import Foundation")
+        p.print(comments)
         if !fileDescriptor.isBundledProto {
             // The well known types ship with the runtime, everything else needs
             // to import the runtime.

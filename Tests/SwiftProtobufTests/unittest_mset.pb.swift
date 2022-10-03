@@ -44,7 +44,7 @@
 // This file is similar to unittest_mset_wire_format.proto, but does not
 // have a TestMessageSet, so it can be downgraded to proto1.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -254,8 +254,8 @@ struct ProtobufUnittest_RawMessageSet {
     /// Clears the value of `typeID`. Subsequent reads from it will return its default value.
     mutating func clearTypeID() {self._typeID = nil}
 
-    var message: Data {
-      get {return _message ?? Data()}
+    var message: [UInt8] {
+      get {return _message ?? []}
       set {_message = newValue}
     }
     /// Returns true if `message` has been explicitly set.
@@ -268,7 +268,7 @@ struct ProtobufUnittest_RawMessageSet {
     init() {}
 
     fileprivate var _typeID: Int32? = nil
-    fileprivate var _message: Data? = nil
+    fileprivate var _message: [UInt8]? = nil
   }
 
   init() {}

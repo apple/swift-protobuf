@@ -373,11 +373,9 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 	@rm -f $@
 	@echo '// See Makefile how this is generated.' >> $@
 	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
 	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
 	@xxd -i < PluginLibDescriptorTestData.bin >> $@
 	@echo ']' >> $@
-	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
 Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
 	# Until the flag isn't needed, add the flag to enable proto3 optional.
@@ -390,11 +388,9 @@ Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} 
 	@rm -f $@
 	@echo '// See Makefile how this is generated.' >> $@
 	@echo '// swift-format-ignore-file' >> $@
-	@echo 'import Foundation' >> $@
 	@echo 'let fileDescriptorSetBytes: [UInt8] = [' >> $@
 	@xxd -i < PluginDescriptorTestData.bin >> $@
 	@echo ']' >> $@
-	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
 #
 # Collect a list of words that appear in the SwiftProtobuf library

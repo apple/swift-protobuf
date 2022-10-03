@@ -21,7 +21,7 @@ message GeneratedSwiftReservedEnums {
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
-  enum array { NONE_array = 0; }
+  enum Array { NONE_Array = 0; }
   enum arrayDepth { NONE_arrayDepth = 0; }
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
@@ -51,7 +51,7 @@ message GeneratedSwiftReservedEnums {
   enum booleanLiteral { NONE_booleanLiteral = 0; }
   enum BooleanLiteralType { NONE_BooleanLiteralType = 0; }
   enum boolValue { NONE_boolValue = 0; }
-  enum bytes { NONE_bytes = 0; }
+  enum Bytes { NONE_Bytes = 0; }
   enum bytesInGroup { NONE_bytesInGroup = 0; }
   enum bytesRead { NONE_bytesRead = 0; }
   enum BytesValue { NONE_BytesValue = 0; }
@@ -139,7 +139,6 @@ message GeneratedSwiftReservedEnums {
   enum com { NONE_com = 0; }
   enum comma { NONE_comma = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
-  enum ContiguousBytes { NONE_ContiguousBytes = 0; }
   enum count { NONE_count = 0; }
   enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
   enum csharpNamespace { NONE_csharpNamespace = 0; }
@@ -147,7 +146,7 @@ message GeneratedSwiftReservedEnums {
   enum customCodable { NONE_customCodable = 0; }
   enum CustomDebugStringConvertible { NONE_CustomDebugStringConvertible = 0; }
   enum d { NONE_d = 0; }
-  enum Data { NONE_Data = 0; }
+  enum data { NONE_data = 0; }
   enum dataResult { NONE_dataResult = 0; }
   enum date { NONE_date = 0; }
   enum daySec { NONE_daySec = 0; }
@@ -520,7 +519,6 @@ message GeneratedSwiftReservedEnums {
   enum makeIterator { NONE_makeIterator = 0; }
   enum mapEntry { NONE_mapEntry = 0; }
   enum MapKeyType { NONE_MapKeyType = 0; }
-  enum mapNameResolver { NONE_mapNameResolver = 0; }
   enum mapToMessages { NONE_mapToMessages = 0; }
   enum MapValueType { NONE_MapValueType = 0; }
   enum mapVisitor { NONE_mapVisitor = 0; }
@@ -552,7 +550,6 @@ message GeneratedSwiftReservedEnums {
   enum NameDescription { NONE_NameDescription = 0; }
   enum NameMap { NONE_NameMap = 0; }
   enum NamePart { NONE_NamePart = 0; }
-  enum nameResolver { NONE_nameResolver = 0; }
   enum names { NONE_names = 0; }
   enum nanos { NONE_nanos = 0; }
   enum nativeBytes { NONE_nativeBytes = 0; }
@@ -666,6 +663,7 @@ message GeneratedSwiftReservedEnums {
   enum putVarInt { NONE_putVarInt = 0; }
   enum putZigZagVarInt { NONE_putZigZagVarInt = 0; }
   enum pyGenericServices { NONE_pyGenericServices = 0; }
+  enum R { NONE_R = 0; }
   enum rawChars { NONE_rawChars = 0; }
   enum RawRepresentable { NONE_RawRepresentable = 0; }
   enum RawValue { NONE_RawValue = 0; }
@@ -675,6 +673,7 @@ message GeneratedSwiftReservedEnums {
   enum RepeatedExtensionField { NONE_RepeatedExtensionField = 0; }
   enum RepeatedGroupExtensionField { NONE_RepeatedGroupExtensionField = 0; }
   enum RepeatedMessageExtensionField { NONE_RepeatedMessageExtensionField = 0; }
+  enum repeating { NONE_repeating = 0; }
   enum requestStreaming { NONE_requestStreaming = 0; }
   enum requestTypeURL { NONE_requestTypeURL = 0; }
   enum requiredSize { NONE_requiredSize = 0; }
@@ -744,6 +743,7 @@ message GeneratedSwiftReservedEnums {
   enum Swift { NONE_Swift = 0; }
   enum swiftPrefix { NONE_swiftPrefix = 0; }
   enum SwiftProtobuf { NONE_SwiftProtobuf = 0; }
+  enum SwiftProtobufContiguousBytes { NONE_SwiftProtobufContiguousBytes = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }
@@ -877,6 +877,7 @@ message GeneratedSwiftReservedEnums {
   enum where { NONE_where = 0; }
   enum wireFormat { NONE_wireFormat = 0; }
   enum with { NONE_with = 0; }
+  enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
   enum work { NONE_work = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
   enum written { NONE_written = 0; }

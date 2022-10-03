@@ -39,7 +39,7 @@
 
 // A proto file used to test a message type with no explicit field presence.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -170,7 +170,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  var optionalBytes: Data {
+  var optionalBytes: [UInt8] {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -305,7 +305,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -577,7 +577,7 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, Swi
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = Data()
+    var _optionalBytes: [UInt8] = []
     var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
     var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
@@ -600,7 +600,7 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, Swi
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = []
     var _repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = []
