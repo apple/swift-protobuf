@@ -26,37 +26,46 @@ jobs:
             ubuntu: -focal
             generate_linux_main: false
             update_git: false
+            update_cmake: false
           - swift: 5.6.3
             ubuntu: -focal
             generate_linux_main: false
             update_git: false
+            update_cmake: false
           - swift: 5.5.3
             ubuntu: -focal
             generate_linux_main: false
             update_git: false
+            update_cmake: false
           - swift: 5.4.3
             ubuntu: -focal
             generate_linux_main: false
             update_git: false
+            update_cmake: false
           - swift: 5.3.3
             ubuntu: -focal
             generate_linux_main: true
             update_git: false
+            update_cmake: false
           - swift: 5.2.5
             ubuntu: -focal
             generate_linux_main: true
             update_git: false
+            update_cmake: false
           - swift: 5.1.5
             ubuntu: -bionic
             generate_linux_main: true
             update_git: true
+            update_cmake: false
           - swift: 5.0.3
             ubuntu: -bionic
             generate_linux_main: true
             update_git: true
+            update_cmake: false
           - swift: 4.2.4
             generate_linux_main: true
             update_git: true
+            update_cmake: true
     container:
       image: swift:${{ matrix.swift }}${{ matrix.ubuntu }}
     steps:
@@ -74,8 +83,20 @@ jobs:
         apt-get update
         apt-get install -y curl make g++ cmake jq
         [ \"${{ matrix.swift }}\" != \"5.0.3\" ] || apt-get install -y zlib1g-dev
-    - name: Install newer git for bionic
-      # bionic's git doesn't do modules via the REST api, update the git version.
+    - name: Add Kitware Repository
+      # xenial cmake is to old, update it.
+      if: matrix.update_cmake
+      run: |
+        set -eu
+        ubuntu_codename="$(sed -n 's/^UBUNTU_CODENAME=\(\w\+\)$/\1/p' /etc/os-release)"
+        apt-get install -y apt-transport-https software-properties-common
+        curl -s https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add -
+        apt-add-repository "deb https://apt.kitware.com/ubuntu/ ${ubuntu_codename} main"
+        apt-get update
+        apt-get install -y cmake
+    - name: Install newer git
+      # bionic & xenial git doesn't do modules via the REST api, update the git
+      # version.
       if: matrix.update_git
       run: |
         set -eu
