@@ -121,7 +121,8 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   /// for more detail.
   case jsonIgnoreUnknownParsingTest // = 3
 
-  /// Test jspb wire format. Google internal only. Opensource testees just skip it.
+  /// Test jspb wire format. Google internal only. Opensource testees just skip
+  /// it.
   case jspbTest // = 4
 
   /// Test text format. For cpp, java and python, testees can already deal with
@@ -203,10 +204,6 @@ struct Conformance_ConformanceRequest {
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
-  ///
-  /// TODO(haberman): if/when we expand the conformance tests to support proto2,
-  /// we will want to include a field that lets the payload/response be a
-  /// protobuf_test_messages.google.protobuf.TestAllTypes message instead.
   var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var protobufPayload: Data {
@@ -251,8 +248,8 @@ struct Conformance_ConformanceRequest {
   var messageType: String = String()
 
   /// Each test is given a specific test category. Some category may need
-  /// specific support in testee programs. Refer to the definition of TestCategory
-  /// for more information.
+  /// specific support in testee programs. Refer to the definition of
+  /// TestCategory for more information.
   var testCategory: Conformance_TestCategory = .unspecifiedTest
 
   /// Specify details for how to encode jspb.
@@ -274,10 +271,6 @@ struct Conformance_ConformanceRequest {
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
-  ///
-  /// TODO(haberman): if/when we expand the conformance tests to support proto2,
-  /// we will want to include a field that lets the payload/response be a
-  /// protobuf_test_messages.google.protobuf.TestAllTypes message instead.
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)
@@ -348,6 +341,17 @@ struct Conformance_ConformanceResponse {
       return String()
     }
     set {result = .serializeError(newValue)}
+  }
+
+  /// This should be set if the test program timed out.  The string should
+  /// provide more information about what the child process was doing when it
+  /// was killed.
+  var timeoutError: String {
+    get {
+      if case .timeoutError(let v)? = result {return v}
+      return String()
+    }
+    set {result = .timeoutError(newValue)}
   }
 
   /// This should be set if some other error occurred.  This will always
@@ -425,6 +429,10 @@ struct Conformance_ConformanceResponse {
     /// serializing it to the requested output format, set the error message in
     /// this field.
     case serializeError(String)
+    /// This should be set if the test program timed out.  The string should
+    /// provide more information about what the child process was doing when it
+    /// was killed.
+    case timeoutError(String)
     /// This should be set if some other error occurred.  This will always
     /// indicate that the test failed.  The string can provide more information
     /// about the failure.
@@ -458,6 +466,10 @@ struct Conformance_ConformanceResponse {
       }()
       case (.serializeError, .serializeError): return {
         guard case .serializeError(let l) = lhs, case .serializeError(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.timeoutError, .timeoutError): return {
+        guard case .timeoutError(let l) = lhs, case .timeoutError(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       case (.runtimeError, .runtimeError): return {
@@ -699,6 +711,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "parse_error"),
     6: .standard(proto: "serialize_error"),
+    9: .standard(proto: "timeout_error"),
     2: .standard(proto: "runtime_error"),
     3: .standard(proto: "protobuf_payload"),
     4: .standard(proto: "json_payload"),
@@ -777,6 +790,14 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
           self.result = .textPayload(v)
         }
       }()
+      case 9: try {
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .timeoutError(v)
+        }
+      }()
       default: break
       }
     }
@@ -819,6 +840,10 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     case .textPayload?: try {
       guard case .textPayload(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+    }()
+    case .timeoutError?: try {
+      guard case .timeoutError(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 9)
     }()
     case nil: break
     }
