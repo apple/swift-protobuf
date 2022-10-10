@@ -1236,6 +1236,10 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `deprecated`. Subsequent reads from it will return its default value.
   public mutating func clearDeprecated() {self._deprecated = nil}
 
+  /// NOTE: Do not set the option in .proto files. Always use the maps syntax
+  /// instead. The option should only be implicitly set by the proto compiler
+  /// parser.
+  ///
   /// Whether the message is an automatically generated map entry type for the
   /// maps field.
   ///
@@ -1253,10 +1257,6 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   /// use a native map in the target language to hold the keys and values.
   /// The reflection APIs in such implementations still need to work as
   /// if the field is a repeated message field.
-  ///
-  /// NOTE: Do not set the option in .proto files. Always use the maps syntax
-  /// instead. The option should only be implicitly set by the proto compiler
-  /// parser.
   public var mapEntry: Bool {
     get {return _mapEntry ?? false}
     set {_mapEntry = newValue}
