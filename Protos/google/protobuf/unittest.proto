@@ -346,9 +346,22 @@ extend TestAllExtensions {
   optional bytes oneof_bytes_extension = 114;
 }
 
+message TestMixedFieldsAndExtensions {
+  optional int32 a = 1;
+  repeated fixed32 b = 3;
+  extensions 2, 4;
+  extend TestMixedFieldsAndExtensions {
+    optional int32 c = 2;
+    repeated fixed32 d = 4;
+  }
+}
+
 message TestGroup {
   optional group OptionalGroup = 16 {
     optional int32 a = 17;
+    optional int32 zz = 89;  // fast table size must be at least 16, for this
+                             // field to be parsed by the fast parser, since
+                             // 89 - 17 = 72 is a multiple of 8.
   }
   optional ForeignEnum optional_foreign_enum = 22;
 }
@@ -1525,5 +1538,31 @@ message EnumParseTester {
 
   // An arbitrary field we can append to to break the runs of repeated fields.
   optional int32 other_field = 99;
+};
+
+// This message contains different kind of bool fields to exercise the different
+// parsers in table-drived.
+message BoolParseTester {
+  optional bool optional_bool_lowfield = 1;
+  optional bool optional_bool_midfield = 1001;
+  optional bool optional_bool_hifield = 1000001;
+  repeated bool repeated_bool_lowfield = 2;
+  repeated bool repeated_bool_midfield = 1002;
+  repeated bool repeated_bool_hifield = 1000002;
+  repeated bool packed_bool_lowfield = 3 [packed = true];
+  repeated bool packed_bool_midfield = 1003 [packed = true];
+  repeated bool packed_bool_hifield = 1000003 [packed = true];
+
+  // An arbitrary field we can append to to break the runs of repeated fields.
+  optional int32 other_field = 99;
+};
+
+message StringParseTester {
+  optional string optional_string_lowfield = 1;
+  optional string optional_string_midfield = 1001;
+  optional string optional_string_hifield = 1000001;
+  repeated string repeated_string_lowfield = 2;
+  repeated string repeated_string_midfield = 1002;
+  repeated string repeated_string_hifield = 1000002;
 };
 
