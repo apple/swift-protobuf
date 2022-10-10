@@ -11,15 +11,39 @@
 import SwiftProtobufPluginLibrary
 
 class GeneratorOptions {
-  enum OutputNaming : String {
-    case fullPath = "FullPath"
-    case pathToUnderscores = "PathToUnderscores"
-    case dropPath = "DropPath"
+  enum OutputNaming {
+    case fullPath
+    case pathToUnderscores
+    case dropPath
+
+    init?(flag: String) {
+      switch flag.lowercased() {
+      case "fullpath", "full_path":
+        self = .fullPath
+      case "pathtounderscores", "path_to_underscores":
+        self = .pathToUnderscores
+      case "droppath", "drop_path":
+        self = .dropPath
+      default:
+        return nil
+      }
+    }
   }
 
-  enum Visibility : String {
-    case `internal` = "Internal"
-    case `public` = "Public"
+  enum Visibility {
+    case `internal`
+    case `public`
+
+    init?(flag: String) {
+      switch flag.lowercased() {
+      case "internal":
+        self = .internal
+      case "public":
+        self = .public
+      default:
+        return nil
+      }
+    }
   }
 
   let outputNaming: OutputNaming
@@ -38,7 +62,7 @@ class GeneratorOptions {
     for pair in parseParameter(string:parameter) {
       switch pair.key {
       case "FileNaming":
-        if let naming = OutputNaming(rawValue: pair.value) {
+        if let naming = OutputNaming(flag: pair.value) {
           outputNaming = naming
         } else {
           throw GenerationError.invalidParameterValue(name: pair.key,
@@ -49,7 +73,7 @@ class GeneratorOptions {
           moduleMapPath = pair.value
         }
       case "Visibility":
-        if let value = Visibility(rawValue: pair.value) {
+        if let value = Visibility(flag: pair.value) {
           visibility = value
         } else {
           throw GenerationError.invalidParameterValue(name: pair.key,
