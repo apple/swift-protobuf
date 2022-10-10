@@ -18,15 +18,50 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             /// The visibility of the generated files.
             enum Visibility: String, Codable {
                 /// The generated files should have `internal` access level.
-                case `internal`
+                case `internal` = "Public"
                 /// The generated files should have `public` access level.
-                case `public`
+                case `public` = "Internal"
+
+                init?(rawValue: String) {
+                    switch rawValue.lowercased() {
+                    case "internal":
+                        self = .internal
+                    case "public":
+                        self = .public
+                    default:
+                        return nil
+                    }
+                }
+            }
+
+            enum FileNaming: String, Codable {
+                /// The generated Swift file paths will be using the same relative path as the input proto files.
+                case fullPath = "FullPath"
+                /// The generated Swift file paths will the the relative paths but each directory replaced with an `_`.
+                case pathToUnderscores = "PathToUnderscores"
+                /// The generated Swift files will just be using the file name and drop the rest of the relative path.
+                case dropPath = "DropPath"
+
+                init?(rawValue: String) {
+                    switch rawValue.lowercased() {
+                    case "fullpath", "full_path":
+                        self = .fullPath
+                    case "pathtounderscores", "path_to_underscores":
+                        self = .pathToUnderscores
+                    case "droppath", "drop_path":
+                        self = .dropPath
+                    default:
+                        return nil
+                    }
+                }
             }
 
             /// An array of paths to `.proto` files for this invocation.
             var protoFiles: [String]
             /// The visibility of the generated files.
             var visibility: Visibility?
+            /// The file naming strategy to use.
+            var fileNaming: FileNaming?
         }
 
         /// The path to the `protoc` binary.
@@ -51,7 +86,7 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
 
-        try self.validateConfiguration(configuration)
+        try validateConfiguration(configuration)
 
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
@@ -109,6 +144,11 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
             protocArgs.append("--swift_opt=Visibility=\(visibility.rawValue.capitalized)")
+        }
+
+        // Add the file naming if it was set
+        if let fileNaming = invocation.fileNaming {
+            protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue.capitalized)")
         }
 
         var inputFiles = [Path]()
