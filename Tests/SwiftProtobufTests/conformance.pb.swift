@@ -115,7 +115,8 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   /// for more detail.
   case jsonIgnoreUnknownParsingTest // = 3
 
-  /// Test jspb wire format. Google internal only. Opensource testees just skip it.
+  /// Test jspb wire format. Google internal only. Opensource testees just skip
+  /// it.
   case jspbTest // = 4
 
   /// Test text format. For cpp, java and python, testees can already deal with
@@ -235,8 +236,8 @@ struct Conformance_ConformanceRequest {
   var messageType: String = String()
 
   /// Each test is given a specific test category. Some category may need
-  /// specific support in testee programs. Refer to the definition of TestCategory
-  /// for more information.
+  /// specific support in testee programs. Refer to the definition of
+  /// TestCategory for more information.
   var testCategory: Conformance_TestCategory = .unspecifiedTest
 
   /// Specify details for how to encode jspb.
@@ -302,6 +303,17 @@ struct Conformance_ConformanceResponse {
       return String()
     }
     set {result = .serializeError(newValue)}
+  }
+
+  /// This should be set if the test program timed out.  The string should
+  /// provide more information about what the child process was doing when it
+  /// was killed.
+  var timeoutError: String {
+    get {
+      if case .timeoutError(let v)? = result {return v}
+      return String()
+    }
+    set {result = .timeoutError(newValue)}
   }
 
   /// This should be set if some other error occurred.  This will always
@@ -379,6 +391,10 @@ struct Conformance_ConformanceResponse {
     /// serializing it to the requested output format, set the error message in
     /// this field.
     case serializeError(String)
+    /// This should be set if the test program timed out.  The string should
+    /// provide more information about what the child process was doing when it
+    /// was killed.
+    case timeoutError(String)
     /// This should be set if some other error occurred.  This will always
     /// indicate that the test failed.  The string can provide more information
     /// about the failure.
@@ -609,6 +625,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "parse_error"),
     6: .standard(proto: "serialize_error"),
+    9: .standard(proto: "timeout_error"),
     2: .standard(proto: "runtime_error"),
     3: .standard(proto: "protobuf_payload"),
     4: .standard(proto: "json_payload"),
@@ -687,6 +704,14 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
           self.result = .textPayload(v)
         }
       }()
+      case 9: try {
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {
+          if self.result != nil {try decoder.handleConflictingOneOf()}
+          self.result = .timeoutError(v)
+        }
+      }()
       default: break
       }
     }
@@ -729,6 +754,10 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     case .textPayload?: try {
       guard case .textPayload(let v)? = self.result else { preconditionFailure() }
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+    }()
+    case .timeoutError?: try {
+      guard case .timeoutError(let v)? = self.result else { preconditionFailure() }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 9)
     }()
     case nil: break
     }

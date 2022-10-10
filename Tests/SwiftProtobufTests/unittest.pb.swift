@@ -1480,11 +1480,22 @@ struct ProtobufUnittest_TestGroup {
     /// Clears the value of `a`. Subsequent reads from it will return its default value.
     mutating func clearA() {self._a = nil}
 
+    /// fast table size must be at least 16, for this
+    var zz: Int32 {
+      get {return _zz ?? 0}
+      set {_zz = newValue}
+    }
+    /// Returns true if `zz` has been explicitly set.
+    var hasZz: Bool {return self._zz != nil}
+    /// Clears the value of `zz`. Subsequent reads from it will return its default value.
+    mutating func clearZz() {self._zz = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
     fileprivate var _a: Int32? = nil
+    fileprivate var _zz: Int32? = nil
   }
 
   init() {}
@@ -10529,6 +10540,7 @@ extension ProtobufUnittest_TestGroup.OptionalGroup: SwiftProtobuf.Message, Swift
   static let protoMessageName: String = ProtobufUnittest_TestGroup.protoMessageName + ".OptionalGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
+    89: .same(proto: "zz"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -10538,6 +10550,7 @@ extension ProtobufUnittest_TestGroup.OptionalGroup: SwiftProtobuf.Message, Swift
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 17: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      case 89: try { try decoder.decodeSingularInt32Field(value: &self._zz) }()
       default: break
       }
     }
@@ -10551,11 +10564,15 @@ extension ProtobufUnittest_TestGroup.OptionalGroup: SwiftProtobuf.Message, Swift
     try { if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
     } }()
+    try { if let v = self._zz {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 89)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestGroup.OptionalGroup, rhs: ProtobufUnittest_TestGroup.OptionalGroup) -> Bool {
     if lhs._a != rhs._a {return false}
+    if lhs._zz != rhs._zz {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
