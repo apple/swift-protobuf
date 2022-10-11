@@ -18,9 +18,9 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             /// The visibility of the generated files.
             enum Visibility: String, Codable {
                 /// The generated files should have `internal` access level.
-                case `internal` = "Public"
+                case `internal` = "Internal"
                 /// The generated files should have `public` access level.
-                case `public` = "Internal"
+                case `public` = "Public"
 
                 init?(rawValue: String) {
                     switch rawValue.lowercased() {
@@ -143,12 +143,12 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
-            protocArgs.append("--swift_opt=Visibility=\(visibility.rawValue.capitalized)")
+            protocArgs.append("--swift_opt=Visibility=\(visibility.rawValue)")
         }
 
         // Add the file naming if it was set
         if let fileNaming = invocation.fileNaming {
-            protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue.capitalized)")
+            protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue)")
         }
 
         var inputFiles = [Path]()
