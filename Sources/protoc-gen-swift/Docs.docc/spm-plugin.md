@@ -75,7 +75,8 @@ to the root of your target's source folder. An example configuration file looks 
             "protoFiles": [
                 "Bar.proto"
             ],
-            "visibility": "public"
+            "visibility": "public",
+            "fileNaming": "pathToUnderscores"
         }
     ]
 }
@@ -84,7 +85,9 @@ to the root of your target's source folder. An example configuration file looks 
 
 In the above configuration, you declared two invocations to the `protoc` compiler. The first invocation
 is generating Swift types for the `Foo.proto` file with `internal` visibility. The second invocation
-is generating Swift types for the `Bar.proto` file with the `public` visibility.
+is generating Swift types for the `Bar.proto` file with the `public` visibility. Furthermore, the second
+invocation is using the `pathToUnderscores` file naming option. This option can be used to solve
+problems where a single target contains two or more proto files with the same name.
 
 ### Defining the path to the protoc binary
 
