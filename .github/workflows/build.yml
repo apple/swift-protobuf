@@ -79,10 +79,10 @@ jobs:
         url="https://api.github.com/repos/protocolbuffers/protobuf/git/${{ matrix.protobuf_git }}"
         case ${{ matrix.protobuf_git }} in
         ref/*)
-          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )
+          echo "sha=$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .object.sha )" >> $GITHUB_OUTPUT
           ;;
         commits/*)
-          echo ::set-output name=sha::$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )
+          echo "sha=$( curl -s -u "u:${{ github.token }}" "${url}" | jq -r .sha )" >> $GITHUB_OUTPUT
           ;;
         esac
     - name: Generate LinuxMain.swift
