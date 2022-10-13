@@ -33,57 +33,91 @@ private let tab = [UInt8](repeating: asciiSpace, count: tabSize)
 
 /// TextFormatEncoder has no public members.
 internal struct TextFormatEncoder {
+    private static let foyerSize = 4096
+    private var foyer = Array<UInt8>(repeating: 0, count: TextFormatEncoder.foyerSize)
+    private var foyerIndex = 0
+
     private var data = [UInt8]()
     private var indentString: [UInt8] = []
-    var stringResult: String {
-        get {
-            return String(bytes: data, encoding: String.Encoding.utf8)!
+
+    internal mutating func constructFinalResult() -> String {
+        if foyerIndex > 0 {
+            let subfoyer = foyer[0..<foyerIndex]
+            data.append(contentsOf: subfoyer)
+            foyerIndex = 0
         }
+        return String(bytes: data, encoding: String.Encoding.utf8)!
+    }
+
+    // Append each byte to the foyer, append and
+    // recycle the foyer when it fills up.
+    private mutating func append(byte: UInt8) {
+        if foyerIndex > TextFormatEncoder.foyerSize - 1 {
+            data.append(contentsOf: foyer)
+            foyerIndex = 0
+        }
+        foyer[foyerIndex] = byte
+        foyerIndex += 1
     }
 
     internal mutating func append(staticText: StaticString) {
         let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
-        data.append(contentsOf: buff)
+        for b in buff {
+            append(byte: b)
+        }
     }
 
     internal mutating func append(name: _NameMap.Name) {
-        data.append(contentsOf: name.utf8Buffer)
+        for b in name.utf8Buffer {
+            append(byte: b)
+        }
     }
 
     internal mutating func append(bytes: [UInt8]) {
-        data.append(contentsOf: bytes)
+        for b in bytes {
+            append(byte: b)
+        }
+    }
+
+    private mutating func append(bytes: UnsafeRawBufferPointer) {
+        for b in bytes {
+            append(byte: b)
+        }
     }
 
     private mutating func append(text: String) {
-        data.append(contentsOf: text.utf8)
+        for u in text.utf8 {
+            append(byte: u)
+        }
     }
 
     init() {}
 
     internal mutating func indent() {
-        data.append(contentsOf: indentString)
+        append(bytes: indentString)
     }
 
     mutating func emitFieldName(name: UnsafeRawBufferPointer) {
         indent()
-        data.append(contentsOf: name)
+        append(bytes: name)
     }
 
     mutating func emitFieldName(name: StaticString) {
         let buff = UnsafeRawBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        emitFieldName(name: buff)
+        indent()
+        append(bytes: buff)
     }
 
     mutating func emitFieldName(name: [UInt8]) {
         indent()
-        data.append(contentsOf: name)
+        append(bytes: name)
     }
 
     mutating func emitExtensionFieldName(name: String) {
         indent()
-        data.append(asciiOpenSquareBracket)
+        append(byte: asciiOpenSquareBracket)
         append(text: name)
-        data.append(asciiCloseSquareBracket)
+        append(byte: asciiCloseSquareBracket)
     }
 
     mutating func emitFieldNumber(number: Int) {
@@ -95,7 +129,7 @@ internal struct TextFormatEncoder {
         append(staticText: ": ")
     }
     mutating func endRegularField() {
-        data.append(asciiNewline)
+        append(byte: asciiNewline)
     }
 
     // In Text format, a message-valued field writes the name
@@ -113,7 +147,7 @@ internal struct TextFormatEncoder {
     }
 
     mutating func startArray() {
-        data.append(asciiOpenSquareBracket)
+        append(byte: asciiOpenSquareBracket)
     }
 
     mutating func arraySeparator() {
@@ -121,12 +155,12 @@ internal struct TextFormatEncoder {
     }
 
     mutating func endArray() {
-        data.append(asciiCloseSquareBracket)
+        append(byte: asciiCloseSquareBracket)
     }
 
     mutating func putEnumValue<E: Enum>(value: E) {
         if let name = value.name {
-            data.append(contentsOf: name.utf8Buffer)
+            append(bytes: name.utf8Buffer)
         } else {
             appendInt(value: Int64(value.rawValue))
         }
@@ -142,7 +176,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            data.append(contentsOf: value.debugDescription.utf8)
+            append(text: value.debugDescription)
         }
     }
 
@@ -156,7 +190,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            data.append(contentsOf: value.debugDescription.utf8)
+            append(text: value.debugDescription)
         }
     }
 
@@ -165,16 +199,16 @@ internal struct TextFormatEncoder {
             appendUInt(value: value / 1000)
         }
         if value >= 100 {
-            data.append(asciiZero + UInt8((value / 100) % 10))
+            append(byte: asciiZero + UInt8((value / 100) % 10))
         }
         if value >= 10 {
-            data.append(asciiZero + UInt8((value / 10) % 10))
+            append(byte: asciiZero + UInt8((value / 10) % 10))
         }
-        data.append(asciiZero + UInt8(value % 10))
+        append(byte: asciiZero + UInt8(value % 10))
     }
     private mutating func appendInt(value: Int64) {
         if value < 0 {
-            data.append(asciiMinus)
+            append(byte: asciiMinus)
             // This is the twos-complement negation of value,
             // computed in a way that won't overflow a 64-bit
             // signed integer.
@@ -198,7 +232,7 @@ internal struct TextFormatEncoder {
         } else {
             appendUIntHex(value: value >> 4, digits: digits - 1)
             let d = UInt8(truncatingIfNeeded: value % 16)
-            data.append(d < 10 ? asciiZero + d : asciiUpperA + d - 10)
+            append(byte: d < 10 ? asciiZero + d : asciiUpperA + d - 10)
         }
     }
 
@@ -211,7 +245,7 @@ internal struct TextFormatEncoder {
     }
 
     mutating func putStringValue(value: String) {
-        data.append(asciiDoubleQuote)
+        append(byte: asciiDoubleQuote)
         for c in value.unicodeScalars {
             switch c.value {
             // Special two-byte escapes
@@ -232,65 +266,65 @@ internal struct TextFormatEncoder {
             case 92:
                 append(staticText: "\\\\")
             case 0...31, 127: // Octal form for C0 control chars
-                data.append(asciiBackslash)
-                data.append(asciiZero + UInt8(c.value / 64))
-                data.append(asciiZero + UInt8(c.value / 8 % 8))
-                data.append(asciiZero + UInt8(c.value % 8))
+                append(byte: asciiBackslash)
+                append(byte: asciiZero + UInt8(c.value / 64))
+                append(byte: asciiZero + UInt8(c.value / 8 % 8))
+                append(byte: asciiZero + UInt8(c.value % 8))
             case 0...127:  // ASCII
-                data.append(UInt8(truncatingIfNeeded: c.value))
+                append(byte: UInt8(truncatingIfNeeded: c.value))
             case 0x80...0x7ff:
-                data.append(0xc0 + UInt8(c.value / 64))
-                data.append(0x80 + UInt8(c.value % 64))
+                append(byte: 0xc0 + UInt8(c.value / 64))
+                append(byte: 0x80 + UInt8(c.value % 64))
             case 0x800...0xffff:
-                data.append(0xe0 + UInt8(truncatingIfNeeded: c.value >> 12))
-                data.append(0x80 + UInt8(truncatingIfNeeded: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingIfNeeded: c.value & 0x3f))
+                append(byte: 0xe0 + UInt8(truncatingIfNeeded: c.value >> 12))
+                append(byte: 0x80 + UInt8(truncatingIfNeeded: (c.value >> 6) & 0x3f))
+                append(byte: 0x80 + UInt8(truncatingIfNeeded: c.value & 0x3f))
             default:
-                data.append(0xf0 + UInt8(truncatingIfNeeded: c.value >> 18))
-                data.append(0x80 + UInt8(truncatingIfNeeded: (c.value >> 12) & 0x3f))
-                data.append(0x80 + UInt8(truncatingIfNeeded: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingIfNeeded: c.value & 0x3f))
+                append(byte: 0xf0 + UInt8(truncatingIfNeeded: c.value >> 18))
+                append(byte: 0x80 + UInt8(truncatingIfNeeded: (c.value >> 12) & 0x3f))
+                append(byte: 0x80 + UInt8(truncatingIfNeeded: (c.value >> 6) & 0x3f))
+                append(byte: 0x80 + UInt8(truncatingIfNeeded: c.value & 0x3f))
             }
         }
-        data.append(asciiDoubleQuote)
+        append(byte: asciiDoubleQuote)
     }
 
     mutating func putBytesValue(value: Data) {
-        data.append(asciiDoubleQuote)
+        append(byte: asciiDoubleQuote)
         value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
-          if let p = body.baseAddress, body.count > 0 {
-            for i in 0..<body.count {
-              let c = p[i]
-              switch c {
-              // Special two-byte escapes
-              case 8:
-                append(staticText: "\\b")
-              case 9:
-                append(staticText: "\\t")
-              case 10:
-                append(staticText: "\\n")
-              case 11:
-                append(staticText: "\\v")
-              case 12:
-                append(staticText: "\\f")
-              case 13:
-                append(staticText: "\\r")
-              case 34:
-                append(staticText: "\\\"")
-              case 92:
-                append(staticText: "\\\\")
-              case 32...126:  // printable ASCII
-                data.append(c)
-              default: // Octal form for non-printable chars
-                data.append(asciiBackslash)
-                data.append(asciiZero + UInt8(c / 64))
-                data.append(asciiZero + UInt8(c / 8 % 8))
-                data.append(asciiZero + UInt8(c % 8))
-              }
+            if let p = body.baseAddress, body.count > 0 {
+                for i in 0..<body.count {
+                    let c = p[i]
+                    switch c {
+                    // Special two-byte escapes
+                    case 8:
+                        append(staticText: "\\b")
+                    case 9:
+                        append(staticText: "\\t")
+                    case 10:
+                        append(staticText: "\\n")
+                    case 11:
+                        append(staticText: "\\v")
+                    case 12:
+                        append(staticText: "\\f")
+                    case 13:
+                        append(staticText: "\\r")
+                    case 34:
+                        append(staticText: "\\\"")
+                    case 92:
+                        append(staticText: "\\\\")
+                    case 32...126:  // printable ASCII
+                        append(byte: c)
+                    default: // Octal form for non-printable chars
+                        append(byte: asciiBackslash)
+                        append(byte: asciiZero + UInt8(c / 64))
+                        append(byte: asciiZero + UInt8(c / 8 % 8))
+                        append(byte: asciiZero + UInt8(c % 8))
+                    }
+                }
             }
-          }
         }
-        data.append(asciiDoubleQuote)
+        append(byte: asciiDoubleQuote)
     }
 }
 

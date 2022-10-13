@@ -26,8 +26,8 @@ internal struct TextFormatEncodingVisitor: Visitor {
   private let options: TextFormatEncodingOptions
 
   /// The protobuf text produced by the visitor.
-  var result: String {
-    return encoder.stringResult
+  internal mutating func constructFinalResult() -> String {
+    return encoder.constructFinalResult()
   }
 
   /// Creates a new visitor that serializes the given message to protobuf text

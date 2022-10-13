@@ -51,7 +51,7 @@ extension Message {
       // missing required fields); TextEncoding never actually does throw.
       try! traverse(visitor: &visitor)
     }
-    return visitor.result
+    return visitor.constructFinalResult()
   }
 
   /// Creates a new message by decoding the given string containing a
