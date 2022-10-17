@@ -33,12 +33,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format.
   init(message: Message, options: TextFormatEncodingOptions) {
-    self.init(message: message, encoder: TextFormatEncoder(), options: options)
-  }
-
-  /// Creates a new visitor that serializes the given message to protobuf text
-  /// format, using an existing encoder.
-  private init(message: Message, encoder: TextFormatEncoder, options: TextFormatEncodingOptions) {
     let nameMap: _NameMap?
     if let nameProviding = message as? _ProtoNameProviding {
         nameMap = type(of: nameProviding)._protobuf_nameMap
@@ -46,20 +40,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
         nameMap = nil
     }
     let extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
-    self.init(nameMap: nameMap, nameResolver: [:], extensions: extensions, encoder: encoder, options: options)
-  }
 
-  private init(
-    nameMap: _NameMap?,
-    nameResolver: [Int:StaticString],
-    extensions: ExtensionFieldValueSet?,
-    encoder: TextFormatEncoder,
-    options: TextFormatEncodingOptions
-  ) {
     self.nameMap = nameMap
-    self.nameResolver = nameResolver
+    self.nameResolver = [:]
     self.extensions = extensions
-    self.encoder = encoder
+    self.encoder = TextFormatEncoder()
     self.options = options
   }
 
