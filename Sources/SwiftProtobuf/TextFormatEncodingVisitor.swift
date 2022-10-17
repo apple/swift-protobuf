@@ -280,11 +280,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
                                              fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
 
-      // Cache old encoder state
+      // Cache old visitor configuration
       let oldNameMap = self.nameMap
       let oldNameResolver = self.nameResolver
       let oldExtensions = self.extensions
-      // Update encoding state for new message
+      // Update configuration for new message
       self.nameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap
       self.nameResolver = [:]
       self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
@@ -296,7 +296,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
           try! value.traverse(visitor: &self)
       }
       encoder.endMessageField()
-      // Restore state before returning
+      // Restore configuration before returning
       self.extensions = oldExtensions
       self.nameResolver = oldNameResolver
       self.nameMap = oldNameMap
@@ -308,13 +308,27 @@ internal struct TextFormatEncodingVisitor: Visitor {
   internal mutating func visitAnyVerbose(value: Message, typeURL: String) {
       encoder.emitExtensionFieldName(name: typeURL)
       encoder.startMessageField()
-      var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder, options: options)
+
+      // Cache old visitor configuration
+      let oldNameMap = self.nameMap
+      let oldNameResolver = self.nameResolver
+      let oldExtensions = self.extensions
+      // Update configuration for new message
+      self.nameMap = (type(of: value) as? _ProtoNameProviding.Type)?._protobuf_nameMap
+      self.nameResolver = [:]
+      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+
       if let any = value as? Google_Protobuf_Any {
-          any.textTraverse(visitor: &visitor)
+          any.textTraverse(visitor: &self)
       } else {
-          try! value.traverse(visitor: &visitor)
+          try! value.traverse(visitor: &self)
       }
-      encoder = visitor.encoder
+
+      // Restore configuration before returning
+      self.extensions = oldExtensions
+      self.nameResolver = oldNameResolver
+      self.nameMap = oldNameMap
+
       encoder.endMessageField()
   }
 
@@ -466,7 +480,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
       assert(!value.isEmpty)
       // Look up field name against outer message encoding state
       let fieldName = formatFieldName(lookingUp: fieldNumber)
-      // Cache old encoder state
+      // Cache old visitor state
       let oldNameMap = self.nameMap
       let oldNameResolver = self.nameResolver
       let oldExtensions = self.extensions
@@ -612,12 +626,27 @@ internal struct TextFormatEncodingVisitor: Visitor {
     isOrderedBefore: (K, K) -> Bool,
     coder: (inout TextFormatEncodingVisitor, K, V) throws -> ()
   ) throws {
+      // Cache old visitor configuration
+      let oldNameMap = self.nameMap
+      let oldNameResolver = self.nameResolver
+      let oldExtensions = self.extensions
+
       for (k,v) in map.sorted(by: { isOrderedBefore( $0.0, $1.0) }) {
           emitFieldName(lookingUp: fieldNumber)
           encoder.startMessageField()
-          var visitor = TextFormatEncodingVisitor(nameMap: nil, nameResolver: mapNameResolver, extensions: nil, encoder: encoder, options: options)
-          try coder(&visitor, k, v)
-          encoder = visitor.encoder
+
+          // Update visitor configuration for map
+          self.nameMap = nil
+          self.nameResolver = mapNameResolver
+          self.extensions = nil
+
+          try coder(&self, k, v)
+
+          // Restore configuration before resuming containing message
+          self.extensions = oldExtensions
+          self.nameResolver = oldNameResolver
+          self.nameMap = oldNameMap
+
           encoder.endMessageField()
       }
   }
