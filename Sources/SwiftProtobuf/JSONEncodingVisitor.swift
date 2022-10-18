@@ -363,36 +363,36 @@ internal struct JSONEncodingVisitor: Visitor {
   mutating func visitMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
-    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
+    var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
     for (k,v) in value {
         try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
         try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
     }
-    encoder = mapVisitor.encoder
+    encoder.append(bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
   }
 
   mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where ValueType.RawValue == Int {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
-    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
+    var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
     for (k, v) in value {
       try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
       try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
     }
-    encoder = mapVisitor.encoder
+    encoder.append(bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
   }
 
   mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
-    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
+    var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
     for (k,v) in value {
         try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
         try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
-    encoder = mapVisitor.encoder
+    encoder.append(bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
   }
 

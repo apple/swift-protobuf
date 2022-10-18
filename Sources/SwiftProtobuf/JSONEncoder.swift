@@ -77,6 +77,8 @@ internal struct JSONEncoder {
         }
     }
 
+    internal var bytesResult: [UInt8] { return data }
+
     /// Append a `StaticString` to the JSON text.  Because
     /// `StaticString` is already UTF8 internally, this is faster
     /// than appending a regular `String`.
@@ -98,6 +100,10 @@ internal struct JSONEncoder {
     /// Append a `String` to the JSON text.
     internal mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
+    }
+
+    internal mutating func append(bytes: [UInt8]) {
+        data.append(contentsOf: bytes)
     }
 
     /// Append a raw utf8 in a `Data` to the JSON text.
