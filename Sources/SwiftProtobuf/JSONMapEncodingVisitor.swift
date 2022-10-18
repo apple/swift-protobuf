@@ -30,6 +30,12 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
       self.options = options
   }
 
+  internal var bytesResult: [UInt8] {
+      get {
+          return encoder.bytesResult
+      }
+  }
+
   private mutating func startKey() {
       if let s = separator {
           encoder.append(staticText: s)
