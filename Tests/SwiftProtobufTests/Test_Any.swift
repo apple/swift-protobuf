@@ -253,7 +253,7 @@ class Test_Any: XCTestCase {
 
         let redecoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
         do {
-            redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+            redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
         } catch {
             XCTFail("Failed to decode \(protobuf)")
             return
@@ -315,7 +315,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 54, 10, 44, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 68, 117, 114, 97, 116, 105, 111, 110, 18, 6, 8, 99, 16, 192, 132, 61])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -353,7 +353,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 68, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 70, 105, 101, 108, 100, 77, 97, 115, 107, 18, 19, 10, 3, 102, 111, 111, 10, 12, 98, 97, 114, 46, 98, 97, 122, 95, 113, 117, 117, 120])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -391,7 +391,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -431,7 +431,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 64, 10, 42, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 83, 116, 114, 117, 99, 116, 18, 18, 10, 16, 10, 3, 102, 111, 111, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -470,7 +470,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 53, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 84, 105, 109, 101, 115, 116, 97, 109, 112, 18, 4, 8, 1, 16, 1])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -507,7 +507,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 67, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 76, 105, 115, 116, 86, 97, 108, 117, 101, 18, 18, 10, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 10, 5, 26, 3, 97, 98, 99])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -547,7 +547,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 65, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 20, 42, 18, 10, 16, 10, 3, 102, 111, 111, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch let e {
@@ -587,7 +587,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 54, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch {
@@ -626,7 +626,7 @@ class Test_Any: XCTestCase {
             let protobuf = try decoded.serializedData()
             XCTAssertEqual(Array(protobuf), [138, 19, 50, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 5, 26, 3, 97, 98, 99])
             do {
-                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+                let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
                 let json = try redecoded.jsonString()
                 XCTAssertEqual(json, start)
             } catch {
@@ -729,7 +729,7 @@ class Test_Any: XCTestCase {
       let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
       let protobuf = try decoded.serializedData()
       XCTAssertEqual(protobuf, Data([138, 19, 0]))
-      let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: Array(protobuf))
+      let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
       let retext = redecoded.textFormatString()
       XCTAssertEqual(retext, "optional_any {\n}\n")
       let reredecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(textFormatString: retext)

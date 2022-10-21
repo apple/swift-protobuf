@@ -8,6 +8,8 @@
 //
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 public protocol SwiftProtobufContiguousBytes {
     /// Calls the given closure with the contents of underlying storage.
     ///
@@ -19,3 +21,5 @@ public protocol SwiftProtobufContiguousBytes {
 }
 
 extension Array: SwiftProtobufContiguousBytes where Array.Element == UInt8 {}
+
+extension Data: SwiftProtobufContiguousBytes {}

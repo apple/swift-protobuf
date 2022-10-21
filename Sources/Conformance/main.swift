@@ -106,7 +106,7 @@ func buildResponse(serializedData: SwiftProtobufContiguousBytes) -> Conformance_
     switch request.payload {
     case .protobufPayload(let data)?:
         do {
-            testMessage = try msgType.init(contiguousBytes: Array(data), extensions: extensions)
+            testMessage = try msgType.init(contiguousBytes: data, extensions: extensions)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response

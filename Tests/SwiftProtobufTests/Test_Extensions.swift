@@ -31,7 +31,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             let encoded = try configured.serializedData()
             XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
-                let decoded = try MessageTestType(contiguousBytes: Array(encoded), extensions: extensions)
+                let decoded = try MessageTestType(contiguousBytes: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
                 XCTFail("Failed to decode protobuf: \(encoded)", file: file, line: line)
@@ -48,7 +48,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
             let encoded = try decoded.serializedData()
             do {
-                let redecoded = try MessageTestType(contiguousBytes: Array(encoded), extensions: extensions)
+                let redecoded = try MessageTestType(contiguousBytes: encoded, extensions: extensions)
                 XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
                 XCTAssertEqual(decoded, redecoded, file: file, line: line)
             } catch {
@@ -204,13 +204,13 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Deserialize into a message that lacks the group extension, then reserialize
         // Group should be preserved as an unknown field
         do {
-            let m2 = try SwiftTestGroupUnextended(contiguousBytes: Array(coded))
+            let m2 = try SwiftTestGroupUnextended(contiguousBytes: coded)
             XCTAssert(!m2.hasA)
             let recoded = try m2.serializedData()
 
             // Deserialize, check the group contents were preserved.
             do {
-                let m3 = try SwiftTestGroupExtensions(contiguousBytes: Array(recoded), extensions: extensions)
+                let m3 = try SwiftTestGroupExtensions(contiguousBytes: recoded, extensions: extensions)
                 XCTAssertEqual(m3.extensionGroup.a, 7)
             } catch {
                 XCTFail("Bad decode/recode/decode cycle")
@@ -233,14 +233,14 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Deserialize into a message that lacks the group extension, then reserialize
         // Group should be preserved as an unknown field
         do {
-            let m2 = try SwiftTestGroupUnextended(contiguousBytes: Array(coded))
+            let m2 = try SwiftTestGroupUnextended(contiguousBytes: coded)
             XCTAssert(!m2.hasA)
             do {
                 let recoded = try m2.serializedData()
 
                 // Deserialize, check the group contents were preserved.
                 do {
-                    let m3 = try SwiftTestGroupExtensions(contiguousBytes: Array(recoded), extensions: extensions)
+                    let m3 = try SwiftTestGroupExtensions(contiguousBytes: recoded, extensions: extensions)
                     XCTAssertEqual(m3.repeatedExtensionGroup, [group1, group2])
                 } catch {
                     XCTFail("Bad decode/recode/decode cycle")

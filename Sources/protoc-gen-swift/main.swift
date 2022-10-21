@@ -147,7 +147,7 @@ struct GeneratorPlugin {
 
     let request: Google_Protobuf_Compiler_CodeGeneratorRequest
     do {
-      request = try Google_Protobuf_Compiler_CodeGeneratorRequest(contiguousBytes: Array(requestData))
+      request = try Google_Protobuf_Compiler_CodeGeneratorRequest(contiguousBytes: requestData)
     } catch let e {
       Stderr.print("Request failed to decode: \(e)")
       return 1

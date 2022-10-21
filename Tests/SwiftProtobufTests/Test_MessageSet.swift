@@ -45,7 +45,7 @@ class Test_MessageSet: XCTestCase {
 
     let raw: ProtobufUnittest_RawMessageSet
     do {
-      raw = try ProtobufUnittest_RawMessageSet(contiguousBytes: Array(serialized))
+      raw = try ProtobufUnittest_RawMessageSet(contiguousBytes: serialized)
     } catch let e {
       XCTFail("Failed to parse: \(e)")
       return
@@ -60,10 +60,10 @@ class Test_MessageSet: XCTestCase {
     XCTAssertEqual(Int(raw.item[1].typeID),
                    ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
 
-    let extMsg1 = try ProtobufUnittest_TestMessageSetExtension1(contiguousBytes: Array(raw.item[0].message))
+    let extMsg1 = try ProtobufUnittest_TestMessageSetExtension1(contiguousBytes: raw.item[0].message)
     XCTAssertEqual(extMsg1.i, 123)
     XCTAssertTrue(extMsg1.unknownFields.data.isEmpty)
-    let extMsg2 = try ProtobufUnittest_TestMessageSetExtension2(contiguousBytes: Array(raw.item[1].message))
+    let extMsg2 = try ProtobufUnittest_TestMessageSetExtension2(contiguousBytes: raw.item[1].message)
     XCTAssertEqual(extMsg2.str, "foo")
     XCTAssertTrue(extMsg2.unknownFields.data.isEmpty)
   }
@@ -98,7 +98,7 @@ class Test_MessageSet: XCTestCase {
     let msg: Proto2WireformatUnittest_TestMessageSet
     do {
       msg = try Proto2WireformatUnittest_TestMessageSet(
-        contiguousBytes: Array(serialized),
+        contiguousBytes: serialized,
         extensions: ProtobufUnittest_UnittestMset_Extensions)
     } catch let e {
       XCTFail("Failed to parse: \(e)")

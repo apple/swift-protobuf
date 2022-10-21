@@ -37,7 +37,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             let encoded = try configured.serializedData()
             XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
             do {
-                let decoded = try MessageTestType(contiguousBytes: Array(encoded))
+                let decoded = try MessageTestType(contiguousBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
                 XCTFail("Failed to decode protobuf: \(string(from: encoded))", file: file, line: line)
@@ -55,7 +55,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             do {
                 let encoded = try decoded.serializedData()
                 do {
-                    let redecoded = try MessageTestType(contiguousBytes: Array(encoded))
+                    let redecoded = try MessageTestType(contiguousBytes: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch let e {
@@ -109,7 +109,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
                 let encoded = try decoded.serializedData()
                 XCTAssertEqual(Data(recodedBytes), encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
                 do {
-                    let redecoded = try MessageTestType(contiguousBytes: Array(encoded))
+                    let redecoded = try MessageTestType(contiguousBytes: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch let e {
