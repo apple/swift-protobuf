@@ -165,9 +165,8 @@ public enum BinaryDelimited {
     var bytesRead: Int = 0
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
-        baseAddress.withMemoryRebound(to: UInt8.self, capacity: length) { pointer in
-          bytesRead = stream.read(pointer, maxLength: length)
-        }
+        let pointer = baseAddress.assumingMemoryBound(to: UInt8.self)
+        bytesRead = stream.read(pointer, maxLength: length)
       }
     }
 

@@ -43,16 +43,16 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
   visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
-fileprivate func asJSONObject(body: Data) -> Data {
+fileprivate func asJSONObject(body: [UInt8]) -> [UInt8] {
   let asciiOpenCurlyBracket = UInt8(ascii: "{")
   let asciiCloseCurlyBracket = UInt8(ascii: "}")
-  var result = Data([asciiOpenCurlyBracket])
-  result.append(body)
+  var result = [asciiOpenCurlyBracket]
+  result.append(contentsOf: body)
   result.append(asciiCloseCurlyBracket)
   return result
 }
 
-fileprivate func unpack(contentJSON: Data,
+fileprivate func unpack(contentJSON: [UInt8],
                         extensions: ExtensionMap,
                         options: JSONDecodingOptions,
                         as messageType: Message.Type) throws -> Message {
@@ -137,7 +137,7 @@ internal class AnyMessageStorage {
     // a message
     case message(Message)
     // parsed JSON with the @type removed and the decoding options.
-    case contentJSON(Data, JSONDecodingOptions)
+    case contentJSON([UInt8], JSONDecodingOptions)
   }
   var state: InternalState = .binary([])
 
@@ -473,7 +473,7 @@ extension AnyMessageStorage {
         // parsed.
         var updatedOptions = decoder.options
         updatedOptions.messageDepthLimit = decoder.scanner.recursionBudget
-        state = .contentJSON(jsonEncoder.dataResult, updatedOptions)
+        state = .contentJSON(Array(jsonEncoder.dataResult), updatedOptions)
         return
       }
       try decoder.scanner.skipRequiredComma()

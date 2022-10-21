@@ -103,7 +103,7 @@ extension Message {
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
-    jsonUTF8Data: Data,
+    jsonUTF8Data: SwiftProtobufContiguousBytes,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     try self.init(jsonUTF8Data: jsonUTF8Data, extensions: nil, options: options)
@@ -119,7 +119,7 @@ extension Message {
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
-    jsonUTF8Data: Data,
+    jsonUTF8Data: SwiftProtobufContiguousBytes,
     extensions: ExtensionMap? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
