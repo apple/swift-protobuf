@@ -99,7 +99,9 @@ This works immediately if you use `swift build` to build your package and `proto
 in the `$PATH` (`brew` is adding it to your `$PATH` automatically).
 However, this doesn't work if you want to compile from Xcode since Xcode is not passed the `$PATH`.
 
-If compiling from Xcode, you have **three options** to set the path of `protoc` that the plugin is going to use: 
+If compiling from Xcode, you have **three options** to set the path of `protoc` that the plugin is going to use:
+
+* You can start Xcode by running `$ xed .` from the command line from the directory your project is located - this should make `$PATH` visible to Xcode.
 
 * Set an environment variable `PROTOC_PATH` that gets picked up by the plugin. Here are two examples of how you can achieve this:
 
@@ -127,5 +129,3 @@ env PROTOC_PATH=/opt/homebrew/bin/protoc xcodebuild <Here goes your command>
 plugin since there you can point the package manager to the right binary. The environment variable
 does solve the problem for transitive packages as well; however, it requires your users to set
 the variable now. In general we advise against adopting the plugin as a non-leaf package!
-
-* You can start Xcode by running `$ xed .` from the command line from the directory your project is located - this should make `$PATH` visible to Xcode. 
