@@ -13,10 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Visitor that calculates the binary-encoded size of a message so that a
-/// properly sized `Data` or `UInt8` array can be pre-allocated before
+/// properly sized `SwiftProtobufContiguousBytes` can be pre-allocated before
 /// serialization.
 internal struct BinaryEncodingSizeVisitor: Visitor {
 
@@ -25,7 +23,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
 
   init() {}
 
-  mutating func visitUnknown(bytes: Data) throws {
+  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     serializedSize += bytes.count
   }
 
@@ -98,7 +96,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let count = value.count
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
@@ -202,7 +200,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize * value.count + dataSize
   }
 
-  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+  mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.reduce(0) {

@@ -14,7 +14,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -37,7 +36,7 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
         o1.optionalDouble = 12
         o1.optionalBool = true
         o1.optionalString = "abc"
-        o1.optionalBytes = Data([65, 66])
+        o1.optionalBytes = [65, 66]
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o1.optionalNestedMessage = nested
@@ -67,7 +66,7 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
         o1.repeatedDouble = [23, 24]
         o1.repeatedBool = [true, false]
         o1.repeatedString = ["abc", "def"]
-        o1.repeatedBytes = [Data(), Data([65, 66])]
+        o1.repeatedBytes = [[], [65, 66]]
         var nested2 = nested
         nested2.bb = -7
         o1.repeatedNestedMessage = [nested, nested2]

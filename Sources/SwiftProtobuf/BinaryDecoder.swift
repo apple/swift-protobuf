@@ -43,10 +43,10 @@ internal struct BinaryDecoder: Decoder {
     private var recursionBudget: Int
 
     // Collects the unknown data found while decoding a message.
-    private var unknownData: Data?
+    private var unknownData: [UInt8]?
     // Custom data to use as the unknown data while parsing a field. Used only by
     // packed repeated enums; see below
-    private var unknownOverride: Data?
+    private var unknownOverride: [UInt8]?
 
     private var complete: Bool {return available == 0}
 
@@ -109,7 +109,7 @@ internal struct BinaryDecoder: Decoder {
                 if unknownData == nil {
                     unknownData = override
                 } else {
-                    unknownData!.append(override)
+                    unknownData!.append(contentsOf: override)
                 }
                 unknownOverride = nil
             } else if !consumed {
@@ -120,7 +120,7 @@ internal struct BinaryDecoder: Decoder {
                     if unknownData == nil {
                         unknownData = u
                     } else {
-                        unknownData!.append(u)
+                        unknownData!.append(contentsOf: u)
                     }
                 }
             }
@@ -787,32 +787,32 @@ internal struct BinaryDecoder: Decoder {
         }
     }
 
-    internal mutating func decodeSingularBytesField(value: inout Data) throws {
+    internal mutating func decodeSingularBytesField(value: inout [UInt8]) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return
         }
         var n: Int = 0
         let p = try getFieldBodyBytes(count: &n)
-        value = Data(bytes: p, count: n)
+        value = Array(UnsafeRawBufferPointer(start: p, count: n))
         consumed = true
     }
 
-    internal mutating func decodeSingularBytesField(value: inout Data?) throws {
+    internal mutating func decodeSingularBytesField(value: inout [UInt8]?) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return
         }
         var n: Int = 0
         let p = try getFieldBodyBytes(count: &n)
-        value = Data(bytes: p, count: n)
+        value = Array(UnsafeRawBufferPointer(start: p, count: n))
         consumed = true
     }
 
-    internal mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+    internal mutating func decodeRepeatedBytesField(value: inout [[UInt8]]) throws {
         switch fieldWireFormat {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            value.append(Data(bytes: p, count: n))
+            value.append(Array(UnsafeRawBufferPointer(start: p, count: n)))
             consumed = true
         default:
             return
@@ -872,7 +872,7 @@ internal struct BinaryDecoder: Decoder {
                 let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                 let bodySize = extras.reduce(0) { $0 + Varint.encodedSize(of: Int64($1)) }
                 let fieldSize = Varint.encodedSize(of: fieldTag.rawValue) + Varint.encodedSize(of: Int64(bodySize)) + bodySize
-                var field = Data(count: fieldSize)
+                var field: [UInt8] = Array(repeating: 0, count: fieldSize)
                 field.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
                   if let baseAddress = body.baseAddress, body.count > 0 {
                     var encoder = BinaryEncoder(forWritingInto: baseAddress)
@@ -1183,7 +1183,7 @@ internal struct BinaryDecoder: Decoder {
         // (yes, there have two versions that are almost the same)
 
         var msgExtension: AnyMessageExtension?
-        var fieldData: Data?
+        var fieldData: [UInt8]?
 
         // In this loop, if wire types are wrong, things don't decode,
         // just bail instead of letting things go into unknown fields.
@@ -1240,12 +1240,12 @@ internal struct BinaryDecoder: Decoder {
                     // So just capture a block, and then skip any others that happen to
                     // be found.
                     if fieldData == nil {
-                        var d: Data?
+                        var d: [UInt8]?
                         try decodeSingularBytesField(value: &d)
                         guard let data = d else { return .malformed }
                         // Save it as length delimited
                         let payloadSize = Varint.encodedSize(of: Int64(data.count)) + data.count
-                        var payload = Data(count: payloadSize)
+                        var payload: [UInt8] = Array(repeating: 0, count: payloadSize)
                         payload.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
                           if let baseAddress = body.baseAddress, body.count > 0 {
                             var encoder = BinaryEncoder(forWritingInto: baseAddress)
@@ -1421,9 +1421,9 @@ internal struct BinaryDecoder: Decoder {
 
     /// Private: Return a Data containing the entirety of
     /// the current field, including tag.
-    private mutating func getRawField() throws -> Data {
+    private mutating func getRawField() throws -> [UInt8] {
         try skip()
-        return Data(bytes: fieldStartP, count: fieldEndP! - fieldStartP)
+        return Array(UnsafeRawBufferPointer(start: fieldStartP, count: fieldEndP! - fieldStartP))
     }
 
     /// Private: decode a fixed-length four-byte number.  This generic

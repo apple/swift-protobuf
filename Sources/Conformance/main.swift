@@ -21,7 +21,6 @@ import Glibc
 import Darwin.C
 #endif
 
-import Foundation
 import SwiftProtobuf
 
 func readRequest() -> [UInt8]? {
@@ -39,11 +38,10 @@ func readRequest() -> [UInt8]? {
     return buff
 }
 
-func writeResponse(data: Data) {
-    let bytes = [UInt8](data)
-    var count = UInt32(bytes.count)
+func writeResponse(data: [UInt8]) {
+    var count = UInt32(data.count)
     fwrite(&count, 4, 1, stdout)
-    _ = bytes.withUnsafeBufferPointer { bp in
+    _ = data.withUnsafeBufferPointer { bp in
         fwrite(bp.baseAddress, Int(count), 1, stdout)
     }
     fflush(stdout)

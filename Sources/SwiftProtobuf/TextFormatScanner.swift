@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 private let asciiBell = UInt8(7)
 private let asciiBackspace = UInt8(8)
 private let asciiTab = UInt8(9)
@@ -476,7 +474,7 @@ internal struct TextFormatScanner {
     ///
     /// Assumes that validateAndCountBytesFromString() has already
     /// verified the correctness.  So we get to avoid error checks here.
-    private mutating func parseBytesFromString(terminator: UInt8, into data: inout Data) {
+    private mutating func parseBytesFromString(terminator: UInt8, into data: inout [UInt8]) {
       data.withUnsafeMutableBytes {
         (body: UnsafeMutableRawBufferPointer) in
         if var out = body.baseAddress, body.count > 0 {
@@ -782,9 +780,9 @@ internal struct TextFormatScanner {
     /// are separately decoded and then concatenated:
     ///  field1: "bytes" 'more bytes'
     ///        "and even more bytes"
-    internal mutating func nextBytesValue() throws -> Data {
+    internal mutating func nextBytesValue() throws -> [UInt8] {
         // Get the first string's contents
-        var result: Data
+        var result: [UInt8]
         skipWhitespace()
         if p == end {
             throw TextFormatDecodingError.malformedText
@@ -797,10 +795,10 @@ internal struct TextFormatScanner {
         var sawBackslash = false
         let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
         if sawBackslash {
-          result = Data(count: n)
+          result = Array(repeating: 0, count: n)
           parseBytesFromString(terminator: c, into: &result)
         } else {
-          result = Data(bytes: p, count: n)
+          result = Array(UnsafeRawBufferPointer(start: p, count: n))
           p += n + 1 // Skip string body + close quote
         }
 
@@ -819,11 +817,11 @@ internal struct TextFormatScanner {
             var sawBackslash = false
             let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
             if sawBackslash {
-              var b = Data(count: n)
+              var b: [UInt8] = Array(repeating: 0, count: n)
               parseBytesFromString(terminator: c, into: &b)
-              result.append(b)
+              result.append(contentsOf: b)
             } else {
-              result.append(Data(bytes: p, count: n))
+              result.append(contentsOf: UnsafeRawBufferPointer(start: p, count: n))
               p += n + 1 // Skip string body + close quote
             }
         }

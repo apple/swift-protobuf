@@ -13,8 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 fileprivate func serializeAnyJSON(
   for message: Message,
   typeURL: String,
@@ -94,21 +92,21 @@ fileprivate func unpack(contentJSON: [UInt8],
 internal class AnyMessageStorage {
   // The two properties generated Google_Protobuf_Any will reference.
   var _typeURL = String()
-  var _value: Data {
+  var _value: [UInt8] {
     // Remapped to the internal `state`.
     get {
       switch state {
       case .binary(let value):
-        return Data(value)
+        return value
       case .message(let message):
         do {
           return try message.serializedData(partial: true)
         } catch {
-          return Data()
+          return []
         }
       case .contentJSON(let contentJSON, let options):
         guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          return Data()
+          return []
         }
         do {
           let m = try unpack(contentJSON: contentJSON,
@@ -117,12 +115,12 @@ internal class AnyMessageStorage {
                              as: messageType)
           return try m.serializedData(partial: true)
         } catch {
-          return Data()
+          return []
         }
       }
     }
     set {
-      state = .binary(Array(newValue))
+      state = .binary(newValue)
     }
   }
 
@@ -180,7 +178,7 @@ internal class AnyMessageStorage {
       } else {
         // Different type, serialize and parse.
         let data = try msg.serializedData(partial: true)
-        target = try M(contiguousBytes: Array(data), extensions: extensions, partial: true)
+        target = try M(contiguousBytes: data, extensions: extensions, partial: true)
       }
 
     case .contentJSON(let contentJSON, let options):
@@ -275,7 +273,7 @@ extension AnyMessageStorage {
         try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
       }
       if !valueData.isEmpty {
-        try! visitor.visitSingularBytesField(value: Data(valueData), fieldNumber: 2)
+        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
       }
 
     case .message(let msg):

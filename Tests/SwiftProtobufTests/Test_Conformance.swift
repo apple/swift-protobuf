@@ -13,7 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -146,10 +145,10 @@ class Test_Conformance: XCTestCase, PBTestHelpers {
 
     func testBytes_unicodeEscape() {
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\u1234\"") {
-          return $0.optionalBytes == Data("\u{1234}".utf8)
+            return $0.optionalBytes == Array("\u{1234}".utf8)
         }
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\U0001F601\"") {
-          return $0.optionalBytes == Data("\u{1F601}".utf8)
+          return $0.optionalBytes == Array("\u{1F601}".utf8)
         }
 
         assertTextFormatDecodeFails("optional_bytes: \"\\u")

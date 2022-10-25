@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import Foundation
 
 // NOTE: The generator changes what is generated based on the number/types
 // of fields (using a nested storage class or not), to be completel, all
@@ -151,10 +150,10 @@ class Test_MapFields_Access_Proto3: XCTestCase {
   func testMapStringBytes() {
     var msg = ProtobufUnittest_Message3()
     XCTAssertEqual(msg.mapStringBytes, [:])
-    msg.mapStringBytes = ["84": Data([84])]
-    XCTAssertEqual(msg.mapStringBytes, ["84": Data([84])])
-    msg.mapStringBytes["184"] = Data([184])
-    XCTAssertEqual(msg.mapStringBytes, ["84": Data([84]), "184": Data([184])])
+    msg.mapStringBytes = ["84": [84]]
+    XCTAssertEqual(msg.mapStringBytes, ["84": [84]])
+    msg.mapStringBytes["184"] = [184]
+    XCTAssertEqual(msg.mapStringBytes, ["84": [84], "184": [184]])
   }
 
   func testMapStringMessage() {
@@ -190,10 +189,10 @@ class Test_MapFields_Access_Proto3: XCTestCase {
   func testMapInt32Bytes() {
     var msg = ProtobufUnittest_Message3()
     XCTAssertEqual(msg.mapInt32Bytes, [:])
-    msg.mapInt32Bytes = [86: Data([86])]
-    XCTAssertEqual(msg.mapInt32Bytes, [86: Data([86])])
-    msg.mapInt32Bytes[186] = Data([186])
-    XCTAssertEqual(msg.mapInt32Bytes, [86: Data([86]), 186: Data([186])])
+    msg.mapInt32Bytes = [86: [86]]
+    XCTAssertEqual(msg.mapInt32Bytes, [86: [86]])
+    msg.mapInt32Bytes[186] = [186]
+    XCTAssertEqual(msg.mapInt32Bytes, [86: [86], 186: [186]])
   }
 
   func testMapInt32Enum() {

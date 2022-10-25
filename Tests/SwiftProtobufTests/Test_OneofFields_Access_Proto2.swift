@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import Foundation
 
 // NOTE: The generator changes what is generated based on the number/types
 // of fields (using a nested storage class or not), to be completel, all
@@ -240,17 +239,17 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
 
   func testOneofBytes() {
     var msg = ProtobufUnittest_Message2()
-    XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8))
+    XCTAssertEqual(msg.oneofBytes, Array("data".utf8))
     XCTAssertNil(msg.o)
-    msg.oneofBytes = Data([65])
-    XCTAssertEqual(msg.oneofBytes, Data([65]))
-    XCTAssertEqual(msg.o, .oneofBytes(Data([65])))
+    msg.oneofBytes = [65]
+    XCTAssertEqual(msg.oneofBytes, [65])
+    XCTAssertEqual(msg.o, .oneofBytes([65]))
     msg.o = nil
-    XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8))
+    XCTAssertEqual(msg.oneofBytes, Array("data".utf8))
     XCTAssertNil(msg.o)
-    msg.oneofBytes = "data".data(using: .utf8)!
-    XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8))
-    XCTAssertEqual(msg.o, .oneofBytes("data".data(using: .utf8)!))
+    msg.oneofBytes = Array("data".utf8)
+    XCTAssertEqual(msg.oneofBytes, Array("data".utf8))
+    XCTAssertEqual(msg.o, .oneofBytes(Array("data".utf8)))
   }
 
   func testOneofGroup() {
@@ -422,7 +421,7 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
         XCTAssertEqual(v, "64")
       case .oneofBytes(let v)?:
         XCTAssertEqual(i, 15)
-        XCTAssertEqual(v, Data([65]))
+        XCTAssertEqual(v, [65])
       case .oneofGroup(let v)?:
         XCTAssertEqual(i, 16)
         XCTAssertTrue(v.hasA)
@@ -508,9 +507,9 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
         XCTAssertEqual(msg.oneofString, "string", "i = \(i)")
       }
       if i == 15 {
-        XCTAssertEqual(msg.oneofBytes, Data([65]))
+        XCTAssertEqual(msg.oneofBytes, [65])
       } else {
-        XCTAssertEqual(msg.oneofBytes, "data".data(using: .utf8), "i = \(i)")
+        XCTAssertEqual(msg.oneofBytes, Array("data".utf8), "i = \(i)")
       }
       if i == 16 {
         XCTAssertTrue(msg.oneofGroup.hasA)
@@ -563,7 +562,7 @@ class Test_OneofFields_Access_Proto2: XCTestCase {
     assertRightFiledSet(13)
     msg.oneofString = "64"
     assertRightFiledSet(14)
-    msg.oneofBytes = Data([65])
+    msg.oneofBytes = [65]
     assertRightFiledSet(15)
     msg.oneofGroup.a = 66
     assertRightFiledSet(16)

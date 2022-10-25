@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 private let asciiBell = UInt8(7)
 private let asciiBackspace = UInt8(8)
 private let asciiTab = UInt8(9)
@@ -104,7 +102,7 @@ let base64Values: [Int] = [
 /* 0xf0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 ]
 
-/// Returns a `Data` value containing bytes equivalent to the given
+/// Returns a `[UInt8]` value containing bytes equivalent to the given
 /// Base64-encoded string, or nil if the conversion fails.
 ///
 /// Notes on Google's implementation (Base64Unescape() in strutil.cc):
@@ -119,7 +117,7 @@ private func parseBytes(
   source: UnsafeRawBufferPointer,
   index: inout UnsafeRawBufferPointer.Index,
   end: UnsafeRawBufferPointer.Index
-) throws -> Data {
+) throws -> [UInt8] {
     let c = source[index]
     if c != asciiDoubleQuote {
         throw JSONDecodingError.malformedString
@@ -180,10 +178,10 @@ private func parseBytes(
         throw JSONDecodingError.malformedString
     }
 
-    // Allocate a Data object of exactly the right size
-    var value = Data(count: rawChars * 3 / 4)
+    // Allocate an [UInt8] of exactly the right size
+    var value: [UInt8] = Array(repeating: 0, count: rawChars * 3 / 4)
 
-    // Scan the digits again and populate the Data object.
+    // Scan the digits again and populate the bytes array.
     // In this pass, we check for (and fail) if there are
     // unexpected characters.  But we don't check for end-of-input,
     // because the loop above already verified that there was
@@ -1108,7 +1106,7 @@ internal struct JSONScanner {
     return try nextQuotedString()
   }
 
-  /// Return a Data with the decoded contents of the
+  /// Return a `[UInt8]` with the decoded contents of the
   /// following base-64 string.
   ///
   /// Notes on Google's implementation:
@@ -1119,7 +1117,7 @@ internal struct JSONScanner {
   ///  * Google's C++ implementation accepts both "regular" and
   ///    "web-safe" base-64 variants (it seems to prefer the
   ///    web-safe version as defined in RFC 4648
-  internal mutating func nextBytesValue() throws -> Data {
+  internal mutating func nextBytesValue() throws -> [UInt8] {
     skipWhitespace()
     guard hasMoreContent else {
       throw JSONDecodingError.truncated

@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Visitor that serializes a message into JSON map format.
 ///
 /// This expects to alternately visit the keys and values for a JSON
@@ -149,7 +147,7 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
       encoder.putStringValue(value: value)
   }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
       // Bytes can only be map values, never keys
       assert(fieldNumber == 2)
       startValue()

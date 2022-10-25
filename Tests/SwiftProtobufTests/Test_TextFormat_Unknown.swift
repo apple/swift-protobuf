@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 @testable import SwiftProtobuf
 
@@ -149,7 +148,7 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
                 kTagSize + Int32(Varint.encodedSize(of: lengths.last!)) + lengths.last!)
         }
 
-        var bytes = Data()
+        var bytes = [UInt8]()
         for len in lengths.lazy.reversed() {
             bytes.appendStartField(tag: kTag)
             bytes.appendVarInt(value: len)
@@ -221,7 +220,8 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let kTagStart = FieldTag(fieldNumber: kFieldNum, wireFormat: .startGroup)
         let kTagEnd = FieldTag(fieldNumber: kFieldNum, wireFormat: .endGroup)
 
-        var bytes = Data(capacity: kNestingDepth *
+        var bytes = [UInt8]()
+        bytes.reserveCapacity(kNestingDepth *
           (Varint.encodedSize(of: kTagStart.rawValue) + Varint.encodedSize(of: kTagEnd.rawValue)))
         for _ in 0..<kNestingDepth {
             bytes.appendStartField(tag: kTagStart)

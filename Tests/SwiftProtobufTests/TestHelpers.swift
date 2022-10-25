@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import Foundation
 import SwiftProtobuf
 
 typealias XCTestFileArgType = StaticString
@@ -24,7 +23,7 @@ protocol PBTestHelpers {
 
 extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable {
 
-    private func string(from data: Data) -> String {
+    private func string(from data: [UInt8]) -> String {
         return "[" + data.map { String($0) }.joined(separator: ", ") + "]"
     }
 
@@ -35,7 +34,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializedData()
-            XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
             do {
                 let decoded = try MessageTestType(contiguousBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -77,7 +76,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     // Supports an optional `check` to do additional validation.
     func assertDecodesAsUnknownFields(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: ((MessageTestType) -> Bool)? = nil) {
         assertDecodeSucceeds(bytes, file: file, line: line) {
-            if $0.unknownFields.data != Data(bytes) {
+            if $0.unknownFields.data != bytes {
                 return false
             }
             if let check = check {
@@ -94,7 +93,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         } catch let e {
             XCTFail("Failed to decode: \(e)", file: file, line: line)
         }
-        XCTAssertEqual(msgCopy.unknownFields.data, Data(bytes), file: file, line: line)
+        XCTAssertEqual(msgCopy.unknownFields.data, bytes, file: file, line: line)
         if let check = check {
             XCTAssert(check(msgCopy), "Condition failed for \(msgCopy)", file: file, line: line)
         }
@@ -107,7 +106,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
             do {
                 let encoded = try decoded.serializedData()
-                XCTAssertEqual(Data(recodedBytes), encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
+                XCTAssertEqual(recodedBytes, encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
                 do {
                     let redecoded = try MessageTestType(contiguousBytes: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
@@ -154,7 +153,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
         do {
             let encodedData = try configured.jsonUTF8Data(options: encodingOptions)
-            let encodedOptString = String(data: encodedData, encoding: String.Encoding.utf8)
+            let encodedOptString = String(bytes: encodedData, encoding: .utf8)
             XCTAssertNotNil(encodedOptString)
             let encodedString = encodedOptString!
             XCTAssert(expected == encodedString, "Did not encode correctly: got \(encodedString)", file: file, line: line)
@@ -250,7 +249,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
             do {
                 let encoded = try decoded.jsonUTF8Data()
-                let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
+                let encodedString = String(bytes: encoded, encoding: .utf8)!
                 do {
                     let redecoded = try MessageTestType(jsonUTF8Data: encoded, extensions: extensions)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)
@@ -337,7 +336,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             // Yay! It failed!
         }
 
-        let jsonData = json.data(using: String.Encoding.utf8)!
+        let jsonData = Array(json.utf8)
         do {
             let _ = try MessageTestType(jsonUTF8Data: jsonData, extensions: extensions, options: options)
             XCTFail("Swift decode should have failed for binary: \(json)", file: file, line: line)
@@ -398,7 +397,7 @@ protocol PBTestVisitor: Visitor {
 }
 
 extension PBTestVisitor {
-  mutating func visitUnknown(bytes: Data) throws {
+  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     XCTFail("Unexpected unknowns: \(bytes)")
   }
 
@@ -406,7 +405,7 @@ extension PBTestVisitor {
     XCTFail("Unexpected bool: \(fieldNumber) = \(value)")
   }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     XCTFail("Unexpected bytes: \(fieldNumber) = \(value)")
   }
 

@@ -14,7 +14,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -23,6 +22,6 @@ class Test_Empty: XCTestCase, PBTestHelpers {
 
     func testExists() throws {
         let e = Google_Protobuf_Empty()
-        XCTAssertEqual(Data(), try e.serializedData())
+        XCTAssertEqual([], try e.serializedData())
     }
 }

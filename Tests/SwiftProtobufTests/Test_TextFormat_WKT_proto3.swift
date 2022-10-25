@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -274,7 +273,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             "bytes_field {\n  value: \"abc\"\n}\n"
         ) {
             (o: inout MessageTestType) in
-            o.bytesField = Google_Protobuf_BytesValue(Data([97, 98, 99]))
+            o.bytesField = Google_Protobuf_BytesValue([97, 98, 99])
         }
     }
 

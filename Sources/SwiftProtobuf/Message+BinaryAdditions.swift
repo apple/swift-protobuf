@@ -12,11 +12,9 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Binary encoding and decoding methods for messages.
 extension Message {
-  /// Returns a `Data` value containing the Protocol Buffer binary format
+  /// Returns a `[UInt8]` value containing the Protocol Buffer binary format
   /// serialization of the message.
   ///
   /// - Parameters:
@@ -24,15 +22,15 @@ extension Message {
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryEncodingError.missingRequiredFields`.
-  /// - Returns: A `Data` value containing the binary serialization of the
+  /// - Returns: A `[UInt8]` value containing the binary serialization of the
   ///   message.
   /// - Throws: `BinaryEncodingError` if encoding fails.
-  public func serializedData(partial: Bool = false) throws -> Data {
+  public func serializedData(partial: Bool = false) throws -> [UInt8] {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
     }
     let requiredSize = try serializedDataSize()
-    var data = Data(count: requiredSize)
+    var data: [UInt8] = Array(repeating: 0, count: requiredSize)
     try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
         var visitor = BinaryEncodingVisitor(forWritingInto: baseAddress)

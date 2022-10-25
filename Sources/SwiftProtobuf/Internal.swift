@@ -25,7 +25,7 @@ public enum Internal {
   /// fact that the `Data` type in Swift involves a new heap allocation every
   /// time an empty instance is initialized, instead of sharing a common empty
   /// backing storage.
-  public static let emptyData = Data()
+  public static let emptyData = [UInt8]()
 
   /// Helper to loop over a list of Messages to see if they are all
   /// initialized (see Message.isInitialized for what that means).

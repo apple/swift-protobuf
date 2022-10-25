@@ -55,7 +55,7 @@ public enum BinaryDelimited {
     // TODO: Revisit to avoid the extra buffering when encoding is streamed in general.
     let serialized = try message.serializedData(partial: partial)
     let totalSize = Varint.encodedSize(of: UInt64(serialized.count)) + serialized.count
-    var data = Data(count: totalSize)
+    var data: [UInt8] = Array(repeating: 0, count: totalSize)
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
         var encoder = BinaryEncoder(forWritingInto: baseAddress)

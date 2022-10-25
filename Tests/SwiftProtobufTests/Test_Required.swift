@@ -27,7 +27,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 
 import SwiftProtobuf
@@ -265,7 +264,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let data = try message.serializedData(partial: true)
-            XCTAssertEqual(data, Data(expectedBytes), "While encoding \(message)", file: file, line: line)
+            XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)
         } catch let e {
             XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
         }
@@ -296,7 +295,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([97, 0, 0, 0, 0, 0, 0, 40, 64], { (m) in m.requiredDouble = 12 }),
             ([104, 1], { (m) in m.requiredBool = true }),
             ([114, 2, 49, 52], { (m) in m.requiredString = "14" }),
-            ([122, 1, 15], { (m) in m.requiredBytes = Data([15]) }),
+            ([122, 1, 15], { (m) in m.requiredBytes = [15] }),
             ([131, 1, 136, 1, 16, 132, 1], { (m) in m.requiredGroup.a = 16 }),
             ([146, 1, 2, 8, 18], { (m) in m.requiredNestedMessage.bb = 18 }),
             ([154, 1, 2, 8, 19], { (m) in m.requiredForeignMessage.c = 19 }),
@@ -322,7 +321,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([193, 4, 0, 0, 0, 0, 0, 0, 82, 64], { (m) in m.defaultDouble = 72 }),
             ([200, 4, 0], { (m) in m.defaultBool = false }),
             ([210, 4, 2, 55, 52], { (m) in m.defaultString = "74" }),
-            ([218, 4, 1, 75], { (m) in m.defaultBytes = Data([75]) }),
+            ([218, 4, 1, 75], { (m) in m.defaultBytes = [75] }),
             ([136, 5, 3], { (m) in m.defaultNestedEnum = .baz }),
             ([144, 5, 6], { (m) in m.defaultForeignEnum = .foreignBaz }),
             ([152, 5, 9], { (m) in m.defaultImportEnum = .importBaz }),
@@ -337,10 +336,10 @@ class Test_Required: XCTestCase, PBTestHelpers {
         }
 
         // Glue it all together and it should encode ok as it will be complete.
-        var allExpectedData = Data()
+        var allExpectedData = [UInt8]()
         msg = MessageTestType()
         for (expected, configure) in testInputs {
-            allExpectedData.append(Data(expected))
+            allExpectedData.append(contentsOf: expected)
             configure(&msg)
         }
         let serialized = try msg.serializedData()
@@ -425,7 +424,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let data = try message.serializedData(partial: true)
-            XCTAssertEqual(data, Data(expectedBytes), "While encoding \(message)", file: file, line: line)
+            XCTAssertEqual(data, expectedBytes, "While encoding \(message)", file: file, line: line)
         } catch let e {
             XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
         }
@@ -446,7 +445,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
             ([21, 0, 0, 0, 64], { (m) in m.requiredFloat = 2 }),
             ([24, 1], { (m) in m.requiredBool = true }),
             ([34, 1, 52], { (m) in m.requiredString = "4" }),
-            ([42, 1, 5], { (m) in m.requiredBytes = Data([5]) }),
+            ([42, 1, 5], { (m) in m.requiredBytes = [5] }),
             ([48, 1], { (m) in m.requiredNestedEnum = .foo }),
         ]
         for (expected, configure) in testInputs {
@@ -457,10 +456,10 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
         }
 
         // Glue it all together and it should encode ok as it will be complete.
-        var allExpectedData = Data()
+        var allExpectedData = [UInt8]()
         msg = MessageTestType()
         for (expected, configure) in testInputs {
-            allExpectedData.append(Data(expected))
+            allExpectedData.append(contentsOf: expected)
             configure(&msg)
         }
         let serialized = try msg.serializedData()

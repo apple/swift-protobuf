@@ -69,7 +69,7 @@ internal struct JSONEncoder {
 
     internal init() {}
 
-    internal var dataResult: Data { return Data(data) }
+    internal var dataResult: [UInt8] { return data }
 
     internal var stringResult: String {
         get {
@@ -356,7 +356,7 @@ internal struct JSONEncoder {
     }
 
     /// Append a bytes value using protobuf JSON Base-64 encoding.
-    internal mutating func putBytesValue(value: Data) {
+    internal mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
             value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in

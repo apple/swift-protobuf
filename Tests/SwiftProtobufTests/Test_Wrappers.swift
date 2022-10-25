@@ -13,7 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -234,7 +233,7 @@ class Test_Wrappers: XCTestCase {
     func testBytesValue() throws {
         var m = Google_Protobuf_BytesValue()
         XCTAssertEqual("\"\"", try m.jsonString())
-        m.value = Data([0, 1, 2])
+        m.value = [0, 1, 2]
         XCTAssertEqual("\"AAEC\"", try m.jsonString())
         XCTAssertEqual([10,3,0,1,2], try m.serializedBytes())
         // TODO: More

@@ -225,7 +225,7 @@ extension FieldDescriptor {
       case .string:
         return stringToEscapedStringLiteral(defaultValue)
       case .bytes:
-        return escapedToDataLiteral(defaultValue)
+        return escapedToArrayLiteral(defaultValue)
       case .enum:
         let enumValue = enumType!.value(named: defaultValue)!
         return namer.dottedRelativeName(enumValue: enumValue)

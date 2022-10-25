@@ -299,7 +299,7 @@ in the proto3 specification:
 * Numeric fields are initialized to zero.
 * Boolean fields are initialize to false.
 * String fields are initialized to the empty string.
-* Bytes fields are initialized to an empty Data() object.
+* Bytes fields are initialized to an empty [UInt8] object.
 * Enum fields are initialized to the default value (the value corresponding to
   zero, which must be the first item in the enum).
 * Message fields are initialized to an empty message of the appropriate type.

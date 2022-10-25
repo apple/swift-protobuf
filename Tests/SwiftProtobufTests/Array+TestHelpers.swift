@@ -8,11 +8,10 @@
 //
 // -----------------------------------------------------------------------------
 
-import Foundation
 @testable import SwiftProtobuf
 
 /// Helpers for building up wire encoding in tests.
-extension Data {
+extension Array where Array.Element == UInt8 {
     mutating func appendStartField(fieldNumber: Int, wireFormat: WireFormat) {
         appendStartField(tag: FieldTag(fieldNumber: fieldNumber, wireFormat: wireFormat))
     }
@@ -43,4 +42,3 @@ extension Data {
     }
 
 }
-

@@ -13,7 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -49,7 +48,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
                 let empty = try Proto3ArenaUnittest_TestEmptyMessage(contiguousBytes: protobufBytes)
                 do {
                     let pb = try empty.serializedData()
-                    XCTAssertEqual(Data(protobufBytes), pb, file: file, line: line)
+                    XCTAssertEqual(protobufBytes, pb, file: file, line: line)
                 } catch {
                     XCTFail("Recoding empty failed", file: file, line: line)
                 }
@@ -162,7 +161,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
 
 
     func assertUnknownFields(_ message: Message, _ bytes: [UInt8], line: UInt = #line) {
-        XCTAssertEqual(message.unknownFields.data, Data(bytes), line: line)
+        XCTAssertEqual(message.unknownFields.data, bytes, line: line)
     }
 
     func test_MessageNoStorageClass() throws {

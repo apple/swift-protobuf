@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 ///
 /// Provides a higher-level interface to the token stream coming
 /// from a TextFormatScanner.  In particular, this provides
@@ -404,15 +402,15 @@ internal struct TextFormatDecoder: Decoder {
             value.append(n)
         }
     }
-    mutating func decodeSingularBytesField(value: inout Data) throws {
+    mutating func decodeSingularBytesField(value: inout [UInt8]) throws {
         try scanner.skipRequiredColon()
         value = try scanner.nextBytesValue()
     }
-    mutating func decodeSingularBytesField(value: inout Data?) throws {
+    mutating func decodeSingularBytesField(value: inout [UInt8]?) throws {
         try scanner.skipRequiredColon()
         value = try scanner.nextBytesValue()
     }
-    mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+    mutating func decodeRepeatedBytesField(value: inout [[UInt8]]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true

@@ -15,7 +15,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -36,7 +35,7 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(encoded, [8, 12, 18, 56, 10, 50, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 112, 114, 111, 116, 111, 98, 117, 102, 95, 117, 110, 105, 116, 116, 101, 115, 116, 46, 84, 101, 115, 116, 65, 108, 108, 84, 121, 112, 101, 115, 18, 2, 8, 7])
         let decoded = try ProtobufUnittest_TestAny(serializedBytes: encoded)
         XCTAssertEqual(decoded.anyValue.typeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
-        XCTAssertEqual(decoded.anyValue.value, Data([8, 7]))
+        XCTAssertEqual(decoded.anyValue.value, [8, 7])
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -67,7 +66,7 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "X/Y/protobuf_unittest.TestAllTypes")
-        XCTAssertEqual(decoded.anyValue.value, Data([8, 7]))
+        XCTAssertEqual(decoded.anyValue.value, [8, 7])
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -80,7 +79,7 @@ class Test_Any: XCTestCase {
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedData()
-        XCTAssertEqual(Data(encoded), recoded)
+        XCTAssertEqual(encoded, recoded)
     }
 
     /// The typeURL prefix should be ignored for purposes of determining the actual type.
@@ -98,7 +97,7 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "/protobuf_unittest.TestAllTypes")
-        XCTAssertEqual(decoded.anyValue.value, Data([8, 7]))
+        XCTAssertEqual(decoded.anyValue.value, [8, 7])
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -111,7 +110,7 @@ class Test_Any: XCTestCase {
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedData()
-        XCTAssertEqual(Data(encoded), recoded)
+        XCTAssertEqual(encoded, recoded)
     }
 
     /// Though Google discourages this, we should be able to match and decode an Any
@@ -126,7 +125,7 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "protobuf_unittest.TestAllTypes")
-        XCTAssertEqual(decoded.anyValue.value, Data([8, 7]))
+        XCTAssertEqual(decoded.anyValue.value, [8, 7])
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -139,7 +138,7 @@ class Test_Any: XCTestCase {
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
         let recoded = try decoded.serializedData()
-        XCTAssertEqual(Data(encoded), recoded)
+        XCTAssertEqual(encoded, recoded)
     }
 
     func test_Any_UserMessage() throws {
@@ -156,7 +155,7 @@ class Test_Any: XCTestCase {
         do {
             let decoded = try ProtobufUnittest_TestAny(jsonString: encoded)
             XCTAssertNotNil(decoded.anyValue)
-            XCTAssertEqual(Data([8, 7]), decoded.anyValue.value)
+            XCTAssertEqual([8, 7], decoded.anyValue.value)
             XCTAssertEqual(decoded.int32Value, 12)
             XCTAssertNotNil(decoded.anyValue)
             let any = decoded.anyValue
@@ -187,7 +186,7 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertEqual(anyValue.value, Data())
+        XCTAssertEqual(anyValue.value, [])
 
         XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\n#json: \"{\\\"optionalInt32\\\":7}\"\n")
 
@@ -209,7 +208,7 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertEqual(anyValue.value, Data([8, 7]))
+        XCTAssertEqual(anyValue.value, [8, 7])
 
         XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\nvalue: \"\\b\\007\"\n")
 
@@ -242,7 +241,7 @@ class Test_Any: XCTestCase {
             return
         }
 
-        let protobuf: Data
+        let protobuf: [UInt8]
         do {
             protobuf = try decoded.serializedData()
         } catch {
@@ -639,7 +638,7 @@ class Test_Any: XCTestCase {
 
     func test_Any_OddTypeURL_FromValue() throws {
       var msg = ProtobufTestMessages_Proto3_TestAllTypesProto3()
-      msg.optionalAny.value = Data([0x1a, 0x03, 0x61, 0x62, 0x63])
+      msg.optionalAny.value = [0x1a, 0x03, 0x61, 0x62, 0x63]
       msg.optionalAny.typeURL = "Odd\nType\" prefix/google.protobuf.Value"
       let newJSON = try msg.jsonString()
       XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nType\\\" prefix/google.protobuf.Value\",\"value\":\"abc\"}}")
@@ -728,7 +727,7 @@ class Test_Any: XCTestCase {
       let start = "{\"optionalAny\":{}}"
       let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
       let protobuf = try decoded.serializedData()
-      XCTAssertEqual(protobuf, Data([138, 19, 0]))
+      XCTAssertEqual(protobuf, [138, 19, 0])
       let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(contiguousBytes: protobuf)
       let retext = redecoded.textFormatString()
       XCTAssertEqual(retext, "optional_any {\n}\n")

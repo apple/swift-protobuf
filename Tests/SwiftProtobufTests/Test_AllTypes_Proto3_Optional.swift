@@ -15,7 +15,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 
 class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
@@ -525,29 +524,29 @@ class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalBytes() {
-        assertEncode([122, 0]) {(o: inout MessageTestType) in o.optionalBytes = Data()}
-        assertDecodeSucceeds([122, 0]) { $0.hasOptionalBytes && $0.optionalBytes == Data() }
-        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestProto3Optional:\noptional_bytes: \"\"\n") {(o: inout MessageTestType) in o.optionalBytes = Data()}
+        assertEncode([122, 0]) {(o: inout MessageTestType) in o.optionalBytes = []}
+        assertDecodeSucceeds([122, 0]) { $0.hasOptionalBytes && $0.optionalBytes == [] }
+        assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestProto3Optional:\noptional_bytes: \"\"\n") {(o: inout MessageTestType) in o.optionalBytes = []}
         assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestProto3Optional:\n") {(o: inout MessageTestType) in
-          o.optionalBytes = Data()
+          o.optionalBytes = []
           o.clearOptionalBytes()
         }
 
         let empty = MessageTestType()
         var a = empty
-        a.optionalBytes = Data()
+        a.optionalBytes = []
         XCTAssertNotEqual(a, empty)
         var b = empty
-        b.optionalBytes = Data([1])
+        b.optionalBytes = [1]
         XCTAssertNotEqual(a, b)
         b.clearOptionalBytes()
         XCTAssertNotEqual(a, b)
-        b.optionalBytes = Data()
+        b.optionalBytes = []
         XCTAssertEqual(a, b)
 
         // Ensure storage is uniqued for clear.
         let c = MessageTestType.with {
-            $0.optionalBytes = Data([1])
+            $0.optionalBytes = [1]
         }
         var d = c
         XCTAssertEqual(c, d)

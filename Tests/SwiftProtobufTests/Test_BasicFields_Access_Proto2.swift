@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import Foundation
 
 // NOTE: The generator changes what is generated based on the number/types
 // of fields (using a nested storage class or not), to be completel, all
@@ -194,13 +193,13 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
 
   func testOptionalBytes() {
     var msg = ProtobufUnittest_TestAllTypes()
-    XCTAssertEqual(msg.optionalBytes, Data())
+    XCTAssertEqual(msg.optionalBytes, [])
     XCTAssertFalse(msg.hasOptionalBytes)
-    msg.optionalBytes = Data([15])
+    msg.optionalBytes = [15]
     XCTAssertTrue(msg.hasOptionalBytes)
-    XCTAssertEqual(msg.optionalBytes, Data([15]))
+    XCTAssertEqual(msg.optionalBytes, [15])
     msg.clearOptionalBytes()
-    XCTAssertEqual(msg.optionalBytes, Data())
+    XCTAssertEqual(msg.optionalBytes, [])
     XCTAssertFalse(msg.hasOptionalBytes)
   }
 
@@ -525,13 +524,13 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
 
   func testDefaultBytes() {
     var msg = ProtobufUnittest_TestAllTypes()
-    XCTAssertEqual(msg.defaultBytes, "world".data(using: .utf8))
+    XCTAssertEqual(msg.defaultBytes, Array("world".utf8))
     XCTAssertFalse(msg.hasDefaultBytes)
-    msg.defaultBytes = Data([75])
+    msg.defaultBytes = [75]
     XCTAssertTrue(msg.hasDefaultBytes)
-    XCTAssertEqual(msg.defaultBytes, Data([75]))
+    XCTAssertEqual(msg.defaultBytes, [75])
     msg.clearDefaultBytes()
-    XCTAssertEqual(msg.defaultBytes, "world".data(using: .utf8))
+    XCTAssertEqual(msg.defaultBytes, Array("world".utf8))
     XCTAssertFalse(msg.hasDefaultBytes)
   }
 
@@ -726,10 +725,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   func testRepeatedBytes() {
     var msg = ProtobufUnittest_TestAllTypes()
     XCTAssertEqual(msg.repeatedBytes, [])
-    msg.repeatedBytes = [Data([45])]
-    XCTAssertEqual(msg.repeatedBytes, [Data([45])])
-    msg.repeatedBytes.append(Data([145]))
-    XCTAssertEqual(msg.repeatedBytes, [Data([45]), Data([145])])
+    msg.repeatedBytes = [[45]]
+    XCTAssertEqual(msg.repeatedBytes, [[45]])
+    msg.repeatedBytes.append([145])
+    XCTAssertEqual(msg.repeatedBytes, [[45], [145]])
   }
 
   func testRepeatedGroup() {

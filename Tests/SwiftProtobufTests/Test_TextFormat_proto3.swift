@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -692,37 +691,37 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalBytes() throws {
-        let o = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = Data() }
+        let o = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = [] }
         XCTAssertEqual("", o.textFormatString())
 
         assertTextFormatEncode("optional_bytes: \"AB\"\n") {(o: inout MessageTestType) in
-            o.optionalBytes = Data([65, 66])
+            o.optionalBytes = [65, 66]
         }
         assertTextFormatEncode("optional_bytes: \"\\000\\001AB\\177\\200\\377\"\n") {(o: inout MessageTestType) in
-            o.optionalBytes = Data([0, 1, 65, 66, 127, 128, 255])
+            o.optionalBytes = [0, 1, 65, 66, 127, 128, 255]
         }
         assertTextFormatEncode("optional_bytes: \"\\b\\t\\n\\v\\f\\r\\\"'?\\\\\"\n") {(o: inout MessageTestType) in
-            o.optionalBytes = Data([8, 9, 10, 11, 12, 13, 34, 39, 63, 92])
+            o.optionalBytes = [8, 9, 10, 11, 12, 13, 34, 39, 63, 92]
         }
         assertTextFormatDecodeSucceeds("optional_bytes: \"A\" \"B\"\n") {(o: MessageTestType) in
-            return o.optionalBytes == Data([65, 66])
+            return o.optionalBytes == [65, 66]
         }
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\0\\1AB\\178\\189\\x61\\xdq\\x123456789\"\n") {(o: MessageTestType) in
-            return o.optionalBytes == Data([0, 1, 65, 66, 15, 56, 1, 56, 57, 97, 13, 113, 18, 51, 52, 53, 54, 55, 56, 57])
+            return o.optionalBytes == [0, 1, 65, 66, 15, 56, 1, 56, 57, 97, 13, 113, 18, 51, 52, 53, 54, 55, 56, 57]
         }
         // "\1" followed by "2", not "\12"
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\1\" \"2\"") {(o: MessageTestType) in
-            return o.optionalBytes == Data([1, 50]) // Not [10]
+            return o.optionalBytes == [1, 50] // Not [10]
         }
         // "\x6" followed by "2", not "\x62"
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\x6\" \"2\"") {(o: MessageTestType) in
-            return o.optionalBytes == Data([6, 50]) // Not [98]
+            return o.optionalBytes == [6, 50] // Not [98]
         }
         assertTextFormatDecodeSucceeds("optional_bytes: \"\"\n") {(o: MessageTestType) in
-            return o.optionalBytes == Data()
+            return o.optionalBytes == []
         }
         assertTextFormatDecodeSucceeds("optional_bytes: \"\\b\\t\\n\\v\\f\\r\\\"\\'\\?'\"\n") {(o: MessageTestType) in
-            return o.optionalBytes == Data([8, 9, 10, 11, 12, 13, 34, 39, 63, 39])
+            return o.optionalBytes == [8, 9, 10, 11, 12, 13, 34, 39, 63, 39]
         }
 
         assertTextFormatDecodeFails("optional_bytes: 10\n")
@@ -746,7 +745,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
     func testEncoding_optionalBytes_roundtrip() throws {
         for i in UInt8(0)...UInt8(255) {
-            let d = Data([i])
+            let d = [i]
             let message = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = d }
             let text = message.textFormatString()
             let decoded = try Proto3Unittest_TestAllTypes(textFormatString: text)
@@ -1085,20 +1084,20 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
     func testEncoding_repeatedBytes() {
         var a = MessageTestType()
-        a.repeatedBytes = [Data(), Data([65, 66])]
+        a.repeatedBytes = [[], [65, 66]]
         XCTAssertEqual("repeated_bytes: \"\"\nrepeated_bytes: \"AB\"\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_bytes: \"\"\nrepeated_bytes: \"AB\"\n") {(o: inout MessageTestType) in
-            o.repeatedBytes = [Data(), Data([65, 66])]
+            o.repeatedBytes = [[], [65, 66]]
         }
         assertTextFormatDecodeSucceeds("repeated_bytes: \"\"\nrepeated_bytes: \"A\" \"B\"\n") {(o: MessageTestType) in
-            return o.repeatedBytes == [Data(), Data([65, 66])]
+            return o.repeatedBytes == [[], [65, 66]]
         }
         assertTextFormatDecodeSucceeds("repeated_bytes: [\"\", \"AB\"]\n") {(o: MessageTestType) in
-            return o.repeatedBytes == [Data(), Data([65, 66])]
+            return o.repeatedBytes == [[], [65, 66]]
         }
         assertTextFormatDecodeSucceeds("repeated_bytes: [\"\", \"A\" \"B\"]\n") {(o: MessageTestType) in
-            return o.repeatedBytes == [Data(), Data([65, 66])]
+            return o.repeatedBytes == [[], [65, 66]]
         }
     }
 
@@ -1285,7 +1284,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         o.optionalDouble = 12
         o.optionalBool = true
         o.optionalString = "abc"
-        o.optionalBytes = Data([65, 66])
+        o.optionalBytes = [65, 66]
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o.optionalNestedMessage = nested
@@ -1314,7 +1313,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         o.repeatedDouble = [23, 24]
         o.repeatedBool = [true, false]
         o.repeatedString = ["abc", "def"]
-        o.repeatedBytes = [Data(), Data([65, 66])]
+        o.repeatedBytes = [[], [65, 66]]
         var nested2 = nested
         nested2.bb = -7
         o.repeatedNestedMessage = [nested, nested2]

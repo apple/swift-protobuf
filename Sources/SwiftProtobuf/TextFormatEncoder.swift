@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 private let asciiSpace = UInt8(ascii: " ")
 private let asciiColon = UInt8(ascii: ":")
 private let asciiComma = UInt8(ascii: ",")
@@ -255,7 +253,7 @@ internal struct TextFormatEncoder {
         data.append(asciiDoubleQuote)
     }
 
-    mutating func putBytesValue(value: SwiftProtobufContiguousBytes) {
+    mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
         data.append(asciiDoubleQuote)
         value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
           if let p = body.baseAddress, body.count > 0 {

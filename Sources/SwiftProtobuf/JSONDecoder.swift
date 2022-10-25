@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
   internal var messageType: Message.Type
@@ -432,15 +430,15 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
-  mutating func decodeSingularBytesField(value: inout Data) throws {
+  mutating func decodeSingularBytesField(value: inout [UInt8]) throws {
     if scanner.skipOptionalNull() {
-      value = Data()
+      value = []
       return
     }
     value = try scanner.nextBytesValue()
   }
 
-  mutating func decodeSingularBytesField(value: inout Data?) throws {
+  mutating func decodeSingularBytesField(value: inout [UInt8]?) throws {
     if scanner.skipOptionalNull() {
       value = nil
       return
@@ -448,7 +446,7 @@ internal struct JSONDecoder: Decoder {
     value = try scanner.nextBytesValue()
   }
 
-  mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+  mutating func decodeRepeatedBytesField(value: inout [[UInt8]]) throws {
     if scanner.skipOptionalNull() {
       return
     }

@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 
 class Test_Map: XCTestCase, PBTestHelpers {
@@ -203,29 +202,29 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
     func test_mapInt32Bytes() {
         assertMapEncode([[122, 5, 8, 1, 18, 1, 1], [122, 5, 8, 2, 18, 1, 2]]) {(o: inout MessageTestType) in
-            o.mapInt32Bytes = [1: Data([1]), 2: Data([2])]
+            o.mapInt32Bytes = [1: [1], 2: [2]]
         }
         assertDecodeSucceeds([122, 7, 8, 9, 18, 3, 1, 2, 3]) {
-            $0.mapInt32Bytes == [9: Data([1, 2, 3])]
+            $0.mapInt32Bytes == [9: [1, 2, 3]]
         }
         assertDecodeSucceeds([]) {
             $0.mapInt32Bytes == [:]
         }
         // Missing map value on the wire.
         assertDecodeSucceeds(inputBytes: [122, 2, 8, 1], recodedBytes: [122, 4, 8, 1, 18, 0]) {
-            $0.mapInt32Bytes == [1: Data()]
+            $0.mapInt32Bytes == [1: []]
         }
         // Missing map key on the wire.
         assertDecodeSucceeds(inputBytes: [122, 3, 18, 1, 1], recodedBytes: [122, 5, 8, 0, 18, 1, 1]) {
-            $0.mapInt32Bytes == [0: Data([1])]
+            $0.mapInt32Bytes == [0: [1]]
         }
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [122, 0], recodedBytes: [122, 4, 8, 0, 18, 0]) {
-            $0.mapInt32Bytes == [0: Data()]
+            $0.mapInt32Bytes == [0: []]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [122, 9, 8, 9, 24, 3, 18, 3, 1, 2, 3], recodedBytes: [122, 7, 8, 9, 18, 3, 1, 2, 3]) {
-            $0.mapInt32Bytes == [9: Data([1, 2, 3])]
+            $0.mapInt32Bytes == [9: [1, 2, 3]]
         }
     }
 

@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import Foundation
 
 // NOTE: The generator changes what is generated based on the number/types
 // of fields (using a nested storage class or not), to be completel, all
@@ -240,17 +239,17 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
 
   func testOneofBytes() {
     var msg = ProtobufUnittest_Message3()
-    XCTAssertEqual(msg.oneofBytes, Data())
+    XCTAssertEqual(msg.oneofBytes, [])
     XCTAssertNil(msg.o)
-    msg.oneofBytes = Data([65])
-    XCTAssertEqual(msg.oneofBytes, Data([65]))
-    XCTAssertEqual(msg.o, .oneofBytes(Data([65])))
+    msg.oneofBytes = [65]
+    XCTAssertEqual(msg.oneofBytes, [65])
+    XCTAssertEqual(msg.o, .oneofBytes([65]))
     msg.o = nil
-    XCTAssertEqual(msg.oneofBytes, Data())
+    XCTAssertEqual(msg.oneofBytes, [])
     XCTAssertNil(msg.o)
-    msg.oneofBytes = Data()
-    XCTAssertEqual(msg.oneofBytes, Data())
-    XCTAssertEqual(msg.o, .oneofBytes(Data()))
+    msg.oneofBytes = []
+    XCTAssertEqual(msg.oneofBytes, [])
+    XCTAssertEqual(msg.o, .oneofBytes([]))
   }
 
   // No group.
@@ -368,7 +367,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
         XCTAssertEqual(v, "64")
       case .oneofBytes(let v)?:
         XCTAssertEqual(i, 15)
-        XCTAssertEqual(v, Data([65]))
+        XCTAssertEqual(v, [65])
       // No group.
       case .oneofMessage(let v)?:
         XCTAssertEqual(i, 17)
@@ -450,9 +449,9 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
         XCTAssertEqual(msg.oneofString, "", "i = \(i)")
       }
       if i == 15 {
-        XCTAssertEqual(msg.oneofBytes, Data([65]))
+        XCTAssertEqual(msg.oneofBytes, [65])
       } else {
-        XCTAssertEqual(msg.oneofBytes, Data(), "i = \(i)")
+        XCTAssertEqual(msg.oneofBytes, [], "i = \(i)")
       }
       // No group
       if i == 17 {
@@ -497,7 +496,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
     assertRightFiledSet(13)
     msg.oneofString = "64"
     assertRightFiledSet(14)
-    msg.oneofBytes = Data([65])
+    msg.oneofBytes = [65]
     assertRightFiledSet(15)
     // No group
     msg.oneofMessage.optionalInt32 = 68

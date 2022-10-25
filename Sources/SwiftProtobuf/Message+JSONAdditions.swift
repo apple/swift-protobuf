@@ -32,25 +32,24 @@ extension Message {
       return try m.encodedJSONString(options: options)
     }
     let data = try jsonUTF8Data(options: options)
-    return String(data: data, encoding: String.Encoding.utf8)!
+    return String(bytes: data, encoding: .utf8)!
   }
 
-  /// Returns a Data containing the UTF-8 JSON serialization of the message.
+  /// Returns a `[UInt8]` containing the UTF-8 JSON serialization of the message.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
   /// serializing to JSON.
   ///
-  /// - Returns: A Data containing the JSON serialization of the message.
+  /// - Returns: A `[UInt8]` containing the JSON serialization of the message.
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
   public func jsonUTF8Data(
     options: JSONEncodingOptions = JSONEncodingOptions()
-  ) throws -> Data {
+  ) throws -> [UInt8] {
     if let m = self as? _CustomJSONCodable {
       let string = try m.encodedJSONString(options: options)
-      let data = string.data(using: String.Encoding.utf8)! // Cannot fail!
-      return data
+      return Array(string.utf8)
     }
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startObject(message: self)
@@ -94,7 +93,7 @@ extension Message {
     }
   }
 
-  /// Creates a new message by decoding the given `Data` containing a
+  /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` containing a
   /// serialized message in JSON format, interpreting the data as UTF-8 encoded
   /// text.
   ///
@@ -102,14 +101,14 @@ extension Message {
   ///   as UTF-8 encoded text.
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(
-    jsonUTF8Data: SwiftProtobufContiguousBytes,
+  public init<Bytes: SwiftProtobufContiguousBytes>(
+    jsonUTF8Data: Bytes,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     try self.init(jsonUTF8Data: jsonUTF8Data, extensions: nil, options: options)
   }
 
-  /// Creates a new message by decoding the given `Data` containing a
+  /// Creates a new message by decoding the given `SwiftProtobufContiguousBytes` containing a
   /// serialized message in JSON format, interpreting the data as UTF-8 encoded
   /// text.
   ///
@@ -118,8 +117,8 @@ extension Message {
   /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(
-    jsonUTF8Data: SwiftProtobufContiguousBytes,
+  public init<Bytes: SwiftProtobufContiguousBytes>(
+    jsonUTF8Data: Bytes,
     extensions: ExtensionMap? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {

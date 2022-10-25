@@ -12,10 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// Explicit import of Foundation is necessary on Linux,
-// don't remove unless obsolete on all platforms
-import Foundation
-
 public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
 
 extension Google_Protobuf_Any {
@@ -131,7 +127,7 @@ extension Google_Protobuf_Any {
       // new value (can happen when a field name/number is repeated in
       // the TextFormat input).
       self.typeURL = ""
-      self.value = Data()
+      self.value = []
       try decodeMessage(decoder: &decoder)
     }
   }

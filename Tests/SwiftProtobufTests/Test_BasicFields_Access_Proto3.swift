@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import Foundation
 
 // NOTE: The generator changes what is generated based on the number/types
 // of fields (using a nested storage class or not), to be completel, all
@@ -124,9 +123,9 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
 
   func testOptionalBytes() {
     var msg = Proto3Unittest_TestAllTypes()
-    XCTAssertEqual(msg.optionalBytes, Data())
-    msg.optionalBytes = Data([15])
-    XCTAssertEqual(msg.optionalBytes, Data([15]))
+    XCTAssertEqual(msg.optionalBytes, [])
+    msg.optionalBytes = [15]
+    XCTAssertEqual(msg.optionalBytes, [15])
   }
 
   func testOptionalNestedMessage() {
@@ -314,10 +313,10 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
   func testRepeatedBytes() {
     var msg = Proto3Unittest_TestAllTypes()
     XCTAssertEqual(msg.repeatedBytes, [])
-    msg.repeatedBytes = [Data([45])]
-    XCTAssertEqual(msg.repeatedBytes, [Data([45])])
-    msg.repeatedBytes.append(Data([145]))
-    XCTAssertEqual(msg.repeatedBytes, [Data([45]), Data([145])])
+    msg.repeatedBytes = [[45]]
+    XCTAssertEqual(msg.repeatedBytes, [[45]])
+    msg.repeatedBytes.append([145])
+    XCTAssertEqual(msg.repeatedBytes, [[45], [145]])
   }
 
   func testRepeatedNestedMessage() {

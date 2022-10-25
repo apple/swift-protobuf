@@ -12,7 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 import SwiftProtobuf
 
@@ -29,7 +28,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
             let encoded = try configured.serializedData()
-            XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(contiguousBytes: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)

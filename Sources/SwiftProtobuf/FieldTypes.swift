@@ -22,8 +22,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 // TODO: `FieldType` and `FieldType.BaseType` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
 
 // Note: The protobuf- and JSON-specific methods here are defined
@@ -413,8 +411,8 @@ public struct ProtobufString: FieldType, MapKeyType, MapValueType {
 /// Bytes
 ///
 public struct ProtobufBytes: FieldType, MapValueType {
-    public typealias BaseType = Data
-    public static var proto3DefaultValue: Data {return Data()}
+    public typealias BaseType = [UInt8]
+    public static var proto3DefaultValue: [UInt8] {return []}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularBytesField(value: &value)
     }

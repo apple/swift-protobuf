@@ -12,12 +12,11 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
 import XCTest
 @testable import SwiftProtobuf
 
 extension ProtobufUnittest_RawMessageSet.Item {
-  fileprivate init(typeID: Int, message: Data) {
+  fileprivate init(typeID: Int, message: [UInt8]) {
     self.init()
     self.typeID = Int32(typeID)
     self.message = message
@@ -33,7 +32,7 @@ class Test_MessageSet: XCTestCase {
       $0.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str = "foo"
     }
 
-    let serialized: Data
+    let serialized: [UInt8]
     do {
       serialized = try msg.serializedData()
     } catch let e {
@@ -82,12 +81,12 @@ class Test_MessageSet: XCTestCase {
         typeID: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
         message: try msg2.serializedData()),
       // One unknown extension.
-      ProtobufUnittest_RawMessageSet.Item(typeID: 7, message: Data([1, 2, 3]))
+      ProtobufUnittest_RawMessageSet.Item(typeID: 7, message: [1, 2, 3])
     ]
     // Add some unknown data into one of the groups to ensure it gets stripped when parsing.
-    raw.item[1].unknownFields.append(protobufData: Data([40, 2]))  // Field 5, varint of 2
+    raw.item[1].unknownFields.append(protobufData: [40, 2])  // Field 5, varint of 2
 
-    let serialized: Data
+    let serialized: [UInt8]
     do {
       serialized = try raw.serializedData()
     } catch let e {
@@ -116,12 +115,12 @@ class Test_MessageSet: XCTestCase {
       msg.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.unknownFields.data.isEmpty)
 
     // Ensure the unknown shows up as a group.
-    let expectedUnknowns = Data([
+      let expectedUnknowns: [UInt8] = [
       11,  // Start group
       16, 7, // typeID = 7
       26, 3, 1, 2, 3, // message data = 3 bytes: 1, 2, 3
       12   // End Group
-    ])
+    ]
     XCTAssertEqual(msg.unknownFields.data, expectedUnknowns)
 
     var validator = ExtensionValidator()
@@ -187,7 +186,7 @@ class Test_MessageSet: XCTestCase {
   fileprivate struct ExtensionValidator: PBTestVisitor {
     // Values are field number and if we should recurse.
     var expectedMessages = [(Int, Bool)]()
-    var expectedUnknowns = [Data]()
+    var expectedUnknowns = [[UInt8]]()
 
     mutating func validate<M: Message>(message: M) {
       do {
@@ -213,13 +212,13 @@ class Test_MessageSet: XCTestCase {
       }
     }
 
-    mutating func visitUnknown(bytes: Data) throws {
+    mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
       guard !expectedUnknowns.isEmpty else {
         XCTFail("Unexpected Unknown: \(bytes)")
         return
       }
       let expected = expectedUnknowns.removeFirst()
-      XCTAssertEqual(bytes, expected)
+      XCTAssertEqual(bytes as! [UInt8], expected)
     }
   }
 }
