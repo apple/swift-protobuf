@@ -49,7 +49,7 @@ func writeResponse(data: Data) {
     fflush(stdout)
 }
 
-func buildResponse(serializedData: SwiftProtobufContiguousBytes) -> Conformance_ConformanceResponse {
+func buildResponse<Bytes: SwiftProtobufContiguousBytes>(serializedData: Bytes) -> Conformance_ConformanceResponse {
     var response = Conformance_ConformanceResponse()
 
     let request: Conformance_ConformanceRequest
