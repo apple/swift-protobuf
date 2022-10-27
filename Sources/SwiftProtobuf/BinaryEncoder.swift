@@ -17,7 +17,7 @@ import Foundation
 
 /// Encoder for Binary Protocol Buffer format
 internal struct BinaryEncoder {
-    private var pointer: UnsafeMutableRawPointer
+    internal var pointer: UnsafeMutableRawPointer
 
     init(forWritingInto pointer: UnsafeMutableRawPointer) {
         self.pointer = pointer
