@@ -43,7 +43,7 @@
 //
 // A proto file used to test the "custom options" feature of google.protobuf.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -1318,8 +1318,8 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_string_opt)
   }
 
-  var ProtobufUnittest_bytesOpt: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? Data()}
+  var ProtobufUnittest_bytesOpt: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_bytes_opt`

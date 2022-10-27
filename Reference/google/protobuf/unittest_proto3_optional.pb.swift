@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -182,8 +182,8 @@ struct ProtobufUnittest_TestProto3Optional {
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
-  var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+  var optionalBytes: [UInt8] {
+    get {return _storage._optionalBytes ?? []}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -495,7 +495,7 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     var _optionalDouble: Double? = nil
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
-    var _optionalBytes: Data? = nil
+    var _optionalBytes: [UInt8]? = nil
     var _optionalCord: String? = nil
     var _optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
     var _lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil

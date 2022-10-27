@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -215,7 +215,7 @@ struct ProtobufUnittest_TestMapLite {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -317,7 +317,7 @@ struct ProtobufUnittest_TestArenaMapLite {
     set {_uniqueStorage()._mapStringString = newValue}
   }
 
-  var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -583,7 +583,7 @@ extension ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Me
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageLite> = [:]
     var _teboring: Dictionary<Int32,Int32> = [:]
@@ -782,7 +782,7 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobu
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> = [:]
 

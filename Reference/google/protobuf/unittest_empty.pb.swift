@@ -44,7 +44,7 @@
 // This file intentionally left blank.  (At one point this wouldn't compile
 // correctly.)
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

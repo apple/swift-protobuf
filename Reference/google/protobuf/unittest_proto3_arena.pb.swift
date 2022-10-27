@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -170,7 +170,7 @@ struct Proto3ArenaUnittest_TestAllTypes {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  var optionalBytes: Data {
+  var optionalBytes: [UInt8] {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -330,7 +330,7 @@ struct Proto3ArenaUnittest_TestAllTypes {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -462,8 +462,8 @@ struct Proto3ArenaUnittest_TestAllTypes {
   /// Clears the value of `proto3OptionalString`. Subsequent reads from it will return its default value.
   mutating func clearProto3OptionalString() {_uniqueStorage()._proto3OptionalString = nil}
 
-  var proto3OptionalBytes: Data {
-    get {return _storage._proto3OptionalBytes ?? Data()}
+  var proto3OptionalBytes: [UInt8] {
+    get {return _storage._proto3OptionalBytes ?? []}
     set {_uniqueStorage()._proto3OptionalBytes = newValue}
   }
   /// Returns true if `proto3OptionalBytes` has been explicitly set.
@@ -540,10 +540,10 @@ struct Proto3ArenaUnittest_TestAllTypes {
     set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return Data()
+      return []
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -554,7 +554,7 @@ struct Proto3ArenaUnittest_TestAllTypes {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3ArenaUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
   }
 
@@ -914,7 +914,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = Data()
+    var _optionalBytes: [UInt8] = []
     var _optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
@@ -940,7 +940,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _proto3OptionalInt32: Int32? = nil
     var _proto3OptionalInt64: Int64? = nil
     var _proto3OptionalUint32: UInt32? = nil
@@ -955,7 +955,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
     var _proto3OptionalDouble: Double? = nil
     var _proto3OptionalBool: Bool? = nil
     var _proto3OptionalString: String? = nil
-    var _proto3OptionalBytes: Data? = nil
+    var _proto3OptionalBytes: [UInt8]? = nil
     var _repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto3ArenaUnittest_ForeignMessage] = []
     var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
@@ -1132,7 +1132,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
           }
         }()
         case 114: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}

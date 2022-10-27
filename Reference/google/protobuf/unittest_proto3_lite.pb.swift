@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -170,7 +170,7 @@ struct Proto3LiteUnittest_TestAllTypes {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  var optionalBytes: Data {
+  var optionalBytes: [UInt8] {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -312,7 +312,7 @@ struct Proto3LiteUnittest_TestAllTypes {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -386,10 +386,10 @@ struct Proto3LiteUnittest_TestAllTypes {
     set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return Data()
+      return []
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -400,7 +400,7 @@ struct Proto3LiteUnittest_TestAllTypes {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3LiteUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
   }
 
@@ -700,7 +700,7 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = Data()
+    var _optionalBytes: [UInt8] = []
     var _optionalNestedMessage: Proto3LiteUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3LiteUnittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
@@ -724,7 +724,7 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _repeatedNestedMessage: [Proto3LiteUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [Proto3LiteUnittest_ForeignMessage] = []
     var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
@@ -883,7 +883,7 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.
           }
         }()
         case 114: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}

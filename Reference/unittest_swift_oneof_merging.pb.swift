@@ -25,7 +25,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -69,10 +69,10 @@ struct SwiftUnittest_TestMessage {
     set {oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return Data()
+      return []
     }
     set {oneofField = .oneofBytes(newValue)}
   }
@@ -83,7 +83,7 @@ struct SwiftUnittest_TestMessage {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftUnittest_TestMessage.NestedMessage)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
   }
 
@@ -225,7 +225,7 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._Messa
         }
       }()
       case 114: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}

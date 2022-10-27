@@ -45,7 +45,7 @@
 //
 // LINT: ALLOW_GROUPS, LEGACY_NAMES
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -641,8 +641,8 @@ struct ProtobufUnittest_TestAllTypes {
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {_uniqueStorage()._optionalString = nil}
 
-  var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+  var optionalBytes: [UInt8] {
+    get {return _storage._optionalBytes ?? []}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -830,7 +830,7 @@ struct ProtobufUnittest_TestAllTypes {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -1012,8 +1012,8 @@ struct ProtobufUnittest_TestAllTypes {
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
   mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
 
-  var defaultBytes: Data {
-    get {return _storage._defaultBytes ?? Data([119, 111, 114, 108, 100])}
+  var defaultBytes: [UInt8] {
+    get {return _storage._defaultBytes ?? [119, 111, 114, 108, 100]}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
   /// Returns true if `defaultBytes` has been explicitly set.
@@ -1096,10 +1096,10 @@ struct ProtobufUnittest_TestAllTypes {
     set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return Data()
+      return []
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -1111,7 +1111,7 @@ struct ProtobufUnittest_TestAllTypes {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
   }
 
@@ -3011,8 +3011,8 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var escapedBytes: Data {
-    get {return _storage._escapedBytes ?? Data([0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])}
+  var escapedBytes: [UInt8] {
+    get {return _storage._escapedBytes ?? [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254]}
     set {_uniqueStorage()._escapedBytes = newValue}
   }
   /// Returns true if `escapedBytes` has been explicitly set.
@@ -3230,8 +3230,8 @@ struct ProtobufUnittest_TestExtremeDefaultValues {
   /// Clears the value of `stringWithZero`. Subsequent reads from it will return its default value.
   mutating func clearStringWithZero() {_uniqueStorage()._stringWithZero = nil}
 
-  var bytesWithZero: Data {
-    get {return _storage._bytesWithZero ?? Data([119, 111, 114, 0, 108, 100])}
+  var bytesWithZero: [UInt8] {
+    get {return _storage._bytesWithZero ?? [119, 111, 114, 0, 108, 100]}
     set {_uniqueStorage()._bytesWithZero = newValue}
   }
   /// Returns true if `bytesWithZero` has been explicitly set.
@@ -3333,8 +3333,8 @@ struct ProtobufUnittest_OneBytes {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var data: Data {
-    get {return _data ?? Data()}
+  var data: [UInt8] {
+    get {return _data ?? []}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
@@ -3346,7 +3346,7 @@ struct ProtobufUnittest_OneBytes {
 
   init() {}
 
-  fileprivate var _data: Data? = nil
+  fileprivate var _data: [UInt8]? = nil
 }
 
 struct ProtobufUnittest_MoreBytes {
@@ -3354,7 +3354,7 @@ struct ProtobufUnittest_MoreBytes {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var data: [Data] = []
+  var data: [[UInt8]] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3972,10 +3972,10 @@ struct ProtobufUnittest_TestOneof2 {
     set {foo = .fooStringPiece(newValue)}
   }
 
-  var fooBytes: Data {
+  var fooBytes: [UInt8] {
     get {
       if case .fooBytes(let v)? = foo {return v}
-      return Data()
+      return []
     }
     set {foo = .fooBytes(newValue)}
   }
@@ -4046,10 +4046,10 @@ struct ProtobufUnittest_TestOneof2 {
     set {bar = .barStringPiece(newValue)}
   }
 
-  var barBytes: Data {
+  var barBytes: [UInt8] {
     get {
       if case .barBytes(let v)? = bar {return v}
-      return Data([66, 89, 84, 69, 83])
+      return [66, 89, 84, 69, 83]
     }
     set {bar = .barBytes(newValue)}
   }
@@ -4086,10 +4086,10 @@ struct ProtobufUnittest_TestOneof2 {
     set {bar = .barStringPieceWithEmptyDefault(newValue)}
   }
 
-  var barBytesWithEmptyDefault: Data {
+  var barBytesWithEmptyDefault: [UInt8] {
     get {
       if case .barBytesWithEmptyDefault(let v)? = bar {return v}
-      return Data()
+      return []
     }
     set {bar = .barBytesWithEmptyDefault(newValue)}
   }
@@ -4119,7 +4119,7 @@ struct ProtobufUnittest_TestOneof2 {
     case fooString(String)
     case fooCord(String)
     case fooStringPiece(String)
-    case fooBytes(Data)
+    case fooBytes([UInt8])
     case fooEnum(ProtobufUnittest_TestOneof2.NestedEnum)
     case fooMessage(ProtobufUnittest_TestOneof2.NestedMessage)
     case fooGroup(ProtobufUnittest_TestOneof2.FooGroup)
@@ -4132,12 +4132,12 @@ struct ProtobufUnittest_TestOneof2 {
     case barString(String)
     case barCord(String)
     case barStringPiece(String)
-    case barBytes(Data)
+    case barBytes([UInt8])
     case barEnum(ProtobufUnittest_TestOneof2.NestedEnum)
     case barStringWithEmptyDefault(String)
     case barCordWithEmptyDefault(String)
     case barStringPieceWithEmptyDefault(String)
-    case barBytesWithEmptyDefault(Data)
+    case barBytesWithEmptyDefault([UInt8])
 
   }
 
@@ -5013,8 +5013,8 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalString() {self._optionalString = nil}
 
-  var optionalBytes: Data {
-    get {return _optionalBytes ?? Data()}
+  var optionalBytes: [UInt8] {
+    get {return _optionalBytes ?? []}
     set {_optionalBytes = newValue}
   }
   /// Returns true if `optionalBytes` has been explicitly set.
@@ -5068,10 +5068,10 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
     set {oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = oneofField {return v}
-      return Data()
+      return []
     }
     set {oneofField = .oneofBytes(newValue)}
   }
@@ -5082,7 +5082,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypes)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
   }
 
@@ -5114,7 +5114,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _fixed32: Int32? = nil
   fileprivate var _optionalEnum: ProtobufUnittest_ForeignEnum? = nil
   fileprivate var _optionalString: String? = nil
-  fileprivate var _optionalBytes: Data? = nil
+  fileprivate var _optionalBytes: [UInt8]? = nil
   fileprivate var _optionalMessage: ProtobufUnittest_ForeignMessage? = nil
   fileprivate var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup? = nil
 }
@@ -7163,8 +7163,8 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension)
   }
 
-  var ProtobufUnittest_optionalBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? Data()}
+  var ProtobufUnittest_optionalBytesExtension: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_extension`
@@ -7429,7 +7429,7 @@ extension ProtobufUnittest_TestAllExtensions {
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension, value: newValue)}
   }
 
-  var ProtobufUnittest_repeatedBytesExtension: [Data] {
+  var ProtobufUnittest_repeatedBytesExtension: [[UInt8]] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension, value: newValue)}
   }
@@ -7695,8 +7695,8 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension)
   }
 
-  var ProtobufUnittest_defaultBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension) ?? Data([119, 111, 114, 108, 100])}
+  var ProtobufUnittest_defaultBytesExtension: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension) ?? [119, 111, 114, 108, 100]}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_bytes_extension`
@@ -7831,8 +7831,8 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension)
   }
 
-  var ProtobufUnittest_oneofBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? Data()}
+  var ProtobufUnittest_oneofBytesExtension: [UInt8] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_oneof_bytes_extension`
@@ -9392,7 +9392,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     var _optionalDouble: Double? = nil
     var _optionalBool: Bool? = nil
     var _optionalString: String? = nil
-    var _optionalBytes: Data? = nil
+    var _optionalBytes: [UInt8]? = nil
     var _optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup? = nil
     var _optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufUnittest_ForeignMessage? = nil
@@ -9419,7 +9419,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _repeatedGroup: [ProtobufUnittest_TestAllTypes.RepeatedGroup] = []
     var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = []
     var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessage] = []
@@ -9444,7 +9444,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     var _defaultDouble: Double? = nil
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
-    var _defaultBytes: Data? = nil
+    var _defaultBytes: [UInt8]? = nil
     var _defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil
     var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
@@ -9650,7 +9650,7 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
           }
         }()
         case 114: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -12919,7 +12919,7 @@ extension ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, Swif
   ]
 
   fileprivate class _StorageClass {
-    var _escapedBytes: Data? = nil
+    var _escapedBytes: [UInt8]? = nil
     var _largeUint32: UInt32? = nil
     var _largeUint64: UInt64? = nil
     var _smallInt32: Int32? = nil
@@ -12942,7 +12942,7 @@ extension ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, Swif
     var _nanFloat: Float? = nil
     var _cppTrigraph: String? = nil
     var _stringWithZero: String? = nil
-    var _bytesWithZero: Data? = nil
+    var _bytesWithZero: [UInt8]? = nil
     var _stringPieceWithZero: String? = nil
     var _cordWithZero: String? = nil
     var _replacementString: String? = nil
@@ -14129,7 +14129,7 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
         }
       }()
       case 5: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.foo != nil {try decoder.handleConflictingOneOf()}
@@ -14216,7 +14216,7 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
         }
       }()
       case 16: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.bar != nil {try decoder.handleConflictingOneOf()}
@@ -14258,7 +14258,7 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
         }
       }()
       case 23: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.bar != nil {try decoder.handleConflictingOneOf()}
@@ -15732,7 +15732,7 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftPro
         }
       }()
       case 536870014: try {
-        var v: Data?
+        var v: [UInt8]?
         try decoder.decodeSingularBytesField(value: &v)
         if let v = v {
           if self.oneofField != nil {try decoder.handleConflictingOneOf()}

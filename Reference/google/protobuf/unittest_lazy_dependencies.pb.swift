@@ -43,7 +43,7 @@
 //
 // A proto file we will use for unit testing.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

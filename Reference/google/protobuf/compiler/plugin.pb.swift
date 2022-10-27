@@ -50,7 +50,7 @@
 // plugin should be named "protoc-gen-$NAME", and will then be used when the
 // flag "--${NAME}_out" is passed to protoc.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

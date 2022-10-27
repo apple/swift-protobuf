@@ -21,7 +21,7 @@
 // extensions. This should have every field type so the fuzz testing can attempt
 // to execersize just about everything.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -198,8 +198,8 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `singularString`. Subsequent reads from it will return its default value.
   mutating func clearSingularString() {_uniqueStorage()._singularString = nil}
 
-  var singularBytes: Data {
-    get {return _storage._singularBytes ?? Data()}
+  var singularBytes: [UInt8] {
+    get {return _storage._singularBytes ?? []}
     set {_uniqueStorage()._singularBytes = newValue}
   }
   /// Returns true if `singularBytes` has been explicitly set.
@@ -305,7 +305,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -443,10 +443,10 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._o = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._o {return v}
-      return Data()
+      return []
     }
     set {_uniqueStorage()._o = .oneofBytes(newValue)}
   }
@@ -617,7 +617,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapInt32String = newValue}
   }
 
-  var mapInt32Bytes: Dictionary<Int32,Data> {
+  var mapInt32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapInt32Bytes}
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
@@ -702,7 +702,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapInt64String = newValue}
   }
 
-  var mapInt64Bytes: Dictionary<Int64,Data> {
+  var mapInt64Bytes: Dictionary<Int64,[UInt8]> {
     get {return _storage._mapInt64Bytes}
     set {_uniqueStorage()._mapInt64Bytes = newValue}
   }
@@ -787,7 +787,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapUint32String = newValue}
   }
 
-  var mapUint32Bytes: Dictionary<UInt32,Data> {
+  var mapUint32Bytes: Dictionary<UInt32,[UInt8]> {
     get {return _storage._mapUint32Bytes}
     set {_uniqueStorage()._mapUint32Bytes = newValue}
   }
@@ -872,7 +872,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapUint64String = newValue}
   }
 
-  var mapUint64Bytes: Dictionary<UInt64,Data> {
+  var mapUint64Bytes: Dictionary<UInt64,[UInt8]> {
     get {return _storage._mapUint64Bytes}
     set {_uniqueStorage()._mapUint64Bytes = newValue}
   }
@@ -957,7 +957,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapSint32String = newValue}
   }
 
-  var mapSint32Bytes: Dictionary<Int32,Data> {
+  var mapSint32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapSint32Bytes}
     set {_uniqueStorage()._mapSint32Bytes = newValue}
   }
@@ -1042,7 +1042,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapSint64String = newValue}
   }
 
-  var mapSint64Bytes: Dictionary<Int64,Data> {
+  var mapSint64Bytes: Dictionary<Int64,[UInt8]> {
     get {return _storage._mapSint64Bytes}
     set {_uniqueStorage()._mapSint64Bytes = newValue}
   }
@@ -1127,7 +1127,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapFixed32String = newValue}
   }
 
-  var mapFixed32Bytes: Dictionary<UInt32,Data> {
+  var mapFixed32Bytes: Dictionary<UInt32,[UInt8]> {
     get {return _storage._mapFixed32Bytes}
     set {_uniqueStorage()._mapFixed32Bytes = newValue}
   }
@@ -1212,7 +1212,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapFixed64String = newValue}
   }
 
-  var mapFixed64Bytes: Dictionary<UInt64,Data> {
+  var mapFixed64Bytes: Dictionary<UInt64,[UInt8]> {
     get {return _storage._mapFixed64Bytes}
     set {_uniqueStorage()._mapFixed64Bytes = newValue}
   }
@@ -1297,7 +1297,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapSfixed32String = newValue}
   }
 
-  var mapSfixed32Bytes: Dictionary<Int32,Data> {
+  var mapSfixed32Bytes: Dictionary<Int32,[UInt8]> {
     get {return _storage._mapSfixed32Bytes}
     set {_uniqueStorage()._mapSfixed32Bytes = newValue}
   }
@@ -1382,7 +1382,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapSfixed64String = newValue}
   }
 
-  var mapSfixed64Bytes: Dictionary<Int64,Data> {
+  var mapSfixed64Bytes: Dictionary<Int64,[UInt8]> {
     get {return _storage._mapSfixed64Bytes}
     set {_uniqueStorage()._mapSfixed64Bytes = newValue}
   }
@@ -1467,7 +1467,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     set {_uniqueStorage()._mapBoolString = newValue}
   }
 
-  var mapBoolBytes: Dictionary<Bool,Data> {
+  var mapBoolBytes: Dictionary<Bool,[UInt8]> {
     get {return _storage._mapBoolBytes}
     set {_uniqueStorage()._mapBoolBytes = newValue}
   }
@@ -1678,7 +1678,7 @@ struct Fuzz_Testing_Message: SwiftProtobuf.ExtensibleMessage {
     case oneofDouble(Double)
     case oneofBool(Bool)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
     case oneofEnum(Fuzz_Testing_AnEnum)
     case oneofGroup(Fuzz_Testing_Message.OneofGroup)
     case oneofMessage(Fuzz_Testing_Message)
@@ -2047,8 +2047,8 @@ extension Fuzz_Testing_Message {
     clearExtensionValue(ext: Fuzz_Testing_Extensions_singular_string_ext)
   }
 
-  var Fuzz_Testing_singularBytesExt: Data {
-    get {return getExtensionValue(ext: Fuzz_Testing_Extensions_singular_bytes_ext) ?? Data()}
+  var Fuzz_Testing_singularBytesExt: [UInt8] {
+    get {return getExtensionValue(ext: Fuzz_Testing_Extensions_singular_bytes_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_singular_bytes_ext, value: newValue)}
   }
   /// Returns true if extension `Fuzz_Testing_Extensions_singular_bytes_ext`
@@ -2178,7 +2178,7 @@ extension Fuzz_Testing_Message {
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_string_ext, value: newValue)}
   }
 
-  var Fuzz_Testing_repeatedBytesExt: [Data] {
+  var Fuzz_Testing_repeatedBytesExt: [[UInt8]] {
     get {return getExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bytes_ext) ?? []}
     set {setExtensionValue(ext: Fuzz_Testing_Extensions_repeated_bytes_ext, value: newValue)}
   }
@@ -2895,7 +2895,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _singularDouble: Double? = nil
     var _singularBool: Bool? = nil
     var _singularString: String? = nil
-    var _singularBytes: Data? = nil
+    var _singularBytes: [UInt8]? = nil
     var _singularEnum: Fuzz_Testing_AnEnum? = nil
     var _singularGroup: Fuzz_Testing_Message.SingularGroup? = nil
     var _singularMessage: Fuzz_Testing_Message? = nil
@@ -2913,7 +2913,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _repeatedEnum: [Fuzz_Testing_AnEnum] = []
     var _repeatedGroup: [Fuzz_Testing_Message.RepeatedGroup] = []
     var _repeatedMessage: [Fuzz_Testing_Message] = []
@@ -2946,7 +2946,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapInt32Double: Dictionary<Int32,Double> = [:]
     var _mapInt32Bool: Dictionary<Int32,Bool> = [:]
     var _mapInt32String: Dictionary<Int32,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapInt32AnEnum: Dictionary<Int32,Fuzz_Testing_AnEnum> = [:]
     var _mapInt32Message: Dictionary<Int32,Fuzz_Testing_Message> = [:]
     var _mapInt64Int32: Dictionary<Int64,Int32> = [:]
@@ -2963,7 +2963,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapInt64Double: Dictionary<Int64,Double> = [:]
     var _mapInt64Bool: Dictionary<Int64,Bool> = [:]
     var _mapInt64String: Dictionary<Int64,String> = [:]
-    var _mapInt64Bytes: Dictionary<Int64,Data> = [:]
+    var _mapInt64Bytes: Dictionary<Int64,[UInt8]> = [:]
     var _mapInt64AnEnum: Dictionary<Int64,Fuzz_Testing_AnEnum> = [:]
     var _mapInt64Message: Dictionary<Int64,Fuzz_Testing_Message> = [:]
     var _mapUint32Int32: Dictionary<UInt32,Int32> = [:]
@@ -2980,7 +2980,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapUint32Double: Dictionary<UInt32,Double> = [:]
     var _mapUint32Bool: Dictionary<UInt32,Bool> = [:]
     var _mapUint32String: Dictionary<UInt32,String> = [:]
-    var _mapUint32Bytes: Dictionary<UInt32,Data> = [:]
+    var _mapUint32Bytes: Dictionary<UInt32,[UInt8]> = [:]
     var _mapUint32AnEnum: Dictionary<UInt32,Fuzz_Testing_AnEnum> = [:]
     var _mapUint32Message: Dictionary<UInt32,Fuzz_Testing_Message> = [:]
     var _mapUint64Int32: Dictionary<UInt64,Int32> = [:]
@@ -2997,7 +2997,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapUint64Double: Dictionary<UInt64,Double> = [:]
     var _mapUint64Bool: Dictionary<UInt64,Bool> = [:]
     var _mapUint64String: Dictionary<UInt64,String> = [:]
-    var _mapUint64Bytes: Dictionary<UInt64,Data> = [:]
+    var _mapUint64Bytes: Dictionary<UInt64,[UInt8]> = [:]
     var _mapUint64AnEnum: Dictionary<UInt64,Fuzz_Testing_AnEnum> = [:]
     var _mapUint64Message: Dictionary<UInt64,Fuzz_Testing_Message> = [:]
     var _mapSint32Int32: Dictionary<Int32,Int32> = [:]
@@ -3014,7 +3014,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapSint32Double: Dictionary<Int32,Double> = [:]
     var _mapSint32Bool: Dictionary<Int32,Bool> = [:]
     var _mapSint32String: Dictionary<Int32,String> = [:]
-    var _mapSint32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapSint32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapSint32AnEnum: Dictionary<Int32,Fuzz_Testing_AnEnum> = [:]
     var _mapSint32Message: Dictionary<Int32,Fuzz_Testing_Message> = [:]
     var _mapSint64Int32: Dictionary<Int64,Int32> = [:]
@@ -3031,7 +3031,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapSint64Double: Dictionary<Int64,Double> = [:]
     var _mapSint64Bool: Dictionary<Int64,Bool> = [:]
     var _mapSint64String: Dictionary<Int64,String> = [:]
-    var _mapSint64Bytes: Dictionary<Int64,Data> = [:]
+    var _mapSint64Bytes: Dictionary<Int64,[UInt8]> = [:]
     var _mapSint64AnEnum: Dictionary<Int64,Fuzz_Testing_AnEnum> = [:]
     var _mapSint64Message: Dictionary<Int64,Fuzz_Testing_Message> = [:]
     var _mapFixed32Int32: Dictionary<UInt32,Int32> = [:]
@@ -3048,7 +3048,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapFixed32Double: Dictionary<UInt32,Double> = [:]
     var _mapFixed32Bool: Dictionary<UInt32,Bool> = [:]
     var _mapFixed32String: Dictionary<UInt32,String> = [:]
-    var _mapFixed32Bytes: Dictionary<UInt32,Data> = [:]
+    var _mapFixed32Bytes: Dictionary<UInt32,[UInt8]> = [:]
     var _mapFixed32AnEnum: Dictionary<UInt32,Fuzz_Testing_AnEnum> = [:]
     var _mapFixed32Message: Dictionary<UInt32,Fuzz_Testing_Message> = [:]
     var _mapFixed64Int32: Dictionary<UInt64,Int32> = [:]
@@ -3065,7 +3065,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapFixed64Double: Dictionary<UInt64,Double> = [:]
     var _mapFixed64Bool: Dictionary<UInt64,Bool> = [:]
     var _mapFixed64String: Dictionary<UInt64,String> = [:]
-    var _mapFixed64Bytes: Dictionary<UInt64,Data> = [:]
+    var _mapFixed64Bytes: Dictionary<UInt64,[UInt8]> = [:]
     var _mapFixed64AnEnum: Dictionary<UInt64,Fuzz_Testing_AnEnum> = [:]
     var _mapFixed64Message: Dictionary<UInt64,Fuzz_Testing_Message> = [:]
     var _mapSfixed32Int32: Dictionary<Int32,Int32> = [:]
@@ -3082,7 +3082,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapSfixed32Double: Dictionary<Int32,Double> = [:]
     var _mapSfixed32Bool: Dictionary<Int32,Bool> = [:]
     var _mapSfixed32String: Dictionary<Int32,String> = [:]
-    var _mapSfixed32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapSfixed32Bytes: Dictionary<Int32,[UInt8]> = [:]
     var _mapSfixed32AnEnum: Dictionary<Int32,Fuzz_Testing_AnEnum> = [:]
     var _mapSfixed32Message: Dictionary<Int32,Fuzz_Testing_Message> = [:]
     var _mapSfixed64Int32: Dictionary<Int64,Int32> = [:]
@@ -3099,7 +3099,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapSfixed64Double: Dictionary<Int64,Double> = [:]
     var _mapSfixed64Bool: Dictionary<Int64,Bool> = [:]
     var _mapSfixed64String: Dictionary<Int64,String> = [:]
-    var _mapSfixed64Bytes: Dictionary<Int64,Data> = [:]
+    var _mapSfixed64Bytes: Dictionary<Int64,[UInt8]> = [:]
     var _mapSfixed64AnEnum: Dictionary<Int64,Fuzz_Testing_AnEnum> = [:]
     var _mapSfixed64Message: Dictionary<Int64,Fuzz_Testing_Message> = [:]
     var _mapBoolInt32: Dictionary<Bool,Int32> = [:]
@@ -3116,7 +3116,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     var _mapBoolDouble: Dictionary<Bool,Double> = [:]
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapBoolString: Dictionary<Bool,String> = [:]
-    var _mapBoolBytes: Dictionary<Bool,Data> = [:]
+    var _mapBoolBytes: Dictionary<Bool,[UInt8]> = [:]
     var _mapBoolAnEnum: Dictionary<Bool,Fuzz_Testing_AnEnum> = [:]
     var _mapBoolMessage: Dictionary<Bool,Fuzz_Testing_Message> = [:]
     var _wktAny: SwiftProtobuf.Google_Protobuf_Any? = nil
@@ -3593,7 +3593,7 @@ extension Fuzz_Testing_Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
           }
         }()
         case 75: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}

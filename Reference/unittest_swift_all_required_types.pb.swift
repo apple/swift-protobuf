@@ -39,7 +39,7 @@
 
 /// An addition to unittest.proto
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -184,8 +184,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredString`. Subsequent reads from it will return its default value.
   mutating func clearRequiredString() {_uniqueStorage()._requiredString = nil}
 
-  var requiredBytes: Data {
-    get {return _storage._requiredBytes ?? Data()}
+  var requiredBytes: [UInt8] {
+    get {return _storage._requiredBytes ?? []}
     set {_uniqueStorage()._requiredBytes = newValue}
   }
   /// Returns true if `requiredBytes` has been explicitly set.
@@ -420,8 +420,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
   mutating func clearDefaultString() {_uniqueStorage()._defaultString = nil}
 
-  var defaultBytes: Data {
-    get {return _storage._defaultBytes ?? Data([119, 111, 114, 108, 100])}
+  var defaultBytes: [UInt8] {
+    get {return _storage._defaultBytes ?? [119, 111, 114, 108, 100]}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
   /// Returns true if `defaultBytes` has been explicitly set.
@@ -504,10 +504,10 @@ struct ProtobufUnittest_TestAllRequiredTypes {
     set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
-  var oneofBytes: Data {
+  var oneofBytes: [UInt8] {
     get {
       if case .oneofBytes(let v)? = _storage._oneofField {return v}
-      return Data()
+      return []
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
@@ -519,7 +519,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllRequiredTypes.NestedMessage)
     case oneofString(String)
-    case oneofBytes(Data)
+    case oneofBytes([UInt8])
 
     fileprivate var isInitialized: Bool {
       guard case .oneofNestedMessage(let v) = self else {return true}
@@ -654,8 +654,8 @@ struct ProtobufUnittest_TestSomeRequiredTypes {
   /// Clears the value of `requiredString`. Subsequent reads from it will return its default value.
   mutating func clearRequiredString() {self._requiredString = nil}
 
-  var requiredBytes: Data {
-    get {return _requiredBytes ?? Data()}
+  var requiredBytes: [UInt8] {
+    get {return _requiredBytes ?? []}
     set {_requiredBytes = newValue}
   }
   /// Returns true if `requiredBytes` has been explicitly set.
@@ -703,7 +703,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes {
   fileprivate var _requiredFloat: Float? = nil
   fileprivate var _requiredBool: Bool? = nil
   fileprivate var _requiredString: String? = nil
-  fileprivate var _requiredBytes: Data? = nil
+  fileprivate var _requiredBytes: [UInt8]? = nil
   fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
 }
 
@@ -789,7 +789,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
     var _requiredDouble: Double? = nil
     var _requiredBool: Bool? = nil
     var _requiredString: String? = nil
-    var _requiredBytes: Data? = nil
+    var _requiredBytes: [UInt8]? = nil
     var _requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil
     var _requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
     var _requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil
@@ -815,7 +815,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
     var _defaultDouble: Double? = nil
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
-    var _defaultBytes: Data? = nil
+    var _defaultBytes: [UInt8]? = nil
     var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
     var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
     var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
@@ -1025,7 +1025,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
           }
         }()
         case 114: try {
-          var v: Data?
+          var v: [UInt8]?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}

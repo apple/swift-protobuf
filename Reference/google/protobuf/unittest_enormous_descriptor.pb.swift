@@ -45,7 +45,7 @@
 // descriptors over 64k don't break language-specific limits in generated code,
 // such as the string literal length limit in Java.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file

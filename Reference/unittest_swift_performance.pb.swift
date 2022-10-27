@@ -37,7 +37,7 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+
 import SwiftProtobuf
 
 // If the compiler emits an error on this type, it is because this file
@@ -126,7 +126,7 @@ struct Swift_Performance_TestAllTypes {
     set {_uniqueStorage()._optionalString = newValue}
   }
 
-  var optionalBytes: Data {
+  var optionalBytes: [UInt8] {
     get {return _storage._optionalBytes}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
@@ -207,7 +207,7 @@ struct Swift_Performance_TestAllTypes {
     set {_uniqueStorage()._repeatedString = newValue}
   }
 
-  var repeatedBytes: [Data] {
+  var repeatedBytes: [[UInt8]] {
     get {return _storage._repeatedBytes}
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
@@ -285,7 +285,7 @@ extension Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
     var _optionalString: String = String()
-    var _optionalBytes: Data = Data()
+    var _optionalBytes: [UInt8] = []
     var _repeatedRecursiveMessage: [Swift_Performance_TestAllTypes] = []
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -301,7 +301,7 @@ extension Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     var _repeatedDouble: [Double] = []
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
+    var _repeatedBytes: [[UInt8]] = []
     var _mapStringMessage: Dictionary<String,Swift_Performance_TestAllTypes> = [:]
 
     static let defaultInstance = _StorageClass()
