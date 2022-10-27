@@ -30,10 +30,6 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
-  init(encoder: BinaryEncoder) {
-    self.encoder = encoder
-  }
-
   mutating func visitUnknown(bytes: Data) throws {
     encoder.appendUnknown(data: bytes)
   }
@@ -342,9 +338,9 @@ extension BinaryEncodingVisitor {
       let length = try value.serializedDataSize()
       encoder.putVarInt(value: length)
       // Create the sub encoder after writing the length.
-      var subVisitor = BinaryEncodingVisitor(encoder: encoder)
+      var subVisitor = BinaryEncodingVisitor(forWritingInto: encoder.pointer)
       try value.traverse(visitor: &subVisitor)
-      encoder = subVisitor.encoder
+      encoder.pointer = subVisitor.encoder.pointer
 
       encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.itemEnd.rawValue))
     }
