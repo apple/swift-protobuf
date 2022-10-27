@@ -1288,6 +1288,15 @@ struct ProtobufUnittest_TestDeprecatedFields {
   /// Clears the value of `deprecatedInt32`. Subsequent reads from it will return its default value.
   mutating func clearDeprecatedInt32() {self._deprecatedInt32 = nil}
 
+  var deprecatedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
+    get {return _deprecatedMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
+    set {_deprecatedMessage = newValue}
+  }
+  /// Returns true if `deprecatedMessage` has been explicitly set.
+  var hasDeprecatedMessage: Bool {return self._deprecatedMessage != nil}
+  /// Clears the value of `deprecatedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearDeprecatedMessage() {self._deprecatedMessage = nil}
+
   var oneofFields: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields? = nil
 
   var deprecatedInt32InOneof: Int32 {
@@ -1308,6 +1317,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
   init() {}
 
   fileprivate var _deprecatedInt32: Int32? = nil
+  fileprivate var _deprecatedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
 }
 
 struct ProtobufUnittest_TestDeprecatedMessage {
@@ -4519,6 +4529,24 @@ struct ProtobufUnittest_TestDynamicExtensions {
   fileprivate var _dynamicMessageExtension: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType? = nil
 }
 
+struct ProtobufUnittest_TestRepeatedString {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var repeatedString1: [String] = []
+
+  var repeatedString2: [String] = []
+
+  var repeatedBytes11: [Data] = []
+
+  var repeatedBytes12: [Data] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -6897,6 +6925,7 @@ extension ProtobufUnittest_TestPackedExtensions: @unchecked Sendable {}
 extension ProtobufUnittest_TestUnpackedExtensions: @unchecked Sendable {}
 extension ProtobufUnittest_TestDynamicExtensions: @unchecked Sendable {}
 extension ProtobufUnittest_TestDynamicExtensions.DynamicMessageType: @unchecked Sendable {}
+extension ProtobufUnittest_TestRepeatedString: @unchecked Sendable {}
 extension ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMerge: @unchecked Sendable {}
 extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}
@@ -10216,6 +10245,7 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftPro
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "deprecated_int32"),
+    3: .standard(proto: "deprecated_message"),
     2: .standard(proto: "deprecated_int32_in_oneof"),
   ]
 
@@ -10234,6 +10264,7 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftPro
           self.oneofFields = .deprecatedInt32InOneof(v)
         }
       }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._deprecatedMessage) }()
       default: break
       }
     }
@@ -10250,11 +10281,15 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message, SwiftPro
     try { if case .deprecatedInt32InOneof(let v)? = self.oneofFields {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     } }()
+    try { if let v = self._deprecatedMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestDeprecatedFields, rhs: ProtobufUnittest_TestDeprecatedFields) -> Bool {
     if lhs._deprecatedInt32 != rhs._deprecatedInt32 {return false}
+    if lhs._deprecatedMessage != rhs._deprecatedMessage {return false}
     if lhs.oneofFields != rhs.oneofFields {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -14984,6 +15019,56 @@ extension ProtobufUnittest_TestDynamicExtensions.DynamicMessageType: SwiftProtob
 
   static func ==(lhs: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType) -> Bool {
     if lhs._dynamicField != rhs._dynamicField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRepeatedString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRepeatedString"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "repeated_string1"),
+    2: .standard(proto: "repeated_string2"),
+    11: .standard(proto: "repeated_bytes11"),
+    12: .standard(proto: "repeated_bytes12"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.repeatedString1) }()
+      case 2: try { try decoder.decodeRepeatedStringField(value: &self.repeatedString2) }()
+      case 11: try { try decoder.decodeRepeatedBytesField(value: &self.repeatedBytes11) }()
+      case 12: try { try decoder.decodeRepeatedBytesField(value: &self.repeatedBytes12) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.repeatedString1.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.repeatedString1, fieldNumber: 1)
+    }
+    if !self.repeatedString2.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.repeatedString2, fieldNumber: 2)
+    }
+    if !self.repeatedBytes11.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.repeatedBytes11, fieldNumber: 11)
+    }
+    if !self.repeatedBytes12.isEmpty {
+      try visitor.visitRepeatedBytesField(value: self.repeatedBytes12, fieldNumber: 12)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestRepeatedString, rhs: ProtobufUnittest_TestRepeatedString) -> Bool {
+    if lhs.repeatedString1 != rhs.repeatedString1 {return false}
+    if lhs.repeatedString2 != rhs.repeatedString2 {return false}
+    if lhs.repeatedBytes11 != rhs.repeatedBytes11 {return false}
+    if lhs.repeatedBytes12 != rhs.repeatedBytes12 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

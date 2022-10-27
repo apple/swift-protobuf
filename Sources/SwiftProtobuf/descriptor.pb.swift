@@ -1329,7 +1329,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// call from multiple threads concurrently, while non-const methods continue
   /// to require exclusive access.
   ///
-  ///
   /// Note that implementations may choose not to check required fields within
   /// a lazy sub-message.  That is, calling IsInitialized() on the outer message
   /// may return true even if the inner message has missing required fields.

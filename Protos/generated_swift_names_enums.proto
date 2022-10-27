@@ -520,7 +520,6 @@ message GeneratedSwiftReservedEnums {
   enum makeIterator { NONE_makeIterator = 0; }
   enum mapEntry { NONE_mapEntry = 0; }
   enum MapKeyType { NONE_MapKeyType = 0; }
-  enum mapNameResolver { NONE_mapNameResolver = 0; }
   enum mapToMessages { NONE_mapToMessages = 0; }
   enum MapValueType { NONE_MapValueType = 0; }
   enum mapVisitor { NONE_mapVisitor = 0; }
@@ -552,7 +551,6 @@ message GeneratedSwiftReservedEnums {
   enum NameDescription { NONE_NameDescription = 0; }
   enum NameMap { NONE_NameMap = 0; }
   enum NamePart { NONE_NamePart = 0; }
-  enum nameResolver { NONE_nameResolver = 0; }
   enum names { NONE_names = 0; }
   enum nanos { NONE_nanos = 0; }
   enum nativeBytes { NONE_nativeBytes = 0; }
