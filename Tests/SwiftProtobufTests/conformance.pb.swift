@@ -56,7 +56,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
   case protobuf // = 1
   case json // = 2
 
-  /// Google internal only. Opensource testees just skip it.
+  /// Only used inside Google. Opensource testees just skip it.
   case jspb // = 3
   case textFormat // = 4
   case UNRECOGNIZED(Int)
@@ -115,8 +115,8 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
   /// for more detail.
   case jsonIgnoreUnknownParsingTest // = 3
 
-  /// Test jspb wire format. Google internal only. Opensource testees just skip
-  /// it.
+  /// Test jspb wire format. Only used inside Google. Opensource testees just
+  /// skip it.
   case jspbTest // = 4
 
   /// Test text format. For cpp, java and python, testees can already deal with
@@ -210,7 +210,7 @@ struct Conformance_ConformanceRequest {
     set {payload = .jsonPayload(newValue)}
   }
 
-  /// Google internal only.  Opensource testees just skip it.
+  /// Only used inside Google.  Opensource testees just skip it.
   var jspbPayload: String {
     get {
       if case .jspbPayload(let v)? = payload {return v}
@@ -262,7 +262,7 @@ struct Conformance_ConformanceRequest {
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)
-    /// Google internal only.  Opensource testees just skip it.
+    /// Only used inside Google.  Opensource testees just skip it.
     case jspbPayload(String)
     case textPayload(String)
 
@@ -358,8 +358,8 @@ struct Conformance_ConformanceResponse {
   }
 
   /// If the input was successfully parsed and the requested output was JSPB,
-  /// serialize to JSPB and set it in this field. JSPB is google internal only
-  /// format. Opensource testees can just skip it.
+  /// serialize to JSPB and set it in this field. JSPB is only used inside
+  /// Google. Opensource testees can just skip it.
   var jspbPayload: String {
     get {
       if case .jspbPayload(let v)? = result {return v}
@@ -409,8 +409,8 @@ struct Conformance_ConformanceResponse {
     /// wasn't supported, like JSON input/output.
     case skipped(String)
     /// If the input was successfully parsed and the requested output was JSPB,
-    /// serialize to JSPB and set it in this field. JSPB is google internal only
-    /// format. Opensource testees can just skip it.
+    /// serialize to JSPB and set it in this field. JSPB is only used inside
+    /// Google. Opensource testees can just skip it.
     case jspbPayload(String)
     /// If the input was successfully parsed and the requested output was
     /// TEXT_FORMAT, serialize to TEXT_FORMAT and set it in this field.

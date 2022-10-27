@@ -15511,36 +15511,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum mapNameResolver: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneMapNameResolver // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneMapNameResolver
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneMapNameResolver
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneMapNameResolver: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapNameResolver] = [
-      .noneMapNameResolver,
-    ]
-
-  }
-
   enum mapToMessages: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneMapToMessages // = 0
@@ -16467,36 +16437,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NamePart] = [
       .noneNamePart,
-    ]
-
-  }
-
-  enum nameResolver: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneNameResolver // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneNameResolver
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneNameResolver
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneNameResolver: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nameResolver] = [
-      .noneNameResolver,
     ]
 
   }
@@ -29467,12 +29407,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapKeyType: Swif
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapNameResolver: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_mapNameResolver"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapToMessages: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapToMessages"),
@@ -29656,12 +29590,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameMap: SwiftPr
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NamePart: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_NamePart"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nameResolver: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_nameResolver"),
   ]
 }
 

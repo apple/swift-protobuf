@@ -2609,11 +2609,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
     set {_uniqueStorage()._mapKeyType = newValue}
   }
 
-  var mapNameResolver: Int32 {
-    get {return _storage._mapNameResolver}
-    set {_uniqueStorage()._mapNameResolver = newValue}
-  }
-
   var mapToMessages: Int32 {
     get {return _storage._mapToMessages}
     set {_uniqueStorage()._mapToMessages = newValue}
@@ -2767,11 +2762,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
   var namePart: Int32 {
     get {return _storage._namePart}
     set {_uniqueStorage()._namePart = newValue}
-  }
-
-  var nameResolver: Int32 {
-    get {return _storage._nameResolver}
-    set {_uniqueStorage()._nameResolver = newValue}
   }
 
   var names: Int32 {
@@ -4948,367 +4938,365 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     514: .same(proto: "makeIterator"),
     515: .same(proto: "mapEntry"),
     516: .same(proto: "MapKeyType"),
-    517: .same(proto: "mapNameResolver"),
-    518: .same(proto: "mapToMessages"),
-    519: .same(proto: "MapValueType"),
-    520: .same(proto: "mapVisitor"),
-    521: .same(proto: "mdayStart"),
-    522: .same(proto: "merge"),
-    523: .same(proto: "message"),
-    524: .same(proto: "MessageBase"),
-    525: .same(proto: "messageDepthLimit"),
-    526: .same(proto: "MessageExtension"),
-    527: .same(proto: "MessageImplementationBase"),
-    528: .same(proto: "MessageOptions"),
-    529: .same(proto: "MessageSet"),
-    530: .same(proto: "messageSetWireFormat"),
-    531: .same(proto: "messageType"),
-    532: .same(proto: "Method"),
-    533: .same(proto: "MethodDescriptorProto"),
-    534: .same(proto: "MethodOptions"),
-    535: .same(proto: "methods"),
-    536: .same(proto: "minor"),
-    537: .same(proto: "Mixin"),
-    538: .same(proto: "mixins"),
-    539: .same(proto: "modifier"),
-    540: .same(proto: "modify"),
-    541: .same(proto: "month"),
-    542: .same(proto: "msgExtension"),
-    543: .same(proto: "mutating"),
-    544: .same(proto: "n"),
-    545: .same(proto: "name"),
-    546: .same(proto: "NameDescription"),
-    547: .same(proto: "NameMap"),
-    548: .same(proto: "NamePart"),
-    549: .same(proto: "nameResolver"),
-    550: .same(proto: "names"),
-    551: .same(proto: "nanos"),
-    552: .same(proto: "nativeBytes"),
-    553: .same(proto: "nativeEndianBytes"),
-    554: .same(proto: "negativeIntValue"),
-    555: .same(proto: "nestedType"),
-    556: .same(proto: "newL"),
-    557: .same(proto: "newList"),
-    558: .same(proto: "newValue"),
-    559: .same(proto: "nextByte"),
-    560: .same(proto: "nextFieldNumber"),
-    561: .same(proto: "nil"),
-    562: .same(proto: "nilLiteral"),
-    563: .same(proto: "noStandardDescriptorAccessor"),
-    564: .same(proto: "nullValue"),
-    565: .same(proto: "number"),
-    566: .same(proto: "numberValue"),
-    567: .same(proto: "objcClassPrefix"),
-    568: .same(proto: "of"),
-    569: .same(proto: "oneofDecl"),
-    570: .same(proto: "OneofDescriptorProto"),
-    571: .same(proto: "oneofIndex"),
-    572: .same(proto: "OneofOptions"),
-    573: .same(proto: "oneofs"),
-    574: .standard(proto: "OneOf_Kind"),
-    575: .same(proto: "optimizeFor"),
-    576: .same(proto: "OptimizeMode"),
-    577: .same(proto: "Option"),
-    578: .same(proto: "OptionalEnumExtensionField"),
-    579: .same(proto: "OptionalExtensionField"),
-    580: .same(proto: "OptionalGroupExtensionField"),
-    581: .same(proto: "OptionalMessageExtensionField"),
-    582: .same(proto: "options"),
-    583: .same(proto: "other"),
-    584: .same(proto: "others"),
-    585: .same(proto: "out"),
-    586: .same(proto: "outputType"),
-    587: .same(proto: "p"),
-    588: .same(proto: "package"),
-    589: .same(proto: "packed"),
-    590: .same(proto: "PackedEnumExtensionField"),
-    591: .same(proto: "PackedExtensionField"),
-    592: .same(proto: "padding"),
-    593: .same(proto: "parent"),
-    594: .same(proto: "parse"),
-    595: .same(proto: "partial"),
-    596: .same(proto: "path"),
-    597: .same(proto: "paths"),
-    598: .same(proto: "payload"),
-    599: .same(proto: "payloadSize"),
-    600: .same(proto: "phpClassPrefix"),
-    601: .same(proto: "phpGenericServices"),
-    602: .same(proto: "phpMetadataNamespace"),
-    603: .same(proto: "phpNamespace"),
-    604: .same(proto: "pointer"),
-    605: .same(proto: "pos"),
-    606: .same(proto: "positiveIntValue"),
-    607: .same(proto: "prefix"),
-    608: .same(proto: "preserveProtoFieldNames"),
-    609: .same(proto: "preTraverse"),
-    610: .same(proto: "printUnknownFields"),
-    611: .same(proto: "proto2"),
-    612: .same(proto: "proto3DefaultValue"),
-    613: .same(proto: "proto3Optional"),
-    614: .same(proto: "ProtobufAPIVersionCheck"),
-    615: .standard(proto: "ProtobufAPIVersion_3"),
-    616: .same(proto: "ProtobufBool"),
-    617: .same(proto: "ProtobufBytes"),
-    618: .same(proto: "ProtobufDouble"),
-    619: .same(proto: "ProtobufEnumMap"),
-    620: .same(proto: "protobufExtension"),
-    621: .same(proto: "ProtobufFixed32"),
-    622: .same(proto: "ProtobufFixed64"),
-    623: .same(proto: "ProtobufFloat"),
-    624: .same(proto: "ProtobufInt32"),
-    625: .same(proto: "ProtobufInt64"),
-    626: .same(proto: "ProtobufMap"),
-    627: .same(proto: "ProtobufMessageMap"),
-    628: .same(proto: "ProtobufSFixed32"),
-    629: .same(proto: "ProtobufSFixed64"),
-    630: .same(proto: "ProtobufSInt32"),
-    631: .same(proto: "ProtobufSInt64"),
-    632: .same(proto: "ProtobufString"),
-    633: .same(proto: "ProtobufUInt32"),
-    634: .same(proto: "ProtobufUInt64"),
-    635: .standard(proto: "protobuf_extensionFieldValues"),
-    636: .standard(proto: "protobuf_fieldNumber"),
-    637: .standard(proto: "protobuf_generated_isEqualTo"),
-    638: .standard(proto: "protobuf_nameMap"),
-    639: .standard(proto: "protobuf_newField"),
-    640: .standard(proto: "protobuf_package"),
-    641: .same(proto: "protocol"),
-    642: .same(proto: "protoFieldName"),
-    643: .same(proto: "protoMessageName"),
-    644: .same(proto: "ProtoNameProviding"),
-    645: .same(proto: "protoPaths"),
-    646: .same(proto: "ProtoSendable"),
-    647: .same(proto: "public"),
-    648: .same(proto: "publicDependency"),
-    649: .same(proto: "putBoolValue"),
-    650: .same(proto: "putBytesValue"),
-    651: .same(proto: "putDoubleValue"),
-    652: .same(proto: "putEnumValue"),
-    653: .same(proto: "putFixedUInt32"),
-    654: .same(proto: "putFixedUInt64"),
-    655: .same(proto: "putFloatValue"),
-    656: .same(proto: "putInt64"),
-    657: .same(proto: "putStringValue"),
-    658: .same(proto: "putUInt64"),
-    659: .same(proto: "putUInt64Hex"),
-    660: .same(proto: "putVarInt"),
-    661: .same(proto: "putZigZagVarInt"),
-    662: .same(proto: "pyGenericServices"),
-    663: .same(proto: "rawChars"),
-    664: .same(proto: "RawRepresentable"),
-    665: .same(proto: "RawValue"),
-    666: .same(proto: "read4HexDigits"),
-    667: .same(proto: "register"),
-    668: .same(proto: "RepeatedEnumExtensionField"),
-    669: .same(proto: "RepeatedExtensionField"),
-    670: .same(proto: "RepeatedGroupExtensionField"),
-    671: .same(proto: "RepeatedMessageExtensionField"),
-    672: .same(proto: "requestStreaming"),
-    673: .same(proto: "requestTypeURL"),
-    674: .same(proto: "requiredSize"),
-    675: .same(proto: "reservedName"),
-    676: .same(proto: "reservedRange"),
-    677: .same(proto: "responseStreaming"),
-    678: .same(proto: "responseTypeURL"),
-    679: .same(proto: "result"),
-    680: .same(proto: "rethrows"),
-    681: .same(proto: "return"),
-    682: .same(proto: "ReturnType"),
-    683: .same(proto: "revision"),
-    684: .same(proto: "rhs"),
-    685: .same(proto: "root"),
-    686: .same(proto: "rubyPackage"),
-    687: .same(proto: "s"),
-    688: .same(proto: "sawBackslash"),
-    689: .same(proto: "sawSection4Characters"),
-    690: .same(proto: "sawSection5Characters"),
-    691: .same(proto: "scanner"),
-    692: .same(proto: "seconds"),
-    693: .same(proto: "self"),
-    694: .same(proto: "semantic"),
-    695: .same(proto: "Sendable"),
-    696: .same(proto: "separator"),
-    697: .same(proto: "serialize"),
-    698: .same(proto: "serializedData"),
-    699: .same(proto: "serializedSize"),
-    700: .same(proto: "serverStreaming"),
-    701: .same(proto: "service"),
-    702: .same(proto: "ServiceDescriptorProto"),
-    703: .same(proto: "ServiceOptions"),
-    704: .same(proto: "set"),
-    705: .same(proto: "setExtensionValue"),
-    706: .same(proto: "shift"),
-    707: .same(proto: "SimpleExtensionMap"),
-    708: .same(proto: "sizer"),
-    709: .same(proto: "source"),
-    710: .same(proto: "sourceCodeInfo"),
-    711: .same(proto: "sourceContext"),
-    712: .same(proto: "sourceEncoding"),
-    713: .same(proto: "sourceFile"),
-    714: .same(proto: "span"),
-    715: .same(proto: "split"),
-    716: .same(proto: "start"),
-    717: .same(proto: "startArray"),
-    718: .same(proto: "startArrayObject"),
-    719: .same(proto: "startField"),
-    720: .same(proto: "startIndex"),
-    721: .same(proto: "startMessageField"),
-    722: .same(proto: "startObject"),
-    723: .same(proto: "startRegularField"),
-    724: .same(proto: "state"),
-    725: .same(proto: "static"),
-    726: .same(proto: "StaticString"),
-    727: .same(proto: "storage"),
-    728: .same(proto: "String"),
-    729: .same(proto: "stringLiteral"),
-    730: .same(proto: "StringLiteralType"),
-    731: .same(proto: "stringResult"),
-    732: .same(proto: "stringValue"),
-    733: .same(proto: "struct"),
-    734: .same(proto: "structValue"),
-    735: .same(proto: "subDecoder"),
-    736: .same(proto: "subscript"),
-    737: .same(proto: "subVisitor"),
-    738: .same(proto: "Swift"),
-    739: .same(proto: "swiftPrefix"),
-    740: .same(proto: "SwiftProtobuf"),
-    741: .same(proto: "syntax"),
-    742: .same(proto: "T"),
-    743: .same(proto: "tag"),
-    744: .same(proto: "terminator"),
-    745: .same(proto: "testDecoder"),
-    746: .same(proto: "text"),
-    747: .same(proto: "textDecoder"),
-    748: .same(proto: "TextFormatDecoder"),
-    749: .same(proto: "TextFormatDecodingError"),
-    750: .same(proto: "TextFormatDecodingOptions"),
-    751: .same(proto: "TextFormatEncodingOptions"),
-    752: .same(proto: "TextFormatEncodingVisitor"),
-    753: .same(proto: "textFormatString"),
-    754: .same(proto: "throws"),
-    755: .same(proto: "timeInterval"),
-    756: .same(proto: "timeIntervalSince1970"),
-    757: .same(proto: "timeIntervalSinceReferenceDate"),
-    758: .same(proto: "Timestamp"),
-    759: .same(proto: "total"),
-    760: .same(proto: "totalArrayDepth"),
-    761: .same(proto: "totalSize"),
-    762: .same(proto: "trailingComments"),
-    763: .same(proto: "traverse"),
-    764: .same(proto: "true"),
-    765: .same(proto: "try"),
-    766: .same(proto: "type"),
-    767: .same(proto: "typealias"),
-    768: .same(proto: "TypeEnum"),
-    769: .same(proto: "typeName"),
-    770: .same(proto: "typePrefix"),
-    771: .same(proto: "typeStart"),
-    772: .same(proto: "typeUnknown"),
-    773: .same(proto: "typeURL"),
-    774: .same(proto: "UInt32"),
-    775: .same(proto: "UInt32Value"),
-    776: .same(proto: "UInt64"),
-    777: .same(proto: "UInt64Value"),
-    778: .same(proto: "UInt8"),
-    779: .same(proto: "unicodeScalarLiteral"),
-    780: .same(proto: "UnicodeScalarLiteralType"),
-    781: .same(proto: "unicodeScalars"),
-    782: .same(proto: "UnicodeScalarView"),
-    783: .same(proto: "uninterpretedOption"),
-    784: .same(proto: "union"),
-    785: .same(proto: "uniqueStorage"),
-    786: .same(proto: "unknown"),
-    787: .same(proto: "unknownFields"),
-    788: .same(proto: "UnknownStorage"),
-    789: .same(proto: "unpackTo"),
-    790: .same(proto: "UnsafeBufferPointer"),
-    791: .same(proto: "UnsafeMutablePointer"),
-    792: .same(proto: "UnsafeMutableRawPointer"),
-    793: .same(proto: "UnsafeRawBufferPointer"),
-    794: .same(proto: "UnsafeRawPointer"),
-    795: .same(proto: "unverifiedLazy"),
-    796: .same(proto: "updatedOptions"),
-    797: .same(proto: "url"),
-    798: .same(proto: "utf8"),
-    799: .same(proto: "utf8Ptr"),
-    800: .same(proto: "utf8ToDouble"),
-    801: .same(proto: "UTF8View"),
-    802: .same(proto: "v"),
-    803: .same(proto: "value"),
-    804: .same(proto: "valueField"),
-    805: .same(proto: "values"),
-    806: .same(proto: "ValueType"),
-    807: .same(proto: "var"),
-    808: .same(proto: "Version"),
-    809: .same(proto: "versionString"),
-    810: .same(proto: "visitExtensionFields"),
-    811: .same(proto: "visitExtensionFieldsAsMessageSet"),
-    812: .same(proto: "visitMapField"),
-    813: .same(proto: "visitor"),
-    814: .same(proto: "visitPacked"),
-    815: .same(proto: "visitPackedBoolField"),
-    816: .same(proto: "visitPackedDoubleField"),
-    817: .same(proto: "visitPackedEnumField"),
-    818: .same(proto: "visitPackedFixed32Field"),
-    819: .same(proto: "visitPackedFixed64Field"),
-    820: .same(proto: "visitPackedFloatField"),
-    821: .same(proto: "visitPackedInt32Field"),
-    822: .same(proto: "visitPackedInt64Field"),
-    823: .same(proto: "visitPackedSFixed32Field"),
-    824: .same(proto: "visitPackedSFixed64Field"),
-    825: .same(proto: "visitPackedSInt32Field"),
-    826: .same(proto: "visitPackedSInt64Field"),
-    827: .same(proto: "visitPackedUInt32Field"),
-    828: .same(proto: "visitPackedUInt64Field"),
-    829: .same(proto: "visitRepeated"),
-    830: .same(proto: "visitRepeatedBoolField"),
-    831: .same(proto: "visitRepeatedBytesField"),
-    832: .same(proto: "visitRepeatedDoubleField"),
-    833: .same(proto: "visitRepeatedEnumField"),
-    834: .same(proto: "visitRepeatedFixed32Field"),
-    835: .same(proto: "visitRepeatedFixed64Field"),
-    836: .same(proto: "visitRepeatedFloatField"),
-    837: .same(proto: "visitRepeatedGroupField"),
-    838: .same(proto: "visitRepeatedInt32Field"),
-    839: .same(proto: "visitRepeatedInt64Field"),
-    840: .same(proto: "visitRepeatedMessageField"),
-    841: .same(proto: "visitRepeatedSFixed32Field"),
-    842: .same(proto: "visitRepeatedSFixed64Field"),
-    843: .same(proto: "visitRepeatedSInt32Field"),
-    844: .same(proto: "visitRepeatedSInt64Field"),
-    845: .same(proto: "visitRepeatedStringField"),
-    846: .same(proto: "visitRepeatedUInt32Field"),
-    847: .same(proto: "visitRepeatedUInt64Field"),
-    848: .same(proto: "visitSingular"),
-    849: .same(proto: "visitSingularBoolField"),
-    850: .same(proto: "visitSingularBytesField"),
-    851: .same(proto: "visitSingularDoubleField"),
-    852: .same(proto: "visitSingularEnumField"),
-    853: .same(proto: "visitSingularFixed32Field"),
-    854: .same(proto: "visitSingularFixed64Field"),
-    855: .same(proto: "visitSingularFloatField"),
-    856: .same(proto: "visitSingularGroupField"),
-    857: .same(proto: "visitSingularInt32Field"),
-    858: .same(proto: "visitSingularInt64Field"),
-    859: .same(proto: "visitSingularMessageField"),
-    860: .same(proto: "visitSingularSFixed32Field"),
-    861: .same(proto: "visitSingularSFixed64Field"),
-    862: .same(proto: "visitSingularSInt32Field"),
-    863: .same(proto: "visitSingularSInt64Field"),
-    864: .same(proto: "visitSingularStringField"),
-    865: .same(proto: "visitSingularUInt32Field"),
-    866: .same(proto: "visitSingularUInt64Field"),
-    867: .same(proto: "visitUnknown"),
-    868: .same(proto: "wasDecoded"),
-    869: .same(proto: "weak"),
-    870: .same(proto: "weakDependency"),
-    871: .same(proto: "where"),
-    872: .same(proto: "wireFormat"),
-    873: .same(proto: "with"),
-    874: .same(proto: "work"),
-    875: .same(proto: "WrappedType"),
-    876: .same(proto: "written"),
-    877: .same(proto: "yday"),
+    517: .same(proto: "mapToMessages"),
+    518: .same(proto: "MapValueType"),
+    519: .same(proto: "mapVisitor"),
+    520: .same(proto: "mdayStart"),
+    521: .same(proto: "merge"),
+    522: .same(proto: "message"),
+    523: .same(proto: "MessageBase"),
+    524: .same(proto: "messageDepthLimit"),
+    525: .same(proto: "MessageExtension"),
+    526: .same(proto: "MessageImplementationBase"),
+    527: .same(proto: "MessageOptions"),
+    528: .same(proto: "MessageSet"),
+    529: .same(proto: "messageSetWireFormat"),
+    530: .same(proto: "messageType"),
+    531: .same(proto: "Method"),
+    532: .same(proto: "MethodDescriptorProto"),
+    533: .same(proto: "MethodOptions"),
+    534: .same(proto: "methods"),
+    535: .same(proto: "minor"),
+    536: .same(proto: "Mixin"),
+    537: .same(proto: "mixins"),
+    538: .same(proto: "modifier"),
+    539: .same(proto: "modify"),
+    540: .same(proto: "month"),
+    541: .same(proto: "msgExtension"),
+    542: .same(proto: "mutating"),
+    543: .same(proto: "n"),
+    544: .same(proto: "name"),
+    545: .same(proto: "NameDescription"),
+    546: .same(proto: "NameMap"),
+    547: .same(proto: "NamePart"),
+    548: .same(proto: "names"),
+    549: .same(proto: "nanos"),
+    550: .same(proto: "nativeBytes"),
+    551: .same(proto: "nativeEndianBytes"),
+    552: .same(proto: "negativeIntValue"),
+    553: .same(proto: "nestedType"),
+    554: .same(proto: "newL"),
+    555: .same(proto: "newList"),
+    556: .same(proto: "newValue"),
+    557: .same(proto: "nextByte"),
+    558: .same(proto: "nextFieldNumber"),
+    559: .same(proto: "nil"),
+    560: .same(proto: "nilLiteral"),
+    561: .same(proto: "noStandardDescriptorAccessor"),
+    562: .same(proto: "nullValue"),
+    563: .same(proto: "number"),
+    564: .same(proto: "numberValue"),
+    565: .same(proto: "objcClassPrefix"),
+    566: .same(proto: "of"),
+    567: .same(proto: "oneofDecl"),
+    568: .same(proto: "OneofDescriptorProto"),
+    569: .same(proto: "oneofIndex"),
+    570: .same(proto: "OneofOptions"),
+    571: .same(proto: "oneofs"),
+    572: .standard(proto: "OneOf_Kind"),
+    573: .same(proto: "optimizeFor"),
+    574: .same(proto: "OptimizeMode"),
+    575: .same(proto: "Option"),
+    576: .same(proto: "OptionalEnumExtensionField"),
+    577: .same(proto: "OptionalExtensionField"),
+    578: .same(proto: "OptionalGroupExtensionField"),
+    579: .same(proto: "OptionalMessageExtensionField"),
+    580: .same(proto: "options"),
+    581: .same(proto: "other"),
+    582: .same(proto: "others"),
+    583: .same(proto: "out"),
+    584: .same(proto: "outputType"),
+    585: .same(proto: "p"),
+    586: .same(proto: "package"),
+    587: .same(proto: "packed"),
+    588: .same(proto: "PackedEnumExtensionField"),
+    589: .same(proto: "PackedExtensionField"),
+    590: .same(proto: "padding"),
+    591: .same(proto: "parent"),
+    592: .same(proto: "parse"),
+    593: .same(proto: "partial"),
+    594: .same(proto: "path"),
+    595: .same(proto: "paths"),
+    596: .same(proto: "payload"),
+    597: .same(proto: "payloadSize"),
+    598: .same(proto: "phpClassPrefix"),
+    599: .same(proto: "phpGenericServices"),
+    600: .same(proto: "phpMetadataNamespace"),
+    601: .same(proto: "phpNamespace"),
+    602: .same(proto: "pointer"),
+    603: .same(proto: "pos"),
+    604: .same(proto: "positiveIntValue"),
+    605: .same(proto: "prefix"),
+    606: .same(proto: "preserveProtoFieldNames"),
+    607: .same(proto: "preTraverse"),
+    608: .same(proto: "printUnknownFields"),
+    609: .same(proto: "proto2"),
+    610: .same(proto: "proto3DefaultValue"),
+    611: .same(proto: "proto3Optional"),
+    612: .same(proto: "ProtobufAPIVersionCheck"),
+    613: .standard(proto: "ProtobufAPIVersion_3"),
+    614: .same(proto: "ProtobufBool"),
+    615: .same(proto: "ProtobufBytes"),
+    616: .same(proto: "ProtobufDouble"),
+    617: .same(proto: "ProtobufEnumMap"),
+    618: .same(proto: "protobufExtension"),
+    619: .same(proto: "ProtobufFixed32"),
+    620: .same(proto: "ProtobufFixed64"),
+    621: .same(proto: "ProtobufFloat"),
+    622: .same(proto: "ProtobufInt32"),
+    623: .same(proto: "ProtobufInt64"),
+    624: .same(proto: "ProtobufMap"),
+    625: .same(proto: "ProtobufMessageMap"),
+    626: .same(proto: "ProtobufSFixed32"),
+    627: .same(proto: "ProtobufSFixed64"),
+    628: .same(proto: "ProtobufSInt32"),
+    629: .same(proto: "ProtobufSInt64"),
+    630: .same(proto: "ProtobufString"),
+    631: .same(proto: "ProtobufUInt32"),
+    632: .same(proto: "ProtobufUInt64"),
+    633: .standard(proto: "protobuf_extensionFieldValues"),
+    634: .standard(proto: "protobuf_fieldNumber"),
+    635: .standard(proto: "protobuf_generated_isEqualTo"),
+    636: .standard(proto: "protobuf_nameMap"),
+    637: .standard(proto: "protobuf_newField"),
+    638: .standard(proto: "protobuf_package"),
+    639: .same(proto: "protocol"),
+    640: .same(proto: "protoFieldName"),
+    641: .same(proto: "protoMessageName"),
+    642: .same(proto: "ProtoNameProviding"),
+    643: .same(proto: "protoPaths"),
+    644: .same(proto: "ProtoSendable"),
+    645: .same(proto: "public"),
+    646: .same(proto: "publicDependency"),
+    647: .same(proto: "putBoolValue"),
+    648: .same(proto: "putBytesValue"),
+    649: .same(proto: "putDoubleValue"),
+    650: .same(proto: "putEnumValue"),
+    651: .same(proto: "putFixedUInt32"),
+    652: .same(proto: "putFixedUInt64"),
+    653: .same(proto: "putFloatValue"),
+    654: .same(proto: "putInt64"),
+    655: .same(proto: "putStringValue"),
+    656: .same(proto: "putUInt64"),
+    657: .same(proto: "putUInt64Hex"),
+    658: .same(proto: "putVarInt"),
+    659: .same(proto: "putZigZagVarInt"),
+    660: .same(proto: "pyGenericServices"),
+    661: .same(proto: "rawChars"),
+    662: .same(proto: "RawRepresentable"),
+    663: .same(proto: "RawValue"),
+    664: .same(proto: "read4HexDigits"),
+    665: .same(proto: "register"),
+    666: .same(proto: "RepeatedEnumExtensionField"),
+    667: .same(proto: "RepeatedExtensionField"),
+    668: .same(proto: "RepeatedGroupExtensionField"),
+    669: .same(proto: "RepeatedMessageExtensionField"),
+    670: .same(proto: "requestStreaming"),
+    671: .same(proto: "requestTypeURL"),
+    672: .same(proto: "requiredSize"),
+    673: .same(proto: "reservedName"),
+    674: .same(proto: "reservedRange"),
+    675: .same(proto: "responseStreaming"),
+    676: .same(proto: "responseTypeURL"),
+    677: .same(proto: "result"),
+    678: .same(proto: "rethrows"),
+    679: .same(proto: "return"),
+    680: .same(proto: "ReturnType"),
+    681: .same(proto: "revision"),
+    682: .same(proto: "rhs"),
+    683: .same(proto: "root"),
+    684: .same(proto: "rubyPackage"),
+    685: .same(proto: "s"),
+    686: .same(proto: "sawBackslash"),
+    687: .same(proto: "sawSection4Characters"),
+    688: .same(proto: "sawSection5Characters"),
+    689: .same(proto: "scanner"),
+    690: .same(proto: "seconds"),
+    691: .same(proto: "self"),
+    692: .same(proto: "semantic"),
+    693: .same(proto: "Sendable"),
+    694: .same(proto: "separator"),
+    695: .same(proto: "serialize"),
+    696: .same(proto: "serializedData"),
+    697: .same(proto: "serializedSize"),
+    698: .same(proto: "serverStreaming"),
+    699: .same(proto: "service"),
+    700: .same(proto: "ServiceDescriptorProto"),
+    701: .same(proto: "ServiceOptions"),
+    702: .same(proto: "set"),
+    703: .same(proto: "setExtensionValue"),
+    704: .same(proto: "shift"),
+    705: .same(proto: "SimpleExtensionMap"),
+    706: .same(proto: "sizer"),
+    707: .same(proto: "source"),
+    708: .same(proto: "sourceCodeInfo"),
+    709: .same(proto: "sourceContext"),
+    710: .same(proto: "sourceEncoding"),
+    711: .same(proto: "sourceFile"),
+    712: .same(proto: "span"),
+    713: .same(proto: "split"),
+    714: .same(proto: "start"),
+    715: .same(proto: "startArray"),
+    716: .same(proto: "startArrayObject"),
+    717: .same(proto: "startField"),
+    718: .same(proto: "startIndex"),
+    719: .same(proto: "startMessageField"),
+    720: .same(proto: "startObject"),
+    721: .same(proto: "startRegularField"),
+    722: .same(proto: "state"),
+    723: .same(proto: "static"),
+    724: .same(proto: "StaticString"),
+    725: .same(proto: "storage"),
+    726: .same(proto: "String"),
+    727: .same(proto: "stringLiteral"),
+    728: .same(proto: "StringLiteralType"),
+    729: .same(proto: "stringResult"),
+    730: .same(proto: "stringValue"),
+    731: .same(proto: "struct"),
+    732: .same(proto: "structValue"),
+    733: .same(proto: "subDecoder"),
+    734: .same(proto: "subscript"),
+    735: .same(proto: "subVisitor"),
+    736: .same(proto: "Swift"),
+    737: .same(proto: "swiftPrefix"),
+    738: .same(proto: "SwiftProtobuf"),
+    739: .same(proto: "syntax"),
+    740: .same(proto: "T"),
+    741: .same(proto: "tag"),
+    742: .same(proto: "terminator"),
+    743: .same(proto: "testDecoder"),
+    744: .same(proto: "text"),
+    745: .same(proto: "textDecoder"),
+    746: .same(proto: "TextFormatDecoder"),
+    747: .same(proto: "TextFormatDecodingError"),
+    748: .same(proto: "TextFormatDecodingOptions"),
+    749: .same(proto: "TextFormatEncodingOptions"),
+    750: .same(proto: "TextFormatEncodingVisitor"),
+    751: .same(proto: "textFormatString"),
+    752: .same(proto: "throws"),
+    753: .same(proto: "timeInterval"),
+    754: .same(proto: "timeIntervalSince1970"),
+    755: .same(proto: "timeIntervalSinceReferenceDate"),
+    756: .same(proto: "Timestamp"),
+    757: .same(proto: "total"),
+    758: .same(proto: "totalArrayDepth"),
+    759: .same(proto: "totalSize"),
+    760: .same(proto: "trailingComments"),
+    761: .same(proto: "traverse"),
+    762: .same(proto: "true"),
+    763: .same(proto: "try"),
+    764: .same(proto: "type"),
+    765: .same(proto: "typealias"),
+    766: .same(proto: "TypeEnum"),
+    767: .same(proto: "typeName"),
+    768: .same(proto: "typePrefix"),
+    769: .same(proto: "typeStart"),
+    770: .same(proto: "typeUnknown"),
+    771: .same(proto: "typeURL"),
+    772: .same(proto: "UInt32"),
+    773: .same(proto: "UInt32Value"),
+    774: .same(proto: "UInt64"),
+    775: .same(proto: "UInt64Value"),
+    776: .same(proto: "UInt8"),
+    777: .same(proto: "unicodeScalarLiteral"),
+    778: .same(proto: "UnicodeScalarLiteralType"),
+    779: .same(proto: "unicodeScalars"),
+    780: .same(proto: "UnicodeScalarView"),
+    781: .same(proto: "uninterpretedOption"),
+    782: .same(proto: "union"),
+    783: .same(proto: "uniqueStorage"),
+    784: .same(proto: "unknown"),
+    785: .same(proto: "unknownFields"),
+    786: .same(proto: "UnknownStorage"),
+    787: .same(proto: "unpackTo"),
+    788: .same(proto: "UnsafeBufferPointer"),
+    789: .same(proto: "UnsafeMutablePointer"),
+    790: .same(proto: "UnsafeMutableRawPointer"),
+    791: .same(proto: "UnsafeRawBufferPointer"),
+    792: .same(proto: "UnsafeRawPointer"),
+    793: .same(proto: "unverifiedLazy"),
+    794: .same(proto: "updatedOptions"),
+    795: .same(proto: "url"),
+    796: .same(proto: "utf8"),
+    797: .same(proto: "utf8Ptr"),
+    798: .same(proto: "utf8ToDouble"),
+    799: .same(proto: "UTF8View"),
+    800: .same(proto: "v"),
+    801: .same(proto: "value"),
+    802: .same(proto: "valueField"),
+    803: .same(proto: "values"),
+    804: .same(proto: "ValueType"),
+    805: .same(proto: "var"),
+    806: .same(proto: "Version"),
+    807: .same(proto: "versionString"),
+    808: .same(proto: "visitExtensionFields"),
+    809: .same(proto: "visitExtensionFieldsAsMessageSet"),
+    810: .same(proto: "visitMapField"),
+    811: .same(proto: "visitor"),
+    812: .same(proto: "visitPacked"),
+    813: .same(proto: "visitPackedBoolField"),
+    814: .same(proto: "visitPackedDoubleField"),
+    815: .same(proto: "visitPackedEnumField"),
+    816: .same(proto: "visitPackedFixed32Field"),
+    817: .same(proto: "visitPackedFixed64Field"),
+    818: .same(proto: "visitPackedFloatField"),
+    819: .same(proto: "visitPackedInt32Field"),
+    820: .same(proto: "visitPackedInt64Field"),
+    821: .same(proto: "visitPackedSFixed32Field"),
+    822: .same(proto: "visitPackedSFixed64Field"),
+    823: .same(proto: "visitPackedSInt32Field"),
+    824: .same(proto: "visitPackedSInt64Field"),
+    825: .same(proto: "visitPackedUInt32Field"),
+    826: .same(proto: "visitPackedUInt64Field"),
+    827: .same(proto: "visitRepeated"),
+    828: .same(proto: "visitRepeatedBoolField"),
+    829: .same(proto: "visitRepeatedBytesField"),
+    830: .same(proto: "visitRepeatedDoubleField"),
+    831: .same(proto: "visitRepeatedEnumField"),
+    832: .same(proto: "visitRepeatedFixed32Field"),
+    833: .same(proto: "visitRepeatedFixed64Field"),
+    834: .same(proto: "visitRepeatedFloatField"),
+    835: .same(proto: "visitRepeatedGroupField"),
+    836: .same(proto: "visitRepeatedInt32Field"),
+    837: .same(proto: "visitRepeatedInt64Field"),
+    838: .same(proto: "visitRepeatedMessageField"),
+    839: .same(proto: "visitRepeatedSFixed32Field"),
+    840: .same(proto: "visitRepeatedSFixed64Field"),
+    841: .same(proto: "visitRepeatedSInt32Field"),
+    842: .same(proto: "visitRepeatedSInt64Field"),
+    843: .same(proto: "visitRepeatedStringField"),
+    844: .same(proto: "visitRepeatedUInt32Field"),
+    845: .same(proto: "visitRepeatedUInt64Field"),
+    846: .same(proto: "visitSingular"),
+    847: .same(proto: "visitSingularBoolField"),
+    848: .same(proto: "visitSingularBytesField"),
+    849: .same(proto: "visitSingularDoubleField"),
+    850: .same(proto: "visitSingularEnumField"),
+    851: .same(proto: "visitSingularFixed32Field"),
+    852: .same(proto: "visitSingularFixed64Field"),
+    853: .same(proto: "visitSingularFloatField"),
+    854: .same(proto: "visitSingularGroupField"),
+    855: .same(proto: "visitSingularInt32Field"),
+    856: .same(proto: "visitSingularInt64Field"),
+    857: .same(proto: "visitSingularMessageField"),
+    858: .same(proto: "visitSingularSFixed32Field"),
+    859: .same(proto: "visitSingularSFixed64Field"),
+    860: .same(proto: "visitSingularSInt32Field"),
+    861: .same(proto: "visitSingularSInt64Field"),
+    862: .same(proto: "visitSingularStringField"),
+    863: .same(proto: "visitSingularUInt32Field"),
+    864: .same(proto: "visitSingularUInt64Field"),
+    865: .same(proto: "visitUnknown"),
+    866: .same(proto: "wasDecoded"),
+    867: .same(proto: "weak"),
+    868: .same(proto: "weakDependency"),
+    869: .same(proto: "where"),
+    870: .same(proto: "wireFormat"),
+    871: .same(proto: "with"),
+    872: .same(proto: "work"),
+    873: .same(proto: "WrappedType"),
+    874: .same(proto: "written"),
+    875: .same(proto: "yday"),
   ]
 
   fileprivate class _StorageClass {
@@ -5828,7 +5816,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     var _makeIterator: Int32 = 0
     var _mapEntry: Int32 = 0
     var _mapKeyType: Int32 = 0
-    var _mapNameResolver: Int32 = 0
     var _mapToMessages: Int32 = 0
     var _mapValueType: Int32 = 0
     var _mapVisitor: Int32 = 0
@@ -5860,7 +5847,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     var _nameDescription: Int32 = 0
     var _nameMap: Int32 = 0
     var _namePart: Int32 = 0
-    var _nameResolver: Int32 = 0
     var _names: Int32 = 0
     var _nanos: Int32 = 0
     var _nativeBytes: Int32 = 0
@@ -6711,7 +6697,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       _makeIterator = source._makeIterator
       _mapEntry = source._mapEntry
       _mapKeyType = source._mapKeyType
-      _mapNameResolver = source._mapNameResolver
       _mapToMessages = source._mapToMessages
       _mapValueType = source._mapValueType
       _mapVisitor = source._mapVisitor
@@ -6743,7 +6728,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       _nameDescription = source._nameDescription
       _nameMap = source._nameMap
       _namePart = source._namePart
-      _nameResolver = source._nameResolver
       _names = source._names
       _nanos = source._nanos
       _nativeBytes = source._nativeBytes
@@ -7606,367 +7590,365 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         case 514: try { try decoder.decodeSingularInt32Field(value: &_storage._makeIterator) }()
         case 515: try { try decoder.decodeSingularInt32Field(value: &_storage._mapEntry) }()
         case 516: try { try decoder.decodeSingularInt32Field(value: &_storage._mapKeyType) }()
-        case 517: try { try decoder.decodeSingularInt32Field(value: &_storage._mapNameResolver) }()
-        case 518: try { try decoder.decodeSingularInt32Field(value: &_storage._mapToMessages) }()
-        case 519: try { try decoder.decodeSingularInt32Field(value: &_storage._mapValueType) }()
-        case 520: try { try decoder.decodeSingularInt32Field(value: &_storage._mapVisitor) }()
-        case 521: try { try decoder.decodeSingularInt32Field(value: &_storage._mdayStart) }()
-        case 522: try { try decoder.decodeSingularInt32Field(value: &_storage._merge) }()
-        case 523: try { try decoder.decodeSingularInt32Field(value: &_storage._message) }()
-        case 524: try { try decoder.decodeSingularInt32Field(value: &_storage._messageBase) }()
-        case 525: try { try decoder.decodeSingularInt32Field(value: &_storage._messageDepthLimit) }()
-        case 526: try { try decoder.decodeSingularInt32Field(value: &_storage._messageExtension) }()
-        case 527: try { try decoder.decodeSingularInt32Field(value: &_storage._messageImplementationBase) }()
-        case 528: try { try decoder.decodeSingularInt32Field(value: &_storage._messageOptions) }()
-        case 529: try { try decoder.decodeSingularInt32Field(value: &_storage._messageSet) }()
-        case 530: try { try decoder.decodeSingularInt32Field(value: &_storage._messageSetWireFormat) }()
-        case 531: try { try decoder.decodeSingularInt32Field(value: &_storage._messageType) }()
-        case 532: try { try decoder.decodeSingularInt32Field(value: &_storage._method) }()
-        case 533: try { try decoder.decodeSingularInt32Field(value: &_storage._methodDescriptorProto) }()
-        case 534: try { try decoder.decodeSingularInt32Field(value: &_storage._methodOptions) }()
-        case 535: try { try decoder.decodeSingularInt32Field(value: &_storage._methods) }()
-        case 536: try { try decoder.decodeSingularInt32Field(value: &_storage._minor) }()
-        case 537: try { try decoder.decodeSingularInt32Field(value: &_storage._mixin) }()
-        case 538: try { try decoder.decodeSingularInt32Field(value: &_storage._mixins) }()
-        case 539: try { try decoder.decodeSingularInt32Field(value: &_storage._modifier) }()
-        case 540: try { try decoder.decodeSingularInt32Field(value: &_storage._modify) }()
-        case 541: try { try decoder.decodeSingularInt32Field(value: &_storage._month) }()
-        case 542: try { try decoder.decodeSingularInt32Field(value: &_storage._msgExtension) }()
-        case 543: try { try decoder.decodeSingularInt32Field(value: &_storage._mutating) }()
-        case 544: try { try decoder.decodeSingularInt32Field(value: &_storage._n) }()
-        case 545: try { try decoder.decodeSingularInt32Field(value: &_storage._name) }()
-        case 546: try { try decoder.decodeSingularInt32Field(value: &_storage._nameDescription) }()
-        case 547: try { try decoder.decodeSingularInt32Field(value: &_storage._nameMap) }()
-        case 548: try { try decoder.decodeSingularInt32Field(value: &_storage._namePart) }()
-        case 549: try { try decoder.decodeSingularInt32Field(value: &_storage._nameResolver) }()
-        case 550: try { try decoder.decodeSingularInt32Field(value: &_storage._names) }()
-        case 551: try { try decoder.decodeSingularInt32Field(value: &_storage._nanos) }()
-        case 552: try { try decoder.decodeSingularInt32Field(value: &_storage._nativeBytes) }()
-        case 553: try { try decoder.decodeSingularInt32Field(value: &_storage._nativeEndianBytes) }()
-        case 554: try { try decoder.decodeSingularInt32Field(value: &_storage._negativeIntValue) }()
-        case 555: try { try decoder.decodeSingularInt32Field(value: &_storage._nestedType) }()
-        case 556: try { try decoder.decodeSingularInt32Field(value: &_storage._newL) }()
-        case 557: try { try decoder.decodeSingularInt32Field(value: &_storage._newList) }()
-        case 558: try { try decoder.decodeSingularInt32Field(value: &_storage._newValue) }()
-        case 559: try { try decoder.decodeSingularInt32Field(value: &_storage._nextByte) }()
-        case 560: try { try decoder.decodeSingularInt32Field(value: &_storage._nextFieldNumber) }()
-        case 561: try { try decoder.decodeSingularInt32Field(value: &_storage._nil) }()
-        case 562: try { try decoder.decodeSingularInt32Field(value: &_storage._nilLiteral) }()
-        case 563: try { try decoder.decodeSingularInt32Field(value: &_storage._noStandardDescriptorAccessor) }()
-        case 564: try { try decoder.decodeSingularInt32Field(value: &_storage._nullValue) }()
-        case 565: try { try decoder.decodeSingularInt32Field(value: &_storage._number) }()
-        case 566: try { try decoder.decodeSingularInt32Field(value: &_storage._numberValue) }()
-        case 567: try { try decoder.decodeSingularInt32Field(value: &_storage._objcClassPrefix) }()
-        case 568: try { try decoder.decodeSingularInt32Field(value: &_storage._of) }()
-        case 569: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDecl) }()
-        case 570: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDescriptorProto) }()
-        case 571: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex) }()
-        case 572: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofOptions) }()
-        case 573: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofs) }()
-        case 574: try { try decoder.decodeSingularInt32Field(value: &_storage._oneOfKind) }()
-        case 575: try { try decoder.decodeSingularInt32Field(value: &_storage._optimizeFor) }()
-        case 576: try { try decoder.decodeSingularInt32Field(value: &_storage._optimizeMode) }()
-        case 577: try { try decoder.decodeSingularInt32Field(value: &_storage._option) }()
-        case 578: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalEnumExtensionField) }()
-        case 579: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalExtensionField) }()
-        case 580: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalGroupExtensionField) }()
-        case 581: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalMessageExtensionField) }()
-        case 582: try { try decoder.decodeSingularInt32Field(value: &_storage._options) }()
-        case 583: try { try decoder.decodeSingularInt32Field(value: &_storage._other) }()
-        case 584: try { try decoder.decodeSingularInt32Field(value: &_storage._others) }()
-        case 585: try { try decoder.decodeSingularInt32Field(value: &_storage._out) }()
-        case 586: try { try decoder.decodeSingularInt32Field(value: &_storage._outputType) }()
-        case 587: try { try decoder.decodeSingularInt32Field(value: &_storage._p) }()
-        case 588: try { try decoder.decodeSingularInt32Field(value: &_storage._package) }()
-        case 589: try { try decoder.decodeSingularInt32Field(value: &_storage._packed) }()
-        case 590: try { try decoder.decodeSingularInt32Field(value: &_storage._packedEnumExtensionField) }()
-        case 591: try { try decoder.decodeSingularInt32Field(value: &_storage._packedExtensionField) }()
-        case 592: try { try decoder.decodeSingularInt32Field(value: &_storage._padding) }()
-        case 593: try { try decoder.decodeSingularInt32Field(value: &_storage._parent) }()
-        case 594: try { try decoder.decodeSingularInt32Field(value: &_storage._parse) }()
-        case 595: try { try decoder.decodeSingularInt32Field(value: &_storage._partial) }()
-        case 596: try { try decoder.decodeSingularInt32Field(value: &_storage._path) }()
-        case 597: try { try decoder.decodeSingularInt32Field(value: &_storage._paths) }()
-        case 598: try { try decoder.decodeSingularInt32Field(value: &_storage._payload) }()
-        case 599: try { try decoder.decodeSingularInt32Field(value: &_storage._payloadSize) }()
-        case 600: try { try decoder.decodeSingularInt32Field(value: &_storage._phpClassPrefix) }()
-        case 601: try { try decoder.decodeSingularInt32Field(value: &_storage._phpGenericServices) }()
-        case 602: try { try decoder.decodeSingularInt32Field(value: &_storage._phpMetadataNamespace) }()
-        case 603: try { try decoder.decodeSingularInt32Field(value: &_storage._phpNamespace) }()
-        case 604: try { try decoder.decodeSingularInt32Field(value: &_storage._pointer) }()
-        case 605: try { try decoder.decodeSingularInt32Field(value: &_storage._pos) }()
-        case 606: try { try decoder.decodeSingularInt32Field(value: &_storage._positiveIntValue) }()
-        case 607: try { try decoder.decodeSingularInt32Field(value: &_storage._prefix) }()
-        case 608: try { try decoder.decodeSingularInt32Field(value: &_storage._preserveProtoFieldNames) }()
-        case 609: try { try decoder.decodeSingularInt32Field(value: &_storage._preTraverse) }()
-        case 610: try { try decoder.decodeSingularInt32Field(value: &_storage._printUnknownFields) }()
-        case 611: try { try decoder.decodeSingularInt32Field(value: &_storage._proto2) }()
-        case 612: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3DefaultValue) }()
-        case 613: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3Optional) }()
-        case 614: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversionCheck) }()
-        case 615: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversion3) }()
-        case 616: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBool) }()
-        case 617: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBytes) }()
-        case 618: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufDouble) }()
-        case 619: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufEnumMap) }()
-        case 620: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtension) }()
-        case 621: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed32) }()
-        case 622: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed64) }()
-        case 623: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFloat) }()
-        case 624: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt32) }()
-        case 625: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt64) }()
-        case 626: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMap) }()
-        case 627: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMessageMap) }()
-        case 628: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed32) }()
-        case 629: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed64) }()
-        case 630: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint32) }()
-        case 631: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint64) }()
-        case 632: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufString) }()
-        case 633: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint32) }()
-        case 634: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint64) }()
-        case 635: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtensionFieldValues) }()
-        case 636: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFieldNumber) }()
-        case 637: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufGeneratedIsEqualTo) }()
-        case 638: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNameMap) }()
-        case 639: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNewField) }()
-        case 640: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufPackage) }()
-        case 641: try { try decoder.decodeSingularInt32Field(value: &_storage._protocol) }()
-        case 642: try { try decoder.decodeSingularInt32Field(value: &_storage._protoFieldName) }()
-        case 643: try { try decoder.decodeSingularInt32Field(value: &_storage._protoMessageName) }()
-        case 644: try { try decoder.decodeSingularInt32Field(value: &_storage._protoNameProviding) }()
-        case 645: try { try decoder.decodeSingularInt32Field(value: &_storage._protoPaths) }()
-        case 646: try { try decoder.decodeSingularInt32Field(value: &_storage._protoSendable) }()
-        case 647: try { try decoder.decodeSingularInt32Field(value: &_storage._public) }()
-        case 648: try { try decoder.decodeSingularInt32Field(value: &_storage._publicDependency) }()
-        case 649: try { try decoder.decodeSingularInt32Field(value: &_storage._putBoolValue) }()
-        case 650: try { try decoder.decodeSingularInt32Field(value: &_storage._putBytesValue) }()
-        case 651: try { try decoder.decodeSingularInt32Field(value: &_storage._putDoubleValue) }()
-        case 652: try { try decoder.decodeSingularInt32Field(value: &_storage._putEnumValue) }()
-        case 653: try { try decoder.decodeSingularInt32Field(value: &_storage._putFixedUint32) }()
-        case 654: try { try decoder.decodeSingularInt32Field(value: &_storage._putFixedUint64) }()
-        case 655: try { try decoder.decodeSingularInt32Field(value: &_storage._putFloatValue) }()
-        case 656: try { try decoder.decodeSingularInt32Field(value: &_storage._putInt64) }()
-        case 657: try { try decoder.decodeSingularInt32Field(value: &_storage._putStringValue) }()
-        case 658: try { try decoder.decodeSingularInt32Field(value: &_storage._putUint64) }()
-        case 659: try { try decoder.decodeSingularInt32Field(value: &_storage._putUint64Hex) }()
-        case 660: try { try decoder.decodeSingularInt32Field(value: &_storage._putVarInt) }()
-        case 661: try { try decoder.decodeSingularInt32Field(value: &_storage._putZigZagVarInt) }()
-        case 662: try { try decoder.decodeSingularInt32Field(value: &_storage._pyGenericServices) }()
-        case 663: try { try decoder.decodeSingularInt32Field(value: &_storage._rawChars) }()
-        case 664: try { try decoder.decodeSingularInt32Field(value: &_storage._rawRepresentable) }()
-        case 665: try { try decoder.decodeSingularInt32Field(value: &_storage._rawValue) }()
-        case 666: try { try decoder.decodeSingularInt32Field(value: &_storage._read4HexDigits) }()
-        case 667: try { try decoder.decodeSingularInt32Field(value: &_storage._register) }()
-        case 668: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedEnumExtensionField) }()
-        case 669: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedExtensionField) }()
-        case 670: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedGroupExtensionField) }()
-        case 671: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedMessageExtensionField) }()
-        case 672: try { try decoder.decodeSingularInt32Field(value: &_storage._requestStreaming) }()
-        case 673: try { try decoder.decodeSingularInt32Field(value: &_storage._requestTypeURL) }()
-        case 674: try { try decoder.decodeSingularInt32Field(value: &_storage._requiredSize) }()
-        case 675: try { try decoder.decodeSingularInt32Field(value: &_storage._reservedName) }()
-        case 676: try { try decoder.decodeSingularInt32Field(value: &_storage._reservedRange) }()
-        case 677: try { try decoder.decodeSingularInt32Field(value: &_storage._responseStreaming) }()
-        case 678: try { try decoder.decodeSingularInt32Field(value: &_storage._responseTypeURL) }()
-        case 679: try { try decoder.decodeSingularInt32Field(value: &_storage._result) }()
-        case 680: try { try decoder.decodeSingularInt32Field(value: &_storage._rethrows) }()
-        case 681: try { try decoder.decodeSingularInt32Field(value: &_storage._return) }()
-        case 682: try { try decoder.decodeSingularInt32Field(value: &_storage._returnType) }()
-        case 683: try { try decoder.decodeSingularInt32Field(value: &_storage._revision) }()
-        case 684: try { try decoder.decodeSingularInt32Field(value: &_storage._rhs) }()
-        case 685: try { try decoder.decodeSingularInt32Field(value: &_storage._root) }()
-        case 686: try { try decoder.decodeSingularInt32Field(value: &_storage._rubyPackage) }()
-        case 687: try { try decoder.decodeSingularInt32Field(value: &_storage._s) }()
-        case 688: try { try decoder.decodeSingularInt32Field(value: &_storage._sawBackslash) }()
-        case 689: try { try decoder.decodeSingularInt32Field(value: &_storage._sawSection4Characters) }()
-        case 690: try { try decoder.decodeSingularInt32Field(value: &_storage._sawSection5Characters) }()
-        case 691: try { try decoder.decodeSingularInt32Field(value: &_storage._scanner) }()
-        case 692: try { try decoder.decodeSingularInt32Field(value: &_storage._seconds) }()
-        case 693: try { try decoder.decodeSingularInt32Field(value: &_storage._self_p) }()
-        case 694: try { try decoder.decodeSingularInt32Field(value: &_storage._semantic) }()
-        case 695: try { try decoder.decodeSingularInt32Field(value: &_storage._sendable) }()
-        case 696: try { try decoder.decodeSingularInt32Field(value: &_storage._separator) }()
-        case 697: try { try decoder.decodeSingularInt32Field(value: &_storage._serialize) }()
-        case 698: try { try decoder.decodeSingularInt32Field(value: &_storage._serializedData) }()
-        case 699: try { try decoder.decodeSingularInt32Field(value: &_storage._serializedSize) }()
-        case 700: try { try decoder.decodeSingularInt32Field(value: &_storage._serverStreaming) }()
-        case 701: try { try decoder.decodeSingularInt32Field(value: &_storage._service) }()
-        case 702: try { try decoder.decodeSingularInt32Field(value: &_storage._serviceDescriptorProto) }()
-        case 703: try { try decoder.decodeSingularInt32Field(value: &_storage._serviceOptions) }()
-        case 704: try { try decoder.decodeSingularInt32Field(value: &_storage._set) }()
-        case 705: try { try decoder.decodeSingularInt32Field(value: &_storage._setExtensionValue) }()
-        case 706: try { try decoder.decodeSingularInt32Field(value: &_storage._shift) }()
-        case 707: try { try decoder.decodeSingularInt32Field(value: &_storage._simpleExtensionMap) }()
-        case 708: try { try decoder.decodeSingularInt32Field(value: &_storage._sizer) }()
-        case 709: try { try decoder.decodeSingularInt32Field(value: &_storage._source) }()
-        case 710: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceCodeInfo) }()
-        case 711: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceContext) }()
-        case 712: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceEncoding) }()
-        case 713: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceFile) }()
-        case 714: try { try decoder.decodeSingularInt32Field(value: &_storage._span) }()
-        case 715: try { try decoder.decodeSingularInt32Field(value: &_storage._split) }()
-        case 716: try { try decoder.decodeSingularInt32Field(value: &_storage._start) }()
-        case 717: try { try decoder.decodeSingularInt32Field(value: &_storage._startArray) }()
-        case 718: try { try decoder.decodeSingularInt32Field(value: &_storage._startArrayObject) }()
-        case 719: try { try decoder.decodeSingularInt32Field(value: &_storage._startField) }()
-        case 720: try { try decoder.decodeSingularInt32Field(value: &_storage._startIndex) }()
-        case 721: try { try decoder.decodeSingularInt32Field(value: &_storage._startMessageField) }()
-        case 722: try { try decoder.decodeSingularInt32Field(value: &_storage._startObject) }()
-        case 723: try { try decoder.decodeSingularInt32Field(value: &_storage._startRegularField) }()
-        case 724: try { try decoder.decodeSingularInt32Field(value: &_storage._state) }()
-        case 725: try { try decoder.decodeSingularInt32Field(value: &_storage._static) }()
-        case 726: try { try decoder.decodeSingularInt32Field(value: &_storage._staticString) }()
-        case 727: try { try decoder.decodeSingularInt32Field(value: &_storage._storage) }()
-        case 728: try { try decoder.decodeSingularInt32Field(value: &_storage._string) }()
-        case 729: try { try decoder.decodeSingularInt32Field(value: &_storage._stringLiteral) }()
-        case 730: try { try decoder.decodeSingularInt32Field(value: &_storage._stringLiteralType) }()
-        case 731: try { try decoder.decodeSingularInt32Field(value: &_storage._stringResult) }()
-        case 732: try { try decoder.decodeSingularInt32Field(value: &_storage._stringValue) }()
-        case 733: try { try decoder.decodeSingularInt32Field(value: &_storage._struct) }()
-        case 734: try { try decoder.decodeSingularInt32Field(value: &_storage._structValue) }()
-        case 735: try { try decoder.decodeSingularInt32Field(value: &_storage._subDecoder) }()
-        case 736: try { try decoder.decodeSingularInt32Field(value: &_storage._subscript) }()
-        case 737: try { try decoder.decodeSingularInt32Field(value: &_storage._subVisitor) }()
-        case 738: try { try decoder.decodeSingularInt32Field(value: &_storage._swift) }()
-        case 739: try { try decoder.decodeSingularInt32Field(value: &_storage._swiftPrefix) }()
-        case 740: try { try decoder.decodeSingularInt32Field(value: &_storage._swiftProtobuf) }()
-        case 741: try { try decoder.decodeSingularInt32Field(value: &_storage._syntax) }()
-        case 742: try { try decoder.decodeSingularInt32Field(value: &_storage._t) }()
-        case 743: try { try decoder.decodeSingularInt32Field(value: &_storage._tag) }()
-        case 744: try { try decoder.decodeSingularInt32Field(value: &_storage._terminator) }()
-        case 745: try { try decoder.decodeSingularInt32Field(value: &_storage._testDecoder) }()
-        case 746: try { try decoder.decodeSingularInt32Field(value: &_storage._text) }()
-        case 747: try { try decoder.decodeSingularInt32Field(value: &_storage._textDecoder) }()
-        case 748: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatDecoder) }()
-        case 749: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatDecodingError) }()
-        case 750: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatDecodingOptions) }()
-        case 751: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatEncodingOptions) }()
-        case 752: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatEncodingVisitor) }()
-        case 753: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatString) }()
-        case 754: try { try decoder.decodeSingularInt32Field(value: &_storage._throws) }()
-        case 755: try { try decoder.decodeSingularInt32Field(value: &_storage._timeInterval) }()
-        case 756: try { try decoder.decodeSingularInt32Field(value: &_storage._timeIntervalSince1970) }()
-        case 757: try { try decoder.decodeSingularInt32Field(value: &_storage._timeIntervalSinceReferenceDate) }()
-        case 758: try { try decoder.decodeSingularInt32Field(value: &_storage._timestamp) }()
-        case 759: try { try decoder.decodeSingularInt32Field(value: &_storage._total) }()
-        case 760: try { try decoder.decodeSingularInt32Field(value: &_storage._totalArrayDepth) }()
-        case 761: try { try decoder.decodeSingularInt32Field(value: &_storage._totalSize) }()
-        case 762: try { try decoder.decodeSingularInt32Field(value: &_storage._trailingComments) }()
-        case 763: try { try decoder.decodeSingularInt32Field(value: &_storage._traverse) }()
-        case 764: try { try decoder.decodeSingularInt32Field(value: &_storage._true) }()
-        case 765: try { try decoder.decodeSingularInt32Field(value: &_storage._try) }()
-        case 766: try { try decoder.decodeSingularInt32Field(value: &_storage._type) }()
-        case 767: try { try decoder.decodeSingularInt32Field(value: &_storage._typealias) }()
-        case 768: try { try decoder.decodeSingularInt32Field(value: &_storage._typeEnum) }()
-        case 769: try { try decoder.decodeSingularInt32Field(value: &_storage._typeName) }()
-        case 770: try { try decoder.decodeSingularInt32Field(value: &_storage._typePrefix) }()
-        case 771: try { try decoder.decodeSingularInt32Field(value: &_storage._typeStart) }()
-        case 772: try { try decoder.decodeSingularInt32Field(value: &_storage._typeUnknown) }()
-        case 773: try { try decoder.decodeSingularInt32Field(value: &_storage._typeURL) }()
-        case 774: try { try decoder.decodeSingularInt32Field(value: &_storage._uint32) }()
-        case 775: try { try decoder.decodeSingularInt32Field(value: &_storage._uint32Value) }()
-        case 776: try { try decoder.decodeSingularInt32Field(value: &_storage._uint64) }()
-        case 777: try { try decoder.decodeSingularInt32Field(value: &_storage._uint64Value) }()
-        case 778: try { try decoder.decodeSingularInt32Field(value: &_storage._uint8) }()
-        case 779: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalarLiteral) }()
-        case 780: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalarLiteralType) }()
-        case 781: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalars) }()
-        case 782: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalarView) }()
-        case 783: try { try decoder.decodeSingularInt32Field(value: &_storage._uninterpretedOption) }()
-        case 784: try { try decoder.decodeSingularInt32Field(value: &_storage._union) }()
-        case 785: try { try decoder.decodeSingularInt32Field(value: &_storage._uniqueStorage) }()
-        case 786: try { try decoder.decodeSingularInt32Field(value: &_storage._unknown) }()
-        case 787: try { try decoder.decodeSingularInt32Field(value: &_storage._unknownFields_p) }()
-        case 788: try { try decoder.decodeSingularInt32Field(value: &_storage._unknownStorage) }()
-        case 789: try { try decoder.decodeSingularInt32Field(value: &_storage._unpackTo) }()
-        case 790: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeBufferPointer) }()
-        case 791: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeMutablePointer) }()
-        case 792: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeMutableRawPointer) }()
-        case 793: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeRawBufferPointer) }()
-        case 794: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeRawPointer) }()
-        case 795: try { try decoder.decodeSingularInt32Field(value: &_storage._unverifiedLazy) }()
-        case 796: try { try decoder.decodeSingularInt32Field(value: &_storage._updatedOptions) }()
-        case 797: try { try decoder.decodeSingularInt32Field(value: &_storage._url) }()
-        case 798: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8) }()
-        case 799: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8Ptr) }()
-        case 800: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8ToDouble) }()
-        case 801: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8View) }()
-        case 802: try { try decoder.decodeSingularInt32Field(value: &_storage._v) }()
-        case 803: try { try decoder.decodeSingularInt32Field(value: &_storage._value) }()
-        case 804: try { try decoder.decodeSingularInt32Field(value: &_storage._valueField) }()
-        case 805: try { try decoder.decodeSingularInt32Field(value: &_storage._values) }()
-        case 806: try { try decoder.decodeSingularInt32Field(value: &_storage._valueType) }()
-        case 807: try { try decoder.decodeSingularInt32Field(value: &_storage._var) }()
-        case 808: try { try decoder.decodeSingularInt32Field(value: &_storage._version) }()
-        case 809: try { try decoder.decodeSingularInt32Field(value: &_storage._versionString) }()
-        case 810: try { try decoder.decodeSingularInt32Field(value: &_storage._visitExtensionFields) }()
-        case 811: try { try decoder.decodeSingularInt32Field(value: &_storage._visitExtensionFieldsAsMessageSet) }()
-        case 812: try { try decoder.decodeSingularInt32Field(value: &_storage._visitMapField) }()
-        case 813: try { try decoder.decodeSingularInt32Field(value: &_storage._visitor) }()
-        case 814: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPacked) }()
-        case 815: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedBoolField) }()
-        case 816: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedDoubleField) }()
-        case 817: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedEnumField) }()
-        case 818: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedFixed32Field) }()
-        case 819: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedFixed64Field) }()
-        case 820: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedFloatField) }()
-        case 821: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedInt32Field) }()
-        case 822: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedInt64Field) }()
-        case 823: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSfixed32Field) }()
-        case 824: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSfixed64Field) }()
-        case 825: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSint32Field) }()
-        case 826: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSint64Field) }()
-        case 827: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedUint32Field) }()
-        case 828: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedUint64Field) }()
-        case 829: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeated) }()
-        case 830: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedBoolField) }()
-        case 831: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedBytesField) }()
-        case 832: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedDoubleField) }()
-        case 833: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedEnumField) }()
-        case 834: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedFixed32Field) }()
-        case 835: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedFixed64Field) }()
-        case 836: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedFloatField) }()
-        case 837: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedGroupField) }()
-        case 838: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedInt32Field) }()
-        case 839: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedInt64Field) }()
-        case 840: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedMessageField) }()
-        case 841: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSfixed32Field) }()
-        case 842: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSfixed64Field) }()
-        case 843: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSint32Field) }()
-        case 844: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSint64Field) }()
-        case 845: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedStringField) }()
-        case 846: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedUint32Field) }()
-        case 847: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedUint64Field) }()
-        case 848: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingular) }()
-        case 849: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularBoolField) }()
-        case 850: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularBytesField) }()
-        case 851: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularDoubleField) }()
-        case 852: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularEnumField) }()
-        case 853: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularFixed32Field) }()
-        case 854: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularFixed64Field) }()
-        case 855: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularFloatField) }()
-        case 856: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularGroupField) }()
-        case 857: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularInt32Field) }()
-        case 858: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularInt64Field) }()
-        case 859: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularMessageField) }()
-        case 860: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSfixed32Field) }()
-        case 861: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSfixed64Field) }()
-        case 862: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSint32Field) }()
-        case 863: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSint64Field) }()
-        case 864: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularStringField) }()
-        case 865: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularUint32Field) }()
-        case 866: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularUint64Field) }()
-        case 867: try { try decoder.decodeSingularInt32Field(value: &_storage._visitUnknown) }()
-        case 868: try { try decoder.decodeSingularInt32Field(value: &_storage._wasDecoded) }()
-        case 869: try { try decoder.decodeSingularInt32Field(value: &_storage._weak) }()
-        case 870: try { try decoder.decodeSingularInt32Field(value: &_storage._weakDependency) }()
-        case 871: try { try decoder.decodeSingularInt32Field(value: &_storage._where) }()
-        case 872: try { try decoder.decodeSingularInt32Field(value: &_storage._wireFormat) }()
-        case 873: try { try decoder.decodeSingularInt32Field(value: &_storage._with) }()
-        case 874: try { try decoder.decodeSingularInt32Field(value: &_storage._work) }()
-        case 875: try { try decoder.decodeSingularInt32Field(value: &_storage._wrappedType) }()
-        case 876: try { try decoder.decodeSingularInt32Field(value: &_storage._written) }()
-        case 877: try { try decoder.decodeSingularInt32Field(value: &_storage._yday) }()
+        case 517: try { try decoder.decodeSingularInt32Field(value: &_storage._mapToMessages) }()
+        case 518: try { try decoder.decodeSingularInt32Field(value: &_storage._mapValueType) }()
+        case 519: try { try decoder.decodeSingularInt32Field(value: &_storage._mapVisitor) }()
+        case 520: try { try decoder.decodeSingularInt32Field(value: &_storage._mdayStart) }()
+        case 521: try { try decoder.decodeSingularInt32Field(value: &_storage._merge) }()
+        case 522: try { try decoder.decodeSingularInt32Field(value: &_storage._message) }()
+        case 523: try { try decoder.decodeSingularInt32Field(value: &_storage._messageBase) }()
+        case 524: try { try decoder.decodeSingularInt32Field(value: &_storage._messageDepthLimit) }()
+        case 525: try { try decoder.decodeSingularInt32Field(value: &_storage._messageExtension) }()
+        case 526: try { try decoder.decodeSingularInt32Field(value: &_storage._messageImplementationBase) }()
+        case 527: try { try decoder.decodeSingularInt32Field(value: &_storage._messageOptions) }()
+        case 528: try { try decoder.decodeSingularInt32Field(value: &_storage._messageSet) }()
+        case 529: try { try decoder.decodeSingularInt32Field(value: &_storage._messageSetWireFormat) }()
+        case 530: try { try decoder.decodeSingularInt32Field(value: &_storage._messageType) }()
+        case 531: try { try decoder.decodeSingularInt32Field(value: &_storage._method) }()
+        case 532: try { try decoder.decodeSingularInt32Field(value: &_storage._methodDescriptorProto) }()
+        case 533: try { try decoder.decodeSingularInt32Field(value: &_storage._methodOptions) }()
+        case 534: try { try decoder.decodeSingularInt32Field(value: &_storage._methods) }()
+        case 535: try { try decoder.decodeSingularInt32Field(value: &_storage._minor) }()
+        case 536: try { try decoder.decodeSingularInt32Field(value: &_storage._mixin) }()
+        case 537: try { try decoder.decodeSingularInt32Field(value: &_storage._mixins) }()
+        case 538: try { try decoder.decodeSingularInt32Field(value: &_storage._modifier) }()
+        case 539: try { try decoder.decodeSingularInt32Field(value: &_storage._modify) }()
+        case 540: try { try decoder.decodeSingularInt32Field(value: &_storage._month) }()
+        case 541: try { try decoder.decodeSingularInt32Field(value: &_storage._msgExtension) }()
+        case 542: try { try decoder.decodeSingularInt32Field(value: &_storage._mutating) }()
+        case 543: try { try decoder.decodeSingularInt32Field(value: &_storage._n) }()
+        case 544: try { try decoder.decodeSingularInt32Field(value: &_storage._name) }()
+        case 545: try { try decoder.decodeSingularInt32Field(value: &_storage._nameDescription) }()
+        case 546: try { try decoder.decodeSingularInt32Field(value: &_storage._nameMap) }()
+        case 547: try { try decoder.decodeSingularInt32Field(value: &_storage._namePart) }()
+        case 548: try { try decoder.decodeSingularInt32Field(value: &_storage._names) }()
+        case 549: try { try decoder.decodeSingularInt32Field(value: &_storage._nanos) }()
+        case 550: try { try decoder.decodeSingularInt32Field(value: &_storage._nativeBytes) }()
+        case 551: try { try decoder.decodeSingularInt32Field(value: &_storage._nativeEndianBytes) }()
+        case 552: try { try decoder.decodeSingularInt32Field(value: &_storage._negativeIntValue) }()
+        case 553: try { try decoder.decodeSingularInt32Field(value: &_storage._nestedType) }()
+        case 554: try { try decoder.decodeSingularInt32Field(value: &_storage._newL) }()
+        case 555: try { try decoder.decodeSingularInt32Field(value: &_storage._newList) }()
+        case 556: try { try decoder.decodeSingularInt32Field(value: &_storage._newValue) }()
+        case 557: try { try decoder.decodeSingularInt32Field(value: &_storage._nextByte) }()
+        case 558: try { try decoder.decodeSingularInt32Field(value: &_storage._nextFieldNumber) }()
+        case 559: try { try decoder.decodeSingularInt32Field(value: &_storage._nil) }()
+        case 560: try { try decoder.decodeSingularInt32Field(value: &_storage._nilLiteral) }()
+        case 561: try { try decoder.decodeSingularInt32Field(value: &_storage._noStandardDescriptorAccessor) }()
+        case 562: try { try decoder.decodeSingularInt32Field(value: &_storage._nullValue) }()
+        case 563: try { try decoder.decodeSingularInt32Field(value: &_storage._number) }()
+        case 564: try { try decoder.decodeSingularInt32Field(value: &_storage._numberValue) }()
+        case 565: try { try decoder.decodeSingularInt32Field(value: &_storage._objcClassPrefix) }()
+        case 566: try { try decoder.decodeSingularInt32Field(value: &_storage._of) }()
+        case 567: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDecl) }()
+        case 568: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofDescriptorProto) }()
+        case 569: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex) }()
+        case 570: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofOptions) }()
+        case 571: try { try decoder.decodeSingularInt32Field(value: &_storage._oneofs) }()
+        case 572: try { try decoder.decodeSingularInt32Field(value: &_storage._oneOfKind) }()
+        case 573: try { try decoder.decodeSingularInt32Field(value: &_storage._optimizeFor) }()
+        case 574: try { try decoder.decodeSingularInt32Field(value: &_storage._optimizeMode) }()
+        case 575: try { try decoder.decodeSingularInt32Field(value: &_storage._option) }()
+        case 576: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalEnumExtensionField) }()
+        case 577: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalExtensionField) }()
+        case 578: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalGroupExtensionField) }()
+        case 579: try { try decoder.decodeSingularInt32Field(value: &_storage._optionalMessageExtensionField) }()
+        case 580: try { try decoder.decodeSingularInt32Field(value: &_storage._options) }()
+        case 581: try { try decoder.decodeSingularInt32Field(value: &_storage._other) }()
+        case 582: try { try decoder.decodeSingularInt32Field(value: &_storage._others) }()
+        case 583: try { try decoder.decodeSingularInt32Field(value: &_storage._out) }()
+        case 584: try { try decoder.decodeSingularInt32Field(value: &_storage._outputType) }()
+        case 585: try { try decoder.decodeSingularInt32Field(value: &_storage._p) }()
+        case 586: try { try decoder.decodeSingularInt32Field(value: &_storage._package) }()
+        case 587: try { try decoder.decodeSingularInt32Field(value: &_storage._packed) }()
+        case 588: try { try decoder.decodeSingularInt32Field(value: &_storage._packedEnumExtensionField) }()
+        case 589: try { try decoder.decodeSingularInt32Field(value: &_storage._packedExtensionField) }()
+        case 590: try { try decoder.decodeSingularInt32Field(value: &_storage._padding) }()
+        case 591: try { try decoder.decodeSingularInt32Field(value: &_storage._parent) }()
+        case 592: try { try decoder.decodeSingularInt32Field(value: &_storage._parse) }()
+        case 593: try { try decoder.decodeSingularInt32Field(value: &_storage._partial) }()
+        case 594: try { try decoder.decodeSingularInt32Field(value: &_storage._path) }()
+        case 595: try { try decoder.decodeSingularInt32Field(value: &_storage._paths) }()
+        case 596: try { try decoder.decodeSingularInt32Field(value: &_storage._payload) }()
+        case 597: try { try decoder.decodeSingularInt32Field(value: &_storage._payloadSize) }()
+        case 598: try { try decoder.decodeSingularInt32Field(value: &_storage._phpClassPrefix) }()
+        case 599: try { try decoder.decodeSingularInt32Field(value: &_storage._phpGenericServices) }()
+        case 600: try { try decoder.decodeSingularInt32Field(value: &_storage._phpMetadataNamespace) }()
+        case 601: try { try decoder.decodeSingularInt32Field(value: &_storage._phpNamespace) }()
+        case 602: try { try decoder.decodeSingularInt32Field(value: &_storage._pointer) }()
+        case 603: try { try decoder.decodeSingularInt32Field(value: &_storage._pos) }()
+        case 604: try { try decoder.decodeSingularInt32Field(value: &_storage._positiveIntValue) }()
+        case 605: try { try decoder.decodeSingularInt32Field(value: &_storage._prefix) }()
+        case 606: try { try decoder.decodeSingularInt32Field(value: &_storage._preserveProtoFieldNames) }()
+        case 607: try { try decoder.decodeSingularInt32Field(value: &_storage._preTraverse) }()
+        case 608: try { try decoder.decodeSingularInt32Field(value: &_storage._printUnknownFields) }()
+        case 609: try { try decoder.decodeSingularInt32Field(value: &_storage._proto2) }()
+        case 610: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3DefaultValue) }()
+        case 611: try { try decoder.decodeSingularInt32Field(value: &_storage._proto3Optional) }()
+        case 612: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversionCheck) }()
+        case 613: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufApiversion3) }()
+        case 614: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBool) }()
+        case 615: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufBytes) }()
+        case 616: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufDouble) }()
+        case 617: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufEnumMap) }()
+        case 618: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtension) }()
+        case 619: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed32) }()
+        case 620: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFixed64) }()
+        case 621: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFloat) }()
+        case 622: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt32) }()
+        case 623: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufInt64) }()
+        case 624: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMap) }()
+        case 625: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufMessageMap) }()
+        case 626: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed32) }()
+        case 627: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSfixed64) }()
+        case 628: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint32) }()
+        case 629: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufSint64) }()
+        case 630: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufString) }()
+        case 631: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint32) }()
+        case 632: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufUint64) }()
+        case 633: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufExtensionFieldValues) }()
+        case 634: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufFieldNumber) }()
+        case 635: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufGeneratedIsEqualTo) }()
+        case 636: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNameMap) }()
+        case 637: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufNewField) }()
+        case 638: try { try decoder.decodeSingularInt32Field(value: &_storage._protobufPackage) }()
+        case 639: try { try decoder.decodeSingularInt32Field(value: &_storage._protocol) }()
+        case 640: try { try decoder.decodeSingularInt32Field(value: &_storage._protoFieldName) }()
+        case 641: try { try decoder.decodeSingularInt32Field(value: &_storage._protoMessageName) }()
+        case 642: try { try decoder.decodeSingularInt32Field(value: &_storage._protoNameProviding) }()
+        case 643: try { try decoder.decodeSingularInt32Field(value: &_storage._protoPaths) }()
+        case 644: try { try decoder.decodeSingularInt32Field(value: &_storage._protoSendable) }()
+        case 645: try { try decoder.decodeSingularInt32Field(value: &_storage._public) }()
+        case 646: try { try decoder.decodeSingularInt32Field(value: &_storage._publicDependency) }()
+        case 647: try { try decoder.decodeSingularInt32Field(value: &_storage._putBoolValue) }()
+        case 648: try { try decoder.decodeSingularInt32Field(value: &_storage._putBytesValue) }()
+        case 649: try { try decoder.decodeSingularInt32Field(value: &_storage._putDoubleValue) }()
+        case 650: try { try decoder.decodeSingularInt32Field(value: &_storage._putEnumValue) }()
+        case 651: try { try decoder.decodeSingularInt32Field(value: &_storage._putFixedUint32) }()
+        case 652: try { try decoder.decodeSingularInt32Field(value: &_storage._putFixedUint64) }()
+        case 653: try { try decoder.decodeSingularInt32Field(value: &_storage._putFloatValue) }()
+        case 654: try { try decoder.decodeSingularInt32Field(value: &_storage._putInt64) }()
+        case 655: try { try decoder.decodeSingularInt32Field(value: &_storage._putStringValue) }()
+        case 656: try { try decoder.decodeSingularInt32Field(value: &_storage._putUint64) }()
+        case 657: try { try decoder.decodeSingularInt32Field(value: &_storage._putUint64Hex) }()
+        case 658: try { try decoder.decodeSingularInt32Field(value: &_storage._putVarInt) }()
+        case 659: try { try decoder.decodeSingularInt32Field(value: &_storage._putZigZagVarInt) }()
+        case 660: try { try decoder.decodeSingularInt32Field(value: &_storage._pyGenericServices) }()
+        case 661: try { try decoder.decodeSingularInt32Field(value: &_storage._rawChars) }()
+        case 662: try { try decoder.decodeSingularInt32Field(value: &_storage._rawRepresentable) }()
+        case 663: try { try decoder.decodeSingularInt32Field(value: &_storage._rawValue) }()
+        case 664: try { try decoder.decodeSingularInt32Field(value: &_storage._read4HexDigits) }()
+        case 665: try { try decoder.decodeSingularInt32Field(value: &_storage._register) }()
+        case 666: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedEnumExtensionField) }()
+        case 667: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedExtensionField) }()
+        case 668: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedGroupExtensionField) }()
+        case 669: try { try decoder.decodeSingularInt32Field(value: &_storage._repeatedMessageExtensionField) }()
+        case 670: try { try decoder.decodeSingularInt32Field(value: &_storage._requestStreaming) }()
+        case 671: try { try decoder.decodeSingularInt32Field(value: &_storage._requestTypeURL) }()
+        case 672: try { try decoder.decodeSingularInt32Field(value: &_storage._requiredSize) }()
+        case 673: try { try decoder.decodeSingularInt32Field(value: &_storage._reservedName) }()
+        case 674: try { try decoder.decodeSingularInt32Field(value: &_storage._reservedRange) }()
+        case 675: try { try decoder.decodeSingularInt32Field(value: &_storage._responseStreaming) }()
+        case 676: try { try decoder.decodeSingularInt32Field(value: &_storage._responseTypeURL) }()
+        case 677: try { try decoder.decodeSingularInt32Field(value: &_storage._result) }()
+        case 678: try { try decoder.decodeSingularInt32Field(value: &_storage._rethrows) }()
+        case 679: try { try decoder.decodeSingularInt32Field(value: &_storage._return) }()
+        case 680: try { try decoder.decodeSingularInt32Field(value: &_storage._returnType) }()
+        case 681: try { try decoder.decodeSingularInt32Field(value: &_storage._revision) }()
+        case 682: try { try decoder.decodeSingularInt32Field(value: &_storage._rhs) }()
+        case 683: try { try decoder.decodeSingularInt32Field(value: &_storage._root) }()
+        case 684: try { try decoder.decodeSingularInt32Field(value: &_storage._rubyPackage) }()
+        case 685: try { try decoder.decodeSingularInt32Field(value: &_storage._s) }()
+        case 686: try { try decoder.decodeSingularInt32Field(value: &_storage._sawBackslash) }()
+        case 687: try { try decoder.decodeSingularInt32Field(value: &_storage._sawSection4Characters) }()
+        case 688: try { try decoder.decodeSingularInt32Field(value: &_storage._sawSection5Characters) }()
+        case 689: try { try decoder.decodeSingularInt32Field(value: &_storage._scanner) }()
+        case 690: try { try decoder.decodeSingularInt32Field(value: &_storage._seconds) }()
+        case 691: try { try decoder.decodeSingularInt32Field(value: &_storage._self_p) }()
+        case 692: try { try decoder.decodeSingularInt32Field(value: &_storage._semantic) }()
+        case 693: try { try decoder.decodeSingularInt32Field(value: &_storage._sendable) }()
+        case 694: try { try decoder.decodeSingularInt32Field(value: &_storage._separator) }()
+        case 695: try { try decoder.decodeSingularInt32Field(value: &_storage._serialize) }()
+        case 696: try { try decoder.decodeSingularInt32Field(value: &_storage._serializedData) }()
+        case 697: try { try decoder.decodeSingularInt32Field(value: &_storage._serializedSize) }()
+        case 698: try { try decoder.decodeSingularInt32Field(value: &_storage._serverStreaming) }()
+        case 699: try { try decoder.decodeSingularInt32Field(value: &_storage._service) }()
+        case 700: try { try decoder.decodeSingularInt32Field(value: &_storage._serviceDescriptorProto) }()
+        case 701: try { try decoder.decodeSingularInt32Field(value: &_storage._serviceOptions) }()
+        case 702: try { try decoder.decodeSingularInt32Field(value: &_storage._set) }()
+        case 703: try { try decoder.decodeSingularInt32Field(value: &_storage._setExtensionValue) }()
+        case 704: try { try decoder.decodeSingularInt32Field(value: &_storage._shift) }()
+        case 705: try { try decoder.decodeSingularInt32Field(value: &_storage._simpleExtensionMap) }()
+        case 706: try { try decoder.decodeSingularInt32Field(value: &_storage._sizer) }()
+        case 707: try { try decoder.decodeSingularInt32Field(value: &_storage._source) }()
+        case 708: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceCodeInfo) }()
+        case 709: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceContext) }()
+        case 710: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceEncoding) }()
+        case 711: try { try decoder.decodeSingularInt32Field(value: &_storage._sourceFile) }()
+        case 712: try { try decoder.decodeSingularInt32Field(value: &_storage._span) }()
+        case 713: try { try decoder.decodeSingularInt32Field(value: &_storage._split) }()
+        case 714: try { try decoder.decodeSingularInt32Field(value: &_storage._start) }()
+        case 715: try { try decoder.decodeSingularInt32Field(value: &_storage._startArray) }()
+        case 716: try { try decoder.decodeSingularInt32Field(value: &_storage._startArrayObject) }()
+        case 717: try { try decoder.decodeSingularInt32Field(value: &_storage._startField) }()
+        case 718: try { try decoder.decodeSingularInt32Field(value: &_storage._startIndex) }()
+        case 719: try { try decoder.decodeSingularInt32Field(value: &_storage._startMessageField) }()
+        case 720: try { try decoder.decodeSingularInt32Field(value: &_storage._startObject) }()
+        case 721: try { try decoder.decodeSingularInt32Field(value: &_storage._startRegularField) }()
+        case 722: try { try decoder.decodeSingularInt32Field(value: &_storage._state) }()
+        case 723: try { try decoder.decodeSingularInt32Field(value: &_storage._static) }()
+        case 724: try { try decoder.decodeSingularInt32Field(value: &_storage._staticString) }()
+        case 725: try { try decoder.decodeSingularInt32Field(value: &_storage._storage) }()
+        case 726: try { try decoder.decodeSingularInt32Field(value: &_storage._string) }()
+        case 727: try { try decoder.decodeSingularInt32Field(value: &_storage._stringLiteral) }()
+        case 728: try { try decoder.decodeSingularInt32Field(value: &_storage._stringLiteralType) }()
+        case 729: try { try decoder.decodeSingularInt32Field(value: &_storage._stringResult) }()
+        case 730: try { try decoder.decodeSingularInt32Field(value: &_storage._stringValue) }()
+        case 731: try { try decoder.decodeSingularInt32Field(value: &_storage._struct) }()
+        case 732: try { try decoder.decodeSingularInt32Field(value: &_storage._structValue) }()
+        case 733: try { try decoder.decodeSingularInt32Field(value: &_storage._subDecoder) }()
+        case 734: try { try decoder.decodeSingularInt32Field(value: &_storage._subscript) }()
+        case 735: try { try decoder.decodeSingularInt32Field(value: &_storage._subVisitor) }()
+        case 736: try { try decoder.decodeSingularInt32Field(value: &_storage._swift) }()
+        case 737: try { try decoder.decodeSingularInt32Field(value: &_storage._swiftPrefix) }()
+        case 738: try { try decoder.decodeSingularInt32Field(value: &_storage._swiftProtobuf) }()
+        case 739: try { try decoder.decodeSingularInt32Field(value: &_storage._syntax) }()
+        case 740: try { try decoder.decodeSingularInt32Field(value: &_storage._t) }()
+        case 741: try { try decoder.decodeSingularInt32Field(value: &_storage._tag) }()
+        case 742: try { try decoder.decodeSingularInt32Field(value: &_storage._terminator) }()
+        case 743: try { try decoder.decodeSingularInt32Field(value: &_storage._testDecoder) }()
+        case 744: try { try decoder.decodeSingularInt32Field(value: &_storage._text) }()
+        case 745: try { try decoder.decodeSingularInt32Field(value: &_storage._textDecoder) }()
+        case 746: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatDecoder) }()
+        case 747: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatDecodingError) }()
+        case 748: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatDecodingOptions) }()
+        case 749: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatEncodingOptions) }()
+        case 750: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatEncodingVisitor) }()
+        case 751: try { try decoder.decodeSingularInt32Field(value: &_storage._textFormatString) }()
+        case 752: try { try decoder.decodeSingularInt32Field(value: &_storage._throws) }()
+        case 753: try { try decoder.decodeSingularInt32Field(value: &_storage._timeInterval) }()
+        case 754: try { try decoder.decodeSingularInt32Field(value: &_storage._timeIntervalSince1970) }()
+        case 755: try { try decoder.decodeSingularInt32Field(value: &_storage._timeIntervalSinceReferenceDate) }()
+        case 756: try { try decoder.decodeSingularInt32Field(value: &_storage._timestamp) }()
+        case 757: try { try decoder.decodeSingularInt32Field(value: &_storage._total) }()
+        case 758: try { try decoder.decodeSingularInt32Field(value: &_storage._totalArrayDepth) }()
+        case 759: try { try decoder.decodeSingularInt32Field(value: &_storage._totalSize) }()
+        case 760: try { try decoder.decodeSingularInt32Field(value: &_storage._trailingComments) }()
+        case 761: try { try decoder.decodeSingularInt32Field(value: &_storage._traverse) }()
+        case 762: try { try decoder.decodeSingularInt32Field(value: &_storage._true) }()
+        case 763: try { try decoder.decodeSingularInt32Field(value: &_storage._try) }()
+        case 764: try { try decoder.decodeSingularInt32Field(value: &_storage._type) }()
+        case 765: try { try decoder.decodeSingularInt32Field(value: &_storage._typealias) }()
+        case 766: try { try decoder.decodeSingularInt32Field(value: &_storage._typeEnum) }()
+        case 767: try { try decoder.decodeSingularInt32Field(value: &_storage._typeName) }()
+        case 768: try { try decoder.decodeSingularInt32Field(value: &_storage._typePrefix) }()
+        case 769: try { try decoder.decodeSingularInt32Field(value: &_storage._typeStart) }()
+        case 770: try { try decoder.decodeSingularInt32Field(value: &_storage._typeUnknown) }()
+        case 771: try { try decoder.decodeSingularInt32Field(value: &_storage._typeURL) }()
+        case 772: try { try decoder.decodeSingularInt32Field(value: &_storage._uint32) }()
+        case 773: try { try decoder.decodeSingularInt32Field(value: &_storage._uint32Value) }()
+        case 774: try { try decoder.decodeSingularInt32Field(value: &_storage._uint64) }()
+        case 775: try { try decoder.decodeSingularInt32Field(value: &_storage._uint64Value) }()
+        case 776: try { try decoder.decodeSingularInt32Field(value: &_storage._uint8) }()
+        case 777: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalarLiteral) }()
+        case 778: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalarLiteralType) }()
+        case 779: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalars) }()
+        case 780: try { try decoder.decodeSingularInt32Field(value: &_storage._unicodeScalarView) }()
+        case 781: try { try decoder.decodeSingularInt32Field(value: &_storage._uninterpretedOption) }()
+        case 782: try { try decoder.decodeSingularInt32Field(value: &_storage._union) }()
+        case 783: try { try decoder.decodeSingularInt32Field(value: &_storage._uniqueStorage) }()
+        case 784: try { try decoder.decodeSingularInt32Field(value: &_storage._unknown) }()
+        case 785: try { try decoder.decodeSingularInt32Field(value: &_storage._unknownFields_p) }()
+        case 786: try { try decoder.decodeSingularInt32Field(value: &_storage._unknownStorage) }()
+        case 787: try { try decoder.decodeSingularInt32Field(value: &_storage._unpackTo) }()
+        case 788: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeBufferPointer) }()
+        case 789: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeMutablePointer) }()
+        case 790: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeMutableRawPointer) }()
+        case 791: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeRawBufferPointer) }()
+        case 792: try { try decoder.decodeSingularInt32Field(value: &_storage._unsafeRawPointer) }()
+        case 793: try { try decoder.decodeSingularInt32Field(value: &_storage._unverifiedLazy) }()
+        case 794: try { try decoder.decodeSingularInt32Field(value: &_storage._updatedOptions) }()
+        case 795: try { try decoder.decodeSingularInt32Field(value: &_storage._url) }()
+        case 796: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8) }()
+        case 797: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8Ptr) }()
+        case 798: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8ToDouble) }()
+        case 799: try { try decoder.decodeSingularInt32Field(value: &_storage._utf8View) }()
+        case 800: try { try decoder.decodeSingularInt32Field(value: &_storage._v) }()
+        case 801: try { try decoder.decodeSingularInt32Field(value: &_storage._value) }()
+        case 802: try { try decoder.decodeSingularInt32Field(value: &_storage._valueField) }()
+        case 803: try { try decoder.decodeSingularInt32Field(value: &_storage._values) }()
+        case 804: try { try decoder.decodeSingularInt32Field(value: &_storage._valueType) }()
+        case 805: try { try decoder.decodeSingularInt32Field(value: &_storage._var) }()
+        case 806: try { try decoder.decodeSingularInt32Field(value: &_storage._version) }()
+        case 807: try { try decoder.decodeSingularInt32Field(value: &_storage._versionString) }()
+        case 808: try { try decoder.decodeSingularInt32Field(value: &_storage._visitExtensionFields) }()
+        case 809: try { try decoder.decodeSingularInt32Field(value: &_storage._visitExtensionFieldsAsMessageSet) }()
+        case 810: try { try decoder.decodeSingularInt32Field(value: &_storage._visitMapField) }()
+        case 811: try { try decoder.decodeSingularInt32Field(value: &_storage._visitor) }()
+        case 812: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPacked) }()
+        case 813: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedBoolField) }()
+        case 814: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedDoubleField) }()
+        case 815: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedEnumField) }()
+        case 816: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedFixed32Field) }()
+        case 817: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedFixed64Field) }()
+        case 818: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedFloatField) }()
+        case 819: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedInt32Field) }()
+        case 820: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedInt64Field) }()
+        case 821: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSfixed32Field) }()
+        case 822: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSfixed64Field) }()
+        case 823: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSint32Field) }()
+        case 824: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedSint64Field) }()
+        case 825: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedUint32Field) }()
+        case 826: try { try decoder.decodeSingularInt32Field(value: &_storage._visitPackedUint64Field) }()
+        case 827: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeated) }()
+        case 828: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedBoolField) }()
+        case 829: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedBytesField) }()
+        case 830: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedDoubleField) }()
+        case 831: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedEnumField) }()
+        case 832: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedFixed32Field) }()
+        case 833: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedFixed64Field) }()
+        case 834: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedFloatField) }()
+        case 835: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedGroupField) }()
+        case 836: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedInt32Field) }()
+        case 837: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedInt64Field) }()
+        case 838: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedMessageField) }()
+        case 839: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSfixed32Field) }()
+        case 840: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSfixed64Field) }()
+        case 841: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSint32Field) }()
+        case 842: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedSint64Field) }()
+        case 843: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedStringField) }()
+        case 844: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedUint32Field) }()
+        case 845: try { try decoder.decodeSingularInt32Field(value: &_storage._visitRepeatedUint64Field) }()
+        case 846: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingular) }()
+        case 847: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularBoolField) }()
+        case 848: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularBytesField) }()
+        case 849: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularDoubleField) }()
+        case 850: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularEnumField) }()
+        case 851: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularFixed32Field) }()
+        case 852: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularFixed64Field) }()
+        case 853: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularFloatField) }()
+        case 854: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularGroupField) }()
+        case 855: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularInt32Field) }()
+        case 856: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularInt64Field) }()
+        case 857: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularMessageField) }()
+        case 858: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSfixed32Field) }()
+        case 859: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSfixed64Field) }()
+        case 860: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSint32Field) }()
+        case 861: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularSint64Field) }()
+        case 862: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularStringField) }()
+        case 863: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularUint32Field) }()
+        case 864: try { try decoder.decodeSingularInt32Field(value: &_storage._visitSingularUint64Field) }()
+        case 865: try { try decoder.decodeSingularInt32Field(value: &_storage._visitUnknown) }()
+        case 866: try { try decoder.decodeSingularInt32Field(value: &_storage._wasDecoded) }()
+        case 867: try { try decoder.decodeSingularInt32Field(value: &_storage._weak) }()
+        case 868: try { try decoder.decodeSingularInt32Field(value: &_storage._weakDependency) }()
+        case 869: try { try decoder.decodeSingularInt32Field(value: &_storage._where) }()
+        case 870: try { try decoder.decodeSingularInt32Field(value: &_storage._wireFormat) }()
+        case 871: try { try decoder.decodeSingularInt32Field(value: &_storage._with) }()
+        case 872: try { try decoder.decodeSingularInt32Field(value: &_storage._work) }()
+        case 873: try { try decoder.decodeSingularInt32Field(value: &_storage._wrappedType) }()
+        case 874: try { try decoder.decodeSingularInt32Field(value: &_storage._written) }()
+        case 875: try { try decoder.decodeSingularInt32Field(value: &_storage._yday) }()
         default: break
         }
       }
@@ -9523,1088 +9505,1082 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       if _storage._mapKeyType != 0 {
         try visitor.visitSingularInt32Field(value: _storage._mapKeyType, fieldNumber: 516)
       }
-      if _storage._mapNameResolver != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mapNameResolver, fieldNumber: 517)
-      }
       if _storage._mapToMessages != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mapToMessages, fieldNumber: 518)
+        try visitor.visitSingularInt32Field(value: _storage._mapToMessages, fieldNumber: 517)
       }
       if _storage._mapValueType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mapValueType, fieldNumber: 519)
+        try visitor.visitSingularInt32Field(value: _storage._mapValueType, fieldNumber: 518)
       }
       if _storage._mapVisitor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mapVisitor, fieldNumber: 520)
+        try visitor.visitSingularInt32Field(value: _storage._mapVisitor, fieldNumber: 519)
       }
       if _storage._mdayStart != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mdayStart, fieldNumber: 521)
+        try visitor.visitSingularInt32Field(value: _storage._mdayStart, fieldNumber: 520)
       }
       if _storage._merge != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._merge, fieldNumber: 522)
+        try visitor.visitSingularInt32Field(value: _storage._merge, fieldNumber: 521)
       }
       if _storage._message != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._message, fieldNumber: 523)
+        try visitor.visitSingularInt32Field(value: _storage._message, fieldNumber: 522)
       }
       if _storage._messageBase != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageBase, fieldNumber: 524)
+        try visitor.visitSingularInt32Field(value: _storage._messageBase, fieldNumber: 523)
       }
       if _storage._messageDepthLimit != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageDepthLimit, fieldNumber: 525)
+        try visitor.visitSingularInt32Field(value: _storage._messageDepthLimit, fieldNumber: 524)
       }
       if _storage._messageExtension != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageExtension, fieldNumber: 526)
+        try visitor.visitSingularInt32Field(value: _storage._messageExtension, fieldNumber: 525)
       }
       if _storage._messageImplementationBase != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageImplementationBase, fieldNumber: 527)
+        try visitor.visitSingularInt32Field(value: _storage._messageImplementationBase, fieldNumber: 526)
       }
       if _storage._messageOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageOptions, fieldNumber: 528)
+        try visitor.visitSingularInt32Field(value: _storage._messageOptions, fieldNumber: 527)
       }
       if _storage._messageSet != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageSet, fieldNumber: 529)
+        try visitor.visitSingularInt32Field(value: _storage._messageSet, fieldNumber: 528)
       }
       if _storage._messageSetWireFormat != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageSetWireFormat, fieldNumber: 530)
+        try visitor.visitSingularInt32Field(value: _storage._messageSetWireFormat, fieldNumber: 529)
       }
       if _storage._messageType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._messageType, fieldNumber: 531)
+        try visitor.visitSingularInt32Field(value: _storage._messageType, fieldNumber: 530)
       }
       if _storage._method != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._method, fieldNumber: 532)
+        try visitor.visitSingularInt32Field(value: _storage._method, fieldNumber: 531)
       }
       if _storage._methodDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._methodDescriptorProto, fieldNumber: 533)
+        try visitor.visitSingularInt32Field(value: _storage._methodDescriptorProto, fieldNumber: 532)
       }
       if _storage._methodOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._methodOptions, fieldNumber: 534)
+        try visitor.visitSingularInt32Field(value: _storage._methodOptions, fieldNumber: 533)
       }
       if _storage._methods != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._methods, fieldNumber: 535)
+        try visitor.visitSingularInt32Field(value: _storage._methods, fieldNumber: 534)
       }
       if _storage._minor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._minor, fieldNumber: 536)
+        try visitor.visitSingularInt32Field(value: _storage._minor, fieldNumber: 535)
       }
       if _storage._mixin != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mixin, fieldNumber: 537)
+        try visitor.visitSingularInt32Field(value: _storage._mixin, fieldNumber: 536)
       }
       if _storage._mixins != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mixins, fieldNumber: 538)
+        try visitor.visitSingularInt32Field(value: _storage._mixins, fieldNumber: 537)
       }
       if _storage._modifier != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._modifier, fieldNumber: 539)
+        try visitor.visitSingularInt32Field(value: _storage._modifier, fieldNumber: 538)
       }
       if _storage._modify != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._modify, fieldNumber: 540)
+        try visitor.visitSingularInt32Field(value: _storage._modify, fieldNumber: 539)
       }
       if _storage._month != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._month, fieldNumber: 541)
+        try visitor.visitSingularInt32Field(value: _storage._month, fieldNumber: 540)
       }
       if _storage._msgExtension != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._msgExtension, fieldNumber: 542)
+        try visitor.visitSingularInt32Field(value: _storage._msgExtension, fieldNumber: 541)
       }
       if _storage._mutating != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._mutating, fieldNumber: 543)
+        try visitor.visitSingularInt32Field(value: _storage._mutating, fieldNumber: 542)
       }
       if _storage._n != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._n, fieldNumber: 544)
+        try visitor.visitSingularInt32Field(value: _storage._n, fieldNumber: 543)
       }
       if _storage._name != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._name, fieldNumber: 545)
+        try visitor.visitSingularInt32Field(value: _storage._name, fieldNumber: 544)
       }
       if _storage._nameDescription != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nameDescription, fieldNumber: 546)
+        try visitor.visitSingularInt32Field(value: _storage._nameDescription, fieldNumber: 545)
       }
       if _storage._nameMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nameMap, fieldNumber: 547)
+        try visitor.visitSingularInt32Field(value: _storage._nameMap, fieldNumber: 546)
       }
       if _storage._namePart != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._namePart, fieldNumber: 548)
-      }
-      if _storage._nameResolver != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nameResolver, fieldNumber: 549)
+        try visitor.visitSingularInt32Field(value: _storage._namePart, fieldNumber: 547)
       }
       if _storage._names != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._names, fieldNumber: 550)
+        try visitor.visitSingularInt32Field(value: _storage._names, fieldNumber: 548)
       }
       if _storage._nanos != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nanos, fieldNumber: 551)
+        try visitor.visitSingularInt32Field(value: _storage._nanos, fieldNumber: 549)
       }
       if _storage._nativeBytes != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nativeBytes, fieldNumber: 552)
+        try visitor.visitSingularInt32Field(value: _storage._nativeBytes, fieldNumber: 550)
       }
       if _storage._nativeEndianBytes != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nativeEndianBytes, fieldNumber: 553)
+        try visitor.visitSingularInt32Field(value: _storage._nativeEndianBytes, fieldNumber: 551)
       }
       if _storage._negativeIntValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._negativeIntValue, fieldNumber: 554)
+        try visitor.visitSingularInt32Field(value: _storage._negativeIntValue, fieldNumber: 552)
       }
       if _storage._nestedType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nestedType, fieldNumber: 555)
+        try visitor.visitSingularInt32Field(value: _storage._nestedType, fieldNumber: 553)
       }
       if _storage._newL != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._newL, fieldNumber: 556)
+        try visitor.visitSingularInt32Field(value: _storage._newL, fieldNumber: 554)
       }
       if _storage._newList != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._newList, fieldNumber: 557)
+        try visitor.visitSingularInt32Field(value: _storage._newList, fieldNumber: 555)
       }
       if _storage._newValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._newValue, fieldNumber: 558)
+        try visitor.visitSingularInt32Field(value: _storage._newValue, fieldNumber: 556)
       }
       if _storage._nextByte != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nextByte, fieldNumber: 559)
+        try visitor.visitSingularInt32Field(value: _storage._nextByte, fieldNumber: 557)
       }
       if _storage._nextFieldNumber != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nextFieldNumber, fieldNumber: 560)
+        try visitor.visitSingularInt32Field(value: _storage._nextFieldNumber, fieldNumber: 558)
       }
       if _storage._nil != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nil, fieldNumber: 561)
+        try visitor.visitSingularInt32Field(value: _storage._nil, fieldNumber: 559)
       }
       if _storage._nilLiteral != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nilLiteral, fieldNumber: 562)
+        try visitor.visitSingularInt32Field(value: _storage._nilLiteral, fieldNumber: 560)
       }
       if _storage._noStandardDescriptorAccessor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._noStandardDescriptorAccessor, fieldNumber: 563)
+        try visitor.visitSingularInt32Field(value: _storage._noStandardDescriptorAccessor, fieldNumber: 561)
       }
       if _storage._nullValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nullValue, fieldNumber: 564)
+        try visitor.visitSingularInt32Field(value: _storage._nullValue, fieldNumber: 562)
       }
       if _storage._number != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._number, fieldNumber: 565)
+        try visitor.visitSingularInt32Field(value: _storage._number, fieldNumber: 563)
       }
       if _storage._numberValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._numberValue, fieldNumber: 566)
+        try visitor.visitSingularInt32Field(value: _storage._numberValue, fieldNumber: 564)
       }
       if _storage._objcClassPrefix != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._objcClassPrefix, fieldNumber: 567)
+        try visitor.visitSingularInt32Field(value: _storage._objcClassPrefix, fieldNumber: 565)
       }
       if _storage._of != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._of, fieldNumber: 568)
+        try visitor.visitSingularInt32Field(value: _storage._of, fieldNumber: 566)
       }
       if _storage._oneofDecl != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofDecl, fieldNumber: 569)
+        try visitor.visitSingularInt32Field(value: _storage._oneofDecl, fieldNumber: 567)
       }
       if _storage._oneofDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofDescriptorProto, fieldNumber: 570)
+        try visitor.visitSingularInt32Field(value: _storage._oneofDescriptorProto, fieldNumber: 568)
       }
       if _storage._oneofIndex != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofIndex, fieldNumber: 571)
+        try visitor.visitSingularInt32Field(value: _storage._oneofIndex, fieldNumber: 569)
       }
       if _storage._oneofOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofOptions, fieldNumber: 572)
+        try visitor.visitSingularInt32Field(value: _storage._oneofOptions, fieldNumber: 570)
       }
       if _storage._oneofs != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneofs, fieldNumber: 573)
+        try visitor.visitSingularInt32Field(value: _storage._oneofs, fieldNumber: 571)
       }
       if _storage._oneOfKind != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._oneOfKind, fieldNumber: 574)
+        try visitor.visitSingularInt32Field(value: _storage._oneOfKind, fieldNumber: 572)
       }
       if _storage._optimizeFor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._optimizeFor, fieldNumber: 575)
+        try visitor.visitSingularInt32Field(value: _storage._optimizeFor, fieldNumber: 573)
       }
       if _storage._optimizeMode != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._optimizeMode, fieldNumber: 576)
+        try visitor.visitSingularInt32Field(value: _storage._optimizeMode, fieldNumber: 574)
       }
       if _storage._option != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._option, fieldNumber: 577)
+        try visitor.visitSingularInt32Field(value: _storage._option, fieldNumber: 575)
       }
       if _storage._optionalEnumExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._optionalEnumExtensionField, fieldNumber: 578)
+        try visitor.visitSingularInt32Field(value: _storage._optionalEnumExtensionField, fieldNumber: 576)
       }
       if _storage._optionalExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._optionalExtensionField, fieldNumber: 579)
+        try visitor.visitSingularInt32Field(value: _storage._optionalExtensionField, fieldNumber: 577)
       }
       if _storage._optionalGroupExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._optionalGroupExtensionField, fieldNumber: 580)
+        try visitor.visitSingularInt32Field(value: _storage._optionalGroupExtensionField, fieldNumber: 578)
       }
       if _storage._optionalMessageExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._optionalMessageExtensionField, fieldNumber: 581)
+        try visitor.visitSingularInt32Field(value: _storage._optionalMessageExtensionField, fieldNumber: 579)
       }
       if _storage._options != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._options, fieldNumber: 582)
+        try visitor.visitSingularInt32Field(value: _storage._options, fieldNumber: 580)
       }
       if _storage._other != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._other, fieldNumber: 583)
+        try visitor.visitSingularInt32Field(value: _storage._other, fieldNumber: 581)
       }
       if _storage._others != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._others, fieldNumber: 584)
+        try visitor.visitSingularInt32Field(value: _storage._others, fieldNumber: 582)
       }
       if _storage._out != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._out, fieldNumber: 585)
+        try visitor.visitSingularInt32Field(value: _storage._out, fieldNumber: 583)
       }
       if _storage._outputType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._outputType, fieldNumber: 586)
+        try visitor.visitSingularInt32Field(value: _storage._outputType, fieldNumber: 584)
       }
       if _storage._p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._p, fieldNumber: 587)
+        try visitor.visitSingularInt32Field(value: _storage._p, fieldNumber: 585)
       }
       if _storage._package != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._package, fieldNumber: 588)
+        try visitor.visitSingularInt32Field(value: _storage._package, fieldNumber: 586)
       }
       if _storage._packed != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._packed, fieldNumber: 589)
+        try visitor.visitSingularInt32Field(value: _storage._packed, fieldNumber: 587)
       }
       if _storage._packedEnumExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._packedEnumExtensionField, fieldNumber: 590)
+        try visitor.visitSingularInt32Field(value: _storage._packedEnumExtensionField, fieldNumber: 588)
       }
       if _storage._packedExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._packedExtensionField, fieldNumber: 591)
+        try visitor.visitSingularInt32Field(value: _storage._packedExtensionField, fieldNumber: 589)
       }
       if _storage._padding != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._padding, fieldNumber: 592)
+        try visitor.visitSingularInt32Field(value: _storage._padding, fieldNumber: 590)
       }
       if _storage._parent != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._parent, fieldNumber: 593)
+        try visitor.visitSingularInt32Field(value: _storage._parent, fieldNumber: 591)
       }
       if _storage._parse != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._parse, fieldNumber: 594)
+        try visitor.visitSingularInt32Field(value: _storage._parse, fieldNumber: 592)
       }
       if _storage._partial != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._partial, fieldNumber: 595)
+        try visitor.visitSingularInt32Field(value: _storage._partial, fieldNumber: 593)
       }
       if _storage._path != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._path, fieldNumber: 596)
+        try visitor.visitSingularInt32Field(value: _storage._path, fieldNumber: 594)
       }
       if _storage._paths != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._paths, fieldNumber: 597)
+        try visitor.visitSingularInt32Field(value: _storage._paths, fieldNumber: 595)
       }
       if _storage._payload != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._payload, fieldNumber: 598)
+        try visitor.visitSingularInt32Field(value: _storage._payload, fieldNumber: 596)
       }
       if _storage._payloadSize != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._payloadSize, fieldNumber: 599)
+        try visitor.visitSingularInt32Field(value: _storage._payloadSize, fieldNumber: 597)
       }
       if _storage._phpClassPrefix != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._phpClassPrefix, fieldNumber: 600)
+        try visitor.visitSingularInt32Field(value: _storage._phpClassPrefix, fieldNumber: 598)
       }
       if _storage._phpGenericServices != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._phpGenericServices, fieldNumber: 601)
+        try visitor.visitSingularInt32Field(value: _storage._phpGenericServices, fieldNumber: 599)
       }
       if _storage._phpMetadataNamespace != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._phpMetadataNamespace, fieldNumber: 602)
+        try visitor.visitSingularInt32Field(value: _storage._phpMetadataNamespace, fieldNumber: 600)
       }
       if _storage._phpNamespace != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._phpNamespace, fieldNumber: 603)
+        try visitor.visitSingularInt32Field(value: _storage._phpNamespace, fieldNumber: 601)
       }
       if _storage._pointer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._pointer, fieldNumber: 604)
+        try visitor.visitSingularInt32Field(value: _storage._pointer, fieldNumber: 602)
       }
       if _storage._pos != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._pos, fieldNumber: 605)
+        try visitor.visitSingularInt32Field(value: _storage._pos, fieldNumber: 603)
       }
       if _storage._positiveIntValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._positiveIntValue, fieldNumber: 606)
+        try visitor.visitSingularInt32Field(value: _storage._positiveIntValue, fieldNumber: 604)
       }
       if _storage._prefix != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._prefix, fieldNumber: 607)
+        try visitor.visitSingularInt32Field(value: _storage._prefix, fieldNumber: 605)
       }
       if _storage._preserveProtoFieldNames != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._preserveProtoFieldNames, fieldNumber: 608)
+        try visitor.visitSingularInt32Field(value: _storage._preserveProtoFieldNames, fieldNumber: 606)
       }
       if _storage._preTraverse != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._preTraverse, fieldNumber: 609)
+        try visitor.visitSingularInt32Field(value: _storage._preTraverse, fieldNumber: 607)
       }
       if _storage._printUnknownFields != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._printUnknownFields, fieldNumber: 610)
+        try visitor.visitSingularInt32Field(value: _storage._printUnknownFields, fieldNumber: 608)
       }
       if _storage._proto2 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._proto2, fieldNumber: 611)
+        try visitor.visitSingularInt32Field(value: _storage._proto2, fieldNumber: 609)
       }
       if _storage._proto3DefaultValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._proto3DefaultValue, fieldNumber: 612)
+        try visitor.visitSingularInt32Field(value: _storage._proto3DefaultValue, fieldNumber: 610)
       }
       if _storage._proto3Optional != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._proto3Optional, fieldNumber: 613)
+        try visitor.visitSingularInt32Field(value: _storage._proto3Optional, fieldNumber: 611)
       }
       if _storage._protobufApiversionCheck != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufApiversionCheck, fieldNumber: 614)
+        try visitor.visitSingularInt32Field(value: _storage._protobufApiversionCheck, fieldNumber: 612)
       }
       if _storage._protobufApiversion3 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufApiversion3, fieldNumber: 615)
+        try visitor.visitSingularInt32Field(value: _storage._protobufApiversion3, fieldNumber: 613)
       }
       if _storage._protobufBool != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufBool, fieldNumber: 616)
+        try visitor.visitSingularInt32Field(value: _storage._protobufBool, fieldNumber: 614)
       }
       if _storage._protobufBytes != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufBytes, fieldNumber: 617)
+        try visitor.visitSingularInt32Field(value: _storage._protobufBytes, fieldNumber: 615)
       }
       if _storage._protobufDouble != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufDouble, fieldNumber: 618)
+        try visitor.visitSingularInt32Field(value: _storage._protobufDouble, fieldNumber: 616)
       }
       if _storage._protobufEnumMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufEnumMap, fieldNumber: 619)
+        try visitor.visitSingularInt32Field(value: _storage._protobufEnumMap, fieldNumber: 617)
       }
       if _storage._protobufExtension != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufExtension, fieldNumber: 620)
+        try visitor.visitSingularInt32Field(value: _storage._protobufExtension, fieldNumber: 618)
       }
       if _storage._protobufFixed32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFixed32, fieldNumber: 621)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFixed32, fieldNumber: 619)
       }
       if _storage._protobufFixed64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFixed64, fieldNumber: 622)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFixed64, fieldNumber: 620)
       }
       if _storage._protobufFloat != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFloat, fieldNumber: 623)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFloat, fieldNumber: 621)
       }
       if _storage._protobufInt32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufInt32, fieldNumber: 624)
+        try visitor.visitSingularInt32Field(value: _storage._protobufInt32, fieldNumber: 622)
       }
       if _storage._protobufInt64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufInt64, fieldNumber: 625)
+        try visitor.visitSingularInt32Field(value: _storage._protobufInt64, fieldNumber: 623)
       }
       if _storage._protobufMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufMap, fieldNumber: 626)
+        try visitor.visitSingularInt32Field(value: _storage._protobufMap, fieldNumber: 624)
       }
       if _storage._protobufMessageMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufMessageMap, fieldNumber: 627)
+        try visitor.visitSingularInt32Field(value: _storage._protobufMessageMap, fieldNumber: 625)
       }
       if _storage._protobufSfixed32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed32, fieldNumber: 628)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed32, fieldNumber: 626)
       }
       if _storage._protobufSfixed64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed64, fieldNumber: 629)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSfixed64, fieldNumber: 627)
       }
       if _storage._protobufSint32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSint32, fieldNumber: 630)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSint32, fieldNumber: 628)
       }
       if _storage._protobufSint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufSint64, fieldNumber: 631)
+        try visitor.visitSingularInt32Field(value: _storage._protobufSint64, fieldNumber: 629)
       }
       if _storage._protobufString != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufString, fieldNumber: 632)
+        try visitor.visitSingularInt32Field(value: _storage._protobufString, fieldNumber: 630)
       }
       if _storage._protobufUint32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufUint32, fieldNumber: 633)
+        try visitor.visitSingularInt32Field(value: _storage._protobufUint32, fieldNumber: 631)
       }
       if _storage._protobufUint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufUint64, fieldNumber: 634)
+        try visitor.visitSingularInt32Field(value: _storage._protobufUint64, fieldNumber: 632)
       }
       if _storage._protobufExtensionFieldValues != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufExtensionFieldValues, fieldNumber: 635)
+        try visitor.visitSingularInt32Field(value: _storage._protobufExtensionFieldValues, fieldNumber: 633)
       }
       if _storage._protobufFieldNumber != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufFieldNumber, fieldNumber: 636)
+        try visitor.visitSingularInt32Field(value: _storage._protobufFieldNumber, fieldNumber: 634)
       }
       if _storage._protobufGeneratedIsEqualTo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufGeneratedIsEqualTo, fieldNumber: 637)
+        try visitor.visitSingularInt32Field(value: _storage._protobufGeneratedIsEqualTo, fieldNumber: 635)
       }
       if _storage._protobufNameMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufNameMap, fieldNumber: 638)
+        try visitor.visitSingularInt32Field(value: _storage._protobufNameMap, fieldNumber: 636)
       }
       if _storage._protobufNewField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufNewField, fieldNumber: 639)
+        try visitor.visitSingularInt32Field(value: _storage._protobufNewField, fieldNumber: 637)
       }
       if _storage._protobufPackage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protobufPackage, fieldNumber: 640)
+        try visitor.visitSingularInt32Field(value: _storage._protobufPackage, fieldNumber: 638)
       }
       if _storage._protocol != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protocol, fieldNumber: 641)
+        try visitor.visitSingularInt32Field(value: _storage._protocol, fieldNumber: 639)
       }
       if _storage._protoFieldName != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protoFieldName, fieldNumber: 642)
+        try visitor.visitSingularInt32Field(value: _storage._protoFieldName, fieldNumber: 640)
       }
       if _storage._protoMessageName != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protoMessageName, fieldNumber: 643)
+        try visitor.visitSingularInt32Field(value: _storage._protoMessageName, fieldNumber: 641)
       }
       if _storage._protoNameProviding != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protoNameProviding, fieldNumber: 644)
+        try visitor.visitSingularInt32Field(value: _storage._protoNameProviding, fieldNumber: 642)
       }
       if _storage._protoPaths != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protoPaths, fieldNumber: 645)
+        try visitor.visitSingularInt32Field(value: _storage._protoPaths, fieldNumber: 643)
       }
       if _storage._protoSendable != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._protoSendable, fieldNumber: 646)
+        try visitor.visitSingularInt32Field(value: _storage._protoSendable, fieldNumber: 644)
       }
       if _storage._public != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._public, fieldNumber: 647)
+        try visitor.visitSingularInt32Field(value: _storage._public, fieldNumber: 645)
       }
       if _storage._publicDependency != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._publicDependency, fieldNumber: 648)
+        try visitor.visitSingularInt32Field(value: _storage._publicDependency, fieldNumber: 646)
       }
       if _storage._putBoolValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putBoolValue, fieldNumber: 649)
+        try visitor.visitSingularInt32Field(value: _storage._putBoolValue, fieldNumber: 647)
       }
       if _storage._putBytesValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putBytesValue, fieldNumber: 650)
+        try visitor.visitSingularInt32Field(value: _storage._putBytesValue, fieldNumber: 648)
       }
       if _storage._putDoubleValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putDoubleValue, fieldNumber: 651)
+        try visitor.visitSingularInt32Field(value: _storage._putDoubleValue, fieldNumber: 649)
       }
       if _storage._putEnumValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putEnumValue, fieldNumber: 652)
+        try visitor.visitSingularInt32Field(value: _storage._putEnumValue, fieldNumber: 650)
       }
       if _storage._putFixedUint32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putFixedUint32, fieldNumber: 653)
+        try visitor.visitSingularInt32Field(value: _storage._putFixedUint32, fieldNumber: 651)
       }
       if _storage._putFixedUint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putFixedUint64, fieldNumber: 654)
+        try visitor.visitSingularInt32Field(value: _storage._putFixedUint64, fieldNumber: 652)
       }
       if _storage._putFloatValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putFloatValue, fieldNumber: 655)
+        try visitor.visitSingularInt32Field(value: _storage._putFloatValue, fieldNumber: 653)
       }
       if _storage._putInt64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putInt64, fieldNumber: 656)
+        try visitor.visitSingularInt32Field(value: _storage._putInt64, fieldNumber: 654)
       }
       if _storage._putStringValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putStringValue, fieldNumber: 657)
+        try visitor.visitSingularInt32Field(value: _storage._putStringValue, fieldNumber: 655)
       }
       if _storage._putUint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putUint64, fieldNumber: 658)
+        try visitor.visitSingularInt32Field(value: _storage._putUint64, fieldNumber: 656)
       }
       if _storage._putUint64Hex != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putUint64Hex, fieldNumber: 659)
+        try visitor.visitSingularInt32Field(value: _storage._putUint64Hex, fieldNumber: 657)
       }
       if _storage._putVarInt != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putVarInt, fieldNumber: 660)
+        try visitor.visitSingularInt32Field(value: _storage._putVarInt, fieldNumber: 658)
       }
       if _storage._putZigZagVarInt != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._putZigZagVarInt, fieldNumber: 661)
+        try visitor.visitSingularInt32Field(value: _storage._putZigZagVarInt, fieldNumber: 659)
       }
       if _storage._pyGenericServices != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._pyGenericServices, fieldNumber: 662)
+        try visitor.visitSingularInt32Field(value: _storage._pyGenericServices, fieldNumber: 660)
       }
       if _storage._rawChars != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._rawChars, fieldNumber: 663)
+        try visitor.visitSingularInt32Field(value: _storage._rawChars, fieldNumber: 661)
       }
       if _storage._rawRepresentable != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._rawRepresentable, fieldNumber: 664)
+        try visitor.visitSingularInt32Field(value: _storage._rawRepresentable, fieldNumber: 662)
       }
       if _storage._rawValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._rawValue, fieldNumber: 665)
+        try visitor.visitSingularInt32Field(value: _storage._rawValue, fieldNumber: 663)
       }
       if _storage._read4HexDigits != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._read4HexDigits, fieldNumber: 666)
+        try visitor.visitSingularInt32Field(value: _storage._read4HexDigits, fieldNumber: 664)
       }
       if _storage._register != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._register, fieldNumber: 667)
+        try visitor.visitSingularInt32Field(value: _storage._register, fieldNumber: 665)
       }
       if _storage._repeatedEnumExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._repeatedEnumExtensionField, fieldNumber: 668)
+        try visitor.visitSingularInt32Field(value: _storage._repeatedEnumExtensionField, fieldNumber: 666)
       }
       if _storage._repeatedExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._repeatedExtensionField, fieldNumber: 669)
+        try visitor.visitSingularInt32Field(value: _storage._repeatedExtensionField, fieldNumber: 667)
       }
       if _storage._repeatedGroupExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._repeatedGroupExtensionField, fieldNumber: 670)
+        try visitor.visitSingularInt32Field(value: _storage._repeatedGroupExtensionField, fieldNumber: 668)
       }
       if _storage._repeatedMessageExtensionField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._repeatedMessageExtensionField, fieldNumber: 671)
+        try visitor.visitSingularInt32Field(value: _storage._repeatedMessageExtensionField, fieldNumber: 669)
       }
       if _storage._requestStreaming != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._requestStreaming, fieldNumber: 672)
+        try visitor.visitSingularInt32Field(value: _storage._requestStreaming, fieldNumber: 670)
       }
       if _storage._requestTypeURL != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._requestTypeURL, fieldNumber: 673)
+        try visitor.visitSingularInt32Field(value: _storage._requestTypeURL, fieldNumber: 671)
       }
       if _storage._requiredSize != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._requiredSize, fieldNumber: 674)
+        try visitor.visitSingularInt32Field(value: _storage._requiredSize, fieldNumber: 672)
       }
       if _storage._reservedName != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._reservedName, fieldNumber: 675)
+        try visitor.visitSingularInt32Field(value: _storage._reservedName, fieldNumber: 673)
       }
       if _storage._reservedRange != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._reservedRange, fieldNumber: 676)
+        try visitor.visitSingularInt32Field(value: _storage._reservedRange, fieldNumber: 674)
       }
       if _storage._responseStreaming != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._responseStreaming, fieldNumber: 677)
+        try visitor.visitSingularInt32Field(value: _storage._responseStreaming, fieldNumber: 675)
       }
       if _storage._responseTypeURL != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._responseTypeURL, fieldNumber: 678)
+        try visitor.visitSingularInt32Field(value: _storage._responseTypeURL, fieldNumber: 676)
       }
       if _storage._result != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._result, fieldNumber: 679)
+        try visitor.visitSingularInt32Field(value: _storage._result, fieldNumber: 677)
       }
       if _storage._rethrows != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._rethrows, fieldNumber: 680)
+        try visitor.visitSingularInt32Field(value: _storage._rethrows, fieldNumber: 678)
       }
       if _storage._return != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._return, fieldNumber: 681)
+        try visitor.visitSingularInt32Field(value: _storage._return, fieldNumber: 679)
       }
       if _storage._returnType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._returnType, fieldNumber: 682)
+        try visitor.visitSingularInt32Field(value: _storage._returnType, fieldNumber: 680)
       }
       if _storage._revision != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._revision, fieldNumber: 683)
+        try visitor.visitSingularInt32Field(value: _storage._revision, fieldNumber: 681)
       }
       if _storage._rhs != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._rhs, fieldNumber: 684)
+        try visitor.visitSingularInt32Field(value: _storage._rhs, fieldNumber: 682)
       }
       if _storage._root != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._root, fieldNumber: 685)
+        try visitor.visitSingularInt32Field(value: _storage._root, fieldNumber: 683)
       }
       if _storage._rubyPackage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._rubyPackage, fieldNumber: 686)
+        try visitor.visitSingularInt32Field(value: _storage._rubyPackage, fieldNumber: 684)
       }
       if _storage._s != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._s, fieldNumber: 687)
+        try visitor.visitSingularInt32Field(value: _storage._s, fieldNumber: 685)
       }
       if _storage._sawBackslash != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sawBackslash, fieldNumber: 688)
+        try visitor.visitSingularInt32Field(value: _storage._sawBackslash, fieldNumber: 686)
       }
       if _storage._sawSection4Characters != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sawSection4Characters, fieldNumber: 689)
+        try visitor.visitSingularInt32Field(value: _storage._sawSection4Characters, fieldNumber: 687)
       }
       if _storage._sawSection5Characters != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sawSection5Characters, fieldNumber: 690)
+        try visitor.visitSingularInt32Field(value: _storage._sawSection5Characters, fieldNumber: 688)
       }
       if _storage._scanner != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._scanner, fieldNumber: 691)
+        try visitor.visitSingularInt32Field(value: _storage._scanner, fieldNumber: 689)
       }
       if _storage._seconds != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._seconds, fieldNumber: 692)
+        try visitor.visitSingularInt32Field(value: _storage._seconds, fieldNumber: 690)
       }
       if _storage._self_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._self_p, fieldNumber: 693)
+        try visitor.visitSingularInt32Field(value: _storage._self_p, fieldNumber: 691)
       }
       if _storage._semantic != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._semantic, fieldNumber: 694)
+        try visitor.visitSingularInt32Field(value: _storage._semantic, fieldNumber: 692)
       }
       if _storage._sendable != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sendable, fieldNumber: 695)
+        try visitor.visitSingularInt32Field(value: _storage._sendable, fieldNumber: 693)
       }
       if _storage._separator != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._separator, fieldNumber: 696)
+        try visitor.visitSingularInt32Field(value: _storage._separator, fieldNumber: 694)
       }
       if _storage._serialize != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._serialize, fieldNumber: 697)
+        try visitor.visitSingularInt32Field(value: _storage._serialize, fieldNumber: 695)
       }
       if _storage._serializedData != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._serializedData, fieldNumber: 698)
+        try visitor.visitSingularInt32Field(value: _storage._serializedData, fieldNumber: 696)
       }
       if _storage._serializedSize != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._serializedSize, fieldNumber: 699)
+        try visitor.visitSingularInt32Field(value: _storage._serializedSize, fieldNumber: 697)
       }
       if _storage._serverStreaming != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._serverStreaming, fieldNumber: 700)
+        try visitor.visitSingularInt32Field(value: _storage._serverStreaming, fieldNumber: 698)
       }
       if _storage._service != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._service, fieldNumber: 701)
+        try visitor.visitSingularInt32Field(value: _storage._service, fieldNumber: 699)
       }
       if _storage._serviceDescriptorProto != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._serviceDescriptorProto, fieldNumber: 702)
+        try visitor.visitSingularInt32Field(value: _storage._serviceDescriptorProto, fieldNumber: 700)
       }
       if _storage._serviceOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._serviceOptions, fieldNumber: 703)
+        try visitor.visitSingularInt32Field(value: _storage._serviceOptions, fieldNumber: 701)
       }
       if _storage._set != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._set, fieldNumber: 704)
+        try visitor.visitSingularInt32Field(value: _storage._set, fieldNumber: 702)
       }
       if _storage._setExtensionValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._setExtensionValue, fieldNumber: 705)
+        try visitor.visitSingularInt32Field(value: _storage._setExtensionValue, fieldNumber: 703)
       }
       if _storage._shift != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._shift, fieldNumber: 706)
+        try visitor.visitSingularInt32Field(value: _storage._shift, fieldNumber: 704)
       }
       if _storage._simpleExtensionMap != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._simpleExtensionMap, fieldNumber: 707)
+        try visitor.visitSingularInt32Field(value: _storage._simpleExtensionMap, fieldNumber: 705)
       }
       if _storage._sizer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sizer, fieldNumber: 708)
+        try visitor.visitSingularInt32Field(value: _storage._sizer, fieldNumber: 706)
       }
       if _storage._source != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._source, fieldNumber: 709)
+        try visitor.visitSingularInt32Field(value: _storage._source, fieldNumber: 707)
       }
       if _storage._sourceCodeInfo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sourceCodeInfo, fieldNumber: 710)
+        try visitor.visitSingularInt32Field(value: _storage._sourceCodeInfo, fieldNumber: 708)
       }
       if _storage._sourceContext != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sourceContext, fieldNumber: 711)
+        try visitor.visitSingularInt32Field(value: _storage._sourceContext, fieldNumber: 709)
       }
       if _storage._sourceEncoding != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sourceEncoding, fieldNumber: 712)
+        try visitor.visitSingularInt32Field(value: _storage._sourceEncoding, fieldNumber: 710)
       }
       if _storage._sourceFile != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._sourceFile, fieldNumber: 713)
+        try visitor.visitSingularInt32Field(value: _storage._sourceFile, fieldNumber: 711)
       }
       if _storage._span != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._span, fieldNumber: 714)
+        try visitor.visitSingularInt32Field(value: _storage._span, fieldNumber: 712)
       }
       if _storage._split != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._split, fieldNumber: 715)
+        try visitor.visitSingularInt32Field(value: _storage._split, fieldNumber: 713)
       }
       if _storage._start != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._start, fieldNumber: 716)
+        try visitor.visitSingularInt32Field(value: _storage._start, fieldNumber: 714)
       }
       if _storage._startArray != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startArray, fieldNumber: 717)
+        try visitor.visitSingularInt32Field(value: _storage._startArray, fieldNumber: 715)
       }
       if _storage._startArrayObject != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startArrayObject, fieldNumber: 718)
+        try visitor.visitSingularInt32Field(value: _storage._startArrayObject, fieldNumber: 716)
       }
       if _storage._startField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startField, fieldNumber: 719)
+        try visitor.visitSingularInt32Field(value: _storage._startField, fieldNumber: 717)
       }
       if _storage._startIndex != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startIndex, fieldNumber: 720)
+        try visitor.visitSingularInt32Field(value: _storage._startIndex, fieldNumber: 718)
       }
       if _storage._startMessageField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startMessageField, fieldNumber: 721)
+        try visitor.visitSingularInt32Field(value: _storage._startMessageField, fieldNumber: 719)
       }
       if _storage._startObject != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startObject, fieldNumber: 722)
+        try visitor.visitSingularInt32Field(value: _storage._startObject, fieldNumber: 720)
       }
       if _storage._startRegularField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._startRegularField, fieldNumber: 723)
+        try visitor.visitSingularInt32Field(value: _storage._startRegularField, fieldNumber: 721)
       }
       if _storage._state != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._state, fieldNumber: 724)
+        try visitor.visitSingularInt32Field(value: _storage._state, fieldNumber: 722)
       }
       if _storage._static != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._static, fieldNumber: 725)
+        try visitor.visitSingularInt32Field(value: _storage._static, fieldNumber: 723)
       }
       if _storage._staticString != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._staticString, fieldNumber: 726)
+        try visitor.visitSingularInt32Field(value: _storage._staticString, fieldNumber: 724)
       }
       if _storage._storage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._storage, fieldNumber: 727)
+        try visitor.visitSingularInt32Field(value: _storage._storage, fieldNumber: 725)
       }
       if _storage._string != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._string, fieldNumber: 728)
+        try visitor.visitSingularInt32Field(value: _storage._string, fieldNumber: 726)
       }
       if _storage._stringLiteral != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._stringLiteral, fieldNumber: 729)
+        try visitor.visitSingularInt32Field(value: _storage._stringLiteral, fieldNumber: 727)
       }
       if _storage._stringLiteralType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._stringLiteralType, fieldNumber: 730)
+        try visitor.visitSingularInt32Field(value: _storage._stringLiteralType, fieldNumber: 728)
       }
       if _storage._stringResult != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._stringResult, fieldNumber: 731)
+        try visitor.visitSingularInt32Field(value: _storage._stringResult, fieldNumber: 729)
       }
       if _storage._stringValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._stringValue, fieldNumber: 732)
+        try visitor.visitSingularInt32Field(value: _storage._stringValue, fieldNumber: 730)
       }
       if _storage._struct != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._struct, fieldNumber: 733)
+        try visitor.visitSingularInt32Field(value: _storage._struct, fieldNumber: 731)
       }
       if _storage._structValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._structValue, fieldNumber: 734)
+        try visitor.visitSingularInt32Field(value: _storage._structValue, fieldNumber: 732)
       }
       if _storage._subDecoder != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._subDecoder, fieldNumber: 735)
+        try visitor.visitSingularInt32Field(value: _storage._subDecoder, fieldNumber: 733)
       }
       if _storage._subscript != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._subscript, fieldNumber: 736)
+        try visitor.visitSingularInt32Field(value: _storage._subscript, fieldNumber: 734)
       }
       if _storage._subVisitor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._subVisitor, fieldNumber: 737)
+        try visitor.visitSingularInt32Field(value: _storage._subVisitor, fieldNumber: 735)
       }
       if _storage._swift != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._swift, fieldNumber: 738)
+        try visitor.visitSingularInt32Field(value: _storage._swift, fieldNumber: 736)
       }
       if _storage._swiftPrefix != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._swiftPrefix, fieldNumber: 739)
+        try visitor.visitSingularInt32Field(value: _storage._swiftPrefix, fieldNumber: 737)
       }
       if _storage._swiftProtobuf != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._swiftProtobuf, fieldNumber: 740)
+        try visitor.visitSingularInt32Field(value: _storage._swiftProtobuf, fieldNumber: 738)
       }
       if _storage._syntax != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._syntax, fieldNumber: 741)
+        try visitor.visitSingularInt32Field(value: _storage._syntax, fieldNumber: 739)
       }
       if _storage._t != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._t, fieldNumber: 742)
+        try visitor.visitSingularInt32Field(value: _storage._t, fieldNumber: 740)
       }
       if _storage._tag != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._tag, fieldNumber: 743)
+        try visitor.visitSingularInt32Field(value: _storage._tag, fieldNumber: 741)
       }
       if _storage._terminator != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._terminator, fieldNumber: 744)
+        try visitor.visitSingularInt32Field(value: _storage._terminator, fieldNumber: 742)
       }
       if _storage._testDecoder != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._testDecoder, fieldNumber: 745)
+        try visitor.visitSingularInt32Field(value: _storage._testDecoder, fieldNumber: 743)
       }
       if _storage._text != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._text, fieldNumber: 746)
+        try visitor.visitSingularInt32Field(value: _storage._text, fieldNumber: 744)
       }
       if _storage._textDecoder != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textDecoder, fieldNumber: 747)
+        try visitor.visitSingularInt32Field(value: _storage._textDecoder, fieldNumber: 745)
       }
       if _storage._textFormatDecoder != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textFormatDecoder, fieldNumber: 748)
+        try visitor.visitSingularInt32Field(value: _storage._textFormatDecoder, fieldNumber: 746)
       }
       if _storage._textFormatDecodingError != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textFormatDecodingError, fieldNumber: 749)
+        try visitor.visitSingularInt32Field(value: _storage._textFormatDecodingError, fieldNumber: 747)
       }
       if _storage._textFormatDecodingOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textFormatDecodingOptions, fieldNumber: 750)
+        try visitor.visitSingularInt32Field(value: _storage._textFormatDecodingOptions, fieldNumber: 748)
       }
       if _storage._textFormatEncodingOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textFormatEncodingOptions, fieldNumber: 751)
+        try visitor.visitSingularInt32Field(value: _storage._textFormatEncodingOptions, fieldNumber: 749)
       }
       if _storage._textFormatEncodingVisitor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textFormatEncodingVisitor, fieldNumber: 752)
+        try visitor.visitSingularInt32Field(value: _storage._textFormatEncodingVisitor, fieldNumber: 750)
       }
       if _storage._textFormatString != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._textFormatString, fieldNumber: 753)
+        try visitor.visitSingularInt32Field(value: _storage._textFormatString, fieldNumber: 751)
       }
       if _storage._throws != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._throws, fieldNumber: 754)
+        try visitor.visitSingularInt32Field(value: _storage._throws, fieldNumber: 752)
       }
       if _storage._timeInterval != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._timeInterval, fieldNumber: 755)
+        try visitor.visitSingularInt32Field(value: _storage._timeInterval, fieldNumber: 753)
       }
       if _storage._timeIntervalSince1970 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._timeIntervalSince1970, fieldNumber: 756)
+        try visitor.visitSingularInt32Field(value: _storage._timeIntervalSince1970, fieldNumber: 754)
       }
       if _storage._timeIntervalSinceReferenceDate != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._timeIntervalSinceReferenceDate, fieldNumber: 757)
+        try visitor.visitSingularInt32Field(value: _storage._timeIntervalSinceReferenceDate, fieldNumber: 755)
       }
       if _storage._timestamp != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._timestamp, fieldNumber: 758)
+        try visitor.visitSingularInt32Field(value: _storage._timestamp, fieldNumber: 756)
       }
       if _storage._total != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._total, fieldNumber: 759)
+        try visitor.visitSingularInt32Field(value: _storage._total, fieldNumber: 757)
       }
       if _storage._totalArrayDepth != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._totalArrayDepth, fieldNumber: 760)
+        try visitor.visitSingularInt32Field(value: _storage._totalArrayDepth, fieldNumber: 758)
       }
       if _storage._totalSize != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._totalSize, fieldNumber: 761)
+        try visitor.visitSingularInt32Field(value: _storage._totalSize, fieldNumber: 759)
       }
       if _storage._trailingComments != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._trailingComments, fieldNumber: 762)
+        try visitor.visitSingularInt32Field(value: _storage._trailingComments, fieldNumber: 760)
       }
       if _storage._traverse != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._traverse, fieldNumber: 763)
+        try visitor.visitSingularInt32Field(value: _storage._traverse, fieldNumber: 761)
       }
       if _storage._true != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._true, fieldNumber: 764)
+        try visitor.visitSingularInt32Field(value: _storage._true, fieldNumber: 762)
       }
       if _storage._try != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._try, fieldNumber: 765)
+        try visitor.visitSingularInt32Field(value: _storage._try, fieldNumber: 763)
       }
       if _storage._type != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._type, fieldNumber: 766)
+        try visitor.visitSingularInt32Field(value: _storage._type, fieldNumber: 764)
       }
       if _storage._typealias != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typealias, fieldNumber: 767)
+        try visitor.visitSingularInt32Field(value: _storage._typealias, fieldNumber: 765)
       }
       if _storage._typeEnum != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typeEnum, fieldNumber: 768)
+        try visitor.visitSingularInt32Field(value: _storage._typeEnum, fieldNumber: 766)
       }
       if _storage._typeName != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typeName, fieldNumber: 769)
+        try visitor.visitSingularInt32Field(value: _storage._typeName, fieldNumber: 767)
       }
       if _storage._typePrefix != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typePrefix, fieldNumber: 770)
+        try visitor.visitSingularInt32Field(value: _storage._typePrefix, fieldNumber: 768)
       }
       if _storage._typeStart != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typeStart, fieldNumber: 771)
+        try visitor.visitSingularInt32Field(value: _storage._typeStart, fieldNumber: 769)
       }
       if _storage._typeUnknown != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typeUnknown, fieldNumber: 772)
+        try visitor.visitSingularInt32Field(value: _storage._typeUnknown, fieldNumber: 770)
       }
       if _storage._typeURL != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typeURL, fieldNumber: 773)
+        try visitor.visitSingularInt32Field(value: _storage._typeURL, fieldNumber: 771)
       }
       if _storage._uint32 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uint32, fieldNumber: 774)
+        try visitor.visitSingularInt32Field(value: _storage._uint32, fieldNumber: 772)
       }
       if _storage._uint32Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uint32Value, fieldNumber: 775)
+        try visitor.visitSingularInt32Field(value: _storage._uint32Value, fieldNumber: 773)
       }
       if _storage._uint64 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uint64, fieldNumber: 776)
+        try visitor.visitSingularInt32Field(value: _storage._uint64, fieldNumber: 774)
       }
       if _storage._uint64Value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uint64Value, fieldNumber: 777)
+        try visitor.visitSingularInt32Field(value: _storage._uint64Value, fieldNumber: 775)
       }
       if _storage._uint8 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uint8, fieldNumber: 778)
+        try visitor.visitSingularInt32Field(value: _storage._uint8, fieldNumber: 776)
       }
       if _storage._unicodeScalarLiteral != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unicodeScalarLiteral, fieldNumber: 779)
+        try visitor.visitSingularInt32Field(value: _storage._unicodeScalarLiteral, fieldNumber: 777)
       }
       if _storage._unicodeScalarLiteralType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unicodeScalarLiteralType, fieldNumber: 780)
+        try visitor.visitSingularInt32Field(value: _storage._unicodeScalarLiteralType, fieldNumber: 778)
       }
       if _storage._unicodeScalars != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unicodeScalars, fieldNumber: 781)
+        try visitor.visitSingularInt32Field(value: _storage._unicodeScalars, fieldNumber: 779)
       }
       if _storage._unicodeScalarView != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unicodeScalarView, fieldNumber: 782)
+        try visitor.visitSingularInt32Field(value: _storage._unicodeScalarView, fieldNumber: 780)
       }
       if _storage._uninterpretedOption != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uninterpretedOption, fieldNumber: 783)
+        try visitor.visitSingularInt32Field(value: _storage._uninterpretedOption, fieldNumber: 781)
       }
       if _storage._union != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._union, fieldNumber: 784)
+        try visitor.visitSingularInt32Field(value: _storage._union, fieldNumber: 782)
       }
       if _storage._uniqueStorage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._uniqueStorage, fieldNumber: 785)
+        try visitor.visitSingularInt32Field(value: _storage._uniqueStorage, fieldNumber: 783)
       }
       if _storage._unknown != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unknown, fieldNumber: 786)
+        try visitor.visitSingularInt32Field(value: _storage._unknown, fieldNumber: 784)
       }
       if _storage._unknownFields_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unknownFields_p, fieldNumber: 787)
+        try visitor.visitSingularInt32Field(value: _storage._unknownFields_p, fieldNumber: 785)
       }
       if _storage._unknownStorage != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unknownStorage, fieldNumber: 788)
+        try visitor.visitSingularInt32Field(value: _storage._unknownStorage, fieldNumber: 786)
       }
       if _storage._unpackTo != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unpackTo, fieldNumber: 789)
+        try visitor.visitSingularInt32Field(value: _storage._unpackTo, fieldNumber: 787)
       }
       if _storage._unsafeBufferPointer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unsafeBufferPointer, fieldNumber: 790)
+        try visitor.visitSingularInt32Field(value: _storage._unsafeBufferPointer, fieldNumber: 788)
       }
       if _storage._unsafeMutablePointer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unsafeMutablePointer, fieldNumber: 791)
+        try visitor.visitSingularInt32Field(value: _storage._unsafeMutablePointer, fieldNumber: 789)
       }
       if _storage._unsafeMutableRawPointer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unsafeMutableRawPointer, fieldNumber: 792)
+        try visitor.visitSingularInt32Field(value: _storage._unsafeMutableRawPointer, fieldNumber: 790)
       }
       if _storage._unsafeRawBufferPointer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unsafeRawBufferPointer, fieldNumber: 793)
+        try visitor.visitSingularInt32Field(value: _storage._unsafeRawBufferPointer, fieldNumber: 791)
       }
       if _storage._unsafeRawPointer != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unsafeRawPointer, fieldNumber: 794)
+        try visitor.visitSingularInt32Field(value: _storage._unsafeRawPointer, fieldNumber: 792)
       }
       if _storage._unverifiedLazy != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._unverifiedLazy, fieldNumber: 795)
+        try visitor.visitSingularInt32Field(value: _storage._unverifiedLazy, fieldNumber: 793)
       }
       if _storage._updatedOptions != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._updatedOptions, fieldNumber: 796)
+        try visitor.visitSingularInt32Field(value: _storage._updatedOptions, fieldNumber: 794)
       }
       if _storage._url != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._url, fieldNumber: 797)
+        try visitor.visitSingularInt32Field(value: _storage._url, fieldNumber: 795)
       }
       if _storage._utf8 != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._utf8, fieldNumber: 798)
+        try visitor.visitSingularInt32Field(value: _storage._utf8, fieldNumber: 796)
       }
       if _storage._utf8Ptr != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._utf8Ptr, fieldNumber: 799)
+        try visitor.visitSingularInt32Field(value: _storage._utf8Ptr, fieldNumber: 797)
       }
       if _storage._utf8ToDouble != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._utf8ToDouble, fieldNumber: 800)
+        try visitor.visitSingularInt32Field(value: _storage._utf8ToDouble, fieldNumber: 798)
       }
       if _storage._utf8View != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._utf8View, fieldNumber: 801)
+        try visitor.visitSingularInt32Field(value: _storage._utf8View, fieldNumber: 799)
       }
       if _storage._v != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._v, fieldNumber: 802)
+        try visitor.visitSingularInt32Field(value: _storage._v, fieldNumber: 800)
       }
       if _storage._value != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._value, fieldNumber: 803)
+        try visitor.visitSingularInt32Field(value: _storage._value, fieldNumber: 801)
       }
       if _storage._valueField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._valueField, fieldNumber: 804)
+        try visitor.visitSingularInt32Field(value: _storage._valueField, fieldNumber: 802)
       }
       if _storage._values != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._values, fieldNumber: 805)
+        try visitor.visitSingularInt32Field(value: _storage._values, fieldNumber: 803)
       }
       if _storage._valueType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._valueType, fieldNumber: 806)
+        try visitor.visitSingularInt32Field(value: _storage._valueType, fieldNumber: 804)
       }
       if _storage._var != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._var, fieldNumber: 807)
+        try visitor.visitSingularInt32Field(value: _storage._var, fieldNumber: 805)
       }
       if _storage._version != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._version, fieldNumber: 808)
+        try visitor.visitSingularInt32Field(value: _storage._version, fieldNumber: 806)
       }
       if _storage._versionString != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._versionString, fieldNumber: 809)
+        try visitor.visitSingularInt32Field(value: _storage._versionString, fieldNumber: 807)
       }
       if _storage._visitExtensionFields != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitExtensionFields, fieldNumber: 810)
+        try visitor.visitSingularInt32Field(value: _storage._visitExtensionFields, fieldNumber: 808)
       }
       if _storage._visitExtensionFieldsAsMessageSet != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitExtensionFieldsAsMessageSet, fieldNumber: 811)
+        try visitor.visitSingularInt32Field(value: _storage._visitExtensionFieldsAsMessageSet, fieldNumber: 809)
       }
       if _storage._visitMapField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitMapField, fieldNumber: 812)
+        try visitor.visitSingularInt32Field(value: _storage._visitMapField, fieldNumber: 810)
       }
       if _storage._visitor != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitor, fieldNumber: 813)
+        try visitor.visitSingularInt32Field(value: _storage._visitor, fieldNumber: 811)
       }
       if _storage._visitPacked != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPacked, fieldNumber: 814)
+        try visitor.visitSingularInt32Field(value: _storage._visitPacked, fieldNumber: 812)
       }
       if _storage._visitPackedBoolField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedBoolField, fieldNumber: 815)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedBoolField, fieldNumber: 813)
       }
       if _storage._visitPackedDoubleField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedDoubleField, fieldNumber: 816)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedDoubleField, fieldNumber: 814)
       }
       if _storage._visitPackedEnumField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedEnumField, fieldNumber: 817)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedEnumField, fieldNumber: 815)
       }
       if _storage._visitPackedFixed32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedFixed32Field, fieldNumber: 818)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedFixed32Field, fieldNumber: 816)
       }
       if _storage._visitPackedFixed64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedFixed64Field, fieldNumber: 819)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedFixed64Field, fieldNumber: 817)
       }
       if _storage._visitPackedFloatField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedFloatField, fieldNumber: 820)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedFloatField, fieldNumber: 818)
       }
       if _storage._visitPackedInt32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedInt32Field, fieldNumber: 821)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedInt32Field, fieldNumber: 819)
       }
       if _storage._visitPackedInt64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedInt64Field, fieldNumber: 822)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedInt64Field, fieldNumber: 820)
       }
       if _storage._visitPackedSfixed32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedSfixed32Field, fieldNumber: 823)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedSfixed32Field, fieldNumber: 821)
       }
       if _storage._visitPackedSfixed64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedSfixed64Field, fieldNumber: 824)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedSfixed64Field, fieldNumber: 822)
       }
       if _storage._visitPackedSint32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedSint32Field, fieldNumber: 825)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedSint32Field, fieldNumber: 823)
       }
       if _storage._visitPackedSint64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedSint64Field, fieldNumber: 826)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedSint64Field, fieldNumber: 824)
       }
       if _storage._visitPackedUint32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedUint32Field, fieldNumber: 827)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedUint32Field, fieldNumber: 825)
       }
       if _storage._visitPackedUint64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitPackedUint64Field, fieldNumber: 828)
+        try visitor.visitSingularInt32Field(value: _storage._visitPackedUint64Field, fieldNumber: 826)
       }
       if _storage._visitRepeated != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeated, fieldNumber: 829)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeated, fieldNumber: 827)
       }
       if _storage._visitRepeatedBoolField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedBoolField, fieldNumber: 830)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedBoolField, fieldNumber: 828)
       }
       if _storage._visitRepeatedBytesField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedBytesField, fieldNumber: 831)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedBytesField, fieldNumber: 829)
       }
       if _storage._visitRepeatedDoubleField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedDoubleField, fieldNumber: 832)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedDoubleField, fieldNumber: 830)
       }
       if _storage._visitRepeatedEnumField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedEnumField, fieldNumber: 833)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedEnumField, fieldNumber: 831)
       }
       if _storage._visitRepeatedFixed32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedFixed32Field, fieldNumber: 834)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedFixed32Field, fieldNumber: 832)
       }
       if _storage._visitRepeatedFixed64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedFixed64Field, fieldNumber: 835)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedFixed64Field, fieldNumber: 833)
       }
       if _storage._visitRepeatedFloatField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedFloatField, fieldNumber: 836)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedFloatField, fieldNumber: 834)
       }
       if _storage._visitRepeatedGroupField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedGroupField, fieldNumber: 837)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedGroupField, fieldNumber: 835)
       }
       if _storage._visitRepeatedInt32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedInt32Field, fieldNumber: 838)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedInt32Field, fieldNumber: 836)
       }
       if _storage._visitRepeatedInt64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedInt64Field, fieldNumber: 839)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedInt64Field, fieldNumber: 837)
       }
       if _storage._visitRepeatedMessageField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedMessageField, fieldNumber: 840)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedMessageField, fieldNumber: 838)
       }
       if _storage._visitRepeatedSfixed32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSfixed32Field, fieldNumber: 841)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSfixed32Field, fieldNumber: 839)
       }
       if _storage._visitRepeatedSfixed64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSfixed64Field, fieldNumber: 842)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSfixed64Field, fieldNumber: 840)
       }
       if _storage._visitRepeatedSint32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSint32Field, fieldNumber: 843)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSint32Field, fieldNumber: 841)
       }
       if _storage._visitRepeatedSint64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSint64Field, fieldNumber: 844)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedSint64Field, fieldNumber: 842)
       }
       if _storage._visitRepeatedStringField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedStringField, fieldNumber: 845)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedStringField, fieldNumber: 843)
       }
       if _storage._visitRepeatedUint32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedUint32Field, fieldNumber: 846)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedUint32Field, fieldNumber: 844)
       }
       if _storage._visitRepeatedUint64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedUint64Field, fieldNumber: 847)
+        try visitor.visitSingularInt32Field(value: _storage._visitRepeatedUint64Field, fieldNumber: 845)
       }
       if _storage._visitSingular != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingular, fieldNumber: 848)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingular, fieldNumber: 846)
       }
       if _storage._visitSingularBoolField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularBoolField, fieldNumber: 849)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularBoolField, fieldNumber: 847)
       }
       if _storage._visitSingularBytesField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularBytesField, fieldNumber: 850)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularBytesField, fieldNumber: 848)
       }
       if _storage._visitSingularDoubleField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularDoubleField, fieldNumber: 851)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularDoubleField, fieldNumber: 849)
       }
       if _storage._visitSingularEnumField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularEnumField, fieldNumber: 852)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularEnumField, fieldNumber: 850)
       }
       if _storage._visitSingularFixed32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularFixed32Field, fieldNumber: 853)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularFixed32Field, fieldNumber: 851)
       }
       if _storage._visitSingularFixed64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularFixed64Field, fieldNumber: 854)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularFixed64Field, fieldNumber: 852)
       }
       if _storage._visitSingularFloatField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularFloatField, fieldNumber: 855)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularFloatField, fieldNumber: 853)
       }
       if _storage._visitSingularGroupField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularGroupField, fieldNumber: 856)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularGroupField, fieldNumber: 854)
       }
       if _storage._visitSingularInt32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularInt32Field, fieldNumber: 857)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularInt32Field, fieldNumber: 855)
       }
       if _storage._visitSingularInt64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularInt64Field, fieldNumber: 858)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularInt64Field, fieldNumber: 856)
       }
       if _storage._visitSingularMessageField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularMessageField, fieldNumber: 859)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularMessageField, fieldNumber: 857)
       }
       if _storage._visitSingularSfixed32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularSfixed32Field, fieldNumber: 860)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularSfixed32Field, fieldNumber: 858)
       }
       if _storage._visitSingularSfixed64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularSfixed64Field, fieldNumber: 861)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularSfixed64Field, fieldNumber: 859)
       }
       if _storage._visitSingularSint32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularSint32Field, fieldNumber: 862)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularSint32Field, fieldNumber: 860)
       }
       if _storage._visitSingularSint64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularSint64Field, fieldNumber: 863)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularSint64Field, fieldNumber: 861)
       }
       if _storage._visitSingularStringField != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularStringField, fieldNumber: 864)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularStringField, fieldNumber: 862)
       }
       if _storage._visitSingularUint32Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularUint32Field, fieldNumber: 865)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularUint32Field, fieldNumber: 863)
       }
       if _storage._visitSingularUint64Field != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitSingularUint64Field, fieldNumber: 866)
+        try visitor.visitSingularInt32Field(value: _storage._visitSingularUint64Field, fieldNumber: 864)
       }
       if _storage._visitUnknown != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitUnknown, fieldNumber: 867)
+        try visitor.visitSingularInt32Field(value: _storage._visitUnknown, fieldNumber: 865)
       }
       if _storage._wasDecoded != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._wasDecoded, fieldNumber: 868)
+        try visitor.visitSingularInt32Field(value: _storage._wasDecoded, fieldNumber: 866)
       }
       if _storage._weak != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._weak, fieldNumber: 869)
+        try visitor.visitSingularInt32Field(value: _storage._weak, fieldNumber: 867)
       }
       if _storage._weakDependency != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._weakDependency, fieldNumber: 870)
+        try visitor.visitSingularInt32Field(value: _storage._weakDependency, fieldNumber: 868)
       }
       if _storage._where != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._where, fieldNumber: 871)
+        try visitor.visitSingularInt32Field(value: _storage._where, fieldNumber: 869)
       }
       if _storage._wireFormat != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._wireFormat, fieldNumber: 872)
+        try visitor.visitSingularInt32Field(value: _storage._wireFormat, fieldNumber: 870)
       }
       if _storage._with != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._with, fieldNumber: 873)
+        try visitor.visitSingularInt32Field(value: _storage._with, fieldNumber: 871)
       }
       if _storage._work != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._work, fieldNumber: 874)
+        try visitor.visitSingularInt32Field(value: _storage._work, fieldNumber: 872)
       }
       if _storage._wrappedType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._wrappedType, fieldNumber: 875)
+        try visitor.visitSingularInt32Field(value: _storage._wrappedType, fieldNumber: 873)
       }
       if _storage._written != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._written, fieldNumber: 876)
+        try visitor.visitSingularInt32Field(value: _storage._written, fieldNumber: 874)
       }
       if _storage._yday != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._yday, fieldNumber: 877)
+        try visitor.visitSingularInt32Field(value: _storage._yday, fieldNumber: 875)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -11131,7 +11107,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         if _storage._makeIterator != rhs_storage._makeIterator {return false}
         if _storage._mapEntry != rhs_storage._mapEntry {return false}
         if _storage._mapKeyType != rhs_storage._mapKeyType {return false}
-        if _storage._mapNameResolver != rhs_storage._mapNameResolver {return false}
         if _storage._mapToMessages != rhs_storage._mapToMessages {return false}
         if _storage._mapValueType != rhs_storage._mapValueType {return false}
         if _storage._mapVisitor != rhs_storage._mapVisitor {return false}
@@ -11163,7 +11138,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         if _storage._nameDescription != rhs_storage._nameDescription {return false}
         if _storage._nameMap != rhs_storage._nameMap {return false}
         if _storage._namePart != rhs_storage._namePart {return false}
-        if _storage._nameResolver != rhs_storage._nameResolver {return false}
         if _storage._names != rhs_storage._names {return false}
         if _storage._nanos != rhs_storage._nanos {return false}
         if _storage._nativeBytes != rhs_storage._nativeBytes {return false}

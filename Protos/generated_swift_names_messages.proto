@@ -520,7 +520,6 @@ message GeneratedSwiftReservedMessages {
   message makeIterator { int32 makeIterator = 1; }
   message mapEntry { int32 mapEntry = 1; }
   message MapKeyType { int32 MapKeyType = 1; }
-  message mapNameResolver { int32 mapNameResolver = 1; }
   message mapToMessages { int32 mapToMessages = 1; }
   message MapValueType { int32 MapValueType = 1; }
   message mapVisitor { int32 mapVisitor = 1; }
@@ -552,7 +551,6 @@ message GeneratedSwiftReservedMessages {
   message NameDescription { int32 NameDescription = 1; }
   message NameMap { int32 NameMap = 1; }
   message NamePart { int32 NamePart = 1; }
-  message nameResolver { int32 nameResolver = 1; }
   message names { int32 names = 1; }
   message nanos { int32 nanos = 1; }
   message nativeBytes { int32 nativeBytes = 1; }
