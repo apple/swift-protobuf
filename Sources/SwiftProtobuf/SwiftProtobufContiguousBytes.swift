@@ -8,6 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 
+/// Conformance to this protocol gives users a way to provide their own "bag of bytes" types
+/// to be used for serialization and deserialization of protobufs.
+///
+/// By conforming your own types to this protocol, you will be able to pass instances of said types
+/// directly to `SwiftProtobuf.Message`'s deserialisation methods
+/// (i.e. `init(serializedData:)` for binary format and `init(jsonUTF8Data:)` for JSON).
+// TODO: extend doc to include how this will be used in serialization once that API change has been finalised.
 public protocol SwiftProtobufContiguousBytes {
     /// Calls the given closure with the contents of underlying storage.
     ///
