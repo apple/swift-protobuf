@@ -1,0 +1,2 @@
+@_exported import SwiftProtobufCore
+@_exported import SwiftProtobufFoundationCompat

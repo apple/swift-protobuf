@@ -36,8 +36,16 @@ let package = Package(
   ],
   targets: [
     .target(
-        name: "SwiftProtobuf",
+        name: "SwiftProtobufCore",
         exclude: ["CMakeLists.txt"]
+    ),
+    .target(
+        name: "SwiftProtobufFoundationCompat",
+        dependencies: ["SwiftProtobufCore"]
+    ),
+    .target(
+        name: "SwiftProtobuf",
+        dependencies: ["SwiftProtobufCore", "SwiftProtobufFoundationCompat"]
     ),
     .target(
         name: "SwiftProtobufPluginLibrary",
@@ -67,7 +75,7 @@ let package = Package(
     ),
     .testTarget(
         name: "SwiftProtobufTests",
-        dependencies: ["SwiftProtobuf"]
+        dependencies: ["SwiftProtobufCore"]
     ),
     .testTarget(
         name: "SwiftProtobufPluginLibraryTests",

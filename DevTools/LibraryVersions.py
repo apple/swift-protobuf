@@ -19,7 +19,7 @@ _VERSION_RE = re.compile(r'^(?P<major>\d+)\.(?P<minor>\d+)(.(?P<revision>\d+))?$
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _PODSPEC_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobuf.podspec')
-_VERSION_SWIFT_PATH = os.path.join(_PROJECT_ROOT, 'Sources/SwiftProtobuf/Version.swift')
+_VERSION_SWIFT_PATH = os.path.join(_PROJECT_ROOT, 'Sources/SwiftProtobufCore/Version.swift')
 
 def Fail(message):
   sys.stderr.write('Error: %s\n' % message)

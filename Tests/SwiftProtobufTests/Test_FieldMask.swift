@@ -57,7 +57,7 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
     func testDebugDescription() {
         var m = Google_Protobuf_FieldMask()
         m.paths = ["foo", "bar"]
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n", m)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_FieldMask:\npaths: \"foo\"\npaths: \"bar\"\n", m)
     }
 
     func testConvenienceInits() {

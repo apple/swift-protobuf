@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Generated enums conform to SwiftProtobuf.Enum
+/// Generated enums conform to SwiftProtobufCore.Enum
 ///
 /// See ProtobufTypes and JSONTypes for extension
 /// methods to support binary and JSON coding.

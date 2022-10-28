@@ -14,7 +14,7 @@
 
 import Foundation
 import XCTest
-@testable import SwiftProtobuf
+@testable import SwiftProtobufCore
 
 extension ProtobufUnittest_RawMessageSet.Item {
   fileprivate init(typeID: Int, message: Data) {

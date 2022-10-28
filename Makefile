@@ -330,7 +330,7 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/SwiftProtobuf \
+		--tfiws_out=Sources/SwiftProtobufCore \
 		${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
@@ -411,7 +411,7 @@ Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} 
 # public protocol, struct, enum, or class name, as well as every
 # method or property defined in a public protocol, struct, or class.
 # It also gives us a large collection of Swift names.
-Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
+Protos/mined_words.txt: Sources/SwiftProtobufCore/*.swift
 	@echo Building $@
 	@cat $^ | \
 	grep -E '\b(public|func|var)\b' | \

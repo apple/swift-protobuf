@@ -14,7 +14,7 @@
 
 import Foundation
 
-private let defaultSwiftProtobufModuleName = "SwiftProtobuf"
+private let defaultSwiftProtobufModuleName = "SwiftProtobufCore"
 
 /// Handles the mapping of proto files to the modules they will be compiled into.
 public struct ProtoFileToModuleMappings {

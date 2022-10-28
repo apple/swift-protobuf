@@ -247,7 +247,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             XCTFail()
         }
 
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_Value:\nnull_value: NULL_VALUE\n", null)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_Value:\nnull_value: NULL_VALUE\n", null)
     }
 
     func testValue_number() throws {
@@ -265,7 +265,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("  3.25  ") {$0.numberValue == 3.25}
         assertJSONDecodeFails("3.2.5")
 
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_Value:\nnumber_value: 1.0\n", oneFromIntegerLiteral)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_Value:\nnumber_value: 1.0\n", oneFromIntegerLiteral)
     }
 
     func testValue_string() throws {
@@ -302,7 +302,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         // PB serialization
         XCTAssertEqual([26, 3, 97, 34, 98], try Google_Protobuf_Value(stringValue: "a\"b").serializedBytes())
 
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_Value:\nstring_value: \"abcd\"\n", fromStringLiteral)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_Value:\nstring_value: \"abcd\"\n", fromStringLiteral)
     }
 
     func testValue_bool() {
@@ -322,7 +322,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("yes")
         assertJSONDecodeFails("  true false   ")
 
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_Value:\nbool_value: true\n", trueFromLiteral)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_Value:\nbool_value: true\n", trueFromLiteral)
     }
 
     func testValue_struct() throws {
@@ -331,12 +331,12 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         }
 
         let structValue = try Google_Protobuf_Value(jsonString: "{\"a\":1.0}")
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1.0\n    }\n  }\n}\n", structValue)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_Value:\nstruct_value {\n  fields {\n    key: \"a\"\n    value {\n      number_value: 1.0\n    }\n  }\n}\n", structValue)
     }
 
     func testValue_list() throws {
         let listValue = try Google_Protobuf_Value(jsonString: "[1, true, \"abc\"]")
-        assertDebugDescription("SwiftProtobuf.Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1.0\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n", listValue)
+        assertDebugDescription("SwiftProtobufCore.Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1.0\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n", listValue)
 
     }
 

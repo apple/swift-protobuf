@@ -741,7 +741,7 @@ message GeneratedSwiftReservedMessages {
   message subVisitor { int32 subVisitor = 1; }
   message Swift { int32 Swift = 1; }
   message swiftPrefix { int32 swiftPrefix = 1; }
-  message SwiftProtobuf { int32 SwiftProtobuf = 1; }
+  message SwiftProtobufCore { int32 SwiftProtobufCore = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }
