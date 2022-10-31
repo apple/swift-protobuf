@@ -50,7 +50,7 @@ jobs:
       image: swift:${{ matrix.swift }}-${{ matrix.ubuntu }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         path: main
     - name: Update and install dependencies
@@ -97,14 +97,14 @@ jobs:
       run: make test-runtime
     - name: Cache protobuf
       id: cache-protobuf
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: protobuf
         # NOTE: for refs that can float like 'main' the cache might be out of date!
         key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: steps.cache-protobuf.outputs.cache-hit != 'true'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: protocolbuffers/protobuf
         ref: ${{ steps.get-sha.outputs.sha }}
@@ -143,7 +143,7 @@ jobs:
       # swift:latest is still bionic, so explicitly use swift:focal.
       image: swift:focal
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Test
       run: |
         set -eu
@@ -173,6 +173,6 @@ jobs:
       # swift:latest is still bionic, so explicitly use swift:focal.
       image: swift:focal
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build
       run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions
