@@ -75,7 +75,7 @@ let package = Package(
     ),
     .testTarget(
         name: "SwiftProtobufTests",
-        dependencies: ["SwiftProtobufCore"]
+        dependencies: ["SwiftProtobuf", "SwiftProtobufCore"]
     ),
     .testTarget(
         name: "SwiftProtobufPluginLibraryTests",
