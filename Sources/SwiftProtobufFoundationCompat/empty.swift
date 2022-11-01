@@ -1,4 +1,4 @@
-// Sources/SwiftProtobufFoundationCompat/Data+SwiftProtobufContiguousBytes.swift
+// Sources/SwiftProtobufFoundationCompat/empty.swift
 //
 // Copyright (c) 2022 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,9 +8,4 @@
 //
 // -----------------------------------------------------------------------------
 
-import Foundation
-import SwiftProtobufCore
-
-/// Extension conforming `Data` to the new `SwiftProtobufContiguousBytes` protocol.
-extension Data: SwiftProtobufContiguousBytes {
-}
+// Empty file to allow committing of empty directory.
