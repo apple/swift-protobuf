@@ -85,7 +85,7 @@ class EnumGenerator {
   }
 
   func maybeGenerateCaseIterable(printer p: inout CodePrinter) {
-    guard enumDescriptor.hasUnknownPreservingSemantics else { return }
+    guard !enumDescriptor.isClosed else { return }
 
     let visibility = generatorOptions.visibilitySourceSnippet
     p.print(
@@ -129,7 +129,7 @@ class EnumGenerator {
         p.print("\(comments)case \(relativeName) // = \(enumValueDescriptor.number)")
       }
     }
-    if enumDescriptor.hasUnknownPreservingSemantics {
+    if !enumDescriptor.isClosed {
       p.print("case \(unrecognizedCaseName)(Int)")
     }
   }
@@ -167,7 +167,7 @@ class EnumGenerator {
         let dottedName = namer.dottedRelativeName(enumValue: v)
         p.print("case \(v.number): self = \(dottedName)")
       }
-      if enumDescriptor.hasUnknownPreservingSemantics {
+      if !enumDescriptor.isClosed {
         p.print("default: self = .\(unrecognizedCaseName)(rawValue)")
       } else {
         p.print("default: return nil")
@@ -194,7 +194,7 @@ class EnumGenerator {
     let maxCasesInSwitch = 500
 
     let neededCases = mainEnumValueDescriptorsSorted.count +
-      (enumDescriptor.hasUnknownPreservingSemantics ? 1 : 0)
+      (enumDescriptor.isClosed ? 0 : 1)
     let useMultipleSwitches = neededCases > maxCasesInSwitch
 
     p.print("\(visibility)var rawValue: Int {")
@@ -212,7 +212,7 @@ class EnumGenerator {
           let dottedName = namer.dottedRelativeName(enumValue: v)
           p.print("case \(dottedName): return \(v.number)")
         }
-        if enumDescriptor.hasUnknownPreservingSemantics {
+        if !enumDescriptor.isClosed {
           p.print("case .\(unrecognizedCaseName)(let i): return i")
         }
         p.print("""
@@ -229,7 +229,7 @@ class EnumGenerator {
           let dottedName = namer.dottedRelativeName(enumValue: v)
           p.print("case \(dottedName): return \(v.number)")
         }
-        if enumDescriptor.hasUnknownPreservingSemantics {
+        if !enumDescriptor.isClosed {
           p.print("case .\(unrecognizedCaseName)(let i): return i")
         }
         p.print("}")

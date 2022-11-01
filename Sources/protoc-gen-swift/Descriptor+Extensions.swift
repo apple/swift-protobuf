@@ -11,11 +11,6 @@
 import SwiftProtobufPluginLibrary
 
 extension FileDescriptor {
-  /// True if this file should perserve unknown enums within the enum.
-  var hasUnknownEnumPreservingSemantics: Bool {
-    return syntax == .proto3
-  }
-
   var isBundledProto: Bool {
     return SwiftProtobufInfo.isBundledProto(file: self)
   }
@@ -285,11 +280,6 @@ extension FieldDescriptor {
 }
 
 extension EnumDescriptor {
-
-  // True if this enum should perserve unknown enums within the enum.
-  var hasUnknownPreservingSemantics: Bool {
-    return file.hasUnknownEnumPreservingSemantics
-  }
 
   func value(named: String) -> EnumValueDescriptor? {
     for v in values {
