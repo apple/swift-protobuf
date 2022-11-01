@@ -415,6 +415,16 @@ public final class EnumDescriptor {
   /// they are defined in the .proto file.
   public let reservedNames: [String]
 
+  /// Returns true whether this is a "closed" enum, meaning that it:
+  /// - Has a fixed set of named values.
+  /// - Encountering values not in this set causes them to be treated as unknown
+  ///   fields.
+  /// - The first value (i.e., the default) may be nonzero.
+  public var isClosed: Bool {
+    // Implementation comes from C++ EnumDescriptor::is_closed().
+    return file.syntax != .proto3
+  }
+
   // Storage for `file`, will be set by bind()
   private unowned var _file: FileDescriptor?
 
@@ -639,6 +649,20 @@ public final class FieldDescriptor {
     default:
       return file.syntax == .proto2 || oneofIndex != nil
     }
+  }
+
+  /// Returns true if this is a string field and should do UTF-8 validation.
+  ///
+  /// This api is for completeness, but it likely should never be used. The
+  /// concept comes from the C++ FieldDescriptory::requires_utf8_validation(),
+  /// but doesn't make a lot of sense for Swift Protobuf because `string` fields
+  /// are modeled as Swift `String` objects, and thus they always have to be
+  /// valid UTF-8. If something were to try putting something else in the field,
+  /// the library won't be able to parse it. While that sounds bad, other
+  /// languages have similiar issues with their _string_ types and thus have the
+  /// same issues.
+  public var requiresUTF8Validation: Bool {
+    return type == .string && file.syntax == .proto3
   }
 
   /// Index of this field within the message's fields, or the file or
