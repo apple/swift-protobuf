@@ -78,7 +78,6 @@ CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/conformance/conformance-tes
 
 # Protos used for the unit and functional tests
 TEST_PROTOS= \
-	Protos/conformance/conformance.proto \
 	Protos/generated_swift_names_enums.proto \
 	Protos/generated_swift_names_enum_cases.proto \
 	Protos/generated_swift_names_fields.proto \
