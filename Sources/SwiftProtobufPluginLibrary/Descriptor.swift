@@ -659,7 +659,7 @@ public final class FieldDescriptor {
   /// are modeled as Swift `String` objects, and thus they always have to be
   /// valid UTF-8. If something were to try putting something else in the field,
   /// the library won't be able to parse it. While that sounds bad, other
-  /// languages have similiar issues with their _string_ types and thus have the
+  /// languages have similar issues with their _string_ types and thus have the
   /// same issues.
   public var requiresUTF8Validation: Bool {
     return type == .string && file.syntax == .proto3
