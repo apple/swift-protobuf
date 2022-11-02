@@ -1140,7 +1140,7 @@ internal struct BinaryDecoder: Decoder {
                 continue
             }
 
-            // This is similiar to decodeFullGroup
+            // This is similar to decodeFullGroup
 
             try incrementRecursionDepth()
             var subDecoder = self
