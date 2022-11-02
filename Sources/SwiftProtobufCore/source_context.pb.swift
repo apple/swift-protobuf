@@ -44,15 +44,15 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobufCore.ProtobufAPIVersionCheck {
+  struct _3: SwiftProtobufCore.ProtobufAPIVersion_3 {}
   typealias Version = _3
 }
 
 /// `SourceContext` represents information about the source of a
 /// protobuf element, like the file in which it is defined.
 public struct Google_Protobuf_SourceContext {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -60,7 +60,7 @@ public struct Google_Protobuf_SourceContext {
   /// protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   public var fileName: String = String()
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobufCore.UnknownStorage()
 
   public init() {}
 }
@@ -73,13 +73,13 @@ extension Google_Protobuf_SourceContext: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_SourceContext: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".SourceContext"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     1: .standard(proto: "file_name"),
   ]
 
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -91,7 +91,7 @@ extension Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
     if !self.fileName.isEmpty {
       try visitor.visitSingularStringField(value: self.fileName, fieldNumber: 1)
     }

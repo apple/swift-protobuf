@@ -742,7 +742,7 @@ enum GeneratedSwiftReservedEnum {
   subVisitor = 735;
   Swift = 736;
   swiftPrefix = 737;
-  SwiftProtobuf = 738;
+  SwiftProtobufCore = 738;
   syntax = 739;
   T = 740;
   tag = 741;

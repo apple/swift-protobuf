@@ -741,7 +741,7 @@ message GeneratedSwiftReservedFields {
   int32 subVisitor = 735;
   int32 Swift = 736;
   int32 swiftPrefix = 737;
-  int32 SwiftProtobuf = 738;
+  int32 SwiftProtobufCore = 738;
   int32 syntax = 739;
   int32 T = 740;
   int32 tag = 741;

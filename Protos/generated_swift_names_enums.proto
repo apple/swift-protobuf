@@ -741,7 +741,7 @@ message GeneratedSwiftReservedEnums {
   enum subVisitor { NONE_subVisitor = 0; }
   enum Swift { NONE_Swift = 0; }
   enum swiftPrefix { NONE_swiftPrefix = 0; }
-  enum SwiftProtobuf { NONE_SwiftProtobuf = 0; }
+  enum SwiftProtobufCore { NONE_SwiftProtobufCore = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }

@@ -17,7 +17,7 @@
 
 import Foundation
 import XCTest
-@testable import SwiftProtobuf
+@testable import SwiftProtobufCore
 
 class Test_Reserved: XCTestCase {
     func testEnumNaming() {

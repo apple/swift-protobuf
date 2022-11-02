@@ -44,8 +44,8 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobuf.ProtobufAPIVersion_3 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobufCore.ProtobufAPIVersionCheck {
+  struct _3: SwiftProtobufCore.ProtobufAPIVersion_3 {}
   typealias Version = _3
 }
 
@@ -139,7 +139,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime%2D%2D
 /// ) to obtain a formatter capable of generating timestamps in this format.
 struct Google_Protobuf_Timestamp {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -154,7 +154,7 @@ struct Google_Protobuf_Timestamp {
   /// inclusive.
   var nanos: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  var unknownFields = SwiftProtobufCore.UnknownStorage()
 
   init() {}
 }
@@ -167,14 +167,14 @@ extension Google_Protobuf_Timestamp: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Timestamp: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -187,7 +187,7 @@ extension Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
     if self.seconds != 0 {
       try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
     }
