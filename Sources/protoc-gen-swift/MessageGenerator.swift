@@ -424,12 +424,9 @@ class MessageGenerator {
     // faster without recursing through the message fields to ensure they are
     // initialized.
 
-    if descriptor.file.syntax == .proto2 {
-      // Only proto2 syntax can have required fields; ensure required fields
-      // have values.
-      for f in fields {
-        f.generateRequiredFieldCheck(printer: &fieldCheckPrinter)
-      }
+    // Ensure required fields are set.
+    for f in fields {
+      f.generateRequiredFieldCheck(printer: &fieldCheckPrinter)
     }
 
     for f in fields {
