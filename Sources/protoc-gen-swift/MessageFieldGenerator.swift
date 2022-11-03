@@ -206,7 +206,6 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         } else {
             // At this point, the fields would be a primative type, and should only
             // be visted if it is the non default value.
-            assert(fieldDescriptor.file.syntax == .proto3)
             switch fieldDescriptor.type {
             case .string, .bytes:
                 conditional = ("!\(varName).isEmpty")
