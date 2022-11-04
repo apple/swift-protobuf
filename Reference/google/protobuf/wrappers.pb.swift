@@ -54,8 +54,8 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobufCore.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobufCore.ProtobufAPIVersion_3 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+  struct _3: ProtobufAPIVersion_3 {}
   typealias Version = _3
 }
 
@@ -70,7 +70,7 @@ struct Google_Protobuf_DoubleValue {
   /// The double value.
   var value: Double = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -86,7 +86,7 @@ struct Google_Protobuf_FloatValue {
   /// The float value.
   var value: Float = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -102,7 +102,7 @@ struct Google_Protobuf_Int64Value {
   /// The int64 value.
   var value: Int64 = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -118,7 +118,7 @@ struct Google_Protobuf_UInt64Value {
   /// The uint64 value.
   var value: UInt64 = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -134,7 +134,7 @@ struct Google_Protobuf_Int32Value {
   /// The int32 value.
   var value: Int32 = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -150,7 +150,7 @@ struct Google_Protobuf_UInt32Value {
   /// The uint32 value.
   var value: UInt32 = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -166,7 +166,7 @@ struct Google_Protobuf_BoolValue {
   /// The bool value.
   var value: Bool = false
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -182,7 +182,7 @@ struct Google_Protobuf_StringValue {
   /// The string value.
   var value: String = String()
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -198,7 +198,7 @@ struct Google_Protobuf_BytesValue {
   /// The bytes value.
   var value: Data = Data()
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -219,13 +219,13 @@ extension Google_Protobuf_BytesValue: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_DoubleValue: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DoubleValue"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -237,7 +237,7 @@ extension Google_Protobuf_DoubleValue: SwiftProtobufCore.Message, SwiftProtobufC
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
@@ -251,13 +251,13 @@ extension Google_Protobuf_DoubleValue: SwiftProtobufCore.Message, SwiftProtobufC
   }
 }
 
-extension Google_Protobuf_FloatValue: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FloatValue"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -269,7 +269,7 @@ extension Google_Protobuf_FloatValue: SwiftProtobufCore.Message, SwiftProtobufCo
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
@@ -283,13 +283,13 @@ extension Google_Protobuf_FloatValue: SwiftProtobufCore.Message, SwiftProtobufCo
   }
 }
 
-extension Google_Protobuf_Int64Value: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int64Value"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -301,7 +301,7 @@ extension Google_Protobuf_Int64Value: SwiftProtobufCore.Message, SwiftProtobufCo
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
     }
@@ -315,13 +315,13 @@ extension Google_Protobuf_Int64Value: SwiftProtobufCore.Message, SwiftProtobufCo
   }
 }
 
-extension Google_Protobuf_UInt64Value: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UInt64Value"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -333,7 +333,7 @@ extension Google_Protobuf_UInt64Value: SwiftProtobufCore.Message, SwiftProtobufC
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
     }
@@ -347,13 +347,13 @@ extension Google_Protobuf_UInt64Value: SwiftProtobufCore.Message, SwiftProtobufC
   }
 }
 
-extension Google_Protobuf_Int32Value: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Int32Value"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -365,7 +365,7 @@ extension Google_Protobuf_Int32Value: SwiftProtobufCore.Message, SwiftProtobufCo
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -379,13 +379,13 @@ extension Google_Protobuf_Int32Value: SwiftProtobufCore.Message, SwiftProtobufCo
   }
 }
 
-extension Google_Protobuf_UInt32Value: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".UInt32Value"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -397,7 +397,7 @@ extension Google_Protobuf_UInt32Value: SwiftProtobufCore.Message, SwiftProtobufC
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
@@ -411,13 +411,13 @@ extension Google_Protobuf_UInt32Value: SwiftProtobufCore.Message, SwiftProtobufC
   }
 }
 
-extension Google_Protobuf_BoolValue: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BoolValue"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -429,7 +429,7 @@ extension Google_Protobuf_BoolValue: SwiftProtobufCore.Message, SwiftProtobufCor
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.value != false {
       try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
     }
@@ -443,13 +443,13 @@ extension Google_Protobuf_BoolValue: SwiftProtobufCore.Message, SwiftProtobufCor
   }
 }
 
-extension Google_Protobuf_StringValue: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".StringValue"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -461,7 +461,7 @@ extension Google_Protobuf_StringValue: SwiftProtobufCore.Message, SwiftProtobufC
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
@@ -475,13 +475,13 @@ extension Google_Protobuf_StringValue: SwiftProtobufCore.Message, SwiftProtobufC
   }
 }
 
-extension Google_Protobuf_BytesValue: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BytesValue"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -493,7 +493,7 @@ extension Google_Protobuf_BytesValue: SwiftProtobufCore.Message, SwiftProtobufCo
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
     }

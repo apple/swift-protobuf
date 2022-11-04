@@ -44,8 +44,8 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobufCore.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobufCore.ProtobufAPIVersion_3 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+  struct _3: ProtobufAPIVersion_3 {}
   typealias Version = _3
 }
 
@@ -173,7 +173,7 @@ struct Google_Protobuf_Any {
     set {_uniqueStorage()._value = newValue}
   }
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 
@@ -188,9 +188,9 @@ extension Google_Protobuf_Any: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Any: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Any"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .standard(proto: "type_url"),
     2: .same(proto: "value"),
   ]
@@ -204,7 +204,7 @@ extension Google_Protobuf_Any: SwiftProtobufCore.Message, SwiftProtobufCore._Mes
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -220,7 +220,7 @@ extension Google_Protobuf_Any: SwiftProtobufCore.Message, SwiftProtobufCore._Mes
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage.preTraverse()
       if !_storage._typeURL.isEmpty {

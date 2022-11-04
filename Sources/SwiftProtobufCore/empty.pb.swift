@@ -44,8 +44,8 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobufCore.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobufCore.ProtobufAPIVersion_3 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+  struct _3: ProtobufAPIVersion_3 {}
   typealias Version = _3
 }
 
@@ -61,7 +61,7 @@ public struct Google_Protobuf_Empty {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  public var unknownFields = SwiftProtobufCore.UnknownStorage()
+  public var unknownFields = UnknownStorage()
 
   public init() {}
 }
@@ -74,16 +74,16 @@ extension Google_Protobuf_Empty: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Empty: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_Empty: Message, _MessageImplementationBase, _ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Empty"
-  public static let _protobuf_nameMap = SwiftProtobufCore._NameMap()
+  public static let _protobuf_nameMap = _NameMap()
 
-  public mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  public func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  public func traverse<V: Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 

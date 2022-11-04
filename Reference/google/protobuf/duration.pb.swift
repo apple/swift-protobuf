@@ -44,8 +44,8 @@ import Foundation
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobufCore.ProtobufAPIVersionCheck {
-  struct _3: SwiftProtobufCore.ProtobufAPIVersion_3 {}
+fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck {
+  struct _3: ProtobufAPIVersion_3 {}
   typealias Version = _3
 }
 
@@ -125,7 +125,7 @@ struct Google_Protobuf_Duration {
   /// to +999,999,999 inclusive.
   var nanos: Int32 = 0
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = UnknownStorage()
 
   init() {}
 }
@@ -138,14 +138,14 @@ extension Google_Protobuf_Duration: @unchecked Sendable {}
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-extension Google_Protobuf_Duration: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+extension Google_Protobuf_Duration: Message, _MessageImplementationBase, _ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Duration"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+  static let _protobuf_nameMap: _NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -158,7 +158,7 @@ extension Google_Protobuf_Duration: SwiftProtobufCore.Message, SwiftProtobufCore
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: Visitor>(visitor: inout V) throws {
     if self.seconds != 0 {
       try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
     }
