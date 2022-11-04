@@ -157,7 +157,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         guard isGroupOrMessage && fieldDescriptor.messageType!.containsRequiredFields() else { return }
 
         if isRepeated {  // Map or Array
-            p.print("if !\(namer.swiftProtobufModuleName).Internal.areAllInitialized(\(storedProperty)) {return false}")
+            p.print("if !\(namer.swiftProtobufModulePrefix)Internal.areAllInitialized(\(storedProperty)) {return false}")
         } else {
             p.print("if let v = \(storedProperty), !v.isInitialized {return false}")
         }

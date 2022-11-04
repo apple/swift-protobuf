@@ -56,7 +56,7 @@ class EnumGenerator {
 
     p.print(
       "",
-      "\(enumDescriptor.protoSourceComments())\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModuleName).Enum {")
+      "\(enumDescriptor.protoSourceComments())\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum {")
     p.withIndentation { p in
       p.print("\(visibility)typealias RawValue = Int")
 
@@ -104,7 +104,7 @@ class EnumGenerator {
   func generateRuntimeSupport(printer p: inout CodePrinter) {
     p.print(
       "",
-      "extension \(swiftFullName): \(namer.swiftProtobufModuleName)._ProtoNameProviding {")
+      "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {")
     p.withIndentation { p in
       generateProtoNameProviding(printer: &p)
     }
@@ -140,7 +140,7 @@ class EnumGenerator {
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
-    p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [")
+    p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
     p.withIndentation { p in
       for v in mainEnumValueDescriptorsSorted {
         if let aliases = aliasInfo.aliases(v) {

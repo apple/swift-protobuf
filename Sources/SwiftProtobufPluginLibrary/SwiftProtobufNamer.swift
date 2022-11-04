@@ -22,6 +22,13 @@ public final class SwiftProtobufNamer {
 
   public var swiftProtobufModuleName: String { return mappings.swiftProtobufModuleName }
 
+  public var swiftProtobufModulePrefix: String {
+    guard targetModule != mappings.swiftProtobufModuleName else {
+      return ""
+    }
+    return "\(mappings.swiftProtobufModuleName)."
+  }
+
   /// Initializes a a new namer, assuming everything will be in the same Swift module.
   public convenience init() {
     self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
