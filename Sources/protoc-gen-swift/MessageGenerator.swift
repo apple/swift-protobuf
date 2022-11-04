@@ -115,7 +115,7 @@ class MessageGenerator {
 
     let conformances: String
     if isExtensible {
-      conformances = ": \(namer.swiftProtobufModuleName).ExtensibleMessage"
+      conformances = ": \(namer.swiftProtobufModulePrefix)ExtensibleMessage"
     } else {
       conformances = ""
     }
@@ -135,7 +135,7 @@ class MessageGenerator {
 
       p.print(
           "",
-          "\(visibility)var unknownFields = \(namer.swiftProtobufModuleName).UnknownStorage()")
+          "\(visibility)var unknownFields = \(namer.swiftProtobufModulePrefix)UnknownStorage()")
 
       for o in oneofs {
         o.generateMainEnum(printer: &p)
@@ -162,7 +162,7 @@ class MessageGenerator {
       if isExtensible {
         p.print(
             "",
-            "\(visibility)var _protobuf_extensionFieldValues = \(namer.swiftProtobufModuleName).ExtensionFieldValueSet()")
+            "\(visibility)var _protobuf_extensionFieldValues = \(namer.swiftProtobufModulePrefix)ExtensionFieldValueSet()")
       }
       if let storage = storage {
         if !isExtensible {
@@ -205,7 +205,7 @@ class MessageGenerator {
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print(
         "",
-        "extension \(swiftFullName): \(namer.swiftProtobufModuleName).Message, \(namer.swiftProtobufModuleName)._MessageImplementationBase, \(namer.swiftProtobufModuleName)._ProtoNameProviding {")
+        "extension \(swiftFullName): \(namer.swiftProtobufModulePrefix)Message, \(namer.swiftProtobufModulePrefix)_MessageImplementationBase, \(namer.swiftProtobufModulePrefix)_ProtoNameProviding {")
     p.withIndentation { p in
       if let parent = parent {
         p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\"")
@@ -243,9 +243,9 @@ class MessageGenerator {
 
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
     if fields.isEmpty {
-      p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModuleName)._NameMap()")
+      p.print("\(visibility)static let _protobuf_nameMap = \(namer.swiftProtobufModulePrefix)_NameMap()")
     } else {
-      p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModuleName)._NameMap = [")
+      p.print("\(visibility)static let _protobuf_nameMap: \(namer.swiftProtobufModulePrefix)_NameMap = [")
       p.withIndentation { p in
         for f in fields {
           p.print("\(f.number): \(f.fieldMapNames),")
@@ -260,7 +260,7 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func decodeMessage<D: \(namer.swiftProtobufModuleName).Decoder>(decoder: inout D) throws {")
+    p.print("\(visibility)mutating func decodeMessage<D: \(namer.swiftProtobufModulePrefix)Decoder>(decoder: inout D) throws {")
     p.withIndentation { p in
       if storage != nil {
         p.print("_ = _uniqueStorage()")
@@ -329,7 +329,7 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModuleName).Visitor>(visitor: inout V) throws {")
+    p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModulePrefix)Visitor>(visitor: inout V) throws {")
     p.withIndentation { p in
       generateWithLifetimeExtension(printer: &p, throws: true) { p in
         if let storage = storage {
