@@ -388,6 +388,16 @@ extension XCTestCase {
         XCTAssertEqual(actual, expected, fmt ?? "debugDescription did not match", file: file, line: line)
         #endif
     }
+    /// Like ``assertDebugDescription``, but only checks the the ``debugDescription`` ends with
+    /// ``expectedSuffix``, mainly useful where you want to be agnotics to some preable like
+    /// the module name.
+    func assertDebugDescriptionSuffix(_ expectedSuffix: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+        // `assertDebugDescriptionSuffix` is a no-op in release as `debugDescription` is unavailable.
+#if DEBUG
+        let actual = m.debugDescription
+        XCTAssertTrue(actual.hasSuffix(expectedSuffix), fmt ?? "debugDescription did not match", file: file, line: line)
+#endif
+    }
 }
 
 /// Protocol to help write visitor for testing.  It provides default implementaions
