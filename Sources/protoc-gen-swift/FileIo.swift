@@ -23,7 +23,7 @@ class Stderr {
   }
 }
 
-func readFileData(filename: String) throws -> [UInt8] {
+func readFileData(filename: String) throws -> Data {
     let url = URL(fileURLWithPath: filename)
-    return try Array(Data(contentsOf: url))
+    return try Data(contentsOf: url)
 }

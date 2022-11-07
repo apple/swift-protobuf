@@ -1,4 +1,8 @@
+import Foundation
+
 import FuzzCommon
+
+import SwiftProtobuf
 
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
@@ -6,7 +10,7 @@ public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   var msg: Fuzz_Testing_Message?
   do {
     msg = try Fuzz_Testing_Message(
-      serializedBytes: Array(bytes),
+      serializedData: Data(bytes),
       extensions: Fuzz_Testing_FuzzTesting_Extensions)
   } catch {
     // Error parsing are to be expected since not all input will be well formed.
