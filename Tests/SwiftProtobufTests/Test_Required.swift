@@ -155,7 +155,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedBytes: bytes)
+            let _ = try MessageTestType(serializedData: Data(bytes))
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch BinaryDecodingError.missingRequiredFields {
             // Correct error!
@@ -167,7 +167,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     // Helper to assert decoding partial succeeds.
     fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let msg = try MessageTestType(serializedBytes: bytes, partial: true)
+            let msg = try MessageTestType(serializedData: Data(bytes), partial: true)
             var expected = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -238,14 +238,14 @@ class Test_Required: XCTestCase, PBTestHelpers {
         }
 
         // Glue it all together and it should decode ok as it will be complete.
-        var allBytes: [UInt8] = []
+        var allBytesData = Data()
         var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytes.append(contentsOf: bytes)
+          allBytesData.append(Data(bytes))
           allTextFormattedField.append(textFormattedField)
           allTextFormattedField.append("\n")
         }
-        let fullMsg = try ProtobufUnittest_TestAllRequiredTypes(serializedBytes: allBytes)
+        let fullMsg = try ProtobufUnittest_TestAllRequiredTypes(serializedData: allBytesData)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 
@@ -355,7 +355,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding fails with a not initialized error.
     fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let _ = try MessageTestType(serializedBytes: bytes)
+            let _ = try MessageTestType(serializedData: Data(bytes))
             XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
         } catch BinaryDecodingError.missingRequiredFields {
             // Correct error!
@@ -367,7 +367,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     // Helper to assert decoding partial succeeds.
     fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
-            let msg = try MessageTestType(serializedBytes: bytes, partial: true)
+            let msg = try MessageTestType(serializedData: Data(bytes), partial: true)
             var expected = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
             if !expectedTextFormat.isEmpty {
                 expected += expectedTextFormat + "\n"
@@ -398,14 +398,14 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
         }
 
         // Glue it all together and it should decode ok as it will be complete.
-        var allBytes: [UInt8] = []
+        var allBytesData = Data()
         var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
         for (bytes, textFormattedField) in testInputs {
-          allBytes.append(contentsOf: bytes)
+          allBytesData.append(Data(bytes))
           allTextFormattedField.append(textFormattedField)
           allTextFormattedField.append("\n")
         }
-        let fullMsg = try ProtobufUnittest_TestSomeRequiredTypes(serializedBytes: allBytes)
+        let fullMsg = try ProtobufUnittest_TestSomeRequiredTypes(serializedData: allBytesData)
         assertDebugDescription(allTextFormattedField, fullMsg)
     }
 

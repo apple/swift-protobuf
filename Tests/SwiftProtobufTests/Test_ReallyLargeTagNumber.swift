@@ -27,7 +27,7 @@ class Test_ReallyLargeTagNumber: XCTestCase {
             XCTAssertEqual(encoded, Data([8, 1, 248, 255, 255, 255, 7, 2]))
 
             do {
-                let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(serializedBytes: encoded)
+                let decoded = try ProtobufUnittest_TestReallyLargeTagNumber(serializedData: encoded)
                 XCTAssertEqual(2, decoded.bb)
                 XCTAssertEqual(1, decoded.a)
                 XCTAssertEqual(m, decoded)

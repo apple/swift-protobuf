@@ -315,7 +315,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be in unknowns
         let serialized = try m1.serializedData()
-        let m2 = try ProtobufUnittest_TestEnumMap(serializedBytes: serialized)
+        let m2 = try ProtobufUnittest_TestEnumMap(serializedData: serialized)
         XCTAssertEqual(m2.knownMapField.count, 1)
         XCTAssertEqual(m2.knownMapField[0], .foo)
         XCTAssertEqual(m2.unknownMapField.count, 0)
@@ -323,7 +323,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be back in the map.
         let serialized2 = try m2.serializedData()
-        let m3 = try ProtobufUnittest_TestEnumMapPlusExtra(serializedBytes: serialized2)
+        let m3 = try ProtobufUnittest_TestEnumMapPlusExtra(serializedData: serialized2)
         XCTAssertEqual(m3.knownMapField.count, 1)
         XCTAssertEqual(m3.knownMapField[0], .eProto2MapEnumFoo)
         XCTAssertEqual(m3.unknownMapField.count, 1)
@@ -338,7 +338,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be in unknowns
         let serialized = try m1.serializedData()
-        let m2 = try ProtobufUnittest_TestMap(serializedBytes: serialized)
+        let m2 = try ProtobufUnittest_TestMap(serializedData: serialized)
         XCTAssertEqual(m2.mapInt32Enum.count, 2)
         XCTAssertEqual(m2.mapInt32Enum[1], .baz)
         XCTAssertEqual(m2.mapInt32Enum[2], .UNRECOGNIZED(999))

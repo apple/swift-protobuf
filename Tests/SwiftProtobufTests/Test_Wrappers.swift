@@ -59,7 +59,7 @@ class Test_Wrappers: XCTestCase {
         // Use object equality to verify decode
         XCTAssertEqual(m, try Google_Protobuf_DoubleValue(jsonString:"1.0"))
         XCTAssertEqual(m2, try Google_Protobuf_DoubleValue(jsonString:"2"))
-        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(serializedBytes: [9,0,0,0,0,0,0,240,63]))
+        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(serializedData: Data([9,0,0,0,0,0,0,240,63])))
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_DoubleValue(jsonString:"1.0").hashValue)
@@ -95,7 +95,7 @@ class Test_Wrappers: XCTestCase {
         // Use object equality to verify decode
         XCTAssertEqual(m, try Google_Protobuf_FloatValue(jsonString:"1.0"))
         XCTAssertEqual(m2, try Google_Protobuf_FloatValue(jsonString:"2"))
-        XCTAssertEqual(m, try Google_Protobuf_FloatValue(serializedBytes: [13,0,0,128,63]))
+        XCTAssertEqual(m, try Google_Protobuf_FloatValue(serializedData: Data([13,0,0,128,63])))
 
         XCTAssertThrowsError(try Google_Protobuf_FloatValue(jsonString:"-3.502823e+38"))
         XCTAssertThrowsError(try Google_Protobuf_FloatValue(jsonString:"3.502823e+38"))
