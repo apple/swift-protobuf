@@ -14,7 +14,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobuf
+import SwiftProtobufCore
 
 class Test_TextFormatDecodingOptions: XCTestCase {
 

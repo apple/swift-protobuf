@@ -15,9 +15,9 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobuf
+import SwiftProtobufCore
 
-extension SwiftProtobuf.Message {
+extension SwiftProtobufCore.Message {
     func serializedBytes() throws -> [UInt8] {
         return try [UInt8](serializedData())
     }
