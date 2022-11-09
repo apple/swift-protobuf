@@ -48,32 +48,40 @@ When doing a release:
    For the description call out any major things in that release.  Usually a short summary and
    then a reference to the pull request for more info is enough.
 
-1. Publish the CocoaPod
+1. Publish the CocoaPods
 
-   1. Do a final sanity check that CocoaPods is happy with the release you just made, in the project
-      directory:
+   CocoaPods only does one Swift Module per podspec, so the current three modules can be modeled
+   via three podspec files that have dependencies: SwiftProtobufCore.podspec ->
+   SwiftProtobufFoundationCompat.podspec -> SwiftProtobuf.podspec. So they end up having to
+   be published in that order:
+
+   1. Publish the `SwiftProtobufCore.podspec`:
 
       ```
-      $ pod spec lint SwiftProtobuf.podspec
+      $ pod trunk push SwiftProtobufCore.podspec
       ```
 
-      _Note:_ This uses that local copy of the podspec, but pulls the code off the tag on github.
+      _Note:_ This uses that local copy of the podspec, but checks against the sources on
+      github.
 
-      If this doesn't pass, you have two options:
+   1. Publish the `SwiftProtobufFoundationCompat.podspec`:
 
-      - If the problem is just with the `podspec`, you can edit it, and try again.  The version of
-        the podspec in the branch doesn't really matter, so just ensure things get fixed on main
-        for the future.
-      - If the problem is within the code, you'll likely need to abandon this release.  Fix the
-        code and start the process over cutting a new tag.
+      ```
+      $ pod trunk push SwiftProtobufFoundationCompat.podspec
+      ```
 
-   1. Publish the pod:
+      _Note:_ This uses that local copy of `SwiftProtobufFoundationCompat.podspec`, but checks
+      against the sources on github and the already published `SwiftProtobufCore.podspec`
+
+   1. Publish the `SwiftProtobuf.podspec`:
 
       ```
       $ pod trunk push SwiftProtobuf.podspec
       ```
 
-      _Note:_ This uses that local copy of the podspec.
+      _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
+      against the sources on github and the already published `SwiftProtobufCore.podspec` and
+      `SwiftProtobufFoundationCompat.podspec`.
 
 1. Bump the version on _main_
 

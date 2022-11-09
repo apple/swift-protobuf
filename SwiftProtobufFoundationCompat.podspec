@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name = 'SwiftProtobuf'
+  s.name = 'SwiftProtobufFoundationCompat'
   s.version = '2.0.0'
   s.license = { :type => 'Apache 2.0', :file => 'LICENSE.txt' }
-  s.summary = 'Swift Protobuf Runtime and Foundation Compatibility Library'
+  s.summary = 'Swift Protobuf Foundation Compatibility Library'
   s.homepage = 'https://github.com/apple/swift-protobuf'
   s.author = 'Apple Inc.'
   s.source = { :git => 'https://github.com/apple/swift-protobuf.git', :tag => s.version }
@@ -15,12 +15,11 @@ Pod::Spec.new do |s|
 
   s.cocoapods_version = '>= 1.7.0'
 
-  s.source_files = 'Sources/SwiftProtobuf/**/*.swift'
+  s.source_files = 'Sources/SwiftProtobufFoundationCompat/**/*.swift'
 
   # Require and exact match on the dependency, since it isn't yet clear
   # if we'll be able to support interop between minor/bugfixes.
   s.dependency 'SwiftProtobufCore', "= #{s.version}"
-  s.dependency 'SwiftProtobufFoundationCompat', "= #{s.version}"
 
   s.swift_versions = ['5.0']
 end
