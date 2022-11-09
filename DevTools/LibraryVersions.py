@@ -18,6 +18,8 @@ import sys
 _VERSION_RE = re.compile(r'^(?P<major>\d+)\.(?P<minor>\d+)(.(?P<revision>\d+))?$')
 
 _PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_CORE_PODSPEC_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobufCore.podspec')
+_FOUNDATION_PODSPEC_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobufFoundationCompat.podspec')
 _PODSPEC_PATH = os.path.join(_PROJECT_ROOT, 'SwiftProtobuf.podspec')
 _VERSION_SWIFT_PATH = os.path.join(_PROJECT_ROOT, 'Sources/SwiftProtobufCore/Version.swift')
 
@@ -39,6 +41,13 @@ def ValidateFiles():
     Fail('Failed to extract a version from SwiftProtobuf.podspec')
   (major, minor, revision) = ExtractVersion(match.group(1))
 
+  # Test the other two podspecs.
+  expected_version = 'version = \'%s.%s.%s\'' % (major, minor, revision)
+  for p in (_FOUNDATION_PODSPEC_PATH, _CORE_PODSPEC_PATH):
+    pod_content = open(p).read()
+    if expected_version not in open(p).read():
+      Fail('Version in %s did not match SwiftProtobuf.podspec' % os.path.basename(p))
+
   # Test Sources/SwiftProtobuf/Version.swift
   version_swift_content = open(_VERSION_SWIFT_PATH).read()
   major_line = 'public static let major = %s\n' % major
@@ -54,12 +63,13 @@ def ValidateFiles():
 def UpdateFiles(version_string):
   (major, minor, revision) = ExtractVersion(version_string)
 
-  # Update SwiftProtobuf.podspec
-  pod_content = open(_PODSPEC_PATH).read()
-  pod_content = re.sub(r'version = \'(\d+\.\d+\.\d+)\'',
-                       'version = \'%s.%s.%s\'' % (major, minor, revision),
-                       pod_content)
-  open(_PODSPEC_PATH, 'w').write(pod_content)
+  # Update *.podspec
+  for p in (_FOUNDATION_PODSPEC_PATH, _CORE_PODSPEC_PATH, _PODSPEC_PATH):
+    pod_content = open(p).read()
+    pod_content = re.sub(r'version = \'(\d+\.\d+\.\d+)\'',
+                         'version = \'%s.%s.%s\'' % (major, minor, revision),
+                         pod_content)
+    open(p, 'w').write(pod_content)
 
   # Update Sources/SwiftProtobuf/Version.swift
   version_swift_content = open(_VERSION_SWIFT_PATH).read()

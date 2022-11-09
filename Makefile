@@ -182,6 +182,7 @@ SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
 	default \
 	docs \
 	install \
+	pod-lib-lint \
 	reference \
 	regenerate \
 	regenerate-conformance-protos \
@@ -536,3 +537,11 @@ test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_
 	  --failure_list Sources/Conformance/failure_list_swift.txt \
 	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt\
 	  $(SWIFT_CONFORMANCE_PLUGIN)
+
+# Validate the CocoaPods podspecs files against the current tree state.
+pod-lib-lint:
+	@if [ `uname -s` = "Darwin" ] ; then \
+	  pod lib lint SwiftProtobufCore.podspec ; \
+	  pod lib lint --include-podspecs=SwiftProtobufCore.podspec SwiftProtobufFoundationCompat.podspec ; \
+	  pod lib lint '--include-podspecs={SwiftProtobufCore.podspec,SwiftProtobufFoundationCompat.podspec}' SwiftProtobuf.podspec ; \
+	fi
