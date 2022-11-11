@@ -2,6 +2,8 @@ import Foundation
 
 import FuzzCommon
 
+import SwiftProtobuf
+
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzJSON(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   let bytes = UnsafeRawBufferPointer(start: start, count: count)

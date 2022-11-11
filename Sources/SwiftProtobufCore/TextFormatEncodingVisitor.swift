@@ -248,6 +248,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+      try visitSingularBytesField(value: Array(value), fieldNumber: fieldNumber)
+  }
+
+  mutating func visitSingularBytesField(value: [UInt8], fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startRegularField()
       encoder.putBytesValue(value: value)
@@ -319,7 +323,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   // Write a single special field called "#json".  This
   // is used for Any objects with undecoded JSON contents.
-  internal mutating func visitAnyJSONDataField(value: Data) {
+  internal mutating func visitAnyJSONDataField(value: SwiftProtobufContiguousBytes) {
       encoder.indent()
       encoder.append(staticText: "#json: ")
       encoder.putBytesValue(value: value)

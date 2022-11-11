@@ -2,6 +2,8 @@ import Foundation
 
 import FuzzCommon
 
+import SwiftProtobuf
+
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzBinary(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   let bytes = UnsafeRawBufferPointer(start: start, count: count)

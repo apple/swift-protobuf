@@ -10,7 +10,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobuf
+import SwiftProtobufCore
 
 // In transforming some of the names in protos to Swift names, we do different
 // transforms, this test is mainly a compile test in that the code below calls

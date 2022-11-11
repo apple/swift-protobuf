@@ -90,44 +90,44 @@ extension Message {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      return try array(fromJSONUTF8Data: data, extensions: extensions, options: options)
+      return try array(fromJSONUTF8Bytes: data, extensions: extensions, options: options)
     } else {
       throw JSONDecodingError.truncated
     }
   }
 
-  /// Creates a new array of messages by decoding the given `Data` containing a
-  /// serialized array of messages in JSON format, interpreting the data as
+  /// Creates a new array of messages by decoding the given `SwiftProtobufContiguousBytes`
+  /// containing a serialized array of messages in JSON format, interpreting the data as
   /// UTF-8 encoded text.
   ///
-  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public static func array(
-    fromJSONUTF8Data jsonUTF8Data: Data,
+  public static func array<Bytes: SwiftProtobufContiguousBytes>(
+    fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
-    return try self.array(fromJSONUTF8Data: jsonUTF8Data,
+    return try self.array(fromJSONUTF8Bytes: jsonUTF8Bytes,
                           extensions: SimpleExtensionMap(),
                           options: options)
   }
 
-  /// Creates a new array of messages by decoding the given `Data` containing a
-  /// serialized array of messages in JSON format, interpreting the data as
+  /// Creates a new array of messages by decoding the given `SwiftProtobufContiguousBytes`
+  /// containing a serialized array of messages in JSON format, interpreting the data as
   /// UTF-8 encoded text.
   ///
-  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  /// - Parameter jsonUTF8Bytes: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
   /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public static func array(
-    fromJSONUTF8Data jsonUTF8Data: Data,
+  public static func array<Bytes: SwiftProtobufContiguousBytes>(
+    fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
     extensions: ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
-    return try jsonUTF8Data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+    return try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       var array = [Self]()
 
       if body.count > 0 {

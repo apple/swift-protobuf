@@ -15,13 +15,9 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobuf
+import SwiftProtobufCore
 
-extension SwiftProtobuf.Message {
-    init(serializedBytes: [UInt8], extensions: SwiftProtobuf.SimpleExtensionMap? = nil) throws {
-        try self.init(serializedData: Data(serializedBytes), extensions: extensions)
-    }
-
+extension SwiftProtobufCore.Message {
     func serializedBytes() throws -> [UInt8] {
         return try [UInt8](serializedData())
     }

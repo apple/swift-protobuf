@@ -14,7 +14,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobuf
+import SwiftProtobufCore
 
 // Since Type is purely compiled (there is no hand-coding
 // in it) this is a fairly thin test just to ensure that the proto

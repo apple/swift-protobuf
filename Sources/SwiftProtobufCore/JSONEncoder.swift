@@ -111,6 +111,11 @@ internal struct JSONEncoder {
         data.append(contentsOf: utf8Data)
     }
 
+    /// Append a raw utf8 in a `[UInt8]` to the JSON text.
+    internal mutating func append(utf8Data: [UInt8]) {
+        data.append(contentsOf: utf8Data)
+    }
+
     /// Begin a new field whose name is given as a `_NameMap.Name`
     internal mutating func startField(name: _NameMap.Name) {
         if let s = separator {

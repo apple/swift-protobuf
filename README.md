@@ -36,12 +36,12 @@ systems:
 * Idiomatic: SwiftProtobuf takes full advantage of the Swift language.
   In particular, all generated types provide full Swift copy-on-write
   value semantics.
-* Efficient binary serialization: The `.serializedData()`
-  method returns a `Data` with a compact binary form of your data.
-  You can deserialize the data using the `init(serializedData:)`
+* Efficient binary serialization: The `.serializedBytes()`
+  method returns a bag of bytes with a compact binary form of your data.
+  You can deserialize the data using the `init(serializedBytes:)`
   initializer.
 * Standard JSON serialization: The `.jsonUTF8Data()` method returns a JSON
-  form of your data that can be parsed with the `init(jsonUTF8Data:)`
+  form of your data that can be parsed with the `init(jsonUTF8Bytes:)`
   initializer.
 * Hashable, Equatable: The generated struct can be put into a
   `Set<>` or `Dictionary<>`.
@@ -272,7 +272,7 @@ let decodedInfo = try BookInfo(serializedData: binaryData)
 let jsonData: Data = try info.jsonUTF8Data()
 
 // Deserialize from JSON format from `jsonData`
-let receivedFromJSON = try BookInfo(jsonUTF8Data: jsonData)
+let receivedFromJSON = try BookInfo(jsonUTF8Bytes: jsonData)
 ```
 
 You can find more information in the detailed
