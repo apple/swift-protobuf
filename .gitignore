@@ -1,5 +1,6 @@
 .DS_Store
 /.build
+/.idea
 /.swiftpm
 /Packages
 *~
@@ -10,6 +11,7 @@ xcbaselines
 /build
 mined_words.txt
 /*DescriptorTestData.bin
+*/json
 /Package.resolved
 
 # Intermediate conformance test outputs

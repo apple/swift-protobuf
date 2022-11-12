@@ -440,6 +440,10 @@ extension PBTestVisitor {
     XCTFail("Unexpected String: \(fieldNumber) = \(value)")
   }
 
+    mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+        try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+    }
+
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
     XCTFail("Unexpected UInt64: \(fieldNumber) = \(value)")
   }

@@ -146,6 +146,9 @@ public protocol Decoder {
   mutating func decodeSingularBoolField(value: inout Bool?) throws
   /// Decode bool values to repeated field storage
   mutating func decodeRepeatedBoolField(value: inout [Bool]) throws
+  mutating func decodeSingularUUIDField(value: inout UUID) throws
+  mutating func decodeSingularUUIDField(value: inout UUID?) throws
+  mutating func decodeRepeatedUUIDField(value: inout [UUID]) throws
   /// Decode a string value to non-`Optional` field storage
   mutating func decodeSingularStringField(value: inout String) throws
   /// Decode a string value to `Optional` field storage

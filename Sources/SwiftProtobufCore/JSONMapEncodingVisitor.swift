@@ -149,6 +149,10 @@ internal struct JSONMapEncodingVisitor: SelectiveVisitor {
       encoder.putStringValue(value: value)
   }
 
+    mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+        try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+    }
+
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
       // Bytes can only be map values, never keys
       assert(fieldNumber == 2)

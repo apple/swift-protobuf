@@ -98,6 +98,10 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
+  mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+    try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+  }
+
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let count = value.count
@@ -200,6 +204,12 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       return $0 + Varint.encodedSize(of: Int64(count)) + count
     }
     serializedSize += tagSize * value.count + dataSize
+  }
+
+  mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+
+    try visitRepeatedStringField(value: value.map { $0.uuidString }, fieldNumber: fieldNumber)
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {

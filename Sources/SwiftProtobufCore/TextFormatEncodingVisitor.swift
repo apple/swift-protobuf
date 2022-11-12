@@ -247,6 +247,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
       encoder.endRegularField()
   }
 
+    mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+        try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+    }
+
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
       try visitSingularBytesField(value: Array(value), fieldNumber: fieldNumber)
   }
@@ -440,6 +444,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
           encoder.endRegularField()
       }
   }
+
+    mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws {
+        try visitRepeatedStringField(value: value.map { $0.uuidString }, fieldNumber: fieldNumber)
+    }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
       assert(!value.isEmpty)

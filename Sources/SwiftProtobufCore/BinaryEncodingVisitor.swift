@@ -88,6 +88,10 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
+  mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+    try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+  }
+
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: value)

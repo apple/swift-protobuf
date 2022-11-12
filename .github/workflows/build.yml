@@ -130,6 +130,19 @@ jobs:
     - name: Test conformance
       working-directory: main
       run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
+    - name: Install stable cargo
+      uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: stable
+    - name: B tests
+      working-directory: main
+      run: |
+        pwd
+        cd BTests
+        cargo build
+        cd GenTests
+        swift test
 
   sanitizer_testing:
     runs-on: ubuntu-latest

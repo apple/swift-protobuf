@@ -1,0 +1,6 @@
+.DS_Store
+/.build
+/.idea
+/Packages
+/*.xcodeproj
+xcuserdata/

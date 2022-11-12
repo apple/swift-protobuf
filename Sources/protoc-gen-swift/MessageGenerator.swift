@@ -134,8 +134,8 @@ class MessageGenerator {
       }
 
       p.print(
-          "",
-          "\(visibility)var unknownFields = \(namer.swiftProtobufModulePrefix)UnknownStorage()")
+        "",
+        "\(visibility)var unknownFields = \(namer.swiftProtobufModulePrefix)UnknownStorage()")
 
       for o in oneofs {
         o.generateMainEnum(printer: &p)
@@ -151,12 +151,77 @@ class MessageGenerator {
         m.generateMainStruct(printer: &p, parent: self, errorString: &errorString)
       }
 
+      if generatorOptions.removeBoilerplateCode {
+        if fields.isEmpty {
+          p.print("public func makeSureItDoesNotHaveFields() { }")
+        }
+
+        p.print("\n\(visibility) static func construct(")
+
+        var requiredFields = [String]()
+
+        var didGeneratedAtLeastOneField = false
+        for f in fields {
+          if let (name, t) = f.swiftNameAndType() {
+            if didGeneratedAtLeastOneField {
+              p.print(", \n")
+            }
+
+            didGeneratedAtLeastOneField = true
+
+            // The field is 'really' required if the first character does not starts with 'o' and the second char is uppercased
+            let theType: String
+
+            if name.isRequiredField(swiftType: t) {
+              requiredFields.append(name)
+              theType = t
+            } else {
+              theType = t + "?"
+            }
+
+            p.print("\(name): \(theType)")
+          }
+        }
+
+        p.print(") -> \(swiftRelativeName) {\nvar instance = \(swiftRelativeName).init()\n")
+
+        for f in fields {
+          if let (name, _) = f.swiftNameAndType() {
+            p.print("instance.\(name) = \(name)\n")
+          }
+        }
+
+        p.print("return instance\n}\n")
+
+        p.print("private func validate() throws {\nif !unknownFields.data.isEmpty {\nthrow BinaryDecodingError.invalidUTF8\n}\n")
+
+        for field in requiredFields {
+          p.print("if \(field) == nil {\nthrow BinaryDecodingError.invalidUTF8\n}\n")
+        }
+
+        for fieldGenerator in fields.filter({ $0.isEnum }) {
+          let messageGen = fieldGenerator as! MessageFieldGenerator
+          let swiftName = fieldGenerator.swiftNameAndType()!.0
+          let createCheck: (String) -> String = { s in
+            "if \(s) == .init() {\nthrow BinaryDecodingError.invalidUTF8\n}\nif case .UNRECOGNIZED(_) = \(s) {\nthrow BinaryDecodingError.invalidUTF8\n}\n"
+          }
+
+          if messageGen.isRepeated {
+            p.print("for v in \(swiftName) {\n\(createCheck("v")) }\n")
+          } else {
+            p.print("\(createCheck(swiftName))")
+          }
+        }
+
+        p.print("}\n")
+      }
+
       // Generate the default initializer. If we don't, Swift seems to sometimes
       // generate it along with others that can take public proprerties. When it
       // generates the others doesn't seem to be documented.
       p.print(
-          "",
-          "\(visibility)init() {}")
+          "\n",
+          "\(visibility)init() {}\n")
 
       // Optional extension support
       if isExtensible {
@@ -322,6 +387,9 @@ class MessageGenerator {
 
       }
     }
+    if generatorOptions.removeBoilerplateCode {
+      p.print("try validate()\n")
+    }
     p.print("}")
   }
 
@@ -366,7 +434,11 @@ class MessageGenerator {
           nextRange = ranges.next()
         }
       }
-      p.print("try unknownFields.traverse(visitor: &visitor)")
+      if generatorOptions.removeBoilerplateCode {
+        p.print("try validate()\n")
+      } else {
+        p.print("try unknownFields.traverse(visitor: &visitor)\n")
+      }
     }
     p.print("}")
   }

@@ -743,6 +743,18 @@ internal struct BinaryDecoder: Decoder {
         }
     }
 
+    internal mutating func decodeSingularUUIDField(value: inout UUID) throws {
+        var s = String()
+
+        s.reserveCapacity(36)
+
+        try decodeSingularStringField(value: &s)
+
+        guard let uuid = UUID(uuidString: s) else { throw BinaryDecodingError.invalidUTF8 }
+
+        value = uuid
+    }
+
     internal mutating func decodeSingularStringField(value: inout String) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return
@@ -771,6 +783,20 @@ internal struct BinaryDecoder: Decoder {
         }
     }
 
+    internal mutating func decodeSingularUUIDField(value: inout UUID?) throws {
+        var s: String? = String()
+
+        s?.reserveCapacity(36)
+
+        try decodeSingularStringField(value: &s)
+
+        if let s = s, let uuid = UUID(uuidString: s) {
+            value = uuid
+        } else {
+            throw BinaryDecodingError.invalidUTF8
+        }
+    }
+
     internal mutating func decodeRepeatedStringField(value: inout [String]) throws {
         switch fieldWireFormat {
         case WireFormat.lengthDelimited:
@@ -784,6 +810,18 @@ internal struct BinaryDecoder: Decoder {
             }
         default:
             return
+        }
+    }
+
+    internal mutating func decodeRepeatedUUIDField(value: inout [UUID]) throws {
+        var values = [String]()
+
+        try decodeRepeatedStringField(value: &values)
+
+        for v in values {
+            guard let uuid = UUID(uuidString: v) else { throw BinaryDecodingError.invalidUTF8 }
+
+            value.append(uuid)
         }
     }
 

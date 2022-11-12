@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package money;
+
+import "gender.proto";
+import "currency.proto";
+
+message Order {
+  data.Gender gender = 1;
+  repeated data.Gender genders = 9;
+  money.Currency currency = 2;
+  money.Currency o_currency = 6;
+  repeated money.Currency currencies = 3;
+  string uuid = 4;
+  string no_uuid = 5;
+  repeated string no_uuids = 10;
+  repeated string repeated_uuids = 15;
+
+  enum OrderInner {
+    INNER = 0;
+    INNER_ANOTHER = 1;
+    INNER_ANOTHER_2 = 2;
+  }
+
+  OrderInner order_inner = 7;
+  repeated OrderInner order_inners = 8;
+
+  oneof something {
+    data.Gender oneof_gender = 11;
+    string also_uuid = 12;
+    string also_no_uuid = 13;
+    money.Currency oneof_currency = 14;
+  }
+}

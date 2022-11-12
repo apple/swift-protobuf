@@ -20,6 +20,30 @@ class OneofGenerator {
     /// Custom FieldGenerator that caches come calculated strings, and bridges
     /// all methods over to the OneofGenerator.
     class MemberFieldGenerator: FieldGeneratorBase, FieldGenerator {
+        var isEnum: Bool {
+            return false
+        }
+
+        var isUuid: Bool {
+            return generatorOptions.uuids.contains(swiftName)
+        }
+
+        var genericType: String {
+            if isUuid {
+                return "UUID"
+            } else {
+                return protoGenericType
+            }
+        }
+
+        func swiftNameAndType() -> (String, String)? {
+            if self === oneof.fields.first {
+                return (oneof.swiftFieldName, oneof.swiftFullName)
+            } else {
+                return nil
+            }
+        }
+
         private weak var oneof: OneofGenerator!
         private(set) var group: Int
 
@@ -29,6 +53,7 @@ class OneofGenerator {
         let swiftDefaultValue: String
         let protoGenericType: String
         let comments: String
+        let generatorOptions: GeneratorOptions
 
         var isGroupOrMessage: Bool {
             switch fieldDescriptor.type {
@@ -42,7 +67,8 @@ class OneofGenerator {
         // Only valid on message fields.
         var messageType: Descriptor? { return fieldDescriptor.messageType }
 
-        init(descriptor: FieldDescriptor, namer: SwiftProtobufNamer) {
+        init(descriptor: FieldDescriptor, namer: SwiftProtobufNamer, generatorOptions: GeneratorOptions) {
+            self.generatorOptions = generatorOptions
             precondition(descriptor.oneofIndex != nil)
 
             // Set after creation.
@@ -54,7 +80,13 @@ class OneofGenerator {
                                                    includeHasAndClear: false)
             swiftName = names.name
             dottedSwiftName = names.prefixed
-            swiftType = descriptor.swiftType(namer: namer)
+            swiftType = {
+                if generatorOptions.uuids.contains(names.name) {
+                    return "UUID"
+                } else {
+                    return descriptor.swiftType(namer: namer)
+                }
+            }()
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
             comments = descriptor.protoSourceComments()
@@ -116,10 +148,10 @@ class OneofGenerator {
     // The fields in number order and group into ranges as they are grouped in the parent.
     private let fieldSortedGrouped: [[MemberFieldGenerator]]
     private let swiftRelativeName: String
-    private let swiftFullName: String
+    let swiftFullName: String
     private let comments: String
 
-    private let swiftFieldName: String
+    let swiftFieldName: String
     private let underscoreSwiftFieldName: String
     private let storedProperty: String
 
@@ -145,7 +177,7 @@ class OneofGenerator {
         }
 
         fields = descriptor.fields.map {
-            return MemberFieldGenerator(descriptor: $0, namer: namer)
+            return MemberFieldGenerator(descriptor: $0, namer: namer, generatorOptions: generatorOptions)
         }
         fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
@@ -262,15 +294,37 @@ class OneofGenerator {
         let visibility = generatorOptions.visibilitySourceSnippet
         p.print()
         if usesHeapStorage {
+            let (opt, suffix): (String, String) = {
+                if generatorOptions.removeBoilerplateCode && swiftFieldName.isRequiredField(swiftType: swiftRelativeName) {
+                    return ("", "!")
+                } else {
+                    return ("?", "")
+                }
+            }()
+
             p.print(
-              "\(comments)\(visibility)var \(swiftFieldName): \(swiftRelativeName)? {")
+              "\(comments)\(visibility)var \(swiftFieldName): \(swiftRelativeName)\(opt) {")
             p.printIndented(
-              "get {return _storage.\(underscoreSwiftFieldName)}",
+              "get {return _storage.\(underscoreSwiftFieldName)\(suffix)}",
               "set {_uniqueStorage().\(underscoreSwiftFieldName) = newValue}")
             p.print("}")
         } else {
+            let visibilityField: String
+
+            if generatorOptions.removeBoilerplateCode {
+                visibilityField = "private "
+            } else {
+                visibilityField = visibility
+            }
+
             p.print(
-              "\(comments)\(visibility)var \(swiftFieldName): \(swiftFullName)? = nil")
+                "\(comments)\(visibilityField)var \(swiftFieldName): \(swiftFullName)? = nil\n")
+
+            let isRequired = swiftFieldName.isRequiredField(swiftType: swiftFullName)
+
+            if generatorOptions.removeBoilerplateCode && isRequired {
+                p.print("\(visibility)func \(swiftFieldName)SafeUnwrap() -> \(swiftFullName) {\n return \(swiftFieldName)!\n } \n")
+            }
         }
     }
 
@@ -281,6 +335,8 @@ class OneofGenerator {
         if field === fields.first {
           gerenateOneofEnumProperty(printer: &p)
         }
+
+        guard !generatorOptions.removeBoilerplateCode else { return }
 
         let getter = usesHeapStorage ? "_storage.\(underscoreSwiftFieldName)" : swiftFieldName
         // Within `set` below, if the oneof name was "newValue" then it has to
@@ -346,12 +402,16 @@ class OneofGenerator {
           }
 
           p.print(
-            "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)",
+            "try decoder.decodeSingular\(field.genericType)Field(value: &v)",
             "if let v = v {")
           p.printIndented(
             "if \(hadValueTest) {try decoder.handleConflictingOneOf()}",
             "\(storedProperty) = \(field.dottedSwiftName)(v)")
           p.print("}")
+
+        if generatorOptions.removeBoilerplateCode {
+            p.print(" else {\n throw BinaryDecodingError.malformedProtobuf\n}\n")
+        }
         }
         p.print("}()")
     }
@@ -373,7 +433,7 @@ class OneofGenerator {
                 p.print("case \(f.dottedSwiftName)?: try {")
                 p.printIndented(
                   "guard case \(f.dottedSwiftName)(let v)? = \(storedProperty) else { preconditionFailure() }",
-                  "try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))")
+                  "try visitor.visitSingular\(f.genericType)Field(value: v, fieldNumber: \(f.number))")
                 p.print("}()")
             }
             if fieldSortedGrouped.count == 1 {

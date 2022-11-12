@@ -398,6 +398,18 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
+  mutating func decodeSingularUUIDField(value: inout UUID) throws {
+    var s = String()
+
+    s.reserveCapacity(36)
+
+    try decodeSingularStringField(value: &s)
+
+    guard let uuid = UUID(uuidString: s) else { throw BinaryDecodingError.invalidUTF8 }
+
+    value = uuid
+  }
+
   mutating func decodeSingularStringField(value: inout String) throws {
     if scanner.skipOptionalNull() {
       value = String()
@@ -412,6 +424,20 @@ internal struct JSONDecoder: Decoder {
       return
     }
     value = try scanner.nextQuotedString()
+  }
+
+  mutating func decodeSingularUUIDField(value: inout UUID?) throws {
+    var s: String? = String()
+
+    s?.reserveCapacity(36)
+
+    try decodeSingularStringField(value: &s)
+
+    if let s = s, let uuid = UUID(uuidString: s) {
+      value = uuid
+    } else {
+      throw BinaryDecodingError.invalidUTF8
+    }
   }
 
   mutating func decodeRepeatedStringField(value: inout [String]) throws {
@@ -429,6 +455,18 @@ internal struct JSONDecoder: Decoder {
         return
       }
       try scanner.skipRequiredComma()
+    }
+  }
+
+  mutating func decodeRepeatedUUIDField(value: inout [UUID]) throws {
+    var values = [String]()
+
+    try decodeRepeatedStringField(value: &values)
+
+    for v in values {
+      guard let uuid = UUID(uuidString: v) else { throw BinaryDecodingError.invalidUTF8 }
+
+      value.append(uuid)
     }
   }
 

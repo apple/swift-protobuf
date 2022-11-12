@@ -54,9 +54,19 @@ class EnumGenerator {
   func generateMainEnum(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
 
+    let conformTo: String = {
+      let always = "\(namer.swiftProtobufModulePrefix)Enum"
+
+      if generatorOptions.removeBoilerplateCode {
+        return always + ", Codable"
+      } else {
+        return always
+      }
+    }()
+
     p.print(
       "",
-      "\(enumDescriptor.protoSourceComments())\(visibility)enum \(swiftRelativeName): \(namer.swiftProtobufModulePrefix)Enum {")
+      "\(enumDescriptor.protoSourceComments())\(visibility)enum \(swiftRelativeName): \(conformTo) {")
     p.withIndentation { p in
       p.print("\(visibility)typealias RawValue = Int")
 

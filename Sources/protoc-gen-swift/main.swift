@@ -32,6 +32,22 @@ extension Google_Protobuf_Compiler_Version {
   }
 }
 
+extension String {
+  func isRequiredField(swiftType: String) -> Bool {
+    if count <= 1 {
+      return true
+    }
+
+    if swiftType.contains("[") || swiftType == "Data" || swiftType == "String" {
+      return true
+    }
+
+    let secondChar = String(self[self.index(startIndex, offsetBy: 1)])
+
+    return !(hasPrefix("o") && secondChar.uppercased() == secondChar)
+  }
+}
+
 struct GeneratorPlugin {
   private enum Mode {
     case showHelp

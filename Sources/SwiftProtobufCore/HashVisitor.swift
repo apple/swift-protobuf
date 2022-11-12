@@ -62,6 +62,10 @@ internal struct HashVisitor: Visitor {
     hasher.combine(value)
   }
 
+  mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+    try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+  }
+
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     hasher.combine(fieldNumber)
     hasher.combine(value)
@@ -160,6 +164,12 @@ internal struct HashVisitor: Visitor {
     assert(!value.isEmpty)
     hasher.combine(fieldNumber)
     hasher.combine(value)
+  }
+
+  mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws {
+    assert(!value.isEmpty)
+
+    try visitRepeatedStringField(value: value.map { $0.uuidString }, fieldNumber: fieldNumber)
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {

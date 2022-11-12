@@ -83,6 +83,10 @@ extension SelectiveVisitor {
     assert(false)
   }
 
+  internal mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+    try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+  }
+
   internal mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     assert(false)
   }
@@ -153,6 +157,10 @@ extension SelectiveVisitor {
 
   internal mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
     assert(false)
+  }
+
+  internal mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws {
+    try visitRepeatedStringField(value: value.map { $0.uuidString }, fieldNumber: fieldNumber)
   }
 
   internal mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {

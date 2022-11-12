@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package money;
+
+message Currency {
+  oneof c {
+      Valuta valuta = 1;
+      string custom = 2;
+      int32 amount = 3;
+  }
+}
+
+enum Valuta {
+  DOLLAR = 0;
+  EURO = 1;
+}

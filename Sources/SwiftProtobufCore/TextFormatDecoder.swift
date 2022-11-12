@@ -375,6 +375,17 @@ internal struct TextFormatDecoder: Decoder {
             value.append(n)
         }
     }
+    mutating func decodeSingularUUIDField(value: inout UUID) throws {
+        var s = String()
+
+        s.reserveCapacity(36)
+
+        try decodeSingularStringField(value: &s)
+
+        guard let uuid = UUID(uuidString: s) else { throw BinaryDecodingError.invalidUTF8 }
+
+        value = uuid
+    }
     mutating func decodeSingularStringField(value: inout String) throws {
         try scanner.skipRequiredColon()
         value = try scanner.nextStringValue()
@@ -383,6 +394,20 @@ internal struct TextFormatDecoder: Decoder {
         try scanner.skipRequiredColon()
         value = try scanner.nextStringValue()
     }
+    mutating func decodeSingularUUIDField(value: inout UUID?) throws {
+        var s: String? = String()
+
+        s?.reserveCapacity(36)
+
+        try decodeSingularStringField(value: &s)
+
+        if let s = s, let uuid = UUID(uuidString: s) {
+            value = uuid
+        } else {
+            throw BinaryDecodingError.invalidUTF8
+        }
+    }
+
     mutating func decodeRepeatedStringField(value: inout [String]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
@@ -402,6 +427,17 @@ internal struct TextFormatDecoder: Decoder {
         } else {
             let n = try scanner.nextStringValue()
             value.append(n)
+        }
+    }
+    mutating func decodeRepeatedUUIDField(value: inout [UUID]) throws {
+        var values = [String]()
+
+        try decodeRepeatedStringField(value: &values)
+
+        for v in values {
+            guard let uuid = UUID(uuidString: v) else { throw BinaryDecodingError.invalidUTF8 }
+
+            value.append(uuid)
         }
     }
     mutating func decodeSingularBytesField(value: inout Data) throws {

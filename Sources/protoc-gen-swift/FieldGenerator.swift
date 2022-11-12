@@ -22,8 +22,12 @@ import SwiftProtobuf
 protocol FieldGenerator {
   var number: Int { get }
 
+  var isEnum: Bool { get }
+
   /// Name mapping entry for the field.
   var fieldMapNames: String { get }
+
+  func swiftNameAndType() -> (String, String)?
 
   /// Generate the interface for this field, this is includes any extra methods (has/clear).
   func generateInterface(printer: inout CodePrinter)

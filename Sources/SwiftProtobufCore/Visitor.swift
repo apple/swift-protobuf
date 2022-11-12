@@ -111,6 +111,8 @@ public protocol Visitor {
   /// There is no default implementation.  This must be implemented.
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws
 
+  mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws
+
   /// Called for each non-repeated bytes field
   ///
   /// There is no default implementation.  This must be implemented.
@@ -245,6 +247,7 @@ public protocol Visitor {
   /// A default implementation is provided that simply calls
   /// `visitSingularStringField` once for each item in the array.
   mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws
+  mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws
 
   // Called for each non-packed repeated bytes field.
   /// The method is called once with the complete array of values for
@@ -587,6 +590,10 @@ extension Visitor {
     for v in value {
       try visitSingularStringField(value: v, fieldNumber: fieldNumber)
     }
+  }
+
+  public mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws {
+    try visitRepeatedStringField(value: value.map { $0.uuidString }, fieldNumber: fieldNumber)
   }
 
   public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {

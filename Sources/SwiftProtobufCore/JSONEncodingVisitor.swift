@@ -133,6 +133,10 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
+  mutating func visitSingularUUIDField(value: UUID, fieldNumber: Int) throws {
+    try visitSingularStringField(value: value.uuidString, fieldNumber: fieldNumber)
+  }
+
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.putBytesValue(value: value)
@@ -286,6 +290,10 @@ internal struct JSONEncodingVisitor: Visitor {
       (encoder: inout JSONEncoder, v: String) in
       encoder.putStringValue(value: v)
     }
+  }
+
+  mutating func visitRepeatedUUIDField(value: [UUID], fieldNumber: Int) throws {
+    try visitRepeatedStringField(value: value.map { $0.uuidString }, fieldNumber: fieldNumber)
   }
 
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {

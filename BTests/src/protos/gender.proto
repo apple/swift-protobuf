@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package data;
+
+enum Gender {
+  MALE = 0;
+  FEMALE = 1;
+  OTHER = 2;
+}
