@@ -21,7 +21,7 @@ message GeneratedSwiftReservedEnums {
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
-  enum array { NONE_array = 0; }
+  enum Array { NONE_Array = 0; }
   enum arrayDepth { NONE_arrayDepth = 0; }
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
@@ -139,7 +139,6 @@ message GeneratedSwiftReservedEnums {
   enum com { NONE_com = 0; }
   enum comma { NONE_comma = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
-  enum ContiguousBytes { NONE_ContiguousBytes = 0; }
   enum count { NONE_count = 0; }
   enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
   enum csharpNamespace { NONE_csharpNamespace = 0; }
@@ -664,6 +663,7 @@ message GeneratedSwiftReservedEnums {
   enum putVarInt { NONE_putVarInt = 0; }
   enum putZigZagVarInt { NONE_putZigZagVarInt = 0; }
   enum pyGenericServices { NONE_pyGenericServices = 0; }
+  enum R { NONE_R = 0; }
   enum rawChars { NONE_rawChars = 0; }
   enum RawRepresentable { NONE_RawRepresentable = 0; }
   enum RawValue { NONE_RawValue = 0; }
@@ -673,6 +673,7 @@ message GeneratedSwiftReservedEnums {
   enum RepeatedExtensionField { NONE_RepeatedExtensionField = 0; }
   enum RepeatedGroupExtensionField { NONE_RepeatedGroupExtensionField = 0; }
   enum RepeatedMessageExtensionField { NONE_RepeatedMessageExtensionField = 0; }
+  enum repeating { NONE_repeating = 0; }
   enum requestStreaming { NONE_requestStreaming = 0; }
   enum requestTypeURL { NONE_requestTypeURL = 0; }
   enum requiredSize { NONE_requiredSize = 0; }
@@ -741,7 +742,7 @@ message GeneratedSwiftReservedEnums {
   enum subVisitor { NONE_subVisitor = 0; }
   enum Swift { NONE_Swift = 0; }
   enum swiftPrefix { NONE_swiftPrefix = 0; }
-  enum SwiftProtobufCore { NONE_SwiftProtobufCore = 0; }
+  enum SwiftProtobufContiguousBytes { NONE_SwiftProtobufContiguousBytes = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }
@@ -875,6 +876,7 @@ message GeneratedSwiftReservedEnums {
   enum where { NONE_where = 0; }
   enum wireFormat { NONE_wireFormat = 0; }
   enum with { NONE_with = 0; }
+  enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
   enum work { NONE_work = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
   enum written { NONE_written = 0; }
