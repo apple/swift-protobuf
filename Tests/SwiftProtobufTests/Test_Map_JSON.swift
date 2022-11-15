@@ -16,7 +16,7 @@
 
 import Foundation
 import XCTest
-
+import SwiftProtobufCore
 
 // TODO: Testing encoding needs some help, since the order of
 // entries isn't well-defined.
@@ -283,6 +283,22 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
 
         let decoded = try MessageTestType(jsonString: json)
         XCTAssertEqual(decoded.mapInt32Enum, [1: .foo, 3: .baz])
+    }
+
+    func testMapInt32Enum_JSONdecodingOptions() {
+        var options = JSONDecodingOptions()
+
+        // Test_Enum covers the single and repeated field cases.
+
+        let json_with_unknown_enum = "{\"mapInt32Enum\": {\"1\": \"MAP_ENUM_FOO\", \"2\": \"NEW_VALUE\", \"3\":\"MAP_ENUM_BAZ\"}}"
+
+        options.ignoreUnknownFields = false
+        assertJSONDecodeFails(json_with_unknown_enum)
+
+        options.ignoreUnknownFields = true
+        assertJSONDecodeSucceeds(json_with_unknown_enum, options: options) { (m: MessageTestType) -> Bool in
+          m.mapInt32Enum == [1:.foo, 3:.baz]
+        }
     }
 
     func testMapInt32Message() {
