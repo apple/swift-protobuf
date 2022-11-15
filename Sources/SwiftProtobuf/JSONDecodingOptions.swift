@@ -22,7 +22,9 @@ public struct JSONDecodingOptions {
   public var messageDepthLimit: Int = 100
 
   /// If unknown fields in the JSON should be ignored. If they aren't
-  /// ignored, an error will be raised if one is encountered.
+  /// ignored, an error will be raised if one is encountered. This also
+  /// causes unknown enum values (especially string values) to be silently
+  /// ignored.
   public var ignoreUnknownFields: Bool = false
 
   public init() {}
