@@ -12356,6 +12356,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum keyFieldOpt: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneKeyFieldOpt // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneKeyFieldOpt
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneKeyFieldOpt
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneKeyFieldOpt: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum KeyType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneKeyType // = 0
@@ -18825,6 +18850,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneTextFormatString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum throwOrIgnore: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneThrowOrIgnore // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneThrowOrIgnore
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneThrowOrIgnore
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneThrowOrIgnore: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -25462,6 +25512,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField: CaseIt
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyFieldOpt: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyFieldOpt] = [
+    .noneKeyFieldOpt,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType] = [
@@ -27275,6 +27332,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwOrIgnore: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwOrIgnore] = [
+    .noneThrowOrIgnore,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwsEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwsEnum] = [
@@ -28661,6 +28725,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jstype: @uncheck
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.k: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Key: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyFieldOpt: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.kind: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.l: @unchecked Sendable {}
@@ -28920,6 +28985,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingOptions: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingVisitor: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwOrIgnore: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwsEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeInterval: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSince1970: @unchecked Sendable {}
@@ -32030,6 +32096,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField: SwiftP
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyFieldOpt: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_keyFieldOpt"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_KeyType"),
@@ -33581,6 +33653,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_textFormatString"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwOrIgnore: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_throwOrIgnore"),
   ]
 }
 
