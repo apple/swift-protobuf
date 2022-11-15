@@ -14761,6 +14761,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum keyFieldOpt: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneKeyFieldOpt // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneKeyFieldOpt
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneKeyFieldOpt
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneKeyFieldOpt: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyFieldOpt] = [
+      .noneKeyFieldOpt,
+    ]
+
+  }
+
   enum KeyType: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneKeyType // = 0
@@ -22591,6 +22621,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum throwOrIgnore: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneThrowOrIgnore // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneThrowOrIgnore
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneThrowOrIgnore
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneThrowOrIgnore: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwOrIgnore] = [
+      .noneThrowOrIgnore,
+    ]
+
+  }
+
   enum throwsEnum: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneThrows // = 0
@@ -29317,6 +29377,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField: SwiftP
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyFieldOpt: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_keyFieldOpt"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_KeyType"),
@@ -30880,6 +30946,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_textFormatString"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwOrIgnore: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_throwOrIgnore"),
   ]
 }
 
