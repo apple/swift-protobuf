@@ -495,6 +495,7 @@ message GeneratedSwiftReservedEnums {
   enum k { NONE_k = 0; }
   enum Key { NONE_Key = 0; }
   enum keyField { NONE_keyField = 0; }
+  enum keyFieldOpt { NONE_keyFieldOpt = 0; }
   enum KeyType { NONE_KeyType = 0; }
   enum kind { NONE_kind = 0; }
   enum l { NONE_l = 0; }
@@ -756,6 +757,7 @@ message GeneratedSwiftReservedEnums {
   enum TextFormatEncodingOptions { NONE_TextFormatEncodingOptions = 0; }
   enum TextFormatEncodingVisitor { NONE_TextFormatEncodingVisitor = 0; }
   enum textFormatString { NONE_textFormatString = 0; }
+  enum throwOrIgnore { NONE_throwOrIgnore = 0; }
   enum throws { NONE_throws = 0; }
   enum timeInterval { NONE_timeInterval = 0; }
   enum timeIntervalSince1970 { NONE_timeIntervalSince1970 = 0; }

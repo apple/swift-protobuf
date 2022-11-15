@@ -495,6 +495,7 @@ message GeneratedSwiftReservedMessages {
   message k { int32 k = 1; }
   message Key { int32 Key = 1; }
   message keyField { int32 keyField = 1; }
+  message keyFieldOpt { int32 keyFieldOpt = 1; }
   message KeyType { int32 KeyType = 1; }
   message kind { int32 kind = 1; }
   message l { int32 l = 1; }
@@ -756,6 +757,7 @@ message GeneratedSwiftReservedMessages {
   message TextFormatEncodingOptions { int32 TextFormatEncodingOptions = 1; }
   message TextFormatEncodingVisitor { int32 TextFormatEncodingVisitor = 1; }
   message textFormatString { int32 textFormatString = 1; }
+  message throwOrIgnore { int32 throwOrIgnore = 1; }
   message throws { int32 throws = 1; }
   message timeInterval { int32 timeInterval = 1; }
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
