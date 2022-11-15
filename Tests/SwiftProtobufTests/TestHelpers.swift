@@ -217,19 +217,20 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONDecodeSucceeds(
         _ json: String,
+        options: JSONDecodingOptions = JSONDecodingOptions(),
         extensions: ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
     ) {
         do {
-            let decoded: MessageTestType = try MessageTestType(jsonString: json, extensions: extensions)
+            let decoded: MessageTestType = try MessageTestType(jsonString: json, extensions: extensions, options: options)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
                 let encoded = try decoded.jsonString()
                 do {
-                    let redecoded = try MessageTestType(jsonString: encoded, extensions: extensions)
+                    let redecoded = try MessageTestType(jsonString: encoded, extensions: extensions, options: options)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from \(encoded)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
@@ -245,14 +246,14 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
         do {
             let jsonData = json.data(using: String.Encoding.utf8)!
-            let decoded: MessageTestType = try MessageTestType(jsonUTF8Data: jsonData, extensions: extensions)
+            let decoded: MessageTestType = try MessageTestType(jsonUTF8Data: jsonData, extensions: extensions, options: options)
             XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
 
             do {
                 let encoded = try decoded.jsonUTF8Data()
                 let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
                 do {
-                    let redecoded = try MessageTestType(jsonUTF8Data: encoded, extensions: extensions)
+                    let redecoded = try MessageTestType(jsonUTF8Data: encoded, extensions: extensions, options: options)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)
                     XCTAssertEqual(decoded, redecoded, file: file, line: line)
                 } catch {
