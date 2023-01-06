@@ -281,6 +281,25 @@ class Test_JSON_Conformance: XCTestCase {
         XCTAssertEqual(try t.jsonString(), start)
     }
 
+  func testValue_DoubleNonFinite() {
+    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
+      XCTAssertEqual($0 as? JSONEncodingError,
+                     JSONEncodingError.valueNumberNotFinite,
+                     "Wrong errror? - \($0)")
+    }
+
+    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
+      XCTAssertEqual($0 as? JSONEncodingError,
+                     JSONEncodingError.valueNumberNotFinite,
+                     "Wrong errror? - \($0)")
+    }
+
+    XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
+      XCTAssertEqual($0 as? JSONEncodingError,
+                     JSONEncodingError.valueNumberNotFinite,
+                     "Wrong errror? - \($0)")
+    }
+  }
 
     func testNestedAny() {
         let start = ("{\n"
