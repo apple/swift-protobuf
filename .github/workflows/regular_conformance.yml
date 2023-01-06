@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        swift: ["5.7.0"]
+        swift: ["5.7.2"]
         ubuntu: ["focal"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
