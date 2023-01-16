@@ -153,7 +153,6 @@ struct GeneratorPlugin {
       return 1
     }
 
-    auditProtoCVersion(request: request)
     let response = generate(request: request)
     guard sendReply(response: response) else { return 1 }
     return 0
@@ -237,16 +236,6 @@ struct GeneratorPlugin {
     }
     return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
                                                           supportedFeatures: [.proto3Optional])
-  }
-
-  private func auditProtoCVersion(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {
-    guard request.hasCompilerVersion else {
-      Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
-      return
-    }
-    // 3.2.x is what added the compiler_version, so there is no need to
-    // ensure that the version of protoc being used is newer, if the field
-    // is there, the JSON support should be good.
   }
 
   private func sendReply(response: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
