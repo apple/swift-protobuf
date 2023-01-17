@@ -5,9 +5,8 @@
 **Welcome to Swift Protobuf!**
 
 [Apple's Swift programming language](https://swift.org/) is a perfect
-complement to [Google's Protocol
-Buffer](https://developers.google.com/protocol-buffers/) ("protobuf") serialization
-technology.
+complement to [Google's Protocol Buffer](https://protobuf.dev/)
+("protobuf") serialization technology.
 They both emphasize high performance and programmer safety.
 
 This project provides both the command-line program that adds Swift
@@ -61,7 +60,7 @@ additional effort on your part.
 
 More information is available in the associated documentation:
 
- * [Google's protobuf documentation](https://developers.google.com/protocol-buffers/)
+ * [Google's protobuf documentation](https://protobuf.dev/)
    provides general information about protocol buffers, the protoc compiler,
    and how to use protocol buffers with C++, Java, and other languages.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
@@ -192,7 +191,7 @@ dependencies: [
 ],
 targets: [
     .target(
-      name: "MyTarget", 
+      name: "MyTarget",
       dependencies: [.product(name: "SwiftProtobuf", package: "swift-protobuf")]
     ),
 ]

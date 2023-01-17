@@ -125,7 +125,7 @@ public struct ProtoFileToModuleMappings {
     // Protocol Buffers has the concept of "public imports", these are imports
     // into a file that expose everything from within the file to the new
     // context. From the docs -
-    // https://developers.google.com/protocol-buffers/docs/proto#importing-definitions
+    // https://protobuf.dev/programming-guides/proto/#importing
     //   `import public` dependencies can be transitively relied upon by anyone
     //    importing the proto containing the import public statement.
     // To properly expose the types for use, it means in each file, the public imports
