@@ -61,7 +61,7 @@ to expose similar data publicly from the Swift Runtime.
 
 ## Why are field names and enum case names mangled?
 
-Protocol Buffers has a [styleguide](https://developers.google.com/protocol-buffers/docs/style),
+Protocol Buffers has a [styleguide](https://protobuf.dev/programming-guides/style/),
 and it calls for field names to be _underscore_separated_names_ and enum cases
 to be _CAPITALS_WITH_UNDERSCORES_, to support all languages, it also says the
 enum cases should be prefixed with the type name (avoids naming collisions in C
