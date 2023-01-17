@@ -201,21 +201,6 @@ default: build
 
 all: build
 
-# This generates a LinuxMain.swift to include all of the test cases.
-# It is needed for all builds before 5.4.x
-# NOTE: This doesn't include Tests/protoc-gen-swiftTests because the older
-# SwiftPM versions could have a test depend on an executable target.
-generate-linux-main:
-	@${AWK} -f DevTools/CollectTests.awk \
-	    Tests/SwiftProtobufPluginLibraryTests/Test_*.swift \
-	    Tests/SwiftProtobufTests/Test_*.swift \
-	  > Tests/LinuxMain.swift.new
-	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
-		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
-		echo "FYI: Tests/LinuxMain.swift Updated"; \
-	fi
-	@rm Tests/LinuxMain.swift.new
-
 # Builds all the targets of the package.
 build:
 	${SWIFT} build
