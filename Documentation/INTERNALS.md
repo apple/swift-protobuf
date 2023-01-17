@@ -17,10 +17,20 @@ behavior are always appreciated.
 
 ## Swift Language Support
 
-The goal is to always support "one full major version”, which basically
-means if the current official release of Swift is `X.Y`, the library will
-support back to `X-1.Y`.  That is, when Swift 4.2 was released, the minimum
-for support got moved up to 3.2.
+We guarantee support for Swift versions that are up to one year old.
+For example, in March 2022 (when Swift 5.6 was released), we still
+guaranteed support for Swift 5.3.3 (released in January 2021, and still
+current in March 2021).
+Support for Swift versions older than one year is at the discretion
+of the SwiftProtobuf developers and will depend on the amount of
+effort required to maintain such support.
+We do not as a rule expect to support Swift versions more than two years
+old in any case.
+
+(Originally, we tried to gaurantee "one full major version", which
+was essentially the same as "one year" until Swift 5, at which point
+we discovered that managing CI for 4-year-old releases was rather
+problematic.)
 
 Having said that, the issue is complicated by the fact that there are _toolchain
 versions_ and _language versions_.  As of Swift toolchain 5.x, the 4.2 _language
