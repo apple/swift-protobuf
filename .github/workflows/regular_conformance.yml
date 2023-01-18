@@ -25,15 +25,25 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        swift: ["5.7.2"]
-        ubuntu: ["focal"]
+        # Looking at https://hub.docker.com/_/swift, the version only tags (i.e.
+        # - 5.6.3) use different Ubuntu releases. Generally we want to avoid
+        # bionic as it is older then we want to deal with having to build
+        # protobuf on.
+        #
+        # We also could use less specific tags (i.e. - 5.6), so they "float" as
+        # new point release come, but to help make history/logs more clear,
+        # being explicit (at the cost of having to update with point releases)
+        # seems better. This should also ensure protobuf caching changes with
+        # each new image incase system in the Swift image are changed/updated.
+        swift:
+        - 5.7.2-jammy
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
     container:
-      image: swift:${{ matrix.swift }}-${{ matrix.ubuntu }}
+      image: swift:${{ matrix.swift }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
