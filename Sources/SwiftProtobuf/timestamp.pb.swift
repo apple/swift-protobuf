@@ -99,7 +99,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///     Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)
 ///         .setNanos((int) ((millis % 1000) * 1000000)).build();
 ///
-///
 /// Example 5: Compute Timestamp from Java `Instant.now()`.
 ///
 ///     Instant now = Instant.now();
@@ -107,7 +106,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///     Timestamp timestamp =
 ///         Timestamp.newBuilder().setSeconds(now.getEpochSecond())
 ///             .setNanos(now.getNano()).build();
-///
 ///
 /// Example 6: Compute Timestamp from current time in Python.
 ///
