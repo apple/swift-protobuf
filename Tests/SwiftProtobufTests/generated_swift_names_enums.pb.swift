@@ -1681,6 +1681,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum clearDebugRedact: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearDebugRedact // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearDebugRedact
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearDebugRedact
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearDebugRedact: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum clearDefaultValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearDefaultValue // = 0
@@ -1725,6 +1750,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneClearDeprecated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearDeprecatedLegacyJsonFieldConflicts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearDeprecatedLegacyJsonFieldConflicts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearDeprecatedLegacyJsonFieldConflicts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearDeprecatedLegacyJsonFieldConflicts: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -3706,6 +3756,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum debugRedact: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDebugRedact // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDebugRedact
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDebugRedact
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDebugRedact: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum decoded: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneDecoded // = 0
@@ -4975,6 +5050,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneDeprecated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum deprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDeprecatedLegacyJsonFieldConflicts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDeprecatedLegacyJsonFieldConflicts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDeprecatedLegacyJsonFieldConflicts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDeprecatedLegacyJsonFieldConflicts: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -9281,6 +9381,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum hasDebugRedact: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasDebugRedact // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasDebugRedact
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasDebugRedact
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasDebugRedact: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum hasDefaultValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHasDefaultValue // = 0
@@ -9325,6 +9450,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneHasDeprecated: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasDeprecatedLegacyJsonFieldConflicts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasDeprecatedLegacyJsonFieldConflicts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasDeprecatedLegacyJsonFieldConflicts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasDeprecatedLegacyJsonFieldConflicts: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -14606,6 +14756,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum OptionRetention: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneOptionRetention // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOptionRetention
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOptionRetention
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOptionRetention: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum options: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneOptions // = 0
@@ -14625,6 +14800,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum OptionTargetType: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneOptionTargetType // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOptionTargetType
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOptionTargetType
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOptionTargetType: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -22523,6 +22723,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCtype: Case
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDebugRedact: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDebugRedact] = [
+    .noneClearDebugRedact,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue] = [
@@ -22534,6 +22741,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated:
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated] = [
     .noneClearDeprecated,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts] = [
+    .noneClearDeprecatedLegacyJsonFieldConflicts,
   ]
 }
 
@@ -23090,6 +23304,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescription
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugRedact: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugRedact] = [
+    .noneDebugRedact,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded] = [
@@ -23444,6 +23665,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated: Case
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated] = [
     .noneDeprecated,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts] = [
+    .noneDeprecatedLegacyJsonFieldConflicts,
   ]
 }
 
@@ -24651,6 +24879,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCtype: CaseIt
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDebugRedact: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDebugRedact] = [
+    .noneHasDebugRedact,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue] = [
@@ -24662,6 +24897,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated: C
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated] = [
     .noneHasDeprecated,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts] = [
+    .noneHasDeprecatedLegacyJsonFieldConflicts,
   ]
 }
 
@@ -26142,10 +26384,24 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageE
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionRetention: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionRetention] = [
+    .noneOptionRetention,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options] = [
     .noneOptions,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionTargetType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionTargetType] = [
+    .noneOptionTargetType,
   ]
 }
 
@@ -28298,8 +28554,10 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCcGenericSe
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearClientStreaming: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCsharpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCtype: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDebugRedact: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDoubleValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearEdition: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearEnd: @unchecked Sendable {}
@@ -28379,6 +28637,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.date: @unchecked
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daySec: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daysSinceEpoch: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescriptionEnum: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugRedact: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodedFromJSONNull: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionField: @unchecked Sendable {}
@@ -28430,6 +28689,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultAnyTypeUR
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dependency: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.descriptionEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DescriptorProto: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Dictionary: @unchecked Sendable {}
@@ -28602,8 +28862,10 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCcGenericServ
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasClientStreaming: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCsharpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCtype: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDebugRedact: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDoubleValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasEdition: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasEnd: @unchecked Sendable {}
@@ -28815,7 +29077,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalEnumExte
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalExtensionField: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalGroupExtensionField: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageExtensionField: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionRetention: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionTargetType: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.other: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.others: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.out: @unchecked Sendable {}
@@ -29534,6 +29798,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCtype: Swif
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDebugRedact: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearDebugRedact"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearDefaultValue"),
@@ -29543,6 +29813,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValu
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearDeprecated"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearDeprecatedLegacyJsonFieldConflicts"),
   ]
 }
 
@@ -30020,6 +30296,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescription
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugRedact: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_debugRedact"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decoded"),
@@ -30323,6 +30605,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dependency: Swif
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_deprecated"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_deprecatedLegacyJsonFieldConflicts"),
   ]
 }
 
@@ -31358,6 +31646,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCtype: SwiftP
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDebugRedact: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasDebugRedact"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasDefaultValue"),
@@ -31367,6 +31661,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue:
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasDeprecated"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasDeprecatedLegacyJsonFieldConflicts"),
   ]
 }
 
@@ -32636,9 +32936,21 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageE
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionRetention: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_OptionRetention"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_options"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionTargetType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_OptionTargetType"),
   ]
 }
 
