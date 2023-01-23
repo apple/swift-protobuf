@@ -73,6 +73,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///     if (any.is(Foo.class)) {
 ///       foo = any.unpack(Foo.class);
 ///     }
+///     // or ...
+///     if (any.isSameTypeAs(Foo.getDefaultInstance())) {
+///       foo = any.unpack(Foo.getDefaultInstance());
+///     }
 ///
 /// Example 3: Pack and unpack a message in Python.
 ///

@@ -1246,6 +1246,25 @@ public struct Google_Protobuf_MessageOptions: ExtensibleMessage {
   /// Clears the value of `mapEntry`. Subsequent reads from it will return its default value.
   public mutating func clearMapEntry() {self._mapEntry = nil}
 
+  /// Enable the legacy handling of JSON field name conflicts.  This lowercases
+  /// and strips underscored from the fields before comparison in proto3 only.
+  /// The new behavior takes `json_name` into account and applies to proto2 as
+  /// well.
+  ///
+  /// This should only be used as a temporary measure against broken builds due
+  /// to the change in behavior for JSON field name conflicts.
+  ///
+  /// TODO(b/261750190) This is legacy behavior we plan to remove once downstream
+  /// teams have had time to migrate.
+  public var deprecatedLegacyJsonFieldConflicts: Bool {
+    get {return _deprecatedLegacyJsonFieldConflicts ?? false}
+    set {_deprecatedLegacyJsonFieldConflicts = newValue}
+  }
+  /// Returns true if `deprecatedLegacyJsonFieldConflicts` has been explicitly set.
+  public var hasDeprecatedLegacyJsonFieldConflicts: Bool {return self._deprecatedLegacyJsonFieldConflicts != nil}
+  /// Clears the value of `deprecatedLegacyJsonFieldConflicts`. Subsequent reads from it will return its default value.
+  public mutating func clearDeprecatedLegacyJsonFieldConflicts() {self._deprecatedLegacyJsonFieldConflicts = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -1258,6 +1277,7 @@ public struct Google_Protobuf_MessageOptions: ExtensibleMessage {
   fileprivate var _noStandardDescriptorAccessor: Bool? = nil
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _mapEntry: Bool? = nil
+  fileprivate var _deprecatedLegacyJsonFieldConflicts: Bool? = nil
 }
 
 public struct Google_Protobuf_FieldOptions: ExtensibleMessage {
@@ -1386,6 +1406,17 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage {
   /// Clears the value of `weak`. Subsequent reads from it will return its default value.
   public mutating func clearWeak() {self._weak = nil}
 
+  /// Indicate that the field value should not be printed out when using debug
+  /// formats, e.g. when the field contains sensitive credentials.
+  public var debugRedact: Bool {
+    get {return _debugRedact ?? false}
+    set {_debugRedact = newValue}
+  }
+  /// Returns true if `debugRedact` has been explicitly set.
+  public var hasDebugRedact: Bool {return self._debugRedact != nil}
+  /// Clears the value of `debugRedact`. Subsequent reads from it will return its default value.
+  public mutating func clearDebugRedact() {self._debugRedact = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -1457,6 +1488,92 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage {
 
   }
 
+  /// If set to RETENTION_SOURCE, the option will be omitted from the binary.
+  /// Note: as of January 2023, support for this is in progress and does not yet
+  /// have an effect (b/264593489).
+  public enum OptionRetention: Enum {
+    public typealias RawValue = Int
+    case retentionUnknown // = 0
+    case retentionRuntime // = 1
+    case retentionSource // = 2
+
+    public init() {
+      self = .retentionUnknown
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .retentionUnknown
+      case 1: self = .retentionRuntime
+      case 2: self = .retentionSource
+      default: return nil
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .retentionUnknown: return 0
+      case .retentionRuntime: return 1
+      case .retentionSource: return 2
+      }
+    }
+
+  }
+
+  /// This indicates the types of entities that the field may apply to when used
+  /// as an option. If it is unset, then the field may be freely used as an
+  /// option on any kind of entity. Note: as of January 2023, support for this is
+  /// in progress and does not yet have an effect (b/264593489).
+  public enum OptionTargetType: Enum {
+    public typealias RawValue = Int
+    case targetTypeUnknown // = 0
+    case targetTypeFile // = 1
+    case targetTypeExtensionRange // = 2
+    case targetTypeMessage // = 3
+    case targetTypeField // = 4
+    case targetTypeOneof // = 5
+    case targetTypeEnum // = 6
+    case targetTypeEnumEntry // = 7
+    case targetTypeService // = 8
+    case targetTypeMethod // = 9
+
+    public init() {
+      self = .targetTypeUnknown
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .targetTypeUnknown
+      case 1: self = .targetTypeFile
+      case 2: self = .targetTypeExtensionRange
+      case 3: self = .targetTypeMessage
+      case 4: self = .targetTypeField
+      case 5: self = .targetTypeOneof
+      case 6: self = .targetTypeEnum
+      case 7: self = .targetTypeEnumEntry
+      case 8: self = .targetTypeService
+      case 9: self = .targetTypeMethod
+      default: return nil
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .targetTypeUnknown: return 0
+      case .targetTypeFile: return 1
+      case .targetTypeExtensionRange: return 2
+      case .targetTypeMessage: return 3
+      case .targetTypeField: return 4
+      case .targetTypeOneof: return 5
+      case .targetTypeEnum: return 6
+      case .targetTypeEnumEntry: return 7
+      case .targetTypeService: return 8
+      case .targetTypeMethod: return 9
+      }
+    }
+
+  }
+
   public init() {}
 
   public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
@@ -1467,6 +1584,7 @@ public struct Google_Protobuf_FieldOptions: ExtensibleMessage {
   fileprivate var _unverifiedLazy: Bool? = nil
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _weak: Bool? = nil
+  fileprivate var _debugRedact: Bool? = nil
 }
 
 public struct Google_Protobuf_OneofOptions: ExtensibleMessage {
@@ -1513,6 +1631,21 @@ public struct Google_Protobuf_EnumOptions: ExtensibleMessage {
   /// Clears the value of `deprecated`. Subsequent reads from it will return its default value.
   public mutating func clearDeprecated() {self._deprecated = nil}
 
+  /// Enable the legacy handling of JSON field name conflicts.  This lowercases
+  /// and strips underscored from the fields before comparison in proto3 only.
+  /// The new behavior takes `json_name` into account and applies to proto2 as
+  /// well.
+  /// TODO(b/261750190) Remove this legacy behavior once downstream teams have
+  /// had time to migrate.
+  public var deprecatedLegacyJsonFieldConflicts: Bool {
+    get {return _deprecatedLegacyJsonFieldConflicts ?? false}
+    set {_deprecatedLegacyJsonFieldConflicts = newValue}
+  }
+  /// Returns true if `deprecatedLegacyJsonFieldConflicts` has been explicitly set.
+  public var hasDeprecatedLegacyJsonFieldConflicts: Bool {return self._deprecatedLegacyJsonFieldConflicts != nil}
+  /// Clears the value of `deprecatedLegacyJsonFieldConflicts`. Subsequent reads from it will return its default value.
+  public mutating func clearDeprecatedLegacyJsonFieldConflicts() {self._deprecatedLegacyJsonFieldConflicts = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -1523,6 +1656,7 @@ public struct Google_Protobuf_EnumOptions: ExtensibleMessage {
   public var _protobuf_extensionFieldValues = ExtensionFieldValueSet()
   fileprivate var _allowAlias: Bool? = nil
   fileprivate var _deprecated: Bool? = nil
+  fileprivate var _deprecatedLegacyJsonFieldConflicts: Bool? = nil
 }
 
 public struct Google_Protobuf_EnumValueOptions: ExtensibleMessage {
@@ -3259,6 +3393,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     2: .standard(proto: "no_standard_descriptor_accessor"),
     3: .same(proto: "deprecated"),
     7: .standard(proto: "map_entry"),
+    11: .standard(proto: "deprecated_legacy_json_field_conflicts"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3278,6 +3413,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
       case 2: try { try decoder.decodeSingularBoolField(value: &self._noStandardDescriptorAccessor) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self._deprecated) }()
       case 7: try { try decoder.decodeSingularBoolField(value: &self._mapEntry) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self._deprecatedLegacyJsonFieldConflicts) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber) }()
@@ -3303,6 +3439,9 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     try { if let v = self._mapEntry {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 7)
     } }()
+    try { if let v = self._deprecatedLegacyJsonFieldConflicts {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 11)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3315,6 +3454,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     if lhs._noStandardDescriptorAccessor != rhs._noStandardDescriptorAccessor {return false}
     if lhs._deprecated != rhs._deprecated {return false}
     if lhs._mapEntry != rhs._mapEntry {return false}
+    if lhs._deprecatedLegacyJsonFieldConflicts != rhs._deprecatedLegacyJsonFieldConflicts {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -3332,6 +3472,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     15: .standard(proto: "unverified_lazy"),
     3: .same(proto: "deprecated"),
     10: .same(proto: "weak"),
+    16: .standard(proto: "debug_redact"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3354,6 +3495,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jstype) }()
       case 10: try { try decoder.decodeSingularBoolField(value: &self._weak) }()
       case 15: try { try decoder.decodeSingularBoolField(value: &self._unverifiedLazy) }()
+      case 16: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
@@ -3388,6 +3530,9 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     try { if let v = self._unverifiedLazy {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 15)
     } }()
+    try { if let v = self._debugRedact {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 16)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3403,6 +3548,7 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     if lhs._unverifiedLazy != rhs._unverifiedLazy {return false}
     if lhs._deprecated != rhs._deprecated {return false}
     if lhs._weak != rhs._weak {return false}
+    if lhs._debugRedact != rhs._debugRedact {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
@@ -3423,6 +3569,29 @@ extension Google_Protobuf_FieldOptions.JSType: _ProtoNameProviding {
     0: .same(proto: "JS_NORMAL"),
     1: .same(proto: "JS_STRING"),
     2: .same(proto: "JS_NUMBER"),
+  ]
+}
+
+extension Google_Protobuf_FieldOptions.OptionRetention: _ProtoNameProviding {
+  public static let _protobuf_nameMap: _NameMap = [
+    0: .same(proto: "RETENTION_UNKNOWN"),
+    1: .same(proto: "RETENTION_RUNTIME"),
+    2: .same(proto: "RETENTION_SOURCE"),
+  ]
+}
+
+extension Google_Protobuf_FieldOptions.OptionTargetType: _ProtoNameProviding {
+  public static let _protobuf_nameMap: _NameMap = [
+    0: .same(proto: "TARGET_TYPE_UNKNOWN"),
+    1: .same(proto: "TARGET_TYPE_FILE"),
+    2: .same(proto: "TARGET_TYPE_EXTENSION_RANGE"),
+    3: .same(proto: "TARGET_TYPE_MESSAGE"),
+    4: .same(proto: "TARGET_TYPE_FIELD"),
+    5: .same(proto: "TARGET_TYPE_ONEOF"),
+    6: .same(proto: "TARGET_TYPE_ENUM"),
+    7: .same(proto: "TARGET_TYPE_ENUM_ENTRY"),
+    8: .same(proto: "TARGET_TYPE_SERVICE"),
+    9: .same(proto: "TARGET_TYPE_METHOD"),
   ]
 }
 
@@ -3473,6 +3642,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
   public static let _protobuf_nameMap: _NameMap = [
     2: .standard(proto: "allow_alias"),
     3: .same(proto: "deprecated"),
+    6: .standard(proto: "deprecated_legacy_json_field_conflicts"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3490,6 +3660,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
       switch fieldNumber {
       case 2: try { try decoder.decodeSingularBoolField(value: &self._allowAlias) }()
       case 3: try { try decoder.decodeSingularBoolField(value: &self._deprecated) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self._deprecatedLegacyJsonFieldConflicts) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber) }()
@@ -3509,6 +3680,9 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
     try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
     } }()
+    try { if let v = self._deprecatedLegacyJsonFieldConflicts {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3519,6 +3693,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
   public static func ==(lhs: Google_Protobuf_EnumOptions, rhs: Google_Protobuf_EnumOptions) -> Bool {
     if lhs._allowAlias != rhs._allowAlias {return false}
     if lhs._deprecated != rhs._deprecated {return false}
+    if lhs._deprecatedLegacyJsonFieldConflicts != rhs._deprecatedLegacyJsonFieldConflicts {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
