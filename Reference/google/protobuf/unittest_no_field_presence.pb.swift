@@ -215,7 +215,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
 
   /// N.B.: proto2-enum-type fields not allowed, because their default values
   /// might not be zero.
-  ///optional protobuf_unittest.ForeignEnum          optional_proto2_enum     = 23;
+  /// optional protobuf_unittest.ForeignEnum          optional_proto2_enum     =
+  /// 23;
   var optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum {
     get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
