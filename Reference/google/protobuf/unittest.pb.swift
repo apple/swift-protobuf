@@ -1280,32 +1280,49 @@ struct ProtobufUnittest_TestDeprecatedFields {
   // methods supported on all messages.
 
   var deprecatedInt32: Int32 {
-    get {return _deprecatedInt32 ?? 0}
-    set {_deprecatedInt32 = newValue}
+    get {return _storage._deprecatedInt32 ?? 0}
+    set {_uniqueStorage()._deprecatedInt32 = newValue}
   }
   /// Returns true if `deprecatedInt32` has been explicitly set.
-  var hasDeprecatedInt32: Bool {return self._deprecatedInt32 != nil}
+  var hasDeprecatedInt32: Bool {return _storage._deprecatedInt32 != nil}
   /// Clears the value of `deprecatedInt32`. Subsequent reads from it will return its default value.
-  mutating func clearDeprecatedInt32() {self._deprecatedInt32 = nil}
+  mutating func clearDeprecatedInt32() {_uniqueStorage()._deprecatedInt32 = nil}
+
+  var deprecatedRepeatedString: [String] {
+    get {return _storage._deprecatedRepeatedString}
+    set {_uniqueStorage()._deprecatedRepeatedString = newValue}
+  }
 
   var deprecatedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
-    get {return _deprecatedMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
-    set {_deprecatedMessage = newValue}
+    get {return _storage._deprecatedMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
+    set {_uniqueStorage()._deprecatedMessage = newValue}
   }
   /// Returns true if `deprecatedMessage` has been explicitly set.
-  var hasDeprecatedMessage: Bool {return self._deprecatedMessage != nil}
+  var hasDeprecatedMessage: Bool {return _storage._deprecatedMessage != nil}
   /// Clears the value of `deprecatedMessage`. Subsequent reads from it will return its default value.
-  mutating func clearDeprecatedMessage() {self._deprecatedMessage = nil}
+  mutating func clearDeprecatedMessage() {_uniqueStorage()._deprecatedMessage = nil}
 
-  var oneofFields: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields? = nil
+  var oneofFields: OneOf_OneofFields? {
+    get {return _storage._oneofFields}
+    set {_uniqueStorage()._oneofFields = newValue}
+  }
 
   var deprecatedInt32InOneof: Int32 {
     get {
-      if case .deprecatedInt32InOneof(let v)? = oneofFields {return v}
+      if case .deprecatedInt32InOneof(let v)? = _storage._oneofFields {return v}
       return 0
     }
-    set {oneofFields = .deprecatedInt32InOneof(newValue)}
+    set {_uniqueStorage()._oneofFields = .deprecatedInt32InOneof(newValue)}
   }
+
+  var nested: ProtobufUnittest_TestDeprecatedFields {
+    get {return _storage._nested ?? ProtobufUnittest_TestDeprecatedFields()}
+    set {_uniqueStorage()._nested = newValue}
+  }
+  /// Returns true if `nested` has been explicitly set.
+  var hasNested: Bool {return _storage._nested != nil}
+  /// Clears the value of `nested`. Subsequent reads from it will return its default value.
+  mutating func clearNested() {_uniqueStorage()._nested = nil}
 
   var unknownFields = SwiftProtobufCore.UnknownStorage()
 
@@ -1316,8 +1333,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
 
   init() {}
 
-  fileprivate var _deprecatedInt32: Int32? = nil
-  fileprivate var _deprecatedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestDeprecatedMessage {
@@ -4271,16 +4287,37 @@ struct ProtobufUnittest_TestRequiredOneof {
     set {foo = .fooMessage(newValue)}
   }
 
+  var fooLazyMessage: ProtobufUnittest_TestRequiredOneof.NestedMessage {
+    get {
+      if case .fooLazyMessage(let v)? = foo {return v}
+      return ProtobufUnittest_TestRequiredOneof.NestedMessage()
+    }
+    set {foo = .fooLazyMessage(newValue)}
+  }
+
   var unknownFields = SwiftProtobufCore.UnknownStorage()
 
   enum OneOf_Foo: Equatable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
+    case fooLazyMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
 
     fileprivate var isInitialized: Bool {
-      guard case .fooMessage(let v) = self else {return true}
-      return v.isInitialized
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch self {
+      case .fooMessage: return {
+        guard case .fooMessage(let v) = self else { preconditionFailure() }
+        return v.isInitialized
+      }()
+      case .fooLazyMessage: return {
+        guard case .fooLazyMessage(let v) = self else { preconditionFailure() }
+        return v.isInitialized
+      }()
+      default: return true
+      }
     }
 
   }
@@ -6832,6 +6869,58 @@ struct ProtobufUnittest_StringParseTester {
   fileprivate var _optionalStringHifield: String? = nil
 }
 
+struct ProtobufUnittest_BadFieldNames {
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt32: Int32 {
+    get {return _optionalInt32 ?? 0}
+    set {_optionalInt32 = newValue}
+  }
+  /// Returns true if `optionalInt32` has been explicitly set.
+  var hasOptionalInt32: Bool {return self._optionalInt32 != nil}
+  /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32() {self._optionalInt32 = nil}
+
+  var `for`: Int32 {
+    get {return _for ?? 0}
+    set {_for = newValue}
+  }
+  /// Returns true if ``for`` has been explicitly set.
+  var hasFor: Bool {return self._for != nil}
+  /// Clears the value of ``for``. Subsequent reads from it will return its default value.
+  mutating func clearFor() {self._for = nil}
+
+  var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalInt32: Int32? = nil
+  fileprivate var _for: Int32? = nil
+}
+
+struct ProtobufUnittest_RedactedFields {
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalRedactedString: String {
+    get {return _optionalRedactedString ?? String()}
+    set {_optionalRedactedString = newValue}
+  }
+  /// Returns true if `optionalRedactedString` has been explicitly set.
+  var hasOptionalRedactedString: Bool {return self._optionalRedactedString != nil}
+  /// Clears the value of `optionalRedactedString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRedactedString() {self._optionalRedactedString = nil}
+
+  var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalRedactedString: String? = nil
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestAllTypes: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
@@ -6968,6 +7057,8 @@ extension ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested: @unchecked Sen
 extension ProtobufUnittest_EnumParseTester: @unchecked Sendable {}
 extension ProtobufUnittest_BoolParseTester: @unchecked Sendable {}
 extension ProtobufUnittest_StringParseTester: @unchecked Sendable {}
+extension ProtobufUnittest_BadFieldNames: @unchecked Sendable {}
+extension ProtobufUnittest_RedactedFields: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest.proto.
@@ -10245,52 +10336,104 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobufCore.Message, Swif
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedFields"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     1: .standard(proto: "deprecated_int32"),
+    4: .standard(proto: "deprecated_repeated_string"),
     3: .standard(proto: "deprecated_message"),
     2: .standard(proto: "deprecated_int32_in_oneof"),
+    5: .same(proto: "nested"),
   ]
 
+  fileprivate class _StorageClass {
+    var _deprecatedInt32: Int32? = nil
+    var _deprecatedRepeatedString: [String] = []
+    var _deprecatedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
+    var _oneofFields: ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields?
+    var _nested: ProtobufUnittest_TestDeprecatedFields? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _deprecatedInt32 = source._deprecatedInt32
+      _deprecatedRepeatedString = source._deprecatedRepeatedString
+      _deprecatedMessage = source._deprecatedMessage
+      _oneofFields = source._oneofFields
+      _nested = source._nested
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self._deprecatedInt32) }()
-      case 2: try {
-        var v: Int32?
-        try decoder.decodeSingularInt32Field(value: &v)
-        if let v = v {
-          if self.oneofFields != nil {try decoder.handleConflictingOneOf()}
-          self.oneofFields = .deprecatedInt32InOneof(v)
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularInt32Field(value: &_storage._deprecatedInt32) }()
+        case 2: try {
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {
+            if _storage._oneofFields != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofFields = .deprecatedInt32InOneof(v)
+          }
+        }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._deprecatedMessage) }()
+        case 4: try { try decoder.decodeRepeatedStringField(value: &_storage._deprecatedRepeatedString) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._nested) }()
+        default: break
         }
-      }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._deprecatedMessage) }()
-      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._deprecatedInt32 {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try { if case .deprecatedInt32InOneof(let v)? = self.oneofFields {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._deprecatedMessage {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._deprecatedInt32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      } }()
+      try { if case .deprecatedInt32InOneof(let v)? = _storage._oneofFields {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._deprecatedMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
+      if !_storage._deprecatedRepeatedString.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._deprecatedRepeatedString, fieldNumber: 4)
+      }
+      try { if let v = _storage._nested {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestDeprecatedFields, rhs: ProtobufUnittest_TestDeprecatedFields) -> Bool {
-    if lhs._deprecatedInt32 != rhs._deprecatedInt32 {return false}
-    if lhs._deprecatedMessage != rhs._deprecatedMessage {return false}
-    if lhs.oneofFields != rhs.oneofFields {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._deprecatedInt32 != rhs_storage._deprecatedInt32 {return false}
+        if _storage._deprecatedRepeatedString != rhs_storage._deprecatedRepeatedString {return false}
+        if _storage._deprecatedMessage != rhs_storage._deprecatedMessage {return false}
+        if _storage._oneofFields != rhs_storage._oneofFields {return false}
+        if _storage._nested != rhs_storage._nested {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -14512,6 +14655,7 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobufCore.Message, SwiftPr
     1: .standard(proto: "foo_int"),
     2: .standard(proto: "foo_string"),
     3: .standard(proto: "foo_message"),
+    4: .standard(proto: "foo_lazy_message"),
   ]
 
   public var isInitialized: Bool {
@@ -14554,6 +14698,19 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobufCore.Message, SwiftPr
           self.foo = .fooMessage(v)
         }
       }()
+      case 4: try {
+        var v: ProtobufUnittest_TestRequiredOneof.NestedMessage?
+        var hadOneofValue = false
+        if let current = self.foo {
+          hadOneofValue = true
+          if case .fooLazyMessage(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.foo = .fooLazyMessage(v)
+        }
+      }()
       default: break
       }
     }
@@ -14576,6 +14733,10 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobufCore.Message, SwiftPr
     case .fooMessage?: try {
       guard case .fooMessage(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
+    case .fooLazyMessage?: try {
+      guard case .fooLazyMessage(let v)? = self.foo else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }()
     case nil: break
     }
@@ -17760,6 +17921,84 @@ extension ProtobufUnittest_StringParseTester: SwiftProtobufCore.Message, SwiftPr
     if lhs.repeatedStringLowfield != rhs.repeatedStringLowfield {return false}
     if lhs.repeatedStringMidfield != rhs.repeatedStringMidfield {return false}
     if lhs.repeatedStringHifield != rhs.repeatedStringHifield {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_BadFieldNames: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".BadFieldNames"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "OptionalInt32"),
+    2: .same(proto: "for"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt32) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._for) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt32 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._for {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_BadFieldNames, rhs: ProtobufUnittest_BadFieldNames) -> Bool {
+    if lhs._optionalInt32 != rhs._optionalInt32 {return false}
+    if lhs._for != rhs._for {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_RedactedFields: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".RedactedFields"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .standard(proto: "optional_redacted_string"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._optionalRedactedString) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalRedactedString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_RedactedFields, rhs: ProtobufUnittest_RedactedFields) -> Bool {
+    if lhs._optionalRedactedString != rhs._optionalRedactedString {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
