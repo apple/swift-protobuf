@@ -140,6 +140,7 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     ///   - protocPath: The path to the `protoc` binary.
     ///   - protocGenSwiftPath: The path to the `protoc-gen-swift` binary.
     ///   - outputDirectory: The output directory for the generated files.
+    ///   - importPaths: List of paths to pass with "-I <path>" to `protoc`
     /// - Returns: The build command.
     private func invokeProtoc(
         target: Target,
