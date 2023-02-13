@@ -64,6 +64,13 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             var fileNaming: FileNaming?
         }
 
+        /// Specify the directory in which to search for
+        /// imports.  May be specified multiple times;
+        /// directories will be searched in order.  If not
+        /// given, the current working directory is used.
+        /// Passed via `protoc -I <path>`
+        var importPaths: [String]?
+
         /// The path to the `protoc` binary.
         ///
         /// If this is not set, SPM will try to find the tool itself.
@@ -88,6 +95,14 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
 
         try validateConfiguration(configuration)
 
+        let importPaths: [Path]
+        if let configuredImportPaths = configuration.importPaths {
+            importPaths = configuredImportPaths.map { Path($0) }
+        } else {
+            // We include the target directory as the default
+            importPaths = [target.directory]
+        }
+
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
         if let configuredProtocPath = configuration.protocPath {
@@ -111,7 +126,8 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
                 invocation: invocation,
                 protocPath: protocPath,
                 protocGenSwiftPath: protocGenSwiftPath,
-                outputDirectory: outputDirectory
+                outputDirectory: outputDirectory,
+                importPaths: importPaths
             )
         }
     }
@@ -130,16 +146,19 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         invocation: Configuration.Invocation,
         protocPath: Path,
         protocGenSwiftPath: Path,
-        outputDirectory: Path
+        outputDirectory: Path,
+        importPaths: [Path]
     ) -> Command {
         // Construct the `protoc` arguments.
         var protocArgs = [
             "--plugin=protoc-gen-swift=\(protocGenSwiftPath)",
             "--swift_out=\(outputDirectory)",
-            // We include the target directory as a proto search path
-            "-I",
-            "\(target.directory)",
         ]
+
+        importPaths.forEach { path in
+            protocArgs.append("-I")
+            protocArgs.append("\(path)")
+        }
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
