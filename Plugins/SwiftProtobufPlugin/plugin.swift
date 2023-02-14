@@ -95,12 +95,9 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
 
         try validateConfiguration(configuration)
 
-        let importPaths: [Path]
+        var importPaths: [Path] = [target.directory]
         if let configuredImportPaths = configuration.importPaths {
-            importPaths = configuredImportPaths.map { Path($0) }
-        } else {
-            // We include the target directory as the default
-            importPaths = [target.directory]
+            importPaths.append(contentsOf: configuredImportPaths.map { Path($0) })
         }
 
         // We need to find the path of protoc and protoc-gen-swift
