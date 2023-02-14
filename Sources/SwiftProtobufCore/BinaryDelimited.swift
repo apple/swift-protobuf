@@ -28,6 +28,10 @@ public enum BinaryDelimited {
     /// While reading/writing to the stream, less than the expected bytes was
     /// read/written.
     case truncated
+
+    /// When decoding (parsing), the length is larger than what will fit in
+    /// an Int for the compiled platform, so the message can't be parsed.
+    case decodeTooLarge
   }
 
   /// Serialize a single size-delimited message from the given stream. Delimited
@@ -155,12 +159,17 @@ public enum BinaryDelimited {
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
-    let length = try Int(decodeVarint(stream))
-    if length == 0 {
+    let unsignedLength = try decodeVarint(stream)
+    if unsignedLength == 0 {
       // The message was all defaults, nothing to actually read.
       return
     }
-
+    guard unsignedLength <= Int.max else {
+      // Due to the trip through an Array below, it has to fit, and Array uses
+      // Int (signed) for Count.
+      throw BinaryDelimited.Error.decodeTooLarge
+    }
+    let length = Int(unsignedLength)
     var data: [UInt8] = Array(repeating: 0, count: length)
     var bytesRead: Int = 0
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
