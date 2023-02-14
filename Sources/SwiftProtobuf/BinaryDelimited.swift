@@ -155,12 +155,18 @@ public enum BinaryDelimited {
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
-    let length = try Int(decodeVarint(stream))
-    if length == 0 {
+    let unsignedLength = try decodeVarint(stream)
+    if unsignedLength == 0 {
       // The message was all defaults, nothing to actually read.
       return
     }
-
+    guard unsignedLength <= Int.max else {
+      // Due to the trip through an Array below, it has to fit, and Array uses
+      // Int (signed) for Count.
+      // Adding a new case is a breaking change, reuse malformedProtobuf.
+      throw BinaryDecodingError.malformedProtobuf
+    }
+    let length = Int(unsignedLength)
     var data = Data(count: length)
     var bytesRead: Int = 0
     data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
