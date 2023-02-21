@@ -18,6 +18,8 @@
 import Foundation
 import XCTest
 
+import SwiftProtobuf
+
 class Test_AllTypes: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllTypes
 
@@ -824,6 +826,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([119])
         assertDecodeFails([119, 0])
 
+        // Ensure strings over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+          114, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+          // Don't need all the bytes, want some to let the length issue trigger.
+          0x01, 0x02, 0x03,
+        ])) {
+          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.malformedProtobuf)
+        }
+
         let empty = MessageTestType()
         var a = empty
         a.optionalString = ""
@@ -939,6 +950,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([127])
         assertDecodeFails([127, 0])
 
+        // Ensure bytes over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+          122, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+          // Don't need all the bytes, want some to let the length issue trigger.
+          0x01, 0x02, 0x03,
+        ])) {
+          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.malformedProtobuf)
+        }
+
         let empty = MessageTestType()
         var a = empty
         a.optionalBytes = Data()
@@ -981,6 +1001,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
         assertDecodeFails([146, 1, 2, 8, 128])
         assertDecodeFails([146, 1, 1, 128])
+
+        // Ensure message field over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+          146, 1, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+          // Don't need all the bytes, want some to let the length issue trigger.
+          0x01, 0x02, 0x03,
+        ])) {
+          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.malformedProtobuf)
+        }
 
         // Ensure storage is uniqued for clear.
         let c = MessageTestType.with {
@@ -1728,6 +1757,16 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         }
         assertDecodeFails([128, 3])
         assertDecodesAsUnknownFields([128, 3, 0])  // Wrong wire type (varint), valid as an unknown field
+
+        // Ensure message field over 2GB fail to decode according to spec.
+        XCTAssertThrowsError(try MessageTestType(serializedBytes: [
+          130, 3, 0xFF, 0xFF, 0xFF, 0xFF, 0x0F,
+          // Don't need all the bytes, want some to let the length issue trigger.
+          0x01, 0x02, 0x03,
+        ])) {
+          XCTAssertEqual($0 as! BinaryDecodingError, BinaryDecodingError.malformedProtobuf)
+        }
+
         assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n") {(o: inout MessageTestType) in
             var m1 = MessageTestType.NestedMessage()
             m1.bb = 1
