@@ -32,6 +32,18 @@ extension Message {
       throw BinaryEncodingError.missingRequiredFields
     }
     let requiredSize = try serializedDataSize()
+
+    // Messages have a 2GB limit in encoded size, the upstread C++ code
+    // (message_lite, etc.) does this enforcement also.
+    // https://protobuf.dev/programming-guides/encoding/#cheat-sheet
+    //
+    // Testing here enables the limit without adding extra conditionals to all
+    // the places that encode message fields (or strings/bytes fields), keeping
+    // the overhead of the check to a minimum.
+    guard requiredSize < 0x7fffffff else {
+      throw BinaryEncodingError.tooLarge
+    }
+
     var data = Data(count: requiredSize)
     try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {

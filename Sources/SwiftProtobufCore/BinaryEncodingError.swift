@@ -24,4 +24,7 @@ public enum BinaryEncodingError: Error {
   /// must pass `partial: true` during encoding if you wish to explicitly ignore
   /// missing required fields.
   case missingRequiredFields
+
+  /// Messages are limited to a maximum of 2GB in encoded size.
+  case tooLarge
 }
