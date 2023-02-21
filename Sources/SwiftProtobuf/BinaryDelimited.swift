@@ -160,9 +160,7 @@ public enum BinaryDelimited {
       // The message was all defaults, nothing to actually read.
       return
     }
-    guard unsignedLength <= Int.max else {
-      // Due to the trip through an Array below, it has to fit, and Array uses
-      // Int (signed) for Count.
+    guard unsignedLength <= 0x7fffffff else {
       // Adding a new case is a breaking change, reuse malformedProtobuf.
       throw BinaryDecodingError.malformedProtobuf
     }
