@@ -51,8 +51,7 @@ GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 # previously installed one), we use a custom output name (-tfiws_out).
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
-# Until the flag isn't needed, add the flag to enable proto3 optional.
-GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos --experimental_allow_proto3_optional
+GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
 
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
@@ -348,9 +347,7 @@ regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT}
 		Protos/fuzz_testing.proto
 
 Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
-	# Until the flag isn't needed, add the flag to enable proto3 optional.
 	@${PROTOC} \
-		--experimental_allow_proto3_optional \
 		--include_imports \
 		--descriptor_set_out=PluginLibDescriptorTestData.bin \
 		-I Protos \
@@ -365,9 +362,7 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
 Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
-	# Until the flag isn't needed, add the flag to enable proto3 optional.
 	@${PROTOC} \
-		--experimental_allow_proto3_optional \
 		--include_imports \
 		--descriptor_set_out=PluginDescriptorTestData.bin \
 		-I Protos \
