@@ -1467,15 +1467,31 @@ internal struct BinaryDecoder: Decoder {
     }
 
     /// Private: Get the start and length for the body of
-    // a length-delimited field.
+    /// a length-delimited field.
     private mutating func getFieldBodyBytes(count: inout Int) throws -> UnsafeRawPointer {
         let length = try decodeVarint()
-        if length <= UInt64(available) {
-            count = Int(length)
-            let body = p
-            consume(length: count)
-            return body
+
+        // Bytes and Strings have a max size of 2GB. And since messages are on
+        // the wire as bytes/length delimited, they also have a 2GB size limit.
+        // The upstream C++ does the same sort of enforcement (see
+        // parse_context, delimited_message_util, message_lite, etc.).
+        // https://protobuf.dev/programming-guides/encoding/#cheat-sheet
+        //
+        // This function does get called in some package decode handling, but
+        // that is length delimited on the wire, so the spec would imply
+        // the limit still applies.
+        guard length < 0x7fffffff else {
+          // Reuse existing error to breaking change of adding new error.
+          throw BinaryDecodingError.malformedProtobuf
         }
-        throw BinaryDecodingError.truncated
+
+        guard length <= UInt64(available) else {
+          throw BinaryDecodingError.truncated
+        }
+
+        count = Int(length)
+        let body = p
+        consume(length: count)
+        return body
     }
 }
