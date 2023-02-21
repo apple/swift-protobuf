@@ -72,8 +72,10 @@ message GeneratedSwiftReservedMessages {
   message clearClientStreaming { int32 clearClientStreaming = 1; }
   message clearCsharpNamespace { int32 clearCsharpNamespace = 1; }
   message clearCtype { int32 clearCtype = 1; }
+  message clearDebugRedact { int32 clearDebugRedact = 1; }
   message clearDefaultValue { int32 clearDefaultValue = 1; }
   message clearDeprecated { int32 clearDeprecated = 1; }
+  message clearDeprecatedLegacyJsonFieldConflicts { int32 clearDeprecatedLegacyJsonFieldConflicts = 1; }
   message clearDoubleValue { int32 clearDoubleValue = 1; }
   message clearEdition { int32 clearEdition = 1; }
   message clearEnd { int32 clearEnd = 1; }
@@ -152,6 +154,7 @@ message GeneratedSwiftReservedMessages {
   message daySec { int32 daySec = 1; }
   message daysSinceEpoch { int32 daysSinceEpoch = 1; }
   message debugDescription { int32 debugDescription = 1; }
+  message debugRedact { int32 debugRedact = 1; }
   message decoded { int32 decoded = 1; }
   message decodedFromJSONNull { int32 decodedFromJSONNull = 1; }
   message decodeExtensionField { int32 decodeExtensionField = 1; }
@@ -203,6 +206,7 @@ message GeneratedSwiftReservedMessages {
   message defaultValue { int32 defaultValue = 1; }
   message dependency { int32 dependency = 1; }
   message deprecated { int32 deprecated = 1; }
+  message deprecatedLegacyJsonFieldConflicts { int32 deprecatedLegacyJsonFieldConflicts = 1; }
   message description { int32 description = 1; }
   message DescriptorProto { int32 DescriptorProto = 1; }
   message Dictionary { int32 Dictionary = 1; }
@@ -374,8 +378,10 @@ message GeneratedSwiftReservedMessages {
   message hasClientStreaming { int32 hasClientStreaming = 1; }
   message hasCsharpNamespace { int32 hasCsharpNamespace = 1; }
   message hasCtype { int32 hasCtype = 1; }
+  message hasDebugRedact { int32 hasDebugRedact = 1; }
   message hasDefaultValue { int32 hasDefaultValue = 1; }
   message hasDeprecated { int32 hasDeprecated = 1; }
+  message hasDeprecatedLegacyJsonFieldConflicts { int32 hasDeprecatedLegacyJsonFieldConflicts = 1; }
   message hasDoubleValue { int32 hasDoubleValue = 1; }
   message hasEdition { int32 hasEdition = 1; }
   message hasEnd { int32 hasEnd = 1; }
@@ -583,7 +589,9 @@ message GeneratedSwiftReservedMessages {
   message OptionalExtensionField { int32 OptionalExtensionField = 1; }
   message OptionalGroupExtensionField { int32 OptionalGroupExtensionField = 1; }
   message OptionalMessageExtensionField { int32 OptionalMessageExtensionField = 1; }
+  message OptionRetention { int32 OptionRetention = 1; }
   message options { int32 options = 1; }
+  message OptionTargetType { int32 OptionTargetType = 1; }
   message other { int32 other = 1; }
   message others { int32 others = 1; }
   message out { int32 out = 1; }
