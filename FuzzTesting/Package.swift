@@ -16,6 +16,9 @@ let package = Package(
             name: "FuzzBinary",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]),
         .target(
+            name: "FuzzBinaryDelimited",
+            dependencies: ["SwiftProtobuf", "FuzzCommon"]),
+        .target(
             name: "FuzzJSON",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]),
         .target(

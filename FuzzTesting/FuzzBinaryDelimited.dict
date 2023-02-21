@@ -1,5 +1,7 @@
 # To generate the data set.
 #   FuzzTesting/make_FuzzBinary_dict Protos/fuzz_testing.proto
+# Yes, this is the same as FuzzBinary.dict to help guide the contents of the
+# messages.
 
 # Tags for all the fields
 "\x51"

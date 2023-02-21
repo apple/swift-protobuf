@@ -31,7 +31,7 @@ OPTIONS:
 EOF
 }
 
-FUZZ_TESTS=("FuzzBinary" "FuzzJSON" "FuzzTextFormat")
+FUZZ_TESTS=("FuzzBinary" "FuzzBinaryDelimited" "FuzzJSON" "FuzzTextFormat")
 CHECK_REGRESSIONS="no"
 # Default to both
 CMD_CONFIGS=("debug" "release")
