@@ -29,9 +29,9 @@ public enum BinaryDelimited {
     /// read/written.
     case truncated
 
-    /// When decoding (parsing), the length is larger than what will fit in
-    /// an Int for the compiled platform, so the message can't be parsed.
-    case decodeTooLarge
+    /// Messages are limited by the protobuf spec to 2GB; when decoding, if the
+    /// length says the payload is over 2GB, this error is raised.
+    case tooLarge
   }
 
   /// Serialize a single size-delimited message from the given stream. Delimited
@@ -164,10 +164,8 @@ public enum BinaryDelimited {
       // The message was all defaults, nothing to actually read.
       return
     }
-    guard unsignedLength <= Int.max else {
-      // Due to the trip through an Array below, it has to fit, and Array uses
-      // Int (signed) for Count.
-      throw BinaryDelimited.Error.decodeTooLarge
+    guard unsignedLength <= 0x7fffffff else {
+      throw BinaryDelimited.Error.tooLarge
     }
     let length = Int(unsignedLength)
     var data: [UInt8] = Array(repeating: 0, count: length)
