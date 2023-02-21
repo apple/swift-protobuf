@@ -2071,6 +2071,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum clearDebugRedact: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneClearDebugRedact // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearDebugRedact
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearDebugRedact
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearDebugRedact: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDebugRedact] = [
+      .noneClearDebugRedact,
+    ]
+
+  }
+
   enum clearDefaultValue: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneClearDefaultValue // = 0
@@ -2127,6 +2157,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated] = [
       .noneClearDeprecated,
+    ]
+
+  }
+
+  enum clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneClearDeprecatedLegacyJsonFieldConflicts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearDeprecatedLegacyJsonFieldConflicts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearDeprecatedLegacyJsonFieldConflicts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearDeprecatedLegacyJsonFieldConflicts: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts] = [
+      .noneClearDeprecatedLegacyJsonFieldConflicts,
     ]
 
   }
@@ -4471,6 +4531,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum debugRedact: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneDebugRedact // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDebugRedact
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDebugRedact
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDebugRedact: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugRedact] = [
+      .noneDebugRedact,
+    ]
+
+  }
+
   enum decoded: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneDecoded // = 0
@@ -5997,6 +6087,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated] = [
       .noneDeprecated,
+    ]
+
+  }
+
+  enum deprecatedLegacyJsonFieldConflicts: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneDeprecatedLegacyJsonFieldConflicts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDeprecatedLegacyJsonFieldConflicts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDeprecatedLegacyJsonFieldConflicts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDeprecatedLegacyJsonFieldConflicts: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts] = [
+      .noneDeprecatedLegacyJsonFieldConflicts,
     ]
 
   }
@@ -11131,6 +11251,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum hasDebugRedact: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneHasDebugRedact // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasDebugRedact
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasDebugRedact
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasDebugRedact: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDebugRedact] = [
+      .noneHasDebugRedact,
+    ]
+
+  }
+
   enum hasDefaultValue: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneHasDefaultValue // = 0
@@ -11187,6 +11337,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated] = [
       .noneHasDeprecated,
+    ]
+
+  }
+
+  enum hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneHasDeprecatedLegacyJsonFieldConflicts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasDeprecatedLegacyJsonFieldConflicts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasDeprecatedLegacyJsonFieldConflicts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasDeprecatedLegacyJsonFieldConflicts: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts] = [
+      .noneHasDeprecatedLegacyJsonFieldConflicts,
     ]
 
   }
@@ -17401,6 +17581,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum OptionRetention: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneOptionRetention // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOptionRetention
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOptionRetention
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOptionRetention: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionRetention] = [
+      .noneOptionRetention,
+    ]
+
+  }
+
   enum options: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneOptions // = 0
@@ -17427,6 +17637,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options] = [
       .noneOptions,
+    ]
+
+  }
+
+  enum OptionTargetType: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneOptionTargetType // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOptionTargetType
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOptionTargetType
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOptionTargetType: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionTargetType] = [
+      .noneOptionTargetType,
     ]
 
   }
@@ -26839,6 +27079,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearCtype: Swif
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDebugRedact: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_clearDebugRedact"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValue: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_clearDefaultValue"),
@@ -26848,6 +27094,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDefaultValu
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecated: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_clearDeprecated"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearDeprecatedLegacyJsonFieldConflicts: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_clearDeprecatedLegacyJsonFieldConflicts"),
   ]
 }
 
@@ -27319,6 +27571,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescription
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugRedact: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_debugRedact"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_decoded"),
@@ -27622,6 +27880,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dependency: Swif
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecated: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_deprecated"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.deprecatedLegacyJsonFieldConflicts: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_deprecatedLegacyJsonFieldConflicts"),
   ]
 }
 
@@ -28651,6 +28915,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasCtype: SwiftP
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDebugRedact: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_hasDebugRedact"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_hasDefaultValue"),
@@ -28660,6 +28930,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDefaultValue:
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecated: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_hasDeprecated"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasDeprecatedLegacyJsonFieldConflicts: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_hasDeprecatedLegacyJsonFieldConflicts"),
   ]
 }
 
@@ -29905,9 +30181,21 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageE
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionRetention: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_OptionRetention"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_options"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionTargetType: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_OptionTargetType"),
   ]
 }
 
