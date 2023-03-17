@@ -2415,6 +2415,11 @@ struct ProtobufUnittest_TestMutualRecursionA {
   /// Clears the value of `subGroup`. Subsequent reads from it will return its default value.
   mutating func clearSubGroup() {_uniqueStorage()._subGroup = nil}
 
+  var subGroupR: [ProtobufUnittest_TestMutualRecursionA.SubGroupR] {
+    get {return _storage._subGroupR}
+    set {_uniqueStorage()._subGroupR = newValue}
+  }
+
   var unknownFields = SwiftProtobufCore.UnknownStorage()
 
   struct SubMessage {
@@ -2467,6 +2472,27 @@ struct ProtobufUnittest_TestMutualRecursionA {
     init() {}
 
     fileprivate var _storage = _StorageClass.defaultInstance
+  }
+
+  struct SubGroupR {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var payload: ProtobufUnittest_TestAllTypes {
+      get {return _payload ?? ProtobufUnittest_TestAllTypes()}
+      set {_payload = newValue}
+    }
+    /// Returns true if `payload` has been explicitly set.
+    var hasPayload: Bool {return self._payload != nil}
+    /// Clears the value of `payload`. Subsequent reads from it will return its default value.
+    mutating func clearPayload() {self._payload = nil}
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _payload: ProtobufUnittest_TestAllTypes? = nil
   }
 
   init() {}
@@ -6285,7 +6311,7 @@ struct ProtobufUnittest_TestVerifyBigFieldNumberUint32 {
 
 /// This message contains different kind of enums to exercise the different
 /// parsers in table-driven.
-struct ProtobufUnittest_EnumParseTester {
+struct ProtobufUnittest_EnumParseTester: SwiftProtobufCore.ExtensibleMessage {
   // SwiftProtobufCore.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6753,12 +6779,13 @@ struct ProtobufUnittest_EnumParseTester {
 
   init() {}
 
+  var _protobuf_extensionFieldValues = SwiftProtobufCore.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// This message contains different kind of bool fields to exercise the different
 /// parsers in table-drived.
-struct ProtobufUnittest_BoolParseTester {
+struct ProtobufUnittest_BoolParseTester: SwiftProtobufCore.ExtensibleMessage {
   // SwiftProtobufCore.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6816,13 +6843,197 @@ struct ProtobufUnittest_BoolParseTester {
 
   init() {}
 
+  var _protobuf_extensionFieldValues = SwiftProtobufCore.ExtensionFieldValueSet()
   fileprivate var _optionalBoolLowfield: Bool? = nil
   fileprivate var _optionalBoolMidfield: Bool? = nil
   fileprivate var _optionalBoolHifield: Bool? = nil
   fileprivate var _otherField: Int32? = nil
 }
 
-struct ProtobufUnittest_StringParseTester {
+struct ProtobufUnittest_Int32ParseTester: SwiftProtobufCore.ExtensibleMessage {
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt32Lowfield: Int32 {
+    get {return _optionalInt32Lowfield ?? 0}
+    set {_optionalInt32Lowfield = newValue}
+  }
+  /// Returns true if `optionalInt32Lowfield` has been explicitly set.
+  var hasOptionalInt32Lowfield: Bool {return self._optionalInt32Lowfield != nil}
+  /// Clears the value of `optionalInt32Lowfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32Lowfield() {self._optionalInt32Lowfield = nil}
+
+  var optionalInt32Midfield: Int32 {
+    get {return _optionalInt32Midfield ?? 0}
+    set {_optionalInt32Midfield = newValue}
+  }
+  /// Returns true if `optionalInt32Midfield` has been explicitly set.
+  var hasOptionalInt32Midfield: Bool {return self._optionalInt32Midfield != nil}
+  /// Clears the value of `optionalInt32Midfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32Midfield() {self._optionalInt32Midfield = nil}
+
+  var optionalInt32Hifield: Int32 {
+    get {return _optionalInt32Hifield ?? 0}
+    set {_optionalInt32Hifield = newValue}
+  }
+  /// Returns true if `optionalInt32Hifield` has been explicitly set.
+  var hasOptionalInt32Hifield: Bool {return self._optionalInt32Hifield != nil}
+  /// Clears the value of `optionalInt32Hifield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32Hifield() {self._optionalInt32Hifield = nil}
+
+  var repeatedInt32Lowfield: [Int32] = []
+
+  var repeatedInt32Midfield: [Int32] = []
+
+  var repeatedInt32Hifield: [Int32] = []
+
+  var packedInt32Lowfield: [Int32] = []
+
+  var packedInt32Midfield: [Int32] = []
+
+  var packedInt32Hifield: [Int32] = []
+
+  /// An arbitrary field we can append to to break the runs of repeated fields.
+  var otherField: Int32 {
+    get {return _otherField ?? 0}
+    set {_otherField = newValue}
+  }
+  /// Returns true if `otherField` has been explicitly set.
+  var hasOtherField: Bool {return self._otherField != nil}
+  /// Clears the value of `otherField`. Subsequent reads from it will return its default value.
+  mutating func clearOtherField() {self._otherField = nil}
+
+  var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobufCore.ExtensionFieldValueSet()
+  fileprivate var _optionalInt32Lowfield: Int32? = nil
+  fileprivate var _optionalInt32Midfield: Int32? = nil
+  fileprivate var _optionalInt32Hifield: Int32? = nil
+  fileprivate var _otherField: Int32? = nil
+}
+
+struct ProtobufUnittest_Int64ParseTester: SwiftProtobufCore.ExtensibleMessage {
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalInt64Lowfield: Int64 {
+    get {return _optionalInt64Lowfield ?? 0}
+    set {_optionalInt64Lowfield = newValue}
+  }
+  /// Returns true if `optionalInt64Lowfield` has been explicitly set.
+  var hasOptionalInt64Lowfield: Bool {return self._optionalInt64Lowfield != nil}
+  /// Clears the value of `optionalInt64Lowfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt64Lowfield() {self._optionalInt64Lowfield = nil}
+
+  var optionalInt64Midfield: Int64 {
+    get {return _optionalInt64Midfield ?? 0}
+    set {_optionalInt64Midfield = newValue}
+  }
+  /// Returns true if `optionalInt64Midfield` has been explicitly set.
+  var hasOptionalInt64Midfield: Bool {return self._optionalInt64Midfield != nil}
+  /// Clears the value of `optionalInt64Midfield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt64Midfield() {self._optionalInt64Midfield = nil}
+
+  var optionalInt64Hifield: Int64 {
+    get {return _optionalInt64Hifield ?? 0}
+    set {_optionalInt64Hifield = newValue}
+  }
+  /// Returns true if `optionalInt64Hifield` has been explicitly set.
+  var hasOptionalInt64Hifield: Bool {return self._optionalInt64Hifield != nil}
+  /// Clears the value of `optionalInt64Hifield`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt64Hifield() {self._optionalInt64Hifield = nil}
+
+  var repeatedInt64Lowfield: [Int64] = []
+
+  var repeatedInt64Midfield: [Int64] = []
+
+  var repeatedInt64Hifield: [Int64] = []
+
+  var packedInt64Lowfield: [Int64] = []
+
+  var packedInt64Midfield: [Int64] = []
+
+  var packedInt64Hifield: [Int64] = []
+
+  /// An arbitrary field we can append to to break the runs of repeated fields.
+  var otherField: Int32 {
+    get {return _otherField ?? 0}
+    set {_otherField = newValue}
+  }
+  /// Returns true if `otherField` has been explicitly set.
+  var hasOtherField: Bool {return self._otherField != nil}
+  /// Clears the value of `otherField`. Subsequent reads from it will return its default value.
+  mutating func clearOtherField() {self._otherField = nil}
+
+  var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobufCore.ExtensionFieldValueSet()
+  fileprivate var _optionalInt64Lowfield: Int64? = nil
+  fileprivate var _optionalInt64Midfield: Int64? = nil
+  fileprivate var _optionalInt64Hifield: Int64? = nil
+  fileprivate var _otherField: Int32? = nil
+}
+
+struct ProtobufUnittest_InlinedStringIdxRegressionProto {
+  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// We mix data to make sure aux ids and inlined string idx do not match.
+  /// aux_idx == inlined_string_idx == 1
+  var str1: String {
+    get {return _storage._str1 ?? String()}
+    set {_uniqueStorage()._str1 = newValue}
+  }
+  /// Returns true if `str1` has been explicitly set.
+  var hasStr1: Bool {return _storage._str1 != nil}
+  /// Clears the value of `str1`. Subsequent reads from it will return its default value.
+  mutating func clearStr1() {_uniqueStorage()._str1 = nil}
+
+  /// aux_idx == 2
+  var sub: ProtobufUnittest_InlinedStringIdxRegressionProto {
+    get {return _storage._sub ?? ProtobufUnittest_InlinedStringIdxRegressionProto()}
+    set {_uniqueStorage()._sub = newValue}
+  }
+  /// Returns true if `sub` has been explicitly set.
+  var hasSub: Bool {return _storage._sub != nil}
+  /// Clears the value of `sub`. Subsequent reads from it will return its default value.
+  mutating func clearSub() {_uniqueStorage()._sub = nil}
+
+  /// aux_idx == 3, inlined_string_idx == 2
+  var str2: String {
+    get {return _storage._str2 ?? String()}
+    set {_uniqueStorage()._str2 = newValue}
+  }
+  /// Returns true if `str2` has been explicitly set.
+  var hasStr2: Bool {return _storage._str2 != nil}
+  /// Clears the value of `str2`. Subsequent reads from it will return its default value.
+  mutating func clearStr2() {_uniqueStorage()._str2 = nil}
+
+  /// aux_idx == 4, inlined_string_idx == 3
+  var str3: Data {
+    get {return _storage._str3 ?? Data()}
+    set {_uniqueStorage()._str3 = newValue}
+  }
+  /// Returns true if `str3` has been explicitly set.
+  var hasStr3: Bool {return _storage._str3 != nil}
+  /// Clears the value of `str3`. Subsequent reads from it will return its default value.
+  mutating func clearStr3() {_uniqueStorage()._str3 = nil}
+
+  var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct ProtobufUnittest_StringParseTester: SwiftProtobufCore.ExtensibleMessage {
   // SwiftProtobufCore.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -6864,6 +7075,7 @@ struct ProtobufUnittest_StringParseTester {
 
   init() {}
 
+  var _protobuf_extensionFieldValues = SwiftProtobufCore.ExtensionFieldValueSet()
   fileprivate var _optionalStringLowfield: String? = nil
   fileprivate var _optionalStringMidfield: String? = nil
   fileprivate var _optionalStringHifield: String? = nil
@@ -6964,6 +7176,7 @@ extension ProtobufUnittest_TestRecursiveMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestMutualRecursionA: @unchecked Sendable {}
 extension ProtobufUnittest_TestMutualRecursionA.SubMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestMutualRecursionA.SubGroup: @unchecked Sendable {}
+extension ProtobufUnittest_TestMutualRecursionA.SubGroupR: @unchecked Sendable {}
 extension ProtobufUnittest_TestMutualRecursionB: @unchecked Sendable {}
 extension ProtobufUnittest_TestIsInitialized: @unchecked Sendable {}
 extension ProtobufUnittest_TestIsInitialized.SubMessage: @unchecked Sendable {}
@@ -7056,6 +7269,9 @@ extension ProtobufUnittest_TestVerifyBigFieldNumberUint32: @unchecked Sendable {
 extension ProtobufUnittest_TestVerifyBigFieldNumberUint32.Nested: @unchecked Sendable {}
 extension ProtobufUnittest_EnumParseTester: @unchecked Sendable {}
 extension ProtobufUnittest_BoolParseTester: @unchecked Sendable {}
+extension ProtobufUnittest_Int32ParseTester: @unchecked Sendable {}
+extension ProtobufUnittest_Int64ParseTester: @unchecked Sendable {}
+extension ProtobufUnittest_InlinedStringIdxRegressionProto: @unchecked Sendable {}
 extension ProtobufUnittest_StringParseTester: @unchecked Sendable {}
 extension ProtobufUnittest_BadFieldNames: @unchecked Sendable {}
 extension ProtobufUnittest_RedactedFields: @unchecked Sendable {}
@@ -7069,6 +7285,141 @@ extension ProtobufUnittest_RedactedFields: @unchecked Sendable {}
 // extension fields. The names are based on the extension field name from the proto
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
+
+extension ProtobufUnittest_BoolParseTester {
+
+  var ProtobufUnittest_BoolParseTester_optionalBoolExt: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext`
+  /// has been explicitly set.
+  var hasProtobufUnittest_BoolParseTester_optionalBoolExt: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext)
+  }
+  /// Clears the value of extension `ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_BoolParseTester_optionalBoolExt() {
+    clearExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext)
+  }
+
+  var ProtobufUnittest_BoolParseTester_repeatedBoolExt: [Bool] {
+    get {return getExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.repeated_bool_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.repeated_bool_ext, value: newValue)}
+  }
+
+  var ProtobufUnittest_BoolParseTester_packedBoolExt: [Bool] {
+    get {return getExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.packed_bool_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_BoolParseTester.Extensions.packed_bool_ext, value: newValue)}
+  }
+}
+
+extension ProtobufUnittest_EnumParseTester {
+
+  var ProtobufUnittest_EnumParseTester_optionalArbitraryExt: ProtobufUnittest_EnumParseTester.Arbitrary {
+    get {return getExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext) ?? .default}
+    set {setExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext`
+  /// has been explicitly set.
+  var hasProtobufUnittest_EnumParseTester_optionalArbitraryExt: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext)
+  }
+  /// Clears the value of extension `ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_EnumParseTester_optionalArbitraryExt() {
+    clearExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext)
+  }
+
+  var ProtobufUnittest_EnumParseTester_repeatedArbitraryExt: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return getExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.repeated_arbitrary_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.repeated_arbitrary_ext, value: newValue)}
+  }
+
+  var ProtobufUnittest_EnumParseTester_packedArbitraryExt: [ProtobufUnittest_EnumParseTester.Arbitrary] {
+    get {return getExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.packed_arbitrary_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_EnumParseTester.Extensions.packed_arbitrary_ext, value: newValue)}
+  }
+}
+
+extension ProtobufUnittest_Int32ParseTester {
+
+  var ProtobufUnittest_Int32ParseTester_optionalInt32Ext: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext`
+  /// has been explicitly set.
+  var hasProtobufUnittest_Int32ParseTester_optionalInt32Ext: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_Int32ParseTester_optionalInt32Ext() {
+    clearExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext)
+  }
+
+  var ProtobufUnittest_Int32ParseTester_repeatedInt32Ext: [Int32] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.repeated_int32_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.repeated_int32_ext, value: newValue)}
+  }
+
+  var ProtobufUnittest_Int32ParseTester_packedInt32Ext: [Int32] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.packed_int32_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_Int32ParseTester.Extensions.packed_int32_ext, value: newValue)}
+  }
+}
+
+extension ProtobufUnittest_Int64ParseTester {
+
+  var ProtobufUnittest_Int64ParseTester_optionalInt64Ext: Int64 {
+    get {return getExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext`
+  /// has been explicitly set.
+  var hasProtobufUnittest_Int64ParseTester_optionalInt64Ext: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext)
+  }
+  /// Clears the value of extension `ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_Int64ParseTester_optionalInt64Ext() {
+    clearExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext)
+  }
+
+  var ProtobufUnittest_Int64ParseTester_repeatedInt64Ext: [Int64] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.repeated_int64_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.repeated_int64_ext, value: newValue)}
+  }
+
+  var ProtobufUnittest_Int64ParseTester_packedInt64Ext: [Int64] {
+    get {return getExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.packed_int64_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_Int64ParseTester.Extensions.packed_int64_ext, value: newValue)}
+  }
+}
+
+extension ProtobufUnittest_StringParseTester {
+
+  var ProtobufUnittest_StringParseTester_optionalStringExt: String {
+    get {return getExtensionValue(ext: ProtobufUnittest_StringParseTester.Extensions.optional_string_ext) ?? String()}
+    set {setExtensionValue(ext: ProtobufUnittest_StringParseTester.Extensions.optional_string_ext, value: newValue)}
+  }
+  /// Returns true if extension `ProtobufUnittest_StringParseTester.Extensions.optional_string_ext`
+  /// has been explicitly set.
+  var hasProtobufUnittest_StringParseTester_optionalStringExt: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_StringParseTester.Extensions.optional_string_ext)
+  }
+  /// Clears the value of extension `ProtobufUnittest_StringParseTester.Extensions.optional_string_ext`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearProtobufUnittest_StringParseTester_optionalStringExt() {
+    clearExtensionValue(ext: ProtobufUnittest_StringParseTester.Extensions.optional_string_ext)
+  }
+
+  var ProtobufUnittest_StringParseTester_repeatedStringExt: [String] {
+    get {return getExtensionValue(ext: ProtobufUnittest_StringParseTester.Extensions.repeated_string_ext) ?? []}
+    set {setExtensionValue(ext: ProtobufUnittest_StringParseTester.Extensions.repeated_string_ext, value: newValue)}
+  }
+}
 
 extension ProtobufUnittest_TestAllExtensions {
 
@@ -8590,7 +8941,21 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobufCore.SimpleExtensionMap =
   ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_two,
   ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_three,
   ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_four,
-  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five
+  ProtobufUnittest_TestExtensionRangeSerialize.Extensions.bar_five,
+  ProtobufUnittest_EnumParseTester.Extensions.optional_arbitrary_ext,
+  ProtobufUnittest_EnumParseTester.Extensions.repeated_arbitrary_ext,
+  ProtobufUnittest_EnumParseTester.Extensions.packed_arbitrary_ext,
+  ProtobufUnittest_BoolParseTester.Extensions.optional_bool_ext,
+  ProtobufUnittest_BoolParseTester.Extensions.repeated_bool_ext,
+  ProtobufUnittest_BoolParseTester.Extensions.packed_bool_ext,
+  ProtobufUnittest_Int32ParseTester.Extensions.optional_int32_ext,
+  ProtobufUnittest_Int32ParseTester.Extensions.repeated_int32_ext,
+  ProtobufUnittest_Int32ParseTester.Extensions.packed_int32_ext,
+  ProtobufUnittest_Int64ParseTester.Extensions.optional_int64_ext,
+  ProtobufUnittest_Int64ParseTester.Extensions.repeated_int64_ext,
+  ProtobufUnittest_Int64ParseTester.Extensions.packed_int64_ext,
+  ProtobufUnittest_StringParseTester.Extensions.optional_string_ext,
+  ProtobufUnittest_StringParseTester.Extensions.repeated_string_ext
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
@@ -9268,6 +9633,96 @@ extension ProtobufUnittest_TestExtensionRangeSerialize {
     static let bar_five = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.OptionalExtensionField<SwiftProtobufCore.ProtobufInt32>, ProtobufUnittest_TestExtensionRangeSerialize>(
       _protobuf_fieldNumber: 19,
       fieldName: "protobuf_unittest.TestExtensionRangeSerialize.bar_five"
+    )
+  }
+}
+
+extension ProtobufUnittest_EnumParseTester {
+  enum Extensions {
+    static let optional_arbitrary_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.OptionalEnumExtensionField<ProtobufUnittest_EnumParseTester.Arbitrary>, ProtobufUnittest_EnumParseTester>(
+      _protobuf_fieldNumber: 2000000,
+      fieldName: "protobuf_unittest.EnumParseTester.optional_arbitrary_ext"
+    )
+
+    static let repeated_arbitrary_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.RepeatedEnumExtensionField<ProtobufUnittest_EnumParseTester.Arbitrary>, ProtobufUnittest_EnumParseTester>(
+      _protobuf_fieldNumber: 2000001,
+      fieldName: "protobuf_unittest.EnumParseTester.repeated_arbitrary_ext"
+    )
+
+    static let packed_arbitrary_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.PackedEnumExtensionField<ProtobufUnittest_EnumParseTester.Arbitrary>, ProtobufUnittest_EnumParseTester>(
+      _protobuf_fieldNumber: 2000002,
+      fieldName: "protobuf_unittest.EnumParseTester.packed_arbitrary_ext"
+    )
+  }
+}
+
+extension ProtobufUnittest_BoolParseTester {
+  enum Extensions {
+    static let optional_bool_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.OptionalExtensionField<SwiftProtobufCore.ProtobufBool>, ProtobufUnittest_BoolParseTester>(
+      _protobuf_fieldNumber: 2000000,
+      fieldName: "protobuf_unittest.BoolParseTester.optional_bool_ext"
+    )
+
+    static let repeated_bool_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.RepeatedExtensionField<SwiftProtobufCore.ProtobufBool>, ProtobufUnittest_BoolParseTester>(
+      _protobuf_fieldNumber: 2000001,
+      fieldName: "protobuf_unittest.BoolParseTester.repeated_bool_ext"
+    )
+
+    static let packed_bool_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.PackedExtensionField<SwiftProtobufCore.ProtobufBool>, ProtobufUnittest_BoolParseTester>(
+      _protobuf_fieldNumber: 2000002,
+      fieldName: "protobuf_unittest.BoolParseTester.packed_bool_ext"
+    )
+  }
+}
+
+extension ProtobufUnittest_Int32ParseTester {
+  enum Extensions {
+    static let optional_int32_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.OptionalExtensionField<SwiftProtobufCore.ProtobufInt32>, ProtobufUnittest_Int32ParseTester>(
+      _protobuf_fieldNumber: 2000000,
+      fieldName: "protobuf_unittest.Int32ParseTester.optional_int32_ext"
+    )
+
+    static let repeated_int32_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.RepeatedExtensionField<SwiftProtobufCore.ProtobufInt32>, ProtobufUnittest_Int32ParseTester>(
+      _protobuf_fieldNumber: 2000001,
+      fieldName: "protobuf_unittest.Int32ParseTester.repeated_int32_ext"
+    )
+
+    static let packed_int32_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.PackedExtensionField<SwiftProtobufCore.ProtobufInt32>, ProtobufUnittest_Int32ParseTester>(
+      _protobuf_fieldNumber: 2000002,
+      fieldName: "protobuf_unittest.Int32ParseTester.packed_int32_ext"
+    )
+  }
+}
+
+extension ProtobufUnittest_Int64ParseTester {
+  enum Extensions {
+    static let optional_int64_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.OptionalExtensionField<SwiftProtobufCore.ProtobufInt64>, ProtobufUnittest_Int64ParseTester>(
+      _protobuf_fieldNumber: 2000000,
+      fieldName: "protobuf_unittest.Int64ParseTester.optional_int64_ext"
+    )
+
+    static let repeated_int64_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.RepeatedExtensionField<SwiftProtobufCore.ProtobufInt64>, ProtobufUnittest_Int64ParseTester>(
+      _protobuf_fieldNumber: 2000001,
+      fieldName: "protobuf_unittest.Int64ParseTester.repeated_int64_ext"
+    )
+
+    static let packed_int64_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.PackedExtensionField<SwiftProtobufCore.ProtobufInt64>, ProtobufUnittest_Int64ParseTester>(
+      _protobuf_fieldNumber: 2000002,
+      fieldName: "protobuf_unittest.Int64ParseTester.packed_int64_ext"
+    )
+  }
+}
+
+extension ProtobufUnittest_StringParseTester {
+  enum Extensions {
+    static let optional_string_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.OptionalExtensionField<SwiftProtobufCore.ProtobufString>, ProtobufUnittest_StringParseTester>(
+      _protobuf_fieldNumber: 2000000,
+      fieldName: "protobuf_unittest.StringParseTester.optional_string_ext"
+    )
+
+    static let repeated_string_ext = SwiftProtobufCore.MessageExtension<SwiftProtobufCore.RepeatedExtensionField<SwiftProtobufCore.ProtobufString>, ProtobufUnittest_StringParseTester>(
+      _protobuf_fieldNumber: 2000001,
+      fieldName: "protobuf_unittest.StringParseTester.repeated_string_ext"
     )
   }
 }
@@ -11984,11 +12439,13 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobufCore.Message, Swif
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     1: .same(proto: "bb"),
     2: .unique(proto: "SubGroup", json: "subgroup"),
+    5: .unique(proto: "SubGroupR", json: "subgroupr"),
   ]
 
   fileprivate class _StorageClass {
     var _bb: ProtobufUnittest_TestMutualRecursionB? = nil
     var _subGroup: ProtobufUnittest_TestMutualRecursionA.SubGroup? = nil
+    var _subGroupR: [ProtobufUnittest_TestMutualRecursionA.SubGroupR] = []
 
     static let defaultInstance = _StorageClass()
 
@@ -11997,6 +12454,7 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobufCore.Message, Swif
     init(copying source: _StorageClass) {
       _bb = source._bb
       _subGroup = source._subGroup
+      _subGroupR = source._subGroupR
     }
   }
 
@@ -12017,6 +12475,7 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobufCore.Message, Swif
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._bb) }()
         case 2: try { try decoder.decodeSingularGroupField(value: &_storage._subGroup) }()
+        case 5: try { try decoder.decodeRepeatedGroupField(value: &_storage._subGroupR) }()
         default: break
         }
       }
@@ -12035,6 +12494,9 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobufCore.Message, Swif
       try { if let v = _storage._subGroup {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
       } }()
+      if !_storage._subGroupR.isEmpty {
+        try visitor.visitRepeatedGroupField(value: _storage._subGroupR, fieldNumber: 5)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12046,6 +12508,7 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobufCore.Message, Swif
         let rhs_storage = _args.1
         if _storage._bb != rhs_storage._bb {return false}
         if _storage._subGroup != rhs_storage._subGroup {return false}
+        if _storage._subGroupR != rhs_storage._subGroupR {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -12194,6 +12657,42 @@ extension ProtobufUnittest_TestMutualRecursionA.SubGroup: SwiftProtobufCore.Mess
       }
       if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMutualRecursionA.SubGroupR: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittest_TestMutualRecursionA.protoMessageName + ".SubGroupR"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    6: .same(proto: "payload"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._payload) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._payload {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMutualRecursionA.SubGroupR, rhs: ProtobufUnittest_TestMutualRecursionA.SubGroupR) -> Bool {
+    if lhs._payload != rhs._payload {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -17480,6 +17979,11 @@ extension ProtobufUnittest_EnumParseTester: SwiftProtobufCore.Message, SwiftProt
     return _storage
   }
 
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
@@ -17525,6 +18029,8 @@ extension ProtobufUnittest_EnumParseTester: SwiftProtobufCore.Message, SwiftProt
         case 1000010: try { try decoder.decodeSingularEnumField(value: &_storage._optionalArbitraryHifield) }()
         case 1000011: try { try decoder.decodeRepeatedEnumField(value: &_storage._repeatedArbitraryHifield) }()
         case 1000012: try { try decoder.decodeRepeatedEnumField(value: &_storage._packedArbitraryHifield) }()
+        case 2000000..<536870912:
+          try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_EnumParseTester.self, fieldNumber: fieldNumber) }()
         default: break
         }
       }
@@ -17648,6 +18154,7 @@ extension ProtobufUnittest_EnumParseTester: SwiftProtobufCore.Message, SwiftProt
       if !_storage._packedArbitraryHifield.isEmpty {
         try visitor.visitPackedEnumField(value: _storage._packedArbitraryHifield, fieldNumber: 1000012)
       }
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2000000, end: 536870912)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -17699,6 +18206,7 @@ extension ProtobufUnittest_EnumParseTester: SwiftProtobufCore.Message, SwiftProt
       if !storagesAreEqual {return false}
     }
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
@@ -17785,6 +18293,11 @@ extension ProtobufUnittest_BoolParseTester: SwiftProtobufCore.Message, SwiftProt
     99: .standard(proto: "other_field"),
   ]
 
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
@@ -17801,6 +18314,8 @@ extension ProtobufUnittest_BoolParseTester: SwiftProtobufCore.Message, SwiftProt
       case 1000001: try { try decoder.decodeSingularBoolField(value: &self._optionalBoolHifield) }()
       case 1000002: try { try decoder.decodeRepeatedBoolField(value: &self.repeatedBoolHifield) }()
       case 1000003: try { try decoder.decodeRepeatedBoolField(value: &self.packedBoolHifield) }()
+      case 2000000..<536870912:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_BoolParseTester.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -17841,6 +18356,7 @@ extension ProtobufUnittest_BoolParseTester: SwiftProtobufCore.Message, SwiftProt
     if !self.packedBoolHifield.isEmpty {
       try visitor.visitPackedBoolField(value: self.packedBoolHifield, fieldNumber: 1000003)
     }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2000000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -17855,6 +18371,297 @@ extension ProtobufUnittest_BoolParseTester: SwiftProtobufCore.Message, SwiftProt
     if lhs.packedBoolMidfield != rhs.packedBoolMidfield {return false}
     if lhs.packedBoolHifield != rhs.packedBoolHifield {return false}
     if lhs._otherField != rhs._otherField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Int32ParseTester: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Int32ParseTester"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .standard(proto: "optional_int32_lowfield"),
+    1001: .standard(proto: "optional_int32_midfield"),
+    1000001: .standard(proto: "optional_int32_hifield"),
+    2: .standard(proto: "repeated_int32_lowfield"),
+    1002: .standard(proto: "repeated_int32_midfield"),
+    1000002: .standard(proto: "repeated_int32_hifield"),
+    3: .standard(proto: "packed_int32_lowfield"),
+    1003: .standard(proto: "packed_int32_midfield"),
+    1000003: .standard(proto: "packed_int32_hifield"),
+    99: .standard(proto: "other_field"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt32Lowfield) }()
+      case 2: try { try decoder.decodeRepeatedInt32Field(value: &self.repeatedInt32Lowfield) }()
+      case 3: try { try decoder.decodeRepeatedInt32Field(value: &self.packedInt32Lowfield) }()
+      case 99: try { try decoder.decodeSingularInt32Field(value: &self._otherField) }()
+      case 1001: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt32Midfield) }()
+      case 1002: try { try decoder.decodeRepeatedInt32Field(value: &self.repeatedInt32Midfield) }()
+      case 1003: try { try decoder.decodeRepeatedInt32Field(value: &self.packedInt32Midfield) }()
+      case 1000001: try { try decoder.decodeSingularInt32Field(value: &self._optionalInt32Hifield) }()
+      case 1000002: try { try decoder.decodeRepeatedInt32Field(value: &self.repeatedInt32Hifield) }()
+      case 1000003: try { try decoder.decodeRepeatedInt32Field(value: &self.packedInt32Hifield) }()
+      case 2000000..<536870912:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_Int32ParseTester.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt32Lowfield {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    if !self.repeatedInt32Lowfield.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.repeatedInt32Lowfield, fieldNumber: 2)
+    }
+    if !self.packedInt32Lowfield.isEmpty {
+      try visitor.visitPackedInt32Field(value: self.packedInt32Lowfield, fieldNumber: 3)
+    }
+    try { if let v = self._otherField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
+    } }()
+    try { if let v = self._optionalInt32Midfield {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1001)
+    } }()
+    if !self.repeatedInt32Midfield.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.repeatedInt32Midfield, fieldNumber: 1002)
+    }
+    if !self.packedInt32Midfield.isEmpty {
+      try visitor.visitPackedInt32Field(value: self.packedInt32Midfield, fieldNumber: 1003)
+    }
+    try { if let v = self._optionalInt32Hifield {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1000001)
+    } }()
+    if !self.repeatedInt32Hifield.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.repeatedInt32Hifield, fieldNumber: 1000002)
+    }
+    if !self.packedInt32Hifield.isEmpty {
+      try visitor.visitPackedInt32Field(value: self.packedInt32Hifield, fieldNumber: 1000003)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2000000, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_Int32ParseTester, rhs: ProtobufUnittest_Int32ParseTester) -> Bool {
+    if lhs._optionalInt32Lowfield != rhs._optionalInt32Lowfield {return false}
+    if lhs._optionalInt32Midfield != rhs._optionalInt32Midfield {return false}
+    if lhs._optionalInt32Hifield != rhs._optionalInt32Hifield {return false}
+    if lhs.repeatedInt32Lowfield != rhs.repeatedInt32Lowfield {return false}
+    if lhs.repeatedInt32Midfield != rhs.repeatedInt32Midfield {return false}
+    if lhs.repeatedInt32Hifield != rhs.repeatedInt32Hifield {return false}
+    if lhs.packedInt32Lowfield != rhs.packedInt32Lowfield {return false}
+    if lhs.packedInt32Midfield != rhs.packedInt32Midfield {return false}
+    if lhs.packedInt32Hifield != rhs.packedInt32Hifield {return false}
+    if lhs._otherField != rhs._otherField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Int64ParseTester: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Int64ParseTester"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .standard(proto: "optional_int64_lowfield"),
+    1001: .standard(proto: "optional_int64_midfield"),
+    1000001: .standard(proto: "optional_int64_hifield"),
+    2: .standard(proto: "repeated_int64_lowfield"),
+    1002: .standard(proto: "repeated_int64_midfield"),
+    1000002: .standard(proto: "repeated_int64_hifield"),
+    3: .standard(proto: "packed_int64_lowfield"),
+    1003: .standard(proto: "packed_int64_midfield"),
+    1000003: .standard(proto: "packed_int64_hifield"),
+    99: .standard(proto: "other_field"),
+  ]
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt64Lowfield) }()
+      case 2: try { try decoder.decodeRepeatedInt64Field(value: &self.repeatedInt64Lowfield) }()
+      case 3: try { try decoder.decodeRepeatedInt64Field(value: &self.packedInt64Lowfield) }()
+      case 99: try { try decoder.decodeSingularInt32Field(value: &self._otherField) }()
+      case 1001: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt64Midfield) }()
+      case 1002: try { try decoder.decodeRepeatedInt64Field(value: &self.repeatedInt64Midfield) }()
+      case 1003: try { try decoder.decodeRepeatedInt64Field(value: &self.packedInt64Midfield) }()
+      case 1000001: try { try decoder.decodeSingularInt64Field(value: &self._optionalInt64Hifield) }()
+      case 1000002: try { try decoder.decodeRepeatedInt64Field(value: &self.repeatedInt64Hifield) }()
+      case 1000003: try { try decoder.decodeRepeatedInt64Field(value: &self.packedInt64Hifield) }()
+      case 2000000..<536870912:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_Int64ParseTester.self, fieldNumber: fieldNumber) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalInt64Lowfield {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
+    } }()
+    if !self.repeatedInt64Lowfield.isEmpty {
+      try visitor.visitRepeatedInt64Field(value: self.repeatedInt64Lowfield, fieldNumber: 2)
+    }
+    if !self.packedInt64Lowfield.isEmpty {
+      try visitor.visitPackedInt64Field(value: self.packedInt64Lowfield, fieldNumber: 3)
+    }
+    try { if let v = self._otherField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
+    } }()
+    try { if let v = self._optionalInt64Midfield {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1001)
+    } }()
+    if !self.repeatedInt64Midfield.isEmpty {
+      try visitor.visitRepeatedInt64Field(value: self.repeatedInt64Midfield, fieldNumber: 1002)
+    }
+    if !self.packedInt64Midfield.isEmpty {
+      try visitor.visitPackedInt64Field(value: self.packedInt64Midfield, fieldNumber: 1003)
+    }
+    try { if let v = self._optionalInt64Hifield {
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1000001)
+    } }()
+    if !self.repeatedInt64Hifield.isEmpty {
+      try visitor.visitRepeatedInt64Field(value: self.repeatedInt64Hifield, fieldNumber: 1000002)
+    }
+    if !self.packedInt64Hifield.isEmpty {
+      try visitor.visitPackedInt64Field(value: self.packedInt64Hifield, fieldNumber: 1000003)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2000000, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_Int64ParseTester, rhs: ProtobufUnittest_Int64ParseTester) -> Bool {
+    if lhs._optionalInt64Lowfield != rhs._optionalInt64Lowfield {return false}
+    if lhs._optionalInt64Midfield != rhs._optionalInt64Midfield {return false}
+    if lhs._optionalInt64Hifield != rhs._optionalInt64Hifield {return false}
+    if lhs.repeatedInt64Lowfield != rhs.repeatedInt64Lowfield {return false}
+    if lhs.repeatedInt64Midfield != rhs.repeatedInt64Midfield {return false}
+    if lhs.repeatedInt64Hifield != rhs.repeatedInt64Hifield {return false}
+    if lhs.packedInt64Lowfield != rhs.packedInt64Lowfield {return false}
+    if lhs.packedInt64Midfield != rhs.packedInt64Midfield {return false}
+    if lhs.packedInt64Hifield != rhs.packedInt64Hifield {return false}
+    if lhs._otherField != rhs._otherField {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_InlinedStringIdxRegressionProto: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".InlinedStringIdxRegressionProto"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "str1"),
+    2: .same(proto: "sub"),
+    3: .same(proto: "str2"),
+    4: .same(proto: "str3"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _str1: String? = nil
+    var _sub: ProtobufUnittest_InlinedStringIdxRegressionProto? = nil
+    var _str2: String? = nil
+    var _str3: Data? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _str1 = source._str1
+      _sub = source._sub
+      _str2 = source._str2
+      _str3 = source._str3
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._str1) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._sub) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._str2) }()
+        case 4: try { try decoder.decodeSingularBytesField(value: &_storage._str3) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      try { if let v = _storage._str1 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      } }()
+      try { if let v = _storage._sub {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._str2 {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      } }()
+      try { if let v = _storage._str3 {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 4)
+      } }()
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_InlinedStringIdxRegressionProto, rhs: ProtobufUnittest_InlinedStringIdxRegressionProto) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._str1 != rhs_storage._str1 {return false}
+        if _storage._sub != rhs_storage._sub {return false}
+        if _storage._str2 != rhs_storage._str2 {return false}
+        if _storage._str3 != rhs_storage._str3 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -17871,6 +18678,11 @@ extension ProtobufUnittest_StringParseTester: SwiftProtobufCore.Message, SwiftPr
     1000002: .standard(proto: "repeated_string_hifield"),
   ]
 
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
@@ -17883,6 +18695,8 @@ extension ProtobufUnittest_StringParseTester: SwiftProtobufCore.Message, SwiftPr
       case 1002: try { try decoder.decodeRepeatedStringField(value: &self.repeatedStringMidfield) }()
       case 1000001: try { try decoder.decodeSingularStringField(value: &self._optionalStringHifield) }()
       case 1000002: try { try decoder.decodeRepeatedStringField(value: &self.repeatedStringHifield) }()
+      case 2000000..<536870912:
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_StringParseTester.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -17911,6 +18725,7 @@ extension ProtobufUnittest_StringParseTester: SwiftProtobufCore.Message, SwiftPr
     if !self.repeatedStringHifield.isEmpty {
       try visitor.visitRepeatedStringField(value: self.repeatedStringHifield, fieldNumber: 1000002)
     }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2000000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -17922,6 +18737,7 @@ extension ProtobufUnittest_StringParseTester: SwiftProtobufCore.Message, SwiftPr
     if lhs.repeatedStringMidfield != rhs.repeatedStringMidfield {return false}
     if lhs.repeatedStringHifield != rhs.repeatedStringHifield {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
+    if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }

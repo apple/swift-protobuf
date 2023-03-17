@@ -1417,6 +1417,17 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage {
   /// Clears the value of `debugRedact`. Subsequent reads from it will return its default value.
   mutating func clearDebugRedact() {self._debugRedact = nil}
 
+  var retention: Google_Protobuf_FieldOptions.OptionRetention {
+    get {return _retention ?? .retentionUnknown}
+    set {_retention = newValue}
+  }
+  /// Returns true if `retention` has been explicitly set.
+  var hasRetention: Bool {return self._retention != nil}
+  /// Clears the value of `retention`. Subsequent reads from it will return its default value.
+  mutating func clearRetention() {self._retention = nil}
+
+  var targets: [Google_Protobuf_FieldOptions.OptionTargetType] = []
+
   /// The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -1585,6 +1596,7 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage {
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _weak: Bool? = nil
   fileprivate var _debugRedact: Bool? = nil
+  fileprivate var _retention: Google_Protobuf_FieldOptions.OptionRetention? = nil
 }
 
 struct Google_Protobuf_OneofOptions: ExtensibleMessage {
@@ -3473,6 +3485,8 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     3: .same(proto: "deprecated"),
     10: .same(proto: "weak"),
     16: .standard(proto: "debug_redact"),
+    17: .same(proto: "retention"),
+    18: .same(proto: "targets"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3496,6 +3510,8 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
       case 10: try { try decoder.decodeSingularBoolField(value: &self._weak) }()
       case 15: try { try decoder.decodeSingularBoolField(value: &self._unverifiedLazy) }()
       case 16: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
+      case 17: try { try decoder.decodeSingularEnumField(value: &self._retention) }()
+      case 18: try { try decoder.decodeRepeatedEnumField(value: &self.targets) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
@@ -3533,6 +3549,12 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     try { if let v = self._debugRedact {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 16)
     } }()
+    try { if let v = self._retention {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+    } }()
+    if !self.targets.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.targets, fieldNumber: 18)
+    }
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3549,6 +3571,8 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     if lhs._deprecated != rhs._deprecated {return false}
     if lhs._weak != rhs._weak {return false}
     if lhs._debugRedact != rhs._debugRedact {return false}
+    if lhs._retention != rhs._retention {return false}
+    if lhs.targets != rhs.targets {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}

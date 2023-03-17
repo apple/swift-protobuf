@@ -223,11 +223,21 @@ struct ProtobufUnittest_TestMessageSetExtension3 {
   /// Clears the value of `msg`. Subsequent reads from it will return its default value.
   mutating func clearMsg() {self._msg = nil}
 
+  var requiredInt: Int32 {
+    get {return _requiredInt ?? 0}
+    set {_requiredInt = newValue}
+  }
+  /// Returns true if `requiredInt` has been explicitly set.
+  var hasRequiredInt: Bool {return self._requiredInt != nil}
+  /// Clears the value of `requiredInt`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredInt() {self._requiredInt = nil}
+
   var unknownFields = SwiftProtobufCore.UnknownStorage()
 
   init() {}
 
   fileprivate var _msg: ProtobufUnittest_NestedTestInt? = nil
+  fileprivate var _requiredInt: Int32? = nil
 }
 
 /// MessageSet wire format is equivalent to this.
@@ -692,7 +702,13 @@ extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobufCore.Message, 
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension3"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     35: .same(proto: "msg"),
+    36: .standard(proto: "required_int"),
   ]
+
+  public var isInitialized: Bool {
+    if self._requiredInt == nil {return false}
+    return true
+  }
 
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -701,6 +717,7 @@ extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobufCore.Message, 
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 35: try { try decoder.decodeSingularMessageField(value: &self._msg) }()
+      case 36: try { try decoder.decodeSingularInt32Field(value: &self._requiredInt) }()
       default: break
       }
     }
@@ -714,11 +731,15 @@ extension ProtobufUnittest_TestMessageSetExtension3: SwiftProtobufCore.Message, 
     try { if let v = self._msg {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
     } }()
+    try { if let v = self._requiredInt {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 36)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestMessageSetExtension3, rhs: ProtobufUnittest_TestMessageSetExtension3) -> Bool {
     if lhs._msg != rhs._msg {return false}
+    if lhs._requiredInt != rhs._requiredInt {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

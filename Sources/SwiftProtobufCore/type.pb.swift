@@ -58,6 +58,9 @@ public enum Google_Protobuf_Syntax: Enum {
 
   /// Syntax `proto3`.
   case proto3 // = 1
+
+  /// Syntax `editions`.
+  case editions // = 2
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -68,6 +71,7 @@ public enum Google_Protobuf_Syntax: Enum {
     switch rawValue {
     case 0: self = .proto2
     case 1: self = .proto3
+    case 2: self = .editions
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -76,6 +80,7 @@ public enum Google_Protobuf_Syntax: Enum {
     switch self {
     case .proto2: return 0
     case .proto3: return 1
+    case .editions: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -84,6 +89,7 @@ public enum Google_Protobuf_Syntax: Enum {
   public static let allCases: [Google_Protobuf_Syntax] = [
     .proto2,
     .proto3,
+    .editions,
   ]
 
 }
@@ -118,6 +124,9 @@ public struct Google_Protobuf_Type {
 
   /// The source syntax.
   public var syntax: Google_Protobuf_Syntax = .proto2
+
+  /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
+  public var edition: String = String()
 
   public var unknownFields = UnknownStorage()
 
@@ -389,6 +398,9 @@ public struct Google_Protobuf_Enum {
   /// The source syntax.
   public var syntax: Google_Protobuf_Syntax = .proto2
 
+  /// The source edition string, only valid when syntax is SYNTAX_EDITIONS.
+  public var edition: String = String()
+
   public var unknownFields = UnknownStorage()
 
   public init() {}
@@ -465,6 +477,7 @@ extension Google_Protobuf_Syntax: _ProtoNameProviding {
   public static let _protobuf_nameMap: _NameMap = [
     0: .same(proto: "SYNTAX_PROTO2"),
     1: .same(proto: "SYNTAX_PROTO3"),
+    2: .same(proto: "SYNTAX_EDITIONS"),
   ]
 }
 
@@ -477,6 +490,7 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
     4: .same(proto: "options"),
     5: .standard(proto: "source_context"),
     6: .same(proto: "syntax"),
+    7: .same(proto: "edition"),
   ]
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
@@ -491,6 +505,7 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
       case 4: try { try decoder.decodeRepeatedMessageField(value: &self.options) }()
       case 5: try { try decoder.decodeSingularMessageField(value: &self._sourceContext) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self.syntax) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.edition) }()
       default: break
       }
     }
@@ -519,6 +534,9 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
     if self.syntax != .proto2 {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 6)
     }
+    if !self.edition.isEmpty {
+      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 7)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -529,6 +547,7 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
     if lhs.options != rhs.options {return false}
     if lhs._sourceContext != rhs._sourceContext {return false}
     if lhs.syntax != rhs.syntax {return false}
+    if lhs.edition != rhs.edition {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -661,6 +680,7 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
     3: .same(proto: "options"),
     4: .standard(proto: "source_context"),
     5: .same(proto: "syntax"),
+    6: .same(proto: "edition"),
   ]
 
   public mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
@@ -674,6 +694,7 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.options) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._sourceContext) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self.syntax) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.edition) }()
       default: break
       }
     }
@@ -699,6 +720,9 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
     if self.syntax != .proto2 {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 5)
     }
+    if !self.edition.isEmpty {
+      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -708,6 +732,7 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
     if lhs.options != rhs.options {return false}
     if lhs._sourceContext != rhs._sourceContext {return false}
     if lhs.syntax != rhs.syntax {return false}
+    if lhs.edition != rhs.edition {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
