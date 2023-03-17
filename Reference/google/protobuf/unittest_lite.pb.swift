@@ -819,6 +819,8 @@ struct ProtobufUnittest_TestAllTypesLite {
     /// Clears the value of `cc`. Subsequent reads from it will return its default value.
     mutating func clearCc() {self._cc = nil}
 
+    var dd: [Int32] = []
+
     var unknownFields = SwiftProtobufCore.UnknownStorage()
 
     init() {}
@@ -4173,6 +4175,7 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobufCore.Mes
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     1: .same(proto: "bb"),
     2: .same(proto: "cc"),
+    3: .same(proto: "dd"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
@@ -4183,6 +4186,7 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobufCore.Mes
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularInt32Field(value: &self._bb) }()
       case 2: try { try decoder.decodeSingularInt64Field(value: &self._cc) }()
+      case 3: try { try decoder.decodeRepeatedInt32Field(value: &self.dd) }()
       default: break
       }
     }
@@ -4199,12 +4203,16 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobufCore.Mes
     try { if let v = self._cc {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
     } }()
+    if !self.dd.isEmpty {
+      try visitor.visitPackedInt32Field(value: self.dd, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_TestAllTypesLite.NestedMessage, rhs: ProtobufUnittest_TestAllTypesLite.NestedMessage) -> Bool {
     if lhs._bb != rhs._bb {return false}
     if lhs._cc != rhs._cc {return false}
+    if lhs.dd != rhs.dd {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

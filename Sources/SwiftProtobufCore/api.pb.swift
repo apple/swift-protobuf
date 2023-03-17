@@ -197,7 +197,7 @@ public struct Google_Protobuf_Method {
 /// The mixin construct implies that all methods in `AccessControl` are
 /// also declared with same name and request/response types in
 /// `Storage`. A documentation generator or annotation processor will
-/// see the effective `Storage.GetAcl` method after inheriting
+/// see the effective `Storage.GetAcl` method after inherting
 /// documentation and annotations as follows:
 ///
 ///     service Storage {
