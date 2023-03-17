@@ -21,7 +21,7 @@ message GeneratedSwiftReservedMessages {
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
-  message Array { int32 Array = 1; }
+  message array { int32 array = 1; }
   message arrayDepth { int32 arrayDepth = 1; }
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
@@ -53,6 +53,7 @@ message GeneratedSwiftReservedMessages {
   message boolValue { int32 boolValue = 1; }
   message bytes { int32 bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
+  message bytesNeeded { int32 bytesNeeded = 1; }
   message bytesRead { int32 bytesRead = 1; }
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
@@ -63,6 +64,7 @@ message GeneratedSwiftReservedMessages {
   message ccGenericServices { int32 ccGenericServices = 1; }
   message Character { int32 Character = 1; }
   message chars { int32 chars = 1; }
+  message chunk { int32 chunk = 1; }
   message class { int32 class = 1; }
   message clearAggregateValue { int32 clearAggregateValue = 1; }
   message clearAllowAlias { int32 clearAllowAlias = 1; }
@@ -499,6 +501,7 @@ message GeneratedSwiftReservedMessages {
   message jsonUTF8Data { int32 jsonUTF8Data = 1; }
   message jstype { int32 jstype = 1; }
   message k { int32 k = 1; }
+  message kChunkSize { int32 kChunkSize = 1; }
   message Key { int32 Key = 1; }
   message keyField { int32 keyField = 1; }
   message keyFieldOpt { int32 keyFieldOpt = 1; }
@@ -544,6 +547,7 @@ message GeneratedSwiftReservedMessages {
   message MethodDescriptorProto { int32 MethodDescriptorProto = 1; }
   message MethodOptions { int32 MethodOptions = 1; }
   message methods { int32 methods = 1; }
+  message min { int32 min = 1; }
   message minor { int32 minor = 1; }
   message Mixin { int32 Mixin = 1; }
   message mixins { int32 mixins = 1; }

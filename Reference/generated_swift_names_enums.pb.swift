@@ -541,7 +541,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum Array: SwiftProtobufCore.Enum {
+  enum array: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneArray // = 0
     case UNRECOGNIZED(Int)
@@ -565,7 +565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Array] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array] = [
       .noneArray,
     ]
 
@@ -1501,6 +1501,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum bytesNeeded: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneBytesNeeded // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBytesNeeded
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBytesNeeded
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBytesNeeded: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesNeeded] = [
+      .noneBytesNeeded,
+    ]
+
+  }
+
   enum bytesRead: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneBytesRead // = 0
@@ -1797,6 +1827,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars] = [
       .noneChars,
+    ]
+
+  }
+
+  enum chunk: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneChunk // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneChunk
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneChunk
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneChunk: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chunk] = [
+      .noneChunk,
     ]
 
   }
@@ -14881,6 +14941,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum kChunkSize: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneKChunkSize // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneKChunkSize
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneKChunkSize
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneKChunkSize: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.kChunkSize] = [
+      .noneKChunkSize,
+    ]
+
+  }
+
   enum Key: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneKey // = 0
@@ -16227,6 +16317,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.methods] = [
       .noneMethods,
+    ]
+
+  }
+
+  enum min: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneMin // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMin
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMin
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMin: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.min] = [
+      .noneMin,
     ]
 
   }
@@ -26773,9 +26893,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.areAllInitialize
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Array: SwiftProtobufCore._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    0: .same(proto: "NONE_Array"),
+    0: .same(proto: "NONE_array"),
   ]
 }
 
@@ -26965,6 +27085,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesInGroup: Sw
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesNeeded: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_bytesNeeded"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesRead: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_bytesRead"),
@@ -27022,6 +27148,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Character: Swift
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_chars"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chunk: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_chunk"),
   ]
 }
 
@@ -29641,6 +29773,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.k: SwiftProtobuf
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.kChunkSize: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_kChunkSize"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Key: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_Key"),
@@ -29908,6 +30046,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MethodOptions: S
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.methods: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_methods"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.min: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_min"),
   ]
 }
 

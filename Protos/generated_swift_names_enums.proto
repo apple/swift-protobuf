@@ -21,7 +21,7 @@ message GeneratedSwiftReservedEnums {
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
-  enum Array { NONE_Array = 0; }
+  enum array { NONE_array = 0; }
   enum arrayDepth { NONE_arrayDepth = 0; }
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
@@ -53,6 +53,7 @@ message GeneratedSwiftReservedEnums {
   enum boolValue { NONE_boolValue = 0; }
   enum bytes { NONE_bytes = 0; }
   enum bytesInGroup { NONE_bytesInGroup = 0; }
+  enum bytesNeeded { NONE_bytesNeeded = 0; }
   enum bytesRead { NONE_bytesRead = 0; }
   enum BytesValue { NONE_BytesValue = 0; }
   enum c { NONE_c = 0; }
@@ -63,6 +64,7 @@ message GeneratedSwiftReservedEnums {
   enum ccGenericServices { NONE_ccGenericServices = 0; }
   enum Character { NONE_Character = 0; }
   enum chars { NONE_chars = 0; }
+  enum chunk { NONE_chunk = 0; }
   enum class { NONE_class = 0; }
   enum clearAggregateValue { NONE_clearAggregateValue = 0; }
   enum clearAllowAlias { NONE_clearAllowAlias = 0; }
@@ -499,6 +501,7 @@ message GeneratedSwiftReservedEnums {
   enum jsonUTF8Data { NONE_jsonUTF8Data = 0; }
   enum jstype { NONE_jstype = 0; }
   enum k { NONE_k = 0; }
+  enum kChunkSize { NONE_kChunkSize = 0; }
   enum Key { NONE_Key = 0; }
   enum keyField { NONE_keyField = 0; }
   enum keyFieldOpt { NONE_keyFieldOpt = 0; }
@@ -544,6 +547,7 @@ message GeneratedSwiftReservedEnums {
   enum MethodDescriptorProto { NONE_MethodDescriptorProto = 0; }
   enum MethodOptions { NONE_MethodOptions = 0; }
   enum methods { NONE_methods = 0; }
+  enum min { NONE_min = 0; }
   enum minor { NONE_minor = 0; }
   enum Mixin { NONE_Mixin = 0; }
   enum mixins { NONE_mixins = 0; }
