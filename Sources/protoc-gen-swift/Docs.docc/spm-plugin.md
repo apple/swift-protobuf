@@ -19,7 +19,7 @@ configuration file which will be used to customize the invocation of `protoc`.
 First, you must ensure that you have the `protoc` compiler installed.
 There are multiple ways to do this. Some of the easiest are:
 
-1. If you are on macOS, installing it via `brew install protoc`
+1. If you are on macOS, installing it via `brew install protobuf`
 2. Download the binary from [Google's github repository](https://github.com/protocolbuffers/protobuf).
 
 ### Adding the proto files to your target
