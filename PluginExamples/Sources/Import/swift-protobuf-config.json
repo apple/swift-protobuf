@@ -2,8 +2,8 @@
     "invocations": [
         {
             "protoFiles": [
-                "Bar/ImportBar.proto",
-                "Foo/ImportFoo.proto",
+                "Bar/Bar.proto",
+                "Foo/Foo.proto",
             ],
             "visibility": "public"
         }

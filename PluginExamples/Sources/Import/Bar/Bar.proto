@@ -1,5 +1,5 @@
 syntax = "proto3";
 
-message ImportBar {
+message Bar {
   string name = 1;
 }

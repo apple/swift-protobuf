@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-import "Bar/ImportBar.proto";
-
-message ImportFoo {
-  ImportBar bar = 1;
-}
