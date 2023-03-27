@@ -35,6 +35,16 @@ jobs:
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
+        # We are not testing the SPM plugins on Swift version that don't support SPM plugins
+        include:
+          - swift: 5.7.2-jammy
+            test_spm_plugin: true
+          - swift: 5.6.3-focal
+            test_spm_plugin: true
+          - swift: 5.5.3-focal
+            test_spm_plugin: false
+          - swift: 5.4.3-focal
+            test_spm_plugin: false
     container:
       image: swift:${{ matrix.swift }}
     steps:
@@ -100,6 +110,10 @@ jobs:
     - name: Test conformance
       working-directory: main
       run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
+    - name: Test SPM plugin
+      if: ${{ matrix.test_spm_plugin }}
+      working-directory: main
+      run: make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
 
   sanitizer_testing:
     runs-on: ubuntu-latest
