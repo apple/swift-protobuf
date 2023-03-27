@@ -274,6 +274,10 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 	done
 	diff -ru _test Reference
 
+# Test the SPM plugin.
+test-spm-plugin:
+	env PROTOC_PATH=$(shell realpath ${PROTOC}) swift test --package-path PluginExamples
+
 #
 # Rebuild the reference files by running the local version of protoc-gen-swift
 # against our menagerie of sample protos.

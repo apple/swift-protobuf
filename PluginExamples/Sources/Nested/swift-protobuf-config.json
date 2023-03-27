@@ -1,0 +1,10 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "Nested/Nested.proto",
+            ],
+            "visibility": "public"
+        }
+    ]
+}

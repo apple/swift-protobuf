@@ -1,0 +1,10 @@
+{
+    "invocations": [
+        {
+            "protoFiles": [
+                "Simple.proto",
+            ],
+            "visibility": "public"
+        }
+    ]
+}
