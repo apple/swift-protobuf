@@ -64,13 +64,6 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             var fileNaming: FileNaming?
         }
 
-        /// Specify the directory in which to search for
-        /// imports.  May be specified multiple times;
-        /// directories will be searched in order.
-        /// The target source directory is always appended
-        /// to the import paths.
-        var importPaths: [String]?
-
         /// The path to the `protoc` binary.
         ///
         /// If this is not set, SPM will try to find the tool itself.
@@ -95,11 +88,6 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
 
         try validateConfiguration(configuration)
 
-        var importPaths: [Path] = [target.directory]
-        if let configuredImportPaths = configuration.importPaths {
-            importPaths.append(contentsOf: configuredImportPaths.map { Path($0) })
-        }
-
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
         if let configuredProtocPath = configuration.protocPath {
@@ -123,8 +111,7 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
                 invocation: invocation,
                 protocPath: protocPath,
                 protocGenSwiftPath: protocGenSwiftPath,
-                outputDirectory: outputDirectory,
-                importPaths: importPaths
+                outputDirectory: outputDirectory
             )
         }
     }
@@ -137,15 +124,13 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     ///   - protocPath: The path to the `protoc` binary.
     ///   - protocGenSwiftPath: The path to the `protoc-gen-swift` binary.
     ///   - outputDirectory: The output directory for the generated files.
-    ///   - importPaths: List of paths to pass with "-I <path>" to `protoc`
     /// - Returns: The build command.
     private func invokeProtoc(
         target: Target,
         invocation: Configuration.Invocation,
         protocPath: Path,
         protocGenSwiftPath: Path,
-        outputDirectory: Path,
-        importPaths: [Path]
+        outputDirectory: Path
     ) -> Command {
         // Construct the `protoc` arguments.
         var protocArgs = [
@@ -153,10 +138,10 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             "--swift_out=\(outputDirectory)",
         ]
 
-        importPaths.forEach { path in
-            protocArgs.append("-I")
-            protocArgs.append("\(path)")
-        }
+        // We need to add the target directory as a search path since we require the user to specify
+        // the proto files relative to it.
+        protocArgs.append("-I")
+        protocArgs.append("\(target.directory)")
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
