@@ -28,8 +28,8 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
-            let encoded = try configured.serializedData()
-            XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+            let encoded: [UInt8] = try configured.serializedBytes()
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(serializedBytes: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -46,7 +46,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             let decoded = try MessageTestType(serializedBytes: bytes, extensions: extensions)
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
-            let encoded = try decoded.serializedData()
+            let encoded: [UInt8] = try decoded.serializedBytes()
             do {
                 let redecoded = try MessageTestType(serializedBytes: encoded, extensions: extensions)
                 XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
@@ -199,14 +199,14 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         var group = ExtensionGroup()
         group.a = 7
         m.extensionGroup = group
-        let coded = try m.serializedData()
+        let coded: [UInt8] = try m.serializedBytes()
 
         // Deserialize into a message that lacks the group extension, then reserialize
         // Group should be preserved as an unknown field
         do {
             let m2 = try SwiftTestGroupUnextended(serializedBytes: coded)
             XCTAssert(!m2.hasA)
-            let recoded = try m2.serializedData()
+            let recoded: [UInt8] = try m2.serializedBytes()
 
             // Deserialize, check the group contents were preserved.
             do {
@@ -228,7 +228,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         var group2 = RepeatedExtensionGroup()
         group2.a = 7
         m.repeatedExtensionGroup = [group1, group2]
-        let coded = try m.serializedData()
+        let coded: [UInt8] = try m.serializedBytes()
 
         // Deserialize into a message that lacks the group extension, then reserialize
         // Group should be preserved as an unknown field
@@ -236,7 +236,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             let m2 = try SwiftTestGroupUnextended(serializedBytes: coded)
             XCTAssert(!m2.hasA)
             do {
-                let recoded = try m2.serializedData()
+                let recoded: [UInt8] = try m2.serializedBytes()
 
                 // Deserialize, check the group contents were preserved.
                 do {

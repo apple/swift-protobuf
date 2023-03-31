@@ -24,7 +24,7 @@ protocol PBTestHelpers {
 
 extension PBTestHelpers where MessageTestType: SwiftProtobufCore.Message & Equatable {
 
-    private func string(from data: Data) -> String {
+    private func string(from data: [UInt8]) -> String {
         return "[" + data.map { String($0) }.joined(separator: ", ") + "]"
     }
 
@@ -34,8 +34,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobufCore.Message & Equat
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
-            let encoded = try configured.serializedData()
-            XCTAssert(Data(expected) == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
+            let encoded: [UInt8] = try configured.serializedBytes()
+            XCTAssert(expected == encoded, "Did not encode correctly: got \(string(from: encoded))", file: file, line: line)
             do {
                 let decoded = try MessageTestType(serializedBytes: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
@@ -53,7 +53,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobufCore.Message & Equat
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
-                let encoded = try decoded.serializedData()
+                let encoded: [UInt8] = try decoded.serializedBytes()
                 do {
                     let redecoded = try MessageTestType(serializedBytes: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
@@ -106,8 +106,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobufCore.Message & Equat
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
 
             do {
-                let encoded = try decoded.serializedData()
-                XCTAssertEqual(Data(recodedBytes), encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
+                let encoded: [UInt8] = try decoded.serializedBytes()
+                XCTAssertEqual(recodedBytes, encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
                 do {
                     let redecoded = try MessageTestType(serializedBytes: encoded)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)

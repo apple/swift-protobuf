@@ -32,7 +32,7 @@ class Test_Any: XCTestCase {
         // The Any holding an object can be JSON serialized
         XCTAssertNotNil(try m.jsonString())
 
-        let encoded = try m.serializedBytes()
+        let encoded: [UInt8] = try m.serializedBytes()
         XCTAssertEqual(encoded, [8, 12, 18, 56, 10, 50, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 112, 114, 111, 116, 111, 98, 117, 102, 95, 117, 110, 105, 116, 116, 101, 115, 116, 46, 84, 101, 115, 116, 65, 108, 108, 84, 121, 112, 101, 115, 18, 2, 8, 7])
         let decoded = try ProtobufUnittest_TestAny(serializedBytes: encoded)
         XCTAssertEqual(decoded.anyValue.typeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
@@ -48,7 +48,7 @@ class Test_Any: XCTestCase {
         }
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
-        let recoded = try decoded.serializedBytes()
+        let recoded: [UInt8] = try decoded.serializedBytes()
         XCTAssertEqual(encoded, recoded)
     }
 
@@ -79,8 +79,8 @@ class Test_Any: XCTestCase {
         }
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
-        let recoded = try decoded.serializedData()
-        XCTAssertEqual(Data(encoded), recoded)
+        let recoded: [UInt8] = try decoded.serializedBytes()
+        XCTAssertEqual(encoded, recoded)
     }
 
     /// The typeURL prefix should be ignored for purposes of determining the actual type.
@@ -110,8 +110,8 @@ class Test_Any: XCTestCase {
         }
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
-        let recoded = try decoded.serializedData()
-        XCTAssertEqual(Data(encoded), recoded)
+        let recoded: [UInt8] = try decoded.serializedBytes()
+        XCTAssertEqual(encoded, recoded)
     }
 
     /// Though Google discourages this, we should be able to match and decode an Any
@@ -138,8 +138,8 @@ class Test_Any: XCTestCase {
         }
 
         XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(unpackingAny: any))
-        let recoded = try decoded.serializedData()
-        XCTAssertEqual(Data(encoded), recoded)
+        let recoded: [UInt8] = try decoded.serializedBytes()
+        XCTAssertEqual(encoded, recoded)
     }
 
     func test_Any_UserMessage() throws {
@@ -193,7 +193,7 @@ class Test_Any: XCTestCase {
 
         // Verify:  JSON-to-protobuf transcoding should fail here
         // since the Any does not have type information
-        XCTAssertThrowsError(try decoded.serializedBytes())
+        XCTAssertThrowsError(try decoded.serializedBytes() as [UInt8])
     }
 
     func test_Any_UnknownUserMessage_protobuf() throws {
@@ -203,8 +203,8 @@ class Test_Any: XCTestCase {
         let decoded = try ProtobufUnittest_TestAny(serializedBytes: start)
 
         // Protobuf-to-protobuf transcoding succeeds
-        let recoded = try decoded.serializedData()
-        XCTAssertEqual(Array(recoded), start)
+        let recoded: [UInt8] = try decoded.serializedBytes()
+        XCTAssertEqual(recoded, start)
 
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
@@ -242,14 +242,14 @@ class Test_Any: XCTestCase {
             return
         }
 
-        let protobuf: Data
+        let protobuf: [UInt8]
         do {
-            protobuf = try decoded.serializedData()
+            protobuf = try decoded.serializedBytes()
         } catch {
             XCTFail("Failed to serialize \(decoded)")
             return
         }
-        XCTAssertEqual(Array(protobuf), [138, 19, 95, 10, 39, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 65, 110, 121, 18, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1])
+        XCTAssertEqual(protobuf, [138, 19, 95, 10, 39, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 65, 110, 121, 18, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1])
 
         let redecoded: ProtobufTestMessages_Proto3_TestAllTypesProto3
         do {
@@ -282,7 +282,7 @@ class Test_Any: XCTestCase {
            return try Google_Protobuf_Any(message: nestedAny(i - 1))
         }
         let any = try nestedAny(5)
-        let encoded = try any.serializedBytes()
+        let encoded: [UInt8] = try any.serializedBytes()
         XCTAssertEqual(encoded.count, 214)
     }
 
@@ -312,8 +312,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Duration\",\"value\":\"99.001s\"}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 54, 10, 44, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 68, 117, 114, 97, 116, 105, 111, 110, 18, 6, 8, 99, 16, 192, 132, 61])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 54, 10, 44, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 68, 117, 114, 97, 116, 105, 111, 110, 18, 6, 8, 99, 16, 192, 132, 61])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -350,8 +350,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.FieldMask\",\"value\":\"foo,bar.bazQuux\"}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 68, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 70, 105, 101, 108, 100, 77, 97, 115, 107, 18, 19, 10, 3, 102, 111, 111, 10, 12, 98, 97, 114, 46, 98, 97, 122, 95, 113, 117, 117, 120])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 68, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 70, 105, 101, 108, 100, 77, 97, 115, 107, 18, 19, 10, 3, 102, 111, 111, 10, 12, 98, 97, 114, 46, 98, 97, 122, 95, 113, 117, 117, 120])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -388,8 +388,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Int32Value\",\"value\":1}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 52, 10, 46, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 73, 110, 116, 51, 50, 86, 97, 108, 117, 101, 18, 2, 8, 1])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -428,8 +428,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Struct\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 64, 10, 42, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 83, 116, 114, 117, 99, 116, 18, 18, 10, 16, 10, 3, 102, 111, 111, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 64, 10, 42, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 83, 116, 114, 117, 99, 116, 18, 18, 10, 16, 10, 3, 102, 111, 111, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -467,8 +467,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Timestamp\",\"value\":\"1970-01-01T00:00:01.000000001Z\"}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 53, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 84, 105, 109, 101, 115, 116, 97, 109, 112, 18, 4, 8, 1, 16, 1])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 53, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 84, 105, 109, 101, 115, 116, 97, 109, 112, 18, 4, 8, 1, 16, 1])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -504,8 +504,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.ListValue\",\"value\":[1.0,\"abc\"]}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 67, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 76, 105, 115, 116, 86, 97, 108, 117, 101, 18, 18, 10, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 10, 5, 26, 3, 97, 98, 99])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 67, 10, 45, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 76, 105, 115, 116, 86, 97, 108, 117, 101, 18, 18, 10, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 10, 5, 26, 3, 97, 98, 99])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -544,8 +544,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":{\"foo\":1.0}}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 65, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 20, 42, 18, 10, 16, 10, 3, 102, 111, 111, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 65, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 20, 42, 18, 10, 16, 10, 3, 102, 111, 111, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -584,8 +584,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":1.0}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 54, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 54, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -623,8 +623,8 @@ class Test_Any: XCTestCase {
         let start = "{\"optionalAny\":{\"@type\":\"type.googleapis.com/google.protobuf.Value\",\"value\":\"abc\"}}"
         do {
             let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-            let protobuf = try decoded.serializedData()
-            XCTAssertEqual(Array(protobuf), [138, 19, 50, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 5, 26, 3, 97, 98, 99])
+            let protobuf: [UInt8] = try decoded.serializedBytes()
+            XCTAssertEqual(protobuf, [138, 19, 50, 10, 41, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 103, 111, 111, 103, 108, 101, 46, 112, 114, 111, 116, 111, 98, 117, 102, 46, 86, 97, 108, 117, 101, 18, 5, 26, 3, 97, 98, 99])
             do {
                 let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
                 let json = try redecoded.jsonString()
@@ -675,7 +675,7 @@ class Test_Any: XCTestCase {
       XCTAssertEqual(content, decodedContent)
 
       // Transcoding should fail without extension info
-      XCTAssertThrowsError(try decoded.serializedData())
+      XCTAssertThrowsError(try decoded.serializedBytes() as [UInt8])
 
       // Decode the outer message with extension information
       let decodedWithExtensions = try ProtobufUnittest_TestAny(jsonString: json,
@@ -688,7 +688,7 @@ class Test_Any: XCTestCase {
 
       XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllExtensions.self))
       // Throws because the extensions can't be implicitly transcoded
-      XCTAssertThrowsError(try decodedWithExtensions.serializedData())
+      XCTAssertThrowsError(try decodedWithExtensions.serializedBytes() as [UInt8])
     }
 
     func test_Any_WKT_UnknownFields() throws {
@@ -727,8 +727,8 @@ class Test_Any: XCTestCase {
     func test_Any_empty() throws {
       let start = "{\"optionalAny\":{}}"
       let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: start)
-      let protobuf = try decoded.serializedData()
-      XCTAssertEqual(protobuf, Data([138, 19, 0]))
+      let protobuf: [UInt8] = try decoded.serializedBytes()
+      XCTAssertEqual(protobuf, [138, 19, 0])
       let redecoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedBytes: protobuf)
       let retext = redecoded.textFormatString()
       XCTAssertEqual(retext, "optional_any {\n}\n")

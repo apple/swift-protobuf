@@ -33,9 +33,9 @@ class Test_MessageSet: XCTestCase {
       $0.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str = "foo"
     }
 
-    let serialized: Data
+    let serialized: [UInt8]
     do {
-      serialized = try msg.serializedData()
+      serialized = try msg.serializedBytes()
     } catch let e {
       XCTFail("Failed to serialize: \(e)")
       return
@@ -77,10 +77,10 @@ class Test_MessageSet: XCTestCase {
       // Two known extensions.
       ProtobufUnittest_RawMessageSet.Item(
         typeID: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
-        message: try msg1.serializedData()),
+        message: try msg1.serializedBytes()),
       ProtobufUnittest_RawMessageSet.Item(
         typeID: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
-        message: try msg2.serializedData()),
+        message: try msg2.serializedBytes()),
       // One unknown extension.
       ProtobufUnittest_RawMessageSet.Item(typeID: 7, message: Data([1, 2, 3]))
     ]
@@ -89,7 +89,7 @@ class Test_MessageSet: XCTestCase {
 
     let serialized: Data
     do {
-      serialized = try raw.serializedData()
+      serialized = try raw.serializedBytes()
     } catch let e {
       XCTFail("Failed to serialize: \(e)")
       return

@@ -71,7 +71,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
             $0.oneofE1 = .eExtra
         }
 
-        let origSerialized = try orig.serializedData()
+        let origSerialized: [UInt8] = try orig.serializedBytes()
         let msg = try Proto3PreserveUnknownEnumUnittest_MyMessage(serializedBytes: origSerialized)
 
         // Nothing in unknowns, they should just be unrecognized.
@@ -81,7 +81,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
         XCTAssertEqual(msg.o, .oneofE1(.UNRECOGNIZED(3)))
         XCTAssertTrue(msg.unknownFields.data.isEmpty)
 
-        let msgSerialized = try msg.serializedData()
+        let msgSerialized: [UInt8] = try msg.serializedBytes()
         XCTAssertEqual(origSerialized, msgSerialized)
     }
 
