@@ -19,7 +19,18 @@ import Foundation
 /// directly to `SwiftProtobuf.Message`'s deserialisation methods
 /// (i.e. `init(serializedBytes:)` for binary format and `init(jsonUTF8Bytes:)` for JSON).
 // TODO: extend doc to include how this will be used in serialization once that API change has been finalised.
+//public protocol SwiftProtobufContiguousBytes: RandomAccessCollection, MutableCollection, RangeReplaceableCollection where Element == UInt8 {
 public protocol SwiftProtobufContiguousBytes {
+    /// An initializer for a bag of bytes type.
+    ///
+    /// - Parameters:
+    ///   - repeating: the byte value to be repeated.
+    ///   - count: the number of times to repeat the byte value.
+    init(repeating: UInt8, count: Int)
+
+    /// The number of bytes in the bag of bytes.
+    var count: Int { get }
+
     /// Calls the given closure with the contents of underlying storage.
     ///
     /// - note: Calling `withUnsafeBytes` multiple times does not guarantee that
@@ -27,14 +38,16 @@ public protocol SwiftProtobufContiguousBytes {
     /// - warning: The buffer argument to the body should not be stored or used
     ///            outside of the lifetime of the call to the closure.
     func withUnsafeBytes<R>(_ body: (UnsafeRawBufferPointer) throws -> R) rethrows -> R
+
+    /// Calls the given closure with the contents of underlying storage.
+    ///
+    /// - note: Calling `withUnsafeBytes` multiple times does not guarantee that
+    ///         the same buffer pointer will be passed in every time.
+    /// - warning: The buffer argument to the body should not be stored or used
+    ///            outside of the lifetime of the call to the closure.
+    mutating func withUnsafeMutableBytes<R>(_ body: (UnsafeMutableRawBufferPointer) throws -> R) rethrows -> R
 }
 
 extension Array: SwiftProtobufContiguousBytes where Array.Element == UInt8 {}
 
-// TODO: Remove once `Data` is unused in all of `SwiftProtobufCore`
-// This is currently necessary because `Data` is still used in some places in
-// `SwiftProtobufCore`, such as all of the serialization path for JSON/binary.
-// Until all of the `Data` usages in `SwiftProtobufCore` are removed, the
-// conformance must live here, as we would otherwise have a circular dependency
-// between the modules.
 extension Data: SwiftProtobufContiguousBytes {}

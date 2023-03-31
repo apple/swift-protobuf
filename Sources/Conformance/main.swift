@@ -39,8 +39,7 @@ func readRequest() -> Data? {
     return Data(buff)
 }
 
-func writeResponse(data: Data) {
-    let bytes = [UInt8](data)
+func writeResponse(bytes: [UInt8]) {
     var count = UInt32(bytes.count)
     fwrite(&count, 4, 1, stdout)
     _ = bytes.withUnsafeBufferPointer { bp in
@@ -142,7 +141,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     switch request.requestedOutputFormat {
     case .protobuf:
         do {
-            response.protobufPayload = try testMessage.serializedData()
+            response.protobufPayload = try testMessage.serializedBytes()
         } catch let e {
             response.serializeError = "Failed to serialize: \(e)"
         }
@@ -171,8 +170,8 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
 func singleTest() throws -> Bool {
    if let indata = readRequest() {
        let response = buildResponse(serializedData: indata)
-       let outdata = try response.serializedData()
-       writeResponse(data: outdata)
+       let outdata: [UInt8] = try response.serializedBytes()
+       writeResponse(bytes: outdata)
        return true
    } else {
       return false

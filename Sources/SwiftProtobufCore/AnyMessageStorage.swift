@@ -102,7 +102,7 @@ internal class AnyMessageStorage {
         return Data(value)
       case .message(let message):
         do {
-          return try message.serializedData(partial: true)
+          return try message.serializedBytes(partial: true)
         } catch {
           return Data()
         }
@@ -115,7 +115,7 @@ internal class AnyMessageStorage {
                              extensions: SimpleExtensionMap(),
                              options: options,
                              as: messageType)
-          return try m.serializedData(partial: true)
+          return try m.serializedBytes(partial: true)
         } catch {
           return Data()
         }
@@ -179,8 +179,8 @@ internal class AnyMessageStorage {
         target = message
       } else {
         // Different type, serialize and parse.
-        let data = try msg.serializedData(partial: true)
-        target = try M(serializedBytes: Array(data), extensions: extensions, partial: true)
+        let bytes: [UInt8] = try msg.serializedBytes(partial: true)
+        target = try M(serializedBytes: bytes, extensions: extensions, partial: true)
       }
 
     case .contentJSON(let contentJSON, let options):

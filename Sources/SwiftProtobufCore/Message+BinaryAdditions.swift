@@ -12,22 +12,21 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Binary encoding and decoding methods for messages.
 extension Message {
-  /// Returns a `Data` value containing the Protocol Buffer binary format
-  /// serialization of the message.
+  /// Returns a `SwiftProtobufContiguousBytes` instance containing the Protocol Buffer binary
+  /// format serialization of the message.
   ///
   /// - Parameters:
   ///   - partial: If `false` (the default), this method will check
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryEncodingError.missingRequiredFields`.
-  /// - Returns: A `Data` value containing the binary serialization of the
-  ///   message.
+  /// - Returns: A `SwiftProtobufContiguousBytes` instance containing the binary serialization
+  /// of the message.
+  ///
   /// - Throws: `BinaryEncodingError` if encoding fails.
-  public func serializedData(partial: Bool = false) throws -> Data {
+  public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false) throws -> Bytes {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
     }
@@ -44,7 +43,7 @@ extension Message {
       throw BinaryEncodingError.tooLarge
     }
 
-    var data = Data(count: requiredSize)
+    var data = Bytes(repeating: 0, count: requiredSize)
     try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
         var visitor = BinaryEncodingVisitor(forWritingInto: baseAddress)

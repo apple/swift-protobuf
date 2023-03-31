@@ -323,7 +323,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   // Write a single special field called "#json".  This
   // is used for Any objects with undecoded JSON contents.
-  internal mutating func visitAnyJSONDataField(value: SwiftProtobufContiguousBytes) {
+  internal mutating func visitAnyJSONDataField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
       encoder.indent()
       encoder.append(staticText: "#json: ")
       encoder.putBytesValue(value: value)
