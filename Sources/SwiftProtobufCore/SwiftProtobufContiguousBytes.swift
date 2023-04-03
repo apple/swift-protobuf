@@ -18,8 +18,6 @@ import Foundation
 /// By conforming your own types to this protocol, you will be able to pass instances of said types
 /// directly to `SwiftProtobuf.Message`'s deserialisation methods
 /// (i.e. `init(serializedBytes:)` for binary format and `init(jsonUTF8Bytes:)` for JSON).
-// TODO: extend doc to include how this will be used in serialization once that API change has been finalised.
-//public protocol SwiftProtobufContiguousBytes: RandomAccessCollection, MutableCollection, RangeReplaceableCollection where Element == UInt8 {
 public protocol SwiftProtobufContiguousBytes {
     /// An initializer for a bag of bytes type.
     ///
