@@ -25,8 +25,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// This is the key interface used by the generated `traverse()` methods
 /// used for serialization.  It is implemented by each serialization protocol:
 /// Protobuf Binary, Protobuf Text, JSON, and the Hash encoder.
@@ -114,7 +112,7 @@ public protocol Visitor {
   /// Called for each non-repeated bytes field
   ///
   /// There is no default implementation.  This must be implemented.
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws
+  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws
 
   /// Called for each non-repeated enum field
   ///
@@ -252,7 +250,7 @@ public protocol Visitor {
   ///
   /// A default implementation is provided that simply calls
   /// `visitSingularBytesField` once for each item in the array.
-  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws
+  mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws
 
   /// Called for each repeated, unpacked enum field.
   /// The method is called once with the complete array of values for
@@ -442,7 +440,7 @@ public protocol Visitor {
     end: Int) throws
 
   /// Called with the raw bytes that represent any unknown fields.
-  mutating func visitUnknown(bytes: Data) throws
+  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws
 }
 
 /// Forwarding default implementations of some visitor methods, for convenience.
@@ -589,7 +587,7 @@ extension Visitor {
     }
   }
 
-  public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+  public mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     for v in value {
       try visitSingularBytesField(value: v, fieldNumber: fieldNumber)

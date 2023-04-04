@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Visitor that serializes a message into JSON format.
 internal struct JSONEncodingVisitor: Visitor {
 
@@ -23,7 +21,7 @@ internal struct JSONEncodingVisitor: Visitor {
   private let options: JSONEncodingOptions
 
   /// The JSON text produced by the visitor, as raw UTF8 bytes.
-  var dataResult: Data {
+  var dataResult: [UInt8] {
     return encoder.dataResult
   }
 
@@ -75,7 +73,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: text)
   }
 
-  mutating func visitUnknown(bytes: Data) throws {
+  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
 
@@ -133,7 +131,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.putBytesValue(value: value)
   }
@@ -288,9 +286,9 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+  mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
-      (encoder: inout JSONEncoder, v: Data) in
+      (encoder: inout JSONEncoder, v: Bytes) in
       encoder.putBytesValue(value: v)
     }
   }

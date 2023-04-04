@@ -69,7 +69,7 @@ internal struct JSONEncoder {
 
     internal init() {}
 
-    internal var dataResult: Data { return Data(data) }
+    internal var dataResult: [UInt8] { return data }
 
     internal var stringResult: String {
         get {
@@ -102,18 +102,14 @@ internal struct JSONEncoder {
         data.append(contentsOf: text.utf8)
     }
 
-    internal mutating func append(bytes: [UInt8]) {
-        data.append(contentsOf: bytes)
-    }
-
     /// Append a raw utf8 in a `Data` to the JSON text.
     internal mutating func append(utf8Data: Data) {
         data.append(contentsOf: utf8Data)
     }
 
     /// Append a raw utf8 in a `[UInt8]` to the JSON text.
-    internal mutating func append(utf8Data: [UInt8]) {
-        data.append(contentsOf: utf8Data)
+    internal mutating func append(bytes: [UInt8]) {
+        data.append(contentsOf: bytes)
     }
 
     /// Begin a new field whose name is given as a `_NameMap.Name`
@@ -356,7 +352,7 @@ internal struct JSONEncoder {
     }
 
     /// Append a bytes value using protobuf JSON Base-64 encoding.
-    internal mutating func putBytesValue(value: Data) {
+    internal mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
             value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in

@@ -56,7 +56,7 @@ extension Message {
     visitor.startObject(message: self)
     try traverse(visitor: &visitor)
     visitor.endObject()
-    return visitor.dataResult
+    return Data(visitor.dataResult)
   }
 
   /// Creates a new message by decoding the given string containing a

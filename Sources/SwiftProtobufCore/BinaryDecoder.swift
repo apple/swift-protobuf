@@ -787,6 +787,16 @@ internal struct BinaryDecoder: Decoder {
         }
     }
 
+    internal mutating func decodeSingularBytesField(value: inout [UInt8]) throws {
+        guard fieldWireFormat == WireFormat.lengthDelimited else {
+            return
+        }
+        var n: Int = 0
+        let p = try getFieldBodyBytes(count: &n)
+        value = Array(UnsafeBufferPointer(start: p.assumingMemoryBound(to: UInt8.self), count: n))
+        consumed = true
+    }
+
     internal mutating func decodeSingularBytesField(value: inout Data) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return

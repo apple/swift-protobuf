@@ -13,8 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
 /// Visitor that encodes a message graph in the protobuf binary wire format.
 internal struct BinaryEncodingVisitor: Visitor {
 
@@ -30,7 +28,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
-  mutating func visitUnknown(bytes: Data) throws {
+  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     encoder.appendUnknown(data: bytes)
   }
 
@@ -88,7 +86,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
-  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: value)
   }

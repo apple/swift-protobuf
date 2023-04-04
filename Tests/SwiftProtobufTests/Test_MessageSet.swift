@@ -124,7 +124,7 @@ class Test_MessageSet: XCTestCase {
     ])
     XCTAssertEqual(msg.unknownFields.data, expectedUnknowns)
 
-    var validator = ExtensionValidator()
+    var validator = ExtensionValidator<Data>()
     validator.expectedMessages = [
       (ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
       (ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
@@ -175,7 +175,7 @@ class Test_MessageSet: XCTestCase {
     XCTAssertTrue(msg.unknownFields.data.isEmpty)
     XCTAssertTrue(msg.messageSet.unknownFields.data.isEmpty)
 
-    var validator = ExtensionValidator()
+    var validator = ExtensionValidator<Data>()
     validator.expectedMessages = [
       (1, true), // protobuf_unittest.TestMessageSetContainer.message_set (where the extensions are)
       (ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
@@ -184,10 +184,10 @@ class Test_MessageSet: XCTestCase {
     validator.validate(message: msg)
   }
 
-  fileprivate struct ExtensionValidator: PBTestVisitor {
+  fileprivate struct ExtensionValidator<Bytes: SwiftProtobufContiguousBytes>: PBTestVisitor {
     // Values are field number and if we should recurse.
     var expectedMessages = [(Int, Bool)]()
-    var expectedUnknowns = [Data]()
+    var expectedUnknowns = [Bytes]()
 
     mutating func validate<M: Message>(message: M) {
       do {
@@ -213,13 +213,13 @@ class Test_MessageSet: XCTestCase {
       }
     }
 
-    mutating func visitUnknown(bytes: Data) throws {
+    mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
       guard !expectedUnknowns.isEmpty else {
         XCTFail("Unexpected Unknown: \(bytes)")
         return
       }
       let expected = expectedUnknowns.removeFirst()
-      XCTAssertEqual(bytes, expected)
+      XCTAssertEqual(bytes, expected as! Bytes)
     }
   }
 }

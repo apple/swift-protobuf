@@ -56,7 +56,7 @@ extension Message {
         visitor.endObject()
     }
     visitor.endArray()
-    return visitor.dataResult
+    return Data(visitor.dataResult)
   }
 
   /// Creates a new array of messages by decoding the given string containing a

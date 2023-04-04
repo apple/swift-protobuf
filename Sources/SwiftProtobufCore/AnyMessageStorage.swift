@@ -275,7 +275,7 @@ extension AnyMessageStorage {
         try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
       }
       if !valueData.isEmpty {
-        try! visitor.visitSingularBytesField(value: Data(valueData), fieldNumber: 2)
+        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
       }
 
     case .message(let msg):
@@ -300,7 +300,7 @@ extension AnyMessageStorage {
       }
       // Build a readable form of the JSON:
       let contentJSONAsObject = asJSONObject(body: contentJSON)
-      visitor.visitAnyJSONDataField(value: contentJSONAsObject)
+      visitor.visitAnyJSONBytesField(value: contentJSONAsObject)
     }
   }
 }
@@ -434,7 +434,7 @@ extension AnyMessageStorage {
         jsonEncoder.append(staticText: ",")
         // NOTE: This doesn't really take `options` into account since it is
         // just reflecting out what was taken in originally.
-        jsonEncoder.append(utf8Data: contentJSON)
+        jsonEncoder.append(bytes: contentJSON)
       }
       jsonEncoder.endObject()
       return jsonEncoder.stringResult
