@@ -369,7 +369,7 @@ private func decodeString(_ s: String) -> String? {
 /// The basic scanner support is entirely private
 ///
 /// For performance, it works directly against UTF-8 bytes in memory.
-///
+@usableFromInline
 internal struct JSONScanner {
   private let source: UnsafeRawBufferPointer
   private var index: UnsafeRawBufferPointer.Index
@@ -381,6 +381,7 @@ internal struct JSONScanner {
   /// True if the scanner has read all of the data from the source, with the
   /// exception of any trailing whitespace (which is consumed by reading this
   /// property).
+  @usableFromInline
   internal var complete: Bool {
     mutating get {
       skipWhitespace()
@@ -1154,6 +1155,7 @@ internal struct JSONScanner {
   }
 
   /// If the next token is the identifier "null", consume it and return true.
+  @usableFromInline
   internal mutating func skipOptionalNull() -> Bool {
     skipWhitespace()
     if hasMoreContent && currentByte == asciiLowerN {

@@ -214,11 +214,13 @@ extension Google_Protobuf_Timestamp {
 }
 
 extension Google_Protobuf_Timestamp: _CustomJSONCodable {
+  @usableFromInline
   mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     let s = try decoder.scanner.nextQuotedString()
     (seconds, nanos) = try parseTimestamp(s: s)
   }
 
+  @usableFromInline
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
       return "\"\(formatted)\""

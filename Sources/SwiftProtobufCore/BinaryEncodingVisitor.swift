@@ -14,8 +14,10 @@
 // -----------------------------------------------------------------------------
 
 /// Visitor that encodes a message graph in the protobuf binary wire format.
+@usableFromInline
 internal struct BinaryEncodingVisitor: Visitor {
 
+  @usableFromInline
   var encoder: BinaryEncoder
 
   /// Creates a new visitor that writes the binary-coded message into the memory
@@ -24,79 +26,96 @@ internal struct BinaryEncodingVisitor: Visitor {
   /// - Precondition: `pointer` must point to an allocated block of memory that
   ///   is large enough to hold the entire encoded message. For performance
   ///   reasons, the encoder does not make any attempts to verify this.
+  @usableFromInline
   init(forWritingInto pointer: UnsafeMutableRawPointer) {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
+  @inlinable
   mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     encoder.appendUnknown(data: bytes)
   }
 
+  @usableFromInline
   mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
     encoder.putFloatValue(value: value)
   }
 
+  @usableFromInline
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
     encoder.putDoubleValue(value: value)
   }
 
+  @usableFromInline
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
     try visitSingularUInt64Field(value: UInt64(bitPattern: value), fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .varint)
     encoder.putVarInt(value: value)
   }
 
+  @usableFromInline
   mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
     try visitSingularSInt64Field(value: Int64(value), fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
     try visitSingularUInt64Field(value: ZigZag.encoded(value), fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed32)
     encoder.putFixedUInt32(value: value)
   }
 
+  @usableFromInline
   mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .fixed64)
     encoder.putFixedUInt64(value: value)
   }
 
+  @usableFromInline
   mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
     try visitSingularFixed32Field(value: UInt32(bitPattern: value), fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
     try visitSingularFixed64Field(value: UInt64(bitPattern: value), fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
     try visitSingularUInt64Field(value: value ? 1 : 0, fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putStringValue(value: value)
   }
 
+  @inlinable
   mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: value)
   }
 
+  @usableFromInline
   mutating func visitSingularEnumField<E: Enum>(value: E,
                                                 fieldNumber: Int) throws {
     try visitSingularUInt64Field(value: UInt64(bitPattern: Int64(value.rawValue)),
                                  fieldNumber: fieldNumber)
   }
 
+  @usableFromInline
   mutating func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -105,6 +124,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     try value.traverse(visitor: &self)
   }
 
+  @usableFromInline
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .startGroup)
     try value.traverse(visitor: &self)
@@ -116,6 +136,7 @@ internal struct BinaryEncodingVisitor: Visitor {
 
   // Packed Fields
 
+  @usableFromInline
   mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -125,6 +146,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -134,6 +156,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -144,6 +167,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -154,6 +178,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -164,6 +189,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -174,6 +200,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -184,6 +211,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -194,6 +222,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -203,6 +232,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -212,6 +242,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -221,6 +252,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -230,6 +262,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -239,6 +272,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
@@ -251,6 +285,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitMapField<KeyType, ValueType: MapValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
@@ -268,6 +303,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
@@ -285,6 +321,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
@@ -302,6 +339,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     }
   }
 
+  @usableFromInline
   mutating func visitExtensionFieldsAsMessageSet(
     fields: ExtensionFieldValueSet,
     start: Int,

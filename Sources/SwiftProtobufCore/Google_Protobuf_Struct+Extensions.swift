@@ -28,6 +28,7 @@ extension Google_Protobuf_Struct: ExpressibleByDictionaryLiteral {
 }
 
 extension Google_Protobuf_Struct: _CustomJSONCodable {
+  @usableFromInline
   internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var jsonEncoder = JSONEncoder()
     jsonEncoder.startObject()
@@ -40,6 +41,7 @@ extension Google_Protobuf_Struct: _CustomJSONCodable {
     return mapVisitor.encoder.stringResult
   }
 
+  @usableFromInline
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     try decoder.scanner.skipRequiredObjectStart()
     if decoder.scanner.skipOptionalObjectEnd() {

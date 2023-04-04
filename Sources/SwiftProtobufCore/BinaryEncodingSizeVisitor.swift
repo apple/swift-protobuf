@@ -23,6 +23,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
 
   init() {}
 
+  @inlinable
   mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     serializedSize += bytes.count
   }
@@ -96,6 +97,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
+  @inlinable
   mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let count = value.count
@@ -200,6 +202,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize * value.count + dataSize
   }
 
+  @inlinable
   mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize

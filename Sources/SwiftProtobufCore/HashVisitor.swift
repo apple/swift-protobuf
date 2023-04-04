@@ -31,6 +31,7 @@ internal struct HashVisitor: Visitor {
     self.hasher = hasher
   }
 
+  @inlinable
   mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     hasher.combine(bytes)
   }
@@ -60,6 +61,7 @@ internal struct HashVisitor: Visitor {
     hasher.combine(value)
   }
 
+  @inlinable
   mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     hasher.combine(fieldNumber)
     hasher.combine(value)
@@ -160,6 +162,7 @@ internal struct HashVisitor: Visitor {
     hasher.combine(value)
   }
 
+  @inlinable
   mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     hasher.combine(fieldNumber)

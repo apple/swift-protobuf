@@ -81,6 +81,7 @@ extension SelectiveVisitor {
     assert(false)
   }
 
+  @inlinable
   internal mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     assert(false)
   }
@@ -153,6 +154,7 @@ extension SelectiveVisitor {
     assert(false)
   }
 
+  @inlinable
   internal mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     assert(false)
   }
@@ -260,6 +262,7 @@ extension SelectiveVisitor {
     assert(false)
   }
 
+  @inlinable
   internal mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     assert(false)
   }

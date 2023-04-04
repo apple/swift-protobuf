@@ -104,6 +104,7 @@ extension Message {
   ///   as UTF-8 encoded text.
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
+  @inlinable
   public static func array<Bytes: SwiftProtobufContiguousBytes>(
     fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
     options: JSONDecodingOptions = JSONDecodingOptions()
@@ -122,6 +123,7 @@ extension Message {
   /// - Parameter extensions: The extension map to use with this decode
   /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
+  @inlinable
   public static func array<Bytes: SwiftProtobufContiguousBytes>(
     fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
     extensions: ExtensionMap = SimpleExtensionMap(),

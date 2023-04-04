@@ -73,6 +73,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: text)
   }
 
+  @inlinable
   mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
@@ -131,6 +132,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
+  @inlinable
   mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.putBytesValue(value: value)
@@ -286,6 +288,7 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
+  @inlinable
   mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: Bytes) in

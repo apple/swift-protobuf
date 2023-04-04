@@ -69,12 +69,14 @@ extension Google_Protobuf_Value: ExpressibleByNilLiteral {
 }
 
 extension Google_Protobuf_Value: _CustomJSONCodable {
+  @usableFromInline
   internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var jsonEncoder = JSONEncoder()
     try serializeJSONValue(to: &jsonEncoder, options: options)
     return jsonEncoder.stringResult
   }
 
+  @usableFromInline
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     let c = try decoder.scanner.peekOneCharacter()
     switch c {
@@ -103,6 +105,7 @@ extension Google_Protobuf_Value: _CustomJSONCodable {
     }
   }
 
+  @usableFromInline
   internal static func decodedFromJSONNull() -> Google_Protobuf_Value? {
     return Google_Protobuf_Value(kind: .nullValue(.nullValue))
   }
