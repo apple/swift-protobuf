@@ -434,7 +434,7 @@ extension AnyMessageStorage {
         jsonEncoder.append(staticText: ",")
         // NOTE: This doesn't really take `options` into account since it is
         // just reflecting out what was taken in originally.
-        jsonEncoder.append(bytes: contentJSON)
+        jsonEncoder.append(utf8Bytes: contentJSON)
       }
       jsonEncoder.endObject()
       return jsonEncoder.stringResult

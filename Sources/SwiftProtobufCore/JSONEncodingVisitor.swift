@@ -369,7 +369,7 @@ internal struct JSONEncodingVisitor: Visitor {
         try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
         try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
     }
-    encoder.append(bytes: mapVisitor.bytesResult)
+    encoder.append(utf8Bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
   }
 
@@ -381,7 +381,7 @@ internal struct JSONEncodingVisitor: Visitor {
       try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
       try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
     }
-    encoder.append(bytes: mapVisitor.bytesResult)
+    encoder.append(utf8Bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
   }
 
@@ -393,7 +393,7 @@ internal struct JSONEncodingVisitor: Visitor {
         try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
         try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
-    encoder.append(bytes: mapVisitor.bytesResult)
+    encoder.append(utf8Bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
   }
 

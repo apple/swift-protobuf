@@ -108,8 +108,8 @@ internal struct JSONEncoder {
     }
 
     /// Append a raw utf8 in a `[UInt8]` to the JSON text.
-    internal mutating func append(bytes: [UInt8]) {
-        data.append(contentsOf: bytes)
+    internal mutating func append(utf8Bytes: [UInt8]) {
+        data.append(contentsOf: utf8Bytes)
     }
 
     /// Begin a new field whose name is given as a `_NameMap.Name`
