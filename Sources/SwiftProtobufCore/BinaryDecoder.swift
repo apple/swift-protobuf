@@ -793,7 +793,7 @@ internal struct BinaryDecoder: Decoder {
         }
         var n: Int = 0
         let p = try getFieldBodyBytes(count: &n)
-        value = Array(UnsafeBufferPointer(start: p.assumingMemoryBound(to: UInt8.self), count: n))
+        value = Array(UnsafeRawBufferPointer(start: p, count: n))
         consumed = true
     }
 
