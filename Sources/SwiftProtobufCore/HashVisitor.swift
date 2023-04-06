@@ -33,7 +33,6 @@ internal struct HashVisitor: Visitor {
     self.hasher = hasher
   }
 
-  @inlinable
   mutating func visitUnknown(bytes: Data) throws {
     hasher.combine(bytes)
   }
@@ -63,7 +62,6 @@ internal struct HashVisitor: Visitor {
     hasher.combine(value)
   }
 
-  @inlinable
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     hasher.combine(fieldNumber)
     hasher.combine(value)
@@ -164,7 +162,6 @@ internal struct HashVisitor: Visitor {
     hasher.combine(value)
   }
 
-  @inlinable
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     hasher.combine(fieldNumber)

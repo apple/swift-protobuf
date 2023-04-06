@@ -83,7 +83,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
       }
   }
 
-  @inlinable
   mutating func visitUnknown(bytes: Data) throws {
       if options.printUnknownFields {
           try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
@@ -248,7 +247,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
       encoder.endRegularField()
   }
 
-  @inlinable
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startRegularField()
@@ -321,7 +319,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   // Write a single special field called "#json".  This
   // is used for Any objects with undecoded JSON contents.
-  @inlinable
   internal mutating func visitAnyJSONBytesField(value: Data) {
       encoder.indent()
       encoder.append(staticText: "#json: ")
@@ -440,7 +437,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
       }
   }
 
-  @inlinable
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
       assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)

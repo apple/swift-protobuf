@@ -83,7 +83,6 @@ extension SelectiveVisitor {
     assert(false)
   }
 
-  @inlinable
   internal mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     assert(false)
   }
@@ -156,7 +155,6 @@ extension SelectiveVisitor {
     assert(false)
   }
 
-  @inlinable
   internal mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(false)
   }
@@ -264,7 +262,6 @@ extension SelectiveVisitor {
     assert(false)
   }
 
-  @inlinable
   internal mutating func visitUnknown(bytes: Data) throws {
     assert(false)
   }

@@ -27,8 +27,7 @@ internal struct BinaryEncoder {
         pointer = pointer.advanced(by: 1)
     }
 
-    @usableFromInline
-    internal mutating func append<Bytes: SwiftProtobufContiguousBytes>(contentsOf bytes: Bytes) {
+    private mutating func append<Bytes: SwiftProtobufContiguousBytes>(contentsOf bytes: Bytes) {
         bytes.withUnsafeBytes { dataPointer in
             if let baseAddress = dataPointer.baseAddress, dataPointer.count > 0 {
                 pointer.copyMemory(from: baseAddress, byteCount: dataPointer.count)
@@ -52,12 +51,10 @@ internal struct BinaryEncoder {
         return pointer.distance(to: self.pointer)
     }
 
-    @inlinable
     mutating func appendUnknown<Bytes: SwiftProtobufContiguousBytes>(data: Bytes) {
         append(contentsOf: data)
     }
 
-    @usableFromInline
     mutating func startField(fieldNumber: Int, wireFormat: WireFormat) {
         startField(tag: FieldTag(fieldNumber: fieldNumber, wireFormat: wireFormat))
     }
@@ -79,7 +76,6 @@ internal struct BinaryEncoder {
         putVarInt(value: UInt64(bitPattern: value))
     }
 
-    @usableFromInline
     mutating func putVarInt(value: Int) {
         putVarInt(value: Int64(value))
     }
@@ -140,7 +136,6 @@ internal struct BinaryEncoder {
         }
     }
 
-    @inlinable
     mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
         putVarInt(value: value.count)
         append(contentsOf: value)

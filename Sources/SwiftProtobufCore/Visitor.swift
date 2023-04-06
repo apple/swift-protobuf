@@ -589,7 +589,6 @@ extension Visitor {
     }
   }
 
-  @inlinable
   public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     for v in value {

@@ -556,7 +556,6 @@ internal struct JSONDecoder: Decoder {
     if let e: E = try scanner.nextEnumValue() {
       value = e
     }
-
   }
 
   @usableFromInline

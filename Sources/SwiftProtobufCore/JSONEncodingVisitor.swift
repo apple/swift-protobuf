@@ -75,7 +75,6 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: text)
   }
 
-  @inlinable
   mutating func visitUnknown(bytes: Data) throws {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
@@ -134,7 +133,6 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
-  @inlinable
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.putBytesValue(value: value)
@@ -290,7 +288,6 @@ internal struct JSONEncodingVisitor: Visitor {
     }
   }
 
-  @inlinable
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
       (encoder: inout JSONEncoder, v: Data) in

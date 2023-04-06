@@ -255,7 +255,6 @@ internal struct TextFormatEncoder {
         data.append(asciiDoubleQuote)
     }
 
-    @inlinable
     mutating func putBytesValue<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
         data.append(asciiDoubleQuote)
         value.withUnsafeBytes { (body: UnsafeRawBufferPointer) in

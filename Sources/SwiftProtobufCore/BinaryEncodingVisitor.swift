@@ -33,7 +33,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
-  @inlinable
+  @usableFromInline
   mutating func visitUnknown(bytes: Data) throws {
     encoder.appendUnknown(data: bytes)
   }
@@ -104,7 +104,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder.putStringValue(value: value)
   }
 
-  @inlinable
+  @usableFromInline
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: value)

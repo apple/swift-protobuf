@@ -25,7 +25,6 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
 
   init() {}
 
-  @inlinable
   mutating func visitUnknown(bytes: Data) throws {
     serializedSize += bytes.count
   }
@@ -99,7 +98,6 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
-  @inlinable
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let count = value.count
@@ -204,7 +202,6 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize * value.count + dataSize
   }
 
-  @inlinable
   mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
