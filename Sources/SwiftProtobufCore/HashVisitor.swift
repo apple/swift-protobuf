@@ -13,6 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 
@@ -32,7 +34,7 @@ internal struct HashVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
+  mutating func visitUnknown(bytes: Data) throws {
     hasher.combine(bytes)
   }
 
@@ -62,7 +64,7 @@ internal struct HashVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     hasher.combine(fieldNumber)
     hasher.combine(value)
   }
@@ -163,7 +165,7 @@ internal struct HashVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(!value.isEmpty)
     hasher.combine(fieldNumber)
     hasher.combine(value)

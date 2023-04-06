@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 /// Binary encoding and decoding methods for messages.
 extension Message {
   /// Returns a `SwiftProtobufContiguousBytes` instance containing the Protocol Buffer binary

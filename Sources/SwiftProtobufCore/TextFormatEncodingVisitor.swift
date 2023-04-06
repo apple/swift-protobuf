@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 private let mapNameResolver: [Int:StaticString] = [1: "key", 2: "value"]
 
 /// Visitor that serializes a message into protobuf text format.
@@ -82,7 +84,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
+  mutating func visitUnknown(bytes: Data) throws {
       if options.printUnknownFields {
           try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) -> () in
             if let baseAddress = body.baseAddress, body.count > 0 {
@@ -247,7 +249,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startRegularField()
       encoder.putBytesValue(value: value)
@@ -320,7 +322,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // Write a single special field called "#json".  This
   // is used for Any objects with undecoded JSON contents.
   @inlinable
-  internal mutating func visitAnyJSONBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes) {
+  internal mutating func visitAnyJSONBytesField(value: Data) {
       encoder.indent()
       encoder.append(staticText: "#json: ")
       encoder.putBytesValue(value: value)
@@ -439,7 +441,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
       assert(!value.isEmpty)
       let fieldName = formatFieldName(lookingUp: fieldNumber)
       for v in value {

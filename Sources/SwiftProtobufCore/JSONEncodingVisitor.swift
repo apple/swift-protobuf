@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 /// Visitor that serializes a message into JSON format.
 internal struct JSONEncodingVisitor: Visitor {
 
@@ -74,7 +76,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
+  mutating func visitUnknown(bytes: Data) throws {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
 
@@ -133,7 +135,7 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.putBytesValue(value: value)
   }
@@ -289,9 +291,9 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   @inlinable
-  mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     try _visitRepeated(value: value, fieldNumber: fieldNumber) {
-      (encoder: inout JSONEncoder, v: Bytes) in
+      (encoder: inout JSONEncoder, v: Data) in
       encoder.putBytesValue(value: v)
     }
   }

@@ -250,8 +250,6 @@ struct GeneratorPlugin {
   }
 
   private func sendReply(response: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    // NOTE: I can only get rid of Data here if I use FileHandle.standardOutput.write(contentsOf:)
-    // below. This is only available in macOS 10.15.4 - should we increase min OS version?
     let serializedResponse: Data
     do {
       serializedResponse = try response.serializedBytes()

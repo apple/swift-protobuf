@@ -43,13 +43,13 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
   visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
-fileprivate func asJSONObject(body: [UInt8]) -> [UInt8] {
+fileprivate func asJSONObject(body: [UInt8]) -> Data {
   let asciiOpenCurlyBracket = UInt8(ascii: "{")
   let asciiCloseCurlyBracket = UInt8(ascii: "}")
   var result = [asciiOpenCurlyBracket]
   result.append(contentsOf: body)
   result.append(asciiCloseCurlyBracket)
-  return result
+  return Data(result)
 }
 
 fileprivate func unpack(contentJSON: [UInt8],
@@ -122,7 +122,7 @@ internal class AnyMessageStorage {
       }
     }
     set {
-      state = .binary(Array(newValue))
+      state = .binary(newValue)
     }
   }
 
@@ -133,13 +133,13 @@ internal class AnyMessageStorage {
     // blob, i.e. - when decoding from binary, the spec doesn't include decoding
     // the binary blob, it is pass through. Instead there is a public api for
     // unpacking that takes new options when a developer decides to decode it.
-    case binary([UInt8])
+    case binary(Data)
     // a message
     case message(Message)
     // parsed JSON with the @type removed and the decoding options.
     case contentJSON([UInt8], JSONDecodingOptions)
   }
-  var state: InternalState = .binary([])
+  var state: InternalState = .binary(Data())
 
   static let defaultInstance = AnyMessageStorage()
 
@@ -451,7 +451,7 @@ extension AnyMessageStorage {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
     _typeURL = String()
-    state = .binary([])
+    state = .binary(Data())
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }

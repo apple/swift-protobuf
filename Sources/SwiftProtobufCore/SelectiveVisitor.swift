@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 /// A base for Visitors that only expects a subset of things to called.
 internal protocol SelectiveVisitor: Visitor {
   // Adds nothing.
@@ -82,7 +84,7 @@ extension SelectiveVisitor {
   }
 
   @inlinable
-  internal mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
+  internal mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     assert(false)
   }
 
@@ -155,7 +157,7 @@ extension SelectiveVisitor {
   }
 
   @inlinable
-  internal mutating func visitRepeatedBytesField<Bytes: SwiftProtobufContiguousBytes>(value: [Bytes], fieldNumber: Int) throws {
+  internal mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
     assert(false)
   }
 
@@ -263,7 +265,7 @@ extension SelectiveVisitor {
   }
 
   @inlinable
-  internal mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
+  internal mutating func visitUnknown(bytes: Data) throws {
     assert(false)
   }
 }

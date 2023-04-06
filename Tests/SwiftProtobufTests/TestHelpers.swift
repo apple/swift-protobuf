@@ -409,7 +409,7 @@ protocol PBTestVisitor: Visitor {
 }
 
 extension PBTestVisitor {
-  mutating func visitUnknown<Bytes: SwiftProtobufContiguousBytes>(bytes: Bytes) throws {
+  mutating func visitUnknown(bytes: Data) throws {
     XCTFail("Unexpected unknowns: \(bytes)")
   }
 
@@ -417,7 +417,7 @@ extension PBTestVisitor {
     XCTFail("Unexpected bool: \(fieldNumber) = \(value)")
   }
 
-  mutating func visitSingularBytesField<Bytes: SwiftProtobufContiguousBytes>(value: Bytes, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     XCTFail("Unexpected bytes: \(fieldNumber) = \(value)")
   }
 
