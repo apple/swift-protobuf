@@ -41,9 +41,9 @@ internal struct BinaryEncoder {
     private mutating func append(contentsOf bufferPointer: UnsafeRawBufferPointer) -> Int {
         let count = bufferPointer.count
         if let baseAddress = bufferPointer.baseAddress, count > 0 {
-            self.pointer.copyMemory(from: baseAddress, byteCount: count)
+            pointer.copyMemory(from: baseAddress, byteCount: count)
         }
-        self.pointer = self.pointer.advanced(by: count)
+        pointer = pointer.advanced(by: count)
         return count
     }
 
@@ -96,29 +96,29 @@ internal struct BinaryEncoder {
     mutating func putFixedUInt64(value: UInt64) {
         var v = value.littleEndian
         let n = MemoryLayout<UInt64>.size
-        self.pointer.copyMemory(from: &v, byteCount: n)
-        self.pointer = self.pointer.advanced(by: n)
+        pointer.copyMemory(from: &v, byteCount: n)
+        pointer = pointer.advanced(by: n)
     }
 
     mutating func putFixedUInt32(value: UInt32) {
         var v = value.littleEndian
         let n = MemoryLayout<UInt32>.size
-        self.pointer.copyMemory(from: &v, byteCount: n)
-        self.pointer = self.pointer.advanced(by: n)
+        pointer.copyMemory(from: &v, byteCount: n)
+        pointer = pointer.advanced(by: n)
     }
 
     mutating func putFloatValue(value: Float) {
         let n = MemoryLayout<Float>.size
         var v = value.bitPattern.littleEndian
-        self.pointer.copyMemory(from: &v, byteCount: n)
-        self.pointer = self.pointer.advanced(by: n)
+        pointer.copyMemory(from: &v, byteCount: n)
+        pointer = pointer.advanced(by: n)
     }
 
     mutating func putDoubleValue(value: Double) {
         let n = MemoryLayout<Double>.size
         var v = value.bitPattern.littleEndian
-        self.pointer.copyMemory(from: &v, byteCount: n)
-        self.pointer = self.pointer.advanced(by: n)
+        pointer.copyMemory(from: &v, byteCount: n)
+        pointer = pointer.advanced(by: n)
     }
 
     // Write a string field, including the leading index/tag value.
