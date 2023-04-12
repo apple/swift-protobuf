@@ -57,7 +57,7 @@ public enum BinaryDelimited {
     partial: Bool = false
   ) throws {
     // TODO: Revisit to avoid the extra buffering when encoding is streamed in general.
-    let serialized: [UInt8] = try message.serializedBytes(partial: partial)
+    let serialized: Data = try message.serializedBytes(partial: partial)
     let totalSize = Varint.encodedSize(of: UInt64(serialized.count)) + serialized.count
     var bytes: [UInt8] = Array(repeating: 0, count: totalSize)
     bytes.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
