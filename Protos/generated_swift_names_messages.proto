@@ -21,7 +21,7 @@ message GeneratedSwiftReservedMessages {
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
-  message array { int32 array = 1; }
+  message Array { int32 Array = 1; }
   message arrayDepth { int32 arrayDepth = 1; }
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
@@ -46,6 +46,7 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
   message binaryOptions { int32 binaryOptions = 1; }
+  message bitPattern { int32 bitPattern = 1; }
   message body { int32 body = 1; }
   message Bool { int32 Bool = 1; }
   message booleanLiteral { int32 booleanLiteral = 1; }
@@ -120,6 +121,7 @@ message GeneratedSwiftReservedMessages {
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
   message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
+  message clearRetention { int32 clearRetention = 1; }
   message clearRubyPackage { int32 clearRubyPackage = 1; }
   message clearSemantic { int32 clearSemantic = 1; }
   message clearServerStreaming { int32 clearServerStreaming = 1; }
@@ -430,6 +432,7 @@ message GeneratedSwiftReservedMessages {
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
   message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
+  message hasRetention { int32 hasRetention = 1; }
   message hasRubyPackage { int32 hasRubyPackage = 1; }
   message hasSemantic { int32 hasSemantic = 1; }
   message hasServerStreaming { int32 hasServerStreaming = 1; }
@@ -563,7 +566,6 @@ message GeneratedSwiftReservedMessages {
   message NamePart { int32 NamePart = 1; }
   message names { int32 names = 1; }
   message nanos { int32 nanos = 1; }
-  message nativeBytes { int32 nativeBytes = 1; }
   message nativeEndianBytes { int32 nativeEndianBytes = 1; }
   message negativeIntValue { int32 negativeIntValue = 1; }
   message nestedType { int32 nestedType = 1; }
@@ -695,6 +697,7 @@ message GeneratedSwiftReservedMessages {
   message responseStreaming { int32 responseStreaming = 1; }
   message responseTypeURL { int32 responseTypeURL = 1; }
   message result { int32 result = 1; }
+  message retention { int32 retention = 1; }
   message rethrows { int32 rethrows = 1; }
   message return { int32 return = 1; }
   message ReturnType { int32 ReturnType = 1; }
@@ -713,7 +716,7 @@ message GeneratedSwiftReservedMessages {
   message Sendable { int32 Sendable = 1; }
   message separator { int32 separator = 1; }
   message serialize { int32 serialize = 1; }
-  message serializedData { int32 serializedData = 1; }
+  message serializedBytes { int32 serializedBytes = 1; }
   message serializedSize { int32 serializedSize = 1; }
   message serverStreaming { int32 serverStreaming = 1; }
   message service { int32 service = 1; }
@@ -759,6 +762,7 @@ message GeneratedSwiftReservedMessages {
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }
+  message targets { int32 targets = 1; }
   message terminator { int32 terminator = 1; }
   message testDecoder { int32 testDecoder = 1; }
   message text { int32 text = 1; }
@@ -808,6 +812,7 @@ message GeneratedSwiftReservedMessages {
   message unpackTo { int32 unpackTo = 1; }
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
+  message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
   message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
   message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
@@ -891,6 +896,7 @@ message GeneratedSwiftReservedMessages {
   message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
   message withUnsafeBytes { int32 withUnsafeBytes = 1; }
+  message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
   message work { int32 work = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message written { int32 written = 1; }
