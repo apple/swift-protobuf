@@ -404,10 +404,6 @@ internal struct TextFormatDecoder: Decoder {
             value.append(n)
         }
     }
-    mutating func decodeSingularBytesField(value: inout [UInt8]) throws {
-        try scanner.skipRequiredColon()
-        value = Array(try scanner.nextBytesValue())
-    }
     mutating func decodeSingularBytesField(value: inout Data) throws {
         try scanner.skipRequiredColon()
         value = try scanner.nextBytesValue()

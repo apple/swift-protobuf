@@ -432,14 +432,6 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
-  mutating func decodeSingularBytesField(value: inout [UInt8]) throws {
-      if scanner.skipOptionalNull() {
-          value = []
-          return
-      }
-      value = Array(try scanner.nextBytesValue())
-  }
-
   mutating func decodeSingularBytesField(value: inout Data) throws {
     if scanner.skipOptionalNull() {
       value = Data()
