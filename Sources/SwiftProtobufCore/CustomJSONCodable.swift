@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 /// Allows WKTs to provide their custom JSON encodings.
-@usableFromInline
 internal protocol _CustomJSONCodable {
   func encodedJSONString(options: JSONEncodingOptions) throws -> String
   mutating func decodeJSON(from: inout JSONDecoder) throws
@@ -30,7 +29,6 @@ internal protocol _CustomJSONCodable {
 }
 
 extension _CustomJSONCodable {
-  @usableFromInline
   internal static func decodedFromJSONNull() -> Self? {
     // Return nil by default. Concrete types can provide custom logic.
     return nil

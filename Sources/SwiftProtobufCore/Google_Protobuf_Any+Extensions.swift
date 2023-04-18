@@ -138,12 +138,10 @@ extension Google_Protobuf_Any {
 }
 
 extension Google_Protobuf_Any: _CustomJSONCodable {
-  @usableFromInline
   internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     return try _storage.encodedJSONString(options: options)
   }
 
-  @usableFromInline
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     try _uniqueStorage().decodeJSON(from: &decoder)
   }

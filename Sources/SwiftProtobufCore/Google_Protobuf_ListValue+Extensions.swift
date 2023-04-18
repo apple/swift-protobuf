@@ -26,7 +26,6 @@ extension Google_Protobuf_ListValue: ExpressibleByArrayLiteral {
 }
 
 extension Google_Protobuf_ListValue: _CustomJSONCodable {
-  @usableFromInline
   internal func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     var jsonEncoder = JSONEncoder()
     jsonEncoder.append(text: "[")
@@ -40,7 +39,6 @@ extension Google_Protobuf_ListValue: _CustomJSONCodable {
     return jsonEncoder.stringResult
   }
 
-  @usableFromInline
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     if decoder.scanner.skipOptionalNull() {
       return

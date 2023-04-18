@@ -122,12 +122,10 @@ extension Google_Protobuf_Duration {
 }
 
 extension Google_Protobuf_Duration: _CustomJSONCodable {
-  @usableFromInline
   mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     let s = try decoder.scanner.nextQuotedString()
     (seconds, nanos) = try parseDuration(text: s)
   }
-  @usableFromInline
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
       return "\"\(formatted)\""

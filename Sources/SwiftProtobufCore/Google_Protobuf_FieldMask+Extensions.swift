@@ -161,7 +161,6 @@ extension Google_Protobuf_FieldMask {
 }
 
 extension Google_Protobuf_FieldMask: _CustomJSONCodable {
-  @usableFromInline
   mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     let s = try decoder.scanner.nextQuotedString()
     if let names = parseJSONFieldNames(names: s) {
@@ -171,7 +170,6 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
     }
   }
 
-  @usableFromInline
   func encodedJSONString(options: JSONEncodingOptions) throws -> String {
     // Note:  Proto requires alphanumeric field names, so there
     // cannot be a ',' or '"' character to mess up this formatting.

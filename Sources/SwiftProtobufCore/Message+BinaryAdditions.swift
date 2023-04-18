@@ -28,7 +28,6 @@ extension Message {
   /// of the message.
   ///
   /// - Throws: `BinaryEncodingError` if encoding fails.
-  @inlinable
   public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false) throws -> Bytes {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
@@ -62,7 +61,6 @@ extension Message {
   /// Returns the size in bytes required to encode the message in binary format.
   /// This is used by `serializedData()` to precalculate the size of the buffer
   /// so that encoding can proceed without bounds checks or reallocation.
-  @usableFromInline
   internal func serializedDataSize() throws -> Int {
     // Note: since this api is internal, it doesn't currently worry about
     // needing a partial argument to handle proto2 syntax required fields.

@@ -16,7 +16,6 @@
 import Foundation
 
 /// Encoder for Binary Protocol Buffer format
-@usableFromInline
 internal struct BinaryEncoder {
     internal var pointer: UnsafeMutableRawPointer
 
@@ -48,7 +47,6 @@ internal struct BinaryEncoder {
         return count
     }
 
-    @usableFromInline
     func distance(pointer: UnsafeMutableRawPointer) -> Int {
         return pointer.distance(to: self.pointer)
     }
