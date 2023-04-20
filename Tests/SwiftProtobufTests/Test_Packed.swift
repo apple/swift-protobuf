@@ -363,7 +363,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         do {
             let decoded1 = try ProtobufUnittest_TestPackedTypes(serializedBytes: [186, 6, 3, 4, 99, 6])
             XCTAssertEqual(decoded1.packedEnum, [.foreignFoo, .foreignBaz])
-            let recoded1 = try decoded1.serializedBytes()
+            let recoded1: [UInt8] = try decoded1.serializedBytes()
             XCTAssertEqual(recoded1, [186, 6, 2, 4, 6, 186, 6, 1, 99])
         } catch let e {
             XCTFail("Decode failed: \(e)")

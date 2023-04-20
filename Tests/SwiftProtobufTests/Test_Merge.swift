@@ -23,7 +23,7 @@ class Test_Merge: XCTestCase, PBTestHelpers {
     m2.optionalInt64 = 1000
 
     do {
-      try m1.merge(serializedBytes: m2.serializedData())
+      try m1.merge(serializedBytes: m2.serializedBytes() as [UInt8])
       XCTAssertEqual(m1.optionalInt32, 100)
       XCTAssertEqual(m1.optionalInt64, 1000)
     } catch let e {
@@ -40,7 +40,7 @@ class Test_Merge: XCTestCase, PBTestHelpers {
     toMerge.optionalInt64 = 1000
 
     do {
-      try original.merge(serializedBytes: toMerge.serializedData())
+      try original.merge(serializedBytes: toMerge.serializedBytes() as [UInt8])
 
       // The original should have the value from the merged message...
       XCTAssertEqual(original.optionalInt32, 100)

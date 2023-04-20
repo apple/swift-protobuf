@@ -261,11 +261,16 @@ let info2 = BookInfo.with {
     $0.author = "Jane Q. Smith"
   }
 
-// Serialize to binary protobuf format:
-let binaryData: Data = try info.serializedData()
+// Serialize to binary protobuf format: you can choose to serialize into
+// any type conforming to SwiftProtobufContiguousBytes. For example:
+let binaryData: Data = try info.serializedBytes()
+let binaryDataAsBytes: [UInt8] = try info.serializedBytes()
 
 // Deserialize a received Data object from `binaryData`
 let decodedInfo = try BookInfo(serializedData: binaryData)
+
+// Deserialize a received [UInt8] object from `binaryDataAsBytes`
+let decodedInfo = try BookInfo(serializedBytes: binaryDataAsBytes)
 
 // Serialize to JSON format as a Data object
 let jsonData: Data = try info.jsonUTF8Data()

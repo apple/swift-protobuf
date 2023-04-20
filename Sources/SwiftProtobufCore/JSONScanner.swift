@@ -369,7 +369,6 @@ private func decodeString(_ s: String) -> String? {
 /// The basic scanner support is entirely private
 ///
 /// For performance, it works directly against UTF-8 bytes in memory.
-///
 internal struct JSONScanner {
   private let source: UnsafeRawBufferPointer
   private var index: UnsafeRawBufferPointer.Index

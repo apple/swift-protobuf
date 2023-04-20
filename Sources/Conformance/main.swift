@@ -21,10 +21,9 @@ import Glibc
 import Darwin.C
 #endif
 
-import Foundation
 import SwiftProtobuf
 
-func readRequest() -> Data? {
+func readRequest() -> [UInt8]? {
     var rawCount: UInt32 = 0
     let read1 = fread(&rawCount, 1, 4, stdin)
     let count = Int(rawCount)
@@ -36,11 +35,10 @@ func readRequest() -> Data? {
     if read2 < count {
         return nil
     }
-    return Data(buff)
+    return buff
 }
 
-func writeResponse(data: Data) {
-    let bytes = [UInt8](data)
+func writeResponse(bytes: [UInt8]) {
     var count = UInt32(bytes.count)
     fwrite(&count, 4, 1, stdout)
     _ = bytes.withUnsafeBufferPointer { bp in
@@ -49,12 +47,12 @@ func writeResponse(data: Data) {
     fflush(stdout)
 }
 
-func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
+func buildResponse(serializedBytes: [UInt8]) -> Conformance_ConformanceResponse {
     var response = Conformance_ConformanceResponse()
 
     let request: Conformance_ConformanceRequest
     do {
-        request = try Conformance_ConformanceRequest(serializedData: serializedData)
+        request = try Conformance_ConformanceRequest(serializedBytes: serializedBytes)
     } catch {
         response.runtimeError = "Failed to parse conformance request"
         return response
@@ -142,7 +140,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
     switch request.requestedOutputFormat {
     case .protobuf:
         do {
-            response.protobufPayload = try testMessage.serializedData()
+            response.protobufPayload = try testMessage.serializedBytes()
         } catch let e {
             response.serializeError = "Failed to serialize: \(e)"
         }
@@ -170,9 +168,9 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
 
 func singleTest() throws -> Bool {
    if let indata = readRequest() {
-       let response = buildResponse(serializedData: indata)
-       let outdata = try response.serializedData()
-       writeResponse(data: outdata)
+       let response = buildResponse(serializedBytes: indata)
+       let outdata: [UInt8] = try response.serializedBytes()
+       writeResponse(bytes: outdata)
        return true
    } else {
       return false

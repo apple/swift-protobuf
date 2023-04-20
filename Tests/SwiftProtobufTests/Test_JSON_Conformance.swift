@@ -24,7 +24,7 @@ class Test_JSON_Conformance: XCTestCase {
             XCTAssertEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypesProto3(), "Decoded object should be equal to empty object: \(decoded)", file: file, line: line)
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{}", file: file, line: line)
-            let protobuf = try decoded.serializedBytes()
+            let protobuf: [UInt8] = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [], file: file, line: line)
         } catch let e {
             XCTFail("Decode failed with error \(e)", file: file, line: line)
@@ -104,7 +104,7 @@ class Test_JSON_Conformance: XCTestCase {
         }
 
         do {
-            let protobuf = try decoded.serializedBytes()
+            let protobuf: [UInt8] = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [146, 19, 2, 8, 0])
         } catch let e {
             XCTFail("Protobuf encode failed with error: \(e)")
@@ -134,7 +134,7 @@ class Test_JSON_Conformance: XCTestCase {
         }
 
         do {
-            let protobuf = try decoded.serializedBytes()
+            let protobuf: [UInt8] = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [])
         } catch let e {
             XCTFail("Protobuf encode failed with error: \(e)")
@@ -163,7 +163,7 @@ class Test_JSON_Conformance: XCTestCase {
         }
 
         do {
-            let protobuf = try decoded.serializedBytes()
+            let protobuf: [UInt8] = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [192, 7, 0])
         } catch let e {
             XCTFail("Protobuf encode failed with error: \(e)")
@@ -252,7 +252,7 @@ class Test_JSON_Conformance: XCTestCase {
             XCTFail("Re-encode failed with error: \(repeatedValueWithNull)")
         }
         do {
-            let protobuf = try decoded.serializedBytes()
+            let protobuf: [UInt8] = try decoded.serializedBytes()
             XCTAssertEqual(protobuf, [226, 19, 9, 17, 0, 0, 0, 0, 0, 0, 240, 63, 226, 19, 2, 8, 0])
         } catch {
             XCTFail("Protobuf encoding failed with error: \(repeatedValueWithNull)")

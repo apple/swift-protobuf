@@ -68,7 +68,7 @@ public struct Example: SwiftProtobuf.Message {
   // An extension map may be needed when decoding nested
   // proto2-format messages that utilize extensions.
   // See below for more details.
-  func serializedData() throws -> Data
+  func serializedBytes<Bytes: SwiftProtobufContiguousBytes>() throws -> Bytes
   init<Bytes: SwiftProtobufContiguousBytes>(serializedBytes: Bytes) throws {
   init<Bytes: SwiftProtobufContiguousBytes>(serializedBytes: Bytes, extensions: ExtensionMap? = nil, partial: Bool = false) throws
 

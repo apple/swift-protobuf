@@ -48,8 +48,8 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
             do {
                 let empty = try Proto3ArenaUnittest_TestEmptyMessage(serializedBytes: protobufBytes)
                 do {
-                    let pb = try empty.serializedData()
-                    XCTAssertEqual(Data(protobufBytes), pb, file: file, line: line)
+                    let pb: [UInt8] = try empty.serializedBytes()
+                    XCTAssertEqual(protobufBytes, pb, file: file, line: line)
                 } catch {
                     XCTFail("Recoding empty failed", file: file, line: line)
                 }

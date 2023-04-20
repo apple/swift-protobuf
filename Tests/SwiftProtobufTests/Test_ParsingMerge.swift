@@ -55,7 +55,7 @@ class Test_ParsingMerge: XCTestCase {
 
         // Encode/decode should merge repeated fields into non-repeated
         do {
-            let encoded = try m.serializedData()
+            let encoded: [UInt8] = try m.serializedBytes()
             do {
                 let decoded = try ProtobufUnittest_TestParsingMerge(serializedBytes: encoded)
 
@@ -110,7 +110,7 @@ class Test_ParsingMerge: XCTestCase {
         m.field2 = [t1, t2]
 
         do {
-            let encoded = try m.serializedData()
+            let encoded: [UInt8] = try m.serializedBytes()
             do {
                 let decoded = try SwiftUnittest_TestParsingMerge(serializedBytes: encoded)
 
@@ -141,7 +141,7 @@ class Test_ParsingMerge: XCTestCase {
         m.field2 = [t1, t2, t3]
 
         do {
-            let encoded = try m.serializedData()
+            let encoded: [UInt8] = try m.serializedBytes()
             do {
                 let decoded = try SwiftUnittest_TestParsingMerge(serializedBytes: encoded)
 
@@ -172,7 +172,7 @@ class Test_ParsingMerge: XCTestCase {
 
         // Encode/decode should merge repeated fields into non-repeated
         do {
-            let encoded = try m.serializedData()
+            let encoded: [UInt8] = try m.serializedBytes()
             do {
                 let decoded = try SwiftUnittest_TestParsingMerge(serializedBytes: encoded)
 

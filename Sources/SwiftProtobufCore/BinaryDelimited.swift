@@ -34,7 +34,7 @@ public enum BinaryDelimited {
     case tooLarge
   }
 
-  /// Serialize a single size-delimited message from the given stream. Delimited
+  /// Serialize a single size-delimited message to the given stream. Delimited
   /// format allows a single file or stream to contain multiple messages,
   /// whereas normally writing multiple non-delimited messages to the same
   /// stream would cause them to be merged. A delimited message is a varint
@@ -57,10 +57,10 @@ public enum BinaryDelimited {
     partial: Bool = false
   ) throws {
     // TODO: Revisit to avoid the extra buffering when encoding is streamed in general.
-    let serialized = try message.serializedData(partial: partial)
+    let serialized: [UInt8] = try message.serializedBytes(partial: partial)
     let totalSize = Varint.encodedSize(of: UInt64(serialized.count)) + serialized.count
-    var data = Data(count: totalSize)
-    data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
+    var bytes: [UInt8] = Array(repeating: 0, count: totalSize)
+    bytes.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
         var encoder = BinaryEncoder(forWritingInto: baseAddress)
         encoder.putBytesValue(value: serialized)
@@ -68,7 +68,7 @@ public enum BinaryDelimited {
     }
 
     var written: Int = 0
-    data.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
+    bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
         // This assumingMemoryBound is technically unsafe, but without SR-11078
         // (https://bugs.swift.org/browse/SR-11087) we don't have another option.

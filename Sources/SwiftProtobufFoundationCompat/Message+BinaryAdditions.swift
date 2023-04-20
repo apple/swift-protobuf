@@ -70,4 +70,18 @@ extension Message {
   ) throws {
     try merge(serializedBytes: data, extensions: extensions, partial: partial, options: options)
   }
+
+  /// Returns a `Data` instance containing the Protocol Buffer binary
+  /// format serialization of the message.
+  ///
+  /// - Parameters:
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
+  /// - Returns: A `Data` instance containing the binary serialization of the message.
+  /// - Throws: `BinaryEncodingError` if encoding fails.
+  public func serializedData(partial: Bool = false) throws -> Data {
+    try serializedBytes(partial: partial)
+  }
 }

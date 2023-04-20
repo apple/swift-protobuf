@@ -35,7 +35,7 @@ class Test_FieldNamingInitials: XCTestCase {
     // methods even on messages that define fields or submessages with
     // such names:
     let msg = SwiftUnittest_Names_FieldNames()
-    _ = try msg.serializedData()
+    _ = try msg.serializedBytes() as [UInt8]
     _ = try msg.jsonUTF8Data()
     _ = try msg.jsonString()
 
@@ -43,7 +43,7 @@ class Test_FieldNamingInitials: XCTestCase {
     // The submessage is a static type name:
     _ = SwiftUnittest_Names_MessageNames.serializedData()
     // The method is an instance property:
-    _ = try msg2.serializedData()
+    _ = try msg2.serializedBytes() as [UInt8]
     _ = try msg2.jsonUTF8Data()
     _ = try msg2.jsonString()
   }

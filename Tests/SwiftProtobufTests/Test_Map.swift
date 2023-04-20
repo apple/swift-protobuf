@@ -24,7 +24,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
         configure(&configured)
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         do {
-            let encoded = try configured.serializedBytes()
+            let encoded: [UInt8] = try configured.serializedBytes()
             // Reorder the provided blocks to match what we were given
             var t = encoded[0..<encoded.count]
             var availableBlocks = expectedBlocks
@@ -314,7 +314,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
         m1.unknownMapField[0] = .eProto2MapEnumExtra
 
         // It should be in unknowns
-        let serialized = try m1.serializedData()
+        let serialized: [UInt8] = try m1.serializedBytes()
         let m2 = try ProtobufUnittest_TestEnumMap(serializedBytes: serialized)
         XCTAssertEqual(m2.knownMapField.count, 1)
         XCTAssertEqual(m2.knownMapField[0], .foo)
@@ -322,7 +322,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
         XCTAssertFalse(m2.unknownFields.data.isEmpty)  // Should have the entry
 
         // It should be back in the map.
-        let serialized2 = try m2.serializedData()
+        let serialized2: [UInt8] = try m2.serializedBytes()
         let m3 = try ProtobufUnittest_TestEnumMapPlusExtra(serializedBytes: serialized2)
         XCTAssertEqual(m3.knownMapField.count, 1)
         XCTAssertEqual(m3.knownMapField[0], .eProto2MapEnumFoo)
@@ -337,7 +337,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
         m1.mapInt32Enum[2] = .UNRECOGNIZED(999)
 
         // It should be in unknowns
-        let serialized = try m1.serializedData()
+        let serialized: [UInt8] = try m1.serializedBytes()
         let m2 = try ProtobufUnittest_TestMap(serializedBytes: serialized)
         XCTAssertEqual(m2.mapInt32Enum.count, 2)
         XCTAssertEqual(m2.mapInt32Enum[1], .baz)

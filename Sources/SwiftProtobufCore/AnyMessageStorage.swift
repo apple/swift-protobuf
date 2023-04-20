@@ -43,13 +43,13 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
   visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
-fileprivate func asJSONObject(body: [UInt8]) -> [UInt8] {
+fileprivate func asJSONObject(body: [UInt8]) -> Data {
   let asciiOpenCurlyBracket = UInt8(ascii: "{")
   let asciiCloseCurlyBracket = UInt8(ascii: "}")
   var result = [asciiOpenCurlyBracket]
   result.append(contentsOf: body)
   result.append(asciiCloseCurlyBracket)
-  return result
+  return Data(result)
 }
 
 fileprivate func unpack(contentJSON: [UInt8],
@@ -102,7 +102,7 @@ internal class AnyMessageStorage {
         return Data(value)
       case .message(let message):
         do {
-          return try message.serializedData(partial: true)
+          return try message.serializedBytes(partial: true)
         } catch {
           return Data()
         }
@@ -115,14 +115,14 @@ internal class AnyMessageStorage {
                              extensions: SimpleExtensionMap(),
                              options: options,
                              as: messageType)
-          return try m.serializedData(partial: true)
+          return try m.serializedBytes(partial: true)
         } catch {
           return Data()
         }
       }
     }
     set {
-      state = .binary(Array(newValue))
+      state = .binary(newValue)
     }
   }
 
@@ -133,13 +133,13 @@ internal class AnyMessageStorage {
     // blob, i.e. - when decoding from binary, the spec doesn't include decoding
     // the binary blob, it is pass through. Instead there is a public api for
     // unpacking that takes new options when a developer decides to decode it.
-    case binary([UInt8])
+    case binary(Data)
     // a message
     case message(Message)
     // parsed JSON with the @type removed and the decoding options.
     case contentJSON([UInt8], JSONDecodingOptions)
   }
-  var state: InternalState = .binary([])
+  var state: InternalState = .binary(Data())
 
   static let defaultInstance = AnyMessageStorage()
 
@@ -179,8 +179,8 @@ internal class AnyMessageStorage {
         target = message
       } else {
         // Different type, serialize and parse.
-        let data = try msg.serializedData(partial: true)
-        target = try M(serializedBytes: Array(data), extensions: extensions, partial: true)
+        let bytes: [UInt8] = try msg.serializedBytes(partial: true)
+        target = try M(serializedBytes: bytes, extensions: extensions, partial: true)
       }
 
     case .contentJSON(let contentJSON, let options):
@@ -275,7 +275,7 @@ extension AnyMessageStorage {
         try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
       }
       if !valueData.isEmpty {
-        try! visitor.visitSingularBytesField(value: Data(valueData), fieldNumber: 2)
+        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
       }
 
     case .message(let msg):
@@ -300,7 +300,7 @@ extension AnyMessageStorage {
       }
       // Build a readable form of the JSON:
       let contentJSONAsObject = asJSONObject(body: contentJSON)
-      visitor.visitAnyJSONDataField(value: contentJSONAsObject)
+      visitor.visitAnyJSONBytesField(value: contentJSONAsObject)
     }
   }
 }
@@ -434,7 +434,7 @@ extension AnyMessageStorage {
         jsonEncoder.append(staticText: ",")
         // NOTE: This doesn't really take `options` into account since it is
         // just reflecting out what was taken in originally.
-        jsonEncoder.append(utf8Data: contentJSON)
+        jsonEncoder.append(utf8Bytes: contentJSON)
       }
       jsonEncoder.endObject()
       return jsonEncoder.stringResult
@@ -451,7 +451,7 @@ extension AnyMessageStorage {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
     _typeURL = String()
-    state = .binary([])
+    state = .binary(Data())
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }

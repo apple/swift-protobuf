@@ -29,7 +29,7 @@ class Test_AllTypes_Proto3_Optional: XCTestCase, PBTestHelpers {
             // Make sure unknown fields are preserved by empty message decode/encode
             let empty = try ProtobufUnittest_TestEmptyMessage(serializedBytes: bytes)
             do {
-                let newBytes = try empty.serializedBytes()
+                let newBytes: [UInt8] = try empty.serializedBytes()
                 XCTAssertEqual(bytes, newBytes, "Empty decode/recode did not match", file: file, line: line)
             } catch let e {
                 XCTFail("Reserializing empty threw an error: \(e)", file: file, line: line)
