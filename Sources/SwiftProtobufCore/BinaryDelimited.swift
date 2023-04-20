@@ -34,7 +34,7 @@ public enum BinaryDelimited {
     case tooLarge
   }
 
-  /// Serialize a single size-delimited message from the given stream. Delimited
+  /// Serialize a single size-delimited message to the given stream. Delimited
   /// format allows a single file or stream to contain multiple messages,
   /// whereas normally writing multiple non-delimited messages to the same
   /// stream would cause them to be merged. A delimited message is a varint
@@ -44,7 +44,6 @@ public enum BinaryDelimited {
   ///   - message: The message to be written.
   ///   - to: The `OutputStream` to write the message to.  The stream is
   ///     is assumed to be ready to be written to.
-  ///   - as: The type to use for the serialization of each Message being written to the stream.
   ///   - partial: If `false` (the default), this method will check
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
@@ -52,14 +51,13 @@ public enum BinaryDelimited {
   /// - Throws: `BinaryEncodingError` if encoding fails, throws
   ///           `BinaryDelimited.Error` for some writing errors, or the
   ///           underlying `OutputStream.streamError` for a stream error.
-  public static func serialize<Bytes: SwiftProtobufContiguousBytes>(
+  public static func serialize(
     message: Message,
     to stream: OutputStream,
-    as: Bytes.Type,
     partial: Bool = false
   ) throws {
     // TODO: Revisit to avoid the extra buffering when encoding is streamed in general.
-    let serialized: Bytes = try message.serializedBytes(partial: partial)
+    let serialized: [UInt8] = try message.serializedBytes(partial: partial)
     let totalSize = Varint.encodedSize(of: UInt64(serialized.count)) + serialized.count
     var bytes: [UInt8] = Array(repeating: 0, count: totalSize)
     bytes.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
@@ -89,31 +87,6 @@ public enum BinaryDelimited {
       }
       throw BinaryDelimited.Error.truncated
     }
-  }
-
-  /// Serialize a single size-delimited message from the given stream. Delimited
-  /// format allows a single file or stream to contain multiple messages,
-  /// whereas normally writing multiple non-delimited messages to the same
-  /// stream would cause them to be merged. A delimited message is a varint
-  /// encoding the message size followed by a message of exactly that size.
-  ///
-  /// - Parameters:
-  ///   - message: The message to be written.
-  ///   - to: The `OutputStream` to write the message to.  The stream is
-  ///     is assumed to be ready to be written to.
-  ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before encoding to verify that all required
-  ///     fields are present. If any are missing, this method throws
-  ///     `BinaryEncodingError.missingRequiredFields`.
-  /// - Throws: `BinaryEncodingError` if encoding fails, throws
-  ///           `BinaryDelimited.Error` for some writing errors, or the
-  ///           underlying `OutputStream.streamError` for a stream error.
-  public static func serialize(
-    message: Message,
-    to stream: OutputStream,
-    partial: Bool = false
-  ) throws {
-    try Self.serialize(message: message, to: stream, as: Data.self, partial: partial)
   }
 
   /// Reads a single size-delimited message from the given stream. Delimited
