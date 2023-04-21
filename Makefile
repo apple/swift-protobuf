@@ -59,7 +59,7 @@ SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 # Where to find the conformance-test-runner. Defaults to being in your protobuf
 # checkout. Invoke make with CONFORMANCE_TEST_RUNNER=[PATH_TO_BINARY] to
 # override this value.
-CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/conformance/conformance-test-runner
+CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/conformance_test_runner
 
 # NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
 # eventually we might be able to do proper dependencies and use them as inputs

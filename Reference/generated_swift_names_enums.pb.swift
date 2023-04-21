@@ -541,7 +541,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum array: SwiftProtobufCore.Enum {
+  enum Array: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneArray // = 0
     case UNRECOGNIZED(Int)
@@ -565,7 +565,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array] = [
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Array] = [
       .noneArray,
     ]
 
@@ -1287,6 +1287,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binaryOptions] = [
       .noneBinaryOptions,
+    ]
+
+  }
+
+  enum bitPattern: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneBitPattern // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBitPattern
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBitPattern
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBitPattern: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bitPattern] = [
+      .noneBitPattern,
     ]
 
   }
@@ -3507,6 +3537,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPyGenericServices] = [
       .noneClearPyGenericServices,
+    ]
+
+  }
+
+  enum clearRetention: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneClearRetention // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearRetention
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearRetention
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearRetention: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearRetention] = [
+      .noneClearRetention,
     ]
 
   }
@@ -12811,6 +12871,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum hasRetention: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneHasRetention // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasRetention
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasRetention
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasRetention: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasRetention] = [
+      .noneHasRetention,
+    ]
+
+  }
+
   enum hasRubyPackage: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneHasRubyPackage // = 0
@@ -16801,36 +16891,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum nativeBytes: SwiftProtobufCore.Enum {
-    typealias RawValue = Int
-    case noneNativeBytes // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneNativeBytes
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneNativeBytes
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneNativeBytes: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeBytes] = [
-      .noneNativeBytes,
-    ]
-
-  }
-
   enum nativeEndianBytes: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneNativeEndianBytes // = 0
@@ -20761,6 +20821,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum retention: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneRetention // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRetention
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRetention
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRetention: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.retention] = [
+      .noneRetention,
+    ]
+
+  }
+
   enum rethrowsEnum: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneRethrows // = 0
@@ -21301,32 +21391,32 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum serializedData: SwiftProtobufCore.Enum {
+  enum serializedBytes: SwiftProtobufCore.Enum {
     typealias RawValue = Int
-    case noneSerializedData // = 0
+    case noneSerializedBytes // = 0
     case UNRECOGNIZED(Int)
 
     init() {
-      self = .noneSerializedData
+      self = .noneSerializedBytes
     }
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 0: self = .noneSerializedData
+      case 0: self = .noneSerializedBytes
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Int {
       switch self {
-      case .noneSerializedData: return 0
+      case .noneSerializedBytes: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData] = [
-      .noneSerializedData,
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedBytes] = [
+      .noneSerializedBytes,
     ]
 
   }
@@ -22677,6 +22767,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tag] = [
       .noneTag,
+    ]
+
+  }
+
+  enum targets: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneTargets // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTargets
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTargets
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTargets: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.targets] = [
+      .noneTargets,
     ]
 
   }
@@ -24147,6 +24267,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutablePointer] = [
       .noneUnsafeMutablePointer,
+    ]
+
+  }
+
+  enum UnsafeMutableRawBufferPointer: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneUnsafeMutableRawBufferPointer // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUnsafeMutableRawBufferPointer
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUnsafeMutableRawBufferPointer
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUnsafeMutableRawBufferPointer: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutableRawBufferPointer] = [
+      .noneUnsafeMutableRawBufferPointer,
     ]
 
   }
@@ -26641,6 +26791,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum withUnsafeMutableBytes: SwiftProtobufCore.Enum {
+    typealias RawValue = Int
+    case noneWithUnsafeMutableBytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWithUnsafeMutableBytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWithUnsafeMutableBytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWithUnsafeMutableBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.withUnsafeMutableBytes] = [
+      .noneWithUnsafeMutableBytes,
+    ]
+
+  }
+
   enum work: SwiftProtobufCore.Enum {
     typealias RawValue = Int
     case noneWork // = 0
@@ -26893,9 +27073,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.areAllInitialize
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array: SwiftProtobufCore._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Array: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    0: .same(proto: "NONE_array"),
+    0: .same(proto: "NONE_Array"),
   ]
 }
 
@@ -27040,6 +27220,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingVi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binaryOptions: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_binaryOptions"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bitPattern: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_bitPattern"),
   ]
 }
 
@@ -27484,6 +27670,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearProto3Optio
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPyGenericServices: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_clearPyGenericServices"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearRetention: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_clearRetention"),
   ]
 }
 
@@ -29347,6 +29539,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPyGenericServ
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasRetention: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_hasRetention"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasRubyPackage: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_hasRubyPackage"),
@@ -30145,12 +30343,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nanos: SwiftProt
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeBytes: SwiftProtobufCore._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    0: .same(proto: "NONE_nativeBytes"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeEndianBytes: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_nativeEndianBytes"),
@@ -30937,6 +31129,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.result: SwiftPro
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.retention: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_retention"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rethrowsEnum: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_rethrows"),
@@ -31045,9 +31243,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serialize: Swift
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData: SwiftProtobufCore._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedBytes: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    0: .same(proto: "NONE_serializedData"),
+    0: .same(proto: "NONE_serializedBytes"),
   ]
 }
 
@@ -31318,6 +31516,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.T: SwiftProtobuf
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tag: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_tag"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.targets: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_targets"),
   ]
 }
 
@@ -31612,6 +31816,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeBufferPoin
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutablePointer: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_UnsafeMutablePointer"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutableRawBufferPointer: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_UnsafeMutableRawBufferPointer"),
   ]
 }
 
@@ -32110,6 +32320,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.with: SwiftProto
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.withUnsafeBytes: SwiftProtobufCore._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
     0: .same(proto: "NONE_withUnsafeBytes"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.withUnsafeMutableBytes: SwiftProtobufCore._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    0: .same(proto: "NONE_withUnsafeMutableBytes"),
   ]
 }
 

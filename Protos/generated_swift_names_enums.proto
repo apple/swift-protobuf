@@ -21,7 +21,7 @@ message GeneratedSwiftReservedEnums {
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
-  enum array { NONE_array = 0; }
+  enum Array { NONE_Array = 0; }
   enum arrayDepth { NONE_arrayDepth = 0; }
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
@@ -46,6 +46,7 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncodingSizeVisitor { NONE_BinaryEncodingSizeVisitor = 0; }
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
   enum binaryOptions { NONE_binaryOptions = 0; }
+  enum bitPattern { NONE_bitPattern = 0; }
   enum body { NONE_body = 0; }
   enum Bool { NONE_Bool = 0; }
   enum booleanLiteral { NONE_booleanLiteral = 0; }
@@ -120,6 +121,7 @@ message GeneratedSwiftReservedEnums {
   enum clearPositiveIntValue { NONE_clearPositiveIntValue = 0; }
   enum clearProto3Optional { NONE_clearProto3Optional = 0; }
   enum clearPyGenericServices { NONE_clearPyGenericServices = 0; }
+  enum clearRetention { NONE_clearRetention = 0; }
   enum clearRubyPackage { NONE_clearRubyPackage = 0; }
   enum clearSemantic { NONE_clearSemantic = 0; }
   enum clearServerStreaming { NONE_clearServerStreaming = 0; }
@@ -430,6 +432,7 @@ message GeneratedSwiftReservedEnums {
   enum hasPositiveIntValue { NONE_hasPositiveIntValue = 0; }
   enum hasProto3Optional { NONE_hasProto3Optional = 0; }
   enum hasPyGenericServices { NONE_hasPyGenericServices = 0; }
+  enum hasRetention { NONE_hasRetention = 0; }
   enum hasRubyPackage { NONE_hasRubyPackage = 0; }
   enum hasSemantic { NONE_hasSemantic = 0; }
   enum hasServerStreaming { NONE_hasServerStreaming = 0; }
@@ -563,7 +566,6 @@ message GeneratedSwiftReservedEnums {
   enum NamePart { NONE_NamePart = 0; }
   enum names { NONE_names = 0; }
   enum nanos { NONE_nanos = 0; }
-  enum nativeBytes { NONE_nativeBytes = 0; }
   enum nativeEndianBytes { NONE_nativeEndianBytes = 0; }
   enum negativeIntValue { NONE_negativeIntValue = 0; }
   enum nestedType { NONE_nestedType = 0; }
@@ -695,6 +697,7 @@ message GeneratedSwiftReservedEnums {
   enum responseStreaming { NONE_responseStreaming = 0; }
   enum responseTypeURL { NONE_responseTypeURL = 0; }
   enum result { NONE_result = 0; }
+  enum retention { NONE_retention = 0; }
   enum rethrows { NONE_rethrows = 0; }
   enum return { NONE_return = 0; }
   enum ReturnType { NONE_ReturnType = 0; }
@@ -713,7 +716,7 @@ message GeneratedSwiftReservedEnums {
   enum Sendable { NONE_Sendable = 0; }
   enum separator { NONE_separator = 0; }
   enum serialize { NONE_serialize = 0; }
-  enum serializedData { NONE_serializedData = 0; }
+  enum serializedBytes { NONE_serializedBytes = 0; }
   enum serializedSize { NONE_serializedSize = 0; }
   enum serverStreaming { NONE_serverStreaming = 0; }
   enum service { NONE_service = 0; }
@@ -759,6 +762,7 @@ message GeneratedSwiftReservedEnums {
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }
+  enum targets { NONE_targets = 0; }
   enum terminator { NONE_terminator = 0; }
   enum testDecoder { NONE_testDecoder = 0; }
   enum text { NONE_text = 0; }
@@ -808,6 +812,7 @@ message GeneratedSwiftReservedEnums {
   enum unpackTo { NONE_unpackTo = 0; }
   enum UnsafeBufferPointer { NONE_UnsafeBufferPointer = 0; }
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
+  enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }
   enum UnsafeMutableRawPointer { NONE_UnsafeMutableRawPointer = 0; }
   enum UnsafeRawBufferPointer { NONE_UnsafeRawBufferPointer = 0; }
   enum UnsafeRawPointer { NONE_UnsafeRawPointer = 0; }
@@ -891,6 +896,7 @@ message GeneratedSwiftReservedEnums {
   enum wireFormat { NONE_wireFormat = 0; }
   enum with { NONE_with = 0; }
   enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
+  enum withUnsafeMutableBytes { NONE_withUnsafeMutableBytes = 0; }
   enum work { NONE_work = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
   enum written { NONE_written = 0; }

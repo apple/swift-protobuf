@@ -154,8 +154,6 @@ public protocol Decoder {
   mutating func decodeRepeatedStringField(value: inout [String]) throws
   /// Decode a bytes value to non-`Optional` field storage
   mutating func decodeSingularBytesField(value: inout Data) throws
-  /// Decode a bytes value to non-`Optional` field storage
-  mutating func decodeSingularBytesField(value: inout [UInt8]) throws
   /// Decode a bytes value to `Optional` field storage
   mutating func decodeSingularBytesField(value: inout Data?) throws
   /// Decode bytes values to repeated field storage

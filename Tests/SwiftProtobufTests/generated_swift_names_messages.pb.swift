@@ -235,7 +235,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct array {
+  struct Array {
     // SwiftProtobufCore.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -529,6 +529,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var binaryOptions: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
+  struct bitPattern {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var bitPattern: Int32 = 0
 
     var unknownFields = SwiftProtobufCore.UnknownStorage()
 
@@ -1417,6 +1429,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var clearPyGenericServices_p: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
+  struct clearRetention {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var clearRetention_p: Int32 = 0
 
     var unknownFields = SwiftProtobufCore.UnknownStorage()
 
@@ -5143,6 +5167,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct hasRetention {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var hasRetention_p: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
   struct hasRubyPackage {
     // SwiftProtobufCore.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -6739,18 +6775,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nativeBytes {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var nativeBytes: Int32 = 0
-
-    var unknownFields = SwiftProtobufCore.UnknownStorage()
-
-    init() {}
-  }
-
   struct nativeEndianBytes {
     // SwiftProtobufCore.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -8323,6 +8347,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct retention {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var retention: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
   struct rethrowsMessage {
     // SwiftProtobufCore.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -8539,12 +8575,12 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct serializedData {
+  struct serializedBytes {
     // SwiftProtobufCore.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var serializedData: Int32 = 0
+    var serializedBytes: Int32 = 0
 
     var unknownFields = SwiftProtobufCore.UnknownStorage()
 
@@ -9085,6 +9121,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var tag: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
+  struct targets {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var targets: Int32 = 0
 
     var unknownFields = SwiftProtobufCore.UnknownStorage()
 
@@ -9673,6 +9721,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var unsafeMutablePointer: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
+  struct UnsafeMutableRawBufferPointer {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var unsafeMutableRawBufferPointer: Int32 = 0
 
     var unknownFields = SwiftProtobufCore.UnknownStorage()
 
@@ -10675,6 +10735,18 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
+  struct withUnsafeMutableBytes {
+    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var withUnsafeMutableBytes: Int32 = 0
+
+    var unknownFields = SwiftProtobufCore.UnknownStorage()
+
+    init() {}
+  }
+
   struct work {
     // SwiftProtobufCore.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -10745,7 +10817,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.appended: @un
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.appendUIntHex: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.appendUnknown: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.areAllInitialized: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Array: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.arrayDepth: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.arrayLiteral: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.arraySeparator: @unchecked Sendable {}
@@ -10770,6 +10842,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.BinaryEncodin
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.BinaryEncodingSizeVisitor: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.BinaryEncodingVisitor: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.bitPattern: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.body: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.BoolMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.booleanLiteral: @unchecked Sendable {}
@@ -10844,6 +10917,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpNames
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPositiveIntValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearProto3Optional: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPyGenericServices: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearRetention: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearRubyPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearSemantic: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearServerStreaming: @unchecked Sendable {}
@@ -11154,6 +11228,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpNamespa
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPositiveIntValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasProto3Optional: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPyGenericServices: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasRetention: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasRubyPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasSemantic: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasServerStreaming: @unchecked Sendable {}
@@ -11287,7 +11362,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.NameMap: @unc
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.NamePart: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.names: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nanos: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nativeBytes: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nativeEndianBytes: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.negativeIntValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nestedType: @unchecked Sendable {}
@@ -11419,6 +11493,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.reservedRange
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.responseStreaming: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.responseTypeURL: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.result: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.retention: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.rethrowsMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.returnMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ReturnType: @unchecked Sendable {}
@@ -11437,7 +11512,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.semantic: @un
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Sendable: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.separator: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serialize: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedData: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedBytes: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedSize: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serverStreaming: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.service: @unchecked Sendable {}
@@ -11483,6 +11558,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.SwiftProtobuf
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.syntax: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.T: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.tag: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.targets: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.terminator: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.testDecoder: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.text: @unchecked Sendable {}
@@ -11532,6 +11608,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnknownStorag
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.unpackTo: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeBufferPointer: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutablePointer: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawBufferPointer: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawPointer: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawBufferPointer: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeRawPointer: @unchecked Sendable {}
@@ -11615,6 +11692,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.whereMessage:
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.wireFormat: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.with: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeBytes: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.work: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.WrappedType: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.written: @unchecked Sendable {}
@@ -12188,10 +12266,10 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.areAllInitial
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".array"
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Array: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".Array"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    1: .same(proto: "array"),
+    1: .same(proto: "Array"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
@@ -12213,7 +12291,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array: SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.array) -> Bool {
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Array, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Array) -> Bool {
     if lhs.array != rhs.array {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -12983,6 +13061,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.binaryOptions) -> Bool {
     if lhs.binaryOptions != rhs.binaryOptions {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.bitPattern: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".bitPattern"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "bitPattern"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.bitPattern) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.bitPattern != 0 {
+      try visitor.visitSingularInt32Field(value: self.bitPattern, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.bitPattern, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.bitPattern) -> Bool {
+    if lhs.bitPattern != rhs.bitPattern {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -15351,6 +15461,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPyGeneri
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPyGenericServices, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPyGenericServices) -> Bool {
     if lhs.clearPyGenericServices_p != rhs.clearPyGenericServices_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearRetention: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".clearRetention"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "clearRetention"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.clearRetention_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.clearRetention_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.clearRetention_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearRetention, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearRetention) -> Bool {
+    if lhs.clearRetention_p != rhs.clearRetention_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -25276,6 +25418,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPyGenericS
   }
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasRetention: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRetention"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "hasRetention"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.hasRetention_p) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.hasRetention_p != 0 {
+      try visitor.visitSingularInt32Field(value: self.hasRetention_p, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasRetention, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasRetention) -> Bool {
+    if lhs.hasRetention_p != rhs.hasRetention_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasRubyPackage: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".hasRubyPackage"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
@@ -29532,38 +29706,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nanos: SwiftP
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nativeBytes: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".nativeBytes"
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    1: .same(proto: "nativeBytes"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.nativeBytes) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
-    if self.nativeBytes != 0 {
-      try visitor.visitSingularInt32Field(value: self.nativeBytes, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nativeBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nativeBytes) -> Bool {
-    if lhs.nativeBytes != rhs.nativeBytes {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.nativeEndianBytes: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".nativeEndianBytes"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
@@ -33756,6 +33898,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.result: Swift
   }
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.retention: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".retention"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "retention"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.retention) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.retention != 0 {
+      try visitor.visitSingularInt32Field(value: self.retention, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.retention, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.retention) -> Bool {
+    if lhs.retention != rhs.retention {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.rethrowsMessage: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".rethrows"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
@@ -34332,10 +34506,10 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serialize: Sw
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedData: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".serializedData"
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedBytes: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".serializedBytes"
   static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
-    1: .same(proto: "serializedData"),
+    1: .same(proto: "serializedBytes"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
@@ -34344,21 +34518,21 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedDat
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.serializedData) }()
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.serializedBytes) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
-    if self.serializedData != 0 {
-      try visitor.visitSingularInt32Field(value: self.serializedData, fieldNumber: 1)
+    if self.serializedBytes != 0 {
+      try visitor.visitSingularInt32Field(value: self.serializedBytes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedData, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedData) -> Bool {
-    if lhs.serializedData != rhs.serializedData {return false}
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.serializedBytes) -> Bool {
+    if lhs.serializedBytes != rhs.serializedBytes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -35799,6 +35973,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.tag: SwiftPro
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.tag, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.tag) -> Bool {
     if lhs.tag != rhs.tag {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.targets: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".targets"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "targets"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.targets) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.targets != 0 {
+      try visitor.visitSingularInt32Field(value: self.targets, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.targets, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.targets) -> Bool {
+    if lhs.targets != rhs.targets {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -37367,6 +37573,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutable
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutablePointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutablePointer) -> Bool {
     if lhs.unsafeMutablePointer != rhs.unsafeMutablePointer {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawBufferPointer: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".UnsafeMutableRawBufferPointer"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "UnsafeMutableRawBufferPointer"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.unsafeMutableRawBufferPointer) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.unsafeMutableRawBufferPointer != 0 {
+      try visitor.visitSingularInt32Field(value: self.unsafeMutableRawBufferPointer, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawBufferPointer, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.UnsafeMutableRawBufferPointer) -> Bool {
+    if lhs.unsafeMutableRawBufferPointer != rhs.unsafeMutableRawBufferPointer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -40023,6 +40261,38 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeByt
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeBytes) -> Bool {
     if lhs.withUnsafeBytes != rhs.withUnsafeBytes {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes: SwiftProtobufCore.Message, SwiftProtobufCore._MessageImplementationBase, SwiftProtobufCore._ProtoNameProviding {
+  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".withUnsafeMutableBytes"
+  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = [
+    1: .same(proto: "withUnsafeMutableBytes"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.withUnsafeMutableBytes) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+    if self.withUnsafeMutableBytes != 0 {
+      try visitor.visitSingularInt32Field(value: self.withUnsafeMutableBytes, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes) -> Bool {
+    if lhs.withUnsafeMutableBytes != rhs.withUnsafeMutableBytes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
