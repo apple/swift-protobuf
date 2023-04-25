@@ -526,6 +526,5 @@ test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_
 pod-lib-lint:
 	@if [ `uname -s` = "Darwin" ] ; then \
 	  pod lib lint SwiftProtobufCore.podspec ; \
-	  pod lib lint --include-podspecs=SwiftProtobufCore.podspec SwiftProtobufFoundationCompat.podspec ; \
-	  pod lib lint '--include-podspecs={SwiftProtobufCore.podspec,SwiftProtobufFoundationCompat.podspec}' SwiftProtobuf.podspec ; \
+	  pod lib lint '--include-podspecs=SwiftProtobufCore.podspec' SwiftProtobuf.podspec ; \
 	fi

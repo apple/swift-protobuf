@@ -52,8 +52,7 @@ When doing a release:
 
    CocoaPods only does one Swift Module per podspec, so the current three modules can be modeled
    via three podspec files that have dependencies: SwiftProtobufCore.podspec ->
-   SwiftProtobufFoundationCompat.podspec -> SwiftProtobuf.podspec. So they end up having to
-   be published in that order:
+   SwiftProtobuf.podspec. So they end up having to be published in that order:
 
    1. Publish the `SwiftProtobufCore.podspec`:
 
@@ -64,15 +63,6 @@ When doing a release:
       _Note:_ This uses that local copy of the podspec, but checks against the sources on
       github.
 
-   1. Publish the `SwiftProtobufFoundationCompat.podspec`:
-
-      ```
-      $ pod trunk push SwiftProtobufFoundationCompat.podspec
-      ```
-
-      _Note:_ This uses that local copy of `SwiftProtobufFoundationCompat.podspec`, but checks
-      against the sources on github and the already published `SwiftProtobufCore.podspec`
-
    1. Publish the `SwiftProtobuf.podspec`:
 
       ```
@@ -80,8 +70,7 @@ When doing a release:
       ```
 
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
-      against the sources on github and the already published `SwiftProtobufCore.podspec` and
-      `SwiftProtobufFoundationCompat.podspec`.
+      against the sources on github and the already published `SwiftProtobufCore.podspec`.
 
 1. Bump the version on _main_
 

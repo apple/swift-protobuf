@@ -40,12 +40,8 @@ let package = Package(
         exclude: ["CMakeLists.txt"]
     ),
     .target(
-        name: "SwiftProtobufFoundationCompat",
-        dependencies: ["SwiftProtobufCore"]
-    ),
-    .target(
         name: "SwiftProtobuf",
-        dependencies: ["SwiftProtobufCore", "SwiftProtobufFoundationCompat"]
+        dependencies: ["SwiftProtobufCore"]
     ),
     .target(
         name: "SwiftProtobufPluginLibrary",

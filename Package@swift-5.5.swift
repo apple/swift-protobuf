@@ -20,10 +20,8 @@ let package = Package(
   ],
   targets: [
     .target(name: "SwiftProtobufCore"),
-    .target(name: "SwiftProtobufFoundationCompat",
-            dependencies: ["SwiftProtobufCore"]),
     .target(name: "SwiftProtobuf",
-            dependencies: ["SwiftProtobufCore", "SwiftProtobufFoundationCompat"]),
+            dependencies: ["SwiftProtobufCore"]),
     .target(name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"]),
     .target(name: "SwiftProtobufTestHelpers",

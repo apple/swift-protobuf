@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/Array+JSONAdditions.swift - JSON format primitive types
+// Sources/SwiftProtobufCore/Message+JSONArrayAdditions_Data.swift - JSON format primitive types
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufCore
 
 /// JSON encoding and decoding methods for arrays of messages.
 extension Message {

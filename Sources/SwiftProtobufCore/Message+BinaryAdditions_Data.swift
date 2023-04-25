@@ -1,4 +1,4 @@
-// Sources/SwiftProtobufFoundationCompat/Message+BinaryAdditions.swift - Per-type binary coding
+// Sources/SwiftProtobufCore/Message+BinaryAdditions_Data.swift - Per-type binary coding
 //
 // Copyright (c) 2022 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -13,7 +13,6 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufCore
 
 /// Binary encoding and decoding methods for messages.
 extension Message {
