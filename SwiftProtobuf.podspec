@@ -20,7 +20,6 @@ Pod::Spec.new do |s|
   # Require and exact match on the dependency, since it isn't yet clear
   # if we'll be able to support interop between minor/bugfixes.
   s.dependency 'SwiftProtobufCore', "= #{s.version}"
-  s.dependency 'SwiftProtobufFoundationCompat', "= #{s.version}"
 
   s.swift_versions = ['5.0']
 end

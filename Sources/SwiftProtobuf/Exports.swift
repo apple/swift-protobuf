@@ -8,10 +8,8 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// File for declaring other module re-exports. This allows users to use both `SwiftProtobufCore`
-/// and `SwiftProtobufFoundationCompat` just by importing `SwiftProtobuf`.
+/// File for declaring other module re-exports.
 ///
 // -----------------------------------------------------------------------------
 
 @_exported import SwiftProtobufCore
-@_exported import SwiftProtobufFoundationCompat
