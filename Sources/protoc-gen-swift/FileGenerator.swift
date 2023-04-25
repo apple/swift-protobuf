@@ -89,15 +89,26 @@ class FileGenerator {
         }
 
         p.print("\(comments)import Foundation")
+
+        // Import all other imports as @_implementationOnly if the visiblity is
+        // internal and the option is set, to avoid exposing internal types to users.
+        let visibilityAnnotation: String = {
+            if self.generatorOptions.implementationOnlyImports,
+               self.generatorOptions.visibility == .internal {
+                return "@_implementationOnly "
+            } else {
+                return ""
+            }
+        }()
         if !fileDescriptor.isBundledProto {
             // The well known types ship with the runtime, everything else needs
             // to import the runtime.
-            p.print("import \(namer.swiftProtobufModuleName)")
+            p.print("\(visibilityAnnotation)import \(namer.swiftProtobufModuleName)")
         }
         if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
             p.print()
             for i in neededImports {
-                p.print("import \(i)")
+                p.print("\(visibilityAnnotation)import \(i)")
             }
         }
 
