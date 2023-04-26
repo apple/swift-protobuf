@@ -48,29 +48,14 @@ When doing a release:
    For the description call out any major things in that release.  Usually a short summary and
    then a reference to the pull request for more info is enough.
 
-1. Publish the CocoaPods
-
-   CocoaPods only does one Swift Module per podspec, so the current three modules can be modeled
-   via three podspec files that have dependencies: SwiftProtobufCore.podspec ->
-   SwiftProtobuf.podspec. So they end up having to be published in that order:
-
-   1. Publish the `SwiftProtobufCore.podspec`:
-
-      ```
-      $ pod trunk push SwiftProtobufCore.podspec
-      ```
-
-      _Note:_ This uses that local copy of the podspec, but checks against the sources on
-      github.
-
-   1. Publish the `SwiftProtobuf.podspec`:
+1. Publish the `SwiftProtobuf.podspec`
 
       ```
       $ pod trunk push SwiftProtobuf.podspec
       ```
 
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
-      against the sources on github and the already published `SwiftProtobufCore.podspec`.
+      against the sources on github.
 
 1. Bump the version on _main_
 
