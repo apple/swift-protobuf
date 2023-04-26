@@ -139,7 +139,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime()
 /// ) to obtain a formatter capable of generating timestamps in this format.
 public struct Google_Protobuf_Timestamp {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
