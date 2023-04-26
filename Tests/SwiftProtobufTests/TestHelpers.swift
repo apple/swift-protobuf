@@ -371,7 +371,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     }
 }
 
-/// Protocol to help write visitor for testing.  It provides default implementaions
+/// Protocol to help write visitor for testing.  It provides default implementations
 /// that will cause a failure if anything gets called.  This way specific tests can
 /// just hook the methods they intend to validate.
 protocol PBTestVisitor: Visitor {

@@ -22,7 +22,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3Unittest_TestAllTypes
 
     func testEqual() {
-        // The message from unittest.proto doens't exist in unittest_proto3.proto
+        // The message from unittest.proto doesn't exist in unittest_proto3.proto
     }
 
     func testJSONsingular() {
