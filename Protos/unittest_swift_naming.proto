@@ -233,7 +233,7 @@ message FieldNames {
   optional int32 TimeScale = 241;
   optional int32 TimeBase = 242;
   optional int32 TimeRecord = 243;
-  optional int32 json_should_be_overriden = 244 [json_name = "json_was_overridden"];
+  optional int32 json_should_be_overridden = 244 [json_name = "json_was_overridden"];
   optional int32 Any = 245;
   optional int32 Int32 = 246;
   optional int32 Int64 = 247;
