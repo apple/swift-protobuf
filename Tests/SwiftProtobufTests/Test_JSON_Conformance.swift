@@ -285,19 +285,19 @@ class Test_JSON_Conformance: XCTestCase {
     XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .nan).jsonString()) {
       XCTAssertEqual($0 as? JSONEncodingError,
                      JSONEncodingError.valueNumberNotFinite,
-                     "Wrong errror? - \($0)")
+                     "Wrong error? - \($0)")
     }
 
     XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: .infinity).jsonString()) {
       XCTAssertEqual($0 as? JSONEncodingError,
                      JSONEncodingError.valueNumberNotFinite,
-                     "Wrong errror? - \($0)")
+                     "Wrong error? - \($0)")
     }
 
     XCTAssertThrowsError(try Google_Protobuf_Value(numberValue: -.infinity).jsonString()) {
       XCTAssertEqual($0 as? JSONEncodingError,
                      JSONEncodingError.valueNumberNotFinite,
-                     "Wrong errror? - \($0)")
+                     "Wrong error? - \($0)")
     }
   }
 
