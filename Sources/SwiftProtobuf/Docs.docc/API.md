@@ -13,7 +13,7 @@ They're collected here to make it easier to understand.
 ## Message API
 
 Messages in the input proto file generate Swift structs in the result.
-These structs conform to `SwiftProtobufCore.Message` and provide Swift properties for every
+These structs conform to `SwiftProtobuf.Message` and provide Swift properties for every
 field, basic information about the message, standard initializers, and
 serialization and deserialization methods.
 
@@ -38,13 +38,13 @@ in the library, and omits many details of the generated
 code that are intended purely for internal use by the library.)
 
 ```swift
-public struct Example: SwiftProtobufCore.Message {
+public struct Example: SwiftProtobuf.Message {
   // The generated struct carries constant properties reflecting
   // basic information about the message:
   public var protoMessageName: String {return "Example"}
 
   // Nested enum and message types are nested in the generated Swift
-  public enum E: SwiftProtobufCore.Enum { ... }
+  public enum E: SwiftProtobuf.Enum { ... }
 
   // A public property is created for each field in the proto.
   public var field1: Int32 { get set }
@@ -152,7 +152,7 @@ generator to emit a `struct IntMessage` to the generated Swift file.
 ## Enum API
 
 Proto enums are translated to Swift enums in a fairly straightforward manner.
-The resulting Swift enums conform to the `SwiftProtobufCore.Enum` protocol which extends
+The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which extends
 `RawRepresentable` with a `RawValue` of `Int`.
 The generated Swift enum will have a case for each enum value in the proto file.
 
@@ -168,7 +168,7 @@ If deserialization encounters an unknown value:
 - For protobuf binary, the value is handled as an unknown field.
 
 ```swift
-public enum MyEnum: SwiftProtobufCore.Enum {
+public enum MyEnum: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     // Case for each value
@@ -280,14 +280,14 @@ Types in the proto file are mapped to Swift types as follows:
 
 Enums in the proto file generate Int-valued enums in the Swift code.
 
-Groups in the proto file generate Swift structs that conform to `SwiftProtobufCore.Message`.
+Groups in the proto file generate Swift structs that conform to `SwiftProtobuf.Message`.
 
 Messages in the proto file generate Swift structs that conform to
-`SwiftProtobufCore.Message`.
+`SwiftProtobuf.Message`.
 
-Note: There is also a `SwiftProtobufCore._MessageImplementationBase`
+Note: There is also a `SwiftProtobuf._MessageImplementationBase`
 protocol.  You should not refer to that directly; use
-`SwiftProtobufCore.Message` when you need to work with arbitrary groups or
+`SwiftProtobuf.Message` when you need to work with arbitrary groups or
 messages.
 
 ### Type modifiers
@@ -397,7 +397,7 @@ Also note that you can access the `alternatives` property here
 directly if you want to use a `switch` construct to analyze
 the fields contained in the oneof:
 ```swift
-public struct ExampleOneOf: SwiftProtobufCore.Message {
+public struct ExampleOneOf: SwiftProtobuf.Message {
    enum OneOf_Alternatives {
    case id(Int32)
    case name(String)
@@ -459,7 +459,7 @@ convenience methods.  The variations from the default generated behavior are des
 
 For most of these types, you should refer to Google's documentation.
 Details are provided here to explain details of how these are
-implemented by SwiftProtobufCore.
+implemented by SwiftProtobuf.
 
 ### Google_Protobuf_Value, Google_Protobuf_Struct, Google_Protobuf_ArrayValue
 

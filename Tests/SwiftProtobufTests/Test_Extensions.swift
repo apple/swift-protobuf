@@ -14,13 +14,13 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 // Exercise the support for Proto2 extensions.
 
 class Test_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllExtensions
-    var extensions = SwiftProtobufCore.SimpleExtensionMap()
+    var extensions = SwiftProtobuf.SimpleExtensionMap()
 
     func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()

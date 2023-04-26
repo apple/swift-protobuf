@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-@testable import SwiftProtobufCore
+@testable import SwiftProtobuf
 
 /// Helpers for building up wire encoding in tests.
 extension Data {

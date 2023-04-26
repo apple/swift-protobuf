@@ -1,4 +1,4 @@
-// Sources/SwiftProtobufCore/SwiftProtobufContiguousBytes.swift
+// Sources/SwiftProtobuf/SwiftProtobufContiguousBytes.swift
 //
 // Copyright (c) 2022 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

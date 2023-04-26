@@ -19,9 +19,7 @@ let package = Package(
     .library(name: "SwiftProtobufPluginLibrary", targets: ["SwiftProtobufPluginLibrary"]),
   ],
   targets: [
-    .target(name: "SwiftProtobufCore"),
-    .target(name: "SwiftProtobuf",
-            dependencies: ["SwiftProtobufCore"]),
+    .target(name: "SwiftProtobuf"),
     .target(name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"]),
     .target(name: "SwiftProtobufTestHelpers",

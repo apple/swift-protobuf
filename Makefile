@@ -318,7 +318,7 @@ regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/SwiftProtobufCore \
+		--tfiws_out=Sources/SwiftProtobuf \
 		${LIBRARY_PROTOS}
 
 # Rebuild just the protos used by the plugin
@@ -395,7 +395,7 @@ Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} 
 # public protocol, struct, enum, or class name, as well as every
 # method or property defined in a public protocol, struct, or class.
 # It also gives us a large collection of Swift names.
-Protos/mined_words.txt: Sources/SwiftProtobufCore/*.swift
+Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 	@echo Building $@
 	@cat $^ | \
 	grep -E '\b(public|func|var)\b' | \
@@ -522,9 +522,8 @@ test-conformance: build check-for-protobuf-checkout Sources/Conformance/failure_
 	  --text_format_failure_list Sources/Conformance/text_format_failure_list_swift.txt\
 	  $(SWIFT_CONFORMANCE_PLUGIN)
 
-# Validate the CocoaPods podspecs files against the current tree state.
+# Validate the CocoaPods podspec file against the current tree state.
 pod-lib-lint:
 	@if [ `uname -s` = "Darwin" ] ; then \
-	  pod lib lint SwiftProtobufCore.podspec ; \
-	  pod lib lint '--include-podspecs=SwiftProtobufCore.podspec' SwiftProtobuf.podspec ; \
+	  pod lib lint SwiftProtobuf.podspec ; \
 	fi

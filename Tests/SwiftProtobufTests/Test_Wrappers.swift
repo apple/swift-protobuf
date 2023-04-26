@@ -15,7 +15,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_Wrappers: XCTestCase {
 

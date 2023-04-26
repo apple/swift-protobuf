@@ -16,7 +16,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_JSON_Array: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3Unittest_TestAllTypes

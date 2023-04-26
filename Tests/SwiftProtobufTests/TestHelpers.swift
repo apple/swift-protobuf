@@ -14,7 +14,7 @@
 
 import XCTest
 import Foundation
-import SwiftProtobufCore
+import SwiftProtobuf
 
 typealias XCTestFileArgType = StaticString
 
@@ -22,7 +22,7 @@ protocol PBTestHelpers {
     associatedtype MessageTestType
 }
 
-extension PBTestHelpers where MessageTestType: SwiftProtobufCore.Message & Equatable {
+extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable {
 
     private func string(from data: [UInt8]) -> String {
         return "[" + data.map { String($0) }.joined(separator: ", ") + "]"
@@ -382,7 +382,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobufCore.Message & Equat
 }
 
 extension XCTestCase {
-    func assertDebugDescription(_ expected: String, _ m: SwiftProtobufCore.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDebugDescription(_ expected: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
         // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
         #if DEBUG
         let actual = m.debugDescription
@@ -392,7 +392,7 @@ extension XCTestCase {
     /// Like ``assertDebugDescription``, but only checks the the ``debugDescription`` ends with
     /// ``expectedSuffix``, mainly useful where you want to be agnotics to some preable like
     /// the module name.
-    func assertDebugDescriptionSuffix(_ expectedSuffix: String, _ m: SwiftProtobufCore.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDebugDescriptionSuffix(_ expectedSuffix: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
         // `assertDebugDescriptionSuffix` is a no-op in release as `debugDescription` is unavailable.
 #if DEBUG
         let actual = m.debugDescription

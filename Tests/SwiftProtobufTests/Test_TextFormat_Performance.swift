@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Fuzz_Testing_Message

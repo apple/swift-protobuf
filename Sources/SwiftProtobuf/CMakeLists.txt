@@ -92,7 +92,7 @@ install(TARGETS SwiftProtobuf
   RUNTIME DESTINATION bin)
 get_swift_host_arch(swift_arch)
 install(FILES
-  $<TARGET_PROPERTY:SwiftProtobuf,Swift_MODULE_DIRECTORY>/SwiftProtobufCore.swiftdoc
-  $<TARGET_PROPERTY:SwiftProtobuf,Swift_MODULE_DIRECTORY>/SwiftProtobufCore.swiftmodule
+  $<TARGET_PROPERTY:SwiftProtobuf,Swift_MODULE_DIRECTORY>/SwiftProtobuf.swiftdoc
+  $<TARGET_PROPERTY:SwiftProtobuf,Swift_MODULE_DIRECTORY>/SwiftProtobuf.swiftmodule
   DESTINATION lib/swift$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:_static>/$<LOWER_CASE:${CMAKE_SYSTEM_NAME}>/${swift_arch})
 set_property(GLOBAL APPEND PROPERTY Protobuf_EXPORTS SwiftProtobuf)

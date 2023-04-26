@@ -1,4 +1,4 @@
-// Sources/SwiftProtobufCore/Message+BinaryAdditions_Data.swift - Per-type binary coding
+// Sources/SwiftProtobuf/Message+BinaryAdditions_Data.swift - Per-type binary coding
 //
 // Copyright (c) 2022 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

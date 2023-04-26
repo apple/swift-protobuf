@@ -17,7 +17,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_Any: XCTestCase {
 
@@ -825,25 +825,25 @@ class Test_Any: XCTestCase {
 // generated code from ProtobufUnittest_TestEmptyMessage.
 
 struct ConflictingImportMessage:
-    SwiftProtobufCore.Message,
-    SwiftProtobufCore._MessageImplementationBase,
-    SwiftProtobufCore._ProtoNameProviding {
+    SwiftProtobuf.Message,
+    SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "protobuf_unittest_import.ImportMessage"
 
-  var unknownFields = SwiftProtobufCore.UnknownStorage()
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  mutating func decodeMessage<D: SwiftProtobufCore.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobufCore.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static let _protobuf_nameMap: SwiftProtobufCore._NameMap = SwiftProtobufCore._NameMap()
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = SwiftProtobuf._NameMap()
 
   static func ==(lhs: ConflictingImportMessage, rhs: ConflictingImportMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
