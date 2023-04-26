@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/AnyMessageStorage.swift - Custom stroage for Any WKT
+// Sources/SwiftProtobuf/AnyMessageStorage.swift - Custom storage for Any WKT
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -391,7 +391,7 @@ extension AnyMessageStorage {
     }
 
     // Out of options. To do more compares, the states conversions would have to be
-    // done to do comparisions; and since equality can be used somewhat removed from
+    // done to do comparisons; and since equality can be used somewhat removed from
     // a developer (if they put protos in a Set, use them as keys to a Dictionary, etc),
     // the conversion cost might be to high for those uses.  Give up and say they aren't equal.
     return false

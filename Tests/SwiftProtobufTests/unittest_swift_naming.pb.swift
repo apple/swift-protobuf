@@ -2605,14 +2605,14 @@ struct SwiftUnittest_Names_FieldNames {
   /// Clears the value of `timeRecord`. Subsequent reads from it will return its default value.
   mutating func clearTimeRecord() {_uniqueStorage()._timeRecord = nil}
 
-  var jsonShouldBeOverriden: Int32 {
-    get {return _storage._jsonShouldBeOverriden ?? 0}
-    set {_uniqueStorage()._jsonShouldBeOverriden = newValue}
+  var jsonShouldBeOverridden: Int32 {
+    get {return _storage._jsonShouldBeOverridden ?? 0}
+    set {_uniqueStorage()._jsonShouldBeOverridden = newValue}
   }
-  /// Returns true if `jsonShouldBeOverriden` has been explicitly set.
-  var hasJsonShouldBeOverriden: Bool {return _storage._jsonShouldBeOverriden != nil}
-  /// Clears the value of `jsonShouldBeOverriden`. Subsequent reads from it will return its default value.
-  mutating func clearJsonShouldBeOverriden() {_uniqueStorage()._jsonShouldBeOverriden = nil}
+  /// Returns true if `jsonShouldBeOverridden` has been explicitly set.
+  var hasJsonShouldBeOverridden: Bool {return _storage._jsonShouldBeOverridden != nil}
+  /// Clears the value of `jsonShouldBeOverridden`. Subsequent reads from it will return its default value.
+  mutating func clearJsonShouldBeOverridden() {_uniqueStorage()._jsonShouldBeOverridden = nil}
 
   var any: Int32 {
     get {return _storage._any ?? 0}
@@ -16974,7 +16974,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
     241: .same(proto: "TimeScale"),
     242: .same(proto: "TimeBase"),
     243: .same(proto: "TimeRecord"),
-    244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden"),
+    244: .unique(proto: "json_should_be_overridden", json: "json_was_overridden"),
     245: .same(proto: "Any"),
     246: .same(proto: "Int32"),
     247: .same(proto: "Int64"),
@@ -17199,7 +17199,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
     var _timeScale: Int32? = nil
     var _timeBase: Int32? = nil
     var _timeRecord: Int32? = nil
-    var _jsonShouldBeOverriden: Int32? = nil
+    var _jsonShouldBeOverridden: Int32? = nil
     var _any: Int32? = nil
     var _int32: Int32? = nil
     var _int64: Int32? = nil
@@ -17427,7 +17427,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
       _timeScale = source._timeScale
       _timeBase = source._timeBase
       _timeRecord = source._timeRecord
-      _jsonShouldBeOverriden = source._jsonShouldBeOverriden
+      _jsonShouldBeOverridden = source._jsonShouldBeOverridden
       _any = source._any
       _int32 = source._int32
       _int64 = source._int64
@@ -17667,7 +17667,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
         case 241: try { try decoder.decodeSingularInt32Field(value: &_storage._timeScale) }()
         case 242: try { try decoder.decodeSingularInt32Field(value: &_storage._timeBase) }()
         case 243: try { try decoder.decodeSingularInt32Field(value: &_storage._timeRecord) }()
-        case 244: try { try decoder.decodeSingularInt32Field(value: &_storage._jsonShouldBeOverriden) }()
+        case 244: try { try decoder.decodeSingularInt32Field(value: &_storage._jsonShouldBeOverridden) }()
         case 245: try { try decoder.decodeSingularInt32Field(value: &_storage._any) }()
         case 246: try { try decoder.decodeSingularInt32Field(value: &_storage._int32) }()
         case 247: try { try decoder.decodeSingularInt32Field(value: &_storage._int64) }()
@@ -18313,7 +18313,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
       try { if let v = _storage._timeRecord {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 243)
       } }()
-      try { if let v = _storage._jsonShouldBeOverriden {
+      try { if let v = _storage._jsonShouldBeOverridden {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
       } }()
       try { if let v = _storage._any {
@@ -18576,7 +18576,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
         if _storage._timeScale != rhs_storage._timeScale {return false}
         if _storage._timeBase != rhs_storage._timeBase {return false}
         if _storage._timeRecord != rhs_storage._timeRecord {return false}
-        if _storage._jsonShouldBeOverriden != rhs_storage._jsonShouldBeOverriden {return false}
+        if _storage._jsonShouldBeOverridden != rhs_storage._jsonShouldBeOverridden {return false}
         if _storage._any != rhs_storage._any {return false}
         if _storage._int32 != rhs_storage._int32 {return false}
         if _storage._int64 != rhs_storage._int64 {return false}

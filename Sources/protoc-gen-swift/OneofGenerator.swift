@@ -359,7 +359,7 @@ class OneofGenerator {
         if usesHeapStorage {
             p.print("var \(underscoreSwiftFieldName): \(swiftFullName)?\n")
         } else {
-            // When not using heap stroage, no extra storage is needed because
+            // When not using heap storage, no extra storage is needed because
             // the public property for the oneof is the storage.
         }
     }
