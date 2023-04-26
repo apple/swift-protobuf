@@ -44,7 +44,7 @@ When the minimum Swift version gets updated, update:
 - Audit all the `#if` directives in the code and tests that use at
   `swift(...)` to check the version being compiled against, and
   remove the ones that are no longer needed.
-- Update `Package.swift` and `SwiftProtobuf*.podspec` files to list the
+- Update `Package.swift` and `SwiftProtobuf.podspec` files to list the
   versions supported. Eventually the version specific `Package@*.swift`
   files will go away.
 
