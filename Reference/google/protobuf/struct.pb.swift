@@ -94,7 +94,7 @@ enum Google_Protobuf_NullValue: Enum {
 ///
 /// The JSON representation for `Struct` is JSON object.
 struct Google_Protobuf_Struct {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -113,7 +113,7 @@ struct Google_Protobuf_Struct {
 ///
 /// The JSON representation for `Value` is JSON value.
 struct Google_Protobuf_Value {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -200,7 +200,7 @@ struct Google_Protobuf_Value {
 ///
 /// The JSON representation for `ListValue` is JSON array.
 struct Google_Protobuf_ListValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 

@@ -717,6 +717,7 @@ message GeneratedSwiftReservedEnums {
   enum separator { NONE_separator = 0; }
   enum serialize { NONE_serialize = 0; }
   enum serializedBytes { NONE_serializedBytes = 0; }
+  enum serializedData { NONE_serializedData = 0; }
   enum serializedSize { NONE_serializedSize = 0; }
   enum serverStreaming { NONE_serverStreaming = 0; }
   enum service { NONE_service = 0; }

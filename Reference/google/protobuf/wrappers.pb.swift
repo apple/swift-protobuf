@@ -63,7 +63,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///
 /// The JSON representation for `DoubleValue` is JSON number.
 struct Google_Protobuf_DoubleValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -79,7 +79,7 @@ struct Google_Protobuf_DoubleValue {
 ///
 /// The JSON representation for `FloatValue` is JSON number.
 struct Google_Protobuf_FloatValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -95,7 +95,7 @@ struct Google_Protobuf_FloatValue {
 ///
 /// The JSON representation for `Int64Value` is JSON string.
 struct Google_Protobuf_Int64Value {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -111,7 +111,7 @@ struct Google_Protobuf_Int64Value {
 ///
 /// The JSON representation for `UInt64Value` is JSON string.
 struct Google_Protobuf_UInt64Value {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -127,7 +127,7 @@ struct Google_Protobuf_UInt64Value {
 ///
 /// The JSON representation for `Int32Value` is JSON number.
 struct Google_Protobuf_Int32Value {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -143,7 +143,7 @@ struct Google_Protobuf_Int32Value {
 ///
 /// The JSON representation for `UInt32Value` is JSON number.
 struct Google_Protobuf_UInt32Value {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -159,7 +159,7 @@ struct Google_Protobuf_UInt32Value {
 ///
 /// The JSON representation for `BoolValue` is JSON `true` and `false`.
 struct Google_Protobuf_BoolValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -175,7 +175,7 @@ struct Google_Protobuf_BoolValue {
 ///
 /// The JSON representation for `StringValue` is JSON string.
 struct Google_Protobuf_StringValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -191,7 +191,7 @@ struct Google_Protobuf_StringValue {
 ///
 /// The JSON representation for `BytesValue` is JSON string.
 struct Google_Protobuf_BytesValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
