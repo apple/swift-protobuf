@@ -60,7 +60,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// The protocol compiler can output a FileDescriptorSet containing the .proto
 /// files it parses.
 struct Google_Protobuf_FileDescriptorSet {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -73,7 +73,7 @@ struct Google_Protobuf_FileDescriptorSet {
 
 /// Describes a complete .proto file.
 struct Google_Protobuf_FileDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -175,7 +175,7 @@ struct Google_Protobuf_FileDescriptorProto {
 
 /// Describes a message type.
 struct Google_Protobuf_DescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -218,7 +218,7 @@ struct Google_Protobuf_DescriptorProto {
   var unknownFields = UnknownStorage()
 
   struct ExtensionRange {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
@@ -264,7 +264,7 @@ struct Google_Protobuf_DescriptorProto {
   /// fields or extension ranges in the same message. Reserved ranges may
   /// not overlap.
   struct ReservedRange {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
@@ -303,7 +303,7 @@ struct Google_Protobuf_DescriptorProto {
 }
 
 struct Google_Protobuf_ExtensionRangeOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -319,7 +319,7 @@ struct Google_Protobuf_ExtensionRangeOptions: ExtensibleMessage {
 
 /// Describes a field within a message.
 struct Google_Protobuf_FieldDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -598,7 +598,7 @@ struct Google_Protobuf_FieldDescriptorProto {
 
 /// Describes a oneof.
 struct Google_Protobuf_OneofDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -630,7 +630,7 @@ struct Google_Protobuf_OneofDescriptorProto {
 
 /// Describes an enum type.
 struct Google_Protobuf_EnumDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -672,7 +672,7 @@ struct Google_Protobuf_EnumDescriptorProto {
   /// is inclusive such that it can appropriately represent the entire int32
   /// domain.
   struct EnumReservedRange {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
@@ -712,7 +712,7 @@ struct Google_Protobuf_EnumDescriptorProto {
 
 /// Describes a value within an enum.
 struct Google_Protobuf_EnumValueDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -754,7 +754,7 @@ struct Google_Protobuf_EnumValueDescriptorProto {
 
 /// Describes a service.
 struct Google_Protobuf_ServiceDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -788,7 +788,7 @@ struct Google_Protobuf_ServiceDescriptorProto {
 
 /// Describes a method of a service.
 struct Google_Protobuf_MethodDescriptorProto {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -863,7 +863,7 @@ struct Google_Protobuf_MethodDescriptorProto {
 }
 
 struct Google_Protobuf_FileOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1160,7 +1160,7 @@ struct Google_Protobuf_FileOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_MessageOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1281,7 +1281,7 @@ struct Google_Protobuf_MessageOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_FieldOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1600,7 +1600,7 @@ struct Google_Protobuf_FieldOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_OneofOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1615,7 +1615,7 @@ struct Google_Protobuf_OneofOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_EnumOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1672,7 +1672,7 @@ struct Google_Protobuf_EnumOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_EnumValueOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1701,7 +1701,7 @@ struct Google_Protobuf_EnumValueOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_ServiceOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1730,7 +1730,7 @@ struct Google_Protobuf_ServiceOptions: ExtensibleMessage {
 }
 
 struct Google_Protobuf_MethodOptions: ExtensibleMessage {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1811,7 +1811,7 @@ struct Google_Protobuf_MethodOptions: ExtensibleMessage {
 /// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
 /// in them.
 struct Google_Protobuf_UninterpretedOption {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1881,7 +1881,7 @@ struct Google_Protobuf_UninterpretedOption {
   /// E.g.,{ ["foo", false], ["bar.baz", true], ["moo", false] } represents
   /// "foo.(bar.baz).moo".
   struct NamePart {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
@@ -1924,7 +1924,7 @@ struct Google_Protobuf_UninterpretedOption {
 /// Encapsulates information about the original source file from which a
 /// FileDescriptorProto was generated.
 struct Google_Protobuf_SourceCodeInfo {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -1976,7 +1976,7 @@ struct Google_Protobuf_SourceCodeInfo {
   var unknownFields = UnknownStorage()
 
   struct Location {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
@@ -2094,7 +2094,7 @@ struct Google_Protobuf_SourceCodeInfo {
 /// file. A GeneratedCodeInfo message is associated with only one generated
 /// source file, but may contain references to different source .proto files.
 struct Google_Protobuf_GeneratedCodeInfo {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -2105,7 +2105,7 @@ struct Google_Protobuf_GeneratedCodeInfo {
   var unknownFields = UnknownStorage()
 
   struct Annotation {
-    // SwiftProtobufCore.Message conformance is added in an extension below. See the
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 

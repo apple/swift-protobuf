@@ -717,6 +717,7 @@ message GeneratedSwiftReservedMessages {
   message separator { int32 separator = 1; }
   message serialize { int32 serialize = 1; }
   message serializedBytes { int32 serializedBytes = 1; }
+  message serializedData { int32 serializedData = 1; }
   message serializedSize { int32 serializedSize = 1; }
   message serverStreaming { int32 serverStreaming = 1; }
   message service { int32 service = 1; }

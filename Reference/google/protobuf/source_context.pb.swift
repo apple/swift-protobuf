@@ -52,7 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// `SourceContext` represents information about the source of a
 /// protobuf element, like the file in which it is defined.
 struct Google_Protobuf_SourceContext {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 

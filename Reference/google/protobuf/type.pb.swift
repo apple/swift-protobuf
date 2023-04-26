@@ -96,7 +96,7 @@ enum Google_Protobuf_Syntax: Enum {
 
 /// A protocol buffer message type.
 struct Google_Protobuf_Type {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -137,7 +137,7 @@ struct Google_Protobuf_Type {
 
 /// A single field of a message type.
 struct Google_Protobuf_Field {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -372,7 +372,7 @@ struct Google_Protobuf_Field {
 
 /// Enum type definition.
 struct Google_Protobuf_Enum {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -410,7 +410,7 @@ struct Google_Protobuf_Enum {
 
 /// Enum value definition.
 struct Google_Protobuf_EnumValue {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
@@ -431,7 +431,7 @@ struct Google_Protobuf_EnumValue {
 /// A protocol buffer option, which can be attached to a message, field,
 /// enumeration, etc.
 struct Google_Protobuf_Option {
-  // SwiftProtobufCore.Message conformance is added in an extension below. See the
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 

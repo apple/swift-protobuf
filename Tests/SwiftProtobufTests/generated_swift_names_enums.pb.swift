@@ -21421,6 +21421,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum serializedData: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSerializedData // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSerializedData
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSerializedData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSerializedData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData] = [
+      .noneSerializedData,
+    ]
+
+  }
+
   enum serializedSize: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneSerializedSize // = 0
@@ -31246,6 +31276,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serialize: Swift
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_serializedBytes"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_serializedData"),
   ]
 }
 
