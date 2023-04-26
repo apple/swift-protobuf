@@ -1,4 +1,4 @@
-// Sources/SwiftProtobufCore/Message+JSONAdditions_Data.swift - JSON format primitive types
+// Sources/SwiftProtobuf/Message+JSONAdditions_Data.swift - JSON format primitive types
 //
 // Copyright (c) 2022 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

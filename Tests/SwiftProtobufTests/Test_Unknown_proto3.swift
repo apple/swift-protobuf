@@ -15,7 +15,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 // Note: This uses the 'Proto3Arena' version of the empty message.
 // 'Arena' just indicates that this empty proto3 message

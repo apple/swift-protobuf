@@ -175,9 +175,9 @@ extension Message {
 
 /// Implementation base for all messages; not intended for client use.
 ///
-/// In general, use `SwiftProtobufCore.Message` instead when you need a variable or
+/// In general, use `SwiftProtobuf.Message` instead when you need a variable or
 /// argument that can hold any type of message. Occasionally, you can use
-/// `SwiftProtobufCore.Message & Equatable` or `SwiftProtobufCore.Message & Hashable` as
+/// `SwiftProtobuf.Message & Equatable` or `SwiftProtobuf.Message & Hashable` as
 /// generic constraints if you need to write generic code that can be applied to
 /// multiple message types that uses equality tests, puts messages in a `Set`,
 /// or uses them as `Dictionary` keys.

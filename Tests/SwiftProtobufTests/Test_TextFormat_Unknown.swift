@@ -14,7 +14,7 @@
 
 import Foundation
 import XCTest
-@testable import SwiftProtobufCore
+@testable import SwiftProtobuf
 
 class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestEmptyMessage

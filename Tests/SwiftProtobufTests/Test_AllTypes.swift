@@ -16,7 +16,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import SwiftProtobufCore
+import SwiftProtobuf
 import XCTest
 
 class Test_AllTypes: XCTestCase, PBTestHelpers {

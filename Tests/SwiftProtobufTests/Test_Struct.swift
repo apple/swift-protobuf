@@ -15,7 +15,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_Struct: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Struct

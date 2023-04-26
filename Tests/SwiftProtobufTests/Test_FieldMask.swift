@@ -18,7 +18,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_FieldMask: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_FieldMask

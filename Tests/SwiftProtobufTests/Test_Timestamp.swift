@@ -22,7 +22,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_Timestamp: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Timestamp

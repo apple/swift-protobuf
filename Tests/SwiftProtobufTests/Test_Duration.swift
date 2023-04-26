@@ -14,7 +14,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 import Foundation
 
 class Test_Duration: XCTestCase, PBTestHelpers {

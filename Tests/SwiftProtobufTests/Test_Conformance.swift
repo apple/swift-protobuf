@@ -15,7 +15,7 @@
 
 import Foundation
 import XCTest
-import SwiftProtobufCore
+import SwiftProtobuf
 
 class Test_Conformance: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufTestMessages_Proto3_TestAllTypesProto3
