@@ -31,20 +31,20 @@ extension Message {
     if let m = self as? _CustomJSONCodable {
       return try m.encodedJSONString(options: options)
     }
-    let data: [UInt8] = try jsonUTF8Data(options: options)
+    let data: [UInt8] = try jsonUTF8Bytes(options: options)
     return String(bytes: data, encoding: .utf8)!
   }
 
-  /// Returns a Data containing the UTF-8 JSON serialization of the message.
+  /// Returns a `SwiftProtobufContiguousBytes` containing the UTF-8 JSON serialization of the message.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
   /// serializing to JSON.
   ///
-  /// - Returns: A Data containing the JSON serialization of the message.
+  /// - Returns: A `SwiftProtobufContiguousBytes` containing the JSON serialization of the message.
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public func jsonUTF8Data<Bytes: SwiftProtobufContiguousBytes>(
+  public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> Bytes {
     if let m = self as? _CustomJSONCodable {

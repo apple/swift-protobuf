@@ -30,21 +30,21 @@ extension Message {
     from collection: C,
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> String where C.Iterator.Element == Self {
-    let data: [UInt8] = try jsonUTF8Data(from: collection, options: options)
+    let data: [UInt8] = try jsonUTF8Bytes(from: collection, options: options)
     return String(bytes: data, encoding: .utf8)!
   }
 
-  /// Returns a Data containing the UTF-8 JSON serialization of the messages.
+  /// Returns a `SwiftProtobufContiguousBytes` containing the UTF-8 JSON serialization of the messages.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
   /// serializing to JSON.
   ///
-  /// - Returns: A Data containing the JSON serialization of the messages.
+  /// - Returns: A `SwiftProtobufContiguousBytes` containing the JSON serialization of the messages.
   /// - Parameters:
   ///   - collection: The list of messages to encode.
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public static func jsonUTF8Data<C: Collection, Bytes: SwiftProtobufContiguousBytes>(
+  public static func jsonUTF8Bytes<C: Collection, Bytes: SwiftProtobufContiguousBytes>(
     from collection: C,
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> Bytes where C.Iterator.Element == Self {

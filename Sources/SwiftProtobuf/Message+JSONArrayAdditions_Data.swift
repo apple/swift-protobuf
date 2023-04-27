@@ -52,4 +52,20 @@ extension Message {
                      options: options)
   }
 
+  /// Returns a Data containing the UTF-8 JSON serialization of the messages.
+  ///
+  /// Unlike binary encoding, presence of required fields is not enforced when
+  /// serializing to JSON.
+  ///
+  /// - Returns: A Data containing the JSON serialization of the messages.
+  /// - Parameters:
+  ///   - collection: The list of messages to encode.
+  ///   - options: The JSONEncodingOptions to use.
+  /// - Throws: `JSONEncodingError` if encoding fails.
+  public static func jsonUTF8Data<C: Collection>(
+    from collection: C,
+    options: JSONEncodingOptions = JSONEncodingOptions()
+  ) throws -> Data where C.Iterator.Element == Self {
+    try jsonUTF8Bytes(from: collection, options: options)
+  }
 }

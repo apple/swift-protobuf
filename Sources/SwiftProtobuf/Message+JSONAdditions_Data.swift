@@ -45,5 +45,20 @@ extension Message {
   ) throws {
     try self.init(jsonUTF8Bytes: jsonUTF8Data, extensions: extensions, options: options)
   }
+
+  /// Returns a Data containing the UTF-8 JSON serialization of the message.
+  ///
+  /// Unlike binary encoding, presence of required fields is not enforced when
+  /// serializing to JSON.
+  ///
+  /// - Returns: A Data containing the JSON serialization of the message.
+  /// - Parameters:
+  ///   - options: The JSONEncodingOptions to use.
+  /// - Throws: `JSONEncodingError` if encoding fails.
+  public func jsonUTF8Data(
+    options: JSONEncodingOptions = JSONEncodingOptions()
+  ) throws -> Data {
+    try jsonUTF8Bytes(options: options)
+  }
 }
 

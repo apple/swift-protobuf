@@ -36,7 +36,7 @@ class Test_FieldNamingInitials: XCTestCase {
     // such names:
     let msg = SwiftUnittest_Names_FieldNames()
     _ = try msg.serializedBytes() as [UInt8]
-    _ = try msg.jsonUTF8Data() as [UInt8]
+    _ = try msg.jsonUTF8Bytes() as [UInt8]
     _ = try msg.jsonString()
 
     let msg2 = SwiftUnittest_Names_MessageNames()
@@ -44,7 +44,7 @@ class Test_FieldNamingInitials: XCTestCase {
     _ = SwiftUnittest_Names_MessageNames.serializedData()
     // The method is an instance property:
     _ = try msg2.serializedBytes() as [UInt8]
-    _ = try msg2.jsonUTF8Data()  as [UInt8]
+    _ = try msg2.jsonUTF8Bytes() as [UInt8]
     _ = try msg2.jsonString()
   }
 
