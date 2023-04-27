@@ -153,8 +153,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
 
         do {
-            let encodedData = try configured.jsonUTF8Data(options: encodingOptions)
-            let encodedOptString = String(data: encodedData, encoding: String.Encoding.utf8)
+            let encodedData: [UInt8] = try configured.jsonUTF8Data(options: encodingOptions)
+            let encodedOptString = String(bytes: encodedData, encoding: String.Encoding.utf8)
             XCTAssertNotNil(encodedOptString)
             let encodedString = encodedOptString!
             XCTAssert(expected == encodedString, "Did not encode correctly: got \(encodedString)", file: file, line: line)
@@ -250,8 +250,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             XCTAssert(check(decoded), "Condition failed for \(decoded) from binary \(json)", file: file, line: line)
 
             do {
-                let encoded = try decoded.jsonUTF8Data()
-                let encodedString = String(data: encoded, encoding: String.Encoding.utf8)!
+                let encoded: [UInt8] = try decoded.jsonUTF8Data()
+                let encodedString = String(bytes: encoded, encoding: String.Encoding.utf8)!
                 do {
                     let redecoded = try MessageTestType(jsonUTF8Bytes: encoded, extensions: extensions, options: options)
                     XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded) from binary \(encodedString)", file: file, line: line)

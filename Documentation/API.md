@@ -74,7 +74,7 @@ public struct Example: SwiftProtobuf.Message {
 
   // Messages can be serialized or deserialized to JSON format
   // as either UTF8-encoded ``SwiftProtobufContiguousBytes``-conforming objects or as Strings.
-  func jsonUTF8Data() throws -> Data
+  func jsonUTF8Data<Bytes: SwiftProtobufContiguousBytes>(options:) throws -> Bytes
   init<Bytes: SwiftProtobufContiguousBytes>(jsonUTF8Bytes: Bytes) throws
   func jsonString() throws -> String
   init(jsonString: String) throws

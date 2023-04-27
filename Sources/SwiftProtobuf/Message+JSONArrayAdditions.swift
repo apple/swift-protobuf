@@ -30,8 +30,8 @@ extension Message {
     from collection: C,
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> String where C.Iterator.Element == Self {
-    let data = try jsonUTF8Data(from: collection, options: options)
-    return String(data: data, encoding: String.Encoding.utf8)!
+    let data: [UInt8] = try jsonUTF8Data(from: collection, options: options)
+    return String(bytes: data, encoding: .utf8)!
   }
 
   /// Returns a Data containing the UTF-8 JSON serialization of the messages.
@@ -44,10 +44,10 @@ extension Message {
   ///   - collection: The list of messages to encode.
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public static func jsonUTF8Data<C: Collection>(
+  public static func jsonUTF8Data<C: Collection, Bytes: SwiftProtobufContiguousBytes>(
     from collection: C,
     options: JSONEncodingOptions = JSONEncodingOptions()
-  ) throws -> Data where C.Iterator.Element == Self {
+  ) throws -> Bytes where C.Iterator.Element == Self {
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startArray()
     for message in collection {
@@ -56,7 +56,7 @@ extension Message {
         visitor.endObject()
     }
     visitor.endArray()
-    return Data(visitor.dataResult)
+    return Bytes(visitor.dataResult)
   }
 
   /// Creates a new array of messages by decoding the given string containing a
