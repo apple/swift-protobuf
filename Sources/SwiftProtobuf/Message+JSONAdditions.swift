@@ -31,8 +31,8 @@ extension Message {
     if let m = self as? _CustomJSONCodable {
       return try m.encodedJSONString(options: options)
     }
-    let data = try jsonUTF8Data(options: options)
-    return String(data: data, encoding: String.Encoding.utf8)!
+    let data: [UInt8] = try jsonUTF8Data(options: options)
+    return String(bytes: data, encoding: .utf8)!
   }
 
   /// Returns a Data containing the UTF-8 JSON serialization of the message.
@@ -44,19 +44,18 @@ extension Message {
   /// - Parameters:
   ///   - options: The JSONEncodingOptions to use.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public func jsonUTF8Data(
+  public func jsonUTF8Data<Bytes: SwiftProtobufContiguousBytes>(
     options: JSONEncodingOptions = JSONEncodingOptions()
-  ) throws -> Data {
+  ) throws -> Bytes {
     if let m = self as? _CustomJSONCodable {
       let string = try m.encodedJSONString(options: options)
-      let data = string.data(using: String.Encoding.utf8)! // Cannot fail!
-      return data
+      return Bytes(string.utf8)
     }
     var visitor = try JSONEncodingVisitor(type: Self.self, options: options)
     visitor.startObject(message: self)
     try traverse(visitor: &visitor)
     visitor.endObject()
-    return Data(visitor.dataResult)
+    return Bytes(visitor.dataResult)
   }
 
   /// Creates a new message by decoding the given string containing a

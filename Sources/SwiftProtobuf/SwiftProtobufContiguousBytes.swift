@@ -14,7 +14,7 @@ import Foundation
 /// to be used for serialization and deserialization of protobufs.
 /// It provides a general interface for bytes since the Swift Standard Library currently does not
 /// provide such a protocol.
-///
+///  
 /// By conforming your own types to this protocol, you will be able to pass instances of said types
 /// directly to `SwiftProtobuf.Message`'s deserialisation methods
 /// (i.e. `init(serializedBytes:)` for binary format and `init(jsonUTF8Bytes:)` for JSON).
@@ -25,6 +25,12 @@ public protocol SwiftProtobufContiguousBytes {
     ///   - repeating: the byte value to be repeated.
     ///   - count: the number of times to repeat the byte value.
     init(repeating: UInt8, count: Int)
+
+    /// An initializer for a bag of bytes type, given a sequence of bytes.
+    ///
+    /// - Parameters:
+    ///   - sequence: a sequence of UInt8 from which the bag of bytes should be constructed.
+    init<S: Sequence>(_ sequence: S) where S.Element == UInt8
 
     /// The number of bytes in the bag of bytes.
     var count: Int { get }
