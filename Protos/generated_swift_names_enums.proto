@@ -501,6 +501,7 @@ message GeneratedSwiftReservedEnums {
   enum JSONScanner { NONE_JSONScanner = 0; }
   enum jsonString { NONE_jsonString = 0; }
   enum jsonText { NONE_jsonText = 0; }
+  enum jsonUTF8Bytes { NONE_jsonUTF8Bytes = 0; }
   enum jsonUTF8Data { NONE_jsonUTF8Data = 0; }
   enum jstype { NONE_jstype = 0; }
   enum k { NONE_k = 0; }

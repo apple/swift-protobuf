@@ -501,6 +501,7 @@ message GeneratedSwiftReservedMessages {
   message JSONScanner { int32 JSONScanner = 1; }
   message jsonString { int32 jsonString = 1; }
   message jsonText { int32 jsonText = 1; }
+  message jsonUTF8Bytes { int32 jsonUTF8Bytes = 1; }
   message jsonUTF8Data { int32 jsonUTF8Data = 1; }
   message jstype { int32 jstype = 1; }
   message k { int32 k = 1; }
