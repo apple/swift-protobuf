@@ -14941,6 +14941,36 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum jsonUTF8Bytes: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneJsonUtf8Bytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneJsonUtf8Bytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneJsonUtf8Bytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneJsonUtf8Bytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonUTF8Bytes] = [
+      .noneJsonUtf8Bytes,
+    ]
+
+  }
+
   enum jsonUTF8Data: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneJsonUtf8Data // = 0
@@ -29980,6 +30010,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonString: Swif
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonText: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonText"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonUTF8Bytes: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_jsonUTF8Bytes"),
   ]
 }
 
