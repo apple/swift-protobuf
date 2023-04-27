@@ -39,7 +39,7 @@ systems:
   method returns a bag of bytes with a compact binary form of your data.
   You can deserialize the data using the `init(serializedBytes:)`
   initializer.
-* Standard JSON serialization: The `.jsonUTF8Data()` method returns a JSON
+* Standard JSON serialization: The `.jsonUTF8Bytes()` method returns a JSON
   form of your data that can be parsed with the `init(jsonUTF8Bytes:)`
   initializer.
 * Hashable, Equatable: The generated struct can be put into a
@@ -272,11 +272,13 @@ let decodedInfo = try BookInfo(serializedData: binaryData)
 // Deserialize a received [UInt8] object from `binaryDataAsBytes`
 let decodedInfo = try BookInfo(serializedBytes: binaryDataAsBytes)
 
-// Serialize to JSON format as a Data object
+// Serialize to JSON format as a Data object, or as any other type conforming to
+// SwiftProtobufContiguousBytes. For example:
 let jsonData: Data = try info.jsonUTF8Data()
+let jsonBytes: [UInt8] = try info.jsonUTF8Bytes()
 
-// Deserialize from JSON format from `jsonData`
-let receivedFromJSON = try BookInfo(jsonUTF8Bytes: jsonData)
+// Deserialize from JSON format from `jsonBytes`
+let receivedFromJSON = try BookInfo(jsonUTF8Bytes: jsonBytes)
 ```
 
 You can find more information in the detailed
