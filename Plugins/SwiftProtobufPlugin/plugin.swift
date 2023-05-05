@@ -62,6 +62,8 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             var visibility: Visibility?
             /// The file naming strategy to use.
             var fileNaming: FileNaming?
+            /// Whether internal imports should be annotated as `@_implementationOnly`.
+            var implementationOnlyImports: Bool?
         }
 
         /// The path to the `protoc` binary.
@@ -155,6 +157,10 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
 
         var inputFiles = [Path]()
         var outputFiles = [Path]()
+
+        if let implementationOnlyImports = invocation.implementationOnlyImports {
+            protocArgs.append("--swift_opt=ImplementationOnlyImports=\(implementationOnlyImports)")
+        }
 
         for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
