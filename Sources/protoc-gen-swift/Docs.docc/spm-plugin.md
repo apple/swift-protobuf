@@ -74,7 +74,8 @@ to the root of your target's source folder. An example configuration file looks 
             "protoFiles": [
                 "Foo.proto",
             ],
-            "visibility": "internal"
+            "visibility": "internal",
+            "implementationOnlyImports": true
         },
         {
             "protoFiles": [
