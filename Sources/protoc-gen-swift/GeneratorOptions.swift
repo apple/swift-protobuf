@@ -49,6 +49,7 @@ class GeneratorOptions {
   let outputNaming: OutputNaming
   let protoToModuleMappings: ProtoFileToModuleMappings
   let visibility: Visibility
+  let extraModuleImports: [String]?
 
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
@@ -58,6 +59,7 @@ class GeneratorOptions {
     var moduleMapPath: String?
     var visibility: Visibility = .internal
     var swiftProtobufModuleName: String? = nil
+    var externalModuleImports: [String] = []
 
     for pair in parseParameter(string:parameter) {
       switch pair.key {
@@ -88,6 +90,12 @@ class GeneratorOptions {
           throw GenerationError.invalidParameterValue(name: pair.key,
                                                       value: pair.value)
         }
+      case "ExtraModuleImports":
+      if !pair.value.isEmpty {
+          externalModuleImports.append(pair.value)
+      } else {
+        throw GenerationError.invalidParameterValue(name: pair.key, value: pair.value)
+      }
       default:
         throw GenerationError.unknownParameter(name: pair.key)
       }
@@ -107,6 +115,7 @@ class GeneratorOptions {
 
     self.outputNaming = outputNaming
     self.visibility = visibility
+    self.extraModuleImports = externalModuleImports
 
     switch visibility {
     case .internal:
