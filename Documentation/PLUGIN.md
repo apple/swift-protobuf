@@ -161,6 +161,16 @@ mapping {
 The `proto_file_path` values here should match the paths used in the proto file
 `import` statements.
 
+##### Generation Option: `ExtraModuleImports` - Swift import names
+
+Allows specifying extra modules to declare as imports in the generated code.
+
+```
+$ protoc --swift_opt=ExtraModuleImports=ExampleModuleOne --swift_opt=ExtraModuleImports=ExampleModuleTwo --swift_out=. foo/bar/*.proto
+```
+
+Note: most users will not need to use this option.
+
 ### Building your project
 
 After copying the `.pb.swift` files into your project, you will need
