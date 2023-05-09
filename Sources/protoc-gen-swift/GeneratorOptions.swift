@@ -49,7 +49,7 @@ class GeneratorOptions {
   let outputNaming: OutputNaming
   let protoToModuleMappings: ProtoFileToModuleMappings
   let visibility: Visibility
-  let extraModuleImports: [String]?
+  let extraModuleImports: [String]
 
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
@@ -91,14 +91,14 @@ class GeneratorOptions {
                                                       value: pair.value)
         }
       case "ExtraModuleImports":
-      if !pair.value.isEmpty {
-          externalModuleImports.append(pair.value)
-      } else {
-        throw GenerationError.invalidParameterValue(name: pair.key, value: pair.value)
-      }
-      default:
-        throw GenerationError.unknownParameter(name: pair.key)
-      }
+        if !pair.value.isEmpty {
+            externalModuleImports.append(pair.value)
+        } else {
+          throw GenerationError.invalidParameterValue(name: pair.key, value: pair.value)
+        }
+        default:
+          throw GenerationError.unknownParameter(name: pair.key)
+        }
     }
 
     if let moduleMapPath = moduleMapPath {

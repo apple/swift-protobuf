@@ -100,7 +100,8 @@ class FileGenerator {
                 p.print("import \(i)")
             }
         }
-        if let neededCustomImports = generatorOptions.extraModuleImports {
+        let neededCustomImports = generatorOptions.extraModuleImports
+        if !neededCustomImports.isEmpty{
             p.print()
             for i in neededCustomImports {
                 p.print("import \(i)\n")
