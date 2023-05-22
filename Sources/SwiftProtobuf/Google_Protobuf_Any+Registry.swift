@@ -14,11 +14,13 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+#if !os(WASI)
 #if canImport(Dispatch)
 import Dispatch
 fileprivate var knownTypesQueue =
     DispatchQueue(label: "org.swift.protobuf.typeRegistry",
                   attributes: .concurrent)
+#endif
 #endif
 
 // TODO: Should these first four be exposed as methods to go with
