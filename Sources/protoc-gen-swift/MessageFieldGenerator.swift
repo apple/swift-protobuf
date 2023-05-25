@@ -120,20 +120,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
                 p.print("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)")
             }
         }
-
-        guard hasFieldPresence else { return }
-
-        let immutableStoragePrefix = usesHeapStorage ? "_storage." : "self."
-        p.print(
-            "/// Returns true if `\(swiftName)` has been explicitly set.",
-            "\(visibility)var \(swiftHasName): Bool {return \(immutableStoragePrefix)\(underscoreSwiftName) != nil}"
-        )
-
-        let mutableStoragePrefix = usesHeapStorage ? "_uniqueStorage()." : "self."
-        p.print(
-            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.",
-            "\(visibility)mutating func \(swiftClearName)() {\(mutableStoragePrefix)\(underscoreSwiftName) = nil}"
-        )
+        return
     }
 
     func generateStorageClassClone(printer p: inout CodePrinter) {
