@@ -107,7 +107,7 @@ struct GeneratorPlugin {
       Package.swift:
 
          dependencies: [
-           .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "\(packageVersion)"),
+           .package(name: "SwiftProtobuf", url: "https://github.com/apple/swift-protobuf.git", from: "1.21.0.1"),
          ]
 
       Usage: \(CommandLine.programName) [options] [filename...]
