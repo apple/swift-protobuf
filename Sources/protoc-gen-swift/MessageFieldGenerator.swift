@@ -116,7 +116,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
                 p.print("\(comments)\(visibility)var \(swiftName): \(swiftStorageType) = \(swiftDefaultValue)")
             }
         }
-
+        return
         guard hasFieldPresence else { return }
 
         let immutableStoragePrefix = usesHeapStorage ? "_storage." : "self."

@@ -122,7 +122,7 @@ class FileGenerator {
         }
 
         p.print()
-        generateVersionCheck(printer: &p)
+        // generateVersionCheck(printer: &p)
 
         let extensionSet =
             ExtensionSetGenerator(fileDescriptor: fileDescriptor,

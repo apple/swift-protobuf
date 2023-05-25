@@ -228,7 +228,7 @@ class MessageGenerator {
       p.print()
       generateTraverse(printer: &p)
       p.print()
-      generateMessageEquality(printer: &p)
+      // generateMessageEquality(printer: &p)
     }
     p.print("}")
 
