@@ -2,13 +2,19 @@ import Foundation
 import PackagePlugin
 
 @main
-struct SwiftProtobufPlugin: BuildToolPlugin {
+struct SwiftProtobufPlugin {
     /// Errors thrown by the `SwiftProtobufPlugin`
     enum PluginError: Error {
         /// Indicates that the target where the plugin was applied to was not `SourceModuleTarget`.
         case invalidTarget
         /// Indicates that the file extension of an input file was not `.proto`.
         case invalidInputFileExtension
+        /// Indicates that the input directory had a trailing `/`.
+        case invalidDirectoryFormat
+        /// Indicates that there was no configuration file at the required location.
+        case noConfigFound
+        /// Indicates that there was no file or directory mentioned in the json.
+        case noProtoSourceFound
     }
 
     /// The configuration of the plugin.
@@ -57,7 +63,9 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             }
 
             /// An array of paths to `.proto` files for this invocation.
-            var protoFiles: [String]
+            var protoFiles: [String]?
+            /// An array of directories that contains `.proto` files for this invocation.
+            var protoDirectories: [String]?
             /// The visibility of the generated files.
             var visibility: Visibility?
             /// The file naming strategy to use.
@@ -76,20 +84,32 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     }
 
     static let configurationFileName = "swift-protobuf-config.json"
-
-    func createBuildCommands(context: PluginContext, target: Target) throws -> [Command] {
-        // Let's check that this is a source target
-        guard let target = target as? SourceModuleTarget else {
-            throw PluginError.invalidTarget
+    
+    /// Create build commands for the given arguments
+    /// - Parameters:
+    ///   - pluginWorkDirectory: The path of a writable directory into which the plugin or the build
+    ///   commands it constructs can write anything it wants.
+    ///   - sourceFiles: The input files that are associated with the target.
+    ///   - tool: The tool method from the context.
+    ///   - currentWorkingDirectory: The absolute path of the current working directory.
+    /// - Returns: The build commands configured based on the arguments.
+    func createBuildCommands(
+        pluginWorkDirectory: PackagePlugin.Path,
+        sourceFiles: FileList,
+        tool: (String) throws -> PackagePlugin.PluginContext.Tool,
+        currentWorkingDirectory: PackagePlugin.Path
+    ) throws -> [Command] {
+        guard let configurationFilePath = sourceFiles.first(
+            where: {
+                $0.path.lastComponent == Self.configurationFileName
+            }
+        )?.path else {
+            throw PluginError.noConfigFound
         }
-
-        // We need to find the configuration file at the root of the target
-        let configurationFilePath = target.directory.appending(subpath: Self.configurationFileName)
         let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
-
         try validateConfiguration(configuration)
-
+        
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
         if let configuredProtocPath = configuration.protocPath {
@@ -100,20 +120,18 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             protocPath = Path(environmentPath)
         } else {
             // The user didn't set anything so let's try see if SPM can find a binary for us
-            protocPath = try context.tool(named: "protoc").path
+            protocPath = try tool("protoc").path
         }
-        let protocGenSwiftPath = try context.tool(named: "protoc-gen-swift").path
-
-        // This plugin generates its output into GeneratedSources
-        let outputDirectory = context.pluginWorkDirectory
-
-        return configuration.invocations.map { invocation in
-            self.invokeProtoc(
-                target: target,
+        let protocGenSwiftPath = try tool("protoc-gen-swift").path
+        
+        return try configuration.invocations.map { invocation in
+            try self.invokeProtoc(
+                directory: configurationFilePath.removingLastComponent(),
+                currentWorkingDirectory: currentWorkingDirectory,
                 invocation: invocation,
                 protocPath: protocPath,
                 protocGenSwiftPath: protocGenSwiftPath,
-                outputDirectory: outputDirectory
+                outputDirectory: pluginWorkDirectory
             )
         }
     }
@@ -121,19 +139,21 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
     /// Invokes `protoc` with the given inputs
     ///
     /// - Parameters:
-    ///   - target: The plugin's target.
+    ///   - directory: The plugin's target directory.
+    ///   - currentWorkingDirectory: The absolute path of the current working directory.
     ///   - invocation: The `protoc` invocation.
     ///   - protocPath: The path to the `protoc` binary.
     ///   - protocGenSwiftPath: The path to the `protoc-gen-swift` binary.
     ///   - outputDirectory: The output directory for the generated files.
-    /// - Returns: The build command.
+    /// - Returns: The build command configured based on the arguments.
     private func invokeProtoc(
-        target: Target,
+        directory: PackagePlugin.Path,
+        currentWorkingDirectory: PackagePlugin.Path,
         invocation: Configuration.Invocation,
         protocPath: Path,
         protocGenSwiftPath: Path,
         outputDirectory: Path
-    ) -> Command {
+    ) throws -> Command {
         // Construct the `protoc` arguments.
         var protocArgs = [
             "--plugin=protoc-gen-swift=\(protocGenSwiftPath)",
@@ -143,7 +163,7 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
         // We need to add the target directory as a search path since we require the user to specify
         // the proto files relative to it.
         protocArgs.append("-I")
-        protocArgs.append("\(target.directory)")
+        protocArgs.append("\(directory)")
 
         // Add the visibility if it was set
         if let visibility = invocation.visibility {
@@ -155,27 +175,46 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             protocArgs.append("--swift_opt=FileNaming=\(fileNaming.rawValue)")
         }
 
-        var inputFiles = [Path]()
-        var outputFiles = [Path]()
-
+        // Add the implementation only imports flag if it was set
         if let implementationOnlyImports = invocation.implementationOnlyImports {
             protocArgs.append("--swift_opt=ImplementationOnlyImports=\(implementationOnlyImports)")
         }
-
-        for var file in invocation.protoFiles {
+        
+        var inputFiles = [Path]()
+        var outputFiles = [Path]()
+        
+        func addProtoFileToIO(file: String) {
+            var file = file
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append("\(file)")
-            inputFiles.append(target.directory.appending(file))
-
+            inputFiles.append(directory.appending(file))
+            
             // The name of the output file is based on the name of the input file.
             // We validated in the beginning that every file has the suffix of .proto
             // This means we can just drop the last 5 elements and append the new suffix
             file.removeLast(5)
             file.append("pb.swift")
             let protobufOutputPath = outputDirectory.appending(file)
-
+            
             // Add the outputPath as an output file
             outputFiles.append(protobufOutputPath)
+        }
+
+        for file in invocation.protoFiles ?? [] {
+            addProtoFileToIO(file: file)
+        }
+        
+        for protoDirectory in invocation.protoDirectories ?? [] {
+            let protoFiles = try getProtoFiles(
+                from: protoDirectory,
+                in: directory.string.replacingOccurrences(
+                    of: currentWorkingDirectory.string.appending("/"),
+                    with: ""
+                )
+            )
+            for file in protoFiles {
+                addProtoFileToIO(file: file)
+            }
         }
 
         // Construct the command. Specifying the input and output paths lets the build
@@ -189,15 +228,101 @@ struct SwiftProtobufPlugin: BuildToolPlugin {
             outputFiles: outputFiles
         )
     }
+    
+    
+    /// Matches files from the given path and parent directory. If the given path is a file, it will return the file immediately.
+    /// - Parameters:
+    ///   - path: The file path that you want to search. Paths should be terminated with `/`.
+    ///   - parent: The parent directory of the path.
+    /// - Returns: An array of proto files from the directory and all its subdirectories.
+    private func getProtoFiles(
+        from path: String,
+        in parent: String
+    ) throws -> [String] {
+        let url = URL(fileURLWithPath: parent.appending("/\(path)"))
+        var files = [String]()
+        if url.hasDirectoryPath {
+            if let enumerator = FileManager.default.enumerator(
+                at: url,
+                includingPropertiesForKeys: [.isRegularFileKey],
+                options: [
+                    .skipsHiddenFiles,
+                    .skipsPackageDescendants,
+                    .producesRelativePathURLs,
+                ]
+            ) {
+                for case let fileURL as URL in enumerator {
+                    let fileAttributes = try fileURL.resourceValues(forKeys: [.isRegularFileKey])
+                    if fileAttributes.isRegularFile == true,
+                       fileURL.pathExtension == "proto" {
+                        if !path.isEmpty {
+                            files.append("\(path)/\(fileURL.relativeString)")
+                        } else {
+                            files.append("\(fileURL.relativeString)")
+                        }
+                    }
+                }
+            }
+        } else {
+            files.append(path)
+        }
+        return files
+    }
 
     /// Validates the configuration file for various user errors.
     private func validateConfiguration(_ configuration: Configuration) throws {
         for invocation in configuration.invocations {
-            for protoFile in invocation.protoFiles {
+            if invocation.protoFiles?.isEmpty == true &&
+                invocation.protoDirectories?.isEmpty == true {
+                throw PluginError.noProtoSourceFound
+            }
+            
+            for protoFile in invocation.protoFiles ?? [] {
                 if !protoFile.hasSuffix(".proto") {
                     throw PluginError.invalidInputFileExtension
+                }
+            }
+            
+            for protoDirectory in invocation.protoDirectories ?? [] {
+                if protoDirectory.hasSuffix("/") {
+                    throw PluginError.invalidDirectoryFormat
                 }
             }
         }
     }
 }
+
+extension SwiftProtobufPlugin: BuildToolPlugin {
+    func createBuildCommands(
+        context: PluginContext,
+        target: Target
+    ) async throws -> [Command] {
+        guard let swiftTarget = target as? SwiftSourceModuleTarget else {
+            throw PluginError.invalidTarget
+        }
+        return try createBuildCommands(
+            pluginWorkDirectory: context.pluginWorkDirectory,
+            sourceFiles: swiftTarget.sourceFiles,
+            tool: context.tool,
+            currentWorkingDirectory: context.package.directory
+        )
+    }
+}
+
+#if canImport(XcodeProjectPlugin)
+import XcodeProjectPlugin
+
+extension SwiftProtobufPlugin: XcodeBuildToolPlugin {
+    func createBuildCommands(
+        context: XcodePluginContext,
+        target: XcodeTarget
+    ) throws -> [Command] {
+        return try createBuildCommands(
+            pluginWorkDirectory: context.pluginWorkDirectory,
+            sourceFiles: target.inputFiles,
+            tool: context.tool,
+            currentWorkingDirectory: context.xcodeProject.directory
+        )
+    }
+}
+#endif
