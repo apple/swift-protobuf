@@ -59,7 +59,7 @@ struct SwiftProtobufPlugin {
             }
 
             /// An array of paths to `.proto` files for this invocation.
-            var protoFiles: [String]?
+            var protoFiles: [String]
             /// The visibility of the generated files.
             var visibility: Visibility?
             /// The file naming strategy to use.
@@ -101,7 +101,7 @@ struct SwiftProtobufPlugin {
         let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
         try validateConfiguration(configuration)
-        
+
         // We need to find the path of protoc and protoc-gen-swift
         let protocPath: Path
         if let configuredProtocPath = configuration.protocPath {
@@ -172,18 +172,18 @@ struct SwiftProtobufPlugin {
         var inputFiles = [Path]()
         var outputFiles = [Path]()
 
-        for var file in invocation.protoFiles ?? [] {
+        for var file in invocation.protoFiles {
             // Append the file to the protoc args so that it is used for generating
             protocArgs.append("\(file)")
             inputFiles.append(directory.appending(file))
-            
+
             // The name of the output file is based on the name of the input file.
             // We validated in the beginning that every file has the suffix of .proto
             // This means we can just drop the last 5 elements and append the new suffix
             file.removeLast(5)
             file.append("pb.swift")
             let protobufOutputPath = outputDirectory.appending(file)
-            
+
             // Add the outputPath as an output file
             outputFiles.append(protobufOutputPath)
         }
@@ -203,7 +203,7 @@ struct SwiftProtobufPlugin {
     /// Validates the configuration file for various user errors.
     private func validateConfiguration(_ configuration: Configuration) throws {
         for invocation in configuration.invocations {
-            for protoFile in invocation.protoFiles ?? [] {
+            for protoFile in invocation.protoFiles {
                 if !protoFile.hasSuffix(".proto") {
                     throw PluginError.invalidInputFileExtension
                 }
