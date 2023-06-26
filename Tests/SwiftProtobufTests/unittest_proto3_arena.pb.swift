@@ -732,6 +732,15 @@ struct Proto3ArenaUnittest_NestedTestAllTypes {
     set {_uniqueStorage()._repeatedChild = newValue}
   }
 
+  var lazyPayload: Proto3ArenaUnittest_TestAllTypes {
+    get {return _storage._lazyPayload ?? Proto3ArenaUnittest_TestAllTypes()}
+    set {_uniqueStorage()._lazyPayload = newValue}
+  }
+  /// Returns true if `lazyPayload` has been explicitly set.
+  var hasLazyPayload: Bool {return _storage._lazyPayload != nil}
+  /// Clears the value of `lazyPayload`. Subsequent reads from it will return its default value.
+  mutating func clearLazyPayload() {_uniqueStorage()._lazyPayload = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -1729,12 +1738,14 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
     3: .standard(proto: "repeated_child"),
+    4: .standard(proto: "lazy_payload"),
   ]
 
   fileprivate class _StorageClass {
     var _child: Proto3ArenaUnittest_NestedTestAllTypes? = nil
     var _payload: Proto3ArenaUnittest_TestAllTypes? = nil
     var _repeatedChild: [Proto3ArenaUnittest_NestedTestAllTypes] = []
+    var _lazyPayload: Proto3ArenaUnittest_TestAllTypes? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -1744,6 +1755,7 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
       _child = source._child
       _payload = source._payload
       _repeatedChild = source._repeatedChild
+      _lazyPayload = source._lazyPayload
     }
   }
 
@@ -1765,6 +1777,7 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._payload) }()
         case 3: try { try decoder.decodeRepeatedMessageField(value: &_storage._repeatedChild) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._lazyPayload) }()
         default: break
         }
       }
@@ -1786,6 +1799,9 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
       if !_storage._repeatedChild.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
+      try { if let v = _storage._lazyPayload {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1798,6 +1814,7 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftPr
         if _storage._child != rhs_storage._child {return false}
         if _storage._payload != rhs_storage._payload {return false}
         if _storage._repeatedChild != rhs_storage._repeatedChild {return false}
+        if _storage._lazyPayload != rhs_storage._lazyPayload {return false}
         return true
       }
       if !storagesAreEqual {return false}
