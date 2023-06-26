@@ -588,6 +588,9 @@ message TestEagerMessage {
 message TestLazyMessage {
   optional TestAllTypes sub_message = 1 [lazy=true];
 }
+message TestLazyMessageRepeated {
+  repeated TestLazyMessage repeated_message = 1;
+}
 message TestEagerMaybeLazy {
   message NestedMessage {
     optional TestPackedTypes packed = 1;
@@ -854,6 +857,7 @@ message TestOneof2 {
       optional string b = 10;
     }
     NestedMessage foo_lazy_message = 11 [lazy=true];
+    bytes foo_bytes_cord = 30 [ctype=CORD];
   }
 
   oneof bar {
@@ -1133,7 +1137,11 @@ message TestHugeFieldNumbers {
     bytes oneof_bytes = 536870014;
   }
 
-  extensions  536860000 to 536869999;
+  extensions 536860000 to 536869999 [declaration = {
+    number: 536860000
+    full_name: ".protobuf_unittest.test_all_types"
+    type: ".protobuf_unittest.TestAllTypes"
+  }];
 }
 
 extend TestHugeFieldNumbers {
@@ -1658,6 +1666,36 @@ message BadFieldNames{
   optional int32 for = 2;
 }
 
-message RedactedFields{
+message TestNestedMessageRedaction {
+  optional string optional_unredacted_nested_string = 1;
+  optional string optional_redacted_nested_string = 2 [debug_redact = true];
+}
+
+message RedactedFields {
   optional string optional_redacted_string = 1 [debug_redact = true];
+  optional string optional_unredacted_string = 2;
+  repeated string repeated_redacted_string = 3 [debug_redact = true];
+  repeated string repeated_unredacted_string = 4;
+  optional TestNestedMessageRedaction optional_redacted_message = 5 [debug_redact = true];
+  optional TestNestedMessageRedaction optional_unredacted_message = 6;
+  repeated TestNestedMessageRedaction repeated_redacted_message = 7
+      [debug_redact = true];
+  repeated TestNestedMessageRedaction repeated_unredacted_message = 8;
+  map<string, string> map_redacted_string = 9 [debug_redact = true];
+  map<string, string> map_unredacted_string = 10;
+}
+
+message TestCord{
+  optional bytes optional_bytes_cord = 1 [ctype=CORD];
+  optional bytes optional_bytes_cord_default = 2 [ctype=CORD, default = "hello"];
+}
+
+message TestPackedEnumSmallRange {
+  enum NestedEnum {
+    UNSPECIFIED = 0;
+    FOO = 1;
+    BAR = 2;
+    BAZ = 3;
+  }
+  repeated NestedEnum vals = 1 [packed = true];
 }
