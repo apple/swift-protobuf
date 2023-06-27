@@ -51,8 +51,8 @@ let package = Package(
 
 ### Configuring the plugin
 
-Configuring the plugin is done by adding a `swift-protobuf-config.json` file anywhere in your sources. 
-Before we start configuring the plugin, we need to add the `.proto` files to our sources. You should also commit these
+Configuring the plugin is done by adding a `swift-protobuf-config.json` file anywhere in your target's sources. 
+Before you start configuring the plugin, you need to add the `.proto` files to your sources. You should also commit these
 files to your git repository since the generated types are now generated on demand.
 Its also important to note that the proto files in your configuration should be in
 the same directory as the config file. Let's see an example to have a better understanding.
@@ -93,7 +93,7 @@ So, the configuration file would look something like this:
 
 ```
 As you can see in the above configuration, the paths are relative with respect to the `ProtoBuf` folder and not the root folder. 
-If you add a file in the `Sources` folder, the plugin would be unable to access it as we are calculating the path relative to 
+If you add a file in the `Sources` folder, the plugin would be unable to access it as the path is computed relative to 
 the `swift-protobuf-config.json` file.
 
 > Note: paths to your `.proto` files will have to include the relative path from the config file directory to the `.proto` file location.
