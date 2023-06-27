@@ -2724,6 +2724,18 @@ struct ProtobufUnittest_TestLazyMessage {
   fileprivate var _subMessage: ProtobufUnittest_TestAllTypes? = nil
 }
 
+struct ProtobufUnittest_TestLazyMessageRepeated {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var repeatedMessage: [ProtobufUnittest_TestLazyMessage] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 struct ProtobufUnittest_TestEagerMaybeLazy {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -4064,6 +4076,14 @@ struct ProtobufUnittest_TestOneof2 {
     set {foo = .fooLazyMessage(newValue)}
   }
 
+  var fooBytesCord: Data {
+    get {
+      if case .fooBytesCord(let v)? = foo {return v}
+      return Data()
+    }
+    set {foo = .fooBytesCord(newValue)}
+  }
+
   var bar: ProtobufUnittest_TestOneof2.OneOf_Bar? = nil
 
   var barInt: Int32 {
@@ -4176,6 +4196,7 @@ struct ProtobufUnittest_TestOneof2 {
     case fooMessage(ProtobufUnittest_TestOneof2.NestedMessage)
     case fooGroup(ProtobufUnittest_TestOneof2.FooGroup)
     case fooLazyMessage(ProtobufUnittest_TestOneof2.NestedMessage)
+    case fooBytesCord(Data)
 
   }
 
@@ -7112,6 +7133,37 @@ struct ProtobufUnittest_BadFieldNames {
   fileprivate var _for: Int32? = nil
 }
 
+struct ProtobufUnittest_TestNestedMessageRedaction {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalUnredactedNestedString: String {
+    get {return _optionalUnredactedNestedString ?? String()}
+    set {_optionalUnredactedNestedString = newValue}
+  }
+  /// Returns true if `optionalUnredactedNestedString` has been explicitly set.
+  var hasOptionalUnredactedNestedString: Bool {return self._optionalUnredactedNestedString != nil}
+  /// Clears the value of `optionalUnredactedNestedString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnredactedNestedString() {self._optionalUnredactedNestedString = nil}
+
+  var optionalRedactedNestedString: String {
+    get {return _optionalRedactedNestedString ?? String()}
+    set {_optionalRedactedNestedString = newValue}
+  }
+  /// Returns true if `optionalRedactedNestedString` has been explicitly set.
+  var hasOptionalRedactedNestedString: Bool {return self._optionalRedactedNestedString != nil}
+  /// Clears the value of `optionalRedactedNestedString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRedactedNestedString() {self._optionalRedactedNestedString = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalUnredactedNestedString: String? = nil
+  fileprivate var _optionalRedactedNestedString: String? = nil
+}
+
 struct ProtobufUnittest_RedactedFields {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -7126,11 +7178,128 @@ struct ProtobufUnittest_RedactedFields {
   /// Clears the value of `optionalRedactedString`. Subsequent reads from it will return its default value.
   mutating func clearOptionalRedactedString() {self._optionalRedactedString = nil}
 
+  var optionalUnredactedString: String {
+    get {return _optionalUnredactedString ?? String()}
+    set {_optionalUnredactedString = newValue}
+  }
+  /// Returns true if `optionalUnredactedString` has been explicitly set.
+  var hasOptionalUnredactedString: Bool {return self._optionalUnredactedString != nil}
+  /// Clears the value of `optionalUnredactedString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnredactedString() {self._optionalUnredactedString = nil}
+
+  var repeatedRedactedString: [String] = []
+
+  var repeatedUnredactedString: [String] = []
+
+  var optionalRedactedMessage: ProtobufUnittest_TestNestedMessageRedaction {
+    get {return _optionalRedactedMessage ?? ProtobufUnittest_TestNestedMessageRedaction()}
+    set {_optionalRedactedMessage = newValue}
+  }
+  /// Returns true if `optionalRedactedMessage` has been explicitly set.
+  var hasOptionalRedactedMessage: Bool {return self._optionalRedactedMessage != nil}
+  /// Clears the value of `optionalRedactedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalRedactedMessage() {self._optionalRedactedMessage = nil}
+
+  var optionalUnredactedMessage: ProtobufUnittest_TestNestedMessageRedaction {
+    get {return _optionalUnredactedMessage ?? ProtobufUnittest_TestNestedMessageRedaction()}
+    set {_optionalUnredactedMessage = newValue}
+  }
+  /// Returns true if `optionalUnredactedMessage` has been explicitly set.
+  var hasOptionalUnredactedMessage: Bool {return self._optionalUnredactedMessage != nil}
+  /// Clears the value of `optionalUnredactedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUnredactedMessage() {self._optionalUnredactedMessage = nil}
+
+  var repeatedRedactedMessage: [ProtobufUnittest_TestNestedMessageRedaction] = []
+
+  var repeatedUnredactedMessage: [ProtobufUnittest_TestNestedMessageRedaction] = []
+
+  var mapRedactedString: Dictionary<String,String> = [:]
+
+  var mapUnredactedString: Dictionary<String,String> = [:]
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
   fileprivate var _optionalRedactedString: String? = nil
+  fileprivate var _optionalUnredactedString: String? = nil
+  fileprivate var _optionalRedactedMessage: ProtobufUnittest_TestNestedMessageRedaction? = nil
+  fileprivate var _optionalUnredactedMessage: ProtobufUnittest_TestNestedMessageRedaction? = nil
+}
+
+struct ProtobufUnittest_TestCord {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var optionalBytesCord: Data {
+    get {return _optionalBytesCord ?? Data()}
+    set {_optionalBytesCord = newValue}
+  }
+  /// Returns true if `optionalBytesCord` has been explicitly set.
+  var hasOptionalBytesCord: Bool {return self._optionalBytesCord != nil}
+  /// Clears the value of `optionalBytesCord`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBytesCord() {self._optionalBytesCord = nil}
+
+  var optionalBytesCordDefault: Data {
+    get {return _optionalBytesCordDefault ?? Data([104, 101, 108, 108, 111])}
+    set {_optionalBytesCordDefault = newValue}
+  }
+  /// Returns true if `optionalBytesCordDefault` has been explicitly set.
+  var hasOptionalBytesCordDefault: Bool {return self._optionalBytesCordDefault != nil}
+  /// Clears the value of `optionalBytesCordDefault`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBytesCordDefault() {self._optionalBytesCordDefault = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _optionalBytesCord: Data? = nil
+  fileprivate var _optionalBytesCordDefault: Data? = nil
+}
+
+struct ProtobufUnittest_TestPackedEnumSmallRange {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var vals: [ProtobufUnittest_TestPackedEnumSmallRange.NestedEnum] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unspecified // = 0
+    case foo // = 1
+    case bar // = 2
+    case baz // = 3
+
+    init() {
+      self = .unspecified
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unspecified
+      case 1: self = .foo
+      case 2: self = .bar
+      case 3: self = .baz
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unspecified: return 0
+      case .foo: return 1
+      case .bar: return 2
+      case .baz: return 3
+      }
+    }
+
+  }
+
+  init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -7186,6 +7355,7 @@ extension ProtobufUnittest_TestDupFieldNumber.Foo: @unchecked Sendable {}
 extension ProtobufUnittest_TestDupFieldNumber.Bar: @unchecked Sendable {}
 extension ProtobufUnittest_TestEagerMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestLazyMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestLazyMessageRepeated: @unchecked Sendable {}
 extension ProtobufUnittest_TestEagerMaybeLazy: @unchecked Sendable {}
 extension ProtobufUnittest_TestEagerMaybeLazy.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedMessageHasBits: @unchecked Sendable {}
@@ -7274,7 +7444,10 @@ extension ProtobufUnittest_Int64ParseTester: @unchecked Sendable {}
 extension ProtobufUnittest_InlinedStringIdxRegressionProto: @unchecked Sendable {}
 extension ProtobufUnittest_StringParseTester: @unchecked Sendable {}
 extension ProtobufUnittest_BadFieldNames: @unchecked Sendable {}
+extension ProtobufUnittest_TestNestedMessageRedaction: @unchecked Sendable {}
 extension ProtobufUnittest_RedactedFields: @unchecked Sendable {}
+extension ProtobufUnittest_TestCord: @unchecked Sendable {}
+extension ProtobufUnittest_TestPackedEnumSmallRange: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest.proto.
@@ -13089,6 +13262,38 @@ extension ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
+extension ProtobufUnittest_TestLazyMessageRepeated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestLazyMessageRepeated"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "repeated_message"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedMessage) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.repeatedMessage.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedMessage, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestLazyMessageRepeated, rhs: ProtobufUnittest_TestLazyMessageRepeated) -> Bool {
+    if lhs.repeatedMessage != rhs.repeatedMessage {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestEagerMaybeLazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEagerMaybeLazy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -14753,6 +14958,7 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
     7: .standard(proto: "foo_message"),
     8: .unique(proto: "FooGroup", json: "foogroup"),
     11: .standard(proto: "foo_lazy_message"),
+    30: .standard(proto: "foo_bytes_cord"),
     12: .standard(proto: "bar_int"),
     13: .standard(proto: "bar_string"),
     14: .standard(proto: "bar_cord"),
@@ -14942,6 +15148,14 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
           self.bar = .barBytesWithEmptyDefault(v)
         }
       }()
+      case 30: try {
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {
+          if self.foo != nil {try decoder.handleConflictingOneOf()}
+          self.foo = .fooBytesCord(v)
+        }
+      }()
       default: break
       }
     }
@@ -14989,7 +15203,7 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
       guard case .fooLazyMessage(let v)? = self.foo else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
     }()
-    case nil: break
+    default: break
     }
     switch self.bar {
     case .barInt?: try {
@@ -15043,6 +15257,9 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }()
     default: break
     }
+    try { if case .fooBytesCord(let v)? = self.foo {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 30)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -18784,10 +19001,61 @@ extension ProtobufUnittest_BadFieldNames: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
+extension ProtobufUnittest_TestNestedMessageRedaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestNestedMessageRedaction"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_unredacted_nested_string"),
+    2: .standard(proto: "optional_redacted_nested_string"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self._optionalUnredactedNestedString) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._optionalRedactedNestedString) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalUnredactedNestedString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalRedactedNestedString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestNestedMessageRedaction, rhs: ProtobufUnittest_TestNestedMessageRedaction) -> Bool {
+    if lhs._optionalUnredactedNestedString != rhs._optionalUnredactedNestedString {return false}
+    if lhs._optionalRedactedNestedString != rhs._optionalRedactedNestedString {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RedactedFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_redacted_string"),
+    2: .standard(proto: "optional_unredacted_string"),
+    3: .standard(proto: "repeated_redacted_string"),
+    4: .standard(proto: "repeated_unredacted_string"),
+    5: .standard(proto: "optional_redacted_message"),
+    6: .standard(proto: "optional_unredacted_message"),
+    7: .standard(proto: "repeated_redacted_message"),
+    8: .standard(proto: "repeated_unredacted_message"),
+    9: .standard(proto: "map_redacted_string"),
+    10: .standard(proto: "map_unredacted_string"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -18797,6 +19065,15 @@ extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self._optionalRedactedString) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._optionalUnredactedString) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.repeatedRedactedString) }()
+      case 4: try { try decoder.decodeRepeatedStringField(value: &self.repeatedUnredactedString) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._optionalRedactedMessage) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._optionalUnredactedMessage) }()
+      case 7: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedRedactedMessage) }()
+      case 8: try { try decoder.decodeRepeatedMessageField(value: &self.repeatedUnredactedMessage) }()
+      case 9: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.mapRedactedString) }()
+      case 10: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.mapUnredactedString) }()
       default: break
       }
     }
@@ -18810,12 +19087,131 @@ extension ProtobufUnittest_RedactedFields: SwiftProtobuf.Message, SwiftProtobuf.
     try { if let v = self._optionalRedactedString {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     } }()
+    try { if let v = self._optionalUnredactedString {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    if !self.repeatedRedactedString.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.repeatedRedactedString, fieldNumber: 3)
+    }
+    if !self.repeatedUnredactedString.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.repeatedUnredactedString, fieldNumber: 4)
+    }
+    try { if let v = self._optionalRedactedMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._optionalUnredactedMessage {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
+    if !self.repeatedRedactedMessage.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedRedactedMessage, fieldNumber: 7)
+    }
+    if !self.repeatedUnredactedMessage.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedUnredactedMessage, fieldNumber: 8)
+    }
+    if !self.mapRedactedString.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.mapRedactedString, fieldNumber: 9)
+    }
+    if !self.mapUnredactedString.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.mapUnredactedString, fieldNumber: 10)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: ProtobufUnittest_RedactedFields, rhs: ProtobufUnittest_RedactedFields) -> Bool {
     if lhs._optionalRedactedString != rhs._optionalRedactedString {return false}
+    if lhs._optionalUnredactedString != rhs._optionalUnredactedString {return false}
+    if lhs.repeatedRedactedString != rhs.repeatedRedactedString {return false}
+    if lhs.repeatedUnredactedString != rhs.repeatedUnredactedString {return false}
+    if lhs._optionalRedactedMessage != rhs._optionalRedactedMessage {return false}
+    if lhs._optionalUnredactedMessage != rhs._optionalUnredactedMessage {return false}
+    if lhs.repeatedRedactedMessage != rhs.repeatedRedactedMessage {return false}
+    if lhs.repeatedUnredactedMessage != rhs.repeatedUnredactedMessage {return false}
+    if lhs.mapRedactedString != rhs.mapRedactedString {return false}
+    if lhs.mapUnredactedString != rhs.mapUnredactedString {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_TestCord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestCord"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "optional_bytes_cord"),
+    2: .standard(proto: "optional_bytes_cord_default"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBytesField(value: &self._optionalBytesCord) }()
+      case 2: try { try decoder.decodeSingularBytesField(value: &self._optionalBytesCordDefault) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._optionalBytesCord {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._optionalBytesCordDefault {
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestCord, rhs: ProtobufUnittest_TestCord) -> Bool {
+    if lhs._optionalBytesCord != rhs._optionalBytesCord {return false}
+    if lhs._optionalBytesCordDefault != rhs._optionalBytesCordDefault {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestPackedEnumSmallRange: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestPackedEnumSmallRange"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "vals"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedEnumField(value: &self.vals) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.vals.isEmpty {
+      try visitor.visitPackedEnumField(value: self.vals, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestPackedEnumSmallRange, rhs: ProtobufUnittest_TestPackedEnumSmallRange) -> Bool {
+    if lhs.vals != rhs.vals {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestPackedEnumSmallRange.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNSPECIFIED"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
