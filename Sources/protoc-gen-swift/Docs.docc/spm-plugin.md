@@ -54,7 +54,7 @@ let package = Package(
 Configuring the plugin is done by adding a `swift-protobuf-config.json` file anywhere in your target's sources. 
 Before you start configuring the plugin, you need to add the `.proto` files to your sources. You should also commit these
 files to your git repository since the generated types are now generated on demand.
-Its also important to note that the proto files in your configuration should be in
+It's also important to note that the proto files in your configuration should be in
 the same directory as the config file. Let's see an example to have a better understanding.
 
 Here's an example file structure that looks like this:
