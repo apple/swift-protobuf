@@ -116,8 +116,8 @@ struct SwiftProtobufPlugin {
         }
         let protocGenSwiftPath = try tool("protoc-gen-swift").path
         
-        return try configuration.invocations.map { invocation in
-            try self.invokeProtoc(
+        return configuration.invocations.map { invocation in
+            self.invokeProtoc(
                 directory: configurationFilePath.removingLastComponent(),
                 invocation: invocation,
                 protocPath: protocPath,
@@ -142,7 +142,7 @@ struct SwiftProtobufPlugin {
         protocPath: Path,
         protocGenSwiftPath: Path,
         outputDirectory: Path
-    ) throws -> Command {
+    ) -> Command {
         // Construct the `protoc` arguments.
         var protocArgs = [
             "--plugin=protoc-gen-swift=\(protocGenSwiftPath)",
