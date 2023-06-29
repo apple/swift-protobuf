@@ -19,18 +19,11 @@ configuration file which will be used to customize the invocation of `protoc`.
 First, you must ensure that you have the `protoc` compiler installed.
 There are multiple ways to do this. Some of the easiest are:
 
-1. If you are on MacOS, installing it via `brew install protoc`
+1. If you are on macOS, installing it via `brew install protobuf`
 2. Download the binary from [Google's github repository](https://github.com/protocolbuffers/protobuf).
-
-### Adding the proto files to your target
-
-Next, you need to add the `.proto` files for which you want to generate your Swift types to your target's
-source directory. You should also commit these files to your git repository since the generated types
-are now generated on demand.
 
 ### Adding the plugin to your manifest
 
-After adding the `.proto` files you can now add the plugin to the target inside your `Package.swift` manifest.
 First, you need to add a dependency on `swift-protobuf`. Afterwards, you can declare the usage of the plugin
 for your target. Here is an example snippet of a `Package.swift` manifest:
 
@@ -48,7 +41,7 @@ let package = Package(
     .executableTarget(
         name: "YourTarget",
         plugins: [
-            .plugin(name: "SwiftProtobufPlugin")
+            .plugin(name: "SwiftProtobufPlugin", package: "swift-protobuf")
         ]
     ),
     ...
@@ -58,9 +51,25 @@ let package = Package(
 
 ### Configuring the plugin
 
-Lastly, after you have added the `.proto` files and modified your `Package.swift` manifest, you can now
-configure the plugin to invoke the `protoc` compiler. This is done by adding a `swift-protobuf-config.json`
-to the root of your target's source folder. An example configuration file looks like this:
+Configuring the plugin is done by adding a `swift-protobuf-config.json` file anywhere in your target's sources. 
+Before you start configuring the plugin, you need to add the `.proto` files to your sources. You should also commit these
+files to your git repository since the generated types are now generated on demand.
+It's also important to note that the proto files in your configuration should be in
+the same directory as the config file. Let's see an example to have a better understanding.
+
+Here's an example file structure that looks like this:
+
+```text
+Sources
+├── main.swift
+├── ProtoBuf
+    ├── swift-protobuf-config.json
+    ├── foo.proto
+    └── Bar
+        └── Bar.proto
+```
+
+So, the configuration file would look something like this:
 
 ```json
 {
@@ -74,7 +83,7 @@ to the root of your target's source folder. An example configuration file looks 
         },
         {
             "protoFiles": [
-                "Bar.proto"
+                "Bar/Bar.proto"
             ],
             "visibility": "public",
             "fileNaming": "pathToUnderscores"
@@ -83,6 +92,12 @@ to the root of your target's source folder. An example configuration file looks 
 }
 
 ```
+As you can see in the above configuration, the paths are relative with respect to the `ProtoBuf` folder and not the root folder. 
+If you add a file in the `Sources` folder, the plugin would be unable to access it as the path is computed relative to 
+the `swift-protobuf-config.json` file.
+
+> Note: paths to your `.proto` files will have to include the relative path from the config file directory to the `.proto` file location.
+> Files **must** be contained within the same directory as the config file.
 
 In the above configuration, you declared two invocations to the `protoc` compiler. The first invocation
 is generating Swift types for the `Foo.proto` file with `internal` visibility. The second invocation
@@ -92,15 +107,18 @@ problems where a single target contains two or more proto files with the same na
 
 ### Defining the path to the protoc binary
 
+The plugin needs to be able to invoke the `protoc` binary to generate the Swift types. There are several ways to achieve this. 
 
-The plugin needs to be able to invoke the `protoc` binary to generate the Swift types. 
-There are three ways how this can be achieved. First, by default, the package manager looks into
-the `$PATH` to find binaries named `protoc`. This works immediately if you use `swift build` to build
-your package and `protoc` is installed in the `$PATH` (`brew` is adding it to your `$PATH` automatically).
+First, by default, the package manager looks into the `$PATH` to find binaries named `protoc`. 
+This works immediately if you use `swift build` to build your package and `protoc` is installed 
+in the `$PATH` (`brew` is adding it to your `$PATH` automatically).
 However, this doesn't work if you want to compile from Xcode since Xcode is not passed the `$PATH`.
-You have to options to set the path of `protoc` that the plugin is going to use. Either you can set
-an environment variable `PROTOC_PATH` that gets picked up by the plugin. Here are two example how you
-can set the variable so that it gets picked up:
+
+If compiling from Xcode, you have **three options** to set the path of `protoc` that the plugin is going to use:
+
+* You can start Xcode by running `$ xed .` from the command line from the directory your project is located - this should make `$PATH` visible to Xcode.
+
+* Set an environment variable `PROTOC_PATH` that gets picked up by the plugin. Here are two examples of how you can achieve this:
 
 ```shell
 # swift build
@@ -113,15 +131,13 @@ env PROTOC_PATH=/opt/homebrew/bin/protoc xed .
 env PROTOC_PATH=/opt/homebrew/bin/protoc xcodebuild <Here goes your command>
 ```
 
-The other way to point the plugin to the concrete location of the `protoc`
-compiler is by changing the configuration file like this:
+* Point the plugin to the concrete location of the `protoc` compiler is by changing the configuration file like this:
 
 ```json
 {
-    "protoCPath": "/path/to/protoc",
+    "protocPath": "/path/to/protoc",
     "invocations": [...]
 }
-
 ```
 
 > Warning: The configuration file option only solves the problem for leaf packages that are using the Swift package manager
