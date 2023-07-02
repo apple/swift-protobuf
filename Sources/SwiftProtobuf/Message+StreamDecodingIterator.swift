@@ -8,51 +8,67 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to `Message` to provide binary coding and decoding using ``Foundation/Data``.
+/// Extensions to `Message` to provide an iterator for decoding binary delimited streams.
 ///
 // -----------------------------------------------------------------------------
 
 import Foundation
 
+fileprivate let defaultBufferLength = 32768
+
 extension Message {
   
-  public static func streamDecodingIterator(inputStream: InputStream, bufferLength: Int = 32768) -> StreamDecodingIterator<Self> {
-    return StreamDecodingIterator<Self>(inputStream: inputStream, bufferLength: bufferLength)
+  public static func streamDecodingIterator(inputStream: InputStream, bufferLength: Int? = nil, errorDelegate: StreamErrorDelegate? = nil) -> StreamDecodingIterator<Self> {
+    
+    let bufferLength = bufferLength ?? defaultBufferLength
+    return StreamDecodingIterator<Self>(inputStream: inputStream, bufferLength: bufferLength, errorDelegate: errorDelegate)
   }
 }
 
 /**
- Iterates over a binary-delimited protobuf input stream
+ Iterates over a binary-delimited protobuf input stream. This implementation uses a read-ahead buffer,
+ therefore after a message is read, the caller should assume any subsequent reads on the InputStream
+ will not begin at the start of a message.
  */
 public struct StreamDecodingIterator<M: Message>: IteratorProtocol {
   
-  fileprivate let buffer: ResizingBuffer
+  fileprivate let buffer: ReadAheadBuffer
+  var errorDelegate: StreamErrorDelegate?
   
-  public init(inputStream: InputStream, bufferLength: Int = 32768) {
-    buffer = ResizingBuffer(inputStream: inputStream, bufferLength: bufferLength)
+  init(inputStream: InputStream, bufferLength: Int, errorDelegate: StreamErrorDelegate?) {
+    self.buffer = ReadAheadBuffer(inputStream: inputStream, bufferLength: bufferLength)
+    self.errorDelegate = errorDelegate
   }
   
   public func next() -> M? {
+    guard let messageLength = decodeVarint() else {
+      return nil
+    }
+    guard messageLength <= 0x7fffffff else {
+      errorDelegate?.onError(error: BinaryDecodingError.tooLarge)
+      return nil
+    }
+    if messageLength == 0 {
+      return M()
+    }
+    let data = buffer.read(for: Int(messageLength))
+    guard data.count == messageLength else {
+      errorDelegate?.onError(error: BinaryDecodingError.truncated)
+      return nil
+    }
     do {
-      let messageLength = try decodeVarint()
-      if (messageLength == 0) {
-        return nil
-      }
-      var message = M()
-      let data = try buffer.read(for: Int(messageLength))
-      try message.merge(serializedData: data)
-      return message
+      return try M(serializedData: data)
     } catch {
-      print(error)
+      errorDelegate?.onError(error: error)
       return nil
     }
   }
   
   //Adapted from SwiftProtobuf BinaryDecoder
-  private func decodeVarint() throws -> UInt64 {
-    let slice = try buffer.read(for: 1)
+  private func decodeVarint() -> UInt64? {
+    let slice = buffer.read(for: 1)
     if (slice.isEmpty) {
-      return 0
+      return nil
     }
     var c = slice[slice.startIndex]
     if c & 0x80 == 0 {
@@ -62,9 +78,15 @@ public struct StreamDecodingIterator<M: Message>: IteratorProtocol {
     var shift = UInt64(7)
     while true {
       if shift > 63 {
-        throw BinaryDecodingError.malformedProtobuf
+        errorDelegate?.onError(error: BinaryDecodingError.malformedProtobuf)
+        return nil
       }
-      let slice = try buffer.read(for: 1)
+      let slice = buffer.read(for: 1)
+      if (slice.isEmpty) {
+        //truncated varint
+        errorDelegate?.onError(error: BinaryDecodingError.truncated)
+        return nil
+      }
       c = slice[slice.startIndex]
       value |= UInt64(c & 0x7f) << shift
       if c & 0x80 == 0 {
@@ -75,57 +97,54 @@ public struct StreamDecodingIterator<M: Message>: IteratorProtocol {
   }
 }
 
-private class ResizingBuffer {
+private class ReadAheadBuffer {
   
   let inputStream: InputStream
-  let bufferLength: Int
-  var pointer: Int = 0
+  var consumedBytes = 0
   var buffer: [UInt8]
-  var data: Data
+  var lastReadResult = 0
   
-  init(inputStream: InputStream, bufferLength: Int = 32768) {
+  init(inputStream: InputStream, bufferLength: Int) {
     self.inputStream = inputStream
-    self.bufferLength = bufferLength
     self.buffer = [UInt8](repeating: 0, count: bufferLength)
-    let result = inputStream.read(&buffer, maxLength: buffer.count)
-    self.data = Data(buffer.prefix(result))
   }
   
   /**
    Read the required data quantity from the buffer,
    loading more from the stream if necessary
    */
-  func read(for nBytes: Int) throws -> Data {
+  func read(for nBytes: Int) -> Data {
     
-    let end = pointer + nBytes
-    
-    if (end <= data.count) {
-      let messageData = data[pointer..<end]
-      pointer += nBytes
-      return messageData
-    } else {
-      //more data may be required
-      let prefix = data[pointer..<data.count]
-      let remainingByteCount = nBytes - prefix.count
-      
-      var toLoad = bufferLength
-      if (remainingByteCount > bufferLength) {
-        let nPages = Int(ceil(Float(remainingByteCount) / Float(bufferLength)))
-        toLoad = nPages * bufferLength
-        self.buffer = [UInt8](repeating: 0, count: toLoad)
-      }
-      
-      let result = inputStream.read(&buffer, maxLength: buffer.count)
-      if result == 0 {
-        return prefix
-      } else if (result < 0) {
-        throw inputStream.streamError ?? POSIXError(.EIO)
-      }
-      self.data = Data(buffer.prefix(result))
-      
-      let suffix = data[0..<remainingByteCount]
-      pointer = remainingByteCount
-      return prefix + suffix
+    let availableByteCount = lastReadResult - consumedBytes
+    //Ideally data will be already available
+    if (nBytes <= availableByteCount) {
+      let readUntil = consumedBytes + nBytes
+      let messageData = buffer[consumedBytes..<readUntil]
+      consumedBytes = readUntil
+      return Data(messageData)
     }
+    
+    var messageData = lastReadResult == 0 ? Data() : Data(buffer[consumedBytes..<lastReadResult])
+    var requiredBytes = nBytes - messageData.count
+    
+    //Taken all bytes from previous read, need to read from stream
+    while requiredBytes > 0, inputStream.streamStatus == .open {
+      lastReadResult = inputStream.read(&buffer, maxLength: buffer.count)
+      if (requiredBytes <= lastReadResult) {
+        messageData += buffer.prefix(requiredBytes)
+        consumedBytes = requiredBytes
+        return messageData
+      } else {
+        //Use the entire last read
+        messageData += buffer.prefix(lastReadResult)
+        requiredBytes -= lastReadResult
+        consumedBytes = 0
+      }
+    }
+    return messageData
   }
+}
+
+public protocol StreamErrorDelegate {
+  func onError(error: Error)
 }
