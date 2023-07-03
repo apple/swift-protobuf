@@ -23,6 +23,28 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
     self.errorExpectation = nil
   }
   
+  //Decode zero length messages
+  func testZeroLengthMessages() {
+    var messages = [ProtobufUnittest_TestAllTypes]()
+    for _ in 1...10 {
+      messages.append(ProtobufUnittest_TestAllTypes())
+    }
+    
+    let data = serializeToMemory(messages: messages)
+    XCTAssert(data.count == 10) //Should be 10 zero varints
+    
+    let inputStream = InputStream(data: data)
+    inputStream.open()
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream)
+    var count = 0
+    while let message = iterator.next() {
+      XCTAssertEqual(message, ProtobufUnittest_TestAllTypes())
+      count += 1
+    }
+    XCTAssert(count == 10)
+    inputStream.close()
+  }
+  
   //Empty stream with no bytes
   func testEmptyStream() {
     let inputStream = InputStream(data: Data(count: 0))
@@ -85,8 +107,6 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
   func testValidMessageThenTruncatedVarint() {
     errorExpectation = expectation(description: "Should encounter a BinaryDecodingError.truncated")
     
-    let memoryOutputStream = OutputStream.toMemory()
-    memoryOutputStream.open()
     let msg = ProtobufUnittest_TestAllTypes.with {
       $0.optionalBool = true
       $0.optionalInt32 = 54321
@@ -96,20 +116,11 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       $0.repeatedString.append("wee")
       $0.repeatedFloat.append(1.23)
     }
-    XCTAssertNoThrow(try BinaryDelimited.serialize(message: msg, to: memoryOutputStream))
+    
+    var data = serializeToMemory(messages: [msg])
     let truncatedVarint: [UInt8] = [224, 216]
+    data += truncatedVarint
     
-    truncatedVarint.withUnsafeBytes {
-      guard let pointer = $0.baseAddress?.assumingMemoryBound(to: UInt8.self) else {
-        return
-      }
-      memoryOutputStream.write(pointer, maxLength: truncatedVarint.count)
-    }
-    
-    memoryOutputStream.close()
-    let nsData = memoryOutputStream.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
-    
-    let data = Data(referencing: nsData)
     let memoryInputStream = InputStream(data: data)
     memoryInputStream.open()
     let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: memoryInputStream, errorDelegate: self)
@@ -129,15 +140,27 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
   //write 10 messages to memory and ensure they are rehydrated correctly
   //the small buffer ensures messages are recreated using multiple buffer reads
   func testNormalExecutionSmallBuffer() {
-    let memoryOutputStream = OutputStream.toMemory()
-    writeTestMessages(memoryOutputStream)
-    // See https://bugs.swift.org/browse/SR-5404
-    let nsData = memoryOutputStream.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
-    let data = Data(referencing: nsData)
-    let memoryInputStream = InputStream(data: data)
-    memoryInputStream.open()
     
-    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: memoryInputStream, bufferLength: 8)
+    var messages = [ProtobufUnittest_TestAllTypes]()
+    for testInt in 1...10 {
+      let message = ProtobufUnittest_TestAllTypes.with {
+        $0.optionalBool = true
+        $0.optionalInt32 = Int32(testInt)
+        $0.optionalInt64 = 123456789
+        $0.optionalGroup.a = 456
+        $0.optionalNestedEnum = .baz
+        $0.repeatedString.append("wee")
+        $0.repeatedFloat.append(1.23)
+      }
+      messages.append(message)
+    }
+    
+    let data = serializeToMemory(messages: messages)
+    
+    let inputStream = InputStream(data: data)
+    inputStream.open()
+    
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream, bufferLength: 8)
     var messageCount: Int32 = 0
     while let message = iterator.next() {
       messageCount += 1
@@ -153,27 +176,36 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       XCTAssertEqual(msg1, message)
     }
     XCTAssertEqual(messageCount, 10)
-    memoryInputStream.close()
+    inputStream.close()
   }
   
   //write 10 messages to memory and ensure they are rehydrated correctly
   func testNormalExecution() {
-    let memoryOutputStream = OutputStream.toMemory()
-    writeTestMessages(memoryOutputStream)
-    
-    // See https://bugs.swift.org/browse/SR-5404
-    let nsData = memoryOutputStream.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
-    let data = Data(referencing: nsData)
-    let memoryInputStream = InputStream(data: data)
-    memoryInputStream.open()
-    
-    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: memoryInputStream)
-    var testInt: Int32 = 0
-    while let message = iterator.next() {
-      testInt += 1
-      let msg1 = ProtobufUnittest_TestAllTypes.with {
+    var messages = [ProtobufUnittest_TestAllTypes]()
+    for testInt in 1...10 {
+      let message = ProtobufUnittest_TestAllTypes.with {
         $0.optionalBool = true
         $0.optionalInt32 = Int32(testInt)
+        $0.optionalInt64 = 123456789
+        $0.optionalGroup.a = 456
+        $0.optionalNestedEnum = .baz
+        $0.repeatedString.append("wee")
+        $0.repeatedFloat.append(1.23)
+      }
+      messages.append(message)
+    }
+    
+    let data = serializeToMemory(messages: messages)
+    
+    let inputStream = InputStream(data: data)
+    inputStream.open()
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream)
+    var messageCount: Int32 = 0
+    while let message = iterator.next() {
+      messageCount += 1
+      let msg1 = ProtobufUnittest_TestAllTypes.with {
+        $0.optionalBool = true
+        $0.optionalInt32 = Int32(messageCount)
         $0.optionalInt64 = 123456789
         $0.optionalGroup.a = 456
         $0.optionalNestedEnum = .baz
@@ -182,25 +214,19 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       }
       XCTAssertEqual(msg1, message)
     }
-    XCTAssertEqual(testInt, 10)
-    memoryInputStream.close()
+    XCTAssertEqual(messageCount, 10)
+    inputStream.close()
   }
   
-  fileprivate func writeTestMessages(_ memoryOutputStream: OutputStream)  {
+  fileprivate func serializeToMemory(messages: [Message]) -> Data {
+    let memoryOutputStream = OutputStream.toMemory()
     memoryOutputStream.open()
-    
-    for testInt in 1...10 {
-      let msg1 = ProtobufUnittest_TestAllTypes.with {
-        $0.optionalBool = true
-        $0.optionalInt32 = Int32(testInt)
-        $0.optionalInt64 = 123456789
-        $0.optionalGroup.a = 456
-        $0.optionalNestedEnum = .baz
-        $0.repeatedString.append("wee")
-        $0.repeatedFloat.append(1.23)
-      }
-      XCTAssertNoThrow(try BinaryDelimited.serialize(message: msg1, to: memoryOutputStream))
+    for message in messages {
+      XCTAssertNoThrow(try BinaryDelimited.serialize(message: message, to: memoryOutputStream))
     }
     memoryOutputStream.close()
+    // See https://bugs.swift.org/browse/SR-5404
+    let nsData = memoryOutputStream.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
+    return Data(referencing: nsData)
   }
 }
