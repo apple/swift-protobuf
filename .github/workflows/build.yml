@@ -26,8 +26,8 @@ jobs:
         # seems better. This should also ensure protobuf caching changes with
         # each new image incase system in the Swift image are changed/updated.
         swift:
-        - 5.8.0-jammy
-        - 5.7.2-jammy
+        - 5.8.1-jammy
+        - 5.7.3-jammy
         - 5.6.3-focal
         - 5.5.3-focal
         - 5.4.3-focal
@@ -38,9 +38,9 @@ jobs:
         protobuf_git: ["ref/heads/main"]
         # We are not testing the SPM plugins on Swift version that don't support SPM plugins
         include:
-          - swift: 5.8.0-jammy
+          - swift: 5.8.1-jammy
             test_spm_plugin: true
-          - swift: 5.7.2-jammy
+          - swift: 5.7.3-jammy
             test_spm_plugin: true
           - swift: 5.6.3-focal
             test_spm_plugin: true
