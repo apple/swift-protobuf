@@ -15,15 +15,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        swift: ["5.7.2", "5.6.3", "5.5.3", "5.4.3", "5.3.3", "5.2.5", "5.1.5", "5.0.3", "4.2.4"]
+        swift: ["5.8.1", "5.7.3", "5.6.3", "5.5.3", "5.4.3", "5.3.3", "5.2.5", "5.1.5", "5.0.3", "4.2.4"]
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
         # branch: "ref/heads/main"
         protobuf_git: ["ref/heads/main"]
         include:
-          - swift: 5.7.2
-            ubuntu: -focal
+          - swift: 5.8.1
+            ubuntu: -jammy
+            generate_linux_main: false
+            build_protobuf: true
+          - swift: 5.7.3
+            ubuntu: -jammy
             generate_linux_main: false
             build_protobuf: true
           - swift: 5.6.3
@@ -144,9 +148,7 @@ jobs:
         sanitizer: ["address", "thread"]
         swiftpm_config: ["debug", "release"]
     container:
-      # Test on the latest Swift release. https://hub.docker.com/_/swift says
-      # swift:latest is still bionic, so explicitly use swift:focal.
-      image: swift:focal
+      image: swift:latest
     steps:
     - uses: actions/checkout@v3
     - name: Test
@@ -174,9 +176,7 @@ jobs:
       matrix:
         swiftpm_config: ["debug", "release"]
     container:
-      # Test on the latest Swift release. https://hub.docker.com/_/swift says
-      # swift:latest is still bionic, so explicitly use swift:focal.
-      image: swift:focal
+      image: swift:latest
     steps:
     - uses: actions/checkout@v3
     - name: Build
