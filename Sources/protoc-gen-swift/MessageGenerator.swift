@@ -227,8 +227,6 @@ class MessageGenerator {
       generateDecodeMessage(printer: &p)
       p.print()
       generateTraverse(printer: &p)
-      p.print()
-      generateMessageEquality(printer: &p)
     }
     p.print("}")
 
@@ -367,45 +365,6 @@ class MessageGenerator {
         }
       }
       p.print("try unknownFields.traverse(visitor: &visitor)")
-    }
-    p.print("}")
-  }
-
-  private func generateMessageEquality(printer p: inout CodePrinter) {
-    p.print("\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {")
-    p.withIndentation { p in
-      var compareFields = true
-      if let storage = storage {
-        p.print("if lhs._storage !== rhs._storage {")
-        p.indent()
-        p.print("let storagesAreEqual: Bool = ", newlines: false)
-        if storage.storageProvidesEqualTo {
-          p.print("lhs._storage.isEqualTo(other: rhs._storage)")
-          compareFields = false
-        }
-      }
-      if compareFields {
-        generateWithLifetimeExtension(printer: &p,
-                                      alsoCapturing: "rhs",
-                                      selfQualifier: "lhs") { p in
-          for f in fields {
-            f.generateFieldComparison(printer: &p)
-          }
-          if storage != nil {
-            p.print("return true")
-          }
-        }
-      }
-      if storage != nil {
-        p.print("if !storagesAreEqual {return false}")
-        p.outdent()
-        p.print("}")
-      }
-      p.print("if lhs.unknownFields != rhs.unknownFields {return false}")
-      if isExtensible {
-        p.print("if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}")
-      }
-      p.print("return true")
     }
     p.print("}")
   }
