@@ -18,6 +18,10 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
   var errorExpectation: XCTestExpectation?
   
   func onError(error: Error) {
+    guard let expectation = errorExpectation else {
+      XCTFail("Unexpected error: \(error)")
+      return
+    }
     self.error = error
     self.errorExpectation?.fulfill()
     self.errorExpectation = nil
@@ -31,17 +35,17 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
     }
     
     let data = serializeToMemory(messages: messages)
-    XCTAssert(data.count == 10) //Should be 10 zero varints
+    XCTAssertEqual(data.count, 10) //Should be 10 zero varints
     
     let inputStream = InputStream(data: data)
     inputStream.open()
-    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream)
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream, errorDelegate: self)
     var count = 0
     while let message = iterator.next() {
       XCTAssertEqual(message, ProtobufUnittest_TestAllTypes())
       count += 1
     }
-    XCTAssert(count == 10)
+    XCTAssertEqual(count, 10)
     inputStream.close()
   }
   
@@ -49,9 +53,9 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
   func testEmptyStream() {
     let inputStream = InputStream(data: Data(count: 0))
     inputStream.open()
-    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream)
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream, errorDelegate: self)
     while let _ = iterator.next() {
-      XCTFail("Stream was empty")
+      XCTFail("Shouldn't have returned a value for an empty stream.")
     }
     inputStream.close()
   }
@@ -67,7 +71,7 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       XCTFail("Zero messages should be encountered.")
     }
     waitForExpectations(timeout: 1)
-    XCTAssert(error as! BinaryDecodingError == BinaryDecodingError.truncated)
+    XCTAssertEqual(error as! BinaryDecodingError, BinaryDecodingError.truncated)
     inputStream.close()
   }
   
@@ -84,7 +88,7 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       XCTAssertEqual(m, message)
       count += 1
     }
-    XCTAssert(count == 1)
+    XCTAssertEqual(count, 1)
     inputStream.close()
   }
   
@@ -99,7 +103,7 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       XCTFail("Zero messages should be encountered.")
     }
     waitForExpectations(timeout: 1)
-    XCTAssert(error as! BinaryDecodingError == BinaryDecodingError.truncated)
+    XCTAssertEqual(error as! BinaryDecodingError, BinaryDecodingError.truncated)
     inputStream.close()
   }
   
@@ -130,10 +134,10 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
       XCTAssertEqual(msg, message)
       count += 1
     }
-    XCTAssert(count == 1)
+    XCTAssertEqual(count, 1)
     
     waitForExpectations(timeout: 1)
-    XCTAssert(error as! BinaryDecodingError == BinaryDecodingError.truncated)
+    XCTAssertEqual(error as! BinaryDecodingError, BinaryDecodingError.truncated)
     memoryInputStream.close()
   }
   
@@ -160,7 +164,7 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
     let inputStream = InputStream(data: data)
     inputStream.open()
     
-    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream, bufferLength: 8)
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream, bufferLength: 8, errorDelegate: self)
     var messageCount: Int32 = 0
     while let message = iterator.next() {
       messageCount += 1
@@ -199,7 +203,7 @@ class Test_StreamDecodingIterator: XCTestCase, StreamErrorDelegate {
     
     let inputStream = InputStream(data: data)
     inputStream.open()
-    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream)
+    let iterator = ProtobufUnittest_TestAllTypes.streamDecodingIterator(inputStream: inputStream, errorDelegate: self)
     var messageCount: Int32 = 0
     while let message = iterator.next() {
       messageCount += 1
