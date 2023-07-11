@@ -18,11 +18,16 @@ fileprivate let defaultBufferLength = 32768
 
 extension Message {
   
-  /**
-   Creates an iterator for a binary-delimited protobuf input stream. Errors can be caught by providing a
-   delegate. The returned iterator uses a read-ahead buffer, therefore no assumptions about the position of
-   the stream should be made after any messages have been read.
-   */
+  /// Creates an iterator for a binary-delimited protobuf input stream.
+  /// Errors can be caught by providing a delegate. The returned iterator uses a read-ahead buffer,
+  /// therefore no assumptions about the position of the stream should be made after any messages
+  /// have been read.
+  ///
+  /// - Returns: An iterator over a binary delimited protobuf stream
+  /// - Parameters:
+  ///   - inputStream: an InputStream providing binary-delimited protobuf
+  ///   - bufferLength: optionally define the length of the buffer
+  ///   - errorDelegate: optionally provide this to catch decoding errors
   public static func streamDecodingIterator(inputStream: InputStream, bufferLength: Int? = nil, errorDelegate: StreamErrorDelegate? = nil) -> StreamDecodingIterator<Self> {
     
     let bufferLength = bufferLength ?? defaultBufferLength
@@ -30,16 +35,23 @@ extension Message {
   }
 }
 
-/**
- Iterates over a binary-delimited protobuf input stream. This implementation uses a read-ahead buffer,
- therefore after a message is read, the caller should assume any subsequent reads on the InputStream
- will not begin at the start of a message.
- */
+/// Iterates over a binary-delimited protobuf input stream. This implementation uses a read-ahead buffer,
+/// therefore after a message is read, the caller should assume any subsequent reads on the InputStream
+/// will not begin at the start of a message.
 public struct StreamDecodingIterator<M: Message>: IteratorProtocol {
   
   fileprivate let buffer: ReadAheadBuffer
   var errorDelegate: StreamErrorDelegate?
   
+  /// Creates an iterator for a binary-delimited protobuf input stream.
+  /// Errors can be caught by providing a delegate. The returned iterator uses a read-ahead buffer,
+  /// therefore no assumptions about the position of the stream should be made after any messages
+  /// have been read.
+  ///
+  /// - Parameters:
+  ///   - inputStream: an InputStream providing binary-delimited protobuf
+  ///   - bufferLength: optionally define the length of the buffer
+  ///   - errorDelegate: optionally provide this to catch decoding errors
   init(inputStream: InputStream, bufferLength: Int, errorDelegate: StreamErrorDelegate?) {
     self.buffer = ReadAheadBuffer(inputStream: inputStream, bufferLength: bufferLength)
     self.errorDelegate = errorDelegate
@@ -150,9 +162,7 @@ private class ReadAheadBuffer {
   }
 }
 
-/**
- Implement to catch errors when decoding binary protobuf streams.
- */
+/// Implement this to catch errors when decoding binary protobuf streams.
 public protocol StreamErrorDelegate {
   func onError(error: Error)
 }
