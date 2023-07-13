@@ -4,13 +4,27 @@ import PackagePlugin
 @main
 struct SwiftProtobufPlugin {
     /// Errors thrown by the `SwiftProtobufPlugin`
-    enum PluginError: Error {
+    enum PluginError: Error, CustomStringConvertible {
         /// Indicates that the target where the plugin was applied to was not `SourceModuleTarget`.
-        case invalidTarget
+        case invalidTarget(Target)
         /// Indicates that the file extension of an input file was not `.proto`.
-        case invalidInputFileExtension
+        case invalidInputFileExtension(String)
         /// Indicates that there was no configuration file at the required location.
-        case noConfigFound
+        case noConfigFound(String)
+
+        var description: String {
+            switch self {
+            case let .invalidTarget(target):
+                return "Expected a SwiftSourceModuleTarget but got '\(type(of: target))'."
+            case let .invalidInputFileExtension(path):
+                return "The input file '\(path)' does not have a '.proto' extension."
+            case let .noConfigFound(path):
+                return """
+                    No configuration file found named '\(path)'. The file must not be listed in the \
+                    'exclude:' argument for the target in Package.swift.
+                    """
+            }
+        }
     }
 
     /// The configuration of the plugin.
@@ -85,7 +99,7 @@ struct SwiftProtobufPlugin {
     }
 
     static let configurationFileName = "swift-protobuf-config.json"
-    
+
     /// Create build commands for the given arguments
     /// - Parameters:
     ///   - pluginWorkDirectory: The path of a writable directory into which the plugin or the build
@@ -103,7 +117,7 @@ struct SwiftProtobufPlugin {
                 $0.path.lastComponent == Self.configurationFileName
             }
         )?.path else {
-            throw PluginError.noConfigFound
+            throw PluginError.noConfigFound(Self.configurationFileName)
         }
         let data = try Data(contentsOf: URL(fileURLWithPath: "\(configurationFilePath)"))
         let configuration = try JSONDecoder().decode(Configuration.self, from: data)
@@ -128,7 +142,7 @@ struct SwiftProtobufPlugin {
             protocPath = try tool("protoc").path
         }
         let protocGenSwiftPath = try tool("protoc-gen-swift").path
-        
+
         return configuration.invocations.map { invocation in
             self.invokeProtoc(
                 directory: targetDirectory,
@@ -184,7 +198,7 @@ struct SwiftProtobufPlugin {
         if let implementationOnlyImports = invocation.implementationOnlyImports {
             protocArgs.append("--swift_opt=ImplementationOnlyImports=\(implementationOnlyImports)")
         }
-        
+
         var inputFiles = [Path]()
         var outputFiles = [Path]()
 
@@ -221,7 +235,7 @@ struct SwiftProtobufPlugin {
         for invocation in configuration.invocations {
             for protoFile in invocation.protoFiles {
                 if !protoFile.hasSuffix(".proto") {
-                    throw PluginError.invalidInputFileExtension
+                    throw PluginError.invalidInputFileExtension(protoFile)
                 }
             }
         }
@@ -234,7 +248,7 @@ extension SwiftProtobufPlugin: BuildToolPlugin {
         target: Target
     ) async throws -> [Command] {
         guard let swiftTarget = target as? SwiftSourceModuleTarget else {
-            throw PluginError.invalidTarget
+            throw PluginError.invalidTarget(target)
         }
         return try createBuildCommands(
             pluginWorkDirectory: context.pluginWorkDirectory,
