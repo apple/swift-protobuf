@@ -310,12 +310,150 @@ public struct Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.ExtensibleMes
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
+  /// For external users: DO NOT USE. We are in the process of open sourcing
+  /// extension declaration and executing internal cleanups before it can be
+  /// used externally.
+  public var declaration: [Google_Protobuf_ExtensionRangeOptions.Declaration] = []
+
+  /// The verification state of the range.
+  /// TODO(b/278783756): flip the default to DECLARATION once all empty ranges
+  /// are marked as UNVERIFIED.
+  public var verification: Google_Protobuf_ExtensionRangeOptions.VerificationState {
+    get {return _verification ?? .unverified}
+    set {_verification = newValue}
+  }
+  /// Returns true if `verification` has been explicitly set.
+  public var hasVerification: Bool {return self._verification != nil}
+  /// Clears the value of `verification`. Subsequent reads from it will return its default value.
+  public mutating func clearVerification() {self._verification = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  /// The verification state of the extension range.
+  public enum VerificationState: SwiftProtobuf.Enum {
+    public typealias RawValue = Int
+
+    /// All the extensions of the range must be declared.
+    case declaration // = 0
+    case unverified // = 1
+
+    public init() {
+      self = .declaration
+    }
+
+    public init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .declaration
+      case 1: self = .unverified
+      default: return nil
+      }
+    }
+
+    public var rawValue: Int {
+      switch self {
+      case .declaration: return 0
+      case .unverified: return 1
+      }
+    }
+
+  }
+
+  public struct Declaration {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    /// The extension number declared within the extension range.
+    public var number: Int32 {
+      get {return _number ?? 0}
+      set {_number = newValue}
+    }
+    /// Returns true if `number` has been explicitly set.
+    public var hasNumber: Bool {return self._number != nil}
+    /// Clears the value of `number`. Subsequent reads from it will return its default value.
+    public mutating func clearNumber() {self._number = nil}
+
+    /// The fully-qualified name of the extension field. There must be a leading
+    /// dot in front of the full name.
+    public var fullName: String {
+      get {return _fullName ?? String()}
+      set {_fullName = newValue}
+    }
+    /// Returns true if `fullName` has been explicitly set.
+    public var hasFullName: Bool {return self._fullName != nil}
+    /// Clears the value of `fullName`. Subsequent reads from it will return its default value.
+    public mutating func clearFullName() {self._fullName = nil}
+
+    /// The fully-qualified type name of the extension field. Unlike
+    /// Metadata.type, Declaration.type must have a leading dot for messages
+    /// and enums.
+    public var type: String {
+      get {return _type ?? String()}
+      set {_type = newValue}
+    }
+    /// Returns true if `type` has been explicitly set.
+    public var hasType: Bool {return self._type != nil}
+    /// Clears the value of `type`. Subsequent reads from it will return its default value.
+    public mutating func clearType() {self._type = nil}
+
+    /// Deprecated. Please use "repeated".
+    public var isRepeated: Bool {
+      get {return _isRepeated ?? false}
+      set {_isRepeated = newValue}
+    }
+    /// Returns true if `isRepeated` has been explicitly set.
+    public var hasIsRepeated: Bool {return self._isRepeated != nil}
+    /// Clears the value of `isRepeated`. Subsequent reads from it will return its default value.
+    public mutating func clearIsRepeated() {self._isRepeated = nil}
+
+    /// If true, indicates that the number is reserved in the extension range,
+    /// and any extension field with the number will fail to compile. Set this
+    /// when a declared extension field is deleted.
+    public var reserved: Bool {
+      get {return _reserved ?? false}
+      set {_reserved = newValue}
+    }
+    /// Returns true if `reserved` has been explicitly set.
+    public var hasReserved: Bool {return self._reserved != nil}
+    /// Clears the value of `reserved`. Subsequent reads from it will return its default value.
+    public mutating func clearReserved() {self._reserved = nil}
+
+    /// If true, indicates that the extension must be defined as repeated.
+    /// Otherwise the extension must be defined as optional.
+    public var repeated: Bool {
+      get {return _repeated ?? false}
+      set {_repeated = newValue}
+    }
+    /// Returns true if `repeated` has been explicitly set.
+    public var hasRepeated: Bool {return self._repeated != nil}
+    /// Clears the value of `repeated`. Subsequent reads from it will return its default value.
+    public mutating func clearRepeated() {self._repeated = nil}
+
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    public init() {}
+
+    fileprivate var _number: Int32? = nil
+    fileprivate var _fullName: String? = nil
+    fileprivate var _type: String? = nil
+    fileprivate var _isRepeated: Bool? = nil
+    fileprivate var _reserved: Bool? = nil
+    fileprivate var _repeated: Bool? = nil
+  }
 
   public init() {}
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _verification: Google_Protobuf_ExtensionRangeOptions.VerificationState? = nil
 }
+
+#if swift(>=4.2)
+
+extension Google_Protobuf_ExtensionRangeOptions.VerificationState: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
 
 /// Describes a field within a message.
 public struct Google_Protobuf_FieldDescriptorProto {
@@ -1307,8 +1445,10 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
 
   /// The ctype option instructs the C++ code generator to use a different
   /// representation of the field than it normally would.  See the specific
-  /// options below.  This option is not yet implemented in the open source
-  /// release -- sorry, we'll try to include it in a future version!
+  /// options below.  This option is only implemented to support use of
+  /// [ctype=CORD] and [ctype=STRING] (the default) on non-repeated fields of
+  /// type "bytes" in the open source release -- sorry, we'll try to include
+  /// other types in a future version!
   public var ctype: Google_Protobuf_FieldOptions.CType {
     get {return _ctype ?? .string}
     set {_ctype = newValue}
@@ -1437,8 +1577,28 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `debugRedact`. Subsequent reads from it will return its default value.
   public mutating func clearDebugRedact() {self._debugRedact = nil}
 
+  public var retention: Google_Protobuf_FieldOptions.OptionRetention {
+    get {return _retention ?? .retentionUnknown}
+    set {_retention = newValue}
+  }
+  /// Returns true if `retention` has been explicitly set.
+  public var hasRetention: Bool {return self._retention != nil}
+  /// Clears the value of `retention`. Subsequent reads from it will return its default value.
+  public mutating func clearRetention() {self._retention = nil}
+
+  public var targets: [Google_Protobuf_FieldOptions.OptionTargetType] = []
+
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
+
+  public var targetObsoleteDoNotUse: Google_Protobuf_FieldOptions.OptionTargetType {
+    get {return _targetObsoleteDoNotUse ?? .targetTypeUnknown}
+    set {_targetObsoleteDoNotUse = newValue}
+  }
+  /// Returns true if `targetObsoleteDoNotUse` has been explicitly set.
+  public var hasTargetObsoleteDoNotUse: Bool {return self._targetObsoleteDoNotUse != nil}
+  /// Clears the value of `targetObsoleteDoNotUse`. Subsequent reads from it will return its default value.
+  public mutating func clearTargetObsoleteDoNotUse() {self._targetObsoleteDoNotUse = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1447,6 +1607,13 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
 
     /// Default mode.
     case string // = 0
+
+    /// The option [ctype=CORD] may be applied to a non-repeated field of type
+    /// "bytes". It indicates that in C++, the data should be stored in a Cord
+    /// instead of a string.  For very large strings, this may reduce memory
+    /// fragmentation. It may also allow better performance when parsing from a
+    /// Cord, or when parsing with aliasing enabled, as the parsed Cord may then
+    /// alias the original buffer.
     case cord // = 1
     case stringPiece // = 2
 
@@ -1605,6 +1772,8 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _deprecated: Bool? = nil
   fileprivate var _weak: Bool? = nil
   fileprivate var _debugRedact: Bool? = nil
+  fileprivate var _retention: Google_Protobuf_FieldOptions.OptionRetention? = nil
+  fileprivate var _targetObsoleteDoNotUse: Google_Protobuf_FieldOptions.OptionTargetType? = nil
 }
 
 #if swift(>=4.2)
@@ -1717,6 +1886,18 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.ExtensibleMessage 
   /// Clears the value of `deprecated`. Subsequent reads from it will return its default value.
   public mutating func clearDeprecated() {self._deprecated = nil}
 
+  /// Indicate that fields annotated with this enum value should not be printed
+  /// out when using debug formats, e.g. when the field contains sensitive
+  /// credentials.
+  public var debugRedact: Bool {
+    get {return _debugRedact ?? false}
+    set {_debugRedact = newValue}
+  }
+  /// Returns true if `debugRedact` has been explicitly set.
+  public var hasDebugRedact: Bool {return self._debugRedact != nil}
+  /// Clears the value of `debugRedact`. Subsequent reads from it will return its default value.
+  public mutating func clearDebugRedact() {self._debugRedact = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
@@ -1726,6 +1907,7 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.ExtensibleMessage 
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _deprecated: Bool? = nil
+  fileprivate var _debugRedact: Bool? = nil
 }
 
 public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.ExtensibleMessage {
@@ -2256,6 +2438,8 @@ extension Google_Protobuf_DescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_DescriptorProto.ExtensionRange: @unchecked Sendable {}
 extension Google_Protobuf_DescriptorProto.ReservedRange: @unchecked Sendable {}
 extension Google_Protobuf_ExtensionRangeOptions: @unchecked Sendable {}
+extension Google_Protobuf_ExtensionRangeOptions.VerificationState: @unchecked Sendable {}
+extension Google_Protobuf_ExtensionRangeOptions.Declaration: @unchecked Sendable {}
 extension Google_Protobuf_FieldDescriptorProto: @unchecked Sendable {}
 extension Google_Protobuf_FieldDescriptorProto.TypeEnum: @unchecked Sendable {}
 extension Google_Protobuf_FieldDescriptorProto.Label: @unchecked Sendable {}
@@ -2646,6 +2830,8 @@ extension Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftPro
   public static let protoMessageName: String = _protobuf_package + ".ExtensionRangeOptions"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .standard(proto: "uninterpreted_option"),
+    2: .same(proto: "declaration"),
+    3: .same(proto: "verification"),
   ]
 
   public var isInitialized: Bool {
@@ -2660,6 +2846,8 @@ extension Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftPro
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.declaration) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._verification) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ExtensionRangeOptions.self, fieldNumber: fieldNumber) }()
@@ -2669,6 +2857,16 @@ extension Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftPro
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.declaration.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.declaration, fieldNumber: 2)
+    }
+    try { if let v = self._verification {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -2678,8 +2876,83 @@ extension Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftPro
 
   public static func ==(lhs: Google_Protobuf_ExtensionRangeOptions, rhs: Google_Protobuf_ExtensionRangeOptions) -> Bool {
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs.declaration != rhs.declaration {return false}
+    if lhs._verification != rhs._verification {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_ExtensionRangeOptions.VerificationState: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "DECLARATION"),
+    1: .same(proto: "UNVERIFIED"),
+  ]
+}
+
+extension Google_Protobuf_ExtensionRangeOptions.Declaration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Google_Protobuf_ExtensionRangeOptions.protoMessageName + ".Declaration"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "number"),
+    2: .standard(proto: "full_name"),
+    3: .same(proto: "type"),
+    4: .standard(proto: "is_repeated"),
+    5: .same(proto: "reserved"),
+    6: .same(proto: "repeated"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self._number) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self._fullName) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self._type) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self._isRepeated) }()
+      case 5: try { try decoder.decodeSingularBoolField(value: &self._reserved) }()
+      case 6: try { try decoder.decodeSingularBoolField(value: &self._repeated) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._number {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._fullName {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._type {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._isRepeated {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._reserved {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 5)
+    } }()
+    try { if let v = self._repeated {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Google_Protobuf_ExtensionRangeOptions.Declaration, rhs: Google_Protobuf_ExtensionRangeOptions.Declaration) -> Bool {
+    if lhs._number != rhs._number {return false}
+    if lhs._fullName != rhs._fullName {return false}
+    if lhs._type != rhs._type {return false}
+    if lhs._isRepeated != rhs._isRepeated {return false}
+    if lhs._reserved != rhs._reserved {return false}
+    if lhs._repeated != rhs._repeated {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
@@ -3538,7 +3811,10 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     3: .same(proto: "deprecated"),
     10: .same(proto: "weak"),
     16: .standard(proto: "debug_redact"),
+    17: .same(proto: "retention"),
+    19: .same(proto: "targets"),
     999: .standard(proto: "uninterpreted_option"),
+    18: .standard(proto: "target_obsolete_do_not_use"),
   ]
 
   public var isInitialized: Bool {
@@ -3561,6 +3837,9 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 10: try { try decoder.decodeSingularBoolField(value: &self._weak) }()
       case 15: try { try decoder.decodeSingularBoolField(value: &self._unverifiedLazy) }()
       case 16: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
+      case 17: try { try decoder.decodeSingularEnumField(value: &self._retention) }()
+      case 18: try { try decoder.decodeSingularEnumField(value: &self._targetObsoleteDoNotUse) }()
+      case 19: try { try decoder.decodeRepeatedEnumField(value: &self.targets) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber) }()
@@ -3598,6 +3877,15 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     try { if let v = self._debugRedact {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 16)
     } }()
+    try { if let v = self._retention {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+    } }()
+    try { if let v = self._targetObsoleteDoNotUse {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 18)
+    } }()
+    if !self.targets.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.targets, fieldNumber: 19)
+    }
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3614,7 +3902,10 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs._deprecated != rhs._deprecated {return false}
     if lhs._weak != rhs._weak {return false}
     if lhs._debugRedact != rhs._debugRedact {return false}
+    if lhs._retention != rhs._retention {return false}
+    if lhs.targets != rhs.targets {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
+    if lhs._targetObsoleteDoNotUse != rhs._targetObsoleteDoNotUse {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
@@ -3770,6 +4061,7 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf
   public static let protoMessageName: String = _protobuf_package + ".EnumValueOptions"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deprecated"),
+    3: .standard(proto: "debug_redact"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3786,6 +4078,7 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self._deprecated) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self._debugRedact) }()
       case 999: try { try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption) }()
       case 1000..<536870912:
         try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber) }()
@@ -3802,6 +4095,9 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf
     try { if let v = self._deprecated {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
     } }()
+    try { if let v = self._debugRedact {
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
+    } }()
     if !self.uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
     }
@@ -3811,6 +4107,7 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf
 
   public static func ==(lhs: Google_Protobuf_EnumValueOptions, rhs: Google_Protobuf_EnumValueOptions) -> Bool {
     if lhs._deprecated != rhs._deprecated {return false}
+    if lhs._debugRedact != rhs._debugRedact {return false}
     if lhs.uninterpretedOption != rhs.uninterpretedOption {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
