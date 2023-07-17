@@ -51,7 +51,8 @@ GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 # previously installed one), we use a custom output name (-tfiws_out).
 PROTOC_GEN_SWIFT=.build/debug/protoc-gen-swift
 GENERATE_SRCS_BASE=${PROTOC} --plugin=protoc-gen-tfiws=${PROTOC_GEN_SWIFT}
-GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos
+# Search 'Protos/SwiftProtobuf/' so the WKTs can be found (google/protobuf/*).
+GENERATE_SRCS=${GENERATE_SRCS_BASE} -I Protos/SwiftProtobuf
 
 # Where to find the Swift conformance test runner executable.
 SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
@@ -61,114 +62,9 @@ SWIFT_CONFORMANCE_PLUGIN=.build/debug/Conformance
 # override this value.
 CONFORMANCE_TEST_RUNNER?=${GOOGLE_PROTOBUF_CHECKOUT}/conformance_test_runner
 
-# NOTE: TEST_PROTOS, LIBRARY_PROTOS, and PLUGIN_PROTOS are all full paths so
-# eventually we might be able to do proper dependencies and use them as inputs
-# for other rules (we'll also likely need outputs).
-#
-# But since plugin is also Swift code using the runtime, there's a bit of
-# recursion that doesn't lend itself to easily being resolved; as the build
-# could create a new plugin that in turn could cause new sources need to
-# generated, which in turns means the plugin needs to be rebuilt...
-#
-# It might be easier in the long run to give up on make, and instead have a
-# script that does the build and then generation and checks to see if generated
-# source change, and if it doesn't errors out to have the developer restart
-# the process so they stabilize.
-
-# Protos used for the unit and functional tests
-TEST_PROTOS= \
-	Protos/generated_swift_names_enums.proto \
-	Protos/generated_swift_names_enum_cases.proto \
-	Protos/generated_swift_names_fields.proto \
-	Protos/generated_swift_names_messages.proto \
-	Protos/google/protobuf/any_test.proto \
-	Protos/google/protobuf/map_proto2_unittest.proto \
-	Protos/google/protobuf/map_unittest.proto \
-	Protos/google/protobuf/test_messages_proto3.proto \
-	Protos/google/protobuf/unittest.proto \
-	Protos/google/protobuf/unittest_arena.proto \
-	Protos/google/protobuf/unittest_custom_options.proto \
-	Protos/google/protobuf/unittest_drop_unknown_fields.proto \
-	Protos/google/protobuf/unittest_embed_optimize_for.proto \
-	Protos/google/protobuf/unittest_empty.proto \
-	Protos/google/protobuf/unittest_import.proto \
-	Protos/google/protobuf/unittest_import_lite.proto \
-	Protos/google/protobuf/unittest_import_public.proto \
-	Protos/google/protobuf/unittest_import_public_lite.proto \
-	Protos/google/protobuf/unittest_lite.proto \
-	Protos/google/protobuf/unittest_lite_imports_nonlite.proto \
-	Protos/google/protobuf/unittest_mset.proto \
-	Protos/google/protobuf/unittest_mset_wire_format.proto \
-	Protos/google/protobuf/unittest_no_field_presence.proto \
-	Protos/google/protobuf/unittest_no_generic_services.proto \
-	Protos/google/protobuf/unittest_optimize_for.proto \
-	Protos/google/protobuf/unittest_preserve_unknown_enum.proto \
-	Protos/google/protobuf/unittest_preserve_unknown_enum2.proto \
-	Protos/google/protobuf/unittest_proto3.proto \
-	Protos/google/protobuf/unittest_proto3_arena.proto \
-	Protos/google/protobuf/unittest_proto3_optional.proto \
-	Protos/google/protobuf/unittest_well_known_types.proto \
-	Protos/fuzz_testing.proto \
-	Protos/unittest_swift_all_required_types.proto \
-	Protos/unittest_swift_cycle.proto \
-	Protos/unittest_swift_enum.proto \
-	Protos/unittest_swift_enum_optional_default.proto \
-	Protos/unittest_swift_enum_proto3.proto \
-	Protos/unittest_swift_extension.proto \
-	Protos/unittest_swift_extension2.proto \
-	Protos/unittest_swift_extension3.proto \
-	Protos/unittest_swift_extension4.proto \
-	Protos/unittest_swift_fieldorder.proto \
-	Protos/unittest_swift_groups.proto \
-	Protos/unittest_swift_json.proto \
-	Protos/unittest_swift_naming.proto \
-	Protos/unittest_swift_naming_no_prefix.proto \
-	Protos/unittest_swift_naming_number_prefix.proto \
-	Protos/unittest_swift_oneof_all_required.proto \
-	Protos/unittest_swift_oneof_merging.proto \
-	Protos/unittest_swift_performance.proto \
-	Protos/unittest_swift_reserved.proto \
-	Protos/unittest_swift_reserved_ext.proto \
-	Protos/unittest_swift_runtime_proto2.proto \
-	Protos/unittest_swift_runtime_proto3.proto \
-	Protos/unittest_swift_startup.proto
-
-# TODO: The library and plugin Protos come directly from google sources.
-# There should be an easy way to copy the Google versions from a protobuf
-# checkout into this project.
-
-# Protos that are embedded into the SwiftProtobuf runtime library module
-LIBRARY_PROTOS= \
-	Protos/google/protobuf/any.proto \
-	Protos/google/protobuf/api.proto \
-	Protos/google/protobuf/descriptor.proto \
-	Protos/google/protobuf/duration.proto \
-	Protos/google/protobuf/empty.proto \
-	Protos/google/protobuf/field_mask.proto \
-	Protos/google/protobuf/source_context.proto \
-	Protos/google/protobuf/struct.proto \
-	Protos/google/protobuf/timestamp.proto \
-	Protos/google/protobuf/type.proto \
-	Protos/google/protobuf/wrappers.proto
-
-# Protos that are used internally by the plugin
-PLUGIN_PROTOS= \
-	Protos/google/protobuf/compiler/plugin.proto \
-	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
-
-# Protos that are used by the conformance test runner.
-CONFORMANCE_PROTOS= \
-	Protos/conformance/conformance.proto \
-	Protos/google/protobuf/test_messages_proto2.proto \
-	Protos/google/protobuf/test_messages_proto3.proto
-
-SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
-	Protos/pluginlib_descriptor_test.proto \
-	Protos/pluginlib_descriptor_test2.proto \
-	${PLUGIN_PROTOS}
-
-SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
-	Protos/plugin_descriptor_test.proto
+# The directories within Protos/ with the exception of "upstream". Use for the
+# maintenance of the 'Reference' target and test-plugin.
+PROTOS_DIRS=Conformance protoc-gen-swiftTests SwiftProtobuf SwiftProtobufPluginLibrary SwiftProtobufPluginLibraryTests SwiftProtobufTests
 
 .PHONY: \
 	all \
@@ -268,9 +164,20 @@ test-runtime: build
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
 test-plugin: build ${PROTOC_GEN_SWIFT}
-	@rm -rf _test && mkdir _test
-	for p in `find Protos/ -type f -name '*.proto'`; do \
-		${GENERATE_SRCS} --tfiws_out=_test $$p || exit 1; \
+	@rm -rf _test && mkdir -p _test/upstream
+	for p in `find Protos/upstream -type f -name '*.proto'`; do \
+		${GENERATE_SRCS_BASE} \
+		  -I Protos/upstream \
+		  --tfiws_out=_test/upstream $$p || exit 1; \
+	done
+	for d in ${PROTOS_DIRS}; do \
+	    mkdir _test/$$d ; \
+		${GENERATE_SRCS_BASE} \
+		  -I Protos/SwiftProtobuf \
+		  -I Protos/SwiftProtobufPluginLibrary \
+		  -I Protos/$$d \
+		  --tfiws_out=_test/$$d \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 	diff -ru _test Reference
 
@@ -278,20 +185,30 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 test-spm-plugin:
 	env PROTOC_PATH=$(shell realpath ${PROTOC}) swift test --package-path PluginExamples
 
-#
 # Rebuild the reference files by running the local version of protoc-gen-swift
 # against our menagerie of sample protos.
 #
 # If you do this, you MUST MANUALLY verify these files before checking them in,
 # since the new checkin will become the new main reference.
 #
-# Note: Some of these protos define the same package.(message|enum)s, so they
-# can't be done in a single protoc/proto-gen-swift invoke and have to be done
-# one at a time instead.
+# Note: Some of the upstream protos define the same package.(message|enum)s, so
+# they can't be done in a single protoc/proto-gen-swift invoke and have to be
+# done one at a time instead.
 reference: build ${PROTOC_GEN_SWIFT}
-	@rm -rf Reference && mkdir Reference
-	for p in `find Protos/ -type f -name '*.proto'`; do \
-		${GENERATE_SRCS} --tfiws_out=Reference $$p || exit 1; \
+	@rm -rf Reference && mkdir -p Reference/upstream
+	for p in `find Protos/upstream -type f -name '*.proto'`; do \
+		${GENERATE_SRCS_BASE} \
+		  -I Protos/upstream \
+		  --tfiws_out=Reference/upstream $$p || exit 1; \
+	done
+	for d in ${PROTOS_DIRS}; do \
+	    mkdir Reference/$$d ; \
+		${GENERATE_SRCS_BASE} \
+		  -I Protos/SwiftProtobuf \
+		  -I Protos/SwiftProtobufPluginLibrary \
+		  -I Protos/$$d \
+		  --tfiws_out=Reference/$$d \
+		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
 
 #
@@ -313,48 +230,63 @@ regenerate: \
 	Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift
 
 # Rebuild just the protos included in the runtime library
+# NOTE: dependencies doesn't include the source .proto files, should fix that;
+# would also need to list all the outputs.
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
 	find Sources/SwiftProtobuf -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobuf \
-		${LIBRARY_PROTOS}
+		`find Protos/SwiftProtobuf -type f -name "*.proto"`
 
 # Rebuild just the protos used by the plugin
+# NOTE: dependencies doesn't include the source .proto files, should fix that;
+# would also need to list all the outputs.
 regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 	find Sources/SwiftProtobufPluginLibrary -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
+	    -I Protos/SwiftProtobufPluginLibrary \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
-		${PLUGIN_PROTOS}
+		`find Protos/SwiftProtobufPluginLibrary -type f -name "*.proto"`
 
 # Rebuild just the protos used by the runtime test suite
-# Note: Some of these protos define the same package.(message|enum)s, so they
-# can't be done in a single protoc/proto-gen-swift invoke and have to be done
-# one at a time instead.
-regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_enums.proto Protos/generated_swift_names_enum_cases.proto Protos/generated_swift_names_fields.proto Protos/generated_swift_names_messages.proto
+# NOTE: dependencies doesn't include the source .proto files, should fix that;
+# would also need to list all the outputs.
+regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/SwiftProtobufTests/generated_swift_names_enums.proto Protos/SwiftProtobufTests/generated_swift_names_enum_cases.proto Protos/SwiftProtobufTests/generated_swift_names_fields.proto Protos/SwiftProtobufTests/generated_swift_names_messages.proto
 	find Tests/SwiftProtobufTests -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
+	    -I Protos/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Tests/SwiftProtobufTests \
-		${TEST_PROTOS}
+		`find Protos/SwiftProtobufTests -type f -name "*.proto"`
 
-# Rebuild just the protos used by the plugin
+# Rebuild the protos for FuzzTesting/Sources/FuzzCommon, the file lives in the
+# Protos/SwiftProtobufTests to have just one copy.
 regenerate-fuzz-protos: build ${PROTOC_GEN_SWIFT}
 	find FuzzTesting/Sources/FuzzCommon -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
+	    -I Protos/SwiftProtobufTests \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
 		--tfiws_out=FuzzTesting/Sources/FuzzCommon \
-		Protos/fuzz_testing.proto
+		Protos/SwiftProtobufTests/fuzz_testing.proto
+
+SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS= \
+	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test.proto \
+	Protos/SwiftProtobufPluginLibraryTests/pluginlib_descriptor_test2.proto \
+	Protos/SwiftProtobufPluginLibrary/google/protobuf/compiler/plugin.proto \
+	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
 
 Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
 	@${PROTOC} \
 		--include_imports \
 		--descriptor_set_out=PluginLibDescriptorTestData.bin \
-		-I Protos \
+		-I Protos/SwiftProtobuf \
+		-I Protos/SwiftProtobufPluginLibrary \
+		-I Protos/SwiftProtobufPluginLibraryTests \
 		${SWIFT_PLUGINLIB_DESCRIPTOR_TEST_PROTOS}
 	@rm -f $@
 	@echo '// See Makefile how this is generated.' >> $@
@@ -365,11 +297,14 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 	@echo ']' >> $@
 	@echo 'let fileDescriptorSetData = Data(fileDescriptorSetBytes)' >> $@
 
+SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS= \
+       Protos/protoc-gen-swiftTests/plugin_descriptor_test.proto
+
 Tests/protoc-gen-swiftTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
 	@${PROTOC} \
 		--include_imports \
 		--descriptor_set_out=PluginDescriptorTestData.bin \
-		-I Protos \
+		-I Protos/protoc-gen-swiftTests \
 		${SWIFT_PLUGIN_DESCRIPTOR_TEST_PROTOS}
 	@rm -f $@
 	@echo '// See Makefile how this is generated.' >> $@
@@ -423,7 +358,7 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*.swift
 # might cause problems.  Failures compiling this indicate weaknesses
 # in protoc-gen-swift's name sanitization logic.
 #
-Protos/generated_swift_names_fields.proto: Protos/mined_words.txt
+Protos/SwiftProtobufTests/generated_swift_names_fields.proto: Protos/mined_words.txt
 	@echo Building $@
 	@rm $@
 	@echo '// See Makefile for the logic that generates this' >> $@
@@ -435,7 +370,7 @@ Protos/generated_swift_names_fields.proto: Protos/mined_words.txt
 	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
 	@echo '}' >> $@
 
-Protos/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
+Protos/SwiftProtobufTests/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
 	@echo Building $@
 	@rm $@
 	@echo '// See Makefile for the logic that generates this' >> $@
@@ -448,7 +383,7 @@ Protos/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
 	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
 	@echo '}' >> $@
 
-Protos/generated_swift_names_messages.proto: Protos/mined_words.txt
+Protos/SwiftProtobufTests/generated_swift_names_messages.proto: Protos/mined_words.txt
 	@echo Building $@
 	@rm $@
 	@echo '// See Makefile for the logic that generates this' >> $@
@@ -460,7 +395,7 @@ Protos/generated_swift_names_messages.proto: Protos/mined_words.txt
 	@cat Protos/mined_words.txt | awk '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
 	@echo '}' >> $@
 
-Protos/generated_swift_names_enums.proto: Protos/mined_words.txt
+Protos/SwiftProtobufTests/generated_swift_names_enums.proto: Protos/mined_words.txt
 	@echo Building $@
 	@rm $@
 	@echo '// See Makefile for the logic that generates this' >> $@
@@ -476,9 +411,10 @@ Protos/generated_swift_names_enums.proto: Protos/mined_words.txt
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
 	find Sources/Conformance -name "*.pb.swift" -exec rm -f {} \;
 	${GENERATE_SRCS} \
+	    -I Protos/Conformance \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
-		${CONFORMANCE_PROTOS}
+		`find Protos/Conformance -type f -name "*.proto"`
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:
@@ -493,26 +429,51 @@ check-for-protobuf-checkout:
 # Helper to update the .proto files copied from the protocolbuffers/protobuf distro.
 #
 update-proto-files: check-for-protobuf-checkout
-	@rm -rf Protos/conformance && mkdir Protos/conformance
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/conformance/
-	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
-	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
+	@rm -rf Protos/upstream
+	@mkdir -p Protos/upstream/conformance Protos/upstream/google/protobuf/compiler
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/conformance/*.proto Protos/upstream/conformance/
+	@mkdir -p Protos/upstream/google/protobuf/compiler
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/upstream/google/protobuf/
+	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/upstream/google/protobuf/compiler/
+	# Now copy into the Proto directories for the local targets.
+	@rm -rf Protos/Conformance/conformance && mkdir -p Protos/Conformance/conformance
+	@cp -v Protos/upstream/conformance/*.proto Protos/Conformance/conformance
+	@rm -rf Protos/Conformance/google && mkdir -p Protos/Conformance/google/protobuf
+	@cp -v \
+	  Protos/upstream/google/protobuf/test_messages_proto2.proto \
+	  Protos/upstream/google/protobuf/test_messages_proto3.proto \
+	  Protos/Conformance/google/protobuf/
+	@rm -rf Protos/SwiftProtobuf/google && mkdir -p Protos/SwiftProtobuf/google/protobuf
+	@cp -v \
+	  Protos/upstream/google/protobuf/timestamp.proto \
+	  Protos/upstream/google/protobuf/field_mask.proto \
+	  Protos/upstream/google/protobuf/api.proto \
+	  Protos/upstream/google/protobuf/duration.proto \
+	  Protos/upstream/google/protobuf/struct.proto \
+	  Protos/upstream/google/protobuf/wrappers.proto \
+	  Protos/upstream/google/protobuf/source_context.proto \
+	  Protos/upstream/google/protobuf/any.proto \
+	  Protos/upstream/google/protobuf/type.proto \
+	  Protos/upstream/google/protobuf/empty.proto \
+	  Protos/upstream/google/protobuf/descriptor.proto \
+	  Protos/SwiftProtobuf/google/protobuf
+	@rm -rf Protos/SwiftProtobufPluginLibrary/google && mkdir -p Protos/SwiftProtobufPluginLibrary/google/protobuf/compiler
+	@cp -v Protos/upstream/google/protobuf/compiler/*.proto Protos/SwiftProtobufPluginLibrary/google/protobuf/compiler
 
 #
 # Helper to see if update-proto-files should be done
 #
 check-proto-files: check-for-protobuf-checkout
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT} && ls conformance/*.proto`; do \
-		diff -u "Protos/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" \
+		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/*.proto | grep -v test`; do \
-		diff -u "Protos/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
+		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
 	@for p in `cd ${GOOGLE_PROTOBUF_CHECKOUT}/src && ls google/protobuf/compiler/*.proto`; do \
-		diff -u "Protos/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
+		diff -u "Protos/upstream/$$p" "${GOOGLE_PROTOBUF_CHECKOUT}/src/$$p" \
 		  || (echo "ERROR: Time to do a 'make update-proto-files'" && exit 1); \
 	done
 
