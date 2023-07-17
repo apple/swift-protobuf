@@ -17231,56 +17231,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum reservedName: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneReservedName // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneReservedName
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneReservedName
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneReservedName: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
-  enum reservedRange: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneReservedRange // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneReservedRange
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneReservedRange
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneReservedRange: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum responseStreaming: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneResponseStreaming // = 0
@@ -27202,20 +27152,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requiredSize: Ca
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedName: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedName] = [
-    .noneReservedName,
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedRange: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedRange] = [
-    .noneReservedRange,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseStreaming: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static var allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseStreaming] = [
@@ -29336,8 +29272,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.repeating: @unch
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestStreaming: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestTypeURL: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requiredSize: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedName: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedRange: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseStreaming: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseTypeURL: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.result: @unchecked Sendable {}
@@ -33692,18 +33626,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestTypeURL: 
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requiredSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_requiredSize"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedName: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_reservedName"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.reservedRange: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_reservedRange"),
   ]
 }
 

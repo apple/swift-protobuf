@@ -692,8 +692,6 @@ message GeneratedSwiftReservedEnums {
   enum requestStreaming { NONE_requestStreaming = 0; }
   enum requestTypeURL { NONE_requestTypeURL = 0; }
   enum requiredSize { NONE_requiredSize = 0; }
-  enum reservedName { NONE_reservedName = 0; }
-  enum reservedRange { NONE_reservedRange = 0; }
   enum responseStreaming { NONE_responseStreaming = 0; }
   enum responseTypeURL { NONE_responseTypeURL = 0; }
   enum result { NONE_result = 0; }
