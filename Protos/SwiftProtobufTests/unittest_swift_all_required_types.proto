@@ -31,8 +31,8 @@
 // An addition to unittest.proto
 syntax = "proto2";
 
-import "google/protobuf/unittest_import.proto";
-import "google/protobuf/unittest.proto";
+import "unittest_import.proto";
+import "unittest.proto";
 
 package protobuf_unittest;
 
