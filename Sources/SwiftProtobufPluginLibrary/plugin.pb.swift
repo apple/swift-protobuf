@@ -142,6 +142,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest {
   /// they import.  The files will appear in topological order, so each file
   /// appears before any file that imports it.
   ///
+  /// Note: the files listed in files_to_generate will include runtime-retention
+  /// options only, but all other files will include source-retention options.
+  /// The source_file_descriptors field below is available in case you need
+  /// source-retention options for files_to_generate.
+  ///
   /// protoc guarantees that all proto_files will be written after
   /// the fields above, even though this is not technically guaranteed by the
   /// protobuf wire format.  This theoretically could allow a plugin to stream
@@ -153,6 +158,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest {
   /// Type names of fields and extensions in the FileDescriptorProto are always
   /// fully qualified.
   public var protoFile: [SwiftProtobuf.Google_Protobuf_FileDescriptorProto] = []
+
+  /// File descriptors with all options, including source-retention options.
+  /// These descriptors are only provided for the files listed in
+  /// files_to_generate.
+  public var sourceFileDescriptors: [SwiftProtobuf.Google_Protobuf_FileDescriptorProto] = []
 
   /// The version number of protocol compiler.
   public var compilerVersion: Google_Protobuf_Compiler_Version {
@@ -427,11 +437,13 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
     1: .standard(proto: "file_to_generate"),
     2: .same(proto: "parameter"),
     15: .standard(proto: "proto_file"),
+    17: .standard(proto: "source_file_descriptors"),
     3: .standard(proto: "compiler_version"),
   ]
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(self.protoFile) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.sourceFileDescriptors) {return false}
     return true
   }
 
@@ -445,6 +457,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
       case 2: try { try decoder.decodeSingularStringField(value: &self._parameter) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._compilerVersion) }()
       case 15: try { try decoder.decodeRepeatedMessageField(value: &self.protoFile) }()
+      case 17: try { try decoder.decodeRepeatedMessageField(value: &self.sourceFileDescriptors) }()
       default: break
       }
     }
@@ -467,6 +480,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
     if !self.protoFile.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.protoFile, fieldNumber: 15)
     }
+    if !self.sourceFileDescriptors.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.sourceFileDescriptors, fieldNumber: 17)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -474,6 +490,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
     if lhs.fileToGenerate != rhs.fileToGenerate {return false}
     if lhs._parameter != rhs._parameter {return false}
     if lhs.protoFile != rhs.protoFile {return false}
+    if lhs.sourceFileDescriptors != rhs.sourceFileDescriptors {return false}
     if lhs._compilerVersion != rhs._compilerVersion {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

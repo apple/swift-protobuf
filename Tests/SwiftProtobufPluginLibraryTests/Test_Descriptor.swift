@@ -25,7 +25,7 @@ class Test_Descriptor: XCTestCase {
     XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
     XCTAssertEqual(descriptorSet.files[3].name, "pluginlib_descriptor_test2.proto")
-    XCTAssertEqual(descriptorSet.files[4].name, "SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto")
+    XCTAssertEqual(descriptorSet.files[4].name, "swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
 

@@ -1,0 +1,63 @@
+// Protos/pluginlib_descriptor_test.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2017 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test proto for Tests/SwiftProtobufPluginLibraryTests/Test_Descriptor.swift
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+package swift_descriptor_test;
+
+// To check handling of extension ranges that are out of order.
+message MsgExtensionRangeOrdering {
+  extensions 1, 3, 2, 4;
+  extensions 7;
+  reserved 8;
+  extensions 9;
+
+  extensions 100 to 110;
+  reserved 121 to 125;
+  extensions 126 to 130;
+  extensions 111 to 120;
+}
+
+// To check handling of extension ranges that are out of order, have fields or
+// reserved things mix through them.
+message MsgExtensionRangeOrderingWithFields {
+  extensions 1, 3, 2, 4;
+  optional int32 field6 = 6;
+  extensions 7;
+  reserved 8;
+  extensions 9;
+
+  extensions 100 to 110;
+  reserved 121 to 123;
+  optional int32 field124 = 124;
+  optional int32 field125 = 125;
+  extensions 126 to 130;
+  extensions 111 to 120;
+  optional int32 field200 = 200;
+}
+
+// Intermixed ranges and fields so help ensure no merge issues
+message MsgExtensionRangeOrderingNoMerging {
+  optional int32 field1 = 1;
+  optional int32 field2 = 2;
+  extensions 3 to 5;
+  optional int32 field6 = 6;
+  extensions 7 to 12;
+  optional int32 field13 = 13;
+  optional int32 field15 = 15;
+  extensions 16 to 20;
+  optional int32 field21 = 21;
+}
