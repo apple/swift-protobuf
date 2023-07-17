@@ -430,6 +430,7 @@ Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_G
 #  = Remove any comments from the line.
 #  = Break each such line into words (stripping all punctuation)
 #  = Remove words that differ only in case
+#  = Remove anything that will cause proto parsing issues (things named "reserved")
 #
 # Selecting lines with 'public', 'func' or 'var' ensures we get every
 # public protocol, struct, enum, or class name, as well as every
@@ -445,6 +446,7 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*
 	tr " " "\n" | \
 	sed -e 's/^_//' | \
 	sort -uf | \
+	grep -vE '(reserved)' | \
 	grep '^[a-zA-Z_]' > $@
 
 # Build some proto files full of landmines

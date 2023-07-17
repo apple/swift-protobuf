@@ -692,8 +692,6 @@ message GeneratedSwiftReservedMessages {
   message requestStreaming { int32 requestStreaming = 1; }
   message requestTypeURL { int32 requestTypeURL = 1; }
   message requiredSize { int32 requiredSize = 1; }
-  message reservedName { int32 reservedName = 1; }
-  message reservedRange { int32 reservedRange = 1; }
   message responseStreaming { int32 responseStreaming = 1; }
   message responseTypeURL { int32 responseTypeURL = 1; }
   message result { int32 result = 1; }
