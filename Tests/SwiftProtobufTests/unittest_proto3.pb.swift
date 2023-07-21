@@ -623,90 +623,6 @@ struct Proto3Unittest_TestEmptyMessage {
   init() {}
 }
 
-/// TestMessageWithDummy is also used to test behavior of unknown fields.
-struct Proto3Unittest_TestMessageWithDummy {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  /// This field is only here for triggering copy-on-write; it's not intended to
-  /// be serialized.
-  var dummy: Bool = false
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-}
-
-/// Same layout as TestOneof2 in unittest.proto to test unknown enum value
-/// parsing behavior in oneof.
-struct Proto3Unittest_TestOneof2 {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var foo: Proto3Unittest_TestOneof2.OneOf_Foo? = nil
-
-  var fooEnum: Proto3Unittest_TestOneof2.NestedEnum {
-    get {
-      if case .fooEnum(let v)? = foo {return v}
-      return .unknown
-    }
-    set {foo = .fooEnum(newValue)}
-  }
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum OneOf_Foo: Equatable {
-    case fooEnum(Proto3Unittest_TestOneof2.NestedEnum)
-
-  }
-
-  enum NestedEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case unknown // = 0
-    case foo // = 1
-    case bar // = 2
-    case baz // = 3
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .foo
-      case 2: self = .bar
-      case 3: self = .baz
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .foo: return 1
-      case .bar: return 2
-      case .baz: return 3
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Proto3Unittest_TestOneof2.NestedEnum] = [
-      .unknown,
-      .foo,
-      .bar,
-      .baz,
-    ]
-
-  }
-
-  init() {}
-}
-
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Proto3Unittest_TestAllTypes: @unchecked Sendable {}
 extension Proto3Unittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
@@ -716,9 +632,6 @@ extension Proto3Unittest_TestUnpackedTypes: @unchecked Sendable {}
 extension Proto3Unittest_NestedTestAllTypes: @unchecked Sendable {}
 extension Proto3Unittest_ForeignMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestEmptyMessage: @unchecked Sendable {}
-extension Proto3Unittest_TestMessageWithDummy: @unchecked Sendable {}
-extension Proto3Unittest_TestOneof2: @unchecked Sendable {}
-extension Proto3Unittest_TestOneof2.OneOf_Foo: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1636,88 +1549,4 @@ extension Proto3Unittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
-}
-
-extension Proto3Unittest_TestMessageWithDummy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TestMessageWithDummy"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    536870911: .same(proto: "dummy"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 536870911: try { try decoder.decodeSingularBoolField(value: &self.dummy) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.dummy != false {
-      try visitor.visitSingularBoolField(value: self.dummy, fieldNumber: 536870911)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Proto3Unittest_TestMessageWithDummy, rhs: Proto3Unittest_TestMessageWithDummy) -> Bool {
-    if lhs.dummy != rhs.dummy {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Proto3Unittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TestOneof2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    6: .standard(proto: "foo_enum"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 6: try {
-        var v: Proto3Unittest_TestOneof2.NestedEnum?
-        try decoder.decodeSingularEnumField(value: &v)
-        if let v = v {
-          if self.foo != nil {try decoder.handleConflictingOneOf()}
-          self.foo = .fooEnum(v)
-        }
-      }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if case .fooEnum(let v)? = self.foo {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: Proto3Unittest_TestOneof2, rhs: Proto3Unittest_TestOneof2) -> Bool {
-    if lhs.foo != rhs.foo {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension Proto3Unittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNKNOWN"),
-    1: .same(proto: "FOO"),
-    2: .same(proto: "BAR"),
-    3: .same(proto: "BAZ"),
-  ]
 }

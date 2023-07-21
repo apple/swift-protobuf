@@ -85,36 +85,6 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-/// To use an enum in a map, it must has the first value as 0.
-enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case unknown // = 0
-  case foo // = 1
-  case bar // = 2
-
-  init() {
-    self = .unknown
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unknown
-    case 1: self = .foo
-    case 2: self = .bar
-    default: return nil
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .unknown: return 0
-    case .foo: return 1
-    case .bar: return 2
-    }
-  }
-
-}
-
 struct ProtobufUnittestImport_ImportMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -149,14 +119,6 @@ extension ProtobufUnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
     7: .same(proto: "IMPORT_FOO"),
     8: .same(proto: "IMPORT_BAR"),
     9: .same(proto: "IMPORT_BAZ"),
-  ]
-}
-
-extension ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNKNOWN"),
-    1: .same(proto: "FOO"),
-    2: .same(proto: "BAR"),
   ]
 }
 
