@@ -23,14 +23,14 @@ import SwiftProtobuf
 // C++ arena support.
 
 class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3ArenaUnittest_TestEmptyMessage
+    typealias MessageTestType = Proto3Unittest_TestEmptyMessage
 
     /// Verify that json decode ignores the provided fields but otherwise succeeds
     func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             var options = JSONDecodingOptions()
             options.ignoreUnknownFields = true
-            let empty = try Proto3ArenaUnittest_TestEmptyMessage(jsonString: json, options: options)
+            let empty = try MessageTestType(jsonString: json, options: options)
             do {
                 let json = try empty.jsonString()
                 XCTAssertEqual("{}", json, file: file, line: line)
@@ -46,7 +46,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     func testBinaryPB() {
         func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try Proto3ArenaUnittest_TestEmptyMessage(serializedBytes: protobufBytes)
+                let empty = try MessageTestType(serializedBytes: protobufBytes)
                 do {
                     let pb: [UInt8] = try empty.serializedBytes()
                     XCTAssertEqual(protobufBytes, pb, file: file, line: line)
@@ -58,7 +58,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try Proto3ArenaUnittest_TestEmptyMessage(serializedBytes: protobufBytes), file: file, line: line)
+            XCTAssertThrowsError(try MessageTestType(serializedBytes: protobufBytes), file: file, line: line)
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode
         assertFails([0]) // Invalid field number

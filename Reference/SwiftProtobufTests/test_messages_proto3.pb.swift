@@ -1119,67 +1119,11 @@ struct ProtobufTestMessages_Proto3_ForeignMessage {
   init() {}
 }
 
-struct ProtobufTestMessages_Proto3_NullHypothesisProto3 {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-}
-
-struct ProtobufTestMessages_Proto3_EnumOnlyProto3 {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  enum BoolEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case kFalse // = 0
-    case kTrue // = 1
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .kFalse
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .kFalse
-      case 1: self = .kTrue
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .kFalse: return 0
-      case .kTrue: return 1
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum] = [
-      .kFalse,
-      .kTrue,
-    ]
-
-  }
-
-  init() {}
-}
-
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto3_ForeignMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_NullHypothesisProto3: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -2646,49 +2590,4 @@ extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message, Swi
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
-}
-
-extension ProtobufTestMessages_Proto3_NullHypothesisProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NullHypothesisProto3"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufTestMessages_Proto3_NullHypothesisProto3, rhs: ProtobufTestMessages_Proto3_NullHypothesisProto3) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EnumOnlyProto3"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufTestMessages_Proto3_EnumOnlyProto3, rhs: ProtobufTestMessages_Proto3_EnumOnlyProto3) -> Bool {
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3.BoolEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "kFalse"),
-    1: .same(proto: "kTrue"),
-  ]
 }
