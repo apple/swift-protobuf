@@ -33,6 +33,7 @@ syntax = "proto3";
 package proto3_unittest;
 
 import "unittest_import.proto";
+import "unittest.proto";
 
 // This proto includes every type of field in both singular and repeated
 // forms.
@@ -203,3 +204,8 @@ enum ForeignEnum {
 
 // TestEmptyMessage is used to test behavior of unknown fields.
 message TestEmptyMessage {}
+
+// Test a proto3 defined message with a proto2 as a field that has required fields.
+message TestProto2Required {
+  protobuf_unittest.TestRequired proto2 = 1;
+}
