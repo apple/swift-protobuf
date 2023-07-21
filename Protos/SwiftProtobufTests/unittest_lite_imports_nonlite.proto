@@ -38,8 +38,6 @@ package protobuf_unittest;
 
 import "unittest.proto";
 
-option optimize_for = LITE_RUNTIME;
-
 message TestLiteImportsNonlite {
   optional TestAllTypes message = 1;
 
