@@ -32,7 +32,6 @@
 
 syntax = "proto3";
 
-// We want to test embedded proto2 messages, so include some proto2 types.
 package proto2_nofieldpresence_unittest;
 
 import "unittest.proto";
