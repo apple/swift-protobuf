@@ -661,6 +661,28 @@ struct Proto3Unittest_TestEmptyMessage {
   init() {}
 }
 
+/// Test a proto3 defined message with a proto2 as a field that has required fields.
+struct Proto3Unittest_TestProto2Required {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var proto2: ProtobufUnittest_TestRequired {
+    get {return _proto2 ?? ProtobufUnittest_TestRequired()}
+    set {_proto2 = newValue}
+  }
+  /// Returns true if `proto2` has been explicitly set.
+  var hasProto2: Bool {return self._proto2 != nil}
+  /// Clears the value of `proto2`. Subsequent reads from it will return its default value.
+  mutating func clearProto2() {self._proto2 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _proto2: ProtobufUnittest_TestRequired? = nil
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Proto3Unittest_ForeignEnum: @unchecked Sendable {}
 extension Proto3Unittest_TestAllTypes: @unchecked Sendable {}
@@ -672,6 +694,7 @@ extension Proto3Unittest_TestUnpackedTypes: @unchecked Sendable {}
 extension Proto3Unittest_NestedTestAllTypes: @unchecked Sendable {}
 extension Proto3Unittest_ForeignMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestEmptyMessage: @unchecked Sendable {}
+extension Proto3Unittest_TestProto2Required: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1586,6 +1609,47 @@ extension Proto3Unittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   static func ==(lhs: Proto3Unittest_TestEmptyMessage, rhs: Proto3Unittest_TestEmptyMessage) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Proto3Unittest_TestProto2Required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestProto2Required"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "proto2"),
+  ]
+
+  public var isInitialized: Bool {
+    if let v = self._proto2, !v.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._proto2) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._proto2 {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Proto3Unittest_TestProto2Required, rhs: Proto3Unittest_TestProto2Required) -> Bool {
+    if lhs._proto2 != rhs._proto2 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
