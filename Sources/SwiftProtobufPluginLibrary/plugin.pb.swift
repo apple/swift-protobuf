@@ -225,6 +225,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
     public typealias RawValue = Int
     case none // = 0
     case proto3Optional // = 1
+    case supportsEditions // = 2
 
     public init() {
       self = .none
@@ -234,6 +235,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
       switch rawValue {
       case 0: self = .none
       case 1: self = .proto3Optional
+      case 2: self = .supportsEditions
       default: return nil
       }
     }
@@ -242,6 +244,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
       switch self {
       case .none: return 0
       case .proto3Optional: return 1
+      case .supportsEditions: return 2
       }
     }
 
@@ -549,6 +552,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.Feature: SwiftProtobuf.
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FEATURE_NONE"),
     1: .same(proto: "FEATURE_PROTO3_OPTIONAL"),
+    2: .same(proto: "FEATURE_SUPPORTS_EDITIONS"),
   ]
 }
 
