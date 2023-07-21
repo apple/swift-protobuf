@@ -42,16 +42,5 @@ package proto2_wireformat_unittest;
 message TestMessageSet {
   option message_set_wire_format = true;
 
-  extensions 4 to 529999999;
-
-  extensions 530000000 to max
-  [declaration = {
-    number: 1952731290,
-    full_name: ".protobuf_unittest_v1api.TestMessageSetExtension3.message_set_extension",
-    type: ".protobuf_unittest_v1api.TestMessageSetExtension3"
-  }];
-}
-
-message TestMessageSetWireFormatContainer {
-  optional TestMessageSet message_set = 1;
+  extensions 4 to max;
 }

@@ -50,10 +50,3 @@ enum ImportEnum {
   IMPORT_BAR = 8;
   IMPORT_BAZ = 9;
 }
-
-// To use an enum in a map, it must has the first value as 0.
-enum ImportEnumForMap {
-  UNKNOWN = 0;
-  FOO = 1;
-  BAR = 2;
-}

@@ -79,8 +79,12 @@ message GeneratedSwiftReservedMessages {
   message clearDoubleValue { int32 clearDoubleValue = 1; }
   message clearEdition { int32 clearEdition = 1; }
   message clearEnd { int32 clearEnd = 1; }
+  message clearEnumType { int32 clearEnumType = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
   message clearExtensionValue { int32 clearExtensionValue = 1; }
+  message clearFeatures { int32 clearFeatures = 1; }
+  message clearFieldPresence { int32 clearFieldPresence = 1; }
+  message clearFullName { int32 clearFullName = 1; }
   message clearGoPackage { int32 clearGoPackage = 1; }
   message clearIdempotencyLevel { int32 clearIdempotencyLevel = 1; }
   message clearIdentifierValue { int32 clearIdentifierValue = 1; }
@@ -92,12 +96,14 @@ message GeneratedSwiftReservedMessages {
   message clearJavaOuterClassname { int32 clearJavaOuterClassname = 1; }
   message clearJavaPackage { int32 clearJavaPackage = 1; }
   message clearJavaStringCheckUtf8 { int32 clearJavaStringCheckUtf8 = 1; }
+  message clearJsonFormat { int32 clearJsonFormat = 1; }
   message clearJsonName { int32 clearJsonName = 1; }
   message clearJstype { int32 clearJstype = 1; }
   message clearLabel { int32 clearLabel = 1; }
   message clearLazy { int32 clearLazy = 1; }
   message clearLeadingComments { int32 clearLeadingComments = 1; }
   message clearMapEntry { int32 clearMapEntry = 1; }
+  message clearMessageEncoding { int32 clearMessageEncoding = 1; }
   message clearMessageSetWireFormat { int32 clearMessageSetWireFormat = 1; }
   message clearName { int32 clearName = 1; }
   message clearNamePart { int32 clearNamePart = 1; }
@@ -118,6 +124,11 @@ message GeneratedSwiftReservedMessages {
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
   message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
+  message clearRawFeatures { int32 clearRawFeatures = 1; }
+  message clearRepeated { int32 clearRepeated = 1; }
+  message clearRepeatedFieldEncoding { int32 clearRepeatedFieldEncoding = 1; }
+  message clearReserved { int32 clearReserved = 1; }
+  message clearRetention { int32 clearRetention = 1; }
   message clearRubyPackage { int32 clearRubyPackage = 1; }
   message clearSemantic { int32 clearSemantic = 1; }
   message clearServerStreaming { int32 clearServerStreaming = 1; }
@@ -125,6 +136,7 @@ message GeneratedSwiftReservedMessages {
   message clearSourceContext { int32 clearSourceContext = 1; }
   message clearSourceFile { int32 clearSourceFile = 1; }
   message clearStart { int32 clearStart = 1; }
+  message clearStringFieldValidation { int32 clearStringFieldValidation = 1; }
   message clearStringValue { int32 clearStringValue = 1; }
   message clearSwiftPrefix { int32 clearSwiftPrefix = 1; }
   message clearSyntax { int32 clearSyntax = 1; }
@@ -133,6 +145,7 @@ message GeneratedSwiftReservedMessages {
   message clearTypeName { int32 clearTypeName = 1; }
   message clearUnverifiedLazy { int32 clearUnverifiedLazy = 1; }
   message clearValue { int32 clearValue = 1; }
+  message clearVerification { int32 clearVerification = 1; }
   message clearWeak { int32 clearWeak = 1; }
   message clientStreaming { int32 clientStreaming = 1; }
   message codePoint { int32 codePoint = 1; }
@@ -156,6 +169,7 @@ message GeneratedSwiftReservedMessages {
   message daysSinceEpoch { int32 daysSinceEpoch = 1; }
   message debugDescription { int32 debugDescription = 1; }
   message debugRedact { int32 debugRedact = 1; }
+  message declaration { int32 declaration = 1; }
   message decoded { int32 decoded = 1; }
   message decodedFromJSONNull { int32 decodedFromJSONNull = 1; }
   message decodeExtensionField { int32 decodeExtensionField = 1; }
@@ -226,6 +240,8 @@ message GeneratedSwiftReservedMessages {
   message Duration { int32 Duration = 1; }
   message E { int32 E = 1; }
   message edition { int32 edition = 1; }
+  message EditionDefault { int32 EditionDefault = 1; }
+  message editionDefaults { int32 editionDefaults = 1; }
   message Element { int32 Element = 1; }
   message elements { int32 elements = 1; }
   message emitExtensionFieldName { int32 emitExtensionFieldName = 1; }
@@ -273,6 +289,8 @@ message GeneratedSwiftReservedMessages {
   message extras { int32 extras = 1; }
   message F { int32 F = 1; }
   message false { int32 false = 1; }
+  message features { int32 features = 1; }
+  message FeatureSet { int32 FeatureSet = 1; }
   message field { int32 field = 1; }
   message fieldData { int32 fieldData = 1; }
   message FieldDescriptorProto { int32 FieldDescriptorProto = 1; }
@@ -283,6 +301,7 @@ message GeneratedSwiftReservedMessages {
   message fieldNumber { int32 fieldNumber = 1; }
   message fieldNumberForProto { int32 fieldNumberForProto = 1; }
   message FieldOptions { int32 FieldOptions = 1; }
+  message fieldPresence { int32 fieldPresence = 1; }
   message fields { int32 fields = 1; }
   message fieldSize { int32 fieldSize = 1; }
   message FieldTag { int32 FieldTag = 1; }
@@ -310,6 +329,7 @@ message GeneratedSwiftReservedMessages {
   message fromAscii4 { int32 fromAscii4 = 1; }
   message fromByteOffset { int32 fromByteOffset = 1; }
   message fromHexDigit { int32 fromHexDigit = 1; }
+  message fullName { int32 fullName = 1; }
   message func { int32 func = 1; }
   message G { int32 G = 1; }
   message GeneratedCodeInfo { int32 GeneratedCodeInfo = 1; }
@@ -331,6 +351,7 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_EnumValueDescriptorProto { int32 Google_Protobuf_EnumValueDescriptorProto = 1; }
   message Google_Protobuf_EnumValueOptions { int32 Google_Protobuf_EnumValueOptions = 1; }
   message Google_Protobuf_ExtensionRangeOptions { int32 Google_Protobuf_ExtensionRangeOptions = 1; }
+  message Google_Protobuf_FeatureSet { int32 Google_Protobuf_FeatureSet = 1; }
   message Google_Protobuf_Field { int32 Google_Protobuf_Field = 1; }
   message Google_Protobuf_FieldDescriptorProto { int32 Google_Protobuf_FieldDescriptorProto = 1; }
   message Google_Protobuf_FieldMask { int32 Google_Protobuf_FieldMask = 1; }
@@ -387,8 +408,12 @@ message GeneratedSwiftReservedMessages {
   message hasDoubleValue { int32 hasDoubleValue = 1; }
   message hasEdition { int32 hasEdition = 1; }
   message hasEnd { int32 hasEnd = 1; }
+  message hasEnumType { int32 hasEnumType = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
   message hasExtensionValue { int32 hasExtensionValue = 1; }
+  message hasFeatures { int32 hasFeatures = 1; }
+  message hasFieldPresence { int32 hasFieldPresence = 1; }
+  message hasFullName { int32 hasFullName = 1; }
   message hasGoPackage { int32 hasGoPackage = 1; }
   message hash { int32 hash = 1; }
   message Hashable { int32 Hashable = 1; }
@@ -405,12 +430,14 @@ message GeneratedSwiftReservedMessages {
   message hasJavaOuterClassname { int32 hasJavaOuterClassname = 1; }
   message hasJavaPackage { int32 hasJavaPackage = 1; }
   message hasJavaStringCheckUtf8 { int32 hasJavaStringCheckUtf8 = 1; }
+  message hasJsonFormat { int32 hasJsonFormat = 1; }
   message hasJsonName { int32 hasJsonName = 1; }
   message hasJstype { int32 hasJstype = 1; }
   message hasLabel { int32 hasLabel = 1; }
   message hasLazy { int32 hasLazy = 1; }
   message hasLeadingComments { int32 hasLeadingComments = 1; }
   message hasMapEntry { int32 hasMapEntry = 1; }
+  message hasMessageEncoding { int32 hasMessageEncoding = 1; }
   message hasMessageSetWireFormat { int32 hasMessageSetWireFormat = 1; }
   message hasName { int32 hasName = 1; }
   message hasNamePart { int32 hasNamePart = 1; }
@@ -431,6 +458,11 @@ message GeneratedSwiftReservedMessages {
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
   message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
+  message hasRawFeatures { int32 hasRawFeatures = 1; }
+  message hasRepeated { int32 hasRepeated = 1; }
+  message hasRepeatedFieldEncoding { int32 hasRepeatedFieldEncoding = 1; }
+  message hasReserved { int32 hasReserved = 1; }
+  message hasRetention { int32 hasRetention = 1; }
   message hasRubyPackage { int32 hasRubyPackage = 1; }
   message hasSemantic { int32 hasSemantic = 1; }
   message hasServerStreaming { int32 hasServerStreaming = 1; }
@@ -438,6 +470,7 @@ message GeneratedSwiftReservedMessages {
   message hasSourceContext { int32 hasSourceContext = 1; }
   message hasSourceFile { int32 hasSourceFile = 1; }
   message hasStart { int32 hasStart = 1; }
+  message hasStringFieldValidation { int32 hasStringFieldValidation = 1; }
   message hasStringValue { int32 hasStringValue = 1; }
   message hasSwiftPrefix { int32 hasSwiftPrefix = 1; }
   message hasSyntax { int32 hasSyntax = 1; }
@@ -446,6 +479,7 @@ message GeneratedSwiftReservedMessages {
   message hasTypeName { int32 hasTypeName = 1; }
   message hasUnverifiedLazy { int32 hasUnverifiedLazy = 1; }
   message hasValue { int32 hasValue = 1; }
+  message hasVerification { int32 hasVerification = 1; }
   message hasWeak { int32 hasWeak = 1; }
   message hour { int32 hour = 1; }
   message i { int32 i = 1; }
@@ -493,6 +527,7 @@ message GeneratedSwiftReservedMessages {
   message JSONEncodingError { int32 JSONEncodingError = 1; }
   message JSONEncodingOptions { int32 JSONEncodingOptions = 1; }
   message JSONEncodingVisitor { int32 JSONEncodingVisitor = 1; }
+  message jsonFormat { int32 jsonFormat = 1; }
   message JSONMapEncodingVisitor { int32 JSONMapEncodingVisitor = 1; }
   message jsonName { int32 jsonName = 1; }
   message jsonPath { int32 jsonPath = 1; }
@@ -540,6 +575,7 @@ message GeneratedSwiftReservedMessages {
   message merge { int32 merge = 1; }
   message message { int32 message = 1; }
   message messageDepthLimit { int32 messageDepthLimit = 1; }
+  message messageEncoding { int32 messageEncoding = 1; }
   message MessageExtension { int32 MessageExtension = 1; }
   message MessageImplementationBase { int32 MessageImplementationBase = 1; }
   message MessageOptions { int32 MessageOptions = 1; }
@@ -680,12 +716,15 @@ message GeneratedSwiftReservedMessages {
   message putZigZagVarInt { int32 putZigZagVarInt = 1; }
   message pyGenericServices { int32 pyGenericServices = 1; }
   message rawChars { int32 rawChars = 1; }
+  message rawFeatures { int32 rawFeatures = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
   message read4HexDigits { int32 read4HexDigits = 1; }
   message register { int32 register = 1; }
+  message repeated { int32 repeated = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
+  message repeatedFieldEncoding { int32 repeatedFieldEncoding = 1; }
   message RepeatedGroupExtensionField { int32 RepeatedGroupExtensionField = 1; }
   message RepeatedMessageExtensionField { int32 RepeatedMessageExtensionField = 1; }
   message repeating { int32 repeating = 1; }
@@ -695,6 +734,7 @@ message GeneratedSwiftReservedMessages {
   message responseStreaming { int32 responseStreaming = 1; }
   message responseTypeURL { int32 responseTypeURL = 1; }
   message result { int32 result = 1; }
+  message retention { int32 retention = 1; }
   message rethrows { int32 rethrows = 1; }
   message return { int32 return = 1; }
   message ReturnType { int32 ReturnType = 1; }
@@ -743,6 +783,7 @@ message GeneratedSwiftReservedMessages {
   message StaticString { int32 StaticString = 1; }
   message storage { int32 storage = 1; }
   message String { int32 String = 1; }
+  message stringFieldValidation { int32 stringFieldValidation = 1; }
   message stringLiteral { int32 stringLiteral = 1; }
   message StringLiteralType { int32 StringLiteralType = 1; }
   message stringResult { int32 stringResult = 1; }
@@ -758,6 +799,7 @@ message GeneratedSwiftReservedMessages {
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }
+  message targets { int32 targets = 1; }
   message terminator { int32 terminator = 1; }
   message testDecoder { int32 testDecoder = 1; }
   message text { int32 text = 1; }
@@ -824,6 +866,8 @@ message GeneratedSwiftReservedMessages {
   message values { int32 values = 1; }
   message ValueType { int32 ValueType = 1; }
   message var { int32 var = 1; }
+  message verification { int32 verification = 1; }
+  message VerificationState { int32 VerificationState = 1; }
   message Version { int32 Version = 1; }
   message versionString { int32 versionString = 1; }
   message visitExtensionFields { int32 visitExtensionFields = 1; }

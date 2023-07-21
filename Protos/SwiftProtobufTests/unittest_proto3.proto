@@ -203,25 +203,3 @@ enum ForeignEnum {
 
 // TestEmptyMessage is used to test behavior of unknown fields.
 message TestEmptyMessage {}
-
-// TestMessageWithDummy is also used to test behavior of unknown fields.
-message TestMessageWithDummy {
-  // This field is only here for triggering copy-on-write; it's not intended to
-  // be serialized.
-  bool dummy = 536870911;
-}
-
-// Same layout as TestOneof2 in unittest.proto to test unknown enum value
-// parsing behavior in oneof.
-message TestOneof2 {
-  oneof foo {
-    NestedEnum foo_enum = 6;
-  }
-
-  enum NestedEnum {
-    UNKNOWN = 0;
-    FOO = 1;
-    BAR = 2;
-    BAZ = 3;
-  }
-}
