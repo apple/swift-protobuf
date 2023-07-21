@@ -24,7 +24,7 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
         // Start with all the extensions from the unittest.proto file:
         extensions = ProtobufUnittest_Unittest_Extensions
         // Append another file's worth:
-        extensions.formUnion(ProtobufUnittest_UnittestCustomOptions_Extensions)
+        extensions.formUnion(ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions)
         // Append an array of extensions
         extensions.insert(contentsOf:
             [
@@ -134,17 +134,17 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
 class Test_JSON_RecursiveNested_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_Extend_Msg1
     let extensions = ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions
-    
+
     func test_nestedMessage() throws {
         assertJSONEncode("{\"[protobuf_unittest.extend.a_b]\":12}",
                          extensions: extensions) {
                             (o: inout MessageTestType) in
                             o.ProtobufUnittest_Extend_aB = 12
         }
-        
+
         assertJSONDecodeSucceeds("{\"[protobuf_unittest.extend.m2]\":{\"[protobuf_unittest.extend.aB]\":23}}", extensions: extensions) {
             $0.ProtobufUnittest_Extend_m2.ProtobufUnittest_Extend_aB == 23
         }
     }
-    
+
 }
