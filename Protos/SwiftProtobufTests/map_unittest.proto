@@ -32,7 +32,7 @@ syntax = "proto3";
 
 import "unittest.proto";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 // Tests maps.
 message TestMap {

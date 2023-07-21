@@ -16,7 +16,7 @@
 
 syntax = "proto2";
 
-package swift.protobuf;
+package swift_proto_testing.order;
 
 message TestFieldOrderings {
   optional string my_string = 11;
@@ -25,15 +25,15 @@ message TestFieldOrderings {
   extensions 12 to 55;
   optional float my_float = 101;
   message NestedMessage {
-          optional int64 oo = 2;
-          optional int32 bb = 1;
+    optional int64 oo = 2;
+    optional int32 bb = 1;
   }
 
   oneof options {
-        int64 oneof_int64 = 60;
-        bool oneof_bool = 9;
-        string oneof_string = 150;
-        int32 oneof_int32 = 10;
+    int64 oneof_int64 = 60;
+    bool oneof_bool = 9;
+    string oneof_string = 150;
+    int32 oneof_int32 = 10;
   }
 
   optional NestedMessage optional_nested_message  = 200;

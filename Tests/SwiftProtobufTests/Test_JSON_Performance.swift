@@ -16,7 +16,7 @@ import XCTest
 import SwiftProtobuf
 
 class Test_JSON_Performance: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Fuzz_Testing_Message
+    typealias MessageTestType = SwiftProtoTesting_Fuzz_Message
 
     // Each of the following should be under 1s on a reasonably
     // fast machine (originally developed on an M1 MacBook Pro).
@@ -40,12 +40,12 @@ class Test_JSON_Performance: XCTestCase, PBTestHelpers {
             + "]}"
         )
 
-        let msg = Fuzz_Testing_Message.with {
+        let msg = MessageTestType.with {
             $0.repeatedInt32 = rawPadding
-            let child = Fuzz_Testing_Message.with {
+            let child = MessageTestType.with {
                $0.mapFixed64Sint64[30] = 4
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: mapRepeats)
+            let array = Array<MessageTestType>(repeating: child, count: mapRepeats)
             $0.repeatedMessage = array
         }
 
@@ -76,12 +76,12 @@ class Test_JSON_Performance: XCTestCase, PBTestHelpers {
             + "]}"
         )
 
-        let msg = Fuzz_Testing_Message.with {
+        let msg = MessageTestType.with {
             $0.repeatedInt32 = rawPadding
-            let child = Fuzz_Testing_Message.with {
-               $0.mapInt32AnEnum[30] = Fuzz_Testing_AnEnum.two
+            let child = MessageTestType.with {
+               $0.mapInt32AnEnum[30] = SwiftProtoTesting_Fuzz_AnEnum.two
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: mapRepeats)
+            let array = Array<MessageTestType>(repeating: child, count: mapRepeats)
             $0.repeatedMessage = array
         }
 
@@ -113,15 +113,15 @@ class Test_JSON_Performance: XCTestCase, PBTestHelpers {
             + "]}"
         )
 
-        let msg = Fuzz_Testing_Message.with {
+        let msg = MessageTestType.with {
             $0.repeatedInt32 = rawPadding
-            let child = Fuzz_Testing_Message.with {
-               let grandchild = Fuzz_Testing_Message.with {
+            let child = MessageTestType.with {
+               let grandchild = MessageTestType.with {
                    $0.singularInt32 = 8
                }
                $0.mapInt32Message[30] = grandchild
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: mapRepeats)
+            let array = Array<MessageTestType>(repeating: child, count: mapRepeats)
             $0.repeatedMessage = array
         }
 

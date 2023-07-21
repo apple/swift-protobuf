@@ -13,13 +13,13 @@ import XCTest
 import SwiftProtobuf
 
 class Test_Merge: XCTestCase, PBTestHelpers {
-  typealias MessageTestType = Proto3Unittest_TestAllTypes
+  typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
   func testMergeSimple() throws {
-    var m1 = Proto3Unittest_TestAllTypes()
+    var m1 = SwiftProtoTesting_Proto3_TestAllTypes()
     m1.optionalInt32 = 100
 
-    var m2 = Proto3Unittest_TestAllTypes()
+    var m2 = SwiftProtoTesting_Proto3_TestAllTypes()
     m2.optionalInt64 = 1000
 
     do {
@@ -32,11 +32,11 @@ class Test_Merge: XCTestCase, PBTestHelpers {
   }
 
   func testMergePreservesValueSemantics() throws {
-    var original = Proto3Unittest_TestAllTypes()
+    var original = SwiftProtoTesting_Proto3_TestAllTypes()
     original.optionalInt32 = 100
     let copied = original
 
-    var toMerge = Proto3Unittest_TestAllTypes()
+    var toMerge = SwiftProtoTesting_Proto3_TestAllTypes()
     toMerge.optionalInt64 = 1000
 
     do {

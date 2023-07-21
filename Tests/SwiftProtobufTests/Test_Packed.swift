@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 
 class Test_Packed: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestPackedTypes
+    typealias MessageTestType = SwiftProtoTesting_TestPackedTypes
 
     func testEncoding_packedInt32() {
         assertEncode([210, 5, 16, 255, 255, 255, 255, 7, 0, 128, 128, 128, 128, 248, 255, 255, 255, 255, 1]) {(o: inout MessageTestType) in o.packedInt32 = [Int32.max, 0, Int32.min]}
@@ -361,7 +361,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         
         // Unknown enums within packed become separate unknown entries
         do {
-            let decoded1 = try ProtobufUnittest_TestPackedTypes(serializedBytes: [186, 6, 3, 4, 99, 6])
+            let decoded1 = try SwiftProtoTesting_TestPackedTypes(serializedBytes: [186, 6, 3, 4, 99, 6])
             XCTAssertEqual(decoded1.packedEnum, [.foreignFoo, .foreignBaz])
             let recoded1: [UInt8] = try decoded1.serializedBytes()
             XCTAssertEqual(recoded1, [186, 6, 2, 4, 6, 186, 6, 1, 99])

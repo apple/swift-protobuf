@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct _4fun_Mumble_MyMessage {
+struct _4fun_SwiftProtoTesting_Mumble_MyMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -58,14 +58,14 @@ struct _4fun_Mumble_MyMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension _4fun_Mumble_MyMessage: @unchecked Sendable {}
+extension _4fun_SwiftProtoTesting_Mumble_MyMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "_4fun.mumble"
+fileprivate let _protobuf_package = "_4fun.swift_proto_testing.mumble"
 
-extension _4fun_Mumble_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension _4fun_SwiftProtoTesting_Mumble_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -94,7 +94,7 @@ extension _4fun_Mumble_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: _4fun_Mumble_MyMessage, rhs: _4fun_Mumble_MyMessage) -> Bool {
+  static func ==(lhs: _4fun_SwiftProtoTesting_Mumble_MyMessage, rhs: _4fun_SwiftProtoTesting_Mumble_MyMessage) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

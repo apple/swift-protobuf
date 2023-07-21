@@ -42,7 +42,7 @@ class Test_JSONDecodingOptions: XCTestCase {
                     var options = JSONDecodingOptions()
                     options.messageDepthLimit = limit
                     options.ignoreUnknownFields = true
-                    let _ = try ProtobufUnittest_TestRecursiveMessage(jsonString: jsonInput, options: options)
+                    let _ = try SwiftProtoTesting_TestRecursiveMessage(jsonString: jsonInput, options: options)
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
@@ -134,7 +134,7 @@ class Test_JSONDecodingOptions: XCTestCase {
         for (i, (isValidJSON, jsonInput)) in jsonInputs.enumerated() {
             // Default options (error on unknown fields)
             do {
-                let _ = try ProtobufUnittest_TestEmptyMessage(jsonString: jsonInput)
+                let _ = try SwiftProtoTesting_TestEmptyMessage(jsonString: jsonInput)
                 XCTFail("Input \(i): Should not have gotten here! Input: \(jsonInput)")
             } catch JSONDecodingError.unknownField(let field) {
                 XCTAssertEqual(field, "unknown", "Input \(i): got field \(field)")
@@ -144,7 +144,7 @@ class Test_JSONDecodingOptions: XCTestCase {
 
             // Ignoring unknown fields
             do {
-                let _ = try ProtobufUnittest_TestEmptyMessage(jsonString: jsonInput,
+                let _ = try SwiftProtoTesting_TestEmptyMessage(jsonString: jsonInput,
                                                               options:options)
                 XCTAssertTrue(isValidJSON,
                               "Input \(i): Should not have been able to parse: \(jsonInput)")

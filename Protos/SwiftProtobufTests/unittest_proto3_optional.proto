@@ -30,7 +30,7 @@
 
 syntax = "proto3";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 message TestProto3Optional {
   message NestedMessage {

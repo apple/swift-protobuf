@@ -38,12 +38,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftUnittest_TestMessage {
+struct SwiftProtoTesting_Merging_TestMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var oneofField: SwiftUnittest_TestMessage.OneOf_OneofField? = nil
+  var oneofField: SwiftProtoTesting_Merging_TestMessage.OneOf_OneofField? = nil
 
   var oneofUint32: UInt32 {
     get {
@@ -53,10 +53,10 @@ struct SwiftUnittest_TestMessage {
     set {oneofField = .oneofUint32(newValue)}
   }
 
-  var oneofNestedMessage: SwiftUnittest_TestMessage.NestedMessage {
+  var oneofNestedMessage: SwiftProtoTesting_Merging_TestMessage.NestedMessage {
     get {
       if case .oneofNestedMessage(let v)? = oneofField {return v}
-      return SwiftUnittest_TestMessage.NestedMessage()
+      return SwiftProtoTesting_Merging_TestMessage.NestedMessage()
     }
     set {oneofField = .oneofNestedMessage(newValue)}
   }
@@ -81,7 +81,7 @@ struct SwiftUnittest_TestMessage {
 
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
-    case oneofNestedMessage(SwiftUnittest_TestMessage.NestedMessage)
+    case oneofNestedMessage(SwiftProtoTesting_Merging_TestMessage.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
 
@@ -131,13 +131,13 @@ struct SwiftUnittest_TestMessage {
   init() {}
 }
 
-struct SwiftUnittest_TestParsingMerge {
+struct SwiftProtoTesting_Merging_TestParsingMerge {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var optionalMessage: SwiftUnittest_TestMessage {
-    get {return _optionalMessage ?? SwiftUnittest_TestMessage()}
+  var optionalMessage: SwiftProtoTesting_Merging_TestMessage {
+    get {return _optionalMessage ?? SwiftProtoTesting_Merging_TestMessage()}
     set {_optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -145,7 +145,7 @@ struct SwiftUnittest_TestParsingMerge {
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {self._optionalMessage = nil}
 
-  var repeatedMessage: [SwiftUnittest_TestMessage] = []
+  var repeatedMessage: [SwiftProtoTesting_Merging_TestMessage] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -154,9 +154,9 @@ struct SwiftUnittest_TestParsingMerge {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var field1: [SwiftUnittest_TestMessage] = []
+    var field1: [SwiftProtoTesting_Merging_TestMessage] = []
 
-    var field2: [SwiftUnittest_TestMessage] = []
+    var field2: [SwiftProtoTesting_Merging_TestMessage] = []
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -165,22 +165,22 @@ struct SwiftUnittest_TestParsingMerge {
 
   init() {}
 
-  fileprivate var _optionalMessage: SwiftUnittest_TestMessage? = nil
+  fileprivate var _optionalMessage: SwiftProtoTesting_Merging_TestMessage? = nil
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftUnittest_TestMessage: @unchecked Sendable {}
-extension SwiftUnittest_TestMessage.OneOf_OneofField: @unchecked Sendable {}
-extension SwiftUnittest_TestMessage.NestedMessage: @unchecked Sendable {}
-extension SwiftUnittest_TestParsingMerge: @unchecked Sendable {}
-extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}
+extension SwiftProtoTesting_Merging_TestMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Merging_TestMessage.OneOf_OneofField: @unchecked Sendable {}
+extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Sendable {}
+extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing.merging"
 
-extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     111: .standard(proto: "oneof_uint32"),
@@ -204,7 +204,7 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._Messa
         }
       }()
       case 112: try {
-        var v: SwiftUnittest_TestMessage.NestedMessage?
+        var v: SwiftProtoTesting_Merging_TestMessage.NestedMessage?
         var hadOneofValue = false
         if let current = self.oneofField {
           hadOneofValue = true
@@ -264,15 +264,15 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_TestMessage, rhs: SwiftUnittest_TestMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Merging_TestMessage, rhs: SwiftProtoTesting_Merging_TestMessage) -> Bool {
     if lhs.oneofField != rhs.oneofField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_TestMessage.protoMessageName + ".NestedMessage"
+extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Merging_TestMessage.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
     2: .same(proto: "b"),
@@ -310,7 +310,7 @@ extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_TestMessage.NestedMessage, rhs: SwiftUnittest_TestMessage.NestedMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Merging_TestMessage.NestedMessage, rhs: SwiftProtoTesting_Merging_TestMessage.NestedMessage) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs._b != rhs._b {return false}
     if lhs._c != rhs._c {return false}
@@ -319,7 +319,7 @@ extension SwiftUnittest_TestMessage.NestedMessage: SwiftProtobuf.Message, SwiftP
   }
 }
 
-extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_message"),
@@ -353,7 +353,7 @@ extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_TestParsingMerge, rhs: SwiftUnittest_TestParsingMerge) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Merging_TestParsingMerge, rhs: SwiftProtoTesting_Merging_TestParsingMerge) -> Bool {
     if lhs._optionalMessage != rhs._optionalMessage {return false}
     if lhs.repeatedMessage != rhs.repeatedMessage {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -361,8 +361,8 @@ extension SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
+extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Merging_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
     2: .same(proto: "field2"),
@@ -391,7 +391,7 @@ extension SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
     if lhs.field1 != rhs.field1 {return false}
     if lhs.field2 != rhs.field2 {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

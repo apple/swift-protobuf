@@ -36,7 +36,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest_import;
+package swift_proto_testing.import;
 
 // Test public import
 import public "unittest_import_public.proto";

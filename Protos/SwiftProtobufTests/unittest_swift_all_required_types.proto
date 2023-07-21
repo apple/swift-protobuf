@@ -34,7 +34,7 @@ syntax = "proto2";
 import "unittest_import.proto";
 import "unittest.proto";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 message TestAllRequiredTypes {
   message NestedMessage {
@@ -74,17 +74,17 @@ message TestAllRequiredTypes {
 
   required NestedMessage                        required_nested_message  = 18;
   required ForeignMessage                       required_foreign_message = 19;
-  required protobuf_unittest_import.ImportMessage required_import_message  = 20;
+  required swift_proto_testing.import.ImportMessage required_import_message  = 20;
 
   required NestedEnum                           required_nested_enum     = 21;
   required ForeignEnum                          required_foreign_enum    = 22;
-  required protobuf_unittest_import.ImportEnum    required_import_enum     = 23;
+  required swift_proto_testing.import.ImportEnum    required_import_enum     = 23;
 
   required string required_string_piece = 24 [ctype=STRING_PIECE];
   required string required_cord = 25 [ctype=CORD];
 
   // Defined in unittest_import_public.proto
-  required protobuf_unittest_import.PublicImportMessage
+  required swift_proto_testing.import.PublicImportMessage
       required_public_import_message = 26;
 
   required NestedMessage required_lazy_message = 27 [lazy=true];
@@ -108,7 +108,7 @@ message TestAllRequiredTypes {
 
   required NestedEnum  default_nested_enum  = 81 [default = BAR        ];
   required ForeignEnum default_foreign_enum = 82 [default = FOREIGN_BAR];
-  required protobuf_unittest_import.ImportEnum
+  required swift_proto_testing.import.ImportEnum
       default_import_enum = 83 [default = IMPORT_BAR];
 
   required string default_string_piece = 84 [ctype=STRING_PIECE,default="abc"];

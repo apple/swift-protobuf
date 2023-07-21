@@ -49,13 +49,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_CycleFoo {
+struct SwiftProtoTesting_CycleFoo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var aFoo: ProtobufUnittest_CycleFoo {
-    get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
+  var aFoo: SwiftProtoTesting_CycleFoo {
+    get {return _storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
   /// Returns true if `aFoo` has been explicitly set.
@@ -63,8 +63,8 @@ struct ProtobufUnittest_CycleFoo {
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
   mutating func clearAFoo() {_uniqueStorage()._aFoo = nil}
 
-  var aBar: ProtobufUnittest_CycleBar {
-    get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
+  var aBar: SwiftProtoTesting_CycleBar {
+    get {return _storage._aBar ?? SwiftProtoTesting_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
   /// Returns true if `aBar` has been explicitly set.
@@ -72,8 +72,8 @@ struct ProtobufUnittest_CycleFoo {
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
   mutating func clearABar() {_uniqueStorage()._aBar = nil}
 
-  var aBaz: ProtobufUnittest_CycleBaz {
-    get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
+  var aBaz: SwiftProtoTesting_CycleBaz {
+    get {return _storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
   /// Returns true if `aBaz` has been explicitly set.
@@ -88,13 +88,13 @@ struct ProtobufUnittest_CycleFoo {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_CycleBar {
+struct SwiftProtoTesting_CycleBar {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var aBar: ProtobufUnittest_CycleBar {
-    get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
+  var aBar: SwiftProtoTesting_CycleBar {
+    get {return _storage._aBar ?? SwiftProtoTesting_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
   /// Returns true if `aBar` has been explicitly set.
@@ -102,8 +102,8 @@ struct ProtobufUnittest_CycleBar {
   /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
   mutating func clearABar() {_uniqueStorage()._aBar = nil}
 
-  var aBaz: ProtobufUnittest_CycleBaz {
-    get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
+  var aBaz: SwiftProtoTesting_CycleBaz {
+    get {return _storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
   /// Returns true if `aBaz` has been explicitly set.
@@ -111,8 +111,8 @@ struct ProtobufUnittest_CycleBar {
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
   mutating func clearABaz() {_uniqueStorage()._aBaz = nil}
 
-  var aFoo: ProtobufUnittest_CycleFoo {
-    get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
+  var aFoo: SwiftProtoTesting_CycleFoo {
+    get {return _storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
   /// Returns true if `aFoo` has been explicitly set.
@@ -127,13 +127,13 @@ struct ProtobufUnittest_CycleBar {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_CycleBaz {
+struct SwiftProtoTesting_CycleBaz {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var aBaz: ProtobufUnittest_CycleBaz {
-    get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
+  var aBaz: SwiftProtoTesting_CycleBaz {
+    get {return _storage._aBaz ?? SwiftProtoTesting_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
   /// Returns true if `aBaz` has been explicitly set.
@@ -141,8 +141,8 @@ struct ProtobufUnittest_CycleBaz {
   /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
   mutating func clearABaz() {_uniqueStorage()._aBaz = nil}
 
-  var aFoo: ProtobufUnittest_CycleFoo {
-    get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
+  var aFoo: SwiftProtoTesting_CycleFoo {
+    get {return _storage._aFoo ?? SwiftProtoTesting_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
   /// Returns true if `aFoo` has been explicitly set.
@@ -150,8 +150,8 @@ struct ProtobufUnittest_CycleBaz {
   /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
   mutating func clearAFoo() {_uniqueStorage()._aFoo = nil}
 
-  var aBar: ProtobufUnittest_CycleBar {
-    get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
+  var aBar: SwiftProtoTesting_CycleBar {
+    get {return _storage._aBar ?? SwiftProtoTesting_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
   /// Returns true if `aBar` has been explicitly set.
@@ -167,16 +167,16 @@ struct ProtobufUnittest_CycleBaz {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_CycleFoo: @unchecked Sendable {}
-extension ProtobufUnittest_CycleBar: @unchecked Sendable {}
-extension ProtobufUnittest_CycleBaz: @unchecked Sendable {}
+extension SwiftProtoTesting_CycleFoo: @unchecked Sendable {}
+extension SwiftProtoTesting_CycleBar: @unchecked Sendable {}
+extension SwiftProtoTesting_CycleBaz: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "a_foo"),
@@ -185,9 +185,9 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
   ]
 
   fileprivate class _StorageClass {
-    var _aFoo: ProtobufUnittest_CycleFoo? = nil
-    var _aBar: ProtobufUnittest_CycleBar? = nil
-    var _aBaz: ProtobufUnittest_CycleBaz? = nil
+    var _aFoo: SwiftProtoTesting_CycleFoo? = nil
+    var _aBar: SwiftProtoTesting_CycleBar? = nil
+    var _aBaz: SwiftProtoTesting_CycleBaz? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -243,7 +243,7 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_CycleFoo, rhs: ProtobufUnittest_CycleFoo) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_CycleFoo, rhs: SwiftProtoTesting_CycleFoo) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -260,7 +260,7 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "a_bar"),
@@ -269,9 +269,9 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
   ]
 
   fileprivate class _StorageClass {
-    var _aBar: ProtobufUnittest_CycleBar? = nil
-    var _aBaz: ProtobufUnittest_CycleBaz? = nil
-    var _aFoo: ProtobufUnittest_CycleFoo? = nil
+    var _aBar: SwiftProtoTesting_CycleBar? = nil
+    var _aBaz: SwiftProtoTesting_CycleBaz? = nil
+    var _aFoo: SwiftProtoTesting_CycleFoo? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -327,7 +327,7 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_CycleBar, rhs: ProtobufUnittest_CycleBar) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_CycleBar, rhs: SwiftProtoTesting_CycleBar) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -344,7 +344,7 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "a_baz"),
@@ -353,9 +353,9 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Messa
   ]
 
   fileprivate class _StorageClass {
-    var _aBaz: ProtobufUnittest_CycleBaz? = nil
-    var _aFoo: ProtobufUnittest_CycleFoo? = nil
-    var _aBar: ProtobufUnittest_CycleBar? = nil
+    var _aBaz: SwiftProtoTesting_CycleBaz? = nil
+    var _aFoo: SwiftProtoTesting_CycleFoo? = nil
+    var _aBar: SwiftProtoTesting_CycleBar? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -411,7 +411,7 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_CycleBaz, rhs: ProtobufUnittest_CycleBaz) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_CycleBaz, rhs: SwiftProtoTesting_CycleBaz) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

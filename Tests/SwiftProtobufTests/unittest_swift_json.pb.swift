@@ -29,7 +29,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_SwiftJSONTest {
+struct SwiftProtoTesting_SwiftJSONTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -43,14 +43,14 @@ struct ProtobufUnittest_SwiftJSONTest {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_SwiftJSONTest: @unchecked Sendable {}
+extension SwiftProtoTesting_SwiftJSONTest: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftJSONTest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     318: .standard(proto: "repeated_null_value"),
@@ -75,7 +75,7 @@ extension ProtobufUnittest_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_SwiftJSONTest, rhs: ProtobufUnittest_SwiftJSONTest) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_SwiftJSONTest, rhs: SwiftProtoTesting_SwiftJSONTest) -> Bool {
     if lhs.repeatedNullValue != rhs.repeatedNullValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

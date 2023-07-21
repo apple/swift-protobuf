@@ -18,12 +18,12 @@
 
 syntax = "proto2";
 
-package protobuf_unittest.extend2;
+package swift_proto_testing.extend2;
 
 import "unittest_swift_extension.proto";
 
 message MyMessage {
-  extend protobuf_unittest.extend.Foo.Bar.Baz {
+  extend swift_proto_testing.extend.Foo.Bar.Baz {
      optional string b = 210;
      optional group C = 211 {
         optional int64 c = 1210;
@@ -31,7 +31,7 @@ message MyMessage {
   }
 }
 
-extend protobuf_unittest.extend.Foo.Bar.Baz {
+extend swift_proto_testing.extend.Foo.Bar.Baz {
   optional string b = 220;
   optional group C = 221 {
     optional int64 c = 1220;

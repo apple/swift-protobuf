@@ -30,7 +30,7 @@
 
 syntax = "proto3";
 
-package protobuf3_unittest;
+package swift_proto_testing.enum3;
 
 message SwiftEnumTest {
     enum EnumTest1 {

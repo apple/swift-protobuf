@@ -27,25 +27,25 @@ class Test_FuzzTests: XCTestCase {
 
   func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(serializedBytes: bytes, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(serializedBytes: bytes, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
   func assertJSONFails(_ jsonBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(jsonUTF8Bytes: jsonBytes, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(jsonUTF8Bytes: jsonBytes, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
   func assertJSONFails(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(jsonString: json, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(jsonString: json, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
   func assertTextFormatFails(_ textFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(textFormatString: textFormat, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(textFormatString: textFormat, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
@@ -55,13 +55,13 @@ class Test_FuzzTests: XCTestCase {
       return
     }
     XCTAssertThrowsError(
-      try Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(textFormatString: str, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
   func assertTextFormatSucceeds(_ textFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertNoThrow(
-      try Fuzz_Testing_Message(textFormatString: textFormat, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(textFormatString: textFormat, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
@@ -71,7 +71,7 @@ class Test_FuzzTests: XCTestCase {
       return
     }
     XCTAssertNoThrow(
-      try Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions),
+      try SwiftProtoTesting_Fuzz_Message(textFormatString: str, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions),
       file: file, line: line)
   }
 
@@ -99,7 +99,7 @@ class Test_FuzzTests: XCTestCase {
 
     // FuzzTesting/FailCases/clusterfuzz-testcase-minimized-FuzzJSON_release-4929034878844928
     // This actually fails when the fuzzer was trying to write it back out again.
-    let msg = try! Fuzz_Testing_Message(jsonString: "   {\"wktAny\":  {}}  ")
+    let msg = try! SwiftProtoTesting_Fuzz_Message(jsonString: "   {\"wktAny\":  {}}  ")
     XCTAssertEqual(try! msg.jsonString(), "{\"wktAny\":{}}")
   }
 
@@ -150,7 +150,7 @@ class Test_FuzzTests: XCTestCase {
       0xa9, 0xa9, 0xa9, 0xa9, 0x31, 0x27, 0x3e,
     ]
     let str = String(bytes: bytes, encoding: .utf8)!
-    let msg = try! Fuzz_Testing_Message(textFormatString: str, extensions: Fuzz_Testing_FuzzTesting_Extensions)
+    let msg = try! SwiftProtoTesting_Fuzz_Message(textFormatString: str, extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions)
     let _ = msg.textFormatString()
   }
 }

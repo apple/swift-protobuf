@@ -34,7 +34,7 @@ class Test_TextFormatDecodingOptions: XCTestCase {
             do {
                 var options = TextFormatDecodingOptions()
                 options.messageDepthLimit = limit
-                let _ = try ProtobufUnittest_TestRecursiveMessage(textFormatString: textInput, options: options)
+                let _ = try SwiftProtoTesting_TestRecursiveMessage(textFormatString: textInput, options: options)
                 if !expectSuccess {
                     XCTFail("Should not have succeed, limit: \(limit)")
                 }

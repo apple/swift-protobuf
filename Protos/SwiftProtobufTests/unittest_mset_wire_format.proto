@@ -36,7 +36,7 @@
 
 syntax = "proto2";
 
-package proto2_wireformat_unittest;
+package swift_proto_testing.wire_format;
 
 // A message with message_set_wire_format.
 message TestMessageSet {

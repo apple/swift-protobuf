@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestProto3Optional {
+struct SwiftProtoTesting_TestProto3Optional {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -200,8 +200,8 @@ struct ProtobufUnittest_TestProto3Optional {
   /// Clears the value of `optionalCord`. Subsequent reads from it will return its default value.
   mutating func clearOptionalCord() {_uniqueStorage()._optionalCord = nil}
 
-  var optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestProto3Optional.NestedMessage()}
+  var optionalNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage {
+    get {return _storage._optionalNestedMessage ?? SwiftProtoTesting_TestProto3Optional.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -209,8 +209,8 @@ struct ProtobufUnittest_TestProto3Optional {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
-  var lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage {
-    get {return _storage._lazyNestedMessage ?? ProtobufUnittest_TestProto3Optional.NestedMessage()}
+  var lazyNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage {
+    get {return _storage._lazyNestedMessage ?? SwiftProtoTesting_TestProto3Optional.NestedMessage()}
     set {_uniqueStorage()._lazyNestedMessage = newValue}
   }
   /// Returns true if `lazyNestedMessage` has been explicitly set.
@@ -218,7 +218,7 @@ struct ProtobufUnittest_TestProto3Optional {
   /// Clears the value of `lazyNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearLazyNestedMessage() {_uniqueStorage()._lazyNestedMessage = nil}
 
-  var optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum {
+  var optionalNestedEnum: SwiftProtoTesting_TestProto3Optional.NestedEnum {
     get {return _storage._optionalNestedEnum ?? .unspecified}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
@@ -278,7 +278,7 @@ struct ProtobufUnittest_TestProto3Optional {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittest_TestProto3Optional.NestedEnum] = [
+    static let allCases: [SwiftProtoTesting_TestProto3Optional.NestedEnum] = [
       .unspecified,
       .foo,
       .bar,
@@ -318,15 +318,15 @@ struct ProtobufUnittest_TestProto3Optional {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestProto3Optional: @unchecked Sendable {}
-extension ProtobufUnittest_TestProto3Optional.NestedMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_TestProto3Optional: @unchecked Sendable {}
+extension SwiftProtoTesting_TestProto3Optional.NestedMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestProto3Optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestProto3Optional"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -369,9 +369,9 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     var _optionalString: String? = nil
     var _optionalBytes: Data? = nil
     var _optionalCord: String? = nil
-    var _optionalNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
-    var _lazyNestedMessage: ProtobufUnittest_TestProto3Optional.NestedMessage? = nil
-    var _optionalNestedEnum: ProtobufUnittest_TestProto3Optional.NestedEnum? = nil
+    var _optionalNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage? = nil
+    var _lazyNestedMessage: SwiftProtoTesting_TestProto3Optional.NestedMessage? = nil
+    var _optionalNestedEnum: SwiftProtoTesting_TestProto3Optional.NestedEnum? = nil
     var _singularInt32: Int32 = 0
     var _singularInt64: Int64 = 0
 
@@ -519,7 +519,7 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestProto3Optional, rhs: ProtobufUnittest_TestProto3Optional) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestProto3Optional, rhs: SwiftProtoTesting_TestProto3Optional) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -554,7 +554,7 @@ extension ProtobufUnittest_TestProto3Optional: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -1: .same(proto: "NEG"),
     0: .same(proto: "UNSPECIFIED"),
@@ -564,8 +564,8 @@ extension ProtobufUnittest_TestProto3Optional.NestedEnum: SwiftProtobuf._ProtoNa
   ]
 }
 
-extension ProtobufUnittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestProto3Optional.protoMessageName + ".NestedMessage"
+extension SwiftProtoTesting_TestProto3Optional.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_TestProto3Optional.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
   ]
@@ -593,7 +593,7 @@ extension ProtobufUnittest_TestProto3Optional.NestedMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestProto3Optional.NestedMessage, rhs: ProtobufUnittest_TestProto3Optional.NestedMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestProto3Optional.NestedMessage, rhs: SwiftProtoTesting_TestProto3Optional.NestedMessage) -> Bool {
     if lhs._bb != rhs._bb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

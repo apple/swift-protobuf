@@ -50,18 +50,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct Protobuf3Unittest_SwiftEnumTest {
+struct SwiftProtoTesting_Enum3_SwiftEnumTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var values1: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = []
+  var values1: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1] = []
 
-  var values2: [Protobuf3Unittest_SwiftEnumTest.EnumTest2] = []
+  var values2: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2] = []
 
-  var values3: [Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem] = []
+  var values3: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem] = []
 
-  var values4: [Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord] = []
+  var values4: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -92,7 +92,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest1] = [
+    static let allCases: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1] = [
       .firstValue,
       .secondValue,
     ]
@@ -126,7 +126,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTest2] = [
+    static let allCases: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2] = [
       .firstValue,
       .secondValue,
     ]
@@ -160,7 +160,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem] = [
+    static let allCases: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem] = [
       .enumTestNoStem1,
       .enumTestNoStem2,
     ]
@@ -194,7 +194,7 @@ struct Protobuf3Unittest_SwiftEnumTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord] = [
+    static let allCases: [SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord] = [
       .var,
       .notReserved,
     ]
@@ -204,12 +204,12 @@ struct Protobuf3Unittest_SwiftEnumTest {
   init() {}
 }
 
-struct Protobuf3Unittest_SwiftEnumWithAliasTest {
+struct SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var values: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = []
+  var values: [SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -247,7 +247,7 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias] = [
+    static let allCases: [SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias] = [
       .foo1,
       .baz1,
       .bar1,
@@ -259,15 +259,15 @@ struct Protobuf3Unittest_SwiftEnumWithAliasTest {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Protobuf3Unittest_SwiftEnumTest: @unchecked Sendable {}
-extension Protobuf3Unittest_SwiftEnumWithAliasTest: @unchecked Sendable {}
+extension SwiftProtoTesting_Enum3_SwiftEnumTest: @unchecked Sendable {}
+extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf3_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing.enum3"
 
-extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values1"),
@@ -307,7 +307,7 @@ extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Protobuf3Unittest_SwiftEnumTest, rhs: Protobuf3Unittest_SwiftEnumTest) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Enum3_SwiftEnumTest, rhs: SwiftProtoTesting_Enum3_SwiftEnumTest) -> Bool {
     if lhs.values1 != rhs.values1 {return false}
     if lhs.values2 != rhs.values2 {return false}
     if lhs.values3 != rhs.values3 {return false}
@@ -317,35 +317,35 @@ extension Protobuf3Unittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-extension Protobuf3Unittest_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ENUM_TEST_1_FIRST_VALUE"),
     2: .same(proto: "ENUM_TEST_1_SECOND_VALUE"),
   ]
 }
 
-extension Protobuf3Unittest_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ENUM_TEST_2_FIRST_VALUE"),
     2: .same(proto: "SECOND_VALUE"),
   ]
 }
 
-extension Protobuf3Unittest_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ENUM_TEST_NO_STEM_1"),
     2: .same(proto: "ENUM_TEST_NO_STEM_2"),
   ]
 }
 
-extension Protobuf3Unittest_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ENUM_TEST_RESERVED_WORD_VAR"),
     2: .same(proto: "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"),
   ]
 }
 
-extension Protobuf3Unittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
@@ -370,14 +370,14 @@ extension Protobuf3Unittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Protobuf3Unittest_SwiftEnumWithAliasTest, rhs: Protobuf3Unittest_SwiftEnumWithAliasTest) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest, rhs: SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension Protobuf3Unittest_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Enum3_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .aliased(proto: "FOO1", aliases: ["FOO2"]),
     2: .aliased(proto: "BAR1", aliases: ["BAR2"]),

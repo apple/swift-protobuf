@@ -59,7 +59,7 @@ extension SwiftReservedTestExt2: @unchecked Sendable {}
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
+extension SwiftProtoTesting_SwiftReservedTest.TypeMessage {
 
   /// Will get _p added because it has no package/swift prefix to scope and
   /// would otherwise be a problem when added to the message.
@@ -275,67 +275,67 @@ let UnittestSwiftReservedExt_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 
 /// Will get _p added because it has no package/swift prefix to scope and
 /// would otherwise be a problem when added to the message.
-let Extensions_debugDescription = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+let Extensions_debugDescription = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1000,
   fieldName: "debugDescription"
 )
 
 /// These will get _p added for the same reasoning.
-let Extensions_as = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+let Extensions_as = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1012,
   fieldName: "as"
 )
 
-let Extensions_var = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+let Extensions_var = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1013,
   fieldName: "var"
 )
 
-let Extensions_try = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+let Extensions_try = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1014,
   fieldName: "try"
 )
 
-let Extensions_do = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+let Extensions_do = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1015,
   fieldName: "do"
 )
 
-let Extensions_nil = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+let Extensions_nil = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1016,
   fieldName: "nil"
 )
 
 extension SwiftReservedTestExt2 {
   enum Extensions {
-    static let hashValue_ = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let hashValue_ = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1001,
       fieldName: "SwiftReservedTestExt2.hashValue"
     )
 
     /// Reserved words, since these end up in the "enum Extensions", they
     /// can't just be get their names, and sanitation kicks.
-    static let `as` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `as` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1022,
       fieldName: "SwiftReservedTestExt2.as"
     )
 
-    static let `var` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `var` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1023,
       fieldName: "SwiftReservedTestExt2.var"
     )
 
-    static let `try` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `try` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1024,
       fieldName: "SwiftReservedTestExt2.try"
     )
 
-    static let `do` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `do` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1025,
       fieldName: "SwiftReservedTestExt2.do"
     )
 
-    static let `nil` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `nil` = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, SwiftProtoTesting_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1026,
       fieldName: "SwiftReservedTestExt2.nil"
     )

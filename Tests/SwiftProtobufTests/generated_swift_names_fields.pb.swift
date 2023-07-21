@@ -24,7 +24,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
+struct SwiftProtoTesting_Generated_GeneratedSwiftReservedFields {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -4722,14 +4722,14 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: @unchecked Sendable {}
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest_generated"
+fileprivate let _protobuf_package = "swift_proto_testing.generated"
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".GeneratedSwiftReservedFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "adjusted"),
@@ -11330,7 +11330,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedFields, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedFields) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedFields, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedFields) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

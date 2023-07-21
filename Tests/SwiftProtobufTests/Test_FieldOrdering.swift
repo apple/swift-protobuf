@@ -21,7 +21,7 @@ import Foundation
 import XCTest
 
 class Test_FieldOrdering: XCTestCase {
-    typealias MessageTestType = Swift_Protobuf_TestFieldOrderings
+    typealias MessageTestType = SwiftProtoTesting_Order_TestFieldOrderings
 
     func test_FieldOrdering() throws {
         var m = MessageTestType()
@@ -32,8 +32,8 @@ class Test_FieldOrdering: XCTestCase {
         nest.oo = 1
         nest.bb = 2
         m.optionalNestedMessage = nest
-        m.Swift_Protobuf_myExtensionInt = 12
-        m.Swift_Protobuf_myExtensionString = "def"
+        m.SwiftProtoTesting_Order_myExtensionInt = 12
+        m.SwiftProtoTesting_Order_myExtensionString = "def"
         m.oneofInt32 = 7
 
         let encoded1: [UInt8] = try m.serializedBytes()

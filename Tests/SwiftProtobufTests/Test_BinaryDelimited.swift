@@ -21,7 +21,7 @@ class Test_BinaryDelimited: XCTestCase {
     let stream1 = OutputStream.toMemory()
     stream1.open()
 
-    let msg1 = ProtobufUnittest_TestAllTypes.with {
+    let msg1 = SwiftProtoTesting_TestAllTypes.with {
       $0.optionalBool = true
       $0.optionalInt32 = 123
       $0.optionalInt64 = 123456789
@@ -33,7 +33,7 @@ class Test_BinaryDelimited: XCTestCase {
 
     XCTAssertNoThrow(try BinaryDelimited.serialize(message: msg1, to: stream1))
 
-    let msg2 = ProtobufUnittest_TestPackedTypes.with {
+    let msg2 = SwiftProtoTesting_TestPackedTypes.with {
       $0.packedBool.append(true)
       $0.packedInt32.append(234)
       $0.packedDouble.append(345.67)
@@ -48,13 +48,13 @@ class Test_BinaryDelimited: XCTestCase {
     let stream2 = InputStream(data: data)
     stream2.open()
 
-    var msg1a = ProtobufUnittest_TestAllTypes()
+    var msg1a = SwiftProtoTesting_TestAllTypes()
     XCTAssertNoThrow(try BinaryDelimited.merge(into: &msg1a, from: stream2))
     XCTAssertEqual(msg1, msg1a)
 
     do {
       let msg2a = try BinaryDelimited.parse(
-        messageType: ProtobufUnittest_TestPackedTypes.self,
+        messageType: SwiftProtoTesting_TestPackedTypes.self,
         from: stream2)
       XCTAssertEqual(msg2, msg2a)
     } catch let e {
@@ -62,7 +62,7 @@ class Test_BinaryDelimited: XCTestCase {
     }
 
     do {
-      _ = try BinaryDelimited.parse(messageType: ProtobufUnittest_TestAllTypes.self, from: stream2)
+      _ = try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self, from: stream2)
       XCTFail("Should not have gotten here")
     } catch BinaryDelimited.Error.truncated {
       // Nothing, this is what we expect since there is nothing left to read.

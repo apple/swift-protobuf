@@ -30,7 +30,7 @@
 
 syntax = "proto3";
 
-package proto3_preserve_unknown_enum_unittest;
+package swift_proto_testing.unknown_enum.proto3;
 
 enum MyEnum {
   FOO = 0;

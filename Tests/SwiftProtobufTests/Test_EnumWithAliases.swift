@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 
 class Test_EnumWithAliases: XCTestCase, PBTestHelpers {
-  typealias MessageTestType = ProtobufUnittest_SwiftEnumWithAliasTest
+  typealias MessageTestType = SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest
 
   func testJSONEncodeUsesOriginalNames() {
     assertJSONEncode("{\"values\":[\"FOO1\",\"BAR1\"]}") { (m: inout MessageTestType) in

@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_OneOfOptionMessage1 {
+struct SwiftProtoTesting_OneOfOptionMessage1 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -71,7 +71,7 @@ struct ProtobufUnittest_OneOfOptionMessage1 {
   fileprivate var _requiredField: Int32? = nil
 }
 
-struct ProtobufUnittest_OneOfOptionMessage2 {
+struct SwiftProtoTesting_OneOfOptionMessage2 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,33 +92,33 @@ struct ProtobufUnittest_OneOfOptionMessage2 {
   fileprivate var _requiredField: Int32? = nil
 }
 
-struct ProtobufUnittest_OneOfContainer {
+struct SwiftProtoTesting_OneOfContainer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var option: ProtobufUnittest_OneOfContainer.OneOf_Option? = nil
+  var option: SwiftProtoTesting_OneOfContainer.OneOf_Option? = nil
 
-  var option1: ProtobufUnittest_OneOfOptionMessage1 {
+  var option1: SwiftProtoTesting_OneOfOptionMessage1 {
     get {
       if case .option1(let v)? = option {return v}
-      return ProtobufUnittest_OneOfOptionMessage1()
+      return SwiftProtoTesting_OneOfOptionMessage1()
     }
     set {option = .option1(newValue)}
   }
 
-  var option2: ProtobufUnittest_OneOfOptionMessage2 {
+  var option2: SwiftProtoTesting_OneOfOptionMessage2 {
     get {
       if case .option2(let v)? = option {return v}
-      return ProtobufUnittest_OneOfOptionMessage2()
+      return SwiftProtoTesting_OneOfOptionMessage2()
     }
     set {option = .option2(newValue)}
   }
 
-  var option3: ProtobufUnittest_OneOfContainer.Option3 {
+  var option3: SwiftProtoTesting_OneOfContainer.Option3 {
     get {
       if case .option3(let v)? = option {return v}
-      return ProtobufUnittest_OneOfContainer.Option3()
+      return SwiftProtoTesting_OneOfContainer.Option3()
     }
     set {option = .option3(newValue)}
   }
@@ -134,9 +134,9 @@ struct ProtobufUnittest_OneOfContainer {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Option: Equatable {
-    case option1(ProtobufUnittest_OneOfOptionMessage1)
-    case option2(ProtobufUnittest_OneOfOptionMessage2)
-    case option3(ProtobufUnittest_OneOfContainer.Option3)
+    case option1(SwiftProtoTesting_OneOfOptionMessage1)
+    case option2(SwiftProtoTesting_OneOfOptionMessage2)
+    case option3(SwiftProtoTesting_OneOfContainer.Option3)
     case option4(Int32)
 
     fileprivate var isInitialized: Bool {
@@ -197,18 +197,18 @@ struct ProtobufUnittest_OneOfContainer {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_OneOfOptionMessage1: @unchecked Sendable {}
-extension ProtobufUnittest_OneOfOptionMessage2: @unchecked Sendable {}
-extension ProtobufUnittest_OneOfContainer: @unchecked Sendable {}
-extension ProtobufUnittest_OneOfContainer.OneOf_Option: @unchecked Sendable {}
-extension ProtobufUnittest_OneOfContainer.Option3: @unchecked Sendable {}
+extension SwiftProtoTesting_OneOfOptionMessage1: @unchecked Sendable {}
+extension SwiftProtoTesting_OneOfOptionMessage2: @unchecked Sendable {}
+extension SwiftProtoTesting_OneOfContainer: @unchecked Sendable {}
+extension SwiftProtoTesting_OneOfContainer.OneOf_Option: @unchecked Sendable {}
+extension SwiftProtoTesting_OneOfContainer.Option3: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage1"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "requiredField"),
@@ -242,14 +242,14 @@ extension ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OneOfOptionMessage1, rhs: ProtobufUnittest_OneOfOptionMessage1) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_OneOfOptionMessage1, rhs: SwiftProtoTesting_OneOfOptionMessage1) -> Bool {
     if lhs._requiredField != rhs._requiredField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage2"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "requiredField"),
@@ -283,14 +283,14 @@ extension ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OneOfOptionMessage2, rhs: ProtobufUnittest_OneOfOptionMessage2) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_OneOfOptionMessage2, rhs: SwiftProtoTesting_OneOfOptionMessage2) -> Bool {
     if lhs._requiredField != rhs._requiredField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "option1"),
@@ -311,7 +311,7 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try {
-        var v: ProtobufUnittest_OneOfOptionMessage1?
+        var v: SwiftProtoTesting_OneOfOptionMessage1?
         var hadOneofValue = false
         if let current = self.option {
           hadOneofValue = true
@@ -324,7 +324,7 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
         }
       }()
       case 2: try {
-        var v: ProtobufUnittest_OneOfOptionMessage2?
+        var v: SwiftProtoTesting_OneOfOptionMessage2?
         var hadOneofValue = false
         if let current = self.option {
           hadOneofValue = true
@@ -337,7 +337,7 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
         }
       }()
       case 3: try {
-        var v: ProtobufUnittest_OneOfContainer.Option3?
+        var v: SwiftProtoTesting_OneOfContainer.Option3?
         var hadOneofValue = false
         if let current = self.option {
           hadOneofValue = true
@@ -389,15 +389,15 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OneOfContainer, rhs: ProtobufUnittest_OneOfContainer) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_OneOfContainer, rhs: SwiftProtoTesting_OneOfContainer) -> Bool {
     if lhs.option != rhs.option {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_OneOfContainer.protoMessageName + ".Option3"
+extension SwiftProtoTesting_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_OneOfContainer.protoMessageName + ".Option3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     4: .same(proto: "a"),
     5: .same(proto: "b"),
@@ -435,7 +435,7 @@ extension ProtobufUnittest_OneOfContainer.Option3: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_OneOfContainer.Option3, rhs: ProtobufUnittest_OneOfContainer.Option3) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_OneOfContainer.Option3, rhs: SwiftProtoTesting_OneOfContainer.Option3) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs._b != rhs._b {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

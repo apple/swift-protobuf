@@ -27,24 +27,24 @@ extension AnyMessageExtension {
 
 // Define some extension to use for testing behaviors.
 
-let ext1 = MessageExtension<OptionalExtensionField<ProtobufInt32>, ProtobufUnittest_TestAllExtensions>(
+let ext1 = MessageExtension<OptionalExtensionField<ProtobufInt32>, SwiftProtoTesting_TestAllExtensions>(
   _protobuf_fieldNumber: 1,
   fieldName: "my_ext1"
 )
 
-let ext2 = MessageExtension<OptionalExtensionField<ProtobufInt64>, ProtobufUnittest_TestAllExtensions>(
+let ext2 = MessageExtension<OptionalExtensionField<ProtobufInt64>, SwiftProtoTesting_TestAllExtensions>(
   _protobuf_fieldNumber: 2,
   fieldName: "my_ext2"
 )
 
 // Same field number as ext1, but different class being extended.
-let ext3 = MessageExtension<OptionalExtensionField<ProtobufDouble>, ProtobufUnittest_TestPackedExtensions>(
+let ext3 = MessageExtension<OptionalExtensionField<ProtobufDouble>, SwiftProtoTesting_TestPackedExtensions>(
   _protobuf_fieldNumber: 1,
   fieldName: "my_ext1b"
 )
 
 // Same field number and message type as ext2, so it will replace it in the mapping.
-let ext4 = MessageExtension<OptionalExtensionField<ProtobufBool>, ProtobufUnittest_TestAllExtensions>(
+let ext4 = MessageExtension<OptionalExtensionField<ProtobufBool>, SwiftProtoTesting_TestAllExtensions>(
   _protobuf_fieldNumber: 2,
   fieldName: "my_ext4"
 )
@@ -169,7 +169,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     let lookup2 = map1[ext2.messageType, ext2.fieldNumber]
     XCTAssertTrue(lookup2!.isEqual(ext2))
 
-    let lookup3 = map1[ProtobufUnittest_TestAllTypes.self, ext1.fieldNumber]
+    let lookup3 = map1[SwiftProtoTesting_TestAllTypes.self, ext1.fieldNumber]
     XCTAssertNil(lookup3)
 
     let lookup4 = map1[ext1.messageType, 999]
@@ -201,7 +201,7 @@ class Test_SimpleExtensionMap: XCTestCase {
                                            protoFieldName: "foo_bar_baz")
     XCTAssertNil(lookup3)
 
-    let lookup4 = map1.fieldNumberForProto(messageType: ProtobufUnittest_TestAllTypes.self,
+    let lookup4 = map1.fieldNumberForProto(messageType: SwiftProtoTesting_TestAllTypes.self,
                                            protoFieldName: ext1.fieldName)
     XCTAssertNil(lookup4)
 

@@ -16,7 +16,7 @@
 
 // proto2 syntax is used so the has*/clear* names also get generated.
 syntax = "proto2";
-package swift_unittest.names;
+package swift_proto_testing.names;
 
 // TODO: Build a MessageNames message with a submessage of every name below
 // TODO: Create tests that access every field, enum, message to verify the name is generated correctly

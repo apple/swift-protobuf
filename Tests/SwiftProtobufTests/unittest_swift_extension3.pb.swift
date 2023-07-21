@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_Extend3_MyMessage {
+struct SwiftProtoTesting_Extend3_MyMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -69,7 +69,7 @@ struct ProtobufUnittest_Extend3_MyMessage {
   init() {}
 }
 
-struct ProtobufUnittest_Extend3_C {
+struct SwiftProtoTesting_Extend3_C {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -91,9 +91,9 @@ struct ProtobufUnittest_Extend3_C {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_Extend3_MyMessage: @unchecked Sendable {}
-extension ProtobufUnittest_Extend3_MyMessage.C: @unchecked Sendable {}
-extension ProtobufUnittest_Extend3_C: @unchecked Sendable {}
+extension SwiftProtoTesting_Extend3_MyMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Extend3_MyMessage.C: @unchecked Sendable {}
+extension SwiftProtoTesting_Extend3_C: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_extension3.proto.
@@ -105,116 +105,116 @@ extension ProtobufUnittest_Extend3_C: @unchecked Sendable {}
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
 
-  var ProtobufUnittest_Extend3_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b, value: newValue)}
+  var SwiftProtoTesting_Extend3_b: String {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_b) ?? String()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_b, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extend3_Extensions_b`
+  /// Returns true if extension `SwiftProtoTesting_Extend3_Extensions_b`
   /// has been explicitly set.
-  var hasProtobufUnittest_Extend3_b: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b)
+  var hasSwiftProtoTesting_Extend3_b: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_b)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extend3_Extensions_b`.
+  /// Clears the value of extension `SwiftProtoTesting_Extend3_Extensions_b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Extend3_b() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b)
-  }
-
-  var ProtobufUnittest_Extend3_c: ProtobufUnittest_Extend3_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C) ?? ProtobufUnittest_Extend3_C()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C, value: newValue)}
-  }
-  /// Returns true if extension `ProtobufUnittest_Extend3_Extensions_C`
-  /// has been explicitly set.
-  var hasProtobufUnittest_Extend3_c: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C)
-  }
-  /// Clears the value of extension `ProtobufUnittest_Extend3_Extensions_C`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Extend3_c() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C)
+  mutating func clearSwiftProtoTesting_Extend3_b() {
+    clearExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_b)
   }
 
-  var ProtobufUnittest_Extend3_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b, value: newValue)}
+  var SwiftProtoTesting_Extend3_c: SwiftProtoTesting_Extend3_C {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_C) ?? SwiftProtoTesting_Extend3_C()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_C, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extend3_MyMessage.Extensions.b`
+  /// Returns true if extension `SwiftProtoTesting_Extend3_Extensions_C`
   /// has been explicitly set.
-  var hasProtobufUnittest_Extend3_MyMessage_b: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)
+  var hasSwiftProtoTesting_Extend3_c: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_C)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extend3_MyMessage.Extensions.b`.
+  /// Clears the value of extension `SwiftProtoTesting_Extend3_Extensions_C`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Extend3_MyMessage_b() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)
+  mutating func clearSwiftProtoTesting_Extend3_c() {
+    clearExtensionValue(ext: SwiftProtoTesting_Extend3_Extensions_C)
   }
 
-  var ProtobufUnittest_Extend3_MyMessage_c: ProtobufUnittest_Extend3_MyMessage.C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend3_MyMessage.C()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C, value: newValue)}
+  var SwiftProtoTesting_Extend3_MyMessage_b: String {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.b) ?? String()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.b, value: newValue)}
   }
-  /// Returns true if extension `ProtobufUnittest_Extend3_MyMessage.Extensions.C`
+  /// Returns true if extension `SwiftProtoTesting_Extend3_MyMessage.Extensions.b`
   /// has been explicitly set.
-  var hasProtobufUnittest_Extend3_MyMessage_c: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)
+  var hasSwiftProtoTesting_Extend3_MyMessage_b: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.b)
   }
-  /// Clears the value of extension `ProtobufUnittest_Extend3_MyMessage.Extensions.C`.
+  /// Clears the value of extension `SwiftProtoTesting_Extend3_MyMessage.Extensions.b`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearProtobufUnittest_Extend3_MyMessage_c() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)
+  mutating func clearSwiftProtoTesting_Extend3_MyMessage_b() {
+    clearExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.b)
+  }
+
+  var SwiftProtoTesting_Extend3_MyMessage_c: SwiftProtoTesting_Extend3_MyMessage.C {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.C) ?? SwiftProtoTesting_Extend3_MyMessage.C()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.C, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Extend3_MyMessage.Extensions.C`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_Extend3_MyMessage_c: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.C)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Extend3_MyMessage.Extensions.C`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_Extend3_MyMessage_c() {
+    clearExtensionValue(ext: SwiftProtoTesting_Extend3_MyMessage.Extensions.C)
   }
 
 }
 
-// MARK: - File's ExtensionMap: ProtobufUnittest_Extend3_UnittestSwiftExtension3_Extensions
+// MARK: - File's ExtensionMap: SwiftProtoTesting_Extend3_UnittestSwiftExtension3_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let ProtobufUnittest_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  ProtobufUnittest_Extend3_Extensions_b,
-  ProtobufUnittest_Extend3_Extensions_C,
-  ProtobufUnittest_Extend3_MyMessage.Extensions.b,
-  ProtobufUnittest_Extend3_MyMessage.Extensions.C
+let SwiftProtoTesting_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_Extend3_Extensions_b,
+  SwiftProtoTesting_Extend3_Extensions_C,
+  SwiftProtoTesting_Extend3_MyMessage.Extensions.b,
+  SwiftProtoTesting_Extend3_MyMessage.Extensions.C
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let ProtobufUnittest_Extend3_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+let SwiftProtoTesting_Extend3_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 320,
-  fieldName: "protobuf_unittest.extend3.b"
+  fieldName: "swift_proto_testing.extend3.b"
 )
 
-let ProtobufUnittest_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_Extend3_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+let SwiftProtoTesting_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend3_C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 321,
-  fieldName: "protobuf_unittest.extend3.c"
+  fieldName: "swift_proto_testing.extend3.c"
 )
 
-extension ProtobufUnittest_Extend3_MyMessage {
+extension SwiftProtoTesting_Extend3_MyMessage {
   enum Extensions {
-    static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+    static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 310,
-      fieldName: "protobuf_unittest.extend3.MyMessage.b"
+      fieldName: "swift_proto_testing.extend3.MyMessage.b"
     )
 
-    static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_Extend3_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+    static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<SwiftProtoTesting_Extend3_MyMessage.C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 311,
-      fieldName: "protobuf_unittest.extend3.MyMessage.c"
+      fieldName: "swift_proto_testing.extend3.MyMessage.c"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest.extend3"
+fileprivate let _protobuf_package = "swift_proto_testing.extend3"
 
-extension ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -227,14 +227,14 @@ extension ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Extend3_MyMessage, rhs: ProtobufUnittest_Extend3_MyMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Extend3_MyMessage, rhs: SwiftProtoTesting_Extend3_MyMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_Extend3_MyMessage.protoMessageName + ".C"
+extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Extend3_MyMessage.protoMessageName + ".C"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1310: .same(proto: "c"),
   ]
@@ -262,14 +262,14 @@ extension ProtobufUnittest_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Extend3_MyMessage.C, rhs: ProtobufUnittest_Extend3_MyMessage.C) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Extend3_MyMessage.C, rhs: SwiftProtoTesting_Extend3_MyMessage.C) -> Bool {
     if lhs._c != rhs._c {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".C"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1320: .same(proto: "c"),
@@ -298,7 +298,7 @@ extension ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Extend3_C, rhs: ProtobufUnittest_Extend3_C) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Extend3_C, rhs: SwiftProtoTesting_Extend3_C) -> Bool {
     if lhs._c != rhs._c {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

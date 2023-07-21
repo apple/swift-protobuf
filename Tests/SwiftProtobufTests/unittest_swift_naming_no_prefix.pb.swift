@@ -83,7 +83,7 @@ extension BaseMessage {
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
 
   var http: Int32 {
     get {return getExtensionValue(ext: Extensions_http) ?? 0}
@@ -341,7 +341,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
 
   var http: Int32 {
     get {return getExtensionValue(ext: Extensions_HTTP) ?? 0}
@@ -584,7 +584,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
 
   var http: Int32 {
     get {return getExtensionValue(ext: Extensions_Http) ?? 0}
@@ -891,247 +891,247 @@ let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Extensions_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 101,
   fieldName: "http"
 )
 
-let Extensions_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 102,
   fieldName: "http_request"
 )
 
-let Extensions_the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 103,
   fieldName: "the_http_request"
 )
 
-let Extensions_the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 104,
   fieldName: "the_http"
 )
 
-let Extensions_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 111,
   fieldName: "https"
 )
 
-let Extensions_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 112,
   fieldName: "https_request"
 )
 
-let Extensions_the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 113,
   fieldName: "the_https_request"
 )
 
-let Extensions_the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 114,
   fieldName: "the_https"
 )
 
-let Extensions_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 121,
   fieldName: "url"
 )
 
-let Extensions_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 122,
   fieldName: "url_value"
 )
 
-let Extensions_the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 123,
   fieldName: "the_url_value"
 )
 
-let Extensions_the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 124,
   fieldName: "the_url"
 )
 
-let Extensions_a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 131,
   fieldName: "a_b_c"
 )
 
-let Extensions_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 141,
   fieldName: "id"
 )
 
-let Extensions_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 142,
   fieldName: "id_number"
 )
 
-let Extensions_the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 143,
   fieldName: "the_id_number"
 )
 
-let Extensions_request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let Extensions_request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 144,
   fieldName: "request_id"
 )
 
-let Extensions_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 101,
   fieldName: "HTTP"
 )
 
-let Extensions_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 102,
   fieldName: "HTTP_request"
 )
 
-let Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 103,
   fieldName: "the_HTTP_request"
 )
 
-let Extensions_the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 104,
   fieldName: "the_HTTP"
 )
 
-let Extensions_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 111,
   fieldName: "HTTPS"
 )
 
-let Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 112,
   fieldName: "HTTPS_request"
 )
 
-let Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 113,
   fieldName: "the_HTTPS_request"
 )
 
-let Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 114,
   fieldName: "the_HTTPS"
 )
 
-let Extensions_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 121,
   fieldName: "URL"
 )
 
-let Extensions_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 122,
   fieldName: "URL_value"
 )
 
-let Extensions_the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 123,
   fieldName: "the_URL_value"
 )
 
-let Extensions_the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 124,
   fieldName: "the_URL"
 )
 
-let Extensions_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 141,
   fieldName: "ID"
 )
 
-let Extensions_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 142,
   fieldName: "ID_number"
 )
 
-let Extensions_the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 143,
   fieldName: "the_ID_number"
 )
 
-let Extensions_request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let Extensions_request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 144,
   fieldName: "request_ID"
 )
 
-let Extensions_Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 101,
   fieldName: "Http"
 )
 
-let Extensions_HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 102,
   fieldName: "HttpRequest"
 )
 
-let Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 103,
   fieldName: "TheHttpRequest"
 )
 
-let Extensions_TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 104,
   fieldName: "TheHttp"
 )
 
-let Extensions_Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 111,
   fieldName: "Https"
 )
 
-let Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 112,
   fieldName: "HttpsRequest"
 )
 
-let Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 113,
   fieldName: "TheHttpsRequest"
 )
 
-let Extensions_TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 114,
   fieldName: "TheHttps"
 )
 
-let Extensions_Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 121,
   fieldName: "Url"
 )
 
-let Extensions_UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 122,
   fieldName: "UrlValue"
 )
 
-let Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 123,
   fieldName: "TheUrlValue"
 )
 
-let Extensions_TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 124,
   fieldName: "TheUrl"
 )
 
-let Extensions_Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 141,
   fieldName: "Id"
 )
 
-let Extensions_IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 142,
   fieldName: "IdNumber"
 )
 
-let Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 143,
   fieldName: "TheIdNumber"
 )
 
-let Extensions_RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let Extensions_RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 144,
   fieldName: "RequestId"
 )

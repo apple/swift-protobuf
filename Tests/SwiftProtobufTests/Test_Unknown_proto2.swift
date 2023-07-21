@@ -21,14 +21,14 @@ import SwiftProtobuf
 // proto2 messages.
 
 class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestEmptyMessage
+    typealias MessageTestType = SwiftProtoTesting_TestEmptyMessage
 
     /// Verify that json decode ignores the provided fields but otherwise succeeds
     func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             var options = JSONDecodingOptions()
             options.ignoreUnknownFields = true
-            let empty = try ProtobufUnittest_TestEmptyMessage(jsonString: json, options: options)
+            let empty = try SwiftProtoTesting_TestEmptyMessage(jsonString: json, options: options)
             do {
                 let json = try empty.jsonString()
                 XCTAssertEqual("{}", json, file: file, line: line)
@@ -44,7 +44,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     func testBinaryPB() {
         func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
-                let empty = try ProtobufUnittest_TestEmptyMessage(serializedBytes: protobufBytes)
+                let empty = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: protobufBytes)
                 do {
                     let pb: [UInt8] = try empty.serializedBytes()
                     XCTAssertEqual(protobufBytes, pb, file: file, line: line)
@@ -56,7 +56,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
-            XCTAssertThrowsError(try ProtobufUnittest_TestEmptyMessage(serializedBytes: protobufBytes), file: file, line: line)
+            XCTAssertThrowsError(try SwiftProtoTesting_TestEmptyMessage(serializedBytes: protobufBytes), file: file, line: line)
         }
         // Well-formed input should decode/recode as-is; malformed input should fail to decode
         assertFails([0]) // Invalid field number
@@ -164,7 +164,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     }
 
     func test_MessageNoStorageClass() throws {
-        var msg1 = ProtobufUnittest_Msg2NoStorage()
+        var msg1 = SwiftProtoTesting_Msg2NoStorage()
         assertUnknownFields(msg1, [])
 
         try msg1.merge(serializedBytes: [24, 1])  // Field 3, varint
@@ -184,7 +184,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     }
 
     func test_MessageUsingStorageClass() throws {
-        var msg1 = ProtobufUnittest_Msg2UsesStorage()
+        var msg1 = SwiftProtoTesting_Msg2UsesStorage()
         assertUnknownFields(msg1, [])
 
         try msg1.merge(serializedBytes: [24, 1])  // Field 3, varint

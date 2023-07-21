@@ -23,7 +23,7 @@ import "unittest_swift_naming.proto";
 // No prefix, so these end up with global names and directly added to the message they
 // extend.
 
-extend swift_unittest.names.ExtensionNamingInitialsLowers {
+extend swift_proto_testing.names.ExtensionNamingInitialsLowers {
   optional int32 http = 101;
   optional int32 http_request = 102;
   optional int32 the_http_request = 103;
@@ -47,7 +47,7 @@ extend swift_unittest.names.ExtensionNamingInitialsLowers {
   optional int32 request_id = 144;
 }
 
-extend swift_unittest.names.ExtensionNamingInitialsUppers {
+extend swift_proto_testing.names.ExtensionNamingInitialsUppers {
   optional int32 HTTP = 101;
   optional int32 HTTP_request = 102;
   optional int32 the_HTTP_request = 103;
@@ -69,7 +69,7 @@ extend swift_unittest.names.ExtensionNamingInitialsUppers {
   optional int32 request_ID = 144;
 }
 
-extend swift_unittest.names.ExtensionNamingInitialsWordCase {
+extend swift_proto_testing.names.ExtensionNamingInitialsWordCase {
   optional int32 Http = 101;
   optional int32 HttpRequest = 102;
   optional int32 TheHttpRequest = 103;

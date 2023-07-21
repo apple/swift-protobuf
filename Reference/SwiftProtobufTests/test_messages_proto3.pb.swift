@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// submessages of this message.  So for example, a fuzz test of TestAllTypes
 /// could trigger bugs that occur in any message type in this file.  We verify
 /// this stays true in a unit test.
-struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
+struct SwiftProtoTesting_Test3_TestAllTypesProto3 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -138,8 +138,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
-  var optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage()}
+  var optionalNestedMessage: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage {
+    get {return _storage._optionalNestedMessage ?? SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -147,7 +147,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_uniqueStorage()._optionalNestedMessage = nil}
 
-  var optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum {
+  var optionalNestedEnum: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum {
     get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
@@ -228,12 +228,12 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  var repeatedNestedMessage: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage] {
+  var repeatedNestedMessage: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  var repeatedNestedEnum: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] {
+  var repeatedNestedEnum: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
@@ -314,12 +314,12 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
-  var mapStringNestedMessage: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage> {
+  var mapStringNestedMessage: Dictionary<String,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage> {
     get {return _storage._mapStringNestedMessage}
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
-  var mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum> {
+  var mapStringNestedEnum: Dictionary<String,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum> {
     get {return _storage._mapStringNestedEnum}
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
@@ -337,10 +337,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
-  var oneofNestedMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage {
+  var oneofNestedMessage: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage {
     get {
       if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
-      return ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage()
+      return SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage()
     }
     set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
@@ -393,7 +393,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     set {_uniqueStorage()._oneofField = .oneofDouble(newValue)}
   }
 
-  var oneofEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum {
+  var oneofEnum: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum {
     get {
       if case .oneofEnum(let v)? = _storage._oneofField {return v}
       return .foo
@@ -726,14 +726,14 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
-    case oneofNestedMessage(ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage)
+    case oneofNestedMessage(SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
     case oneofBool(Bool)
     case oneofUint64(UInt64)
     case oneofFloat(Float)
     case oneofDouble(Double)
-    case oneofEnum(ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum)
+    case oneofEnum(SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum)
     case oneofNullValue(SwiftProtobuf.Google_Protobuf_NullValue)
 
   }
@@ -773,7 +773,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
+    static let allCases: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum] = [
       .foo,
       .bar,
       .baz,
@@ -792,8 +792,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
       set {_uniqueStorage()._a = newValue}
     }
 
-    var corecursive: ProtobufTestMessages_Proto3_TestAllTypesProto3 {
-      get {return _storage._corecursive ?? ProtobufTestMessages_Proto3_TestAllTypesProto3()}
+    var corecursive: SwiftProtoTesting_Test3_TestAllTypesProto3 {
+      get {return _storage._corecursive ?? SwiftProtoTesting_Test3_TestAllTypesProto3()}
       set {_uniqueStorage()._corecursive = newValue}
     }
     /// Returns true if `corecursive` has been explicitly set.
@@ -814,16 +814,16 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {}
+extension SwiftProtoTesting_Test3_TestAllTypesProto3.OneOf_OneofField: @unchecked Sendable {}
+extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_test_messages.proto3"
+fileprivate let _protobuf_package = "swift_proto_testing.test3"
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Test3_TestAllTypesProto3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesProto3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -955,8 +955,8 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _optionalBool: Bool = false
     var _optionalString: String = String()
     var _optionalBytes: Data = Data()
-    var _optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage? = nil
-    var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum = .foo
+    var _optionalNestedMessage: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage? = nil
+    var _optionalNestedEnum: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum = .foo
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -972,8 +972,8 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
     var _repeatedBytes: [Data] = []
-    var _repeatedNestedMessage: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage] = []
-    var _repeatedNestedEnum: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = []
+    var _repeatedNestedMessage: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage] = []
+    var _repeatedNestedEnum: [SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum] = []
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -989,9 +989,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
     var _mapStringBytes: Dictionary<String,Data> = [:]
-    var _mapStringNestedMessage: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage> = [:]
-    var _mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum> = [:]
-    var _oneofField: ProtobufTestMessages_Proto3_TestAllTypesProto3.OneOf_OneofField?
+    var _mapStringNestedMessage: Dictionary<String,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage> = [:]
+    var _mapStringNestedEnum: Dictionary<String,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum> = [:]
+    var _oneofField: SwiftProtoTesting_Test3_TestAllTypesProto3.OneOf_OneofField?
     var _optionalBoolWrapper: SwiftProtobuf.Google_Protobuf_BoolValue? = nil
     var _optionalInt32Wrapper: SwiftProtobuf.Google_Protobuf_Int32Value? = nil
     var _optionalInt64Wrapper: SwiftProtobuf.Google_Protobuf_Int64Value? = nil
@@ -1217,8 +1217,8 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         case 68: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool) }()
         case 69: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString) }()
         case 70: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapStringBytes) }()
-        case 71: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage>.self, value: &_storage._mapStringNestedMessage) }()
-        case 73: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum>.self, value: &_storage._mapStringNestedEnum) }()
+        case 71: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage>.self, value: &_storage._mapStringNestedMessage) }()
+        case 73: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum>.self, value: &_storage._mapStringNestedEnum) }()
         case 111: try {
           var v: UInt32?
           try decoder.decodeSingularUInt32Field(value: &v)
@@ -1228,7 +1228,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
           }
         }()
         case 112: try {
-          var v: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage?
+          var v: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage?
           var hadOneofValue = false
           if let current = _storage._oneofField {
             hadOneofValue = true
@@ -1289,7 +1289,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
           }
         }()
         case 119: try {
-          var v: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum?
+          var v: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum?
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
@@ -1514,10 +1514,10 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapStringBytes, fieldNumber: 70)
       }
       if !_storage._mapStringNestedMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage>.self, value: _storage._mapStringNestedMessage, fieldNumber: 71)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage>.self, value: _storage._mapStringNestedMessage, fieldNumber: 71)
       }
       if !_storage._mapStringNestedEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum>.self, value: _storage._mapStringNestedEnum, fieldNumber: 73)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum>.self, value: _storage._mapStringNestedEnum, fieldNumber: 73)
       }
       switch _storage._oneofField {
       case .oneofUint32?: try {
@@ -1716,7 +1716,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufTestMessages_Proto3_TestAllTypesProto3, rhs: ProtobufTestMessages_Proto3_TestAllTypesProto3) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Test3_TestAllTypesProto3, rhs: SwiftProtoTesting_Test3_TestAllTypesProto3) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1832,7 +1832,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3: SwiftProtobuf.Message,
   }
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -1: .same(proto: "NEG"),
     0: .same(proto: "FOO"),
@@ -1841,8 +1841,8 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: SwiftProtob
   ]
 }
 
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufTestMessages_Proto3_TestAllTypesProto3.protoMessageName + ".NestedMessage"
+extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Test3_TestAllTypesProto3.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
     2: .same(proto: "corecursive"),
@@ -1850,7 +1850,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftPro
 
   fileprivate class _StorageClass {
     var _a: Int32 = 0
-    var _corecursive: ProtobufTestMessages_Proto3_TestAllTypesProto3? = nil
+    var _corecursive: SwiftProtoTesting_Test3_TestAllTypesProto3? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -1901,7 +1901,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage, rhs: ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage, rhs: SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

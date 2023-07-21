@@ -2,7 +2,7 @@
 // Protoc errors imply this file is being generated incorrectly
 // Swift compile errors are probably bugs in protoc-gen-swift
 syntax = "proto3";
-package protobuf_unittest_generated;
+package swift_proto_testing.generated;
 message GeneratedSwiftReservedEnums {
   enum adjusted { NONE_adjusted = 0; }
   enum aggregateValue { NONE_aggregateValue = 0; }

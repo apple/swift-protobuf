@@ -18,14 +18,14 @@
 
 syntax = "proto2";
 
-package protobuf_unittest.extend4;
+package swift_proto_testing.extend4;
 
 option swift_prefix = "Ext4";
 
 import "unittest_swift_extension.proto";
 
 message MyMessage {
-  extend protobuf_unittest.extend.Foo.Bar.Baz {
+  extend swift_proto_testing.extend.Foo.Bar.Baz {
      optional string b = 410;
      optional group C = 411 {
         optional int64 c = 1410;
@@ -33,7 +33,7 @@ message MyMessage {
   }
 }
 
-extend protobuf_unittest.extend.Foo.Bar.Baz {
+extend swift_proto_testing.extend.Foo.Bar.Baz {
   optional string b = 420;
   optional group C = 421 {
     optional int64 c = 1420;
