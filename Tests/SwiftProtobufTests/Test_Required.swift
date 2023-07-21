@@ -102,7 +102,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     func test_NestedInProto3_IsInitialized() {
         // message declared in proto3 syntax file, with fields that are another message that has
         // required fields.
-        var msg = Proto2NofieldpresenceUnittest_TestProto2Required()
+        var msg = Proto3Unittest_TestProto2Required()
 
         XCTAssertTrue(msg.isInitialized)
 
