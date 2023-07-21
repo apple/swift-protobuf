@@ -32,8 +32,6 @@ syntax = "proto3";
 
 package protobuf_unittest;
 
-import "google/protobuf/descriptor.proto";
-
 message TestProto3Optional {
   message NestedMessage {
     // The field name "b" fails to compile in proto1 because it conflicts with
