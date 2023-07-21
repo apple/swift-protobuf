@@ -40,8 +40,6 @@ package protobuf_unittest;
 
 import "unittest.proto";
 
-option optimize_for = CODE_SIZE;
-
 message TestOptimizedForSize {
   optional int32 i = 1;
   optional ForeignMessage msg = 19;
