@@ -40,10 +40,6 @@ package protobuf_unittest;
 
 import "unittest_optimize_for.proto";
 
-// We optimize for speed here, but we are importing a proto that is optimized
-// for code size.
-option optimize_for = SPEED;
-
 message TestEmbedOptimizedForSize {
   // Test that embedding a message which has optimize_for = CODE_SIZE into
   // one optimized for speed works.

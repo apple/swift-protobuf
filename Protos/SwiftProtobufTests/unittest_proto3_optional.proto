@@ -34,10 +34,6 @@ package protobuf_unittest;
 
 import "google/protobuf/descriptor.proto";
 
-option csharp_namespace = "ProtobufUnittest";
-option java_multiple_files = true;
-option java_package = "com.google.protobuf.testing.proto";
-
 message TestProto3Optional {
   message NestedMessage {
     // The field name "b" fails to compile in proto1 because it conflicts with
