@@ -52,7 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestAllRequiredTypes {
+struct SwiftProtoTesting_TestAllRequiredTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -193,8 +193,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredBytes`. Subsequent reads from it will return its default value.
   mutating func clearRequiredBytes() {_uniqueStorage()._requiredBytes = nil}
 
-  var requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup {
-    get {return _storage._requiredGroup ?? ProtobufUnittest_TestAllRequiredTypes.RequiredGroup()}
+  var requiredGroup: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup {
+    get {return _storage._requiredGroup ?? SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup()}
     set {_uniqueStorage()._requiredGroup = newValue}
   }
   /// Returns true if `requiredGroup` has been explicitly set.
@@ -202,8 +202,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredGroup`. Subsequent reads from it will return its default value.
   mutating func clearRequiredGroup() {_uniqueStorage()._requiredGroup = nil}
 
-  var requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
-    get {return _storage._requiredNestedMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
+  var requiredNestedMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage {
+    get {return _storage._requiredNestedMessage ?? SwiftProtoTesting_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredNestedMessage = newValue}
   }
   /// Returns true if `requiredNestedMessage` has been explicitly set.
@@ -211,8 +211,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredNestedMessage() {_uniqueStorage()._requiredNestedMessage = nil}
 
-  var requiredForeignMessage: ProtobufUnittest_ForeignMessage {
-    get {return _storage._requiredForeignMessage ?? ProtobufUnittest_ForeignMessage()}
+  var requiredForeignMessage: SwiftProtoTesting_ForeignMessage {
+    get {return _storage._requiredForeignMessage ?? SwiftProtoTesting_ForeignMessage()}
     set {_uniqueStorage()._requiredForeignMessage = newValue}
   }
   /// Returns true if `requiredForeignMessage` has been explicitly set.
@@ -220,8 +220,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredForeignMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredForeignMessage() {_uniqueStorage()._requiredForeignMessage = nil}
 
-  var requiredImportMessage: ProtobufUnittestImport_ImportMessage {
-    get {return _storage._requiredImportMessage ?? ProtobufUnittestImport_ImportMessage()}
+  var requiredImportMessage: SwiftProtoTesting_Import_ImportMessage {
+    get {return _storage._requiredImportMessage ?? SwiftProtoTesting_Import_ImportMessage()}
     set {_uniqueStorage()._requiredImportMessage = newValue}
   }
   /// Returns true if `requiredImportMessage` has been explicitly set.
@@ -229,7 +229,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredImportMessage() {_uniqueStorage()._requiredImportMessage = nil}
 
-  var requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
+  var requiredNestedEnum: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum {
     get {return _storage._requiredNestedEnum ?? .foo}
     set {_uniqueStorage()._requiredNestedEnum = newValue}
   }
@@ -238,7 +238,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearRequiredNestedEnum() {_uniqueStorage()._requiredNestedEnum = nil}
 
-  var requiredForeignEnum: ProtobufUnittest_ForeignEnum {
+  var requiredForeignEnum: SwiftProtoTesting_ForeignEnum {
     get {return _storage._requiredForeignEnum ?? .foreignFoo}
     set {_uniqueStorage()._requiredForeignEnum = newValue}
   }
@@ -247,7 +247,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearRequiredForeignEnum() {_uniqueStorage()._requiredForeignEnum = nil}
 
-  var requiredImportEnum: ProtobufUnittestImport_ImportEnum {
+  var requiredImportEnum: SwiftProtoTesting_Import_ImportEnum {
     get {return _storage._requiredImportEnum ?? .importFoo}
     set {_uniqueStorage()._requiredImportEnum = newValue}
   }
@@ -275,8 +275,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   mutating func clearRequiredCord() {_uniqueStorage()._requiredCord = nil}
 
   /// Defined in unittest_import_public.proto
-  var requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
-    get {return _storage._requiredPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
+  var requiredPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage {
+    get {return _storage._requiredPublicImportMessage ?? SwiftProtoTesting_Import_PublicImportMessage()}
     set {_uniqueStorage()._requiredPublicImportMessage = newValue}
   }
   /// Returns true if `requiredPublicImportMessage` has been explicitly set.
@@ -284,8 +284,8 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `requiredPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearRequiredPublicImportMessage() {_uniqueStorage()._requiredPublicImportMessage = nil}
 
-  var requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
-    get {return _storage._requiredLazyMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
+  var requiredLazyMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage {
+    get {return _storage._requiredLazyMessage ?? SwiftProtoTesting_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredLazyMessage = newValue}
   }
   /// Returns true if `requiredLazyMessage` has been explicitly set.
@@ -429,7 +429,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
   mutating func clearDefaultBytes() {_uniqueStorage()._defaultBytes = nil}
 
-  var defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
+  var defaultNestedEnum: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum {
     get {return _storage._defaultNestedEnum ?? .bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
@@ -438,7 +438,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultNestedEnum() {_uniqueStorage()._defaultNestedEnum = nil}
 
-  var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
+  var defaultForeignEnum: SwiftProtoTesting_ForeignEnum {
     get {return _storage._defaultForeignEnum ?? .foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
@@ -447,7 +447,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
   mutating func clearDefaultForeignEnum() {_uniqueStorage()._defaultForeignEnum = nil}
 
-  var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
+  var defaultImportEnum: SwiftProtoTesting_Import_ImportEnum {
     get {return _storage._defaultImportEnum ?? .importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
@@ -488,10 +488,10 @@ struct ProtobufUnittest_TestAllRequiredTypes {
     set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
-  var oneofNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
+  var oneofNestedMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
-      return ProtobufUnittest_TestAllRequiredTypes.NestedMessage()
+      return SwiftProtoTesting_TestAllRequiredTypes.NestedMessage()
     }
     set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
@@ -517,7 +517,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   /// For oneof test
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
-    case oneofNestedMessage(ProtobufUnittest_TestAllRequiredTypes.NestedMessage)
+    case oneofNestedMessage(SwiftProtoTesting_TestAllRequiredTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
 
@@ -612,7 +612,7 @@ struct ProtobufUnittest_TestAllRequiredTypes {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_TestSomeRequiredTypes {
+struct SwiftProtoTesting_TestSomeRequiredTypes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -663,7 +663,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes {
   /// Clears the value of `requiredBytes`. Subsequent reads from it will return its default value.
   mutating func clearRequiredBytes() {self._requiredBytes = nil}
 
-  var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum {
+  var requiredNestedEnum: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum {
     get {return _requiredNestedEnum ?? .foo}
     set {_requiredNestedEnum = newValue}
   }
@@ -704,22 +704,22 @@ struct ProtobufUnittest_TestSomeRequiredTypes {
   fileprivate var _requiredBool: Bool? = nil
   fileprivate var _requiredString: String? = nil
   fileprivate var _requiredBytes: Data? = nil
-  fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
+  fileprivate var _requiredNestedEnum: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum? = nil
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestAllRequiredTypes: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: @unchecked Sendable {}
-extension ProtobufUnittest_TestSomeRequiredTypes: @unchecked Sendable {}
+extension SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {}
+extension SwiftProtoTesting_TestAllRequiredTypes.OneOf_OneofField: @unchecked Sendable {}
+extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: @unchecked Sendable {}
+extension SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllRequiredTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_int32"),
@@ -790,17 +790,17 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
     var _requiredBool: Bool? = nil
     var _requiredString: String? = nil
     var _requiredBytes: Data? = nil
-    var _requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil
-    var _requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
-    var _requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil
-    var _requiredImportMessage: ProtobufUnittestImport_ImportMessage? = nil
-    var _requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
-    var _requiredForeignEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _requiredImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _requiredGroup: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup? = nil
+    var _requiredNestedMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage? = nil
+    var _requiredForeignMessage: SwiftProtoTesting_ForeignMessage? = nil
+    var _requiredImportMessage: SwiftProtoTesting_Import_ImportMessage? = nil
+    var _requiredNestedEnum: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum? = nil
+    var _requiredForeignEnum: SwiftProtoTesting_ForeignEnum? = nil
+    var _requiredImportEnum: SwiftProtoTesting_Import_ImportEnum? = nil
     var _requiredStringPiece: String? = nil
     var _requiredCord: String? = nil
-    var _requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
-    var _requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
+    var _requiredPublicImportMessage: SwiftProtoTesting_Import_PublicImportMessage? = nil
+    var _requiredLazyMessage: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage? = nil
     var _defaultInt32: Int32? = nil
     var _defaultInt64: Int64? = nil
     var _defaultUint32: UInt32? = nil
@@ -816,12 +816,12 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
     var _defaultBool: Bool? = nil
     var _defaultString: String? = nil
     var _defaultBytes: Data? = nil
-    var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
-    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _defaultNestedEnum: SwiftProtoTesting_TestAllRequiredTypes.NestedEnum? = nil
+    var _defaultForeignEnum: SwiftProtoTesting_ForeignEnum? = nil
+    var _defaultImportEnum: SwiftProtoTesting_Import_ImportEnum? = nil
     var _defaultStringPiece: String? = nil
     var _defaultCord: String? = nil
-    var _oneofField: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField?
+    var _oneofField: SwiftProtoTesting_TestAllRequiredTypes.OneOf_OneofField?
 
     static let defaultInstance = _StorageClass()
 
@@ -1004,7 +1004,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
           }
         }()
         case 112: try {
-          var v: ProtobufUnittest_TestAllRequiredTypes.NestedMessage?
+          var v: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage?
           var hadOneofValue = false
           if let current = _storage._oneofField {
             hadOneofValue = true
@@ -1205,7 +1205,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes, rhs: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes, rhs: SwiftProtoTesting_TestAllRequiredTypes) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1266,7 +1266,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPro
   }
 }
 
-extension ProtobufUnittest_TestAllRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestAllRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -1: .same(proto: "NEG"),
     1: .same(proto: "FOO"),
@@ -1275,8 +1275,8 @@ extension ProtobufUnittest_TestAllRequiredTypes.NestedEnum: SwiftProtobuf._Proto
   ]
 }
 
-extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestAllRequiredTypes.protoMessageName + ".NestedMessage"
+extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_TestAllRequiredTypes.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
   ]
@@ -1309,15 +1309,15 @@ extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.NestedMessage, rhs: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage, rhs: SwiftProtoTesting_TestAllRequiredTypes.NestedMessage) -> Bool {
     if lhs._bb != rhs._bb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittest_TestAllRequiredTypes.protoMessageName + ".RequiredGroup"
+extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_TestAllRequiredTypes.protoMessageName + ".RequiredGroup"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
   ]
@@ -1350,14 +1350,14 @@ extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup, rhs: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup, rhs: SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup) -> Bool {
     if lhs._a != rhs._a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestSomeRequiredTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_int32"),
@@ -1421,7 +1421,7 @@ extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestSomeRequiredTypes, rhs: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestSomeRequiredTypes, rhs: SwiftProtoTesting_TestSomeRequiredTypes) -> Bool {
     if lhs._requiredInt32 != rhs._requiredInt32 {return false}
     if lhs._requiredFloat != rhs._requiredFloat {return false}
     if lhs._requiredBool != rhs._requiredBool {return false}
@@ -1433,7 +1433,7 @@ extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-extension ProtobufUnittest_TestSomeRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FOO"),
   ]

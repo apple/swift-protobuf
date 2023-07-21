@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// A message with message_set_wire_format.
-struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -70,14 +70,14 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.ExtensibleMessage 
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Proto2WireformatUnittest_TestMessageSet: @unchecked Sendable {}
+extension SwiftProtoTesting_WireFormat_TestMessageSet: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto2_wireformat_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing.wire_format"
 
-extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSet"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -87,7 +87,7 @@ extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftP
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: Proto2WireformatUnittest_TestMessageSet.self)
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_WireFormat_TestMessageSet.self)
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -95,7 +95,7 @@ extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Proto2WireformatUnittest_TestMessageSet, rhs: Proto2WireformatUnittest_TestMessageSet) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_WireFormat_TestMessageSet, rhs: SwiftProtoTesting_WireFormat_TestMessageSet) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true

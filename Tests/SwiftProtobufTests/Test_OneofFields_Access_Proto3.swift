@@ -29,7 +29,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   // - Accepts/Captures default value
 
   func testOneofInt32() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofInt32, 0)
     XCTAssertNil(msg.o)
     msg.oneofInt32 = 51
@@ -44,7 +44,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofInt64() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofInt64, 0)
     XCTAssertNil(msg.o)
     msg.oneofInt64 = 52
@@ -59,7 +59,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofUint32() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofUint32, 0)
     XCTAssertNil(msg.o)
     msg.oneofUint32 = 53
@@ -74,7 +74,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofUint64() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofUint64, 0)
     XCTAssertNil(msg.o)
     msg.oneofUint64 = 54
@@ -89,7 +89,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofSint32() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofSint32, 0)
     XCTAssertNil(msg.o)
     msg.oneofSint32 = 55
@@ -104,7 +104,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofSint64() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofSint64, 0)
     XCTAssertNil(msg.o)
     msg.oneofSint64 = 56
@@ -119,7 +119,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofFixed32() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofFixed32, 0)
     XCTAssertNil(msg.o)
     msg.oneofFixed32 = 57
@@ -134,7 +134,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofFixed64() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofFixed64, 0)
     XCTAssertNil(msg.o)
     msg.oneofFixed64 = 58
@@ -149,7 +149,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofSfixed32() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofSfixed32, 0)
     XCTAssertNil(msg.o)
     msg.oneofSfixed32 = 59
@@ -164,7 +164,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofSfixed64() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofSfixed64, 0)
     XCTAssertNil(msg.o)
     msg.oneofSfixed64 = 60
@@ -179,7 +179,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofFloat() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofFloat, 0.0)
     XCTAssertNil(msg.o)
     msg.oneofFloat = 61.0
@@ -194,7 +194,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofDouble() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofDouble, 0.0)
     XCTAssertNil(msg.o)
     msg.oneofDouble = 62.0
@@ -209,7 +209,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofBool() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofBool, false)
     XCTAssertNil(msg.o)
     msg.oneofBool = true
@@ -224,7 +224,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofString() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofString, "")
     XCTAssertNil(msg.o)
     msg.oneofString = "64"
@@ -239,7 +239,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofBytes() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofBytes, Data())
     XCTAssertNil(msg.o)
     msg.oneofBytes = Data([65])
@@ -256,10 +256,10 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   // No group.
 
   func testOneofMessage() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
     XCTAssertNil(msg.o)
-    var subMsg = ProtobufUnittest_Message3()
+    var subMsg = SwiftProtoTesting_Message3()
     subMsg.optionalInt32 = 66
     msg.oneofMessage = subMsg
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 66)
@@ -274,7 +274,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
     XCTAssertNil(msg.o)
     // Default within the message
-    var subMsg2 = ProtobufUnittest_Message3()
+    var subMsg2 = SwiftProtoTesting_Message3()
     subMsg2.optionalInt32 = 0
     msg.oneofMessage = subMsg2
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
@@ -287,7 +287,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
     }
     msg.o = nil
     // Message with nothing set.
-    let subMsg3 = ProtobufUnittest_Message3()
+    let subMsg3 = SwiftProtoTesting_Message3()
     msg.oneofMessage = subMsg3
     XCTAssertEqual(msg.oneofMessage.optionalInt32, 0)
     XCTAssertEqual(msg.oneofMessage, subMsg3)
@@ -300,7 +300,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   }
 
   func testOneofEnum() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
     XCTAssertEqual(msg.oneofEnum, .foo)
     XCTAssertNil(msg.o)
     msg.oneofEnum = .bar
@@ -317,7 +317,7 @@ class Test_OneofFields_Access_Proto3: XCTestCase {
   // Chaining. Set each item in the oneof clear the previous one.
 
   func testOneofOnlyOneSet() {
-    var msg = ProtobufUnittest_Message3()
+    var msg = SwiftProtoTesting_Message3()
 
     func assertRightFiledSet(_ i: Int) {
       // Make sure the case is correct for the enum based access.

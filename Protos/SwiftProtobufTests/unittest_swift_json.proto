@@ -9,7 +9,7 @@
 
 syntax = "proto3";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 import "google/protobuf/struct.proto";
 

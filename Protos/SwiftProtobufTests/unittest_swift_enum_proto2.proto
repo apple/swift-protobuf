@@ -1,5 +1,5 @@
 // Protocol Buffers - Google's data interchange format
-// Copyright 2008 Google Inc.  All rights reserved.
+// Copyright 2015 Apple, Inc.  All Rights Reserved.
 // https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
@@ -30,20 +30,40 @@
 
 syntax = "proto2";
 
-package protobuf_objc_unittest;
+package swift_proto_testing.enum2;
 
-message TestObjCStartupMessage {
-  extensions 1 to max;
+message SwiftEnumTest {
+    enum EnumTest1 {
+        ENUM_TEST_1_FIRST_VALUE = 1;
+        ENUM_TEST_1_SECOND_VALUE = 2;
+    }
+    enum EnumTest2 {
+        ENUM_TEST_2_FIRST_VALUE = 1;
+        SECOND_VALUE = 2;
+    }
+    enum EnumTestNoStem {
+        ENUM_TEST_NO_STEM_1 = 1;
+        ENUM_TEST_NO_STEM_2 = 2;
+    }
+    enum EnumTestReservedWord {
+        ENUM_TEST_RESERVED_WORD_VAR = 1;
+        ENUM_TEST_RESERVED_WORD_NOT_RESERVED = 2;
+    }
+
+    repeated EnumTest1 values1 = 1;
+    repeated EnumTest2 values2 = 2;
+    repeated EnumTestNoStem values3 = 3;
+    repeated EnumTestReservedWord values4 = 4;
 }
 
-extend TestObjCStartupMessage {
-  // Singular
-  optional    int32 optional_int32_extension    = 1;
-  repeated    int32 repeated_int32_extension    = 2;
-}
-
-message TestObjCStartupNested {
-  extend TestObjCStartupMessage {
-    optional string nested_string_extension = 3;
-  }
+message SwiftEnumWithAliasTest {
+    enum EnumWithAlias {
+        option allow_alias = true;
+        FOO1 = 1;
+        FOO2 = 1;
+        BAZ1 = 3;  // out of value order to test allCases
+        BAR1 = 2;
+        BAR2 = 2;
+    }
+    repeated EnumWithAlias values = 1 [packed=true];
 }

@@ -23,7 +23,7 @@ import SwiftProtobuf
 // C++ arena support.
 
 class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestEmptyMessage
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestEmptyMessage
 
     /// Verify that json decode ignores the provided fields but otherwise succeeds
     func assertJSONIgnores(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) {
@@ -166,7 +166,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     }
 
     func test_MessageNoStorageClass() throws {
-        var msg1 = ProtobufUnittest_Msg3NoStorage()
+        var msg1 = SwiftProtoTesting_Msg3NoStorage()
         assertUnknownFields(msg1, [])
 
         try msg1.merge(serializedBytes: [24, 1])  // Field 3, varint
@@ -186,7 +186,7 @@ class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     }
 
     func test_MessageUsingStorageClass() throws {
-        var msg1 = ProtobufUnittest_Msg3UsesStorage()
+        var msg1 = SwiftProtoTesting_Msg3UsesStorage()
         assertUnknownFields(msg1, [])
 
         try msg1.merge(serializedBytes: [24, 1])  // Field 3, varint

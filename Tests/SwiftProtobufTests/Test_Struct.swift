@@ -65,7 +65,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         // "null" as a field value indicates the field is missing
         // (Except for Value, where "null" indicates NullValue)
         do {
-            let c1 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":null}")
+            let c1 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":null}")
             // null here decodes to an empty field.
             // See github.com/protocolbuffers/protobuf Issue #1327
             XCTAssertEqual(try c1.jsonString(), "{}")
@@ -74,7 +74,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
         }
 
         do {
-            let c2 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":{}}")
+            let c2 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString:"{\"optionalStruct\":{}}")
             XCTAssertNotNil(c2.optionalStruct)
             XCTAssertEqual(c2.optionalStruct.fields, [:])
         } catch let e {
@@ -240,7 +240,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("numb")
 
         do {
-            let m1 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalValue\": null}")
+            let m1 = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalValue\": null}")
             XCTAssertEqual(try m1.jsonString(), "{\"optionalValue\":null}")
             XCTAssertEqual(try m1.serializedBytes(), [146, 19, 2, 8, 0])
         } catch {
@@ -367,9 +367,9 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             + "    }\n"
             + "  }\n"
             + "}\n")
-        let m: ProtobufTestMessages_Proto3_TestAllTypesProto3
+        let m: SwiftProtoTesting_Test3_TestAllTypesProto3
         do {
-            m = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            m = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
         } catch {
             XCTFail("Decoding failed: \(json)")
             return
@@ -421,7 +421,7 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
             + "  \"optionalStruct\": null\n"
             + "}\n")
         do {
-            let decoded = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)
             let recoded = try decoded.jsonString()
             XCTAssertEqual(recoded, "{}")
         } catch {

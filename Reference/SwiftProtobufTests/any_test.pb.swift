@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestAny {
+struct SwiftProtoTesting_TestAny {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,14 +78,14 @@ struct ProtobufUnittest_TestAny {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestAny: @unchecked Sendable {}
+extension SwiftProtoTesting_TestAny: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int32_value"),
@@ -129,7 +129,7 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestAny, rhs: ProtobufUnittest_TestAny) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestAny, rhs: SwiftProtoTesting_TestAny) -> Bool {
     if lhs.int32Value != rhs.int32Value {return false}
     if lhs._anyValue != rhs._anyValue {return false}
     if lhs.repeatedAnyValue != rhs.repeatedAnyValue {return false}

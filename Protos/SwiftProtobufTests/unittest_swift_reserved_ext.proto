@@ -20,7 +20,7 @@ syntax = "proto2";
 
 import "unittest_swift_reserved.proto";
 
-extend protobuf_unittest.SwiftReservedTest.Type {
+extend swift_proto_testing.SwiftReservedTest.Type {
     // Will get _p added because it has no package/swift prefix to scope and
     // would otherwise be a problem when added to the message.
     optional bool debugDescription = 1000;
@@ -34,7 +34,7 @@ extend protobuf_unittest.SwiftReservedTest.Type {
 }
 
 message SwiftReservedTestExt2 {
-    extend protobuf_unittest.SwiftReservedTest.Type {
+    extend swift_proto_testing.SwiftReservedTest.Type {
         optional bool hashValue = 1001;
 
         // Reserved words, since these end up in the "enum Extensions", they

@@ -30,7 +30,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 message OneOfOptionMessage1 {
   required    int32 requiredField    =  1;

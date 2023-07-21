@@ -32,7 +32,7 @@ class Test_BinaryDecodingOptions: XCTestCase {
             //       }
             //     }
             ([10, 6, 10, 4, 18, 2, 8, 99],
-             ProtobufUnittest_NestedTestAllTypes.self,
+             SwiftProtoTesting_NestedTestAllTypes.self,
              nil,  // No Extensions
              [( 10, true ),
               ( 4, true ),
@@ -50,7 +50,7 @@ class Test_BinaryDecodingOptions: XCTestCase {
             //       }
             //     }
             ([10, 11, 10, 9, 18, 7, 131, 1, 136, 1, 98, 132, 1],
-             ProtobufUnittest_NestedTestAllTypes.self,
+             SwiftProtoTesting_NestedTestAllTypes.self,
              nil,  // No Extensions
              [( 10, true ),
               ( 5, true ),
@@ -69,7 +69,7 @@ class Test_BinaryDecodingOptions: XCTestCase {
             // 8, 1 -> field 1/varint, value of 1
             // 36 = 0b100100 -> field 4/end group
             ([35, 35, 35, 8, 1, 36, 36, 36],
-             ProtobufUnittest_TestEmptyMessage.self,
+             SwiftProtoTesting_TestEmptyMessage.self,
              nil,  // No Extensions
              [( 10, true ),
               ( 4, true ),
@@ -80,23 +80,23 @@ class Test_BinaryDecodingOptions: XCTestCase {
             // play when they are unknown message fields.
 
             // Limit applies to message extension fields:                   // outer is msg 1
-            //     [protobuf_unittest.optional_nested_message_extension] {  // sub msg 2
+            //     [swift_proto_testing.optional_nested_message_extension] {  // sub msg 2
             //       bb: 1
             //     }
             ([146, 1, 2, 8, 1],
-             ProtobufUnittest_TestAllExtensions.self,
-             ProtobufUnittest_Unittest_Extensions,
+             SwiftProtoTesting_TestAllExtensions.self,
+             SwiftProtoTesting_Unittest_Extensions,
              [( 10, true ),
               ( 2, true ),
               ( 1, false )]),
 
             // Limit applies to group extension fields:                     // outer is msg 1
-            //     [protobuf_unittest.optionalgroup_extension] {            // sub msg 2
+            //     [swift_proto_testing.optionalgroup_extension] {            // sub msg 2
             //       a: 1
             //     }
             ([131, 1, 136, 1, 1, 132, 1],
-             ProtobufUnittest_TestAllExtensions.self,
-             ProtobufUnittest_Unittest_Extensions,
+             SwiftProtoTesting_TestAllExtensions.self,
+             SwiftProtoTesting_Unittest_Extensions,
              [( 10, true ),
               ( 2, true ),
               ( 1, false )]),
@@ -154,10 +154,10 @@ class Test_BinaryDecodingOptions: XCTestCase {
             53, 5, 0, 0, 0,
         ]
         do {
-            let msg1 = try ProtobufUnittest_TestEmptyMessage(serializedBytes: inputCurrentLevel)
+            let msg1 = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: inputCurrentLevel)
             XCTAssertEqual(Array(msg1.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestEmptyMessage(serializedBytes: inputCurrentLevel,
+            let msg2 = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: inputCurrentLevel,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
         }
@@ -177,18 +177,18 @@ class Test_BinaryDecodingOptions: XCTestCase {
             146, 1, UInt8(inputCurrentLevel.count),
         ] + inputCurrentLevel
         do {
-            let msg1 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputSubMessage)
+            let msg1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputSubMessage)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.optionalNestedMessage.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputSubMessage,
+            let msg2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputSubMessage,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
             XCTAssertTrue(msg2.optionalNestedMessage.unknownFields.data.isEmpty)
         }
 
         // Unknown fields nested within a message extension field:
-        //   [protobuf_unittest.optional_nested_message_extension] {
+        //   [swift_proto_testing.optional_nested_message_extension] {
         //     2: 1
         //     3: 0x0000000000000002
         //     4: "\003"
@@ -198,19 +198,19 @@ class Test_BinaryDecodingOptions: XCTestCase {
         //     6: 0x00000005
         //   }
         do {
-            let msg1 = try ProtobufUnittest_TestAllExtensions(
+            let msg1 = try SwiftProtoTesting_TestAllExtensions(
               serializedBytes: inputSubMessage,
-              extensions: ProtobufUnittest_Unittest_Extensions)
+              extensions: SwiftProtoTesting_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
-            XCTAssertEqual(Array(msg1.ProtobufUnittest_optionalNestedMessageExtension.unknownFields.data),
+            XCTAssertEqual(Array(msg1.SwiftProtoTesting_optionalNestedMessageExtension.unknownFields.data),
                            inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestAllExtensions(
+            let msg2 = try SwiftProtoTesting_TestAllExtensions(
               serializedBytes: inputSubMessage,
-              extensions: ProtobufUnittest_Unittest_Extensions,
+              extensions: SwiftProtoTesting_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
-            XCTAssertTrue(msg2.ProtobufUnittest_optionalNestedMessageExtension.unknownFields.data.isEmpty)
+            XCTAssertTrue(msg2.SwiftProtoTesting_optionalNestedMessageExtension.unknownFields.data.isEmpty)
         }
 
         // Unknown fields nested within a group field:
@@ -231,23 +231,23 @@ class Test_BinaryDecodingOptions: XCTestCase {
             132, 1,
         ]
         do {
-            let msg1 = try ProtobufUnittest_TestAllExtensions(
+            let msg1 = try SwiftProtoTesting_TestAllExtensions(
               serializedBytes: inputGroup,
-              extensions: ProtobufUnittest_Unittest_Extensions)
+              extensions: SwiftProtoTesting_Unittest_Extensions)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
-            XCTAssertEqual(Array(msg1.ProtobufUnittest_optionalGroupExtension.unknownFields.data),
+            XCTAssertEqual(Array(msg1.SwiftProtoTesting_optionalGroupExtension.unknownFields.data),
                            inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestAllExtensions(
+            let msg2 = try SwiftProtoTesting_TestAllExtensions(
               serializedBytes: inputGroup,
-              extensions: ProtobufUnittest_Unittest_Extensions,
+              extensions: SwiftProtoTesting_Unittest_Extensions,
               options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
-            XCTAssertTrue(msg2.ProtobufUnittest_optionalGroupExtension.unknownFields.data.isEmpty)
+            XCTAssertTrue(msg2.SwiftProtoTesting_optionalGroupExtension.unknownFields.data.isEmpty)
         }
 
         // Unknown fields nested within a group extension field:
-        //   [protobuf_unittest.optionalgroup_extension] {
+        //   [swift_proto_testing.optionalgroup_extension] {
         //     2: 1
         //     3: 0x0000000000000002
         //     4: "\003"
@@ -257,11 +257,11 @@ class Test_BinaryDecodingOptions: XCTestCase {
         //     6: 0x00000005
         //   }
         do {
-            let msg1 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputGroup)
+            let msg1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputGroup)
             XCTAssertTrue(msg1.unknownFields.data.isEmpty)
             XCTAssertEqual(Array(msg1.optionalGroup.unknownFields.data), inputCurrentLevel)
 
-            let msg2 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputGroup,
+            let msg2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputGroup,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
             XCTAssertTrue(msg2.optionalGroup.unknownFields.data.isEmpty)
@@ -276,10 +276,10 @@ class Test_BinaryDecodingOptions: XCTestCase {
             168, 1, 13
         ]
         do {
-            let msg1 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputUnknownEnum)
+            let msg1 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputUnknownEnum)
             XCTAssertEqual(Array(msg1.unknownFields.data), inputUnknownEnum)
 
-            let msg2 = try ProtobufUnittest_TestAllTypes(serializedBytes: inputUnknownEnum,
+            let msg2 = try SwiftProtoTesting_TestAllTypes(serializedBytes: inputUnknownEnum,
                                                           options: discardOptions)
             XCTAssertTrue(msg2.unknownFields.data.isEmpty)
         }

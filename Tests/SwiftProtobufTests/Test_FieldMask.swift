@@ -82,7 +82,7 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
     // Make sure field mask works correctly when stored in a field
     func testJSON_field() throws {
         do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
+            let valid = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,barBaz\"}")
             XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask(protoPaths: "foo", "bar_baz"))
         } catch {
             XCTFail("Should have decoded correctly")
@@ -91,13 +91,13 @@ class Test_FieldMask: XCTestCase, PBTestHelpers {
         // https://github.com/protocolbuffers/protobuf/issues/4734 resulted in a new conformance
         // test to confirm an empty string works.
         do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"\"}")
+            let valid = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"\"}")
             XCTAssertEqual(valid.optionalFieldMask, Google_Protobuf_FieldMask())
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
+        XCTAssertThrowsError(try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: "{\"optionalFieldMask\": \"foo,bar_bar\"}"))
     }
 
     func testSerializationFailure() {

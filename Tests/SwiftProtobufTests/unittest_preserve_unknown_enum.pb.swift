@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -80,7 +80,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Proto3PreserveUnknownEnumUnittest_MyEnum] = [
+  static let allCases: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnum] = [
     .foo,
     .bar,
     .baz,
@@ -88,7 +88,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
@@ -121,7 +121,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = [
+  static let allCases: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra] = [
     .eFoo,
     .eBar,
     .eBaz,
@@ -130,23 +130,23 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage {
+struct SwiftProtoTesting_UnknownEnum_Proto3_MyMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var e: Proto3PreserveUnknownEnumUnittest_MyEnum = .foo
+  var e: SwiftProtoTesting_UnknownEnum_Proto3_MyEnum = .foo
 
-  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
+  var repeatedE: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnum] = []
 
-  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
+  var repeatedPackedE: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnum] = []
 
   /// not packed
-  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedPackedUnexpectedE: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra] = []
 
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
+  var o: SwiftProtoTesting_UnknownEnum_Proto3_MyMessage.OneOf_O? = nil
 
-  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
+  var oneofE1: SwiftProtoTesting_UnknownEnum_Proto3_MyEnum {
     get {
       if case .oneofE1(let v)? = o {return v}
       return .foo
@@ -154,7 +154,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage {
     set {o = .oneofE1(newValue)}
   }
 
-  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
+  var oneofE2: SwiftProtoTesting_UnknownEnum_Proto3_MyEnum {
     get {
       if case .oneofE2(let v)? = o {return v}
       return .foo
@@ -165,30 +165,30 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: Equatable {
-    case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
-    case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
+    case oneofE1(SwiftProtoTesting_UnknownEnum_Proto3_MyEnum)
+    case oneofE2(SwiftProtoTesting_UnknownEnum_Proto3_MyEnum)
 
   }
 
   init() {}
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
+struct SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = .eFoo
+  var e: SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra = .eFoo
 
-  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedE: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra] = []
 
-  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedPackedE: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra] = []
 
-  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+  var repeatedPackedUnexpectedE: [SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra] = []
 
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O? = nil
+  var o: SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra.OneOf_O? = nil
 
-  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+  var oneofE1: SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra {
     get {
       if case .oneofE1(let v)? = o {return v}
       return .eFoo
@@ -196,7 +196,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
     set {o = .oneofE1(newValue)}
   }
 
-  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+  var oneofE2: SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra {
     get {
       if case .oneofE2(let v)? = o {return v}
       return .eFoo
@@ -207,8 +207,8 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: Equatable {
-    case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
-    case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
+    case oneofE1(SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra)
+    case oneofE2(SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra)
 
   }
 
@@ -216,17 +216,17 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Proto3PreserveUnknownEnumUnittest_MyMessage: @unchecked Sendable {}
-extension Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O: @unchecked Sendable {}
-extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: @unchecked Sendable {}
-extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O: @unchecked Sendable {}
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage.OneOf_O: @unchecked Sendable {}
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: @unchecked Sendable {}
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra.OneOf_O: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing.unknown_enum.proto3"
 
-extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FOO"),
     1: .same(proto: "BAR"),
@@ -234,7 +234,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProv
   ]
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "E_FOO"),
     1: .same(proto: "E_BAR"),
@@ -243,7 +243,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._Prot
   ]
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
@@ -265,7 +265,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
       case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE) }()
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
       case 5: try {
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
+        var v: SwiftProtoTesting_UnknownEnum_Proto3_MyEnum?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -273,7 +273,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
         }
       }()
       case 6: try {
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnum?
+        var v: SwiftProtoTesting_UnknownEnum_Proto3_MyEnum?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -316,7 +316,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessage, rhs: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_UnknownEnum_Proto3_MyMessage, rhs: SwiftProtoTesting_UnknownEnum_Proto3_MyMessage) -> Bool {
     if lhs.e != rhs.e {return false}
     if lhs.repeatedE != rhs.repeatedE {return false}
     if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}
@@ -327,7 +327,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Sw
   }
 }
 
-extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
@@ -349,7 +349,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
       case 3: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE) }()
       case 4: try { try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE) }()
       case 5: try {
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
+        var v: SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -357,7 +357,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
         }
       }()
       case 6: try {
-        var v: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
+        var v: SwiftProtoTesting_UnknownEnum_Proto3_MyEnumPlusExtra?
         try decoder.decodeSingularEnumField(value: &v)
         if let v = v {
           if self.o != nil {try decoder.handleConflictingOneOf()}
@@ -400,7 +400,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra, rhs: SwiftProtoTesting_UnknownEnum_Proto3_MyMessagePlusExtra) -> Bool {
     if lhs.e != rhs.e {return false}
     if lhs.repeatedE != rhs.repeatedE {return false}
     if lhs.repeatedPackedE != rhs.repeatedPackedE {return false}

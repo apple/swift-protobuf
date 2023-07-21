@@ -39,23 +39,23 @@ syntax = "proto2";
 
 import "unittest_mset_wire_format.proto";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 message TestMessageSetContainer {
-  optional proto2_wireformat_unittest.TestMessageSet message_set = 1;
+  optional swift_proto_testing.wire_format.TestMessageSet message_set = 1;
 }
 
 message TestMessageSetExtension1 {
-  extend proto2_wireformat_unittest.TestMessageSet {
+  extend swift_proto_testing.wire_format.TestMessageSet {
     optional TestMessageSetExtension1 message_set_extension = 1545008;
   }
   optional int32 i = 15;
-  optional proto2_wireformat_unittest.TestMessageSet recursive = 16;
+  optional swift_proto_testing.wire_format.TestMessageSet recursive = 16;
   optional string test_aliasing = 17 [ctype = STRING_PIECE];
 }
 
 message TestMessageSetExtension2 {
-  extend proto2_wireformat_unittest.TestMessageSet {
+  extend swift_proto_testing.wire_format.TestMessageSet {
     optional TestMessageSetExtension2 message_set_extension = 1547769;
   }
   optional string str = 25;

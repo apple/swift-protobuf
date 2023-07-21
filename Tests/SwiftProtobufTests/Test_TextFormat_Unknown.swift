@@ -17,7 +17,7 @@ import XCTest
 @testable import SwiftProtobuf
 
 class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestEmptyMessage
+    typealias MessageTestType = SwiftProtoTesting_TestEmptyMessage
 
     func test_unknown_varint() throws {
         let bytes: [UInt8] = [8, 0]

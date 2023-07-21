@@ -32,7 +32,7 @@ syntax = "proto2";
 
 import "unittest_import.proto";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 enum Proto2MapEnum {
   PROTO2_MAP_ENUM_FOO = 0;

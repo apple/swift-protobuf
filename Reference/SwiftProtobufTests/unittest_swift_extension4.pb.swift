@@ -105,7 +105,7 @@ extension Ext4C: @unchecked Sendable {}
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+extension SwiftProtoTesting_Extend_Foo.Bar.Baz {
 
   var Ext4b: String {
     get {return getExtensionValue(ext: Ext4Extensions_b) ?? String()}
@@ -186,33 +186,33 @@ let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Ext4Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+let Ext4Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 420,
-  fieldName: "protobuf_unittest.extend4.b"
+  fieldName: "swift_proto_testing.extend4.b"
 )
 
-let Ext4Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+let Ext4Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Ext4C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 421,
-  fieldName: "protobuf_unittest.extend4.c"
+  fieldName: "swift_proto_testing.extend4.c"
 )
 
 extension Ext4MyMessage {
   enum Extensions {
-    static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+    static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 410,
-      fieldName: "protobuf_unittest.extend4.MyMessage.b"
+      fieldName: "swift_proto_testing.extend4.MyMessage.b"
     )
 
-    static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+    static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<Ext4MyMessage.C>, SwiftProtoTesting_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 411,
-      fieldName: "protobuf_unittest.extend4.MyMessage.c"
+      fieldName: "swift_proto_testing.extend4.MyMessage.c"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest.extend4"
+fileprivate let _protobuf_package = "swift_proto_testing.extend4"
 
 extension Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"

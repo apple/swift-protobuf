@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 @testable import SwiftProtobuf
 
-extension ProtobufUnittest_RawMessageSet.Item {
+extension SwiftProtoTesting_RawMessageSet.Item {
   fileprivate init(typeID: Int, message: Data) {
     self.init()
     self.typeID = Int32(typeID)
@@ -28,9 +28,9 @@ class Test_MessageSet: XCTestCase {
 
   // wireformat_unittest.cc: TEST(WireFormatTest, SerializeMessageSet)
   func testSerialize() throws {
-    let msg = Proto2WireformatUnittest_TestMessageSet.with {
-      $0.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i = 123
-      $0.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str = "foo"
+    let msg = SwiftProtoTesting_WireFormat_TestMessageSet.with {
+      $0.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i = 123
+      $0.SwiftProtoTesting_TestMessageSetExtension2_messageSetExtension.str = "foo"
     }
 
     let serialized: [UInt8]
@@ -43,9 +43,9 @@ class Test_MessageSet: XCTestCase {
 
     // Read it back in with the RawMessageSet to validate it.
 
-    let raw: ProtobufUnittest_RawMessageSet
+    let raw: SwiftProtoTesting_RawMessageSet
     do {
-      raw = try ProtobufUnittest_RawMessageSet(serializedBytes: serialized)
+      raw = try SwiftProtoTesting_RawMessageSet(serializedBytes: serialized)
     } catch let e {
       XCTFail("Failed to parse: \(e)")
       return
@@ -56,33 +56,33 @@ class Test_MessageSet: XCTestCase {
     XCTAssertEqual(raw.item.count, 2)
 
     XCTAssertEqual(Int(raw.item[0].typeID),
-                   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
+                   SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
     XCTAssertEqual(Int(raw.item[1].typeID),
-                   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
+                   SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
 
-    let extMsg1 = try ProtobufUnittest_TestMessageSetExtension1(serializedBytes: raw.item[0].message)
+    let extMsg1 = try SwiftProtoTesting_TestMessageSetExtension1(serializedBytes: raw.item[0].message)
     XCTAssertEqual(extMsg1.i, 123)
     XCTAssertTrue(extMsg1.unknownFields.data.isEmpty)
-    let extMsg2 = try ProtobufUnittest_TestMessageSetExtension2(serializedBytes: raw.item[1].message)
+    let extMsg2 = try SwiftProtoTesting_TestMessageSetExtension2(serializedBytes: raw.item[1].message)
     XCTAssertEqual(extMsg2.str, "foo")
     XCTAssertTrue(extMsg2.unknownFields.data.isEmpty)
   }
 
   // wireformat_unittest.cc: TEST(WireFormatTest, ParseMessageSet)
   func testParse() throws {
-    let msg1 = ProtobufUnittest_TestMessageSetExtension1.with { $0.i = 123 }
-    let msg2 = ProtobufUnittest_TestMessageSetExtension2.with { $0.str = "foo" }
-    var raw = ProtobufUnittest_RawMessageSet()
+    let msg1 = SwiftProtoTesting_TestMessageSetExtension1.with { $0.i = 123 }
+    let msg2 = SwiftProtoTesting_TestMessageSetExtension2.with { $0.str = "foo" }
+    var raw = SwiftProtoTesting_RawMessageSet()
     raw.item = [
       // Two known extensions.
-      ProtobufUnittest_RawMessageSet.Item(
-        typeID: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
+      SwiftProtoTesting_RawMessageSet.Item(
+        typeID: SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber,
         message: try msg1.serializedBytes()),
-      ProtobufUnittest_RawMessageSet.Item(
-        typeID: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
+      SwiftProtoTesting_RawMessageSet.Item(
+        typeID: SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber,
         message: try msg2.serializedBytes()),
       // One unknown extension.
-      ProtobufUnittest_RawMessageSet.Item(typeID: 7, message: Data([1, 2, 3]))
+      SwiftProtoTesting_RawMessageSet.Item(typeID: 7, message: Data([1, 2, 3]))
     ]
     // Add some unknown data into one of the groups to ensure it gets stripped when parsing.
     raw.item[1].unknownFields.append(protobufData: Data([40, 2]))  // Field 5, varint of 2
@@ -95,11 +95,11 @@ class Test_MessageSet: XCTestCase {
       return
     }
 
-    let msg: Proto2WireformatUnittest_TestMessageSet
+    let msg: SwiftProtoTesting_WireFormat_TestMessageSet
     do {
-      msg = try Proto2WireformatUnittest_TestMessageSet(
+      msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
         serializedBytes: serialized,
-        extensions: ProtobufUnittest_UnittestMset_Extensions)
+        extensions: SwiftProtoTesting_UnittestMset_Extensions)
     } catch let e {
       XCTFail("Failed to parse: \(e)")
       return
@@ -107,13 +107,13 @@ class Test_MessageSet: XCTestCase {
 
     // Ensure the extensions showed up, but with nothing extra.
     XCTAssertEqual(
-      msg.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i, 123)
+      msg.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i, 123)
     XCTAssertTrue(
-      msg.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.unknownFields.data.isEmpty)
+      msg.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.unknownFields.data.isEmpty)
     XCTAssertEqual(
-      msg.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str, "foo")
+      msg.SwiftProtoTesting_TestMessageSetExtension2_messageSetExtension.str, "foo")
     XCTAssertTrue(
-      msg.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.unknownFields.data.isEmpty)
+      msg.SwiftProtoTesting_TestMessageSetExtension2_messageSetExtension.unknownFields.data.isEmpty)
 
     // Ensure the unknown shows up as a group.
     let expectedUnknowns = Data([
@@ -126,8 +126,8 @@ class Test_MessageSet: XCTestCase {
 
     var validator = ExtensionValidator()
     validator.expectedMessages = [
-      (ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
-      (ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
+      (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
+      (SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
     ]
     validator.expectedUnknowns = [ expectedUnknowns ]
     validator.validate(message: msg)
@@ -135,10 +135,10 @@ class Test_MessageSet: XCTestCase {
 
   static let canonicalTextFormat: String = (
     "message_set {\n" +
-      "  [protobuf_unittest.TestMessageSetExtension1] {\n" +
+      "  [swift_proto_testing.TestMessageSetExtension1] {\n" +
       "    i: 23\n" +
       "  }\n" +
-      "  [protobuf_unittest.TestMessageSetExtension2] {\n" +
+      "  [swift_proto_testing.TestMessageSetExtension2] {\n" +
       "    str: \"foo\"\n" +
       "  }\n" +
     "}\n"
@@ -146,9 +146,9 @@ class Test_MessageSet: XCTestCase {
 
   // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Serialize)
   func testTextFormat_Serialize() {
-    let msg = ProtobufUnittest_TestMessageSetContainer.with {
-      $0.messageSet.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i = 23
-      $0.messageSet.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str = "foo"
+    let msg = SwiftProtoTesting_TestMessageSetContainer.with {
+      $0.messageSet.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i = 23
+      $0.messageSet.SwiftProtoTesting_TestMessageSetExtension2_messageSetExtension.str = "foo"
     }
 
     XCTAssertEqual(msg.textFormatString(), Test_MessageSet.canonicalTextFormat)
@@ -156,20 +156,20 @@ class Test_MessageSet: XCTestCase {
 
   // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Deserialize)
   func testTextFormat_Parse() {
-    let msg: ProtobufUnittest_TestMessageSetContainer
+    let msg: SwiftProtoTesting_TestMessageSetContainer
     do {
-      msg = try ProtobufUnittest_TestMessageSetContainer(
+      msg = try SwiftProtoTesting_TestMessageSetContainer(
         textFormatString: Test_MessageSet.canonicalTextFormat,
-        extensions: ProtobufUnittest_UnittestMset_Extensions)
+        extensions: SwiftProtoTesting_UnittestMset_Extensions)
     } catch let e {
       XCTFail("Shouldn't have failed: \(e)")
       return
     }
 
     XCTAssertEqual(
-      msg.messageSet.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i, 23)
+      msg.messageSet.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i, 23)
     XCTAssertEqual(
-      msg.messageSet.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str, "foo")
+      msg.messageSet.SwiftProtoTesting_TestMessageSetExtension2_messageSetExtension.str, "foo")
 
     // Ensure nothing else showed up.
     XCTAssertTrue(msg.unknownFields.data.isEmpty)
@@ -177,9 +177,9 @@ class Test_MessageSet: XCTestCase {
 
     var validator = ExtensionValidator()
     validator.expectedMessages = [
-      (1, true), // protobuf_unittest.TestMessageSetContainer.message_set (where the extensions are)
-      (ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
-      (ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
+      (1, true), // swift_proto_testing.TestMessageSetContainer.message_set (where the extensions are)
+      (SwiftProtoTesting_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber, false),
+      (SwiftProtoTesting_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber, false),
     ]
     validator.validate(message: msg)
   }

@@ -26,38 +26,38 @@ class Test_JSONEncodingOptions: XCTestCase {
     asNumbers.alwaysPrintInt64sAsNumbers = true
 
     // Toplevel fields.
-    let msg1 = ProtobufUnittest_Message2.with {
+    let msg1 = SwiftProtoTesting_Message2.with {
       $0.optionalInt64 = 1656338459803
     }
     XCTAssertEqual(try msg1.jsonString(options: asStrings), "{\"optionalInt64\":\"1656338459803\"}")
     XCTAssertEqual(try msg1.jsonString(options: asNumbers), "{\"optionalInt64\":1656338459803}")
     
-    let msg2 = ProtobufUnittest_Message2.with {
+    let msg2 = SwiftProtoTesting_Message2.with {
       $0.repeatedInt64 = [1656338459802, 1656338459803]
     }
     XCTAssertEqual(try msg2.jsonString(options: asStrings), "{\"repeatedInt64\":[\"1656338459802\",\"1656338459803\"]}")
     XCTAssertEqual(try msg2.jsonString(options: asNumbers), "{\"repeatedInt64\":[1656338459802,1656338459803]}")
 
-    let msg3 = ProtobufUnittest_Message2.with {
+    let msg3 = SwiftProtoTesting_Message2.with {
       $0.mapInt64Int64[1656338459803] = 1656338459802
     }
     XCTAssertEqual(try msg3.jsonString(options: asStrings), "{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}")
     XCTAssertEqual(try msg3.jsonString(options: asNumbers), "{\"mapInt64Int64\":{\"1656338459803\":1656338459802}}")
 
     // Nested down a level.
-    let msg4 = ProtobufUnittest_Message2.with {
+    let msg4 = SwiftProtoTesting_Message2.with {
       $0.optionalMessage.optionalInt64 = 1656338459802
     }
     XCTAssertEqual(try msg4.jsonString(options: asStrings), "{\"optionalMessage\":{\"optionalInt64\":\"1656338459802\"}}")
     XCTAssertEqual(try msg4.jsonString(options: asNumbers), "{\"optionalMessage\":{\"optionalInt64\":1656338459802}}")
 
-    let msg5 = ProtobufUnittest_Message2.with {
+    let msg5 = SwiftProtoTesting_Message2.with {
       $0.optionalMessage.repeatedInt64 = [1656338459802, 1656338459803]
     }
     XCTAssertEqual(try msg5.jsonString(options: asStrings), "{\"optionalMessage\":{\"repeatedInt64\":[\"1656338459802\",\"1656338459803\"]}}")
     XCTAssertEqual(try msg5.jsonString(options: asNumbers), "{\"optionalMessage\":{\"repeatedInt64\":[1656338459802,1656338459803]}}")
 
-    let msg6 = ProtobufUnittest_Message2.with {
+    let msg6 = SwiftProtoTesting_Message2.with {
       $0.optionalMessage.mapInt64Int64[1656338459803] = 1656338459802
     }
     XCTAssertEqual(try msg6.jsonString(options: asStrings), "{\"optionalMessage\":{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}}")
@@ -65,13 +65,13 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // Array additions.
     let msgArray = [msg1, msg2, msg3]
-    XCTAssertEqual(try ProtobufUnittest_Message2.jsonString(from: msgArray, options: asStrings),
+    XCTAssertEqual(try SwiftProtoTesting_Message2.jsonString(from: msgArray, options: asStrings),
                    "[" +
                     "{\"optionalInt64\":\"1656338459803\"}" + "," +
                     "{\"repeatedInt64\":[\"1656338459802\",\"1656338459803\"]}" + "," +
                     "{\"mapInt64Int64\":{\"1656338459803\":\"1656338459802\"}}" +
                    "]")
-    XCTAssertEqual(try ProtobufUnittest_Message2.jsonString(from: msgArray, options: asNumbers),
+    XCTAssertEqual(try SwiftProtoTesting_Message2.jsonString(from: msgArray, options: asNumbers),
                    "[" +
                     "{\"optionalInt64\":1656338459803}" + "," +
                     "{\"repeatedInt64\":[1656338459802,1656338459803]}" + "," +
@@ -79,30 +79,30 @@ class Test_JSONEncodingOptions: XCTestCase {
                    "]")
 
     // Any.
-    Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
-    let content = ProtobufUnittest_TestAllTypes.with {
+    Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+    let content = SwiftProtoTesting_TestAllTypes.with {
       $0.optionalInt64 = 1656338459803
     }
     let msg7 = try! Google_Protobuf_Any(message: content)
     XCTAssertEqual(try msg7.jsonString(options: asStrings),
-                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt64\":\"1656338459803\"}")
+                   "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt64\":\"1656338459803\"}")
     XCTAssertEqual(try msg7.jsonString(options: asNumbers),
-                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt64\":1656338459803}")
+                   "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalInt64\":1656338459803}")
 
     // UInt64 - Toplevel fields.
-    let msg8 = ProtobufUnittest_Message2.with {
+    let msg8 = SwiftProtoTesting_Message2.with {
       $0.optionalUint64 = 1656338459803
     }
     XCTAssertEqual(try msg8.jsonString(options: asStrings), "{\"optionalUint64\":\"1656338459803\"}")
     XCTAssertEqual(try msg8.jsonString(options: asNumbers), "{\"optionalUint64\":1656338459803}")
     
-    let msg9 = ProtobufUnittest_Message2.with {
+    let msg9 = SwiftProtoTesting_Message2.with {
       $0.repeatedUint64 = [1656338459802, 1656338459803]
     }
     XCTAssertEqual(try msg9.jsonString(options: asStrings), "{\"repeatedUint64\":[\"1656338459802\",\"1656338459803\"]}")
     XCTAssertEqual(try msg9.jsonString(options: asNumbers), "{\"repeatedUint64\":[1656338459802,1656338459803]}")
 
-    let msg10 = ProtobufUnittest_Message2.with {
+    let msg10 = SwiftProtoTesting_Message2.with {
       $0.mapUint64Uint64[1656338459803] = 1656338459802
     }
     XCTAssertEqual(try msg10.jsonString(options: asStrings), "{\"mapUint64Uint64\":{\"1656338459803\":\"1656338459802\"}}")
@@ -118,19 +118,19 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // Toplevel fields
 
-    let msg1 = ProtobufUnittest_Message3.with {
+    let msg1 = SwiftProtoTesting_Message3.with {
       $0.optionalEnum = .bar
     }
     XCTAssertEqual(try msg1.jsonString(options: asStrings), "{\"optionalEnum\":\"BAR\"}")
     XCTAssertEqual(try msg1.jsonString(options: asInts), "{\"optionalEnum\":1}")
 
-    let msg2 = ProtobufUnittest_Message3.with {
+    let msg2 = SwiftProtoTesting_Message3.with {
       $0.repeatedEnum = [.bar, .baz]
     }
     XCTAssertEqual(try msg2.jsonString(options: asStrings), "{\"repeatedEnum\":[\"BAR\",\"BAZ\"]}")
     XCTAssertEqual(try msg2.jsonString(options: asInts), "{\"repeatedEnum\":[1,2]}")
 
-    let msg3 = ProtobufUnittest_Message3.with {
+    let msg3 = SwiftProtoTesting_Message3.with {
       $0.mapInt32Enum[42] = .baz
     }
     XCTAssertEqual(try msg3.jsonString(options: asStrings), "{\"mapInt32Enum\":{\"42\":\"BAZ\"}}")
@@ -138,7 +138,7 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // The enum field nested down a level.
 
-    let msg4 = ProtobufUnittest_Message3.with {
+    let msg4 = SwiftProtoTesting_Message3.with {
       $0.optionalMessage.optionalEnum = .bar
     }
     XCTAssertEqual(try msg4.jsonString(options: asStrings),
@@ -146,7 +146,7 @@ class Test_JSONEncodingOptions: XCTestCase {
     XCTAssertEqual(try msg4.jsonString(options: asInts),
                    "{\"optionalMessage\":{\"optionalEnum\":1}}")
 
-    let msg5 = ProtobufUnittest_Message3.with {
+    let msg5 = SwiftProtoTesting_Message3.with {
       $0.optionalMessage.repeatedEnum = [.bar, .baz]
     }
     XCTAssertEqual(try msg5.jsonString(options: asStrings),
@@ -154,7 +154,7 @@ class Test_JSONEncodingOptions: XCTestCase {
     XCTAssertEqual(try msg5.jsonString(options: asInts),
                    "{\"optionalMessage\":{\"repeatedEnum\":[1,2]}}")
 
-    let msg6 = ProtobufUnittest_Message3.with {
+    let msg6 = SwiftProtoTesting_Message3.with {
       $0.optionalMessage.mapInt32Enum[42] = .baz
     }
     XCTAssertEqual(try msg6.jsonString(options: asStrings),
@@ -165,13 +165,13 @@ class Test_JSONEncodingOptions: XCTestCase {
     // The array additions
 
     let msgArray = [msg1, msg2, msg3]
-    XCTAssertEqual(try ProtobufUnittest_Message3.jsonString(from: msgArray, options: asStrings),
+    XCTAssertEqual(try SwiftProtoTesting_Message3.jsonString(from: msgArray, options: asStrings),
                    "[" +
                     "{\"optionalEnum\":\"BAR\"}" + "," +
                     "{\"repeatedEnum\":[\"BAR\",\"BAZ\"]}" + "," +
                     "{\"mapInt32Enum\":{\"42\":\"BAZ\"}}" +
                    "]")
-    XCTAssertEqual(try ProtobufUnittest_Message3.jsonString(from: msgArray, options: asInts),
+    XCTAssertEqual(try SwiftProtoTesting_Message3.jsonString(from: msgArray, options: asInts),
                    "[" +
                     "{\"optionalEnum\":1}" + "," +
                     "{\"repeatedEnum\":[1,2]}" + "," +
@@ -180,15 +180,15 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // Any
 
-    Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
-    let content = ProtobufUnittest_TestAllTypes.with {
+    Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+    let content = SwiftProtoTesting_TestAllTypes.with {
       $0.optionalNestedEnum = .neg
     }
     let msg7 = try! Google_Protobuf_Any(message: content)
     XCTAssertEqual(try msg7.jsonString(options: asStrings),
-                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalNestedEnum\":\"NEG\"}")
+                   "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalNestedEnum\":\"NEG\"}")
     XCTAssertEqual(try msg7.jsonString(options: asInts),
-                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalNestedEnum\":-1}")
+                   "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalNestedEnum\":-1}")
 
   }
 
@@ -200,19 +200,19 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // Toplevel fields
 
-    let msg1 = ProtobufUnittest_Message3.with {
+    let msg1 = SwiftProtoTesting_Message3.with {
       $0.optionalEnum = .bar
     }
     XCTAssertEqual(try msg1.jsonString(options: jsonNames), "{\"optionalEnum\":\"BAR\"}")
     XCTAssertEqual(try msg1.jsonString(options: protoNames), "{\"optional_enum\":\"BAR\"}")
 
-    let msg2 = ProtobufUnittest_Message3.with {
+    let msg2 = SwiftProtoTesting_Message3.with {
       $0.repeatedEnum = [.bar, .baz]
     }
     XCTAssertEqual(try msg2.jsonString(options: jsonNames), "{\"repeatedEnum\":[\"BAR\",\"BAZ\"]}")
     XCTAssertEqual(try msg2.jsonString(options: protoNames), "{\"repeated_enum\":[\"BAR\",\"BAZ\"]}")
 
-    let msg3 = ProtobufUnittest_Message3.with {
+    let msg3 = SwiftProtoTesting_Message3.with {
       $0.mapInt32Enum[42] = .baz
     }
     XCTAssertEqual(try msg3.jsonString(options: jsonNames), "{\"mapInt32Enum\":{\"42\":\"BAZ\"}}")
@@ -220,7 +220,7 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // The enum field nested down a level.
 
-    let msg4 = ProtobufUnittest_Message3.with {
+    let msg4 = SwiftProtoTesting_Message3.with {
       $0.optionalMessage.optionalEnum = .bar
     }
     XCTAssertEqual(try msg4.jsonString(options: jsonNames),
@@ -228,7 +228,7 @@ class Test_JSONEncodingOptions: XCTestCase {
     XCTAssertEqual(try msg4.jsonString(options: protoNames),
                    "{\"optional_message\":{\"optional_enum\":\"BAR\"}}")
 
-    let msg5 = ProtobufUnittest_Message3.with {
+    let msg5 = SwiftProtoTesting_Message3.with {
       $0.optionalMessage.repeatedEnum = [.bar, .baz]
     }
     XCTAssertEqual(try msg5.jsonString(options: jsonNames),
@@ -236,7 +236,7 @@ class Test_JSONEncodingOptions: XCTestCase {
     XCTAssertEqual(try msg5.jsonString(options: protoNames),
                    "{\"optional_message\":{\"repeated_enum\":[\"BAR\",\"BAZ\"]}}")
 
-    let msg6 = ProtobufUnittest_Message3.with {
+    let msg6 = SwiftProtoTesting_Message3.with {
       $0.optionalMessage.mapInt32Enum[42] = .baz
     }
     XCTAssertEqual(try msg6.jsonString(options: jsonNames),
@@ -247,13 +247,13 @@ class Test_JSONEncodingOptions: XCTestCase {
     // The array additions
 
     let msgArray = [msg1, msg2, msg3]
-    XCTAssertEqual(try ProtobufUnittest_Message3.jsonString(from: msgArray, options: jsonNames),
+    XCTAssertEqual(try SwiftProtoTesting_Message3.jsonString(from: msgArray, options: jsonNames),
                    "[" +
                     "{\"optionalEnum\":\"BAR\"}" + "," +
                     "{\"repeatedEnum\":[\"BAR\",\"BAZ\"]}" + "," +
                     "{\"mapInt32Enum\":{\"42\":\"BAZ\"}}" +
                    "]")
-    XCTAssertEqual(try ProtobufUnittest_Message3.jsonString(from: msgArray, options: protoNames),
+    XCTAssertEqual(try SwiftProtoTesting_Message3.jsonString(from: msgArray, options: protoNames),
                    "[" +
                     "{\"optional_enum\":\"BAR\"}" + "," +
                     "{\"repeated_enum\":[\"BAR\",\"BAZ\"]}" + "," +
@@ -262,14 +262,14 @@ class Test_JSONEncodingOptions: XCTestCase {
 
     // Any
 
-    Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
-    let content = ProtobufUnittest_TestAllTypes.with {
+    Google_Protobuf_Any.register(messageType: SwiftProtoTesting_TestAllTypes.self)
+    let content = SwiftProtoTesting_TestAllTypes.with {
       $0.optionalNestedEnum = .neg
     }
     let msg7 = try! Google_Protobuf_Any(message: content)
     XCTAssertEqual(try msg7.jsonString(options: jsonNames),
-                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalNestedEnum\":\"NEG\"}")
+                   "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optionalNestedEnum\":\"NEG\"}")
     XCTAssertEqual(try msg7.jsonString(options: protoNames),
-                   "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optional_nested_enum\":\"NEG\"}")
+                   "{\"@type\":\"type.googleapis.com/swift_proto_testing.TestAllTypes\",\"optional_nested_enum\":\"NEG\"}")
   }
 }

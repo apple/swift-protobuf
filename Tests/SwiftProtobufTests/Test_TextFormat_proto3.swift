@@ -17,7 +17,7 @@ import XCTest
 import SwiftProtobuf
 
 class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestAllTypes
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     func testDecoding_comments() {
         assertTextFormatDecodeSucceeds("optional_int32: 41#optional_int32: 42\noptional_int64: 8") {
@@ -371,18 +371,18 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             return o.optionalFloat == -1.84467441e+19
         }
 
-        let b = Proto3Unittest_TestAllTypes.with {$0.optionalFloat = Float.nan}
+        let b = SwiftProtoTesting_Proto3_TestAllTypes.with {$0.optionalFloat = Float.nan}
         XCTAssertEqual("optional_float: nan\n", b.textFormatString())
 
         do {
-            let nan1 = try Proto3Unittest_TestAllTypes(textFormatString: "optional_float: nan\n")
+            let nan1 = try SwiftProtoTesting_Proto3_TestAllTypes(textFormatString: "optional_float: nan\n")
             XCTAssert(nan1.optionalFloat.isNaN)
         } catch let e {
             XCTFail("Decoding nan failed: \(e)")
         }
 
         do {
-            let nan2 = try Proto3Unittest_TestAllTypes(textFormatString: "optional_float: NaN\n")
+            let nan2 = try SwiftProtoTesting_Proto3_TestAllTypes(textFormatString: "optional_float: NaN\n")
             XCTAssert(nan2.optionalFloat.isNaN)
         } catch let e {
             XCTFail("Decoding nan failed: \(e)")
@@ -444,7 +444,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatEncode("optional_double: 12.0\n") {(o: inout MessageTestType) in o.optionalDouble = 12 }
         assertTextFormatEncode("optional_double: inf\n") {(o: inout MessageTestType) in o.optionalDouble = Double.infinity}
         assertTextFormatEncode("optional_double: -inf\n") {(o: inout MessageTestType) in o.optionalDouble = -Double.infinity}
-        let b = Proto3Unittest_TestAllTypes.with {$0.optionalDouble = Double.nan}
+        let b = SwiftProtoTesting_Proto3_TestAllTypes.with {$0.optionalDouble = Double.nan}
         XCTAssertEqual("optional_double: nan\n", b.textFormatString())
 
         assertTextFormatDecodeSucceeds("optional_double: 1.0\n") {(o: MessageTestType) in
@@ -692,7 +692,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalBytes() throws {
-        let o = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = Data() }
+        let o = SwiftProtoTesting_Proto3_TestAllTypes.with { $0.optionalBytes = Data() }
         XCTAssertEqual("", o.textFormatString())
 
         assertTextFormatEncode("optional_bytes: \"AB\"\n") {(o: inout MessageTestType) in
@@ -747,9 +747,9 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     func testEncoding_optionalBytes_roundtrip() throws {
         for i in UInt8(0)...UInt8(255) {
             let d = Data([i])
-            let message = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = d }
+            let message = SwiftProtoTesting_Proto3_TestAllTypes.with { $0.optionalBytes = d }
             let text = message.textFormatString()
-            let decoded = try Proto3Unittest_TestAllTypes(textFormatString: text)
+            let decoded = try SwiftProtoTesting_Proto3_TestAllTypes(textFormatString: text)
             XCTAssertEqual(decoded, message)
             XCTAssertEqual(message.optionalBytes[0], i)
         }
@@ -784,7 +784,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalForeignMessage() {
-        var foreign = Proto3Unittest_ForeignMessage()
+        var foreign = SwiftProtoTesting_Proto3_ForeignMessage()
         foreign.c = 88
 
         var a = MessageTestType()
@@ -805,7 +805,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalImportMessage() {
-        var importMessage = ProtobufUnittestImport_ImportMessage()
+        var importMessage = SwiftProtoTesting_Import_ImportMessage()
         importMessage.d = -9
 
         var a = MessageTestType()
@@ -850,7 +850,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         // Note: This implementation currently preserves numeric unknown
         // enum values, unlike Google's C++ implementation, which considers
         // it a parse error.
-        let b = try Proto3Unittest_TestAllTypes(textFormatString: "optional_nested_enum: 999\n")
+        let b = try SwiftProtoTesting_Proto3_TestAllTypes(textFormatString: "optional_nested_enum: 999\n")
         XCTAssertEqual("optional_nested_enum: 999\n", b.textFormatString())
     }
 
@@ -869,7 +869,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_optionalPublicImportMessage() {
-        var publicImportMessage = ProtobufUnittestImport_PublicImportMessage()
+        var publicImportMessage = SwiftProtoTesting_Import_PublicImportMessage()
         publicImportMessage.e = -999999
 
         var a = MessageTestType()
@@ -1135,7 +1135,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedForeignMessage() {
-        var foreign = Proto3Unittest_ForeignMessage()
+        var foreign = SwiftProtoTesting_Proto3_ForeignMessage()
         foreign.c = 88
 
         var foreign2 = foreign
@@ -1161,7 +1161,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
 
     func testEncoding_repeatedImportMessage() {
-        var importMessage = ProtobufUnittestImport_ImportMessage()
+        var importMessage = SwiftProtoTesting_Import_ImportMessage()
         importMessage.d = -9
 
         var importMessage2 = importMessage
@@ -1289,15 +1289,15 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o.optionalNestedMessage = nested
-        var foreign = Proto3Unittest_ForeignMessage()
+        var foreign = SwiftProtoTesting_Proto3_ForeignMessage()
         foreign.c = 88
         o.optionalForeignMessage = foreign
-        var importMessage = ProtobufUnittestImport_ImportMessage()
+        var importMessage = SwiftProtoTesting_Import_ImportMessage()
         importMessage.d = -9
         o.optionalImportMessage = importMessage
         o.optionalNestedEnum = .baz
         o.optionalForeignEnum = .foreignBaz
-        var publicImportMessage = ProtobufUnittestImport_PublicImportMessage()
+        var publicImportMessage = SwiftProtoTesting_Import_PublicImportMessage()
         publicImportMessage.e = -999999
         o.optionalPublicImportMessage = publicImportMessage
         o.repeatedInt32 = [1, 2]

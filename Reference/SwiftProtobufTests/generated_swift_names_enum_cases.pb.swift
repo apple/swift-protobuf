@@ -24,7 +24,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case none // = 0
   case adjusted // = 1
@@ -2867,7 +2867,7 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnum] = [
+  static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum] = [
     .none,
     .adjusted,
     .aggregateValue,
@@ -3812,7 +3812,7 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE"),
     1: .same(proto: "adjusted"),

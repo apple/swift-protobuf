@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -68,7 +68,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `myFloat`. Subsequent reads from it will return its default value.
   mutating func clearMyFloat() {self._myFloat = nil}
 
-  var options: Swift_Protobuf_TestFieldOrderings.OneOf_Options? = nil
+  var options: SwiftProtoTesting_Order_TestFieldOrderings.OneOf_Options? = nil
 
   var oneofInt64: Int64 {
     get {
@@ -102,8 +102,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
     set {options = .oneofInt32(newValue)}
   }
 
-  var optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage {
-    get {return _optionalNestedMessage ?? Swift_Protobuf_TestFieldOrderings.NestedMessage()}
+  var optionalNestedMessage: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage {
+    get {return _optionalNestedMessage ?? SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage()}
     set {_optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -158,18 +158,18 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _myString: String? = nil
   fileprivate var _myInt: Int64? = nil
   fileprivate var _myFloat: Float? = nil
-  fileprivate var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
+  fileprivate var _optionalNestedMessage: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage? = nil
 }
 
 /// These checks how the traverse() generated for a oneof
 /// deals with field orders.  Currently requires inspecting the code.
-struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Gaps, not no issues, no start:end: on traverse().
-  var oGood: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood? = nil
+  var oGood: SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OGood? = nil
 
   var a: Int32 {
     get {
@@ -188,7 +188,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
   }
 
   /// Gaps with a field in the middle of the range.
-  var oConflictField: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField? = nil
+  var oConflictField: SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictField? = nil
 
   var a2: Int32 {
     get {
@@ -217,7 +217,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
   mutating func clearM() {self._m = nil}
 
   /// Gaps with an extension range in the middle of the range.
-  var oConflictExtensionsStart: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart? = nil
+  var oConflictExtensionsStart: SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictExtensionsStart? = nil
 
   var a3: Int32 {
     get {
@@ -236,7 +236,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
   }
 
   /// Gaps with an extension range in the middle of the range.
-  var oConflictExtensionsEnd: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd? = nil
+  var oConflictExtensionsEnd: SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd? = nil
 
   var a4: Int32 {
     get {
@@ -291,14 +291,14 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage 
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Swift_Protobuf_TestFieldOrderings: @unchecked Sendable {}
-extension Swift_Protobuf_TestFieldOrderings.OneOf_Options: @unchecked Sendable {}
-extension Swift_Protobuf_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
-extension Swift_Protobuf_OneofTraversalGeneration: @unchecked Sendable {}
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood: @unchecked Sendable {}
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField: @unchecked Sendable {}
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart: @unchecked Sendable {}
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_TestFieldOrderings.OneOf_Options: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OGood: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictField: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictExtensionsStart: @unchecked Sendable {}
+extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.
@@ -310,70 +310,70 @@ extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd: 
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension Swift_Protobuf_TestFieldOrderings {
+extension SwiftProtoTesting_Order_TestFieldOrderings {
 
-  var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
-    set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
+  var SwiftProtoTesting_Order_myExtensionString: String {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_string) ?? String()}
+    set {setExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_string, value: newValue)}
   }
-  /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_string`
+  /// Returns true if extension `SwiftProtoTesting_Order_Extensions_my_extension_string`
   /// has been explicitly set.
-  var hasSwift_Protobuf_myExtensionString: Bool {
-    return hasExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
+  var hasSwiftProtoTesting_Order_myExtensionString: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_string)
   }
-  /// Clears the value of extension `Swift_Protobuf_Extensions_my_extension_string`.
+  /// Clears the value of extension `SwiftProtoTesting_Order_Extensions_my_extension_string`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwift_Protobuf_myExtensionString() {
-    clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
+  mutating func clearSwiftProtoTesting_Order_myExtensionString() {
+    clearExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_string)
   }
 
-  var Swift_Protobuf_myExtensionInt: Int32 {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
-    set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
+  var SwiftProtoTesting_Order_myExtensionInt: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_int) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_int, value: newValue)}
   }
-  /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_int`
+  /// Returns true if extension `SwiftProtoTesting_Order_Extensions_my_extension_int`
   /// has been explicitly set.
-  var hasSwift_Protobuf_myExtensionInt: Bool {
-    return hasExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
+  var hasSwiftProtoTesting_Order_myExtensionInt: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_int)
   }
-  /// Clears the value of extension `Swift_Protobuf_Extensions_my_extension_int`.
+  /// Clears the value of extension `SwiftProtoTesting_Order_Extensions_my_extension_int`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwift_Protobuf_myExtensionInt() {
-    clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
+  mutating func clearSwiftProtoTesting_Order_myExtensionInt() {
+    clearExtensionValue(ext: SwiftProtoTesting_Order_Extensions_my_extension_int)
   }
 
 }
 
-// MARK: - File's ExtensionMap: Swift_Protobuf_UnittestSwiftFieldorder_Extensions
+// MARK: - File's ExtensionMap: SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  Swift_Protobuf_Extensions_my_extension_string,
-  Swift_Protobuf_Extensions_my_extension_int
+let SwiftProtoTesting_Order_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_Order_Extensions_my_extension_string,
+  SwiftProtoTesting_Order_Extensions_my_extension_int
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
+let SwiftProtoTesting_Order_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtoTesting_Order_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
-  fieldName: "swift.protobuf.my_extension_string"
+  fieldName: "swift_proto_testing.order.my_extension_string"
 )
 
-let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
+let SwiftProtoTesting_Order_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Order_TestFieldOrderings>(
   _protobuf_fieldNumber: 5,
-  fieldName: "swift.protobuf.my_extension_int"
+  fieldName: "swift_proto_testing.order.my_extension_int"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift.protobuf"
+fileprivate let _protobuf_package = "swift_proto_testing.order"
 
-extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .standard(proto: "my_string"),
@@ -434,7 +434,7 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
       }()
       case 200: try { try decoder.decodeSingularMessageField(value: &self._optionalNestedMessage) }()
       case 2..<9, 12..<56:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Order_TestFieldOrderings.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -479,7 +479,7 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Swift_Protobuf_TestFieldOrderings, rhs: Swift_Protobuf_TestFieldOrderings) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Order_TestFieldOrderings, rhs: SwiftProtoTesting_Order_TestFieldOrderings) -> Bool {
     if lhs._myString != rhs._myString {return false}
     if lhs._myInt != rhs._myInt {return false}
     if lhs._myFloat != rhs._myFloat {return false}
@@ -491,8 +491,8 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Swift_Protobuf_TestFieldOrderings.protoMessageName + ".NestedMessage"
+extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Order_TestFieldOrderings.protoMessageName + ".NestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "oo"),
     1: .same(proto: "bb"),
@@ -525,7 +525,7 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Swift_Protobuf_TestFieldOrderings.NestedMessage, rhs: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage, rhs: SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage) -> Bool {
     if lhs._oo != rhs._oo {return false}
     if lhs._bb != rhs._bb {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -533,7 +533,7 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf.Message
   }
 }
 
-extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofTraversalGeneration"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -624,7 +624,7 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
         }
       }()
       case 202, 325:
-        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber) }()
+        try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Order_OneofTraversalGeneration.self, fieldNumber: fieldNumber) }()
       default: break
       }
     }
@@ -672,7 +672,7 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration, rhs: Swift_Protobuf_OneofTraversalGeneration) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Order_OneofTraversalGeneration, rhs: SwiftProtoTesting_Order_OneofTraversalGeneration) -> Bool {
     if lhs.oGood != rhs.oGood {return false}
     if lhs.oConflictField != rhs.oConflictField {return false}
     if lhs._m != rhs._m {return false}

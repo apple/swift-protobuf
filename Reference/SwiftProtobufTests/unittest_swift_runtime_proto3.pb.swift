@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_Message3 {
+struct SwiftProtoTesting_Message3 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -130,8 +130,8 @@ struct ProtobufUnittest_Message3 {
   }
 
   /// No 'group' in proto3.
-  var optionalMessage: ProtobufUnittest_Message3 {
-    get {return _storage._optionalMessage ?? ProtobufUnittest_Message3()}
+  var optionalMessage: SwiftProtoTesting_Message3 {
+    get {return _storage._optionalMessage ?? SwiftProtoTesting_Message3()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
   /// Returns true if `optionalMessage` has been explicitly set.
@@ -139,7 +139,7 @@ struct ProtobufUnittest_Message3 {
   /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalMessage() {_uniqueStorage()._optionalMessage = nil}
 
-  var optionalEnum: ProtobufUnittest_Message3.Enum {
+  var optionalEnum: SwiftProtoTesting_Message3.Enum {
     get {return _storage._optionalEnum}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
@@ -220,12 +220,12 @@ struct ProtobufUnittest_Message3 {
   }
 
   /// No 'group' in proto3.
-  var repeatedMessage: [ProtobufUnittest_Message3] {
+  var repeatedMessage: [SwiftProtoTesting_Message3] {
     get {return _storage._repeatedMessage}
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
-  var repeatedEnum: [ProtobufUnittest_Message3.Enum] {
+  var repeatedEnum: [SwiftProtoTesting_Message3.Enum] {
     get {return _storage._repeatedEnum}
     set {_uniqueStorage()._repeatedEnum = newValue}
   }
@@ -356,15 +356,15 @@ struct ProtobufUnittest_Message3 {
   }
 
   /// No 'group' in proto3.
-  var oneofMessage: ProtobufUnittest_Message3 {
+  var oneofMessage: SwiftProtoTesting_Message3 {
     get {
       if case .oneofMessage(let v)? = _storage._o {return v}
-      return ProtobufUnittest_Message3()
+      return SwiftProtoTesting_Message3()
     }
     set {_uniqueStorage()._o = .oneofMessage(newValue)}
   }
 
-  var oneofEnum: ProtobufUnittest_Message3.Enum {
+  var oneofEnum: SwiftProtoTesting_Message3.Enum {
     get {
       if case .oneofEnum(let v)? = _storage._o {return v}
       return .foo
@@ -448,7 +448,7 @@ struct ProtobufUnittest_Message3 {
     set {_uniqueStorage()._mapStringBytes = newValue}
   }
 
-  var mapStringMessage: Dictionary<String,ProtobufUnittest_Message3> {
+  var mapStringMessage: Dictionary<String,SwiftProtoTesting_Message3> {
     get {return _storage._mapStringMessage}
     set {_uniqueStorage()._mapStringMessage = newValue}
   }
@@ -458,12 +458,12 @@ struct ProtobufUnittest_Message3 {
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
-  var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message3.Enum> {
+  var mapInt32Enum: Dictionary<Int32,SwiftProtoTesting_Message3.Enum> {
     get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
-  var mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message3> {
+  var mapInt32Message: Dictionary<Int32,SwiftProtoTesting_Message3> {
     get {return _storage._mapInt32Message}
     set {_uniqueStorage()._mapInt32Message = newValue}
   }
@@ -487,8 +487,8 @@ struct ProtobufUnittest_Message3 {
     case oneofString(String)
     case oneofBytes(Data)
     /// No 'group' in proto3.
-    case oneofMessage(ProtobufUnittest_Message3)
-    case oneofEnum(ProtobufUnittest_Message3.Enum)
+    case oneofMessage(SwiftProtoTesting_Message3)
+    case oneofEnum(SwiftProtoTesting_Message3.Enum)
 
   }
 
@@ -525,7 +525,7 @@ struct ProtobufUnittest_Message3 {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [ProtobufUnittest_Message3.Enum] = [
+    static let allCases: [SwiftProtoTesting_Message3.Enum] = [
       .foo,
       .bar,
       .baz,
@@ -539,7 +539,7 @@ struct ProtobufUnittest_Message3 {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_Msg3NoStorage {
+struct SwiftProtoTesting_Msg3NoStorage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -549,14 +549,14 @@ struct ProtobufUnittest_Msg3NoStorage {
   init() {}
 }
 
-struct ProtobufUnittest_Msg3UsesStorage {
+struct SwiftProtoTesting_Msg3UsesStorage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
-  var y: ProtobufUnittest_Msg3UsesStorage {
-    get {return _storage._y ?? ProtobufUnittest_Msg3UsesStorage()}
+  var y: SwiftProtoTesting_Msg3UsesStorage {
+    get {return _storage._y ?? SwiftProtoTesting_Msg3UsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
   /// Returns true if `y` has been explicitly set.
@@ -572,7 +572,7 @@ struct ProtobufUnittest_Msg3UsesStorage {
 }
 
 /// Names that match protocols - No Storage
-struct ProtobufUnittest_Msg3NamesNoStorage {
+struct SwiftProtoTesting_Msg3NamesNoStorage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -589,7 +589,7 @@ struct ProtobufUnittest_Msg3NamesNoStorage {
 }
 
 /// Names that match protocols - No Storage
-struct ProtobufUnittest_Msg3NamesUsesStorage {
+struct SwiftProtoTesting_Msg3NamesUsesStorage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -599,8 +599,8 @@ struct ProtobufUnittest_Msg3NamesUsesStorage {
   var debugDescription_p: Int32 = 0
 
   /// Recursive class, forces _StorageClass
-  var value: ProtobufUnittest_Msg3UsesStorage {
-    get {return _value ?? ProtobufUnittest_Msg3UsesStorage()}
+  var value: SwiftProtoTesting_Msg3UsesStorage {
+    get {return _value ?? SwiftProtoTesting_Msg3UsesStorage()}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
@@ -612,23 +612,23 @@ struct ProtobufUnittest_Msg3NamesUsesStorage {
 
   init() {}
 
-  fileprivate var _value: ProtobufUnittest_Msg3UsesStorage? = nil
+  fileprivate var _value: SwiftProtoTesting_Msg3UsesStorage? = nil
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_Message3: @unchecked Sendable {}
-extension ProtobufUnittest_Message3.OneOf_O: @unchecked Sendable {}
-extension ProtobufUnittest_Msg3NoStorage: @unchecked Sendable {}
-extension ProtobufUnittest_Msg3UsesStorage: @unchecked Sendable {}
-extension ProtobufUnittest_Msg3NamesNoStorage: @unchecked Sendable {}
-extension ProtobufUnittest_Msg3NamesUsesStorage: @unchecked Sendable {}
+extension SwiftProtoTesting_Message3: @unchecked Sendable {}
+extension SwiftProtoTesting_Message3.OneOf_O: @unchecked Sendable {}
+extension SwiftProtoTesting_Msg3NoStorage: @unchecked Sendable {}
+extension SwiftProtoTesting_Msg3UsesStorage: @unchecked Sendable {}
+extension SwiftProtoTesting_Msg3NamesNoStorage: @unchecked Sendable {}
+extension SwiftProtoTesting_Msg3NamesUsesStorage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Message3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -719,8 +719,8 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _optionalBool: Bool = false
     var _optionalString: String = String()
     var _optionalBytes: Data = Data()
-    var _optionalMessage: ProtobufUnittest_Message3? = nil
-    var _optionalEnum: ProtobufUnittest_Message3.Enum = .foo
+    var _optionalMessage: SwiftProtoTesting_Message3? = nil
+    var _optionalEnum: SwiftProtoTesting_Message3.Enum = .foo
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -736,9 +736,9 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
     var _repeatedBytes: [Data] = []
-    var _repeatedMessage: [ProtobufUnittest_Message3] = []
-    var _repeatedEnum: [ProtobufUnittest_Message3.Enum] = []
-    var _o: ProtobufUnittest_Message3.OneOf_O?
+    var _repeatedMessage: [SwiftProtoTesting_Message3] = []
+    var _repeatedEnum: [SwiftProtoTesting_Message3.Enum] = []
+    var _o: SwiftProtoTesting_Message3.OneOf_O?
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -754,10 +754,10 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
     var _mapStringBytes: Dictionary<String,Data> = [:]
-    var _mapStringMessage: Dictionary<String,ProtobufUnittest_Message3> = [:]
+    var _mapStringMessage: Dictionary<String,SwiftProtoTesting_Message3> = [:]
     var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
-    var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message3.Enum> = [:]
-    var _mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message3> = [:]
+    var _mapInt32Enum: Dictionary<Int32,SwiftProtoTesting_Message3.Enum> = [:]
+    var _mapInt32Message: Dictionary<Int32,SwiftProtoTesting_Message3> = [:]
 
     static let defaultInstance = _StorageClass()
 
@@ -991,7 +991,7 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
           }
         }()
         case 68: try {
-          var v: ProtobufUnittest_Message3?
+          var v: SwiftProtoTesting_Message3?
           var hadOneofValue = false
           if let current = _storage._o {
             hadOneofValue = true
@@ -1004,7 +1004,7 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
           }
         }()
         case 69: try {
-          var v: ProtobufUnittest_Message3.Enum?
+          var v: SwiftProtoTesting_Message3.Enum?
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {
             if _storage._o != nil {try decoder.handleConflictingOneOf()}
@@ -1026,10 +1026,10 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
         case 82: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool) }()
         case 83: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString) }()
         case 84: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapStringBytes) }()
-        case 85: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_Message3>.self, value: &_storage._mapStringMessage) }()
+        case 85: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Message3>.self, value: &_storage._mapStringMessage) }()
         case 86: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapInt32Bytes) }()
-        case 87: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message3.Enum>.self, value: &_storage._mapInt32Enum) }()
-        case 88: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message3>.self, value: &_storage._mapInt32Message) }()
+        case 87: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message3.Enum>.self, value: &_storage._mapInt32Enum) }()
+        case 88: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message3>.self, value: &_storage._mapInt32Message) }()
         default: break
         }
       }
@@ -1261,22 +1261,22 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapStringBytes, fieldNumber: 84)
       }
       if !_storage._mapStringMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_Message3>.self, value: _storage._mapStringMessage, fieldNumber: 85)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Message3>.self, value: _storage._mapStringMessage, fieldNumber: 85)
       }
       if !_storage._mapInt32Bytes.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapInt32Bytes, fieldNumber: 86)
       }
       if !_storage._mapInt32Enum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message3.Enum>.self, value: _storage._mapInt32Enum, fieldNumber: 87)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message3.Enum>.self, value: _storage._mapInt32Enum, fieldNumber: 87)
       }
       if !_storage._mapInt32Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message3>.self, value: _storage._mapInt32Message, fieldNumber: 88)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message3>.self, value: _storage._mapInt32Message, fieldNumber: 88)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Message3, rhs: ProtobufUnittest_Message3) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Message3, rhs: SwiftProtoTesting_Message3) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1344,7 +1344,7 @@ extension ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._Messa
   }
 }
 
-extension ProtobufUnittest_Message3.Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Message3.Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FOO"),
     1: .same(proto: "BAR"),
@@ -1353,7 +1353,7 @@ extension ProtobufUnittest_Message3.Enum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension ProtobufUnittest_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NoStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1366,20 +1366,20 @@ extension ProtobufUnittest_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Msg3NoStorage, rhs: ProtobufUnittest_Msg3NoStorage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Msg3NoStorage, rhs: SwiftProtoTesting_Msg3NoStorage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3UsesStorage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "y"),
   ]
 
   fileprivate class _StorageClass {
-    var _y: ProtobufUnittest_Msg3UsesStorage? = nil
+    var _y: SwiftProtoTesting_Msg3UsesStorage? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -1425,7 +1425,7 @@ extension ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Msg3UsesStorage, rhs: ProtobufUnittest_Msg3UsesStorage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Msg3UsesStorage, rhs: SwiftProtoTesting_Msg3UsesStorage) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1440,7 +1440,7 @@ extension ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf
   }
 }
 
-extension ProtobufUnittest_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NamesNoStorage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "is_initialized"),
@@ -1475,7 +1475,7 @@ extension ProtobufUnittest_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Msg3NamesNoStorage, rhs: ProtobufUnittest_Msg3NamesNoStorage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Msg3NamesNoStorage, rhs: SwiftProtoTesting_Msg3NamesNoStorage) -> Bool {
     if lhs.isInitialized_p != rhs.isInitialized_p {return false}
     if lhs.debugDescription_p != rhs.debugDescription_p {return false}
     if lhs.hasValue_p != rhs.hasValue_p {return false}
@@ -1484,7 +1484,7 @@ extension ProtobufUnittest_Msg3NamesNoStorage: SwiftProtobuf.Message, SwiftProto
   }
 }
 
-extension ProtobufUnittest_Msg3NamesUsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Msg3NamesUsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg3NamesUsesStorage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "is_initialized"),
@@ -1523,7 +1523,7 @@ extension ProtobufUnittest_Msg3NamesUsesStorage: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_Msg3NamesUsesStorage, rhs: ProtobufUnittest_Msg3NamesUsesStorage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Msg3NamesUsesStorage, rhs: SwiftProtoTesting_Msg3NamesUsesStorage) -> Bool {
     if lhs.isInitialized_p != rhs.isInitialized_p {return false}
     if lhs.debugDescription_p != rhs.debugDescription_p {return false}
     if lhs._value != rhs._value {return false}

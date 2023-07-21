@@ -32,7 +32,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest_import;
+package swift_proto_testing.import;
 
 message PublicImportMessage {
   optional int32 e = 1;

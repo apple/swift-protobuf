@@ -16,7 +16,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest.extend;
+package swift_proto_testing.extend;
 
 message Foo {
     message Bar {

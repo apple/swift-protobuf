@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case a // = 0
   case string // = 1
@@ -684,7 +684,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
 
 }
 
-enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case aa // = 0
 
@@ -718,7 +718,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 
 }
 
-struct SwiftUnittest_Names_Foo: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_Foo: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -730,7 +730,7 @@ struct SwiftUnittest_Names_Foo: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_FieldNames {
+struct SwiftProtoTesting_Names_FieldNames {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2740,7 +2740,7 @@ struct SwiftUnittest_Names_FieldNames {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftUnittest_Names_MessageNames {
+struct SwiftProtoTesting_Names_MessageNames {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -7244,7 +7244,7 @@ struct SwiftUnittest_Names_MessageNames {
   init() {}
 }
 
-struct SwiftUnittest_Names_EnumNames {
+struct SwiftProtoTesting_Names_EnumNames {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12107,7 +12107,7 @@ struct SwiftUnittest_Names_EnumNames {
   init() {}
 }
 
-struct SwiftUnittest_Names_FieldNamingInitials {
+struct SwiftProtoTesting_Names_FieldNamingInitials {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12624,7 +12624,7 @@ struct SwiftUnittest_Names_FieldNamingInitials {
   init() {}
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12636,7 +12636,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.ExtensibleMess
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_Lowers {
+struct SwiftProtoTesting_Names_Lowers {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12646,7 +12646,7 @@ struct SwiftUnittest_Names_Lowers {
   init() {}
 }
 
-struct SwiftUnittest_Names_Uppers {
+struct SwiftProtoTesting_Names_Uppers {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12656,7 +12656,7 @@ struct SwiftUnittest_Names_Uppers {
   init() {}
 }
 
-struct SwiftUnittest_Names_WordCase {
+struct SwiftProtoTesting_Names_WordCase {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12666,19 +12666,7 @@ struct SwiftUnittest_Names_WordCase {
   init() {}
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.ExtensibleMessage {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-}
-
-struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12690,7 +12678,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Extensib
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.ExtensibleMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12702,7 +12690,19 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Extens
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftUnittest_Names_ValidIdentifiers {
+struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.ExtensibleMessage {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
+struct SwiftProtoTesting_Names_ValidIdentifiers {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12734,7 +12734,7 @@ struct SwiftUnittest_Names_ValidIdentifiers {
   /// Clears the value of `_3Field3`. Subsequent reads from it will return its default value.
   mutating func clear_3Field3() {self.__3Field3 = nil}
 
-  var _2Of: SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of? = nil
+  var _2Of: SwiftProtoTesting_Names_ValidIdentifiers.OneOf__2Of? = nil
 
   var _4: Int32 {
     get {
@@ -12752,7 +12752,7 @@ struct SwiftUnittest_Names_ValidIdentifiers {
     set {_2Of = ._5Field(newValue)}
   }
 
-  var enumField: SwiftUnittest_Names_ValidIdentifiers.TestEnum {
+  var enumField: SwiftProtoTesting_Names_ValidIdentifiers.TestEnum {
     get {return _enumField ?? .testEnum0}
     set {_enumField = newValue}
   }
@@ -12814,18 +12814,18 @@ struct SwiftUnittest_Names_ValidIdentifiers {
   fileprivate var __1Field: Int32? = nil
   fileprivate var _field: Int32? = nil
   fileprivate var __3Field3: Int32? = nil
-  fileprivate var _enumField: SwiftUnittest_Names_ValidIdentifiers.TestEnum? = nil
+  fileprivate var _enumField: SwiftProtoTesting_Names_ValidIdentifiers.TestEnum? = nil
 }
 
 /// For issue #1084 - If the generated code compiles, things are good.
 ///
 /// This gets special handling because of the generated setter.
-struct SwiftUnittest_Names_SpecialNames1 {
+struct SwiftProtoTesting_Names_SpecialNames1 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var newValue: SwiftUnittest_Names_SpecialNames1.OneOf_NewValue? = nil
+  var newValue: SwiftProtoTesting_Names_SpecialNames1.OneOf_NewValue? = nil
 
   var str: String {
     get {
@@ -12846,7 +12846,7 @@ struct SwiftUnittest_Names_SpecialNames1 {
 }
 
 /// No special handling needed in the generator.
-struct SwiftUnittest_Names_SpecialNames2 {
+struct SwiftProtoTesting_Names_SpecialNames2 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12868,7 +12868,7 @@ struct SwiftUnittest_Names_SpecialNames2 {
 }
 
 /// No special handling needed in the generator.
-struct SwiftUnittest_Names_SpecialNames3 {
+struct SwiftProtoTesting_Names_SpecialNames3 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12886,8 +12886,8 @@ struct SwiftUnittest_Names_SpecialNames3 {
     set {_uniqueStorage()._newValue = .str(newValue)}
   }
 
-  var forcesStorage: SwiftUnittest_Names_SpecialNames3 {
-    get {return _storage._forcesStorage ?? SwiftUnittest_Names_SpecialNames3()}
+  var forcesStorage: SwiftProtoTesting_Names_SpecialNames3 {
+    get {return _storage._forcesStorage ?? SwiftProtoTesting_Names_SpecialNames3()}
     set {_uniqueStorage()._forcesStorage = newValue}
   }
   /// Returns true if `forcesStorage` has been explicitly set.
@@ -12908,7 +12908,7 @@ struct SwiftUnittest_Names_SpecialNames3 {
 }
 
 /// No special handling needed in the generator.
-struct SwiftUnittest_Names_SpecialNames4 {
+struct SwiftProtoTesting_Names_SpecialNames4 {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12922,8 +12922,8 @@ struct SwiftUnittest_Names_SpecialNames4 {
   /// Clears the value of `newValue`. Subsequent reads from it will return its default value.
   mutating func clearNewValue() {_uniqueStorage()._newValue = nil}
 
-  var forcesStorage: SwiftUnittest_Names_SpecialNames4 {
-    get {return _storage._forcesStorage ?? SwiftUnittest_Names_SpecialNames4()}
+  var forcesStorage: SwiftProtoTesting_Names_SpecialNames4 {
+    get {return _storage._forcesStorage ?? SwiftProtoTesting_Names_SpecialNames4()}
     set {_uniqueStorage()._forcesStorage = newValue}
   }
   /// Returns true if `forcesStorage` has been explicitly set.
@@ -12939,243 +12939,243 @@ struct SwiftUnittest_Names_SpecialNames4 {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftUnittest_Names_Foo: @unchecked Sendable {}
-extension SwiftUnittest_Names_FieldNames: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.StringMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ProtocolMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.IntMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.DoubleMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.FloatMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.UIntMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.hashValueMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.descriptionMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Swift: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.classMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.deinitMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.enumMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.extensionMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.funcMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.importMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.initMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.inoutMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.internalMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.letMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.operatorMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.privateMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.protocolMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.publicMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.staticMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.structMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.subscriptMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.typealiasMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.varMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.breakMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.caseMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.continueMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.defaultMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.deferMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.doMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.elseMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.fallthroughMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.forMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.guardMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ifMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.inMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.repeatMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.returnMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.switchMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.whereMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.whileMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.asMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.catchMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.falseMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.isMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.nilMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.rethrowsMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.superMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.selfMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.throwMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.throwsMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.trueMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.tryMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.__FILE__Message: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.__LINE__Message: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames._Message: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.__Message: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.associativity: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.convenience: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.dynamic: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.didSet: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.final: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.get: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.infix: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.indirect: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.lazy: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.left: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.mutating: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.none: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.nonmutating: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.optional: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.override: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.postfix: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.precedence: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.prefix: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.required: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.right: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.set: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.TypeMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.unowned: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.weak: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.willSet: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.id: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames._cmd: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.out: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.bycopy: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.byref: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.oneway: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.and: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.and_eq: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.alignas: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.alignof: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.asm: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.auto: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.bitand: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.bitor: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.bool: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.char: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.char16_t: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.char32_t: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.compl: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.const: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.constexpr: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.const_cast: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.decltype: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.delete: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.dynamic_cast: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.explicit: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.export: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.extern: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.friend: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.goto: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.inline: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.long: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.mutable: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.namespace: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.new: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.noexcept: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.not: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.not_eq: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.nullptr: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.or: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.or_eq: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.protected: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.register: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.reinterpret_cast: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.short: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.signed: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.sizeof: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.static_assert: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.static_cast: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.template: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.this: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.thread_local: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.typedef: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.typeid: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.typename: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.union: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.unsigned: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.using: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.virtual: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.void: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.volatile: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.wchar_t: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.xor: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.xor_eq: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.restrict: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Category: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Ivar: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Method: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.finalize: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.hash: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.dealloc: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.superclass: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.retain: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.release: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.autorelease: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.retainCount: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.zone: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.isProxy: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.copy: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.mutableCopy: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.classForCoder: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.clear: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.data: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.delimitedData: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.descriptor: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.extensionRegistry: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.isInitializedMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.serializedSize: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Fixed: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Fract: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Size: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.LogicalAddress: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.PhysicalAddress: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ByteCount: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ByteOffset: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Duration: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.AbsoluteTime: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.OptionBits: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ItemCount: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.PBVersion: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ScriptCode: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.LangCode: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.RegionCode: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.OSType: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Point: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Rect: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.FixedPoint: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.FixedRect: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Style: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.StyleParameter: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.StyleField: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.TimeScale: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.TimeBase: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.TimeRecord: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.serializedData: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.jsonString: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Extension: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_EnumNames: @unchecked Sendable {}
-extension SwiftUnittest_Names_FieldNamingInitials: @unchecked Sendable {}
-extension SwiftUnittest_Names_FieldNamingInitials.Lowers: @unchecked Sendable {}
-extension SwiftUnittest_Names_FieldNamingInitials.Uppers: @unchecked Sendable {}
-extension SwiftUnittest_Names_FieldNamingInitials.WordCase: @unchecked Sendable {}
-extension SwiftUnittest_Names_ExtensionNamingInitials: @unchecked Sendable {}
-extension SwiftUnittest_Names_Lowers: @unchecked Sendable {}
-extension SwiftUnittest_Names_Uppers: @unchecked Sendable {}
-extension SwiftUnittest_Names_WordCase: @unchecked Sendable {}
-extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: @unchecked Sendable {}
-extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: @unchecked Sendable {}
-extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: @unchecked Sendable {}
-extension SwiftUnittest_Names_ValidIdentifiers: @unchecked Sendable {}
-extension SwiftUnittest_Names_ValidIdentifiers.OneOf__2Of: @unchecked Sendable {}
-extension SwiftUnittest_Names_SpecialNames1: @unchecked Sendable {}
-extension SwiftUnittest_Names_SpecialNames1.OneOf_NewValue: @unchecked Sendable {}
-extension SwiftUnittest_Names_SpecialNames2: @unchecked Sendable {}
-extension SwiftUnittest_Names_SpecialNames3: @unchecked Sendable {}
-extension SwiftUnittest_Names_SpecialNames3.OneOf_NewValue: @unchecked Sendable {}
-extension SwiftUnittest_Names_SpecialNames4: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_Foo: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_FieldNames: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.StringMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.IntMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.FloatMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.UIntMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Swift: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.classMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.deinitMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.enumMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.extensionMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.funcMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.importMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.initMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.inoutMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.internalMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.letMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.operatorMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.privateMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.protocolMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.publicMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.staticMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.structMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.varMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.breakMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.caseMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.continueMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.defaultMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.deferMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.doMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.elseMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.forMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.guardMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ifMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.inMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.repeatMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.returnMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.switchMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.whereMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.whileMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.asMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.catchMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.falseMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.isMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.nilMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.superMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.selfMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.throwMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.throwsMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.trueMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.tryMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames._Message: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.__Message: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.associativity: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.convenience: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.dynamic: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.didSet: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.final: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.get: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.infix: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.indirect: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.lazy: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.left: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.mutating: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.none: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.nonmutating: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.optional: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.override: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.postfix: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.precedence: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.prefix: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.required: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.right: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.set: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.TypeMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.unowned: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.weak: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.willSet: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.id: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames._cmd: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.out: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.bycopy: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.byref: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.oneway: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.and: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.and_eq: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.alignas: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.alignof: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.asm: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.auto: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.bitand: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.bitor: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.bool: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.char: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.char16_t: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.char32_t: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.compl: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.const: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.constexpr: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.const_cast: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.decltype: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.delete: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.explicit: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.export: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.extern: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.friend: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.goto: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.inline: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.long: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.mutable: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.namespace: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.new: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.noexcept: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.not: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.not_eq: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.nullptr: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.or: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.or_eq: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.protected: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.register: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.short: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.signed: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.sizeof: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.static_assert: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.static_cast: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.template: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.this: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.thread_local: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.typedef: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.typeid: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.typename: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.union: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.unsigned: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.using: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.virtual: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.void: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.volatile: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.wchar_t: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.xor: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.xor_eq: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.restrict: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Category: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Ivar: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Method: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.finalize: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.hash: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.dealloc: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.superclass: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.retain: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.release: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.autorelease: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.retainCount: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.zone: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.isProxy: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.copy: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.mutableCopy: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.classForCoder: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.clear: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.data: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.delimitedData: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.descriptor: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.serializedSize: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Fixed: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Fract: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Size: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ByteCount: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ByteOffset: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Duration: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.OptionBits: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ItemCount: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.PBVersion: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ScriptCode: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.LangCode: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.RegionCode: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.OSType: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Point: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Rect: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.FixedPoint: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.FixedRect: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Style: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.StyleParameter: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.StyleField: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.TimeScale: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.TimeBase: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.TimeRecord: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.serializedData: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.jsonString: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.Extension: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_EnumNames: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_ExtensionNamingInitials: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_Lowers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_Uppers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_WordCase: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_ValidIdentifiers.OneOf__2Of: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_SpecialNames1: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_SpecialNames1.OneOf_NewValue: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_SpecialNames2: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_SpecialNames3: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_SpecialNames3.OneOf_NewValue: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_SpecialNames4: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_naming.proto.
@@ -13187,2206 +13187,2206 @@ extension SwiftUnittest_Names_SpecialNames4: @unchecked Sendable {}
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.
 
-extension SwiftUnittest_Names_ExtensionNamingInitials {
+extension SwiftProtoTesting_Names_ExtensionNamingInitials {
 
-  var SwiftUnittest_Names_Lowers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_http: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.http`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.http`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
+  var hasSwiftProtoTesting_Names_Lowers_http: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.http`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
-  }
-
-  var SwiftUnittest_Names_Lowers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request, value: newValue)}
-  }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.http_request`
-  /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
-  }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.http_request`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
+  mutating func clearSwiftProtoTesting_Names_Lowers_http() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http)
   }
 
-  var SwiftUnittest_Names_Lowers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_http_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.http_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
+  var hasSwiftProtoTesting_Names_Lowers_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_http_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
+  mutating func clearSwiftProtoTesting_Names_Lowers_httpRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.http_request)
   }
 
-  var SwiftUnittest_Names_Lowers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_http`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_http_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
+  var hasSwiftProtoTesting_Names_Lowers_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_http`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http_request)
   }
 
-  var SwiftUnittest_Names_Lowers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.https`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_http`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
+  var hasSwiftProtoTesting_Names_Lowers_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.https`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTP() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_http)
   }
 
-  var SwiftUnittest_Names_Lowers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_https: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.https_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.https`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
+  var hasSwiftProtoTesting_Names_Lowers_https: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.https_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
+  mutating func clearSwiftProtoTesting_Names_Lowers_https() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https)
   }
 
-  var SwiftUnittest_Names_Lowers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_https_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.https_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
+  var hasSwiftProtoTesting_Names_Lowers_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_https_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
+  mutating func clearSwiftProtoTesting_Names_Lowers_httpsRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.https_request)
   }
 
-  var SwiftUnittest_Names_Lowers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_https`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_https_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
+  var hasSwiftProtoTesting_Names_Lowers_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_https`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https_request)
   }
 
-  var SwiftUnittest_Names_Lowers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.url`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_https`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
+  var hasSwiftProtoTesting_Names_Lowers_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.url`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theHTTPS() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_https)
   }
 
-  var SwiftUnittest_Names_Lowers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_url: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.url_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.url`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
+  var hasSwiftProtoTesting_Names_Lowers_url: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.url_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
+  mutating func clearSwiftProtoTesting_Names_Lowers_url() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url)
   }
 
-  var SwiftUnittest_Names_Lowers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_url_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.url_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
+  var hasSwiftProtoTesting_Names_Lowers_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_url_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
+  mutating func clearSwiftProtoTesting_Names_Lowers_urlValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.url_value)
   }
 
-  var SwiftUnittest_Names_Lowers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_url`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_url_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
+  var hasSwiftProtoTesting_Names_Lowers_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_url`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theURLValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url_value)
   }
 
-  var SwiftUnittest_Names_Lowers_aBC: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.a_b_c`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_url`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_aBC: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
+  var hasSwiftProtoTesting_Names_Lowers_theURL: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.a_b_c`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_aBC() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theURL() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_url)
   }
 
-  var SwiftUnittest_Names_Lowers_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_aBC: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.id`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.a_b_c`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_id: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)
+  var hasSwiftProtoTesting_Names_Lowers_aBC: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.id`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.a_b_c`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_id() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)
+  mutating func clearSwiftProtoTesting_Names_Lowers_aBC() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.a_b_c)
   }
 
-  var SwiftUnittest_Names_Lowers_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_id: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.id_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.id`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_idNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)
+  var hasSwiftProtoTesting_Names_Lowers_id: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.id_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_idNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)
+  mutating func clearSwiftProtoTesting_Names_Lowers_id() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id)
   }
 
-  var SwiftUnittest_Names_Lowers_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_id_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.id_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_theIDNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)
+  var hasSwiftProtoTesting_Names_Lowers_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_id_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_theIDNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)
+  mutating func clearSwiftProtoTesting_Names_Lowers_idNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.id_number)
   }
 
-  var SwiftUnittest_Names_Lowers_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.request_id`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.the_id_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Lowers_requestID: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)
+  var hasSwiftProtoTesting_Names_Lowers_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.request_id`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.the_id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Lowers_requestID() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)
+  mutating func clearSwiftProtoTesting_Names_Lowers_theIDNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.the_id_number)
   }
 
-  var SwiftUnittest_Names_Uppers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
+  var SwiftProtoTesting_Names_Lowers_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.request_id) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.request_id, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTP`
+  /// Returns true if extension `SwiftProtoTesting_Names_Lowers.Extensions.request_id`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
+  var hasSwiftProtoTesting_Names_Lowers_requestID: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.request_id)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.HTTP`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Lowers.Extensions.request_id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
+  mutating func clearSwiftProtoTesting_Names_Lowers_requestID() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Lowers.Extensions.request_id)
   }
 
-  var SwiftUnittest_Names_Uppers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_http: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTP_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTP`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
+  var hasSwiftProtoTesting_Names_Uppers_http: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.HTTP_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
+  mutating func clearSwiftProtoTesting_Names_Uppers_http() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP)
   }
 
-  var SwiftUnittest_Names_Uppers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
+  var hasSwiftProtoTesting_Names_Uppers_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
+  mutating func clearSwiftProtoTesting_Names_Uppers_httpRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request)
   }
 
-  var SwiftUnittest_Names_Uppers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTP`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
+  var hasSwiftProtoTesting_Names_Uppers_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTP`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request)
   }
 
-  var SwiftUnittest_Names_Uppers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTPS`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
+  var hasSwiftProtoTesting_Names_Uppers_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.HTTPS`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTP() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP)
   }
 
-  var SwiftUnittest_Names_Uppers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_https: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTPS_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTPS`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
+  var hasSwiftProtoTesting_Names_Uppers_https: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.HTTPS_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
+  mutating func clearSwiftProtoTesting_Names_Uppers_https() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS)
   }
 
-  var SwiftUnittest_Names_Uppers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
+  var hasSwiftProtoTesting_Names_Uppers_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
+  mutating func clearSwiftProtoTesting_Names_Uppers_httpsRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request)
   }
 
-  var SwiftUnittest_Names_Uppers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTPS`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
+  var hasSwiftProtoTesting_Names_Uppers_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTPS`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request)
   }
 
-  var SwiftUnittest_Names_Uppers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.URL`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
+  var hasSwiftProtoTesting_Names_Uppers_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.URL`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theHTTPS() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS)
   }
 
-  var SwiftUnittest_Names_Uppers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_url: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.URL_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.URL`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
+  var hasSwiftProtoTesting_Names_Uppers_url: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.URL_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
+  mutating func clearSwiftProtoTesting_Names_Uppers_url() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL)
   }
 
-  var SwiftUnittest_Names_Uppers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_URL_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.URL_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
+  var hasSwiftProtoTesting_Names_Uppers_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_URL_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
+  mutating func clearSwiftProtoTesting_Names_Uppers_urlValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.URL_value)
   }
 
-  var SwiftUnittest_Names_Uppers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_URL`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  var hasSwiftProtoTesting_Names_Uppers_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_URL`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theURLValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value)
   }
 
-  var SwiftUnittest_Names_Uppers_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.ID`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_URL`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_id: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)
+  var hasSwiftProtoTesting_Names_Uppers_theURL: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.ID`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_id() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theURL() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_URL)
   }
 
-  var SwiftUnittest_Names_Uppers_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_id: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.ID_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.ID`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_idNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)
+  var hasSwiftProtoTesting_Names_Uppers_id: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.ID_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_idNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)
+  mutating func clearSwiftProtoTesting_Names_Uppers_id() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID)
   }
 
-  var SwiftUnittest_Names_Uppers_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_ID_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.ID_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_theIDNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)
+  var hasSwiftProtoTesting_Names_Uppers_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_ID_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_theIDNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)
+  mutating func clearSwiftProtoTesting_Names_Uppers_idNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.ID_number)
   }
 
-  var SwiftUnittest_Names_Uppers_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.request_ID`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_Uppers_requestID: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)
+  var hasSwiftProtoTesting_Names_Uppers_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.request_ID`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_Uppers_requestID() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)
+  mutating func clearSwiftProtoTesting_Names_Uppers_theIDNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number)
   }
 
-  var SwiftUnittest_Names_WordCase_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http, value: newValue)}
+  var SwiftProtoTesting_Names_Uppers_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.request_ID) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.request_ID, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Http`
+  /// Returns true if extension `SwiftProtoTesting_Names_Uppers.Extensions.request_ID`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
+  var hasSwiftProtoTesting_Names_Uppers_requestID: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.request_ID)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.Http`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Uppers.Extensions.request_ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
+  mutating func clearSwiftProtoTesting_Names_Uppers_requestID() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Uppers.Extensions.request_ID)
   }
 
-  var SwiftUnittest_Names_WordCase_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_http: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Http) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Http, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.HttpRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.Http`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
+  var hasSwiftProtoTesting_Names_WordCase_http: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Http)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.HttpRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
+  mutating func clearSwiftProtoTesting_Names_WordCase_http() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Http)
   }
 
-  var SwiftUnittest_Names_WordCase_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
+  var hasSwiftProtoTesting_Names_WordCase_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
+  mutating func clearSwiftProtoTesting_Names_WordCase_httpRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest)
   }
 
-  var SwiftUnittest_Names_WordCase_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttp`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
+  var hasSwiftProtoTesting_Names_WordCase_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheHttp`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest)
   }
 
-  var SwiftUnittest_Names_WordCase_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Https`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttp`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
+  var hasSwiftProtoTesting_Names_WordCase_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.Https`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttp`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTP() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttp)
   }
 
-  var SwiftUnittest_Names_WordCase_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_https: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Https) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Https, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.HttpsRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.Https`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
+  var hasSwiftProtoTesting_Names_WordCase_https: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Https)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.HttpsRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
+  mutating func clearSwiftProtoTesting_Names_WordCase_https() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Https)
   }
 
-  var SwiftUnittest_Names_WordCase_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
+  var hasSwiftProtoTesting_Names_WordCase_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
+  mutating func clearSwiftProtoTesting_Names_WordCase_httpsRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest)
   }
 
-  var SwiftUnittest_Names_WordCase_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttps`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
+  var hasSwiftProtoTesting_Names_WordCase_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheHttps`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest)
   }
 
-  var SwiftUnittest_Names_WordCase_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Url`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttps`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
+  var hasSwiftProtoTesting_Names_WordCase_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.Url`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheHttps`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theHTTPS() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheHttps)
   }
 
-  var SwiftUnittest_Names_WordCase_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_url: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Url) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Url, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.UrlValue`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.Url`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
+  var hasSwiftProtoTesting_Names_WordCase_url: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Url)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.UrlValue`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
+  mutating func clearSwiftProtoTesting_Names_WordCase_url() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Url)
   }
 
-  var SwiftUnittest_Names_WordCase_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheUrlValue`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.UrlValue`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
+  var hasSwiftProtoTesting_Names_WordCase_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheUrlValue`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.UrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
+  mutating func clearSwiftProtoTesting_Names_WordCase_urlValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.UrlValue)
   }
 
-  var SwiftUnittest_Names_WordCase_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheUrl`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
+  var hasSwiftProtoTesting_Names_WordCase_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheUrl`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theURLValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue)
   }
 
-  var SwiftUnittest_Names_WordCase_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Id`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheUrl`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_id: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)
+  var hasSwiftProtoTesting_Names_WordCase_theURL: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.Id`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheUrl`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_id() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theURL() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheUrl)
   }
 
-  var SwiftUnittest_Names_WordCase_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_id: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Id) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Id, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.IdNumber`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.Id`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_idNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)
+  var hasSwiftProtoTesting_Names_WordCase_id: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Id)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.IdNumber`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.Id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_idNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)
+  mutating func clearSwiftProtoTesting_Names_WordCase_id() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.Id)
   }
 
-  var SwiftUnittest_Names_WordCase_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheIdNumber`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.IdNumber`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_theIDNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)
+  var hasSwiftProtoTesting_Names_WordCase_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheIdNumber`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.IdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_theIDNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)
+  mutating func clearSwiftProtoTesting_Names_WordCase_idNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.IdNumber)
   }
 
-  var SwiftUnittest_Names_WordCase_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId, value: newValue)}
+  var SwiftProtoTesting_Names_WordCase_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.RequestId`
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_WordCase_requestID: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)
+  var hasSwiftProtoTesting_Names_WordCase_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.RequestId`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_WordCase_requestID() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)
+  mutating func clearSwiftProtoTesting_Names_WordCase_theIDNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber)
+  }
+
+  var SwiftProtoTesting_Names_WordCase_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.RequestId) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.RequestId, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Names_WordCase.Extensions.RequestId`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_Names_WordCase_requestID: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.RequestId)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Names_WordCase.Extensions.RequestId`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_Names_WordCase_requestID() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_WordCase.Extensions.RequestId)
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers {
 
-  var SwiftUnittest_Names_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_http, value: newValue)}
+  var SwiftProtoTesting_Names_http: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_http`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_http`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_http)
+  var hasSwiftProtoTesting_Names_http: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_http`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_http)
-  }
-
-  var SwiftUnittest_Names_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request, value: newValue)}
-  }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_http_request`
-  /// has been explicitly set.
-  var hasSwiftUnittest_Names_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request)
-  }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_http_request`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request)
+  mutating func clearSwiftProtoTesting_Names_http() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http)
   }
 
-  var SwiftUnittest_Names_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request, value: newValue)}
+  var SwiftProtoTesting_Names_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_http_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_http_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request)
+  var hasSwiftProtoTesting_Names_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_http_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request)
+  mutating func clearSwiftProtoTesting_Names_httpRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_http_request)
   }
 
-  var SwiftUnittest_Names_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_http`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_http_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http)
+  var hasSwiftProtoTesting_Names_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_http`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_http_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http)
+  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http_request)
   }
 
-  var SwiftUnittest_Names_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_https, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_https`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_http`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_https)
+  var hasSwiftProtoTesting_Names_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_https`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_https)
+  mutating func clearSwiftProtoTesting_Names_theHTTP() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_http)
   }
 
-  var SwiftUnittest_Names_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request, value: newValue)}
+  var SwiftProtoTesting_Names_https: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_https_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_https`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request)
+  var hasSwiftProtoTesting_Names_https: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_https_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request)
+  mutating func clearSwiftProtoTesting_Names_https() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https)
   }
 
-  var SwiftUnittest_Names_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request, value: newValue)}
+  var SwiftProtoTesting_Names_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_https_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_https_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request)
+  var hasSwiftProtoTesting_Names_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_https_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request)
+  mutating func clearSwiftProtoTesting_Names_httpsRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_https_request)
   }
 
-  var SwiftUnittest_Names_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_https`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_https_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https)
+  var hasSwiftProtoTesting_Names_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_https`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_https_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https)
+  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https_request)
   }
 
-  var SwiftUnittest_Names_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_url, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_url`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_https`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_url)
+  var hasSwiftProtoTesting_Names_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_url`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_url)
+  mutating func clearSwiftProtoTesting_Names_theHTTPS() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_https)
   }
 
-  var SwiftUnittest_Names_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value, value: newValue)}
+  var SwiftProtoTesting_Names_url: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_url_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_url`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value)
+  var hasSwiftProtoTesting_Names_url: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_url_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value)
+  mutating func clearSwiftProtoTesting_Names_url() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url)
   }
 
-  var SwiftUnittest_Names_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value, value: newValue)}
+  var SwiftProtoTesting_Names_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_url_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_url_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value)
+  var hasSwiftProtoTesting_Names_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_url_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value)
+  mutating func clearSwiftProtoTesting_Names_urlValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_url_value)
   }
 
-  var SwiftUnittest_Names_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url, value: newValue)}
+  var SwiftProtoTesting_Names_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_url`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_url_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url)
+  var hasSwiftProtoTesting_Names_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_url`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_url_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url)
+  mutating func clearSwiftProtoTesting_Names_theURLValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url_value)
   }
 
-  var SwiftUnittest_Names_aBC: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c, value: newValue)}
+  var SwiftProtoTesting_Names_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_a_b_c`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_url`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_aBC: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c)
+  var hasSwiftProtoTesting_Names_theURL: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_a_b_c`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_aBC() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c)
+  mutating func clearSwiftProtoTesting_Names_theURL() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_url)
   }
 
-  var SwiftUnittest_Names_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id, value: newValue)}
+  var SwiftProtoTesting_Names_aBC: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_a_b_c) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_a_b_c, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_id`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_a_b_c`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_id: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_id)
+  var hasSwiftProtoTesting_Names_aBC: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_a_b_c)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_id`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_a_b_c`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_id() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_id)
+  mutating func clearSwiftProtoTesting_Names_aBC() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_a_b_c)
   }
 
-  var SwiftUnittest_Names_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number, value: newValue)}
+  var SwiftProtoTesting_Names_id: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_id_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_id`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_idNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)
+  var hasSwiftProtoTesting_Names_id: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_id_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_idNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)
+  mutating func clearSwiftProtoTesting_Names_id() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id)
   }
 
-  var SwiftUnittest_Names_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number, value: newValue)}
+  var SwiftProtoTesting_Names_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_id_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_id_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theIDNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)
+  var hasSwiftProtoTesting_Names_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_id_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theIDNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)
+  mutating func clearSwiftProtoTesting_Names_idNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_id_number)
   }
 
-  var SwiftUnittest_Names_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id, value: newValue)}
+  var SwiftProtoTesting_Names_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_id_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_request_id`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_id_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_requestID: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)
+  var hasSwiftProtoTesting_Names_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_id_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_request_id`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_id_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_requestID() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)
+  mutating func clearSwiftProtoTesting_Names_theIDNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_id_number)
+  }
+
+  var SwiftProtoTesting_Names_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_id) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_id, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_request_id`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_Names_requestID: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_id)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_request_id`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_Names_requestID() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_id)
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers {
 
-  var SwiftUnittest_Names_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP, value: newValue)}
+  var SwiftProtoTesting_Names_http: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTP`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_HTTP`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP)
+  var hasSwiftProtoTesting_Names_http: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_HTTP`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP)
-  }
-
-  var SwiftUnittest_Names_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request, value: newValue)}
-  }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTP_request`
-  /// has been explicitly set.
-  var hasSwiftUnittest_Names_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request)
-  }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_HTTP_request`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request)
+  mutating func clearSwiftProtoTesting_Names_http() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP)
   }
 
-  var SwiftUnittest_Names_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request, value: newValue)}
+  var SwiftProtoTesting_Names_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTP_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_HTTP_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request)
+  var hasSwiftProtoTesting_Names_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_HTTP_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request)
+  mutating func clearSwiftProtoTesting_Names_httpRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTP_request)
   }
 
-  var SwiftUnittest_Names_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTP`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_HTTP_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP)
+  var hasSwiftProtoTesting_Names_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_HTTP`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTP_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP)
+  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP_request)
   }
 
-  var SwiftUnittest_Names_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTPS`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_HTTP`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS)
+  var hasSwiftProtoTesting_Names_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_HTTPS`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTP`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS)
+  mutating func clearSwiftProtoTesting_Names_theHTTP() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTP)
   }
 
-  var SwiftUnittest_Names_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request, value: newValue)}
+  var SwiftProtoTesting_Names_https: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTPS_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_HTTPS`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request)
+  var hasSwiftProtoTesting_Names_https: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_HTTPS_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request)
+  mutating func clearSwiftProtoTesting_Names_https() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS)
   }
 
-  var SwiftUnittest_Names_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request, value: newValue)}
+  var SwiftProtoTesting_Names_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTPS_request`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_HTTPS_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request)
+  var hasSwiftProtoTesting_Names_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_HTTPS_request`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request)
+  mutating func clearSwiftProtoTesting_Names_httpsRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HTTPS_request)
   }
 
-  var SwiftUnittest_Names_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS_request, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTPS`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_HTTPS_request`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS)
+  var hasSwiftProtoTesting_Names_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS_request)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_HTTPS`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTPS_request`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS)
+  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS_request)
   }
 
-  var SwiftUnittest_Names_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_URL, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_URL`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_HTTPS`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_URL)
+  var hasSwiftProtoTesting_Names_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_URL`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_HTTPS`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_URL)
+  mutating func clearSwiftProtoTesting_Names_theHTTPS() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_HTTPS)
   }
 
-  var SwiftUnittest_Names_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value, value: newValue)}
+  var SwiftProtoTesting_Names_url: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_URL_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_URL`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value)
+  var hasSwiftProtoTesting_Names_url: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_URL_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value)
+  mutating func clearSwiftProtoTesting_Names_url() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL)
   }
 
-  var SwiftUnittest_Names_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value, value: newValue)}
+  var SwiftProtoTesting_Names_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_URL_value`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_URL_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value)
+  var hasSwiftProtoTesting_Names_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_URL_value`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value)
+  mutating func clearSwiftProtoTesting_Names_urlValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_URL_value)
   }
 
-  var SwiftUnittest_Names_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL, value: newValue)}
+  var SwiftProtoTesting_Names_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL_value, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_URL`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_URL_value`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL)
+  var hasSwiftProtoTesting_Names_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL_value)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_URL`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_URL_value`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL)
+  mutating func clearSwiftProtoTesting_Names_theURLValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL_value)
   }
 
-  var SwiftUnittest_Names_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID, value: newValue)}
+  var SwiftProtoTesting_Names_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_ID`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_URL`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_id: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)
+  var hasSwiftProtoTesting_Names_theURL: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_ID`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_URL`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_id() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)
+  mutating func clearSwiftProtoTesting_Names_theURL() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_URL)
   }
 
-  var SwiftUnittest_Names_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number, value: newValue)}
+  var SwiftProtoTesting_Names_id: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_ID_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_ID`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_idNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)
+  var hasSwiftProtoTesting_Names_id: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_ID_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_ID`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_idNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)
+  mutating func clearSwiftProtoTesting_Names_id() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID)
   }
 
-  var SwiftUnittest_Names_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number, value: newValue)}
+  var SwiftProtoTesting_Names_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_ID_number`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_ID_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theIDNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)
+  var hasSwiftProtoTesting_Names_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_ID_number`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theIDNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)
+  mutating func clearSwiftProtoTesting_Names_idNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_ID_number)
   }
 
-  var SwiftUnittest_Names_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID, value: newValue)}
+  var SwiftProtoTesting_Names_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_ID_number, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_request_ID`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_the_ID_number`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_requestID: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)
+  var hasSwiftProtoTesting_Names_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_ID_number)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_request_ID`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_the_ID_number`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_requestID() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)
+  mutating func clearSwiftProtoTesting_Names_theIDNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_the_ID_number)
+  }
+
+  var SwiftProtoTesting_Names_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_ID) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_ID, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_request_ID`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_Names_requestID: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_ID)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_request_ID`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_Names_requestID() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_request_ID)
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase {
 
-  var SwiftUnittest_Names_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Http, value: newValue)}
+  var SwiftProtoTesting_Names_http: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Http) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Http, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_Http`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_Http`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_Http)
+  var hasSwiftProtoTesting_Names_http: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Http)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_Http`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Http`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_Http)
-  }
-
-  var SwiftUnittest_Names_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest, value: newValue)}
-  }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_HttpRequest`
-  /// has been explicitly set.
-  var hasSwiftUnittest_Names_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest)
-  }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_HttpRequest`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest)
+  mutating func clearSwiftProtoTesting_Names_http() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Http)
   }
 
-  var SwiftUnittest_Names_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest, value: newValue)}
+  var SwiftProtoTesting_Names_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttpRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_HttpRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest)
+  var hasSwiftProtoTesting_Names_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheHttpRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest)
+  mutating func clearSwiftProtoTesting_Names_httpRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpRequest)
   }
 
-  var SwiftUnittest_Names_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttp`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheHttpRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp)
+  var hasSwiftProtoTesting_Names_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheHttp`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttpRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp)
+  mutating func clearSwiftProtoTesting_Names_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpRequest)
   }
 
-  var SwiftUnittest_Names_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Https, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttp) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttp, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_Https`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheHttp`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_Https)
+  var hasSwiftProtoTesting_Names_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttp)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_Https`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttp`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_Https)
+  mutating func clearSwiftProtoTesting_Names_theHTTP() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttp)
   }
 
-  var SwiftUnittest_Names_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest, value: newValue)}
+  var SwiftProtoTesting_Names_https: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Https) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Https, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_HttpsRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_Https`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest)
+  var hasSwiftProtoTesting_Names_https: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Https)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_HttpsRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Https`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest)
+  mutating func clearSwiftProtoTesting_Names_https() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Https)
   }
 
-  var SwiftUnittest_Names_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest, value: newValue)}
+  var SwiftProtoTesting_Names_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpsRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttpsRequest`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_HttpsRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest)
+  var hasSwiftProtoTesting_Names_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpsRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheHttpsRequest`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_HttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest)
+  mutating func clearSwiftProtoTesting_Names_httpsRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_HttpsRequest)
   }
 
-  var SwiftUnittest_Names_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpsRequest, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttps`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheHttpsRequest`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps)
+  var hasSwiftProtoTesting_Names_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpsRequest)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheHttps`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttpsRequest`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps)
+  mutating func clearSwiftProtoTesting_Names_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttpsRequest)
   }
 
-  var SwiftUnittest_Names_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Url, value: newValue)}
+  var SwiftProtoTesting_Names_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttps) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttps, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_Url`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheHttps`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_Url)
+  var hasSwiftProtoTesting_Names_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttps)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_Url`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheHttps`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_Url)
+  mutating func clearSwiftProtoTesting_Names_theHTTPS() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheHttps)
   }
 
-  var SwiftUnittest_Names_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue, value: newValue)}
+  var SwiftProtoTesting_Names_url: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Url) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Url, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_UrlValue`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_Url`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue)
+  var hasSwiftProtoTesting_Names_url: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Url)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_UrlValue`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Url`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue)
+  mutating func clearSwiftProtoTesting_Names_url() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Url)
   }
 
-  var SwiftUnittest_Names_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue, value: newValue)}
+  var SwiftProtoTesting_Names_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_UrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_UrlValue, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheUrlValue`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_UrlValue`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue)
+  var hasSwiftProtoTesting_Names_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_UrlValue)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheUrlValue`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_UrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue)
+  mutating func clearSwiftProtoTesting_Names_urlValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_UrlValue)
   }
 
-  var SwiftUnittest_Names_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl, value: newValue)}
+  var SwiftProtoTesting_Names_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrlValue, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheUrl`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheUrlValue`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl)
+  var hasSwiftProtoTesting_Names_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrlValue)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheUrl`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheUrlValue`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl)
+  mutating func clearSwiftProtoTesting_Names_theURLValue() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrlValue)
   }
 
-  var SwiftUnittest_Names_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Id) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Id, value: newValue)}
+  var SwiftProtoTesting_Names_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrl) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrl, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_Id`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheUrl`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_id: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)
+  var hasSwiftProtoTesting_Names_theURL: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrl)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_Id`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheUrl`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_id() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)
+  mutating func clearSwiftProtoTesting_Names_theURL() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheUrl)
   }
 
-  var SwiftUnittest_Names_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber, value: newValue)}
+  var SwiftProtoTesting_Names_id: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Id) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Id, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_IdNumber`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_Id`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_idNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)
+  var hasSwiftProtoTesting_Names_id: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Id)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_IdNumber`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_Id`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_idNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)
+  mutating func clearSwiftProtoTesting_Names_id() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_Id)
   }
 
-  var SwiftUnittest_Names_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber, value: newValue)}
+  var SwiftProtoTesting_Names_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_IdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_IdNumber, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheIdNumber`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_IdNumber`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_theIDNumber: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)
+  var hasSwiftProtoTesting_Names_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_IdNumber)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheIdNumber`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_IdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_theIDNumber() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)
+  mutating func clearSwiftProtoTesting_Names_idNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_IdNumber)
   }
 
-  var SwiftUnittest_Names_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId, value: newValue)}
+  var SwiftProtoTesting_Names_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheIdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheIdNumber, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_Extensions_RequestId`
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_TheIdNumber`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_requestID: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)
+  var hasSwiftProtoTesting_Names_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheIdNumber)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_Extensions_RequestId`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_TheIdNumber`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_requestID() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)
+  mutating func clearSwiftProtoTesting_Names_theIDNumber() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_TheIdNumber)
+  }
+
+  var SwiftProtoTesting_Names_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_Extensions_RequestId) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_Extensions_RequestId, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Names_Extensions_RequestId`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_Names_requestID: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_Extensions_RequestId)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Names_Extensions_RequestId`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_Names_requestID() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_Extensions_RequestId)
   }
 }
 
-extension SwiftUnittest_Names_Foo {
+extension SwiftProtoTesting_Names_Foo {
 
-  var SwiftUnittest_Names_FieldNames_foo1: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1, value: newValue)}
+  var SwiftProtoTesting_Names_FieldNames_foo1: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_FieldNames.Extensions.foo1) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_FieldNames.Extensions.foo1, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_FieldNames.Extensions.foo1`
+  /// Returns true if extension `SwiftProtoTesting_Names_FieldNames.Extensions.foo1`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_FieldNames_foo1: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)
+  var hasSwiftProtoTesting_Names_FieldNames_foo1: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_FieldNames.Extensions.foo1)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_FieldNames.Extensions.foo1`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_FieldNames.Extensions.foo1`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_FieldNames_foo1() {
-    clearExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)
-  }
-
-  var SwiftUnittest_Names_MessageNames_foo2: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2, value: newValue)}
-  }
-  /// Returns true if extension `SwiftUnittest_Names_MessageNames.Extensions.foo2`
-  /// has been explicitly set.
-  var hasSwiftUnittest_Names_MessageNames_foo2: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)
-  }
-  /// Clears the value of extension `SwiftUnittest_Names_MessageNames.Extensions.foo2`.
-  /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_MessageNames_foo2() {
-    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)
+  mutating func clearSwiftProtoTesting_Names_FieldNames_foo1() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_FieldNames.Extensions.foo1)
   }
 
-  var SwiftUnittest_Names_MessageNames_foo4: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4, value: newValue)}
+  var SwiftProtoTesting_Names_MessageNames_foo2: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo2) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo2, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_MessageNames.Extensions.foo4`
+  /// Returns true if extension `SwiftProtoTesting_Names_MessageNames.Extensions.foo2`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_MessageNames_foo4: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)
+  var hasSwiftProtoTesting_Names_MessageNames_foo2: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo2)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_MessageNames.Extensions.foo4`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_MessageNames.Extensions.foo2`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_MessageNames_foo4() {
-    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)
+  mutating func clearSwiftProtoTesting_Names_MessageNames_foo2() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo2)
   }
 
-  var SwiftUnittest_Names_MessageNames_StringMessage_foo3: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3, value: newValue)}
+  var SwiftProtoTesting_Names_MessageNames_foo4: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo4) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo4, value: newValue)}
   }
-  /// Returns true if extension `SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3`
+  /// Returns true if extension `SwiftProtoTesting_Names_MessageNames.Extensions.foo4`
   /// has been explicitly set.
-  var hasSwiftUnittest_Names_MessageNames_StringMessage_foo3: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)
+  var hasSwiftProtoTesting_Names_MessageNames_foo4: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo4)
   }
-  /// Clears the value of extension `SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3`.
+  /// Clears the value of extension `SwiftProtoTesting_Names_MessageNames.Extensions.foo4`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftUnittest_Names_MessageNames_StringMessage_foo3() {
-    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)
+  mutating func clearSwiftProtoTesting_Names_MessageNames_foo4() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.Extensions.foo4)
+  }
+
+  var SwiftProtoTesting_Names_MessageNames_StringMessage_foo3: Int32 {
+    get {return getExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3) ?? 0}
+    set {setExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3, value: newValue)}
+  }
+  /// Returns true if extension `SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3`
+  /// has been explicitly set.
+  var hasSwiftProtoTesting_Names_MessageNames_StringMessage_foo3: Bool {
+    return hasExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3)
+  }
+  /// Clears the value of extension `SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3`.
+  /// Subsequent reads from it will return its default value.
+  mutating func clearSwiftProtoTesting_Names_MessageNames_StringMessage_foo3() {
+    clearExtensionValue(ext: SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3)
   }
 
 }
 
-// MARK: - File's ExtensionMap: SwiftUnittest_Names_UnittestSwiftNaming_Extensions
+// MARK: - File's ExtensionMap: SwiftProtoTesting_Names_UnittestSwiftNaming_Extensions
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  SwiftUnittest_Names_Extensions_http,
-  SwiftUnittest_Names_Extensions_http_request,
-  SwiftUnittest_Names_Extensions_the_http_request,
-  SwiftUnittest_Names_Extensions_the_http,
-  SwiftUnittest_Names_Extensions_https,
-  SwiftUnittest_Names_Extensions_https_request,
-  SwiftUnittest_Names_Extensions_the_https_request,
-  SwiftUnittest_Names_Extensions_the_https,
-  SwiftUnittest_Names_Extensions_url,
-  SwiftUnittest_Names_Extensions_url_value,
-  SwiftUnittest_Names_Extensions_the_url_value,
-  SwiftUnittest_Names_Extensions_the_url,
-  SwiftUnittest_Names_Extensions_a_b_c,
-  SwiftUnittest_Names_Extensions_id,
-  SwiftUnittest_Names_Extensions_id_number,
-  SwiftUnittest_Names_Extensions_the_id_number,
-  SwiftUnittest_Names_Extensions_request_id,
-  SwiftUnittest_Names_Extensions_HTTP,
-  SwiftUnittest_Names_Extensions_HTTP_request,
-  SwiftUnittest_Names_Extensions_the_HTTP_request,
-  SwiftUnittest_Names_Extensions_the_HTTP,
-  SwiftUnittest_Names_Extensions_HTTPS,
-  SwiftUnittest_Names_Extensions_HTTPS_request,
-  SwiftUnittest_Names_Extensions_the_HTTPS_request,
-  SwiftUnittest_Names_Extensions_the_HTTPS,
-  SwiftUnittest_Names_Extensions_URL,
-  SwiftUnittest_Names_Extensions_URL_value,
-  SwiftUnittest_Names_Extensions_the_URL_value,
-  SwiftUnittest_Names_Extensions_the_URL,
-  SwiftUnittest_Names_Extensions_ID,
-  SwiftUnittest_Names_Extensions_ID_number,
-  SwiftUnittest_Names_Extensions_the_ID_number,
-  SwiftUnittest_Names_Extensions_request_ID,
-  SwiftUnittest_Names_Extensions_Http,
-  SwiftUnittest_Names_Extensions_HttpRequest,
-  SwiftUnittest_Names_Extensions_TheHttpRequest,
-  SwiftUnittest_Names_Extensions_TheHttp,
-  SwiftUnittest_Names_Extensions_Https,
-  SwiftUnittest_Names_Extensions_HttpsRequest,
-  SwiftUnittest_Names_Extensions_TheHttpsRequest,
-  SwiftUnittest_Names_Extensions_TheHttps,
-  SwiftUnittest_Names_Extensions_Url,
-  SwiftUnittest_Names_Extensions_UrlValue,
-  SwiftUnittest_Names_Extensions_TheUrlValue,
-  SwiftUnittest_Names_Extensions_TheUrl,
-  SwiftUnittest_Names_Extensions_Id,
-  SwiftUnittest_Names_Extensions_IdNumber,
-  SwiftUnittest_Names_Extensions_TheIdNumber,
-  SwiftUnittest_Names_Extensions_RequestId,
-  SwiftUnittest_Names_FieldNames.Extensions.foo1,
-  SwiftUnittest_Names_MessageNames.Extensions.foo2,
-  SwiftUnittest_Names_MessageNames.Extensions.foo4,
-  SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3,
-  SwiftUnittest_Names_Lowers.Extensions.http,
-  SwiftUnittest_Names_Lowers.Extensions.http_request,
-  SwiftUnittest_Names_Lowers.Extensions.the_http_request,
-  SwiftUnittest_Names_Lowers.Extensions.the_http,
-  SwiftUnittest_Names_Lowers.Extensions.https,
-  SwiftUnittest_Names_Lowers.Extensions.https_request,
-  SwiftUnittest_Names_Lowers.Extensions.the_https_request,
-  SwiftUnittest_Names_Lowers.Extensions.the_https,
-  SwiftUnittest_Names_Lowers.Extensions.url,
-  SwiftUnittest_Names_Lowers.Extensions.url_value,
-  SwiftUnittest_Names_Lowers.Extensions.the_url_value,
-  SwiftUnittest_Names_Lowers.Extensions.the_url,
-  SwiftUnittest_Names_Lowers.Extensions.a_b_c,
-  SwiftUnittest_Names_Lowers.Extensions.id,
-  SwiftUnittest_Names_Lowers.Extensions.id_number,
-  SwiftUnittest_Names_Lowers.Extensions.the_id_number,
-  SwiftUnittest_Names_Lowers.Extensions.request_id,
-  SwiftUnittest_Names_Uppers.Extensions.HTTP,
-  SwiftUnittest_Names_Uppers.Extensions.HTTP_request,
-  SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request,
-  SwiftUnittest_Names_Uppers.Extensions.the_HTTP,
-  SwiftUnittest_Names_Uppers.Extensions.HTTPS,
-  SwiftUnittest_Names_Uppers.Extensions.HTTPS_request,
-  SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request,
-  SwiftUnittest_Names_Uppers.Extensions.the_HTTPS,
-  SwiftUnittest_Names_Uppers.Extensions.URL,
-  SwiftUnittest_Names_Uppers.Extensions.URL_value,
-  SwiftUnittest_Names_Uppers.Extensions.the_URL_value,
-  SwiftUnittest_Names_Uppers.Extensions.the_URL,
-  SwiftUnittest_Names_Uppers.Extensions.ID,
-  SwiftUnittest_Names_Uppers.Extensions.ID_number,
-  SwiftUnittest_Names_Uppers.Extensions.the_ID_number,
-  SwiftUnittest_Names_Uppers.Extensions.request_ID,
-  SwiftUnittest_Names_WordCase.Extensions.Http,
-  SwiftUnittest_Names_WordCase.Extensions.HttpRequest,
-  SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest,
-  SwiftUnittest_Names_WordCase.Extensions.TheHttp,
-  SwiftUnittest_Names_WordCase.Extensions.Https,
-  SwiftUnittest_Names_WordCase.Extensions.HttpsRequest,
-  SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest,
-  SwiftUnittest_Names_WordCase.Extensions.TheHttps,
-  SwiftUnittest_Names_WordCase.Extensions.Url,
-  SwiftUnittest_Names_WordCase.Extensions.UrlValue,
-  SwiftUnittest_Names_WordCase.Extensions.TheUrlValue,
-  SwiftUnittest_Names_WordCase.Extensions.TheUrl,
-  SwiftUnittest_Names_WordCase.Extensions.Id,
-  SwiftUnittest_Names_WordCase.Extensions.IdNumber,
-  SwiftUnittest_Names_WordCase.Extensions.TheIdNumber,
-  SwiftUnittest_Names_WordCase.Extensions.RequestId
+let SwiftProtoTesting_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SwiftProtoTesting_Names_Extensions_http,
+  SwiftProtoTesting_Names_Extensions_http_request,
+  SwiftProtoTesting_Names_Extensions_the_http_request,
+  SwiftProtoTesting_Names_Extensions_the_http,
+  SwiftProtoTesting_Names_Extensions_https,
+  SwiftProtoTesting_Names_Extensions_https_request,
+  SwiftProtoTesting_Names_Extensions_the_https_request,
+  SwiftProtoTesting_Names_Extensions_the_https,
+  SwiftProtoTesting_Names_Extensions_url,
+  SwiftProtoTesting_Names_Extensions_url_value,
+  SwiftProtoTesting_Names_Extensions_the_url_value,
+  SwiftProtoTesting_Names_Extensions_the_url,
+  SwiftProtoTesting_Names_Extensions_a_b_c,
+  SwiftProtoTesting_Names_Extensions_id,
+  SwiftProtoTesting_Names_Extensions_id_number,
+  SwiftProtoTesting_Names_Extensions_the_id_number,
+  SwiftProtoTesting_Names_Extensions_request_id,
+  SwiftProtoTesting_Names_Extensions_HTTP,
+  SwiftProtoTesting_Names_Extensions_HTTP_request,
+  SwiftProtoTesting_Names_Extensions_the_HTTP_request,
+  SwiftProtoTesting_Names_Extensions_the_HTTP,
+  SwiftProtoTesting_Names_Extensions_HTTPS,
+  SwiftProtoTesting_Names_Extensions_HTTPS_request,
+  SwiftProtoTesting_Names_Extensions_the_HTTPS_request,
+  SwiftProtoTesting_Names_Extensions_the_HTTPS,
+  SwiftProtoTesting_Names_Extensions_URL,
+  SwiftProtoTesting_Names_Extensions_URL_value,
+  SwiftProtoTesting_Names_Extensions_the_URL_value,
+  SwiftProtoTesting_Names_Extensions_the_URL,
+  SwiftProtoTesting_Names_Extensions_ID,
+  SwiftProtoTesting_Names_Extensions_ID_number,
+  SwiftProtoTesting_Names_Extensions_the_ID_number,
+  SwiftProtoTesting_Names_Extensions_request_ID,
+  SwiftProtoTesting_Names_Extensions_Http,
+  SwiftProtoTesting_Names_Extensions_HttpRequest,
+  SwiftProtoTesting_Names_Extensions_TheHttpRequest,
+  SwiftProtoTesting_Names_Extensions_TheHttp,
+  SwiftProtoTesting_Names_Extensions_Https,
+  SwiftProtoTesting_Names_Extensions_HttpsRequest,
+  SwiftProtoTesting_Names_Extensions_TheHttpsRequest,
+  SwiftProtoTesting_Names_Extensions_TheHttps,
+  SwiftProtoTesting_Names_Extensions_Url,
+  SwiftProtoTesting_Names_Extensions_UrlValue,
+  SwiftProtoTesting_Names_Extensions_TheUrlValue,
+  SwiftProtoTesting_Names_Extensions_TheUrl,
+  SwiftProtoTesting_Names_Extensions_Id,
+  SwiftProtoTesting_Names_Extensions_IdNumber,
+  SwiftProtoTesting_Names_Extensions_TheIdNumber,
+  SwiftProtoTesting_Names_Extensions_RequestId,
+  SwiftProtoTesting_Names_FieldNames.Extensions.foo1,
+  SwiftProtoTesting_Names_MessageNames.Extensions.foo2,
+  SwiftProtoTesting_Names_MessageNames.Extensions.foo4,
+  SwiftProtoTesting_Names_MessageNames.StringMessage.Extensions.foo3,
+  SwiftProtoTesting_Names_Lowers.Extensions.http,
+  SwiftProtoTesting_Names_Lowers.Extensions.http_request,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_http_request,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_http,
+  SwiftProtoTesting_Names_Lowers.Extensions.https,
+  SwiftProtoTesting_Names_Lowers.Extensions.https_request,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_https_request,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_https,
+  SwiftProtoTesting_Names_Lowers.Extensions.url,
+  SwiftProtoTesting_Names_Lowers.Extensions.url_value,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_url_value,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_url,
+  SwiftProtoTesting_Names_Lowers.Extensions.a_b_c,
+  SwiftProtoTesting_Names_Lowers.Extensions.id,
+  SwiftProtoTesting_Names_Lowers.Extensions.id_number,
+  SwiftProtoTesting_Names_Lowers.Extensions.the_id_number,
+  SwiftProtoTesting_Names_Lowers.Extensions.request_id,
+  SwiftProtoTesting_Names_Uppers.Extensions.HTTP,
+  SwiftProtoTesting_Names_Uppers.Extensions.HTTP_request,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP_request,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_HTTP,
+  SwiftProtoTesting_Names_Uppers.Extensions.HTTPS,
+  SwiftProtoTesting_Names_Uppers.Extensions.HTTPS_request,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS_request,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_HTTPS,
+  SwiftProtoTesting_Names_Uppers.Extensions.URL,
+  SwiftProtoTesting_Names_Uppers.Extensions.URL_value,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_URL_value,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_URL,
+  SwiftProtoTesting_Names_Uppers.Extensions.ID,
+  SwiftProtoTesting_Names_Uppers.Extensions.ID_number,
+  SwiftProtoTesting_Names_Uppers.Extensions.the_ID_number,
+  SwiftProtoTesting_Names_Uppers.Extensions.request_ID,
+  SwiftProtoTesting_Names_WordCase.Extensions.Http,
+  SwiftProtoTesting_Names_WordCase.Extensions.HttpRequest,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheHttpRequest,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheHttp,
+  SwiftProtoTesting_Names_WordCase.Extensions.Https,
+  SwiftProtoTesting_Names_WordCase.Extensions.HttpsRequest,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheHttpsRequest,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheHttps,
+  SwiftProtoTesting_Names_WordCase.Extensions.Url,
+  SwiftProtoTesting_Names_WordCase.Extensions.UrlValue,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheUrlValue,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheUrl,
+  SwiftProtoTesting_Names_WordCase.Extensions.Id,
+  SwiftProtoTesting_Names_WordCase.Extensions.IdNumber,
+  SwiftProtoTesting_Names_WordCase.Extensions.TheIdNumber,
+  SwiftProtoTesting_Names_WordCase.Extensions.RequestId
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.http"
+  fieldName: "swift_proto_testing.names.http"
 )
 
-let SwiftUnittest_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.http_request"
+  fieldName: "swift_proto_testing.names.http_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.the_http_request"
+  fieldName: "swift_proto_testing.names.the_http_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.the_http"
+  fieldName: "swift_proto_testing.names.the_http"
 )
 
-let SwiftUnittest_Names_Extensions_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.https"
+  fieldName: "swift_proto_testing.names.https"
 )
 
-let SwiftUnittest_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.https_request"
+  fieldName: "swift_proto_testing.names.https_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.the_https_request"
+  fieldName: "swift_proto_testing.names.the_https_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.the_https"
+  fieldName: "swift_proto_testing.names.the_https"
 )
 
-let SwiftUnittest_Names_Extensions_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.url"
+  fieldName: "swift_proto_testing.names.url"
 )
 
-let SwiftUnittest_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.url_value"
+  fieldName: "swift_proto_testing.names.url_value"
 )
 
-let SwiftUnittest_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.the_url_value"
+  fieldName: "swift_proto_testing.names.the_url_value"
 )
 
-let SwiftUnittest_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.the_url"
+  fieldName: "swift_proto_testing.names.the_url"
 )
 
-let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 31,
-  fieldName: "swift_unittest.names.a_b_c"
+  fieldName: "swift_proto_testing.names.a_b_c"
 )
 
-let SwiftUnittest_Names_Extensions_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 41,
-  fieldName: "swift_unittest.names.id"
+  fieldName: "swift_proto_testing.names.id"
 )
 
-let SwiftUnittest_Names_Extensions_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 42,
-  fieldName: "swift_unittest.names.id_number"
+  fieldName: "swift_proto_testing.names.id_number"
 )
 
-let SwiftUnittest_Names_Extensions_the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 43,
-  fieldName: "swift_unittest.names.the_id_number"
+  fieldName: "swift_proto_testing.names.the_id_number"
 )
 
-let SwiftUnittest_Names_Extensions_request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+let SwiftProtoTesting_Names_Extensions_request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 44,
-  fieldName: "swift_unittest.names.request_id"
+  fieldName: "swift_proto_testing.names.request_id"
 )
 
-let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.HTTP"
+  fieldName: "swift_proto_testing.names.HTTP"
 )
 
-let SwiftUnittest_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.HTTP_request"
+  fieldName: "swift_proto_testing.names.HTTP_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.the_HTTP_request"
+  fieldName: "swift_proto_testing.names.the_HTTP_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.the_HTTP"
+  fieldName: "swift_proto_testing.names.the_HTTP"
 )
 
-let SwiftUnittest_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.HTTPS"
+  fieldName: "swift_proto_testing.names.HTTPS"
 )
 
-let SwiftUnittest_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.HTTPS_request"
+  fieldName: "swift_proto_testing.names.HTTPS_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.the_HTTPS_request"
+  fieldName: "swift_proto_testing.names.the_HTTPS_request"
 )
 
-let SwiftUnittest_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.the_HTTPS"
+  fieldName: "swift_proto_testing.names.the_HTTPS"
 )
 
-let SwiftUnittest_Names_Extensions_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.URL"
+  fieldName: "swift_proto_testing.names.URL"
 )
 
-let SwiftUnittest_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.URL_value"
+  fieldName: "swift_proto_testing.names.URL_value"
 )
 
-let SwiftUnittest_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.the_URL_value"
+  fieldName: "swift_proto_testing.names.the_URL_value"
 )
 
-let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.the_URL"
+  fieldName: "swift_proto_testing.names.the_URL"
 )
 
-let SwiftUnittest_Names_Extensions_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 41,
-  fieldName: "swift_unittest.names.ID"
+  fieldName: "swift_proto_testing.names.ID"
 )
 
-let SwiftUnittest_Names_Extensions_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 42,
-  fieldName: "swift_unittest.names.ID_number"
+  fieldName: "swift_proto_testing.names.ID_number"
 )
 
-let SwiftUnittest_Names_Extensions_the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 43,
-  fieldName: "swift_unittest.names.the_ID_number"
+  fieldName: "swift_proto_testing.names.the_ID_number"
 )
 
-let SwiftUnittest_Names_Extensions_request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+let SwiftProtoTesting_Names_Extensions_request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 44,
-  fieldName: "swift_unittest.names.request_ID"
+  fieldName: "swift_proto_testing.names.request_ID"
 )
 
-let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.Http"
+  fieldName: "swift_proto_testing.names.Http"
 )
 
-let SwiftUnittest_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.HttpRequest"
+  fieldName: "swift_proto_testing.names.HttpRequest"
 )
 
-let SwiftUnittest_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.TheHttpRequest"
+  fieldName: "swift_proto_testing.names.TheHttpRequest"
 )
 
-let SwiftUnittest_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.TheHttp"
+  fieldName: "swift_proto_testing.names.TheHttp"
 )
 
-let SwiftUnittest_Names_Extensions_Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.Https"
+  fieldName: "swift_proto_testing.names.Https"
 )
 
-let SwiftUnittest_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.HttpsRequest"
+  fieldName: "swift_proto_testing.names.HttpsRequest"
 )
 
-let SwiftUnittest_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.TheHttpsRequest"
+  fieldName: "swift_proto_testing.names.TheHttpsRequest"
 )
 
-let SwiftUnittest_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.TheHttps"
+  fieldName: "swift_proto_testing.names.TheHttps"
 )
 
-let SwiftUnittest_Names_Extensions_Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.Url"
+  fieldName: "swift_proto_testing.names.Url"
 )
 
-let SwiftUnittest_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.UrlValue"
+  fieldName: "swift_proto_testing.names.UrlValue"
 )
 
-let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.TheUrlValue"
+  fieldName: "swift_proto_testing.names.TheUrlValue"
 )
 
-let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.TheUrl"
+  fieldName: "swift_proto_testing.names.TheUrl"
 )
 
-let SwiftUnittest_Names_Extensions_Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 41,
-  fieldName: "swift_unittest.names.Id"
+  fieldName: "swift_proto_testing.names.Id"
 )
 
-let SwiftUnittest_Names_Extensions_IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 42,
-  fieldName: "swift_unittest.names.IdNumber"
+  fieldName: "swift_proto_testing.names.IdNumber"
 )
 
-let SwiftUnittest_Names_Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 43,
-  fieldName: "swift_unittest.names.TheIdNumber"
+  fieldName: "swift_proto_testing.names.TheIdNumber"
 )
 
-let SwiftUnittest_Names_Extensions_RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+let SwiftProtoTesting_Names_Extensions_RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 44,
-  fieldName: "swift_unittest.names.RequestId"
+  fieldName: "swift_proto_testing.names.RequestId"
 )
 
-extension SwiftUnittest_Names_FieldNames {
+extension SwiftProtoTesting_Names_FieldNames {
   enum Extensions {
-    static let foo1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+    static let foo1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_Foo>(
       _protobuf_fieldNumber: 1,
-      fieldName: "swift_unittest.names.FieldNames.foo1"
+      fieldName: "swift_proto_testing.names.FieldNames.foo1"
     )
   }
 }
 
-extension SwiftUnittest_Names_MessageNames {
+extension SwiftProtoTesting_Names_MessageNames {
   enum Extensions {
-    static let foo2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+    static let foo2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_Foo>(
       _protobuf_fieldNumber: 2,
-      fieldName: "swift_unittest.names.MessageNames.foo2"
+      fieldName: "swift_proto_testing.names.MessageNames.foo2"
     )
 
-    static let foo4 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+    static let foo4 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_Foo>(
       _protobuf_fieldNumber: 4,
-      fieldName: "swift_unittest.names.MessageNames.foo4"
+      fieldName: "swift_proto_testing.names.MessageNames.foo4"
     )
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StringMessage {
+extension SwiftProtoTesting_Names_MessageNames.StringMessage {
   enum Extensions {
-    static let foo3 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+    static let foo3 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_Foo>(
       _protobuf_fieldNumber: 3,
-      fieldName: "swift_unittest.names.MessageNames.String.foo3"
+      fieldName: "swift_proto_testing.names.MessageNames.String.foo3"
     )
   }
 }
 
-extension SwiftUnittest_Names_Lowers {
+extension SwiftProtoTesting_Names_Lowers {
   enum Extensions {
-    static let http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 1,
-      fieldName: "swift_unittest.names.Lowers.http"
+      fieldName: "swift_proto_testing.names.Lowers.http"
     )
 
-    static let http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 2,
-      fieldName: "swift_unittest.names.Lowers.http_request"
+      fieldName: "swift_proto_testing.names.Lowers.http_request"
     )
 
-    static let the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 3,
-      fieldName: "swift_unittest.names.Lowers.the_http_request"
+      fieldName: "swift_proto_testing.names.Lowers.the_http_request"
     )
 
-    static let the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 4,
-      fieldName: "swift_unittest.names.Lowers.the_http"
+      fieldName: "swift_proto_testing.names.Lowers.the_http"
     )
 
-    static let https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 11,
-      fieldName: "swift_unittest.names.Lowers.https"
+      fieldName: "swift_proto_testing.names.Lowers.https"
     )
 
-    static let https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 12,
-      fieldName: "swift_unittest.names.Lowers.https_request"
+      fieldName: "swift_proto_testing.names.Lowers.https_request"
     )
 
-    static let the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 13,
-      fieldName: "swift_unittest.names.Lowers.the_https_request"
+      fieldName: "swift_proto_testing.names.Lowers.the_https_request"
     )
 
-    static let the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 14,
-      fieldName: "swift_unittest.names.Lowers.the_https"
+      fieldName: "swift_proto_testing.names.Lowers.the_https"
     )
 
-    static let url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 21,
-      fieldName: "swift_unittest.names.Lowers.url"
+      fieldName: "swift_proto_testing.names.Lowers.url"
     )
 
-    static let url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 22,
-      fieldName: "swift_unittest.names.Lowers.url_value"
+      fieldName: "swift_proto_testing.names.Lowers.url_value"
     )
 
-    static let the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 23,
-      fieldName: "swift_unittest.names.Lowers.the_url_value"
+      fieldName: "swift_proto_testing.names.Lowers.the_url_value"
     )
 
-    static let the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 24,
-      fieldName: "swift_unittest.names.Lowers.the_url"
+      fieldName: "swift_proto_testing.names.Lowers.the_url"
     )
 
-    static let a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 31,
-      fieldName: "swift_unittest.names.Lowers.a_b_c"
+      fieldName: "swift_proto_testing.names.Lowers.a_b_c"
     )
 
-    static let id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 41,
-      fieldName: "swift_unittest.names.Lowers.id"
+      fieldName: "swift_proto_testing.names.Lowers.id"
     )
 
-    static let id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 42,
-      fieldName: "swift_unittest.names.Lowers.id_number"
+      fieldName: "swift_proto_testing.names.Lowers.id_number"
     )
 
-    static let the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 43,
-      fieldName: "swift_unittest.names.Lowers.the_id_number"
+      fieldName: "swift_proto_testing.names.Lowers.the_id_number"
     )
 
-    static let request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 44,
-      fieldName: "swift_unittest.names.Lowers.request_id"
+      fieldName: "swift_proto_testing.names.Lowers.request_id"
     )
   }
 }
 
-extension SwiftUnittest_Names_Uppers {
+extension SwiftProtoTesting_Names_Uppers {
   enum Extensions {
-    static let HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 101,
-      fieldName: "swift_unittest.names.Uppers.HTTP"
+      fieldName: "swift_proto_testing.names.Uppers.HTTP"
     )
 
-    static let HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 102,
-      fieldName: "swift_unittest.names.Uppers.HTTP_request"
+      fieldName: "swift_proto_testing.names.Uppers.HTTP_request"
     )
 
-    static let the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 103,
-      fieldName: "swift_unittest.names.Uppers.the_HTTP_request"
+      fieldName: "swift_proto_testing.names.Uppers.the_HTTP_request"
     )
 
-    static let the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 104,
-      fieldName: "swift_unittest.names.Uppers.the_HTTP"
+      fieldName: "swift_proto_testing.names.Uppers.the_HTTP"
     )
 
-    static let HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 111,
-      fieldName: "swift_unittest.names.Uppers.HTTPS"
+      fieldName: "swift_proto_testing.names.Uppers.HTTPS"
     )
 
-    static let HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 112,
-      fieldName: "swift_unittest.names.Uppers.HTTPS_request"
+      fieldName: "swift_proto_testing.names.Uppers.HTTPS_request"
     )
 
-    static let the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 113,
-      fieldName: "swift_unittest.names.Uppers.the_HTTPS_request"
+      fieldName: "swift_proto_testing.names.Uppers.the_HTTPS_request"
     )
 
-    static let the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 114,
-      fieldName: "swift_unittest.names.Uppers.the_HTTPS"
+      fieldName: "swift_proto_testing.names.Uppers.the_HTTPS"
     )
 
-    static let URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 121,
-      fieldName: "swift_unittest.names.Uppers.URL"
+      fieldName: "swift_proto_testing.names.Uppers.URL"
     )
 
-    static let URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 122,
-      fieldName: "swift_unittest.names.Uppers.URL_value"
+      fieldName: "swift_proto_testing.names.Uppers.URL_value"
     )
 
-    static let the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 123,
-      fieldName: "swift_unittest.names.Uppers.the_URL_value"
+      fieldName: "swift_proto_testing.names.Uppers.the_URL_value"
     )
 
-    static let the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 124,
-      fieldName: "swift_unittest.names.Uppers.the_URL"
+      fieldName: "swift_proto_testing.names.Uppers.the_URL"
     )
 
-    static let ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 141,
-      fieldName: "swift_unittest.names.Uppers.ID"
+      fieldName: "swift_proto_testing.names.Uppers.ID"
     )
 
-    static let ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 142,
-      fieldName: "swift_unittest.names.Uppers.ID_number"
+      fieldName: "swift_proto_testing.names.Uppers.ID_number"
     )
 
-    static let the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 143,
-      fieldName: "swift_unittest.names.Uppers.the_ID_number"
+      fieldName: "swift_proto_testing.names.Uppers.the_ID_number"
     )
 
-    static let request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 144,
-      fieldName: "swift_unittest.names.Uppers.request_ID"
+      fieldName: "swift_proto_testing.names.Uppers.request_ID"
     )
   }
 }
 
-extension SwiftUnittest_Names_WordCase {
+extension SwiftProtoTesting_Names_WordCase {
   enum Extensions {
-    static let Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 201,
-      fieldName: "swift_unittest.names.WordCase.Http"
+      fieldName: "swift_proto_testing.names.WordCase.Http"
     )
 
-    static let HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 202,
-      fieldName: "swift_unittest.names.WordCase.HttpRequest"
+      fieldName: "swift_proto_testing.names.WordCase.HttpRequest"
     )
 
-    static let TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 203,
-      fieldName: "swift_unittest.names.WordCase.TheHttpRequest"
+      fieldName: "swift_proto_testing.names.WordCase.TheHttpRequest"
     )
 
-    static let TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 204,
-      fieldName: "swift_unittest.names.WordCase.TheHttp"
+      fieldName: "swift_proto_testing.names.WordCase.TheHttp"
     )
 
-    static let Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 211,
-      fieldName: "swift_unittest.names.WordCase.Https"
+      fieldName: "swift_proto_testing.names.WordCase.Https"
     )
 
-    static let HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 212,
-      fieldName: "swift_unittest.names.WordCase.HttpsRequest"
+      fieldName: "swift_proto_testing.names.WordCase.HttpsRequest"
     )
 
-    static let TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 213,
-      fieldName: "swift_unittest.names.WordCase.TheHttpsRequest"
+      fieldName: "swift_proto_testing.names.WordCase.TheHttpsRequest"
     )
 
-    static let TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 214,
-      fieldName: "swift_unittest.names.WordCase.TheHttps"
+      fieldName: "swift_proto_testing.names.WordCase.TheHttps"
     )
 
-    static let Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 221,
-      fieldName: "swift_unittest.names.WordCase.Url"
+      fieldName: "swift_proto_testing.names.WordCase.Url"
     )
 
-    static let UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 222,
-      fieldName: "swift_unittest.names.WordCase.UrlValue"
+      fieldName: "swift_proto_testing.names.WordCase.UrlValue"
     )
 
-    static let TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 223,
-      fieldName: "swift_unittest.names.WordCase.TheUrlValue"
+      fieldName: "swift_proto_testing.names.WordCase.TheUrlValue"
     )
 
-    static let TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 224,
-      fieldName: "swift_unittest.names.WordCase.TheUrl"
+      fieldName: "swift_proto_testing.names.WordCase.TheUrl"
     )
 
-    static let Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 241,
-      fieldName: "swift_unittest.names.WordCase.Id"
+      fieldName: "swift_proto_testing.names.WordCase.Id"
     )
 
-    static let IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 242,
-      fieldName: "swift_unittest.names.WordCase.IdNumber"
+      fieldName: "swift_proto_testing.names.WordCase.IdNumber"
     )
 
-    static let TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 243,
-      fieldName: "swift_unittest.names.WordCase.TheIdNumber"
+      fieldName: "swift_proto_testing.names.WordCase.TheIdNumber"
     )
 
-    static let RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+    static let RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftProtoTesting_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 244,
-      fieldName: "swift_unittest.names.WordCase.RequestId"
+      fieldName: "swift_proto_testing.names.WordCase.RequestId"
     )
   }
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "swift_unittest.names"
+fileprivate let _protobuf_package = "swift_proto_testing.names"
 
-extension SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "A"),
     1: .same(proto: "String"),
@@ -15599,14 +15599,14 @@ extension SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding 
   ]
 }
 
-extension SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "AA"),
     1065: .same(proto: "__"),
   ]
 }
 
-extension SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Foo"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -15618,7 +15618,7 @@ extension SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._Message
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 5001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_Foo.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Names_Foo.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -15628,14 +15628,14 @@ extension SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_Foo, rhs: SwiftUnittest_Names_Foo) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_Foo, rhs: SwiftProtoTesting_Names_Foo) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldNames"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "String"),
@@ -17235,7 +17235,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_FieldNames, rhs: SwiftUnittest_Names_FieldNames) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_FieldNames, rhs: SwiftProtoTesting_Names_FieldNames) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -17471,7 +17471,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._
   }
 }
 
-extension SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -17484,14 +17484,14 @@ extension SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames, rhs: SwiftUnittest_Names_MessageNames) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames, rhs: SwiftProtoTesting_Names_MessageNames) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StringMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".String"
+extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".String"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "String"),
   ]
@@ -17519,15 +17519,15 @@ extension SwiftUnittest_Names_MessageNames.StringMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.StringMessage, rhs: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.StringMessage, rhs: SwiftProtoTesting_Names_MessageNames.StringMessage) -> Bool {
     if lhs._string != rhs._string {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Protocol"
+extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Protocol"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Protocol"),
   ]
@@ -17555,15 +17555,15 @@ extension SwiftUnittest_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ProtocolMessage, rhs: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ProtocolMessage, rhs: SwiftProtoTesting_Names_MessageNames.ProtocolMessage) -> Bool {
     if lhs._protocol != rhs._protocol {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.IntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Int"
+extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Int"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Int"),
   ]
@@ -17591,15 +17591,15 @@ extension SwiftUnittest_Names_MessageNames.IntMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.IntMessage, rhs: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.IntMessage, rhs: SwiftProtoTesting_Names_MessageNames.IntMessage) -> Bool {
     if lhs._int != rhs._int {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Double"
+extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Double"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Double"),
   ]
@@ -17627,15 +17627,15 @@ extension SwiftUnittest_Names_MessageNames.DoubleMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.DoubleMessage, rhs: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.DoubleMessage, rhs: SwiftProtoTesting_Names_MessageNames.DoubleMessage) -> Bool {
     if lhs._double != rhs._double {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.FloatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Float"
+extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Float"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Float"),
   ]
@@ -17663,15 +17663,15 @@ extension SwiftUnittest_Names_MessageNames.FloatMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.FloatMessage, rhs: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.FloatMessage, rhs: SwiftProtoTesting_Names_MessageNames.FloatMessage) -> Bool {
     if lhs._float != rhs._float {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.UIntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UInt"
+extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".UInt"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "UInt"),
   ]
@@ -17699,15 +17699,15 @@ extension SwiftUnittest_Names_MessageNames.UIntMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.UIntMessage, rhs: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.UIntMessage, rhs: SwiftProtoTesting_Names_MessageNames.UIntMessage) -> Bool {
     if lhs._uint != rhs._uint {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hashValue"
+extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".hashValue"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "hashValue"),
   ]
@@ -17735,15 +17735,15 @@ extension SwiftUnittest_Names_MessageNames.hashValueMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.hashValueMessage, rhs: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.hashValueMessage, rhs: SwiftProtoTesting_Names_MessageNames.hashValueMessage) -> Bool {
     if lhs._hashValue_p != rhs._hashValue_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".description"
+extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".description"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "description"),
   ]
@@ -17771,15 +17771,15 @@ extension SwiftUnittest_Names_MessageNames.descriptionMessage: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.descriptionMessage, rhs: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.descriptionMessage, rhs: SwiftProtoTesting_Names_MessageNames.descriptionMessage) -> Bool {
     if lhs._description_p != rhs._description_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".debugDescription"
+extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".debugDescription"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "debugDescription"),
   ]
@@ -17807,15 +17807,15 @@ extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.debugDescriptionMessage, rhs: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage, rhs: SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage) -> Bool {
     if lhs._debugDescription_p != rhs._debugDescription_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
+extension SwiftProtoTesting_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Swift"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Swift"),
   ]
@@ -17843,15 +17843,15 @@ extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Swift, rhs: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Swift, rhs: SwiftProtoTesting_Names_MessageNames.Swift) -> Bool {
     if lhs._swift != rhs._swift {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
+extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "UNRECOGNIZED"),
   ]
@@ -17879,15 +17879,15 @@ extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.UNRECOGNIZED, rhs: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED, rhs: SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED) -> Bool {
     if lhs._unrecognized != rhs._unrecognized {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".class"
+extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".class"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "class"),
   ]
@@ -17915,15 +17915,15 @@ extension SwiftUnittest_Names_MessageNames.classMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.classMessage, rhs: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.classMessage, rhs: SwiftProtoTesting_Names_MessageNames.classMessage) -> Bool {
     if lhs._class != rhs._class {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.deinitMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".deinit"
+extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".deinit"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deinit"),
   ]
@@ -17951,15 +17951,15 @@ extension SwiftUnittest_Names_MessageNames.deinitMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.deinitMessage, rhs: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.deinitMessage, rhs: SwiftProtoTesting_Names_MessageNames.deinitMessage) -> Bool {
     if lhs._deinit != rhs._deinit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".enum"
+extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".enum"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "enum"),
   ]
@@ -17987,15 +17987,15 @@ extension SwiftUnittest_Names_MessageNames.enumMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.enumMessage, rhs: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.enumMessage, rhs: SwiftProtoTesting_Names_MessageNames.enumMessage) -> Bool {
     if lhs._enum != rhs._enum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extension"
+extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extension"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extension"),
   ]
@@ -18023,15 +18023,15 @@ extension SwiftUnittest_Names_MessageNames.extensionMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.extensionMessage, rhs: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extensionMessage, rhs: SwiftProtoTesting_Names_MessageNames.extensionMessage) -> Bool {
     if lhs._extension != rhs._extension {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.funcMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".func"
+extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".func"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "func"),
   ]
@@ -18059,15 +18059,15 @@ extension SwiftUnittest_Names_MessageNames.funcMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.funcMessage, rhs: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.funcMessage, rhs: SwiftProtoTesting_Names_MessageNames.funcMessage) -> Bool {
     if lhs._func != rhs._func {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.importMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".import"
+extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".import"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "import"),
   ]
@@ -18095,15 +18095,15 @@ extension SwiftUnittest_Names_MessageNames.importMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.importMessage, rhs: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.importMessage, rhs: SwiftProtoTesting_Names_MessageNames.importMessage) -> Bool {
     if lhs._import != rhs._import {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.initMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".init"
+extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".init"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "init"),
   ]
@@ -18131,15 +18131,15 @@ extension SwiftUnittest_Names_MessageNames.initMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.initMessage, rhs: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.initMessage, rhs: SwiftProtoTesting_Names_MessageNames.initMessage) -> Bool {
     if lhs._init_p != rhs._init_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.inoutMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inout"
+extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".inout"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inout"),
   ]
@@ -18167,15 +18167,15 @@ extension SwiftUnittest_Names_MessageNames.inoutMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.inoutMessage, rhs: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.inoutMessage, rhs: SwiftProtoTesting_Names_MessageNames.inoutMessage) -> Bool {
     if lhs._inout != rhs._inout {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.internalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".internal"
+extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".internal"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "internal"),
   ]
@@ -18203,15 +18203,15 @@ extension SwiftUnittest_Names_MessageNames.internalMessage: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.internalMessage, rhs: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.internalMessage, rhs: SwiftProtoTesting_Names_MessageNames.internalMessage) -> Bool {
     if lhs._internal != rhs._internal {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.letMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".let"
+extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".let"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "let"),
   ]
@@ -18239,15 +18239,15 @@ extension SwiftUnittest_Names_MessageNames.letMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.letMessage, rhs: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.letMessage, rhs: SwiftProtoTesting_Names_MessageNames.letMessage) -> Bool {
     if lhs._let != rhs._let {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.operatorMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".operator"
+extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".operator"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operator"),
   ]
@@ -18275,15 +18275,15 @@ extension SwiftUnittest_Names_MessageNames.operatorMessage: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.operatorMessage, rhs: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.operatorMessage, rhs: SwiftProtoTesting_Names_MessageNames.operatorMessage) -> Bool {
     if lhs._operator != rhs._operator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.privateMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".private"
+extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".private"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "private"),
   ]
@@ -18311,15 +18311,15 @@ extension SwiftUnittest_Names_MessageNames.privateMessage: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.privateMessage, rhs: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.privateMessage, rhs: SwiftProtoTesting_Names_MessageNames.privateMessage) -> Bool {
     if lhs._private != rhs._private {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.protocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protocol"
+extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".protocol"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "protocol"),
   ]
@@ -18347,15 +18347,15 @@ extension SwiftUnittest_Names_MessageNames.protocolMessage: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.protocolMessage, rhs: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.protocolMessage, rhs: SwiftProtoTesting_Names_MessageNames.protocolMessage) -> Bool {
     if lhs._protocol != rhs._protocol {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.publicMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".public"
+extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".public"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "public"),
   ]
@@ -18383,15 +18383,15 @@ extension SwiftUnittest_Names_MessageNames.publicMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.publicMessage, rhs: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.publicMessage, rhs: SwiftProtoTesting_Names_MessageNames.publicMessage) -> Bool {
     if lhs._public != rhs._public {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.staticMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static"
+extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".static"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "static"),
   ]
@@ -18419,15 +18419,15 @@ extension SwiftUnittest_Names_MessageNames.staticMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.staticMessage, rhs: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.staticMessage, rhs: SwiftProtoTesting_Names_MessageNames.staticMessage) -> Bool {
     if lhs._static != rhs._static {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.structMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".struct"
+extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".struct"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "struct"),
   ]
@@ -18455,15 +18455,15 @@ extension SwiftUnittest_Names_MessageNames.structMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.structMessage, rhs: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.structMessage, rhs: SwiftProtoTesting_Names_MessageNames.structMessage) -> Bool {
     if lhs._struct != rhs._struct {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".subscript"
+extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".subscript"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "subscript"),
   ]
@@ -18491,15 +18491,15 @@ extension SwiftUnittest_Names_MessageNames.subscriptMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.subscriptMessage, rhs: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.subscriptMessage, rhs: SwiftProtoTesting_Names_MessageNames.subscriptMessage) -> Bool {
     if lhs._subscript != rhs._subscript {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typealias"
+extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typealias"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typealias"),
   ]
@@ -18527,15 +18527,15 @@ extension SwiftUnittest_Names_MessageNames.typealiasMessage: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.typealiasMessage, rhs: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typealiasMessage, rhs: SwiftProtoTesting_Names_MessageNames.typealiasMessage) -> Bool {
     if lhs._typealias != rhs._typealias {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.varMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".var"
+extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".var"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "var"),
   ]
@@ -18563,15 +18563,15 @@ extension SwiftUnittest_Names_MessageNames.varMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.varMessage, rhs: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.varMessage, rhs: SwiftProtoTesting_Names_MessageNames.varMessage) -> Bool {
     if lhs._var != rhs._var {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.breakMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".break"
+extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".break"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "break"),
   ]
@@ -18599,15 +18599,15 @@ extension SwiftUnittest_Names_MessageNames.breakMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.breakMessage, rhs: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.breakMessage, rhs: SwiftProtoTesting_Names_MessageNames.breakMessage) -> Bool {
     if lhs._break != rhs._break {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.caseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".case"
+extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".case"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "case"),
   ]
@@ -18635,15 +18635,15 @@ extension SwiftUnittest_Names_MessageNames.caseMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.caseMessage, rhs: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.caseMessage, rhs: SwiftProtoTesting_Names_MessageNames.caseMessage) -> Bool {
     if lhs._case != rhs._case {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.continueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".continue"
+extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".continue"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "continue"),
   ]
@@ -18671,15 +18671,15 @@ extension SwiftUnittest_Names_MessageNames.continueMessage: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.continueMessage, rhs: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.continueMessage, rhs: SwiftProtoTesting_Names_MessageNames.continueMessage) -> Bool {
     if lhs._continue != rhs._continue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.defaultMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".default"
+extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".default"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "default"),
   ]
@@ -18707,15 +18707,15 @@ extension SwiftUnittest_Names_MessageNames.defaultMessage: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.defaultMessage, rhs: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.defaultMessage, rhs: SwiftProtoTesting_Names_MessageNames.defaultMessage) -> Bool {
     if lhs._default != rhs._default {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.deferMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".defer"
+extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".defer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defer"),
   ]
@@ -18743,15 +18743,15 @@ extension SwiftUnittest_Names_MessageNames.deferMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.deferMessage, rhs: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.deferMessage, rhs: SwiftProtoTesting_Names_MessageNames.deferMessage) -> Bool {
     if lhs._defer != rhs._defer {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.doMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".do"
+extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".do"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "do"),
   ]
@@ -18779,15 +18779,15 @@ extension SwiftUnittest_Names_MessageNames.doMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.doMessage, rhs: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.doMessage, rhs: SwiftProtoTesting_Names_MessageNames.doMessage) -> Bool {
     if lhs._do != rhs._do {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.elseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".else"
+extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".else"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "else"),
   ]
@@ -18815,15 +18815,15 @@ extension SwiftUnittest_Names_MessageNames.elseMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.elseMessage, rhs: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.elseMessage, rhs: SwiftProtoTesting_Names_MessageNames.elseMessage) -> Bool {
     if lhs._else != rhs._else {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".fallthrough"
+extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".fallthrough"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fallthrough"),
   ]
@@ -18851,15 +18851,15 @@ extension SwiftUnittest_Names_MessageNames.fallthroughMessage: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.fallthroughMessage, rhs: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.fallthroughMessage, rhs: SwiftProtoTesting_Names_MessageNames.fallthroughMessage) -> Bool {
     if lhs._fallthrough != rhs._fallthrough {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.forMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".for"
+extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".for"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "for"),
   ]
@@ -18887,15 +18887,15 @@ extension SwiftUnittest_Names_MessageNames.forMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.forMessage, rhs: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.forMessage, rhs: SwiftProtoTesting_Names_MessageNames.forMessage) -> Bool {
     if lhs._for != rhs._for {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.guardMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".guard"
+extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".guard"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "guard"),
   ]
@@ -18923,15 +18923,15 @@ extension SwiftUnittest_Names_MessageNames.guardMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.guardMessage, rhs: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.guardMessage, rhs: SwiftProtoTesting_Names_MessageNames.guardMessage) -> Bool {
     if lhs._guard != rhs._guard {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".if"
+extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".if"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "if"),
   ]
@@ -18959,15 +18959,15 @@ extension SwiftUnittest_Names_MessageNames.ifMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ifMessage, rhs: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ifMessage, rhs: SwiftProtoTesting_Names_MessageNames.ifMessage) -> Bool {
     if lhs._if != rhs._if {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.inMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".in"
+extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".in"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "in"),
   ]
@@ -18995,15 +18995,15 @@ extension SwiftUnittest_Names_MessageNames.inMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.inMessage, rhs: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.inMessage, rhs: SwiftProtoTesting_Names_MessageNames.inMessage) -> Bool {
     if lhs._in != rhs._in {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.repeatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".repeat"
+extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".repeat"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "repeat"),
   ]
@@ -19031,15 +19031,15 @@ extension SwiftUnittest_Names_MessageNames.repeatMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.repeatMessage, rhs: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.repeatMessage, rhs: SwiftProtoTesting_Names_MessageNames.repeatMessage) -> Bool {
     if lhs._repeat != rhs._repeat {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.returnMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".return"
+extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".return"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "return"),
   ]
@@ -19067,15 +19067,15 @@ extension SwiftUnittest_Names_MessageNames.returnMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.returnMessage, rhs: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.returnMessage, rhs: SwiftProtoTesting_Names_MessageNames.returnMessage) -> Bool {
     if lhs._return != rhs._return {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.switchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".switch"
+extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".switch"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "switch"),
   ]
@@ -19103,15 +19103,15 @@ extension SwiftUnittest_Names_MessageNames.switchMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.switchMessage, rhs: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.switchMessage, rhs: SwiftProtoTesting_Names_MessageNames.switchMessage) -> Bool {
     if lhs._switch != rhs._switch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.whereMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".where"
+extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".where"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "where"),
   ]
@@ -19139,15 +19139,15 @@ extension SwiftUnittest_Names_MessageNames.whereMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.whereMessage, rhs: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.whereMessage, rhs: SwiftProtoTesting_Names_MessageNames.whereMessage) -> Bool {
     if lhs._where != rhs._where {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.whileMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".while"
+extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".while"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "while"),
   ]
@@ -19175,15 +19175,15 @@ extension SwiftUnittest_Names_MessageNames.whileMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.whileMessage, rhs: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.whileMessage, rhs: SwiftProtoTesting_Names_MessageNames.whileMessage) -> Bool {
     if lhs._while != rhs._while {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.asMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".as"
+extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".as"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "as"),
   ]
@@ -19211,15 +19211,15 @@ extension SwiftUnittest_Names_MessageNames.asMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.asMessage, rhs: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.asMessage, rhs: SwiftProtoTesting_Names_MessageNames.asMessage) -> Bool {
     if lhs._as != rhs._as {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.catchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".catch"
+extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".catch"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "catch"),
   ]
@@ -19247,15 +19247,15 @@ extension SwiftUnittest_Names_MessageNames.catchMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.catchMessage, rhs: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.catchMessage, rhs: SwiftProtoTesting_Names_MessageNames.catchMessage) -> Bool {
     if lhs._catch != rhs._catch {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamicType"
+extension SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dynamicType"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dynamicType"),
   ]
@@ -19283,15 +19283,15 @@ extension SwiftUnittest_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.dynamicTypeMessage, rhs: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage, rhs: SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage) -> Bool {
     if lhs._dynamicType_p != rhs._dynamicType_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.falseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".false"
+extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".false"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "false"),
   ]
@@ -19319,15 +19319,15 @@ extension SwiftUnittest_Names_MessageNames.falseMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.falseMessage, rhs: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.falseMessage, rhs: SwiftProtoTesting_Names_MessageNames.falseMessage) -> Bool {
     if lhs._false != rhs._false {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".is"
+extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".is"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "is"),
   ]
@@ -19355,15 +19355,15 @@ extension SwiftUnittest_Names_MessageNames.isMessage: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.isMessage, rhs: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.isMessage, rhs: SwiftProtoTesting_Names_MessageNames.isMessage) -> Bool {
     if lhs._is != rhs._is {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.nilMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nil"
+extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".nil"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nil"),
   ]
@@ -19391,15 +19391,15 @@ extension SwiftUnittest_Names_MessageNames.nilMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.nilMessage, rhs: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.nilMessage, rhs: SwiftProtoTesting_Names_MessageNames.nilMessage) -> Bool {
     if lhs._nil != rhs._nil {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".rethrows"
+extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".rethrows"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "rethrows"),
   ]
@@ -19427,15 +19427,15 @@ extension SwiftUnittest_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.rethrowsMessage, rhs: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.rethrowsMessage, rhs: SwiftProtoTesting_Names_MessageNames.rethrowsMessage) -> Bool {
     if lhs._rethrows != rhs._rethrows {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.superMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".super"
+extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".super"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "super"),
   ]
@@ -19463,15 +19463,15 @@ extension SwiftUnittest_Names_MessageNames.superMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.superMessage, rhs: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.superMessage, rhs: SwiftProtoTesting_Names_MessageNames.superMessage) -> Bool {
     if lhs._super != rhs._super {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.selfMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".self"
+extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".self"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "self"),
   ]
@@ -19499,15 +19499,15 @@ extension SwiftUnittest_Names_MessageNames.selfMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.selfMessage, rhs: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.selfMessage, rhs: SwiftProtoTesting_Names_MessageNames.selfMessage) -> Bool {
     if lhs._self_p != rhs._self_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.throwMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throw"
+extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".throw"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "throw"),
   ]
@@ -19535,15 +19535,15 @@ extension SwiftUnittest_Names_MessageNames.throwMessage: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.throwMessage, rhs: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.throwMessage, rhs: SwiftProtoTesting_Names_MessageNames.throwMessage) -> Bool {
     if lhs._throw != rhs._throw {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.throwsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throws"
+extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".throws"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "throws"),
   ]
@@ -19571,15 +19571,15 @@ extension SwiftUnittest_Names_MessageNames.throwsMessage: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.throwsMessage, rhs: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.throwsMessage, rhs: SwiftProtoTesting_Names_MessageNames.throwsMessage) -> Bool {
     if lhs._throws != rhs._throws {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.trueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".true"
+extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".true"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "true"),
   ]
@@ -19607,15 +19607,15 @@ extension SwiftUnittest_Names_MessageNames.trueMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.trueMessage, rhs: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.trueMessage, rhs: SwiftProtoTesting_Names_MessageNames.trueMessage) -> Bool {
     if lhs._true != rhs._true {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.tryMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".try"
+extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".try"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "try"),
   ]
@@ -19643,15 +19643,15 @@ extension SwiftUnittest_Names_MessageNames.tryMessage: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.tryMessage, rhs: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.tryMessage, rhs: SwiftProtoTesting_Names_MessageNames.tryMessage) -> Bool {
     if lhs._try != rhs._try {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__COLUMN__"
+extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__COLUMN__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__COLUMN__"),
   ]
@@ -19679,15 +19679,15 @@ extension SwiftUnittest_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.__COLUMN__Message, rhs: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__COLUMN__Message, rhs: SwiftProtoTesting_Names_MessageNames.__COLUMN__Message) -> Bool {
     if lhs.__Column__ != rhs.__Column__ {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__FILE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FILE__"
+extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__FILE__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__FILE__"),
   ]
@@ -19715,15 +19715,15 @@ extension SwiftUnittest_Names_MessageNames.__FILE__Message: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.__FILE__Message, rhs: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__FILE__Message, rhs: SwiftProtoTesting_Names_MessageNames.__FILE__Message) -> Bool {
     if lhs.__File__ != rhs.__File__ {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FUNCTION__"
+extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__FUNCTION__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__FUNCTION__"),
   ]
@@ -19751,15 +19751,15 @@ extension SwiftUnittest_Names_MessageNames.__FUNCTION__Message: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.__FUNCTION__Message, rhs: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message, rhs: SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message) -> Bool {
     if lhs.__Function__ != rhs.__Function__ {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__LINE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__LINE__"
+extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__LINE__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__LINE__"),
   ]
@@ -19787,15 +19787,15 @@ extension SwiftUnittest_Names_MessageNames.__LINE__Message: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.__LINE__Message, rhs: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__LINE__Message, rhs: SwiftProtoTesting_Names_MessageNames.__LINE__Message) -> Bool {
     if lhs.__Line__ != rhs.__Line__ {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames._Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._"
+extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + "._"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "_"),
   ]
@@ -19823,15 +19823,15 @@ extension SwiftUnittest_Names_MessageNames._Message: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames._Message, rhs: SwiftUnittest_Names_MessageNames._Message) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames._Message, rhs: SwiftProtoTesting_Names_MessageNames._Message) -> Bool {
     if lhs.____ != rhs.____ {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__"
+extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".__"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "__"),
   ]
@@ -19859,15 +19859,15 @@ extension SwiftUnittest_Names_MessageNames.__Message: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.__Message, rhs: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__Message, rhs: SwiftProtoTesting_Names_MessageNames.__Message) -> Bool {
     if lhs._____ != rhs._____ {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.associativity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
+extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".associativity"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "associativity"),
   ]
@@ -19895,15 +19895,15 @@ extension SwiftUnittest_Names_MessageNames.associativity: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.associativity, rhs: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.associativity, rhs: SwiftProtoTesting_Names_MessageNames.associativity) -> Bool {
     if lhs._associativity != rhs._associativity {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.convenience: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".convenience"
+extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".convenience"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "convenience"),
   ]
@@ -19931,15 +19931,15 @@ extension SwiftUnittest_Names_MessageNames.convenience: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.convenience, rhs: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.convenience, rhs: SwiftProtoTesting_Names_MessageNames.convenience) -> Bool {
     if lhs._convenience != rhs._convenience {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dynamic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic"
+extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dynamic"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dynamic"),
   ]
@@ -19967,15 +19967,15 @@ extension SwiftUnittest_Names_MessageNames.dynamic: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.dynamic, rhs: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dynamic, rhs: SwiftProtoTesting_Names_MessageNames.dynamic) -> Bool {
     if lhs._dynamic != rhs._dynamic {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.didSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".didSet"
+extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".didSet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "didSet"),
   ]
@@ -20003,15 +20003,15 @@ extension SwiftUnittest_Names_MessageNames.didSet: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.didSet, rhs: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.didSet, rhs: SwiftProtoTesting_Names_MessageNames.didSet) -> Bool {
     if lhs._didSet != rhs._didSet {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.final: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".final"
+extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".final"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "final"),
   ]
@@ -20039,15 +20039,15 @@ extension SwiftUnittest_Names_MessageNames.final: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.final, rhs: SwiftUnittest_Names_MessageNames.final) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.final, rhs: SwiftProtoTesting_Names_MessageNames.final) -> Bool {
     if lhs._final != rhs._final {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.get: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".get"
+extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".get"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "get"),
   ]
@@ -20075,15 +20075,15 @@ extension SwiftUnittest_Names_MessageNames.get: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.get, rhs: SwiftUnittest_Names_MessageNames.get) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.get, rhs: SwiftProtoTesting_Names_MessageNames.get) -> Bool {
     if lhs._get != rhs._get {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.infix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".infix"
+extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".infix"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "infix"),
   ]
@@ -20111,15 +20111,15 @@ extension SwiftUnittest_Names_MessageNames.infix: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.infix, rhs: SwiftUnittest_Names_MessageNames.infix) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.infix, rhs: SwiftProtoTesting_Names_MessageNames.infix) -> Bool {
     if lhs._infix != rhs._infix {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.indirect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".indirect"
+extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".indirect"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "indirect"),
   ]
@@ -20147,15 +20147,15 @@ extension SwiftUnittest_Names_MessageNames.indirect: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.indirect, rhs: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.indirect, rhs: SwiftProtoTesting_Names_MessageNames.indirect) -> Bool {
     if lhs._indirect != rhs._indirect {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.lazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".lazy"
+extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".lazy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "lazy"),
   ]
@@ -20183,15 +20183,15 @@ extension SwiftUnittest_Names_MessageNames.lazy: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.lazy, rhs: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.lazy, rhs: SwiftProtoTesting_Names_MessageNames.lazy) -> Bool {
     if lhs._lazy != rhs._lazy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.left: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".left"
+extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".left"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "left"),
   ]
@@ -20219,15 +20219,15 @@ extension SwiftUnittest_Names_MessageNames.left: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.left, rhs: SwiftUnittest_Names_MessageNames.left) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.left, rhs: SwiftProtoTesting_Names_MessageNames.left) -> Bool {
     if lhs._left != rhs._left {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.mutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutating"
+extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".mutating"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mutating"),
   ]
@@ -20255,15 +20255,15 @@ extension SwiftUnittest_Names_MessageNames.mutating: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.mutating, rhs: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.mutating, rhs: SwiftProtoTesting_Names_MessageNames.mutating) -> Bool {
     if lhs._mutating != rhs._mutating {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.none: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".none"
+extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".none"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "none"),
   ]
@@ -20291,15 +20291,15 @@ extension SwiftUnittest_Names_MessageNames.none: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.none, rhs: SwiftUnittest_Names_MessageNames.none) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.none, rhs: SwiftProtoTesting_Names_MessageNames.none) -> Bool {
     if lhs._none != rhs._none {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.nonmutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nonmutating"
+extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".nonmutating"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nonmutating"),
   ]
@@ -20327,15 +20327,15 @@ extension SwiftUnittest_Names_MessageNames.nonmutating: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.nonmutating, rhs: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.nonmutating, rhs: SwiftProtoTesting_Names_MessageNames.nonmutating) -> Bool {
     if lhs._nonmutating != rhs._nonmutating {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
+extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".optional"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "optional"),
   ]
@@ -20363,15 +20363,15 @@ extension SwiftUnittest_Names_MessageNames.optional: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.optional, rhs: SwiftUnittest_Names_MessageNames.optional) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.optional, rhs: SwiftProtoTesting_Names_MessageNames.optional) -> Bool {
     if lhs._optional != rhs._optional {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.override: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".override"
+extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".override"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "override"),
   ]
@@ -20399,15 +20399,15 @@ extension SwiftUnittest_Names_MessageNames.override: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.override, rhs: SwiftUnittest_Names_MessageNames.override) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.override, rhs: SwiftProtoTesting_Names_MessageNames.override) -> Bool {
     if lhs._override != rhs._override {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.postfix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".postfix"
+extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".postfix"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "postfix"),
   ]
@@ -20435,15 +20435,15 @@ extension SwiftUnittest_Names_MessageNames.postfix: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.postfix, rhs: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.postfix, rhs: SwiftProtoTesting_Names_MessageNames.postfix) -> Bool {
     if lhs._postfix != rhs._postfix {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.precedence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".precedence"
+extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".precedence"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "precedence"),
   ]
@@ -20471,15 +20471,15 @@ extension SwiftUnittest_Names_MessageNames.precedence: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.precedence, rhs: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.precedence, rhs: SwiftProtoTesting_Names_MessageNames.precedence) -> Bool {
     if lhs._precedence != rhs._precedence {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.prefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".prefix"
+extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".prefix"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "prefix"),
   ]
@@ -20507,15 +20507,15 @@ extension SwiftUnittest_Names_MessageNames.prefix: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.prefix, rhs: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.prefix, rhs: SwiftProtoTesting_Names_MessageNames.prefix) -> Bool {
     if lhs._prefix != rhs._prefix {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
+extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".required"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "required"),
   ]
@@ -20543,15 +20543,15 @@ extension SwiftUnittest_Names_MessageNames.required: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.required, rhs: SwiftUnittest_Names_MessageNames.required) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.required, rhs: SwiftProtoTesting_Names_MessageNames.required) -> Bool {
     if lhs._required != rhs._required {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.right: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".right"
+extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".right"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "right"),
   ]
@@ -20579,15 +20579,15 @@ extension SwiftUnittest_Names_MessageNames.right: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.right, rhs: SwiftUnittest_Names_MessageNames.right) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.right, rhs: SwiftProtoTesting_Names_MessageNames.right) -> Bool {
     if lhs._right != rhs._right {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.set: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".set"
+extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".set"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "set"),
   ]
@@ -20615,15 +20615,15 @@ extension SwiftUnittest_Names_MessageNames.set: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.set, rhs: SwiftUnittest_Names_MessageNames.set) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.set, rhs: SwiftProtoTesting_Names_MessageNames.set) -> Bool {
     if lhs._set != rhs._set {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Type"
+extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Type"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Type"),
   ]
@@ -20651,15 +20651,15 @@ extension SwiftUnittest_Names_MessageNames.TypeMessage: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.TypeMessage, rhs: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TypeMessage, rhs: SwiftProtoTesting_Names_MessageNames.TypeMessage) -> Bool {
     if lhs._type != rhs._type {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.unowned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unowned"
+extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".unowned"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "unowned"),
   ]
@@ -20687,15 +20687,15 @@ extension SwiftUnittest_Names_MessageNames.unowned: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.unowned, rhs: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.unowned, rhs: SwiftProtoTesting_Names_MessageNames.unowned) -> Bool {
     if lhs._unowned != rhs._unowned {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.weak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".weak"
+extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".weak"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "weak"),
   ]
@@ -20723,15 +20723,15 @@ extension SwiftUnittest_Names_MessageNames.weak: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.weak, rhs: SwiftUnittest_Names_MessageNames.weak) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.weak, rhs: SwiftProtoTesting_Names_MessageNames.weak) -> Bool {
     if lhs._weak != rhs._weak {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.willSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".willSet"
+extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".willSet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "willSet"),
   ]
@@ -20759,15 +20759,15 @@ extension SwiftUnittest_Names_MessageNames.willSet: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.willSet, rhs: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.willSet, rhs: SwiftProtoTesting_Names_MessageNames.willSet) -> Bool {
     if lhs._willSet != rhs._willSet {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.id: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".id"
+extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".id"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
   ]
@@ -20795,15 +20795,15 @@ extension SwiftUnittest_Names_MessageNames.id: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.id, rhs: SwiftUnittest_Names_MessageNames.id) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.id, rhs: SwiftProtoTesting_Names_MessageNames.id) -> Bool {
     if lhs._id != rhs._id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames._cmd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._cmd"
+extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + "._cmd"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "_cmd"),
   ]
@@ -20831,15 +20831,15 @@ extension SwiftUnittest_Names_MessageNames._cmd: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames._cmd, rhs: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames._cmd, rhs: SwiftProtoTesting_Names_MessageNames._cmd) -> Bool {
     if lhs._cmd != rhs._cmd {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.out: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".out"
+extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".out"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "out"),
   ]
@@ -20867,15 +20867,15 @@ extension SwiftUnittest_Names_MessageNames.out: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.out, rhs: SwiftUnittest_Names_MessageNames.out) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.out, rhs: SwiftProtoTesting_Names_MessageNames.out) -> Bool {
     if lhs._out != rhs._out {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bycopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bycopy"
+extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bycopy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bycopy"),
   ]
@@ -20903,15 +20903,15 @@ extension SwiftUnittest_Names_MessageNames.bycopy: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.bycopy, rhs: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bycopy, rhs: SwiftProtoTesting_Names_MessageNames.bycopy) -> Bool {
     if lhs._bycopy != rhs._bycopy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.byref: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".byref"
+extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".byref"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "byref"),
   ]
@@ -20939,15 +20939,15 @@ extension SwiftUnittest_Names_MessageNames.byref: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.byref, rhs: SwiftUnittest_Names_MessageNames.byref) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.byref, rhs: SwiftProtoTesting_Names_MessageNames.byref) -> Bool {
     if lhs._byref != rhs._byref {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.oneway: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".oneway"
+extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".oneway"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "oneway"),
   ]
@@ -20975,15 +20975,15 @@ extension SwiftUnittest_Names_MessageNames.oneway: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.oneway, rhs: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.oneway, rhs: SwiftProtoTesting_Names_MessageNames.oneway) -> Bool {
     if lhs._oneway != rhs._oneway {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.and: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and"
+extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".and"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "and"),
   ]
@@ -21011,15 +21011,15 @@ extension SwiftUnittest_Names_MessageNames.and: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.and, rhs: SwiftUnittest_Names_MessageNames.and) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.and, rhs: SwiftProtoTesting_Names_MessageNames.and) -> Bool {
     if lhs._and != rhs._and {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.and_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and_eq"
+extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".and_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "and_eq"),
   ]
@@ -21047,15 +21047,15 @@ extension SwiftUnittest_Names_MessageNames.and_eq: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.and_eq, rhs: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.and_eq, rhs: SwiftProtoTesting_Names_MessageNames.and_eq) -> Bool {
     if lhs._andEq != rhs._andEq {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.alignas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignas"
+extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".alignas"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alignas"),
   ]
@@ -21083,15 +21083,15 @@ extension SwiftUnittest_Names_MessageNames.alignas: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.alignas, rhs: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.alignas, rhs: SwiftProtoTesting_Names_MessageNames.alignas) -> Bool {
     if lhs._alignas != rhs._alignas {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.alignof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignof"
+extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".alignof"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "alignof"),
   ]
@@ -21119,15 +21119,15 @@ extension SwiftUnittest_Names_MessageNames.alignof: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.alignof, rhs: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.alignof, rhs: SwiftProtoTesting_Names_MessageNames.alignof) -> Bool {
     if lhs._alignof != rhs._alignof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.asm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".asm"
+extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".asm"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "asm"),
   ]
@@ -21155,15 +21155,15 @@ extension SwiftUnittest_Names_MessageNames.asm: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.asm, rhs: SwiftUnittest_Names_MessageNames.asm) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.asm, rhs: SwiftProtoTesting_Names_MessageNames.asm) -> Bool {
     if lhs._asm != rhs._asm {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.auto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".auto"
+extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".auto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "auto"),
   ]
@@ -21191,15 +21191,15 @@ extension SwiftUnittest_Names_MessageNames.auto: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.auto, rhs: SwiftUnittest_Names_MessageNames.auto) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.auto, rhs: SwiftProtoTesting_Names_MessageNames.auto) -> Bool {
     if lhs._auto != rhs._auto {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bitand: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitand"
+extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bitand"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bitand"),
   ]
@@ -21227,15 +21227,15 @@ extension SwiftUnittest_Names_MessageNames.bitand: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.bitand, rhs: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bitand, rhs: SwiftProtoTesting_Names_MessageNames.bitand) -> Bool {
     if lhs._bitand != rhs._bitand {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitor"
+extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bitor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bitor"),
   ]
@@ -21263,15 +21263,15 @@ extension SwiftUnittest_Names_MessageNames.bitor: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.bitor, rhs: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bitor, rhs: SwiftProtoTesting_Names_MessageNames.bitor) -> Bool {
     if lhs._bitor != rhs._bitor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.bool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bool"
+extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".bool"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bool"),
   ]
@@ -21299,15 +21299,15 @@ extension SwiftUnittest_Names_MessageNames.bool: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.bool, rhs: SwiftUnittest_Names_MessageNames.bool) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bool, rhs: SwiftProtoTesting_Names_MessageNames.bool) -> Bool {
     if lhs._bool != rhs._bool {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.char: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char"
+extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".char"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "char"),
   ]
@@ -21335,15 +21335,15 @@ extension SwiftUnittest_Names_MessageNames.char: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.char, rhs: SwiftUnittest_Names_MessageNames.char) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.char, rhs: SwiftProtoTesting_Names_MessageNames.char) -> Bool {
     if lhs._char != rhs._char {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.char16_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char16_t"
+extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".char16_t"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "char16_t"),
   ]
@@ -21371,15 +21371,15 @@ extension SwiftUnittest_Names_MessageNames.char16_t: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.char16_t, rhs: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.char16_t, rhs: SwiftProtoTesting_Names_MessageNames.char16_t) -> Bool {
     if lhs._char16T != rhs._char16T {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.char32_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char32_t"
+extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".char32_t"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "char32_t"),
   ]
@@ -21407,15 +21407,15 @@ extension SwiftUnittest_Names_MessageNames.char32_t: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.char32_t, rhs: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.char32_t, rhs: SwiftProtoTesting_Names_MessageNames.char32_t) -> Bool {
     if lhs._char32T != rhs._char32T {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.compl: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".compl"
+extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".compl"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "compl"),
   ]
@@ -21443,15 +21443,15 @@ extension SwiftUnittest_Names_MessageNames.compl: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.compl, rhs: SwiftUnittest_Names_MessageNames.compl) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.compl, rhs: SwiftProtoTesting_Names_MessageNames.compl) -> Bool {
     if lhs._compl != rhs._compl {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.const: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const"
+extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".const"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "const"),
   ]
@@ -21479,15 +21479,15 @@ extension SwiftUnittest_Names_MessageNames.const: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.const, rhs: SwiftUnittest_Names_MessageNames.const) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.const, rhs: SwiftProtoTesting_Names_MessageNames.const) -> Bool {
     if lhs._const != rhs._const {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.constexpr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".constexpr"
+extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".constexpr"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "constexpr"),
   ]
@@ -21515,15 +21515,15 @@ extension SwiftUnittest_Names_MessageNames.constexpr: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.constexpr, rhs: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.constexpr, rhs: SwiftProtoTesting_Names_MessageNames.constexpr) -> Bool {
     if lhs._constexpr != rhs._constexpr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.const_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const_cast"
+extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".const_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "const_cast"),
   ]
@@ -21551,15 +21551,15 @@ extension SwiftUnittest_Names_MessageNames.const_cast: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.const_cast, rhs: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.const_cast, rhs: SwiftProtoTesting_Names_MessageNames.const_cast) -> Bool {
     if lhs._constCast != rhs._constCast {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.decltype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".decltype"
+extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".decltype"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "decltype"),
   ]
@@ -21587,15 +21587,15 @@ extension SwiftUnittest_Names_MessageNames.decltype: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.decltype, rhs: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.decltype, rhs: SwiftProtoTesting_Names_MessageNames.decltype) -> Bool {
     if lhs._decltype != rhs._decltype {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.delete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delete"
+extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".delete"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "delete"),
   ]
@@ -21623,15 +21623,15 @@ extension SwiftUnittest_Names_MessageNames.delete: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.delete, rhs: SwiftUnittest_Names_MessageNames.delete) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.delete, rhs: SwiftProtoTesting_Names_MessageNames.delete) -> Bool {
     if lhs._delete != rhs._delete {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic_cast"
+extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dynamic_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "dynamic_cast"),
   ]
@@ -21659,15 +21659,15 @@ extension SwiftUnittest_Names_MessageNames.dynamic_cast: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.dynamic_cast, rhs: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dynamic_cast, rhs: SwiftProtoTesting_Names_MessageNames.dynamic_cast) -> Bool {
     if lhs._dynamicCast != rhs._dynamicCast {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.explicit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".explicit"
+extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".explicit"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "explicit"),
   ]
@@ -21695,15 +21695,15 @@ extension SwiftUnittest_Names_MessageNames.explicit: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.explicit, rhs: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.explicit, rhs: SwiftProtoTesting_Names_MessageNames.explicit) -> Bool {
     if lhs._explicit != rhs._explicit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.export: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".export"
+extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".export"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "export"),
   ]
@@ -21731,15 +21731,15 @@ extension SwiftUnittest_Names_MessageNames.export: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.export, rhs: SwiftUnittest_Names_MessageNames.export) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.export, rhs: SwiftProtoTesting_Names_MessageNames.export) -> Bool {
     if lhs._export != rhs._export {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extern"
+extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extern"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extern"),
   ]
@@ -21767,15 +21767,15 @@ extension SwiftUnittest_Names_MessageNames.extern: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.extern, rhs: SwiftUnittest_Names_MessageNames.extern) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extern, rhs: SwiftProtoTesting_Names_MessageNames.extern) -> Bool {
     if lhs._extern != rhs._extern {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.friend: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".friend"
+extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".friend"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "friend"),
   ]
@@ -21803,15 +21803,15 @@ extension SwiftUnittest_Names_MessageNames.friend: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.friend, rhs: SwiftUnittest_Names_MessageNames.friend) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.friend, rhs: SwiftProtoTesting_Names_MessageNames.friend) -> Bool {
     if lhs._friend != rhs._friend {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.goto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".goto"
+extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".goto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "goto"),
   ]
@@ -21839,15 +21839,15 @@ extension SwiftUnittest_Names_MessageNames.goto: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.goto, rhs: SwiftUnittest_Names_MessageNames.goto) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.goto, rhs: SwiftProtoTesting_Names_MessageNames.goto) -> Bool {
     if lhs._goto != rhs._goto {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.inline: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inline"
+extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".inline"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "inline"),
   ]
@@ -21875,15 +21875,15 @@ extension SwiftUnittest_Names_MessageNames.inline: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.inline, rhs: SwiftUnittest_Names_MessageNames.inline) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.inline, rhs: SwiftProtoTesting_Names_MessageNames.inline) -> Bool {
     if lhs._inline != rhs._inline {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.long: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".long"
+extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".long"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "long"),
   ]
@@ -21911,15 +21911,15 @@ extension SwiftUnittest_Names_MessageNames.long: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.long, rhs: SwiftUnittest_Names_MessageNames.long) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.long, rhs: SwiftProtoTesting_Names_MessageNames.long) -> Bool {
     if lhs._long != rhs._long {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.mutable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutable"
+extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".mutable"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mutable"),
   ]
@@ -21947,15 +21947,15 @@ extension SwiftUnittest_Names_MessageNames.mutable: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.mutable, rhs: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.mutable, rhs: SwiftProtoTesting_Names_MessageNames.mutable) -> Bool {
     if lhs._mutable != rhs._mutable {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.namespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".namespace"
+extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".namespace"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "namespace"),
   ]
@@ -21983,15 +21983,15 @@ extension SwiftUnittest_Names_MessageNames.namespace: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.namespace, rhs: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.namespace, rhs: SwiftProtoTesting_Names_MessageNames.namespace) -> Bool {
     if lhs._namespace != rhs._namespace {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.new: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".new"
+extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".new"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "new"),
   ]
@@ -22019,15 +22019,15 @@ extension SwiftUnittest_Names_MessageNames.new: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.new, rhs: SwiftUnittest_Names_MessageNames.new) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.new, rhs: SwiftProtoTesting_Names_MessageNames.new) -> Bool {
     if lhs._new != rhs._new {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.noexcept: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".noexcept"
+extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".noexcept"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "noexcept"),
   ]
@@ -22055,15 +22055,15 @@ extension SwiftUnittest_Names_MessageNames.noexcept: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.noexcept, rhs: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.noexcept, rhs: SwiftProtoTesting_Names_MessageNames.noexcept) -> Bool {
     if lhs._noexcept != rhs._noexcept {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.not: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not"
+extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".not"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "not"),
   ]
@@ -22091,15 +22091,15 @@ extension SwiftUnittest_Names_MessageNames.not: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.not, rhs: SwiftUnittest_Names_MessageNames.not) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.not, rhs: SwiftProtoTesting_Names_MessageNames.not) -> Bool {
     if lhs._not != rhs._not {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.not_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not_eq"
+extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".not_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "not_eq"),
   ]
@@ -22127,15 +22127,15 @@ extension SwiftUnittest_Names_MessageNames.not_eq: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.not_eq, rhs: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.not_eq, rhs: SwiftProtoTesting_Names_MessageNames.not_eq) -> Bool {
     if lhs._notEq != rhs._notEq {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.nullptr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nullptr"
+extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".nullptr"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "nullptr"),
   ]
@@ -22163,15 +22163,15 @@ extension SwiftUnittest_Names_MessageNames.nullptr: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.nullptr, rhs: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.nullptr, rhs: SwiftProtoTesting_Names_MessageNames.nullptr) -> Bool {
     if lhs._nullptr != rhs._nullptr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.or: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or"
+extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".or"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "or"),
   ]
@@ -22199,15 +22199,15 @@ extension SwiftUnittest_Names_MessageNames.or: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.or, rhs: SwiftUnittest_Names_MessageNames.or) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.or, rhs: SwiftProtoTesting_Names_MessageNames.or) -> Bool {
     if lhs._or != rhs._or {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.or_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or_eq"
+extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".or_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "or_eq"),
   ]
@@ -22235,15 +22235,15 @@ extension SwiftUnittest_Names_MessageNames.or_eq: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.or_eq, rhs: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.or_eq, rhs: SwiftProtoTesting_Names_MessageNames.or_eq) -> Bool {
     if lhs._orEq != rhs._orEq {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.protected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protected"
+extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".protected"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "protected"),
   ]
@@ -22271,15 +22271,15 @@ extension SwiftUnittest_Names_MessageNames.protected: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.protected, rhs: SwiftUnittest_Names_MessageNames.protected) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.protected, rhs: SwiftProtoTesting_Names_MessageNames.protected) -> Bool {
     if lhs._protected != rhs._protected {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.register: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".register"
+extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".register"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "register"),
   ]
@@ -22307,15 +22307,15 @@ extension SwiftUnittest_Names_MessageNames.register: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.register, rhs: SwiftUnittest_Names_MessageNames.register) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.register, rhs: SwiftProtoTesting_Names_MessageNames.register) -> Bool {
     if lhs._register != rhs._register {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".reinterpret_cast"
+extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".reinterpret_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "reinterpret_cast"),
   ]
@@ -22343,15 +22343,15 @@ extension SwiftUnittest_Names_MessageNames.reinterpret_cast: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.reinterpret_cast, rhs: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.reinterpret_cast, rhs: SwiftProtoTesting_Names_MessageNames.reinterpret_cast) -> Bool {
     if lhs._reinterpretCast != rhs._reinterpretCast {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.short: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".short"
+extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".short"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "short"),
   ]
@@ -22379,15 +22379,15 @@ extension SwiftUnittest_Names_MessageNames.short: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.short, rhs: SwiftUnittest_Names_MessageNames.short) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.short, rhs: SwiftProtoTesting_Names_MessageNames.short) -> Bool {
     if lhs._short != rhs._short {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.signed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".signed"
+extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".signed"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signed"),
   ]
@@ -22415,15 +22415,15 @@ extension SwiftUnittest_Names_MessageNames.signed: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.signed, rhs: SwiftUnittest_Names_MessageNames.signed) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.signed, rhs: SwiftProtoTesting_Names_MessageNames.signed) -> Bool {
     if lhs._signed != rhs._signed {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.sizeof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sizeof"
+extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".sizeof"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sizeof"),
   ]
@@ -22451,15 +22451,15 @@ extension SwiftUnittest_Names_MessageNames.sizeof: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.sizeof, rhs: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.sizeof, rhs: SwiftProtoTesting_Names_MessageNames.sizeof) -> Bool {
     if lhs._sizeof != rhs._sizeof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.static_assert: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_assert"
+extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".static_assert"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "static_assert"),
   ]
@@ -22487,15 +22487,15 @@ extension SwiftUnittest_Names_MessageNames.static_assert: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.static_assert, rhs: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.static_assert, rhs: SwiftProtoTesting_Names_MessageNames.static_assert) -> Bool {
     if lhs._staticAssert != rhs._staticAssert {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.static_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_cast"
+extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".static_cast"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "static_cast"),
   ]
@@ -22523,15 +22523,15 @@ extension SwiftUnittest_Names_MessageNames.static_cast: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.static_cast, rhs: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.static_cast, rhs: SwiftProtoTesting_Names_MessageNames.static_cast) -> Bool {
     if lhs._staticCast != rhs._staticCast {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.template: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".template"
+extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".template"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "template"),
   ]
@@ -22559,15 +22559,15 @@ extension SwiftUnittest_Names_MessageNames.template: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.template, rhs: SwiftUnittest_Names_MessageNames.template) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.template, rhs: SwiftProtoTesting_Names_MessageNames.template) -> Bool {
     if lhs._template != rhs._template {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.this: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".this"
+extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".this"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "this"),
   ]
@@ -22595,15 +22595,15 @@ extension SwiftUnittest_Names_MessageNames.this: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.this, rhs: SwiftUnittest_Names_MessageNames.this) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.this, rhs: SwiftProtoTesting_Names_MessageNames.this) -> Bool {
     if lhs._this != rhs._this {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.thread_local: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".thread_local"
+extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".thread_local"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "thread_local"),
   ]
@@ -22631,15 +22631,15 @@ extension SwiftUnittest_Names_MessageNames.thread_local: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.thread_local, rhs: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.thread_local, rhs: SwiftProtoTesting_Names_MessageNames.thread_local) -> Bool {
     if lhs._threadLocal != rhs._threadLocal {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typedef: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typedef"
+extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typedef"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typedef"),
   ]
@@ -22667,15 +22667,15 @@ extension SwiftUnittest_Names_MessageNames.typedef: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.typedef, rhs: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typedef, rhs: SwiftProtoTesting_Names_MessageNames.typedef) -> Bool {
     if lhs._typedef != rhs._typedef {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typeid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typeid"
+extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typeid"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typeid"),
   ]
@@ -22703,15 +22703,15 @@ extension SwiftUnittest_Names_MessageNames.typeid: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.typeid, rhs: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typeid, rhs: SwiftProtoTesting_Names_MessageNames.typeid) -> Bool {
     if lhs._typeid != rhs._typeid {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.typename: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typename"
+extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".typename"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "typename"),
   ]
@@ -22739,15 +22739,15 @@ extension SwiftUnittest_Names_MessageNames.typename: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.typename, rhs: SwiftUnittest_Names_MessageNames.typename) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typename, rhs: SwiftProtoTesting_Names_MessageNames.typename) -> Bool {
     if lhs._typename != rhs._typename {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.union: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".union"
+extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".union"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "union"),
   ]
@@ -22775,15 +22775,15 @@ extension SwiftUnittest_Names_MessageNames.union: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.union, rhs: SwiftUnittest_Names_MessageNames.union) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.union, rhs: SwiftProtoTesting_Names_MessageNames.union) -> Bool {
     if lhs._union != rhs._union {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.unsigned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unsigned"
+extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".unsigned"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "unsigned"),
   ]
@@ -22811,15 +22811,15 @@ extension SwiftUnittest_Names_MessageNames.unsigned: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.unsigned, rhs: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.unsigned, rhs: SwiftProtoTesting_Names_MessageNames.unsigned) -> Bool {
     if lhs._unsigned != rhs._unsigned {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.using: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".using"
+extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".using"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "using"),
   ]
@@ -22847,15 +22847,15 @@ extension SwiftUnittest_Names_MessageNames.using: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.using, rhs: SwiftUnittest_Names_MessageNames.using) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.using, rhs: SwiftProtoTesting_Names_MessageNames.using) -> Bool {
     if lhs._using != rhs._using {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.virtual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".virtual"
+extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".virtual"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "virtual"),
   ]
@@ -22883,15 +22883,15 @@ extension SwiftUnittest_Names_MessageNames.virtual: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.virtual, rhs: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.virtual, rhs: SwiftProtoTesting_Names_MessageNames.virtual) -> Bool {
     if lhs._virtual != rhs._virtual {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".void"
+extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".void"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "void"),
   ]
@@ -22919,15 +22919,15 @@ extension SwiftUnittest_Names_MessageNames.void: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.void, rhs: SwiftUnittest_Names_MessageNames.void) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.void, rhs: SwiftProtoTesting_Names_MessageNames.void) -> Bool {
     if lhs._void != rhs._void {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.volatile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".volatile"
+extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".volatile"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "volatile"),
   ]
@@ -22955,15 +22955,15 @@ extension SwiftUnittest_Names_MessageNames.volatile: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.volatile, rhs: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.volatile, rhs: SwiftProtoTesting_Names_MessageNames.volatile) -> Bool {
     if lhs._volatile != rhs._volatile {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.wchar_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".wchar_t"
+extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".wchar_t"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "wchar_t"),
   ]
@@ -22991,15 +22991,15 @@ extension SwiftUnittest_Names_MessageNames.wchar_t: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.wchar_t, rhs: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.wchar_t, rhs: SwiftProtoTesting_Names_MessageNames.wchar_t) -> Bool {
     if lhs._wcharT != rhs._wcharT {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.xor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor"
+extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".xor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "xor"),
   ]
@@ -23027,15 +23027,15 @@ extension SwiftUnittest_Names_MessageNames.xor: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.xor, rhs: SwiftUnittest_Names_MessageNames.xor) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.xor, rhs: SwiftProtoTesting_Names_MessageNames.xor) -> Bool {
     if lhs._xor != rhs._xor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.xor_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor_eq"
+extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".xor_eq"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "xor_eq"),
   ]
@@ -23063,15 +23063,15 @@ extension SwiftUnittest_Names_MessageNames.xor_eq: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.xor_eq, rhs: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.xor_eq, rhs: SwiftProtoTesting_Names_MessageNames.xor_eq) -> Bool {
     if lhs._xorEq != rhs._xorEq {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.restrict: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".restrict"
+extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".restrict"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "restrict"),
   ]
@@ -23099,15 +23099,15 @@ extension SwiftUnittest_Names_MessageNames.restrict: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.restrict, rhs: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.restrict, rhs: SwiftProtoTesting_Names_MessageNames.restrict) -> Bool {
     if lhs._restrict != rhs._restrict {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Category: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Category"
+extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Category"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Category"),
   ]
@@ -23135,15 +23135,15 @@ extension SwiftUnittest_Names_MessageNames.Category: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Category, rhs: SwiftUnittest_Names_MessageNames.Category) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Category, rhs: SwiftProtoTesting_Names_MessageNames.Category) -> Bool {
     if lhs._category != rhs._category {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Ivar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Ivar"
+extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Ivar"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Ivar"),
   ]
@@ -23171,15 +23171,15 @@ extension SwiftUnittest_Names_MessageNames.Ivar: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Ivar, rhs: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Ivar, rhs: SwiftProtoTesting_Names_MessageNames.Ivar) -> Bool {
     if lhs._ivar != rhs._ivar {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Method"
+extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Method"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Method"),
   ]
@@ -23207,15 +23207,15 @@ extension SwiftUnittest_Names_MessageNames.Method: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Method, rhs: SwiftUnittest_Names_MessageNames.Method) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Method, rhs: SwiftProtoTesting_Names_MessageNames.Method) -> Bool {
     if lhs._method != rhs._method {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.finalize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".finalize"
+extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".finalize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "finalize"),
   ]
@@ -23243,15 +23243,15 @@ extension SwiftUnittest_Names_MessageNames.finalize: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.finalize, rhs: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.finalize, rhs: SwiftProtoTesting_Names_MessageNames.finalize) -> Bool {
     if lhs._finalize != rhs._finalize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
+extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".hash"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "hash"),
   ]
@@ -23279,15 +23279,15 @@ extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.hash, rhs: SwiftUnittest_Names_MessageNames.hash) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.hash, rhs: SwiftProtoTesting_Names_MessageNames.hash) -> Bool {
     if lhs._hash != rhs._hash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.dealloc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dealloc"
+extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".dealloc"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dealloc"),
   ]
@@ -23315,15 +23315,15 @@ extension SwiftUnittest_Names_MessageNames.dealloc: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.dealloc, rhs: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dealloc, rhs: SwiftProtoTesting_Names_MessageNames.dealloc) -> Bool {
     if lhs._dealloc != rhs._dealloc {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.superclass: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".superclass"
+extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".superclass"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "superclass"),
   ]
@@ -23351,15 +23351,15 @@ extension SwiftUnittest_Names_MessageNames.superclass: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.superclass, rhs: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.superclass, rhs: SwiftProtoTesting_Names_MessageNames.superclass) -> Bool {
     if lhs._superclass != rhs._superclass {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.retain: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retain"
+extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".retain"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "retain"),
   ]
@@ -23387,15 +23387,15 @@ extension SwiftUnittest_Names_MessageNames.retain: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.retain, rhs: SwiftUnittest_Names_MessageNames.retain) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.retain, rhs: SwiftProtoTesting_Names_MessageNames.retain) -> Bool {
     if lhs._retain != rhs._retain {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.release: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".release"
+extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".release"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "release"),
   ]
@@ -23423,15 +23423,15 @@ extension SwiftUnittest_Names_MessageNames.release: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.release, rhs: SwiftUnittest_Names_MessageNames.release) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.release, rhs: SwiftProtoTesting_Names_MessageNames.release) -> Bool {
     if lhs._release != rhs._release {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.autorelease: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".autorelease"
+extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".autorelease"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "autorelease"),
   ]
@@ -23459,15 +23459,15 @@ extension SwiftUnittest_Names_MessageNames.autorelease: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.autorelease, rhs: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.autorelease, rhs: SwiftProtoTesting_Names_MessageNames.autorelease) -> Bool {
     if lhs._autorelease != rhs._autorelease {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.retainCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retainCount"
+extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".retainCount"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "retainCount"),
   ]
@@ -23495,15 +23495,15 @@ extension SwiftUnittest_Names_MessageNames.retainCount: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.retainCount, rhs: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.retainCount, rhs: SwiftProtoTesting_Names_MessageNames.retainCount) -> Bool {
     if lhs._retainCount != rhs._retainCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.zone: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".zone"
+extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".zone"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "zone"),
   ]
@@ -23531,15 +23531,15 @@ extension SwiftUnittest_Names_MessageNames.zone: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.zone, rhs: SwiftUnittest_Names_MessageNames.zone) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.zone, rhs: SwiftProtoTesting_Names_MessageNames.zone) -> Bool {
     if lhs._zone != rhs._zone {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isProxy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isProxy"
+extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".isProxy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isProxy"),
   ]
@@ -23567,15 +23567,15 @@ extension SwiftUnittest_Names_MessageNames.isProxy: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.isProxy, rhs: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.isProxy, rhs: SwiftProtoTesting_Names_MessageNames.isProxy) -> Bool {
     if lhs._isProxy != rhs._isProxy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.copy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".copy"
+extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".copy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "copy"),
   ]
@@ -23603,15 +23603,15 @@ extension SwiftUnittest_Names_MessageNames.copy: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.copy, rhs: SwiftUnittest_Names_MessageNames.copy) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.copy, rhs: SwiftProtoTesting_Names_MessageNames.copy) -> Bool {
     if lhs._copy != rhs._copy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.mutableCopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutableCopy"
+extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".mutableCopy"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mutableCopy"),
   ]
@@ -23639,15 +23639,15 @@ extension SwiftUnittest_Names_MessageNames.mutableCopy: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.mutableCopy, rhs: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.mutableCopy, rhs: SwiftProtoTesting_Names_MessageNames.mutableCopy) -> Bool {
     if lhs._mutableCopy != rhs._mutableCopy {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.classForCoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".classForCoder"
+extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".classForCoder"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "classForCoder"),
   ]
@@ -23675,15 +23675,15 @@ extension SwiftUnittest_Names_MessageNames.classForCoder: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.classForCoder, rhs: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.classForCoder, rhs: SwiftProtoTesting_Names_MessageNames.classForCoder) -> Bool {
     if lhs._classForCoder != rhs._classForCoder {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
+extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".clear"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "clear"),
   ]
@@ -23711,15 +23711,15 @@ extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.clear, rhs: SwiftUnittest_Names_MessageNames.clear) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.clear, rhs: SwiftProtoTesting_Names_MessageNames.clear) -> Bool {
     if lhs._clear != rhs._clear {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".data"
+extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".data"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
   ]
@@ -23747,15 +23747,15 @@ extension SwiftUnittest_Names_MessageNames.data: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.data, rhs: SwiftUnittest_Names_MessageNames.data) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.data, rhs: SwiftProtoTesting_Names_MessageNames.data) -> Bool {
     if lhs._data != rhs._data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.delimitedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delimitedData"
+extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".delimitedData"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "delimitedData"),
   ]
@@ -23783,15 +23783,15 @@ extension SwiftUnittest_Names_MessageNames.delimitedData: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.delimitedData, rhs: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.delimitedData, rhs: SwiftProtoTesting_Names_MessageNames.delimitedData) -> Bool {
     if lhs._delimitedData != rhs._delimitedData {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.descriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".descriptor"
+extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".descriptor"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "descriptor"),
   ]
@@ -23819,15 +23819,15 @@ extension SwiftUnittest_Names_MessageNames.descriptor: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.descriptor, rhs: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.descriptor, rhs: SwiftProtoTesting_Names_MessageNames.descriptor) -> Bool {
     if lhs._descriptor != rhs._descriptor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionRegistry"
+extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extensionRegistry"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extensionRegistry"),
   ]
@@ -23855,15 +23855,15 @@ extension SwiftUnittest_Names_MessageNames.extensionRegistry: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.extensionRegistry, rhs: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extensionRegistry, rhs: SwiftProtoTesting_Names_MessageNames.extensionRegistry) -> Bool {
     if lhs._extensionRegistry != rhs._extensionRegistry {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
+extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "extensionsCurrentlySet"),
   ]
@@ -23891,15 +23891,15 @@ extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet, rhs: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet, rhs: SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet) -> Bool {
     if lhs._extensionsCurrentlySet != rhs._extensionsCurrentlySet {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
+extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".isInitialized"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isInitialized"),
   ]
@@ -23927,15 +23927,15 @@ extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.isInitializedMessage, rhs: SwiftUnittest_Names_MessageNames.isInitializedMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.isInitializedMessage, rhs: SwiftProtoTesting_Names_MessageNames.isInitializedMessage) -> Bool {
     if lhs._isInitialized_p != rhs._isInitialized_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.serializedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedSize"
+extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".serializedSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "serializedSize"),
   ]
@@ -23963,15 +23963,15 @@ extension SwiftUnittest_Names_MessageNames.serializedSize: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.serializedSize, rhs: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.serializedSize, rhs: SwiftProtoTesting_Names_MessageNames.serializedSize) -> Bool {
     if lhs._serializedSize != rhs._serializedSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
+extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sortedExtensionsInUse"),
   ]
@@ -23999,15 +23999,15 @@ extension SwiftUnittest_Names_MessageNames.sortedExtensionsInUse: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse, rhs: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse, rhs: SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse) -> Bool {
     if lhs._sortedExtensionsInUse != rhs._sortedExtensionsInUse {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unknownFields"
+extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".unknownFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "unknownFields"),
   ]
@@ -24035,15 +24035,15 @@ extension SwiftUnittest_Names_MessageNames.unknownFieldsMessage: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.unknownFieldsMessage, rhs: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage, rhs: SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage) -> Bool {
     if lhs._unknownFields_p != rhs._unknownFields_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Fixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fixed"
+extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Fixed"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Fixed"),
   ]
@@ -24071,15 +24071,15 @@ extension SwiftUnittest_Names_MessageNames.Fixed: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Fixed, rhs: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Fixed, rhs: SwiftProtoTesting_Names_MessageNames.Fixed) -> Bool {
     if lhs._fixed != rhs._fixed {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Fract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fract"
+extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Fract"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Fract"),
   ]
@@ -24107,15 +24107,15 @@ extension SwiftUnittest_Names_MessageNames.Fract: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Fract, rhs: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Fract, rhs: SwiftProtoTesting_Names_MessageNames.Fract) -> Bool {
     if lhs._fract != rhs._fract {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Size: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Size"
+extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Size"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Size"),
   ]
@@ -24143,15 +24143,15 @@ extension SwiftUnittest_Names_MessageNames.Size: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Size, rhs: SwiftUnittest_Names_MessageNames.Size) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Size, rhs: SwiftProtoTesting_Names_MessageNames.Size) -> Bool {
     if lhs._size != rhs._size {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LogicalAddress"
+extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".LogicalAddress"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "LogicalAddress"),
   ]
@@ -24179,15 +24179,15 @@ extension SwiftUnittest_Names_MessageNames.LogicalAddress: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.LogicalAddress, rhs: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.LogicalAddress, rhs: SwiftProtoTesting_Names_MessageNames.LogicalAddress) -> Bool {
     if lhs._logicalAddress != rhs._logicalAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PhysicalAddress"
+extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".PhysicalAddress"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "PhysicalAddress"),
   ]
@@ -24215,15 +24215,15 @@ extension SwiftUnittest_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.PhysicalAddress, rhs: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.PhysicalAddress, rhs: SwiftProtoTesting_Names_MessageNames.PhysicalAddress) -> Bool {
     if lhs._physicalAddress != rhs._physicalAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ByteCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteCount"
+extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ByteCount"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ByteCount"),
   ]
@@ -24251,15 +24251,15 @@ extension SwiftUnittest_Names_MessageNames.ByteCount: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ByteCount, rhs: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ByteCount, rhs: SwiftProtoTesting_Names_MessageNames.ByteCount) -> Bool {
     if lhs._byteCount != rhs._byteCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteOffset"
+extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ByteOffset"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ByteOffset"),
   ]
@@ -24287,15 +24287,15 @@ extension SwiftUnittest_Names_MessageNames.ByteOffset: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ByteOffset, rhs: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ByteOffset, rhs: SwiftProtoTesting_Names_MessageNames.ByteOffset) -> Bool {
     if lhs._byteOffset != rhs._byteOffset {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Duration"
+extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Duration"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Duration"),
   ]
@@ -24323,15 +24323,15 @@ extension SwiftUnittest_Names_MessageNames.Duration: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Duration, rhs: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Duration, rhs: SwiftProtoTesting_Names_MessageNames.Duration) -> Bool {
     if lhs._duration != rhs._duration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".AbsoluteTime"
+extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".AbsoluteTime"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "AbsoluteTime"),
   ]
@@ -24359,15 +24359,15 @@ extension SwiftUnittest_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.AbsoluteTime, rhs: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.AbsoluteTime, rhs: SwiftProtoTesting_Names_MessageNames.AbsoluteTime) -> Bool {
     if lhs._absoluteTime != rhs._absoluteTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.OptionBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OptionBits"
+extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".OptionBits"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "OptionBits"),
   ]
@@ -24395,15 +24395,15 @@ extension SwiftUnittest_Names_MessageNames.OptionBits: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.OptionBits, rhs: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.OptionBits, rhs: SwiftProtoTesting_Names_MessageNames.OptionBits) -> Bool {
     if lhs._optionBits != rhs._optionBits {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ItemCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ItemCount"
+extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ItemCount"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ItemCount"),
   ]
@@ -24431,15 +24431,15 @@ extension SwiftUnittest_Names_MessageNames.ItemCount: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ItemCount, rhs: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ItemCount, rhs: SwiftProtoTesting_Names_MessageNames.ItemCount) -> Bool {
     if lhs._itemCount != rhs._itemCount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.PBVersion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PBVersion"
+extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".PBVersion"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "PBVersion"),
   ]
@@ -24467,15 +24467,15 @@ extension SwiftUnittest_Names_MessageNames.PBVersion: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.PBVersion, rhs: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.PBVersion, rhs: SwiftProtoTesting_Names_MessageNames.PBVersion) -> Bool {
     if lhs._pbversion != rhs._pbversion {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ScriptCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ScriptCode"
+extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ScriptCode"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ScriptCode"),
   ]
@@ -24503,15 +24503,15 @@ extension SwiftUnittest_Names_MessageNames.ScriptCode: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ScriptCode, rhs: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ScriptCode, rhs: SwiftProtoTesting_Names_MessageNames.ScriptCode) -> Bool {
     if lhs._scriptCode != rhs._scriptCode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.LangCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LangCode"
+extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".LangCode"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "LangCode"),
   ]
@@ -24539,15 +24539,15 @@ extension SwiftUnittest_Names_MessageNames.LangCode: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.LangCode, rhs: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.LangCode, rhs: SwiftProtoTesting_Names_MessageNames.LangCode) -> Bool {
     if lhs._langCode != rhs._langCode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.RegionCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".RegionCode"
+extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".RegionCode"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "RegionCode"),
   ]
@@ -24575,15 +24575,15 @@ extension SwiftUnittest_Names_MessageNames.RegionCode: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.RegionCode, rhs: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.RegionCode, rhs: SwiftProtoTesting_Names_MessageNames.RegionCode) -> Bool {
     if lhs._regionCode != rhs._regionCode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.OSType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OSType"
+extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".OSType"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "OSType"),
   ]
@@ -24611,15 +24611,15 @@ extension SwiftUnittest_Names_MessageNames.OSType: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.OSType, rhs: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.OSType, rhs: SwiftProtoTesting_Names_MessageNames.OSType) -> Bool {
     if lhs._ostype != rhs._ostype {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
+extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ProcessSerialNumber"),
   ]
@@ -24647,15 +24647,15 @@ extension SwiftUnittest_Names_MessageNames.ProcessSerialNumber: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ProcessSerialNumber, rhs: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber, rhs: SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber) -> Bool {
     if lhs._processSerialNumber != rhs._processSerialNumber {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Point: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Point"
+extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Point"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Point"),
   ]
@@ -24683,15 +24683,15 @@ extension SwiftUnittest_Names_MessageNames.Point: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Point, rhs: SwiftUnittest_Names_MessageNames.Point) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Point, rhs: SwiftProtoTesting_Names_MessageNames.Point) -> Bool {
     if lhs._point != rhs._point {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Rect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Rect"
+extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Rect"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Rect"),
   ]
@@ -24719,15 +24719,15 @@ extension SwiftUnittest_Names_MessageNames.Rect: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Rect, rhs: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Rect, rhs: SwiftProtoTesting_Names_MessageNames.Rect) -> Bool {
     if lhs._rect != rhs._rect {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.FixedPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedPoint"
+extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".FixedPoint"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FixedPoint"),
   ]
@@ -24755,15 +24755,15 @@ extension SwiftUnittest_Names_MessageNames.FixedPoint: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.FixedPoint, rhs: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.FixedPoint, rhs: SwiftProtoTesting_Names_MessageNames.FixedPoint) -> Bool {
     if lhs._fixedPoint != rhs._fixedPoint {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.FixedRect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedRect"
+extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".FixedRect"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FixedRect"),
   ]
@@ -24791,15 +24791,15 @@ extension SwiftUnittest_Names_MessageNames.FixedRect: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.FixedRect, rhs: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.FixedRect, rhs: SwiftProtoTesting_Names_MessageNames.FixedRect) -> Bool {
     if lhs._fixedRect != rhs._fixedRect {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Style: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Style"
+extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Style"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Style"),
   ]
@@ -24827,15 +24827,15 @@ extension SwiftUnittest_Names_MessageNames.Style: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Style, rhs: SwiftUnittest_Names_MessageNames.Style) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Style, rhs: SwiftProtoTesting_Names_MessageNames.Style) -> Bool {
     if lhs._style != rhs._style {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StyleParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleParameter"
+extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".StyleParameter"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "StyleParameter"),
   ]
@@ -24863,15 +24863,15 @@ extension SwiftUnittest_Names_MessageNames.StyleParameter: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.StyleParameter, rhs: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.StyleParameter, rhs: SwiftProtoTesting_Names_MessageNames.StyleParameter) -> Bool {
     if lhs._styleParameter != rhs._styleParameter {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.StyleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleField"
+extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".StyleField"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "StyleField"),
   ]
@@ -24899,15 +24899,15 @@ extension SwiftUnittest_Names_MessageNames.StyleField: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.StyleField, rhs: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.StyleField, rhs: SwiftProtoTesting_Names_MessageNames.StyleField) -> Bool {
     if lhs._styleField != rhs._styleField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TimeScale: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeScale"
+extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".TimeScale"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "TimeScale"),
   ]
@@ -24935,15 +24935,15 @@ extension SwiftUnittest_Names_MessageNames.TimeScale: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.TimeScale, rhs: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TimeScale, rhs: SwiftProtoTesting_Names_MessageNames.TimeScale) -> Bool {
     if lhs._timeScale != rhs._timeScale {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TimeBase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeBase"
+extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".TimeBase"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "TimeBase"),
   ]
@@ -24971,15 +24971,15 @@ extension SwiftUnittest_Names_MessageNames.TimeBase: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.TimeBase, rhs: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TimeBase, rhs: SwiftProtoTesting_Names_MessageNames.TimeBase) -> Bool {
     if lhs._timeBase != rhs._timeBase {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.TimeRecord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeRecord"
+extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".TimeRecord"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "TimeRecord"),
   ]
@@ -25007,15 +25007,15 @@ extension SwiftUnittest_Names_MessageNames.TimeRecord: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.TimeRecord, rhs: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TimeRecord, rhs: SwiftProtoTesting_Names_MessageNames.TimeRecord) -> Bool {
     if lhs._timeRecord != rhs._timeRecord {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.serializedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedData"
+extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".serializedData"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "serializedData"),
   ]
@@ -25043,15 +25043,15 @@ extension SwiftUnittest_Names_MessageNames.serializedData: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.serializedData, rhs: SwiftUnittest_Names_MessageNames.serializedData) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.serializedData, rhs: SwiftProtoTesting_Names_MessageNames.serializedData) -> Bool {
     if lhs._serializedData != rhs._serializedData {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
+extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "jsonUTF8Data"),
   ]
@@ -25079,15 +25079,15 @@ extension SwiftUnittest_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.jsonUTF8Data, rhs: SwiftUnittest_Names_MessageNames.jsonUTF8Data) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.jsonUTF8Data, rhs: SwiftProtoTesting_Names_MessageNames.jsonUTF8Data) -> Bool {
     if lhs._jsonUtf8Data != rhs._jsonUtf8Data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonString"
+extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".jsonString"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "jsonString"),
   ]
@@ -25115,15 +25115,15 @@ extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.jsonString, rhs: SwiftUnittest_Names_MessageNames.jsonString) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.jsonString, rhs: SwiftProtoTesting_Names_MessageNames.jsonString) -> Bool {
     if lhs._jsonString != rhs._jsonString {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
+extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Extension"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Extension"),
   ]
@@ -25151,15 +25151,15 @@ extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Extension, rhs: SwiftUnittest_Names_MessageNames.Extension) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Extension, rhs: SwiftProtoTesting_Names_MessageNames.Extension) -> Bool {
     if lhs._extension != rhs._extension {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
+extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Extensions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Extensions"),
   ]
@@ -25187,14 +25187,14 @@ extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.ExtensionsMessage, rhs: SwiftUnittest_Names_MessageNames.ExtensionsMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ExtensionsMessage, rhs: SwiftProtoTesting_Names_MessageNames.ExtensionsMessage) -> Bool {
     if lhs._extensions != rhs._extensions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumNames"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -25207,1279 +25207,1279 @@ extension SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_EnumNames, rhs: SwiftUnittest_Names_EnumNames) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_EnumNames, rhs: SwiftProtoTesting_Names_EnumNames) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_EnumNames.StringEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.StringEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aString"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aProtocol"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.IntEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.IntEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aInt"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.DoubleEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.DoubleEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aDouble"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.FloatEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.FloatEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aFloat"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.UIntEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.UIntEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aUInt"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ahashValue"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adescription"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adebugDescription"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Swift: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Swift: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aSwift"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.UNRECOGNIZED: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.UNRECOGNIZED: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aUNRECOGNIZED"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.classEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.classEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aclass"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.deinitEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.deinitEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adeinit"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.enumEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.enumEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aenum"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.extensionEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.extensionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aextension"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.funcEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.funcEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afunc"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.importEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.importEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aimport"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.initEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.initEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ainit"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.inoutEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.inoutEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ainout"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.internalEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.internalEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ainternal"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.letEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.letEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "alet"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.operatorEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.operatorEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aoperator"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.privateEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.privateEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aprivate"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.protocolEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.protocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aprotocol"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.publicEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.publicEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "apublic"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.staticEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.staticEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "astatic"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.structEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.structEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "astruct"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "asubscript"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atypealias"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.varEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.varEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "avar"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.breakEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.breakEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "abreak"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.caseEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.caseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "acase"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.continueEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.continueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "acontinue"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.defaultEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.defaultEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adefault"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.deferEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.deferEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adefer"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.doEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.doEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ado"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.elseEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.elseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aelse"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.fallthroughEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.fallthroughEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afallthrough"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.forEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.forEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afor"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.guardEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.guardEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aguard"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ifEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ifEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aif"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.inEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.inEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ain"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.repeatEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.repeatEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "arepeat"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.returnEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.returnEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "areturn"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.switchEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.switchEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aswitch"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.whereEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.whereEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "awhere"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.whileEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "awhile"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.asEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.asEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aas"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.catchEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.catchEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "acatch"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.dynamicTypeEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.dynamicTypeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adynamicType"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.falseEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.falseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afalse"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.isEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.isEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ais"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.nilEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.nilEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anil"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.rethrowsEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.rethrowsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "arethrows"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.superEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.superEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "asuper"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.selfEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.selfEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aself"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.throwEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.throwEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "athrow"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.throwsEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.throwsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "athrows"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.trueEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.trueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atrue"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.tryEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.tryEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atry"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.__COLUMN__Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.__COLUMN__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a__COLUMN__"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.__FILE__Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.__FILE__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a__FILE__"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.__FUNCTION__Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.__FUNCTION__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a__FUNCTION__"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.__LINE__Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.__LINE__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a__LINE__"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames._Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames._Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a_"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.__Enum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.__Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a__"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.associativity: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.associativity: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aassociativity"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.convenience: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.convenience: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aconvenience"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.dynamic: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.dynamic: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adynamic"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.didSet: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.didSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adidSet"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.final: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.final: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afinal"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.get: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.get: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aget"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.infix: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.infix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ainfix"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.indirect: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.indirect: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aindirect"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.lazy: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.lazy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "alazy"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.left: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.left: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aleft"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.mutating: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.mutating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "amutating"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.none: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.none: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anone"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.nonmutating: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.nonmutating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anonmutating"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.optional: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.optional: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aoptional"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.override: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.override: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aoverride"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.postfix: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.postfix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "apostfix"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.precedence: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.precedence: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aprecedence"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.prefix: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.prefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aprefix"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.required: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.required: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "arequired"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.right: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.right: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aright"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.set: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.set: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aset"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.TypeEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.TypeEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aType"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.unowned: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.unowned: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aunowned"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.weak: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.weak: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aweak"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.willSet: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.willSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "awillSet"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.id: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.id: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aid"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames._cmd: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames._cmd: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "a_cmd"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.out: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.out: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aout"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.bycopy: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.bycopy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "abycopy"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.byref: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.byref: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "abyref"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.oneway: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.oneway: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aoneway"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.and: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.and: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aand"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.and_eq: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.and_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aand_eq"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.alignas: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.alignas: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aalignas"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.alignof: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.alignof: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aalignof"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.asm: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.asm: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aasm"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.auto: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.auto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aauto"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.bitand: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.bitand: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "abitand"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.bitor: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.bitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "abitor"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.bool: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.bool: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "abool"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.char: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.char: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "achar"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.char16_t: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.char16_t: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "achar16_t"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.char32_t: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.char32_t: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "achar32_t"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.compl: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.compl: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "acompl"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.const: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.const: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aconst"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.constexpr: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.constexpr: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aconstexpr"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.const_cast: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.const_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aconst_cast"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.decltype: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.decltype: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adecltype"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.delete: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.delete: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adelete"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.dynamic_cast: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.dynamic_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adynamic_cast"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.explicit: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.explicit: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aexplicit"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.export: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.export: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aexport"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.extern: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.extern: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aextern"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.friend: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.friend: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afriend"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.goto: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.goto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "agoto"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.inline: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.inline: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ainline"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.long: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.long: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "along"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.mutable: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.mutable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "amutable"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.namespace: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.namespace: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anamespace"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.new: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.new: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anew"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.noexcept: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.noexcept: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anoexcept"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.not: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.not: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anot"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.not_eq: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.not_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anot_eq"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.nullptr: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.nullptr: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "anullptr"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.or: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.or: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aor"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.or_eq: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.or_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aor_eq"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.protected: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.protected: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aprotected"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.register: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.register: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aregister"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.reinterpret_cast: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.reinterpret_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "areinterpret_cast"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.short: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.short: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ashort"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.signed: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.signed: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "asigned"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.sizeof: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.sizeof: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "asizeof"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.static_assert: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.static_assert: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "astatic_assert"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.static_cast: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.static_cast: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "astatic_cast"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.template: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.template: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atemplate"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.this: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.this: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "athis"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.thread_local: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.thread_local: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "athread_local"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.typedef: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.typedef: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atypedef"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.typeid: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.typeid: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atypeid"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.typename: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.typename: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "atypename"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.union: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.union: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aunion"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.unsigned: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.unsigned: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aunsigned"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.using: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.using: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ausing"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.virtual: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.virtual: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "avirtual"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.void: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.void: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "avoid"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.volatile: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.volatile: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "avolatile"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.wchar_t: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.wchar_t: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "awchar_t"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.xor: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.xor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "axor"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.xor_eq: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.xor_eq: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "axor_eq"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.restrict: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.restrict: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "arestrict"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Category: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Category: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aCategory"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Ivar: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Ivar: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aIvar"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Method: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Method: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aMethod"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.finalize: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.finalize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "afinalize"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.hash: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.hash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ahash"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.dealloc: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.dealloc: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adealloc"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.superclass: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.superclass: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "asuperclass"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.retain: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.retain: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aretain"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.release: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.release: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "arelease"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.autorelease: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.autorelease: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aautorelease"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.retainCount: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.retainCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aretainCount"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.zone: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.zone: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "azone"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.isProxy: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.isProxy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aisProxy"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.copy: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.copy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "acopy"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.mutableCopy: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.mutableCopy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "amutableCopy"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.classForCoder: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.classForCoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aclassForCoder"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.clear: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.clear: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aclear"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.data: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.data: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adata"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.delimitedData: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.delimitedData: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adelimitedData"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.descriptor: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.descriptor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "adescriptor"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.extensionRegistry: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.extensionRegistry: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aextensionRegistry"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.extensionsCurrentlySet: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.extensionsCurrentlySet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aextensionsCurrentlySet"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aisInitialized"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.serializedSize: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.serializedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aserializedSize"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.sortedExtensionsInUse: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.sortedExtensionsInUse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "asortedExtensionsInUse"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aunknownFields"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Fixed: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Fixed: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aFixed"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Fract: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Fract: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aFract"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Size: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Size: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aSize"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.LogicalAddress: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.LogicalAddress: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aLogicalAddress"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.PhysicalAddress: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.PhysicalAddress: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aPhysicalAddress"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ByteCount: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ByteCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aByteCount"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ByteOffset: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ByteOffset: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aByteOffset"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Duration: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Duration: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aDuration"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.AbsoluteTime: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.AbsoluteTime: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aAbsoluteTime"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.OptionBits: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.OptionBits: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aOptionBits"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ItemCount: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ItemCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aItemCount"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.PBVersion: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.PBVersion: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aPBVersion"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ScriptCode: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ScriptCode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aScriptCode"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.LangCode: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.LangCode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aLangCode"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.RegionCode: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.RegionCode: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aRegionCode"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.OSType: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.OSType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aOSType"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ProcessSerialNumber: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ProcessSerialNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aProcessSerialNumber"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Point: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Point: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aPoint"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Rect: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Rect: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aRect"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.FixedPoint: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.FixedPoint: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aFixedPoint"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.FixedRect: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.FixedRect: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aFixedRect"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Style: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Style: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aStyle"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.StyleParameter: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.StyleParameter: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aStyleParameter"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.StyleField: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.StyleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aStyleField"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.TimeScale: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.TimeScale: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aTimeScale"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.TimeBase: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.TimeBase: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aTimeBase"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.TimeRecord: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.TimeRecord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aTimeRecord"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Extension: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.Extension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aExtension"),
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aExtensions"),
   ]
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldNamingInitials"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -26492,14 +26492,14 @@ extension SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_FieldNamingInitials, rhs: SwiftUnittest_Names_FieldNamingInitials) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials, rhs: SwiftProtoTesting_Names_FieldNamingInitials) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
+extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_FieldNamingInitials.protoMessageName + ".Lowers"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "http"),
     2: .standard(proto: "http_request"),
@@ -26663,7 +26663,7 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_FieldNamingInitials.Lowers, rhs: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials.Lowers, rhs: SwiftProtoTesting_Names_FieldNamingInitials.Lowers) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -26694,8 +26694,8 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Message,
   }
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
+extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_FieldNamingInitials.protoMessageName + ".Uppers"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "HTTP"),
     2: .standard(proto: "HTTP_request"),
@@ -26798,7 +26798,7 @@ extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_FieldNamingInitials.Uppers, rhs: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials.Uppers, rhs: SwiftProtoTesting_Names_FieldNamingInitials.Uppers) -> Bool {
     if lhs._http != rhs._http {return false}
     if lhs._httpRequest != rhs._httpRequest {return false}
     if lhs._theHTTPRequest != rhs._theHTTPRequest {return false}
@@ -26820,8 +26820,8 @@ extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Message,
   }
 }
 
-extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".WordCase"
+extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = SwiftProtoTesting_Names_FieldNamingInitials.protoMessageName + ".WordCase"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Http"),
     2: .same(proto: "HttpRequest"),
@@ -26924,7 +26924,7 @@ extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_FieldNamingInitials.WordCase, rhs: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials.WordCase, rhs: SwiftProtoTesting_Names_FieldNamingInitials.WordCase) -> Bool {
     if lhs._http != rhs._http {return false}
     if lhs._httpRequest != rhs._httpRequest {return false}
     if lhs._theHTTPRequest != rhs._theHTTPRequest {return false}
@@ -26946,7 +26946,7 @@ extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Messag
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitials"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -26958,7 +26958,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Sw
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitials.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Names_ExtensionNamingInitials.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -26968,14 +26968,14 @@ extension SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_ExtensionNamingInitials, rhs: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitials, rhs: SwiftProtoTesting_Names_ExtensionNamingInitials) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Lowers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -26988,13 +26988,13 @@ extension SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_Lowers, rhs: SwiftUnittest_Names_Lowers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_Lowers, rhs: SwiftProtoTesting_Names_Lowers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Uppers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -27007,13 +27007,13 @@ extension SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_Uppers, rhs: SwiftUnittest_Names_Uppers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_Uppers, rhs: SwiftProtoTesting_Names_Uppers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".WordCase"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -27026,13 +27026,13 @@ extension SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_WordCase, rhs: SwiftUnittest_Names_WordCase) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_WordCase, rhs: SwiftProtoTesting_Names_WordCase) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsLowers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -27044,7 +27044,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Messa
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsLowers.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Names_ExtensionNamingInitialsLowers.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -27054,14 +27054,14 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_ExtensionNamingInitialsLowers, rhs: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitialsLowers, rhs: SwiftProtoTesting_Names_ExtensionNamingInitialsLowers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsUppers"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -27073,7 +27073,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Messa
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsUppers.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Names_ExtensionNamingInitialsUppers.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -27083,14 +27083,14 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_ExtensionNamingInitialsUppers, rhs: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitialsUppers, rhs: SwiftProtoTesting_Names_ExtensionNamingInitialsUppers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsWordCase"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -27102,7 +27102,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Mes
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsWordCase.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase.self, fieldNumber: fieldNumber)
       }
     }
   }
@@ -27112,14 +27112,14 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_ExtensionNamingInitialsWordCase, rhs: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase, rhs: SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     if lhs._protobuf_extensionFieldValues != rhs._protobuf_extensionFieldValues {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ValidIdentifiers"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "_1field"),
@@ -27192,7 +27192,7 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_ValidIdentifiers, rhs: SwiftUnittest_Names_ValidIdentifiers) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_ValidIdentifiers, rhs: SwiftProtoTesting_Names_ValidIdentifiers) -> Bool {
     if lhs.__1Field != rhs.__1Field {return false}
     if lhs._field != rhs._field {return false}
     if lhs.__3Field3 != rhs.__3Field3 {return false}
@@ -27203,7 +27203,7 @@ extension SwiftUnittest_Names_ValidIdentifiers: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "TEST_ENUM_0"),
     1: .same(proto: "TEST_ENUM_FIRST"),
@@ -27212,7 +27212,7 @@ extension SwiftUnittest_Names_ValidIdentifiers.TestEnum: SwiftProtobuf._ProtoNam
   ]
 }
 
-extension SwiftUnittest_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames1"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "str"),
@@ -27248,14 +27248,14 @@ extension SwiftUnittest_Names_SpecialNames1: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_SpecialNames1, rhs: SwiftUnittest_Names_SpecialNames1) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_SpecialNames1, rhs: SwiftProtoTesting_Names_SpecialNames1) -> Bool {
     if lhs.newValue != rhs.newValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_SpecialNames2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames2"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "new_value"),
@@ -27284,14 +27284,14 @@ extension SwiftUnittest_Names_SpecialNames2: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_SpecialNames2, rhs: SwiftUnittest_Names_SpecialNames2) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_SpecialNames2, rhs: SwiftProtoTesting_Names_SpecialNames2) -> Bool {
     if lhs._newValue != rhs._newValue {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension SwiftUnittest_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "str"),
@@ -27299,8 +27299,8 @@ extension SwiftUnittest_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobu
   ]
 
   fileprivate class _StorageClass {
-    var _newValue: SwiftUnittest_Names_SpecialNames3.OneOf_NewValue?
-    var _forcesStorage: SwiftUnittest_Names_SpecialNames3? = nil
+    var _newValue: SwiftProtoTesting_Names_SpecialNames3.OneOf_NewValue?
+    var _forcesStorage: SwiftProtoTesting_Names_SpecialNames3? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -27358,7 +27358,7 @@ extension SwiftUnittest_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_SpecialNames3, rhs: SwiftUnittest_Names_SpecialNames3) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_SpecialNames3, rhs: SwiftProtoTesting_Names_SpecialNames3) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -27374,7 +27374,7 @@ extension SwiftUnittest_Names_SpecialNames3: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-extension SwiftUnittest_Names_SpecialNames4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SpecialNames4"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "new_value"),
@@ -27383,7 +27383,7 @@ extension SwiftUnittest_Names_SpecialNames4: SwiftProtobuf.Message, SwiftProtobu
 
   fileprivate class _StorageClass {
     var _newValue: String? = nil
-    var _forcesStorage: SwiftUnittest_Names_SpecialNames4? = nil
+    var _forcesStorage: SwiftProtoTesting_Names_SpecialNames4? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -27434,7 +27434,7 @@ extension SwiftUnittest_Names_SpecialNames4: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_SpecialNames4, rhs: SwiftUnittest_Names_SpecialNames4) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_SpecialNames4, rhs: SwiftProtoTesting_Names_SpecialNames4) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

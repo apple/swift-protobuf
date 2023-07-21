@@ -18,7 +18,7 @@
 
 syntax = "proto2";
 
-package swift_unittest;
+package swift_proto_testing.merging;
 
 message TestMessage {
   message NestedMessage {

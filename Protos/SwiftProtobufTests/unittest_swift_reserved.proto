@@ -16,7 +16,7 @@
 
 syntax = "proto2";
 
-package protobuf_unittest;
+package swift_proto_testing;
 
 message SwiftReservedTest {
     enum Enum {

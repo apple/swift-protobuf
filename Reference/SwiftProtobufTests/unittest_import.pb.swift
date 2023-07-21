@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
@@ -85,7 +85,7 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittestImport_ImportMessage {
+struct SwiftProtoTesting_Import_ImportMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -107,14 +107,14 @@ struct ProtobufUnittestImport_ImportMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittestImport_ImportMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_Import_ImportMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest_import"
+fileprivate let _protobuf_package = "swift_proto_testing.import"
 
-extension ProtobufUnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Import_ImportEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     7: .same(proto: "IMPORT_FOO"),
     8: .same(proto: "IMPORT_BAR"),
@@ -122,7 +122,7 @@ extension ProtobufUnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Import_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
@@ -151,7 +151,7 @@ extension ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestImport_ImportMessage, rhs: ProtobufUnittestImport_ImportMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Import_ImportMessage, rhs: SwiftProtoTesting_Import_ImportMessage) -> Bool {
     if lhs._d != rhs._d {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

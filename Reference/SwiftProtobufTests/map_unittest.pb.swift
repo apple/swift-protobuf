@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
+enum SwiftProtoTesting_MapEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
@@ -80,7 +80,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
   }
 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittest_MapEnum] = [
+  static let allCases: [SwiftProtoTesting_MapEnum] = [
     .foo,
     .bar,
     .baz,
@@ -89,7 +89,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 }
 
 /// Tests maps.
-struct ProtobufUnittest_TestMap {
+struct SwiftProtoTesting_TestMap {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -169,22 +169,22 @@ struct ProtobufUnittest_TestMap {
     set {_uniqueStorage()._mapInt32Bytes = newValue}
   }
 
-  var mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> {
+  var mapInt32Enum: Dictionary<Int32,SwiftProtoTesting_MapEnum> {
     get {return _storage._mapInt32Enum}
     set {_uniqueStorage()._mapInt32Enum = newValue}
   }
 
-  var mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> {
+  var mapInt32ForeignMessage: Dictionary<Int32,SwiftProtoTesting_ForeignMessage> {
     get {return _storage._mapInt32ForeignMessage}
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-  var mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> {
+  var mapStringForeignMessage: Dictionary<String,SwiftProtoTesting_ForeignMessage> {
     get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
-  var mapInt32AllTypes: Dictionary<Int32,ProtobufUnittest_TestAllTypes> {
+  var mapInt32AllTypes: Dictionary<Int32,SwiftProtoTesting_TestAllTypes> {
     get {return _storage._mapInt32AllTypes}
     set {_uniqueStorage()._mapInt32AllTypes = newValue}
   }
@@ -197,24 +197,24 @@ struct ProtobufUnittest_TestMap {
 }
 
 /// Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMap {
+struct SwiftProtoTesting_TestRequiredMessageMap {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var mapField: Dictionary<Int32,ProtobufUnittest_TestRequired> = [:]
+  var mapField: Dictionary<Int32,SwiftProtoTesting_TestRequired> = [:]
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 }
 
-struct ProtobufUnittest_TestRecursiveMapMessage {
+struct SwiftProtoTesting_TestRecursiveMapMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var a: Dictionary<String,ProtobufUnittest_TestRecursiveMapMessage> = [:]
+  var a: Dictionary<String,SwiftProtoTesting_TestRecursiveMapMessage> = [:]
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -222,16 +222,16 @@ struct ProtobufUnittest_TestRecursiveMapMessage {
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestRequiredMessageMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestRecursiveMapMessage: @unchecked Sendable {}
+extension SwiftProtoTesting_TestMap: @unchecked Sendable {}
+extension SwiftProtoTesting_TestRequiredMessageMap: @unchecked Sendable {}
+extension SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "swift_proto_testing"
 
-extension ProtobufUnittest_MapEnum: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_MapEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MAP_ENUM_FOO"),
     1: .same(proto: "MAP_ENUM_BAR"),
@@ -239,7 +239,7 @@ extension ProtobufUnittest_MapEnum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -279,10 +279,10 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messag
     var _mapBoolBool: Dictionary<Bool,Bool> = [:]
     var _mapStringString: Dictionary<String,String> = [:]
     var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
-    var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> = [:]
-    var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> = [:]
-    var _mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> = [:]
-    var _mapInt32AllTypes: Dictionary<Int32,ProtobufUnittest_TestAllTypes> = [:]
+    var _mapInt32Enum: Dictionary<Int32,SwiftProtoTesting_MapEnum> = [:]
+    var _mapInt32ForeignMessage: Dictionary<Int32,SwiftProtoTesting_ForeignMessage> = [:]
+    var _mapStringForeignMessage: Dictionary<String,SwiftProtoTesting_ForeignMessage> = [:]
+    var _mapInt32AllTypes: Dictionary<Int32,SwiftProtoTesting_TestAllTypes> = [:]
 
     static let defaultInstance = _StorageClass()
 
@@ -341,10 +341,10 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messag
         case 13: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool) }()
         case 14: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString) }()
         case 15: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapInt32Bytes) }()
-        case 16: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_MapEnum>.self, value: &_storage._mapInt32Enum) }()
-        case 17: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_ForeignMessage>.self, value: &_storage._mapInt32ForeignMessage) }()
-        case 18: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_ForeignMessage>.self, value: &_storage._mapStringForeignMessage) }()
-        case 19: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: &_storage._mapInt32AllTypes) }()
+        case 16: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_MapEnum>.self, value: &_storage._mapInt32Enum) }()
+        case 17: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_ForeignMessage>.self, value: &_storage._mapInt32ForeignMessage) }()
+        case 18: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_ForeignMessage>.self, value: &_storage._mapStringForeignMessage) }()
+        case 19: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_TestAllTypes>.self, value: &_storage._mapInt32AllTypes) }()
         default: break
         }
       }
@@ -399,22 +399,22 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messag
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapInt32Bytes, fieldNumber: 15)
       }
       if !_storage._mapInt32Enum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_MapEnum>.self, value: _storage._mapInt32Enum, fieldNumber: 16)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_MapEnum>.self, value: _storage._mapInt32Enum, fieldNumber: 16)
       }
       if !_storage._mapInt32ForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_ForeignMessage>.self, value: _storage._mapInt32ForeignMessage, fieldNumber: 17)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_ForeignMessage>.self, value: _storage._mapInt32ForeignMessage, fieldNumber: 17)
       }
       if !_storage._mapStringForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_ForeignMessage>.self, value: _storage._mapStringForeignMessage, fieldNumber: 18)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_ForeignMessage>.self, value: _storage._mapStringForeignMessage, fieldNumber: 18)
       }
       if !_storage._mapInt32AllTypes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: _storage._mapInt32AllTypes, fieldNumber: 19)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_TestAllTypes>.self, value: _storage._mapInt32AllTypes, fieldNumber: 19)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestMap, rhs: ProtobufUnittest_TestMap) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestMap, rhs: SwiftProtoTesting_TestMap) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -447,7 +447,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._Messag
   }
 }
 
-extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMap"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_field"),
@@ -464,7 +464,7 @@ extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftP
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequired>.self, value: &self.mapField) }()
+      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_TestRequired>.self, value: &self.mapField) }()
       default: break
       }
     }
@@ -472,19 +472,19 @@ extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message, SwiftP
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.mapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequired>.self, value: self.mapField, fieldNumber: 1)
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_TestRequired>.self, value: self.mapField, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestRequiredMessageMap, rhs: ProtobufUnittest_TestRequiredMessageMap) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestRequiredMessageMap, rhs: SwiftProtoTesting_TestRequiredMessageMap) -> Bool {
     if lhs.mapField != rhs.mapField {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_TestRecursiveMapMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMapMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -496,7 +496,7 @@ extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, Swift
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: &self.a) }()
+      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_TestRecursiveMapMessage>.self, value: &self.a) }()
       default: break
       }
     }
@@ -504,12 +504,12 @@ extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, Swift
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.a.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestRecursiveMapMessage>.self, value: self.a, fieldNumber: 1)
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_TestRecursiveMapMessage>.self, value: self.a, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittest_TestRecursiveMapMessage, rhs: ProtobufUnittest_TestRecursiveMapMessage) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_TestRecursiveMapMessage, rhs: SwiftProtoTesting_TestRecursiveMapMessage) -> Bool {
     if lhs.a != rhs.a {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

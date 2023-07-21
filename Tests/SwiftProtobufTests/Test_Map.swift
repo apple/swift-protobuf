@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 
 class Test_Map: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestMap
+    typealias MessageTestType = SwiftProtoTesting_TestMap
 
     func assertMapEncode(_ expectedBlocks: [[UInt8]], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
@@ -231,49 +231,49 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
     func test_mapInt32Enum() {
         assertMapEncode([[130, 1, 4, 8, 1, 16, 2]]) {(o: inout MessageTestType) in
-            o.mapInt32Enum = [1: ProtobufUnittest_MapEnum.baz]
+            o.mapInt32Enum = [1: SwiftProtoTesting_MapEnum.baz]
         }
         // Missing map value on the wire.
         assertDecodeSucceeds(inputBytes: [130, 1, 2, 8, 1], recodedBytes: [130, 1, 4, 8, 1, 16, 0]) {
-            $0.mapInt32Enum == [1: ProtobufUnittest_MapEnum.foo]
+            $0.mapInt32Enum == [1: SwiftProtoTesting_MapEnum.foo]
         }
         // Missing map key on the wire.
         assertDecodeSucceeds(inputBytes: [130, 1, 2, 16, 2], recodedBytes: [130, 1, 4, 8, 0, 16, 2]) {
-            $0.mapInt32Enum == [0: ProtobufUnittest_MapEnum.baz]
+            $0.mapInt32Enum == [0: SwiftProtoTesting_MapEnum.baz]
         }
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [130, 1, 0], recodedBytes: [130, 1, 4, 8, 0, 16, 0]) {
-            $0.mapInt32Enum == [0: ProtobufUnittest_MapEnum.foo]
+            $0.mapInt32Enum == [0: SwiftProtoTesting_MapEnum.foo]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [130, 1, 6, 8, 1, 24, 3, 16, 2], recodedBytes: [130, 1, 4, 8, 1, 16, 2]) {
-            $0.mapInt32Enum == [1: ProtobufUnittest_MapEnum.baz]
+            $0.mapInt32Enum == [1: SwiftProtoTesting_MapEnum.baz]
         }
     }
 
     func test_mapInt32ForeignMessage() {
         assertMapEncode([[138, 1, 6, 8, 1, 18, 2, 8, 7]]) {(o: inout MessageTestType) in
-            var m1 = ProtobufUnittest_ForeignMessage()
+            var m1 = SwiftProtoTesting_ForeignMessage()
             m1.c = 7
             o.mapInt32ForeignMessage = [1: m1]
         }
         // Missing map value on the wire.
         assertDecodeSucceeds(inputBytes: [138, 1, 2, 8, 1], recodedBytes: [138, 1, 4, 8, 1, 18, 0]) {
-            $0.mapInt32ForeignMessage == [1: ProtobufUnittest_ForeignMessage()]
+            $0.mapInt32ForeignMessage == [1: SwiftProtoTesting_ForeignMessage()]
         }
         // Missing map key on the wire.
         assertDecodeSucceeds(inputBytes: [138, 1, 4, 18, 2, 8, 7], recodedBytes: [138, 1, 6, 8, 0, 18, 2, 8, 7]) {
-            var m1 = ProtobufUnittest_ForeignMessage()
+            var m1 = SwiftProtoTesting_ForeignMessage()
             m1.c = 7
             return $0.mapInt32ForeignMessage == [0: m1]
         }
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [138, 1, 0], recodedBytes: [138, 1, 4, 8, 0, 18, 0]) {
-            $0.mapInt32ForeignMessage == [0: ProtobufUnittest_ForeignMessage()]
+            $0.mapInt32ForeignMessage == [0: SwiftProtoTesting_ForeignMessage()]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [138, 1, 8, 8, 1, 24, 3, 18, 2, 8, 7], recodedBytes: [138, 1, 6, 8, 1, 18, 2, 8, 7]) {
-            var m1 = ProtobufUnittest_ForeignMessage()
+            var m1 = SwiftProtoTesting_ForeignMessage()
             m1.c = 7
             return $0.mapInt32ForeignMessage == [1: m1]
         }
@@ -281,27 +281,27 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
     func test_mapStringForeignMessage() {
         assertMapEncode([[146, 1, 7, 10, 1, 97, 18, 2, 8, 7]]) {(o: inout MessageTestType) in
-            var m1 = ProtobufUnittest_ForeignMessage()
+            var m1 = SwiftProtoTesting_ForeignMessage()
             m1.c = 7
             o.mapStringForeignMessage = ["a": m1]
         }
         // Missing map value on the wire.
         assertDecodeSucceeds(inputBytes: [146, 1, 3, 10, 1, 97], recodedBytes: [146, 1, 5, 10, 1, 97, 18, 0]) {
-            $0.mapStringForeignMessage == ["a": ProtobufUnittest_ForeignMessage()]
+            $0.mapStringForeignMessage == ["a": SwiftProtoTesting_ForeignMessage()]
         }
         // Missing map key on the wire.
         assertDecodeSucceeds(inputBytes: [146, 1, 4, 18, 2, 8, 7], recodedBytes: [146, 1, 6, 10, 0, 18, 2, 8, 7]) {
-          var m1 = ProtobufUnittest_ForeignMessage()
+          var m1 = SwiftProtoTesting_ForeignMessage()
           m1.c = 7
           return $0.mapStringForeignMessage == ["": m1]
         }
         // Missing map key and value on the wire.
         assertDecodeSucceeds(inputBytes: [146, 1, 0], recodedBytes: [146, 1, 4, 10, 0, 18, 0]) {
-            $0.mapStringForeignMessage == ["": ProtobufUnittest_ForeignMessage()]
+            $0.mapStringForeignMessage == ["": SwiftProtoTesting_ForeignMessage()]
         }
         // Skip other field numbers within map entry.
         assertDecodeSucceeds(inputBytes: [146, 1, 9, 10, 1, 97, 24, 3, 18, 2, 8, 7], recodedBytes: [146, 1, 7, 10, 1, 97, 18, 2, 8, 7]) {
-            var m1 = ProtobufUnittest_ForeignMessage()
+            var m1 = SwiftProtoTesting_ForeignMessage()
             m1.c = 7
             return $0.mapStringForeignMessage == ["a": m1]
         }
@@ -309,13 +309,13 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
     // Based on TEST(GeneratedMapFieldTest, Proto2UnknownEnum)
     func test_mapEnumUnknowns_Proto2() throws {
-        var m1 = ProtobufUnittest_TestEnumMapPlusExtra()
+        var m1 = SwiftProtoTesting_TestEnumMapPlusExtra()
         m1.knownMapField[0] = .eProto2MapEnumFoo
         m1.unknownMapField[0] = .eProto2MapEnumExtra
 
         // It should be in unknowns
         let serialized: [UInt8] = try m1.serializedBytes()
-        let m2 = try ProtobufUnittest_TestEnumMap(serializedBytes: serialized)
+        let m2 = try SwiftProtoTesting_TestEnumMap(serializedBytes: serialized)
         XCTAssertEqual(m2.knownMapField.count, 1)
         XCTAssertEqual(m2.knownMapField[0], .foo)
         XCTAssertEqual(m2.unknownMapField.count, 0)
@@ -323,7 +323,7 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
         // It should be back in the map.
         let serialized2: [UInt8] = try m2.serializedBytes()
-        let m3 = try ProtobufUnittest_TestEnumMapPlusExtra(serializedBytes: serialized2)
+        let m3 = try SwiftProtoTesting_TestEnumMapPlusExtra(serializedBytes: serialized2)
         XCTAssertEqual(m3.knownMapField.count, 1)
         XCTAssertEqual(m3.knownMapField[0], .eProto2MapEnumFoo)
         XCTAssertEqual(m3.unknownMapField.count, 1)
@@ -332,13 +332,13 @@ class Test_Map: XCTestCase, PBTestHelpers {
 
     // Like test_mapEnumUnknowns_Proto2, but using the native .UNRECOGNIZED() support.
     func test_mapEnumUnknowns_Proto3() throws {
-        var m1 = ProtobufUnittest_TestMap()
+        var m1 = SwiftProtoTesting_TestMap()
         m1.mapInt32Enum[1] = .baz
         m1.mapInt32Enum[2] = .UNRECOGNIZED(999)
 
         // It should be in unknowns
         let serialized: [UInt8] = try m1.serializedBytes()
-        let m2 = try ProtobufUnittest_TestMap(serializedBytes: serialized)
+        let m2 = try SwiftProtoTesting_TestMap(serializedBytes: serialized)
         XCTAssertEqual(m2.mapInt32Enum.count, 2)
         XCTAssertEqual(m2.mapInt32Enum[1], .baz)
         XCTAssertEqual(m2.mapInt32Enum[2], .UNRECOGNIZED(999))
