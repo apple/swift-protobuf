@@ -27,13 +27,6 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-// Test schema for proto3 messages.  This test schema is used by:
-//
-// - benchmarks
-// - fuzz tests
-// - conformance tests
-//
 
 syntax = "proto3";
 
@@ -66,17 +59,6 @@ message TestAllTypesProto3 {
     NEG = -1;  // Intentionally negative.
   }
 
-  enum AliasedEnum {
-    option allow_alias = true;
-
-    ALIAS_FOO = 0;
-    ALIAS_BAR = 1;
-    ALIAS_BAZ = 2;
-    MOO = 2;
-    moo = 2;
-    bAz = 2;
-  }
-
   // Singular
   int32 optional_int32 = 1;
   int64 optional_int64 = 2;
@@ -95,16 +77,8 @@ message TestAllTypesProto3 {
   bytes optional_bytes = 15;
 
   NestedMessage optional_nested_message = 18;
-  ForeignMessage optional_foreign_message = 19;
 
   NestedEnum optional_nested_enum = 21;
-  ForeignEnum optional_foreign_enum = 22;
-  AliasedEnum optional_aliased_enum = 23;
-
-  string optional_string_piece = 24 [ctype = STRING_PIECE];
-  string optional_cord = 25 [ctype = CORD];
-
-  TestAllTypesProto3 recursive_message = 27;
 
   // Repeated
   repeated int32 repeated_int32 = 31;
@@ -124,45 +98,8 @@ message TestAllTypesProto3 {
   repeated bytes repeated_bytes = 45;
 
   repeated NestedMessage repeated_nested_message = 48;
-  repeated ForeignMessage repeated_foreign_message = 49;
 
   repeated NestedEnum repeated_nested_enum = 51;
-  repeated ForeignEnum repeated_foreign_enum = 52;
-
-  repeated string repeated_string_piece = 54 [ctype = STRING_PIECE];
-  repeated string repeated_cord = 55 [ctype = CORD];
-
-  // Packed
-  repeated int32 packed_int32 = 75 [packed = true];
-  repeated int64 packed_int64 = 76 [packed = true];
-  repeated uint32 packed_uint32 = 77 [packed = true];
-  repeated uint64 packed_uint64 = 78 [packed = true];
-  repeated sint32 packed_sint32 = 79 [packed = true];
-  repeated sint64 packed_sint64 = 80 [packed = true];
-  repeated fixed32 packed_fixed32 = 81 [packed = true];
-  repeated fixed64 packed_fixed64 = 82 [packed = true];
-  repeated sfixed32 packed_sfixed32 = 83 [packed = true];
-  repeated sfixed64 packed_sfixed64 = 84 [packed = true];
-  repeated float packed_float = 85 [packed = true];
-  repeated double packed_double = 86 [packed = true];
-  repeated bool packed_bool = 87 [packed = true];
-  repeated NestedEnum packed_nested_enum = 88 [packed = true];
-
-  // Unpacked
-  repeated int32 unpacked_int32 = 89 [packed = false];
-  repeated int64 unpacked_int64 = 90 [packed = false];
-  repeated uint32 unpacked_uint32 = 91 [packed = false];
-  repeated uint64 unpacked_uint64 = 92 [packed = false];
-  repeated sint32 unpacked_sint32 = 93 [packed = false];
-  repeated sint64 unpacked_sint64 = 94 [packed = false];
-  repeated fixed32 unpacked_fixed32 = 95 [packed = false];
-  repeated fixed64 unpacked_fixed64 = 96 [packed = false];
-  repeated sfixed32 unpacked_sfixed32 = 97 [packed = false];
-  repeated sfixed64 unpacked_sfixed64 = 98 [packed = false];
-  repeated float unpacked_float = 99 [packed = false];
-  repeated double unpacked_double = 100 [packed = false];
-  repeated bool unpacked_bool = 101 [packed = false];
-  repeated NestedEnum unpacked_nested_enum = 102 [packed = false];
 
   // Map
   map<int32, int32> map_int32_int32 = 56;
@@ -181,9 +118,7 @@ message TestAllTypesProto3 {
   map<string, string> map_string_string = 69;
   map<string, bytes> map_string_bytes = 70;
   map<string, NestedMessage> map_string_nested_message = 71;
-  map<string, ForeignMessage> map_string_foreign_message = 72;
   map<string, NestedEnum> map_string_nested_enum = 73;
-  map<string, ForeignEnum> map_string_foreign_enum = 74;
 
   oneof oneof_field {
     uint32 oneof_uint32 = 111;
@@ -258,14 +193,4 @@ message TestAllTypesProto3 {
 
   // Reserved for testing unknown fields
   reserved 501 to 510;
-}
-
-message ForeignMessage {
-  int32 c = 1;
-}
-
-enum ForeignEnum {
-  FOREIGN_FOO = 0;
-  FOREIGN_BAR = 1;
-  FOREIGN_BAZ = 2;
 }
