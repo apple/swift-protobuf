@@ -23,6 +23,16 @@ let package = Package(
         targets: ["SwiftProtobuf"]
     ),
     .library(
+        name: "SwiftProtobufDynamic",
+        type: .dynamic,
+        targets: ["SwiftProtobuf"]
+    ),
+    .library(
+        name: "SwiftProtobufStatic",
+        type: .static,
+        targets: ["SwiftProtobuf"]
+    ),
+    .library(
         name: "SwiftProtobufPluginLibrary",
         targets: ["SwiftProtobufPluginLibrary"]
     ),
