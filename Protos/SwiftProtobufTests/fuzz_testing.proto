@@ -1,0 +1,406 @@
+// Protos/fuzz_testing.proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2021 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+
+// Using a proto2 syntax so the the test message can include groups and
+// extensions. This should have every field type so the fuzz testing can attempt
+// to execersize just about everything.
+
+syntax = "proto2";
+
+package swift_proto_testing.fuzz;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/api.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/source_context.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/type.proto";
+import "google/protobuf/wrappers.proto";
+
+enum AnEnum {
+  ZERO = 0;
+  ONE = 1;
+  TWO = 2;
+  THREE = 3;
+}
+
+message Message {
+  // Singular
+  optional    int32 singular_int32    =  1;
+  optional    int64 singular_int64    =  2;
+  optional   uint32 singular_uint32   =  3;
+  optional   uint64 singular_uint64   =  4;
+  optional   sint32 singular_sint32   =  5;
+  optional   sint64 singular_sint64   =  6;
+  optional  fixed32 singular_fixed32  =  7;
+  optional  fixed64 singular_fixed64  =  8;
+  optional sfixed32 singular_sfixed32 =  9;
+  optional sfixed64 singular_sfixed64 = 10;
+  optional    float singular_float    = 11;
+  optional   double singular_double   = 12;
+  optional     bool singular_bool     = 13;
+  optional   string singular_string   = 14;
+  optional    bytes singular_bytes    = 15;
+  optional   AnEnum singular_enum     = 16;
+  optional group SingularGroup        = 17 {
+    optional int32 group_field = 18;
+  }
+  optional  Message singular_message  = 19;
+
+  // Repeated
+  repeated    int32 repeated_int32    = 31;
+  repeated    int64 repeated_int64    = 32;
+  repeated   uint32 repeated_uint32   = 33;
+  repeated   uint64 repeated_uint64   = 34;
+  repeated   sint32 repeated_sint32   = 35;
+  repeated   sint64 repeated_sint64   = 36;
+  repeated  fixed32 repeated_fixed32  = 37;
+  repeated  fixed64 repeated_fixed64  = 38;
+  repeated sfixed32 repeated_sfixed32 = 39;
+  repeated sfixed64 repeated_sfixed64 = 40;
+  repeated    float repeated_float    = 41;
+  repeated   double repeated_double   = 42;
+  repeated     bool repeated_bool     = 43;
+  repeated   string repeated_string   = 44;
+  repeated    bytes repeated_bytes    = 45;
+  repeated   AnEnum repeated_enum     = 46;
+  repeated group RepeatedGroup        = 47 {
+    optional int32 group_field = 48;
+  }
+  repeated  Message repeated_message  = 49;
+
+  // oneof
+  oneof o {
+       int32 oneof_int32    = 61;
+       int64 oneof_int64    = 62;
+      uint32 oneof_uint32   = 63;
+      uint64 oneof_uint64   = 64;
+      sint32 oneof_sint32   = 65;
+      sint64 oneof_sint64   = 66;
+     fixed32 oneof_fixed32  = 67;
+     fixed64 oneof_fixed64  = 68;
+    sfixed32 oneof_sfixed32 = 69;
+    sfixed64 oneof_sfixed64 = 70;
+       float oneof_float    = 71;
+      double oneof_double   = 72;
+        bool oneof_bool     = 73;
+      string oneof_string   = 74;
+       bytes oneof_bytes    = 75;
+      AnEnum oneof_enum     = 76;
+       group OneofGroup     = 77 {
+         optional int32 group_field = 78;
+       }
+     Message oneof_message  = 79;
+  }
+
+  // Repeated Packed
+  repeated    int32 repeated_packed_int32    = 81 [packed = true];
+  repeated    int64 repeated_packed_int64    = 82 [packed = true];
+  repeated   uint32 repeated_packed_uint32   = 83 [packed = true];
+  repeated   uint64 repeated_packed_uint64   = 84 [packed = true];
+  repeated   sint32 repeated_packed_sint32   = 85 [packed = true];
+  repeated   sint64 repeated_packed_sint64   = 86 [packed = true];
+  repeated  fixed32 repeated_packed_fixed32  = 87 [packed = true];
+  repeated  fixed64 repeated_packed_fixed64  = 88 [packed = true];
+  repeated sfixed32 repeated_packed_sfixed32 = 89 [packed = true];
+  repeated sfixed64 repeated_packed_sfixed64 = 90 [packed = true];
+  repeated    float repeated_packed_float    = 91 [packed = true];
+  repeated   double repeated_packed_double   = 92 [packed = true];
+  repeated     bool repeated_packed_bool     = 93 [packed = true];
+  repeated   AnEnum repeated_packed_enum     = 94 [packed = true];
+
+  // map<>
+  map<int32   , int32   > map_int32_int32       = 100;
+  map<int32   , int64   > map_int32_int64       = 101;
+  map<int32   , uint32  > map_int32_uint32      = 102;
+  map<int32   , uint64  > map_int32_uint64      = 103;
+  map<int32   , sint32  > map_int32_sint32      = 104;
+  map<int32   , sint64  > map_int32_sint64      = 105;
+  map<int32   , fixed32 > map_int32_fixed32     = 106;
+  map<int32   , fixed64 > map_int32_fixed64     = 107;
+  map<int32   , sfixed32> map_int32_sfixed32    = 108;
+  map<int32   , sfixed64> map_int32_sfixed64    = 109;
+  map<int32   , float   > map_int32_float       = 110;
+  map<int32   , double  > map_int32_double      = 111;
+  map<int32   , bool    > map_int32_bool        = 112;
+  map<int32   , string  > map_int32_string      = 113;
+  map<int32   , bytes   > map_int32_bytes       = 114;
+  map<int32   , AnEnum  > map_int32_AnEnum      = 115;
+  map<int32   , Message > map_int32_Message     = 116;
+  map<int64   , int32   > map_int64_int32       = 117;
+  map<int64   , int64   > map_int64_int64       = 118;
+  map<int64   , uint32  > map_int64_uint32      = 119;
+  map<int64   , uint64  > map_int64_uint64      = 120;
+  map<int64   , sint32  > map_int64_sint32      = 121;
+  map<int64   , sint64  > map_int64_sint64      = 122;
+  map<int64   , fixed32 > map_int64_fixed32     = 123;
+  map<int64   , fixed64 > map_int64_fixed64     = 124;
+  map<int64   , sfixed32> map_int64_sfixed32    = 125;
+  map<int64   , sfixed64> map_int64_sfixed64    = 126;
+  map<int64   , float   > map_int64_float       = 127;
+  map<int64   , double  > map_int64_double      = 128;
+  map<int64   , bool    > map_int64_bool        = 129;
+  map<int64   , string  > map_int64_string      = 130;
+  map<int64   , bytes   > map_int64_bytes       = 131;
+  map<int64   , AnEnum  > map_int64_AnEnum      = 132;
+  map<int64   , Message > map_int64_Message     = 133;
+  map<uint32  , int32   > map_uint32_int32      = 134;
+  map<uint32  , int64   > map_uint32_int64      = 135;
+  map<uint32  , uint32  > map_uint32_uint32     = 136;
+  map<uint32  , uint64  > map_uint32_uint64     = 137;
+  map<uint32  , sint32  > map_uint32_sint32     = 138;
+  map<uint32  , sint64  > map_uint32_sint64     = 139;
+  map<uint32  , fixed32 > map_uint32_fixed32    = 140;
+  map<uint32  , fixed64 > map_uint32_fixed64    = 141;
+  map<uint32  , sfixed32> map_uint32_sfixed32   = 142;
+  map<uint32  , sfixed64> map_uint32_sfixed64   = 143;
+  map<uint32  , float   > map_uint32_float      = 144;
+  map<uint32  , double  > map_uint32_double     = 145;
+  map<uint32  , bool    > map_uint32_bool       = 146;
+  map<uint32  , string  > map_uint32_string     = 147;
+  map<uint32  , bytes   > map_uint32_bytes      = 148;
+  map<uint32  , AnEnum  > map_uint32_AnEnum     = 149;
+  map<uint32  , Message > map_uint32_Message    = 150;
+  map<uint64  , int32   > map_uint64_int32      = 151;
+  map<uint64  , int64   > map_uint64_int64      = 152;
+  map<uint64  , uint32  > map_uint64_uint32     = 153;
+  map<uint64  , uint64  > map_uint64_uint64     = 154;
+  map<uint64  , sint32  > map_uint64_sint32     = 155;
+  map<uint64  , sint64  > map_uint64_sint64     = 156;
+  map<uint64  , fixed32 > map_uint64_fixed32    = 157;
+  map<uint64  , fixed64 > map_uint64_fixed64    = 158;
+  map<uint64  , sfixed32> map_uint64_sfixed32   = 159;
+  map<uint64  , sfixed64> map_uint64_sfixed64   = 160;
+  map<uint64  , float   > map_uint64_float      = 161;
+  map<uint64  , double  > map_uint64_double     = 162;
+  map<uint64  , bool    > map_uint64_bool       = 163;
+  map<uint64  , string  > map_uint64_string     = 164;
+  map<uint64  , bytes   > map_uint64_bytes      = 165;
+  map<uint64  , AnEnum  > map_uint64_AnEnum     = 166;
+  map<uint64  , Message > map_uint64_Message    = 167;
+  map<sint32  , int32   > map_sint32_int32      = 168;
+  map<sint32  , int64   > map_sint32_int64      = 169;
+  map<sint32  , uint32  > map_sint32_uint32     = 170;
+  map<sint32  , uint64  > map_sint32_uint64     = 171;
+  map<sint32  , sint32  > map_sint32_sint32     = 172;
+  map<sint32  , sint64  > map_sint32_sint64     = 173;
+  map<sint32  , fixed32 > map_sint32_fixed32    = 174;
+  map<sint32  , fixed64 > map_sint32_fixed64    = 175;
+  map<sint32  , sfixed32> map_sint32_sfixed32   = 176;
+  map<sint32  , sfixed64> map_sint32_sfixed64   = 177;
+  map<sint32  , float   > map_sint32_float      = 178;
+  map<sint32  , double  > map_sint32_double     = 179;
+  map<sint32  , bool    > map_sint32_bool       = 180;
+  map<sint32  , string  > map_sint32_string     = 181;
+  map<sint32  , bytes   > map_sint32_bytes      = 182;
+  map<sint32  , AnEnum  > map_sint32_AnEnum     = 183;
+  map<sint32  , Message > map_sint32_Message    = 184;
+  map<sint64  , int32   > map_sint64_int32      = 185;
+  map<sint64  , int64   > map_sint64_int64      = 186;
+  map<sint64  , uint32  > map_sint64_uint32     = 187;
+  map<sint64  , uint64  > map_sint64_uint64     = 188;
+  map<sint64  , sint32  > map_sint64_sint32     = 189;
+  map<sint64  , sint64  > map_sint64_sint64     = 190;
+  map<sint64  , fixed32 > map_sint64_fixed32    = 191;
+  map<sint64  , fixed64 > map_sint64_fixed64    = 192;
+  map<sint64  , sfixed32> map_sint64_sfixed32   = 193;
+  map<sint64  , sfixed64> map_sint64_sfixed64   = 194;
+  map<sint64  , float   > map_sint64_float      = 195;
+  map<sint64  , double  > map_sint64_double     = 196;
+  map<sint64  , bool    > map_sint64_bool       = 197;
+  map<sint64  , string  > map_sint64_string     = 198;
+  map<sint64  , bytes   > map_sint64_bytes      = 199;
+  map<sint64  , AnEnum  > map_sint64_AnEnum     = 200;
+  map<sint64  , Message > map_sint64_Message    = 201;
+  map<fixed32 , int32   > map_fixed32_int32     = 202;
+  map<fixed32 , int64   > map_fixed32_int64     = 203;
+  map<fixed32 , uint32  > map_fixed32_uint32    = 204;
+  map<fixed32 , uint64  > map_fixed32_uint64    = 205;
+  map<fixed32 , sint32  > map_fixed32_sint32    = 206;
+  map<fixed32 , sint64  > map_fixed32_sint64    = 207;
+  map<fixed32 , fixed32 > map_fixed32_fixed32   = 208;
+  map<fixed32 , fixed64 > map_fixed32_fixed64   = 209;
+  map<fixed32 , sfixed32> map_fixed32_sfixed32  = 210;
+  map<fixed32 , sfixed64> map_fixed32_sfixed64  = 211;
+  map<fixed32 , float   > map_fixed32_float     = 212;
+  map<fixed32 , double  > map_fixed32_double    = 213;
+  map<fixed32 , bool    > map_fixed32_bool      = 214;
+  map<fixed32 , string  > map_fixed32_string    = 215;
+  map<fixed32 , bytes   > map_fixed32_bytes     = 216;
+  map<fixed32 , AnEnum  > map_fixed32_AnEnum    = 217;
+  map<fixed32 , Message > map_fixed32_Message   = 218;
+  map<fixed64 , int32   > map_fixed64_int32     = 219;
+  map<fixed64 , int64   > map_fixed64_int64     = 220;
+  map<fixed64 , uint32  > map_fixed64_uint32    = 221;
+  map<fixed64 , uint64  > map_fixed64_uint64    = 222;
+  map<fixed64 , sint32  > map_fixed64_sint32    = 223;
+  map<fixed64 , sint64  > map_fixed64_sint64    = 224;
+  map<fixed64 , fixed32 > map_fixed64_fixed32   = 225;
+  map<fixed64 , fixed64 > map_fixed64_fixed64   = 226;
+  map<fixed64 , sfixed32> map_fixed64_sfixed32  = 227;
+  map<fixed64 , sfixed64> map_fixed64_sfixed64  = 228;
+  map<fixed64 , float   > map_fixed64_float     = 229;
+  map<fixed64 , double  > map_fixed64_double    = 230;
+  map<fixed64 , bool    > map_fixed64_bool      = 231;
+  map<fixed64 , string  > map_fixed64_string    = 232;
+  map<fixed64 , bytes   > map_fixed64_bytes     = 233;
+  map<fixed64 , AnEnum  > map_fixed64_AnEnum    = 234;
+  map<fixed64 , Message > map_fixed64_Message   = 235;
+  map<sfixed32, int32   > map_sfixed32_int32    = 236;
+  map<sfixed32, int64   > map_sfixed32_int64    = 237;
+  map<sfixed32, uint32  > map_sfixed32_uint32   = 238;
+  map<sfixed32, uint64  > map_sfixed32_uint64   = 239;
+  map<sfixed32, sint32  > map_sfixed32_sint32   = 240;
+  map<sfixed32, sint64  > map_sfixed32_sint64   = 241;
+  map<sfixed32, fixed32 > map_sfixed32_fixed32  = 242;
+  map<sfixed32, fixed64 > map_sfixed32_fixed64  = 243;
+  map<sfixed32, sfixed32> map_sfixed32_sfixed32 = 244;
+  map<sfixed32, sfixed64> map_sfixed32_sfixed64 = 245;
+  map<sfixed32, float   > map_sfixed32_float    = 246;
+  map<sfixed32, double  > map_sfixed32_double   = 247;
+  map<sfixed32, bool    > map_sfixed32_bool     = 248;
+  map<sfixed32, string  > map_sfixed32_string   = 249;
+  map<sfixed32, bytes   > map_sfixed32_bytes    = 250;
+  map<sfixed32, AnEnum  > map_sfixed32_AnEnum   = 251;
+  map<sfixed32, Message > map_sfixed32_Message  = 252;
+  map<sfixed64, int32   > map_sfixed64_int32    = 253;
+  map<sfixed64, int64   > map_sfixed64_int64    = 254;
+  map<sfixed64, uint32  > map_sfixed64_uint32   = 255;
+  map<sfixed64, uint64  > map_sfixed64_uint64   = 256;
+  map<sfixed64, sint32  > map_sfixed64_sint32   = 257;
+  map<sfixed64, sint64  > map_sfixed64_sint64   = 258;
+  map<sfixed64, fixed32 > map_sfixed64_fixed32  = 259;
+  map<sfixed64, fixed64 > map_sfixed64_fixed64  = 260;
+  map<sfixed64, sfixed32> map_sfixed64_sfixed32 = 261;
+  map<sfixed64, sfixed64> map_sfixed64_sfixed64 = 262;
+  map<sfixed64, float   > map_sfixed64_float    = 263;
+  map<sfixed64, double  > map_sfixed64_double   = 264;
+  map<sfixed64, bool    > map_sfixed64_bool     = 265;
+  map<sfixed64, string  > map_sfixed64_string   = 266;
+  map<sfixed64, bytes   > map_sfixed64_bytes    = 267;
+  map<sfixed64, AnEnum  > map_sfixed64_AnEnum   = 268;
+  map<sfixed64, Message > map_sfixed64_Message  = 269;
+  map<bool    , int32   > map_bool_int32        = 270;
+  map<bool    , int64   > map_bool_int64        = 271;
+  map<bool    , uint32  > map_bool_uint32       = 272;
+  map<bool    , uint64  > map_bool_uint64       = 273;
+  map<bool    , sint32  > map_bool_sint32       = 274;
+  map<bool    , sint64  > map_bool_sint64       = 275;
+  map<bool    , fixed32 > map_bool_fixed32      = 276;
+  map<bool    , fixed64 > map_bool_fixed64      = 277;
+  map<bool    , sfixed32> map_bool_sfixed32     = 278;
+  map<bool    , sfixed64> map_bool_sfixed64     = 279;
+  map<bool    , float   > map_bool_float        = 280;
+  map<bool    , double  > map_bool_double       = 281;
+  map<bool    , bool    > map_bool_bool         = 282;
+  map<bool    , string  > map_bool_string       = 283;
+  map<bool    , bytes   > map_bool_bytes        = 284;
+  map<bool    , AnEnum  > map_bool_AnEnum       = 285;
+  map<bool    , Message > map_bool_Message      = 286;
+
+  // WKTs since some get special handing in JSON.
+  optional google.protobuf.Any           wkt_any            = 500;
+  optional google.protobuf.Api           wkt_api            = 501;
+  optional google.protobuf.Duration      wkt_duration       = 502;
+  optional google.protobuf.Empty         wkt_empty          = 503;
+  optional google.protobuf.FieldMask     wkt_field_mask     = 504;
+  optional google.protobuf.SourceContext wkt_source_context = 505;
+  optional google.protobuf.Struct        wkt_struct         = 506;
+  optional google.protobuf.Timestamp     wkt_timestamp      = 507;
+  optional google.protobuf.Type          wkt_type           = 508;
+  optional google.protobuf.DoubleValue   wkt_double_value   = 509;
+  optional google.protobuf.FloatValue    wkt_float_value    = 510;
+  optional google.protobuf.Int64Value    wkt_int64_value    = 511;
+  optional google.protobuf.UInt64Value   wkt_uint64_value   = 512;
+  optional google.protobuf.Int32Value    wkt_int32_value    = 513;
+  optional google.protobuf.UInt32Value   wkt_uint32_value   = 514;
+  optional google.protobuf.BoolValue     wkt_bool_value     = 515;
+  optional google.protobuf.StringValue   wkt_string_value   = 516;
+  optional google.protobuf.BytesValue    wkt_bytes_value    = 517;
+
+  // Get some coverage for the special message_set_wire_format.
+  optional AMessageSetMessage singular_message_set = 600;
+  repeated AMessageSetMessage repeated_message_set = 601;
+
+  // Extensions
+  extensions 1000 to 2000;
+}
+
+// A message with message_set_wire_format.
+message AMessageSetMessage {
+  option message_set_wire_format = true;
+  extensions 4 to max;
+}
+
+extend Message {
+  // Singular
+  optional    int32 singular_int32_ext    = 1001;
+  optional    int64 singular_int64_ext    = 1002;
+  optional   uint32 singular_uint32_ext   = 1003;
+  optional   uint64 singular_uint64_ext   = 1004;
+  optional   sint32 singular_sint32_ext   = 1005;
+  optional   sint64 singular_sint64_ext   = 1006;
+  optional  fixed32 singular_fixed32_ext  = 1007;
+  optional  fixed64 singular_fixed64_ext  = 1008;
+  optional sfixed32 singular_sfixed32_ext = 1009;
+  optional sfixed64 singular_sfixed64_ext = 1010;
+  optional    float singular_float_ext    = 1011;
+  optional   double singular_double_ext   = 1012;
+  optional     bool singular_bool_ext     = 1013;
+  optional   string singular_string_ext   = 1014;
+  optional    bytes singular_bytes_ext    = 1015;
+  optional   AnEnum singular_enum_ext     = 1016;
+  optional group SingularGroup_ext        = 1017 {
+    optional int32 group_field = 1018;
+  }
+  optional  Message singular_message_ext  = 1019;
+
+  // Repeated
+  repeated    int32 repeated_int32_ext    = 1031;
+  repeated    int64 repeated_int64_ext    = 1032;
+  repeated   uint32 repeated_uint32_ext   = 1033;
+  repeated   uint64 repeated_uint64_ext   = 1034;
+  repeated   sint32 repeated_sint32_ext   = 1035;
+  repeated   sint64 repeated_sint64_ext   = 1036;
+  repeated  fixed32 repeated_fixed32_ext  = 1037;
+  repeated  fixed64 repeated_fixed64_ext  = 1038;
+  repeated sfixed32 repeated_sfixed32_ext = 1039;
+  repeated sfixed64 repeated_sfixed64_ext = 1040;
+  repeated    float repeated_float_ext    = 1041;
+  repeated   double repeated_double_ext   = 1042;
+  repeated     bool repeated_bool_ext     = 1043;
+  repeated   string repeated_string_ext   = 1044;
+  repeated    bytes repeated_bytes_ext    = 1045;
+  repeated   AnEnum repeated_enum_ext     = 1046;
+  repeated group RepeatedGroup_ext        = 1047 {
+    optional int32 group_field = 1048;
+  }
+  repeated  Message repeated_message_ext  = 1049;
+
+  // Repeated Packed
+  repeated    int32 repeated_packed_int32_ext    = 1061 [packed = true];
+  repeated    int64 repeated_packed_int64_ext    = 1062 [packed = true];
+  repeated   uint32 repeated_packed_uint32_ext   = 1063 [packed = true];
+  repeated   uint64 repeated_packed_uint64_ext   = 1064 [packed = true];
+  repeated   sint32 repeated_packed_sint32_ext   = 1065 [packed = true];
+  repeated   sint64 repeated_packed_sint64_ext   = 1066 [packed = true];
+  repeated  fixed32 repeated_packed_fixed32_ext  = 1067 [packed = true];
+  repeated  fixed64 repeated_packed_fixed64_ext  = 1068 [packed = true];
+  repeated sfixed32 repeated_packed_sfixed32_ext = 1069 [packed = true];
+  repeated sfixed64 repeated_packed_sfixed64_ext = 1070 [packed = true];
+  repeated    float repeated_packed_float_ext    = 1071 [packed = true];
+  repeated   double repeated_packed_double_ext   = 1072 [packed = true];
+  repeated     bool repeated_packed_bool_ext     = 1073 [packed = true];
+  repeated   AnEnum repeated_packed_enum_ext     = 1074 [packed = true];
+}

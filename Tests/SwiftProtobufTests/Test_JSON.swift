@@ -19,7 +19,7 @@ import XCTest
 import SwiftProtobuf
 
 class Test_JSON: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestAllTypes
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     private func configureLargeObject(_ o: inout MessageTestType) {
         o.optionalInt32 = 1
@@ -40,15 +40,15 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o.optionalNestedMessage = nested
-        var foreign = Proto3Unittest_ForeignMessage()
+        var foreign = SwiftProtoTesting_Proto3_ForeignMessage()
         foreign.c = 88
         o.optionalForeignMessage = foreign
-        var importMessage = ProtobufUnittestImport_ImportMessage()
+        var importMessage = SwiftProtoTesting_Import_ImportMessage()
         importMessage.d = -9
         o.optionalImportMessage = importMessage
         o.optionalNestedEnum = .baz
         o.optionalForeignEnum = .foreignBaz
-        var publicImportMessage = ProtobufUnittestImport_PublicImportMessage()
+        var publicImportMessage = SwiftProtoTesting_Import_PublicImportMessage()
         publicImportMessage.e = -999999
         o.optionalPublicImportMessage = publicImportMessage
         o.repeatedInt32 = [1, 2]
@@ -629,22 +629,22 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testOptionalDouble_NaN() throws {
         // The helper functions don't work with NaN because NaN != NaN
-        var o = Proto3Unittest_TestAllTypes()
+        var o = SwiftProtoTesting_Proto3_TestAllTypes()
         o.optionalDouble = Double.nan
         let encoded = try o.jsonString()
         XCTAssertEqual(encoded, "{\"optionalDouble\":\"NaN\"}")
-        let o2 = try Proto3Unittest_TestAllTypes(jsonString: encoded)
+        let o2 = try SwiftProtoTesting_Proto3_TestAllTypes(jsonString: encoded)
         XCTAssert(o2.optionalDouble.isNaN == .some(true))
     }
 
     func testOptionalFloat_NaN() throws {
         // The helper functions don't work with NaN because NaN != NaN
-        var o = Proto3Unittest_TestAllTypes()
+        var o = SwiftProtoTesting_Proto3_TestAllTypes()
         o.optionalFloat = Float.nan
         let encoded = try o.jsonString()
         XCTAssertEqual(encoded, "{\"optionalFloat\":\"NaN\"}")
         do {
-            let o2 = try Proto3Unittest_TestAllTypes(jsonString: encoded)
+            let o2 = try SwiftProtoTesting_Proto3_TestAllTypes(jsonString: encoded)
             XCTAssert(o2.optionalFloat.isNaN == .some(true))
         } catch let e {
             XCTFail("Couldn't decode: \(e) -- \(encoded)")
@@ -844,9 +844,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
     func testOptionalBytes_roundtrip() throws {
         for i in UInt8(0)...UInt8(255) {
             let d = Data([i])
-            let message = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = d }
+            let message = SwiftProtoTesting_Proto3_TestAllTypes.with { $0.optionalBytes = d }
             let text = try message.jsonString()
-            let decoded = try Proto3Unittest_TestAllTypes(jsonString: text)
+            let decoded = try SwiftProtoTesting_Proto3_TestAllTypes(jsonString: text)
             XCTAssertEqual(decoded, message)
             XCTAssertEqual(message.optionalBytes[0], i)
         }
@@ -854,7 +854,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testOptionalNestedMessage() {
         assertJSONEncode("{\"optionalNestedMessage\":{\"bb\":1}}") {(o: inout MessageTestType) in
-            var sub = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub.bb = 1
             o.optionalNestedMessage = sub
         }
@@ -862,7 +862,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testOptionalNestedEnum() {
         assertJSONEncode("{\"optionalNestedEnum\":\"FOO\"}") {(o: inout MessageTestType) in
-            o.optionalNestedEnum = Proto3Unittest_TestAllTypes.NestedEnum.foo
+            o.optionalNestedEnum = SwiftProtoTesting_Proto3_TestAllTypes.NestedEnum.foo
         }
         assertJSONDecodeSucceeds("{\"optionalNestedEnum\":1}") {$0.optionalNestedEnum == .foo}
         // Out-of-range values should be serialized to an int
@@ -908,14 +908,14 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testRepeatedNestedMessage() {
         assertJSONEncode("{\"repeatedNestedMessage\":[{\"bb\":1}]}") {(o: inout MessageTestType) in
-            var sub = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub.bb = 1
             o.repeatedNestedMessage = [sub]
         }
         assertJSONEncode("{\"repeatedNestedMessage\":[{\"bb\":1},{\"bb\":2}]}") {(o: inout MessageTestType) in
-            var sub1 = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub1 = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub1.bb = 1
-            var sub2 = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub2 = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub2.bb = 2
             o.repeatedNestedMessage = [sub1, sub2]
         }
@@ -955,7 +955,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.oneofString = "abc"
         }
         assertJSONEncode("{\"oneofNestedMessage\":{\"bb\":1}}") {(o: inout MessageTestType) in
-            var sub = Proto3Unittest_TestAllTypes.NestedMessage()
+            var sub = SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage()
             sub.bb = 1
             o.oneofNestedMessage = sub
         }
@@ -974,7 +974,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
 
 class Test_JSONPacked: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestPackedTypes
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestPackedTypes
 
     func testPackedFloat() {
         assertJSONEncode("{\"packedFloat\":[1.0]}") {(o: inout MessageTestType) in
@@ -1186,7 +1186,7 @@ class Test_JSONPacked: XCTestCase, PBTestHelpers {
 }
 
 class Test_JSONrepeated: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3Unittest_TestUnpackedTypes
+    typealias MessageTestType = SwiftProtoTesting_Proto3_TestUnpackedTypes
 
     func testPackedInt32() {
         assertJSONEncode("{\"repeatedInt32\":[1]}") {(o: inout MessageTestType) in

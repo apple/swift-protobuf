@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 
 class Test_JSON_Group: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = ProtobufUnittest_TestAllTypes
+    typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     func testOptionalGroup() {
         assertJSONDecodeFails("{\"optionalgroup\":{\"a\":3}}")

@@ -25,7 +25,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   // Optional
 
   func testOptionalInt32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalInt32, 0)
     XCTAssertFalse(msg.hasOptionalInt32)
     msg.optionalInt32 = 1
@@ -37,7 +37,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalInt64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalInt64, 0)
     XCTAssertFalse(msg.hasOptionalInt64)
     msg.optionalInt64 = 2
@@ -49,7 +49,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalUint32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalUint32, 0)
     XCTAssertFalse(msg.hasOptionalUint32)
     msg.optionalUint32 = 3
@@ -61,7 +61,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalUint64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalUint64, 0)
     XCTAssertFalse(msg.hasOptionalUint64)
     msg.optionalUint64 = 4
@@ -73,7 +73,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalSint32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalSint32, 0)
     XCTAssertFalse(msg.hasOptionalSint32)
     msg.optionalSint32 = 5
@@ -85,7 +85,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalSint64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalSint64, 0)
     XCTAssertFalse(msg.hasOptionalSint64)
     msg.optionalSint64 = 6
@@ -97,7 +97,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalFixed32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalFixed32, 0)
     XCTAssertFalse(msg.hasOptionalFixed32)
     msg.optionalFixed32 = 7
@@ -109,7 +109,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalFixed64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalFixed64, 0)
     XCTAssertFalse(msg.hasOptionalFixed64)
     msg.optionalFixed64 = 8
@@ -121,7 +121,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalSfixed32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalSfixed32, 0)
     XCTAssertFalse(msg.hasOptionalSfixed32)
     msg.optionalSfixed32 = 9
@@ -133,7 +133,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalSfixed64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalSfixed64, 0)
     XCTAssertFalse(msg.hasOptionalSfixed64)
     msg.optionalSfixed64 = 10
@@ -145,7 +145,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalFloat() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalFloat, 0.0)
     XCTAssertFalse(msg.hasOptionalFloat)
     msg.optionalFloat = 11.0
@@ -157,7 +157,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalDouble() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalDouble, 0.0)
     XCTAssertFalse(msg.hasOptionalDouble)
     msg.optionalDouble = 12.0
@@ -169,7 +169,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalBool() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalBool, false)
     XCTAssertFalse(msg.hasOptionalBool)
     msg.optionalBool = true
@@ -181,7 +181,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalString() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalString, "")
     XCTAssertFalse(msg.hasOptionalString)
     msg.optionalString = "14"
@@ -193,7 +193,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalBytes() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalBytes, Data())
     XCTAssertFalse(msg.hasOptionalBytes)
     msg.optionalBytes = Data([15])
@@ -205,10 +205,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalGroup() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalGroup.a, 0)
     XCTAssertFalse(msg.hasOptionalGroup)
-    var grp = ProtobufUnittest_TestAllTypes.OptionalGroup()
+    var grp = SwiftProtoTesting_TestAllTypes.OptionalGroup()
     grp.a = 16
     msg.optionalGroup = grp
     XCTAssertTrue(msg.hasOptionalGroup)
@@ -219,10 +219,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalNestedMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalNestedMessage.bb, 0)
     XCTAssertFalse(msg.hasOptionalNestedMessage)
-    var nestedMsg = ProtobufUnittest_TestAllTypes.NestedMessage()
+    var nestedMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
     nestedMsg.bb = 18
     msg.optionalNestedMessage = nestedMsg
     XCTAssertTrue(msg.hasOptionalNestedMessage)
@@ -234,10 +234,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalForeignMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalForeignMessage.c, 0)
     XCTAssertFalse(msg.hasOptionalForeignMessage)
-    var foreignMsg = ProtobufUnittest_ForeignMessage()
+    var foreignMsg = SwiftProtoTesting_ForeignMessage()
     foreignMsg.c = 19
     msg.optionalForeignMessage = foreignMsg
     XCTAssertTrue(msg.hasOptionalForeignMessage)
@@ -249,10 +249,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalImportMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalImportMessage.d, 0)
     XCTAssertFalse(msg.hasOptionalImportMessage)
-    var importedMsg = ProtobufUnittestImport_ImportMessage()
+    var importedMsg = SwiftProtoTesting_Import_ImportMessage()
     importedMsg.d = 20
     msg.optionalImportMessage = importedMsg
     XCTAssertTrue(msg.hasOptionalImportMessage)
@@ -264,7 +264,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalNestedEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalNestedEnum, .foo)
     XCTAssertFalse(msg.hasOptionalNestedEnum)
     msg.optionalNestedEnum = .bar
@@ -276,7 +276,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalForeignEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalForeignEnum, .foreignFoo)
     XCTAssertFalse(msg.hasOptionalForeignEnum)
     msg.optionalForeignEnum = .foreignBar
@@ -288,7 +288,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalImportEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalImportEnum, .importFoo)
     XCTAssertFalse(msg.hasOptionalImportEnum)
     msg.optionalImportEnum = .importBar
@@ -300,7 +300,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalStringPiece() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalStringPiece, "")
     XCTAssertFalse(msg.hasOptionalStringPiece)
     msg.optionalStringPiece = "24"
@@ -312,7 +312,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalCord() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalCord, "")
     XCTAssertFalse(msg.hasOptionalCord)
     msg.optionalCord = "25"
@@ -324,10 +324,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalPublicImportMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalPublicImportMessage.e, 0)
     XCTAssertFalse(msg.hasOptionalPublicImportMessage)
-    var pubImportedMsg = ProtobufUnittestImport_PublicImportMessage()
+    var pubImportedMsg = SwiftProtoTesting_Import_PublicImportMessage()
     pubImportedMsg.e = 26
     msg.optionalPublicImportMessage = pubImportedMsg
     XCTAssertTrue(msg.hasOptionalPublicImportMessage)
@@ -339,10 +339,10 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testOptionalLazyMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.optionalLazyMessage.bb, 0)
     XCTAssertFalse(msg.hasOptionalLazyMessage)
-    var nestedMsg = ProtobufUnittest_TestAllTypes.NestedMessage()
+    var nestedMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
     nestedMsg.bb = 27
     msg.optionalLazyMessage = nestedMsg
     XCTAssertTrue(msg.hasOptionalLazyMessage)
@@ -356,7 +356,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   // Optional with explicit default values (non zero)
 
   func testDefaultInt32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultInt32, 41)
     XCTAssertFalse(msg.hasDefaultInt32)
     msg.defaultInt32 = 61
@@ -368,7 +368,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultInt64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultInt64, 42)
     XCTAssertFalse(msg.hasDefaultInt64)
     msg.defaultInt64 = 62
@@ -380,7 +380,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultUint32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultUint32, 43)
     XCTAssertFalse(msg.hasDefaultUint32)
     msg.defaultUint32 = 63
@@ -392,7 +392,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultUint64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultUint64, 44)
     XCTAssertFalse(msg.hasDefaultUint64)
     msg.defaultUint64 = 64
@@ -404,7 +404,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultSint32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultSint32, -45)
     XCTAssertFalse(msg.hasDefaultSint32)
     msg.defaultSint32 = 65
@@ -416,7 +416,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultSint64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultSint64, 46)
     XCTAssertFalse(msg.hasDefaultSint64)
     msg.defaultSint64 = 66
@@ -428,7 +428,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultFixed32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultFixed32, 47)
     XCTAssertFalse(msg.hasDefaultFixed32)
     msg.defaultFixed32 = 67
@@ -440,7 +440,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultFixed64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultFixed64, 48)
     XCTAssertFalse(msg.hasDefaultFixed64)
     msg.defaultFixed64 = 68
@@ -452,7 +452,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultSfixed32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultSfixed32, 49)
     XCTAssertFalse(msg.hasDefaultSfixed32)
     msg.defaultSfixed32 = 69
@@ -464,7 +464,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultSfixed64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultSfixed64, -50)
     XCTAssertFalse(msg.hasDefaultSfixed64)
     msg.defaultSfixed64 = 70
@@ -476,7 +476,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultFloat() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultFloat, 51.5)
     XCTAssertFalse(msg.hasDefaultFloat)
     msg.defaultFloat = 71
@@ -488,7 +488,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultDouble() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultDouble, 52e3)
     XCTAssertFalse(msg.hasDefaultDouble)
     msg.defaultDouble = 72
@@ -500,7 +500,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultBool() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultBool, true)
     XCTAssertFalse(msg.hasDefaultBool)
     msg.defaultBool = false
@@ -512,7 +512,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultString() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultString, "hello")
     XCTAssertFalse(msg.hasDefaultString)
     msg.defaultString = "74"
@@ -524,7 +524,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultBytes() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultBytes, "world".data(using: .utf8))
     XCTAssertFalse(msg.hasDefaultBytes)
     msg.defaultBytes = Data([75])
@@ -536,7 +536,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultNestedEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultNestedEnum, .bar)
     XCTAssertFalse(msg.hasDefaultNestedEnum)
     msg.defaultNestedEnum = .baz
@@ -548,7 +548,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultForeignEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultForeignEnum, .foreignBar)
     XCTAssertFalse(msg.hasDefaultForeignEnum)
     msg.defaultForeignEnum = .foreignBaz
@@ -560,7 +560,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultImportEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultImportEnum, .importBar)
     XCTAssertFalse(msg.hasDefaultImportEnum)
     msg.defaultImportEnum = .importBaz
@@ -572,7 +572,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultStringPiece() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultStringPiece, "abc")
     XCTAssertFalse(msg.hasDefaultStringPiece)
     msg.defaultStringPiece = "84"
@@ -584,7 +584,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testDefaultCord() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.defaultCord, "123")
     XCTAssertFalse(msg.hasDefaultCord)
     msg.defaultCord = "85"
@@ -598,7 +598,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   // Repeated
 
   func testRepeatedInt32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedInt32, [])
     msg.repeatedInt32 = [31]
     XCTAssertEqual(msg.repeatedInt32, [31])
@@ -607,7 +607,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedInt64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedInt64, [])
     msg.repeatedInt64 = [32]
     XCTAssertEqual(msg.repeatedInt64, [32])
@@ -616,7 +616,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedUint32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedUint32, [])
     msg.repeatedUint32 = [33]
     XCTAssertEqual(msg.repeatedUint32, [33])
@@ -625,7 +625,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedUint64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedUint64, [])
     msg.repeatedUint64 = [34]
     XCTAssertEqual(msg.repeatedUint64, [34])
@@ -634,7 +634,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedSint32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedSint32, [])
     msg.repeatedSint32 = [35]
     XCTAssertEqual(msg.repeatedSint32, [35])
@@ -643,7 +643,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedSint64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedSint64, [])
     msg.repeatedSint64 = [36]
     XCTAssertEqual(msg.repeatedSint64, [36])
@@ -652,7 +652,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedFixed32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedFixed32, [])
     msg.repeatedFixed32 = [37]
     XCTAssertEqual(msg.repeatedFixed32, [37])
@@ -661,7 +661,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedFixed64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedFixed64, [])
     msg.repeatedFixed64 = [38]
     XCTAssertEqual(msg.repeatedFixed64, [38])
@@ -670,7 +670,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedSfixed32() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedSfixed32, [])
     msg.repeatedSfixed32 = [39]
     XCTAssertEqual(msg.repeatedSfixed32, [39])
@@ -679,7 +679,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedSfixed64() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedSfixed64, [])
     msg.repeatedSfixed64 = [40]
     XCTAssertEqual(msg.repeatedSfixed64, [40])
@@ -688,7 +688,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedFloat() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedFloat, [])
     msg.repeatedFloat = [41.0]
     XCTAssertEqual(msg.repeatedFloat, [41.0])
@@ -697,7 +697,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedDouble() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedDouble, [])
     msg.repeatedDouble = [42.0]
     XCTAssertEqual(msg.repeatedDouble, [42.0])
@@ -706,7 +706,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedBool() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedBool, [])
     msg.repeatedBool = [true]
     XCTAssertEqual(msg.repeatedBool, [true])
@@ -715,7 +715,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedString() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedString, [])
     msg.repeatedString = ["44"]
     XCTAssertEqual(msg.repeatedString, ["44"])
@@ -724,7 +724,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedBytes() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedBytes, [])
     msg.repeatedBytes = [Data([45])]
     XCTAssertEqual(msg.repeatedBytes, [Data([45])])
@@ -733,15 +733,15 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedGroup() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedGroup, [])
-    var grp = ProtobufUnittest_TestAllTypes.RepeatedGroup()
+    var grp = SwiftProtoTesting_TestAllTypes.RepeatedGroup()
     grp.a = 46
     msg.repeatedGroup = [grp]
     XCTAssertEqual(msg.repeatedGroup.count, 1)
     XCTAssertEqual(msg.repeatedGroup[0].a, 46)
     XCTAssertEqual(msg.repeatedGroup, [grp])
-    var grp2 = ProtobufUnittest_TestAllTypes.RepeatedGroup()
+    var grp2 = SwiftProtoTesting_TestAllTypes.RepeatedGroup()
     grp2.a = 146
     msg.repeatedGroup.append(grp2)
     XCTAssertEqual(msg.repeatedGroup.count, 2)
@@ -751,15 +751,15 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedNestedMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedNestedMessage, [])
-    var nestedMsg = ProtobufUnittest_TestAllTypes.NestedMessage()
+    var nestedMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
     nestedMsg.bb = 48
     msg.repeatedNestedMessage = [nestedMsg]
     XCTAssertEqual(msg.repeatedNestedMessage.count, 1)
     XCTAssertEqual(msg.repeatedNestedMessage[0].bb, 48)
     XCTAssertEqual(msg.repeatedNestedMessage, [nestedMsg])
-    var nestedMsg2 = ProtobufUnittest_TestAllTypes.NestedMessage()
+    var nestedMsg2 = SwiftProtoTesting_TestAllTypes.NestedMessage()
     nestedMsg2.bb = 148
     msg.repeatedNestedMessage.append(nestedMsg2)
     XCTAssertEqual(msg.repeatedNestedMessage.count, 2)
@@ -769,15 +769,15 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedForeignMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedForeignMessage, [])
-    var foreignMsg = ProtobufUnittest_ForeignMessage()
+    var foreignMsg = SwiftProtoTesting_ForeignMessage()
     foreignMsg.c = 49
     msg.repeatedForeignMessage = [foreignMsg]
     XCTAssertEqual(msg.repeatedForeignMessage.count, 1)
     XCTAssertEqual(msg.repeatedForeignMessage[0].c, 49)
     XCTAssertEqual(msg.repeatedForeignMessage, [foreignMsg])
-    var foreignMsg2 = ProtobufUnittest_ForeignMessage()
+    var foreignMsg2 = SwiftProtoTesting_ForeignMessage()
     foreignMsg2.c = 149
     msg.repeatedForeignMessage.append(foreignMsg2)
     XCTAssertEqual(msg.repeatedForeignMessage.count, 2)
@@ -787,15 +787,15 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedImportMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedImportMessage, [])
-    var importedMsg = ProtobufUnittestImport_ImportMessage()
+    var importedMsg = SwiftProtoTesting_Import_ImportMessage()
     importedMsg.d = 50
     msg.repeatedImportMessage = [importedMsg]
     XCTAssertEqual(msg.repeatedImportMessage.count, 1)
     XCTAssertEqual(msg.repeatedImportMessage[0].d, 50)
     XCTAssertEqual(msg.repeatedImportMessage, [importedMsg])
-    var importedMsg2 = ProtobufUnittestImport_ImportMessage()
+    var importedMsg2 = SwiftProtoTesting_Import_ImportMessage()
     importedMsg2.d = 150
     msg.repeatedImportMessage.append(importedMsg2)
     XCTAssertEqual(msg.repeatedImportMessage.count, 2)
@@ -805,7 +805,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedNestedEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedNestedEnum, [])
     msg.repeatedNestedEnum = [.bar]
     XCTAssertEqual(msg.repeatedNestedEnum, [.bar])
@@ -814,7 +814,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedForeignEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedForeignEnum, [])
     msg.repeatedForeignEnum = [.foreignBar]
     XCTAssertEqual(msg.repeatedForeignEnum, [.foreignBar])
@@ -823,7 +823,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedImportEnum() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedImportEnum, [])
     msg.repeatedImportEnum = [.importBar]
     XCTAssertEqual(msg.repeatedImportEnum, [.importBar])
@@ -832,7 +832,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedStringPiece() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedStringPiece, [])
     msg.repeatedStringPiece = ["54"]
     XCTAssertEqual(msg.repeatedStringPiece, ["54"])
@@ -841,7 +841,7 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedCord() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedCord, [])
     msg.repeatedCord = ["55"]
     XCTAssertEqual(msg.repeatedCord, ["55"])
@@ -850,15 +850,15 @@ class Test_BasicFields_Access_Proto2: XCTestCase {
   }
 
   func testRepeatedLazyMessage() {
-    var msg = ProtobufUnittest_TestAllTypes()
+    var msg = SwiftProtoTesting_TestAllTypes()
     XCTAssertEqual(msg.repeatedLazyMessage, [])
-    var nestedMsg = ProtobufUnittest_TestAllTypes.NestedMessage()
+    var nestedMsg = SwiftProtoTesting_TestAllTypes.NestedMessage()
     nestedMsg.bb = 57
     msg.repeatedLazyMessage = [nestedMsg]
     XCTAssertEqual(msg.repeatedLazyMessage.count, 1)
     XCTAssertEqual(msg.repeatedLazyMessage[0].bb, 57)
     XCTAssertEqual(msg.repeatedLazyMessage, [nestedMsg])
-    var nestedMsg2 = ProtobufUnittest_TestAllTypes.NestedMessage()
+    var nestedMsg2 = SwiftProtoTesting_TestAllTypes.NestedMessage()
     nestedMsg2.bb = 157
     msg.repeatedLazyMessage.append(nestedMsg2)
     XCTAssertEqual(msg.repeatedLazyMessage.count, 2)

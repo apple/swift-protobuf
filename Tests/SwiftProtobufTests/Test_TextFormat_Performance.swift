@@ -16,7 +16,7 @@ import XCTest
 import SwiftProtobuf
 
 class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Fuzz_Testing_Message
+    typealias MessageTestType = SwiftProtoTesting_Fuzz_Message
 
     // Each of the following should be under 1s on a reasonably
     // fast machine (originally developed on an M1 MacBook Pro).
@@ -44,13 +44,13 @@ class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
         )
         let expected = String(repeating: child, count: repeats)
 
-        let msg = Fuzz_Testing_Message.with {
-            let child = Fuzz_Testing_Message.with {
+        let msg = MessageTestType.with {
+            let child = MessageTestType.with {
                $0.mapFixed64Sint64[20] = 8
                $0.mapFixed64Sint64[30] = 4
                $0.mapFixed64Sint64[40] = 2
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: repeats)
+            let array = Array<MessageTestType>(repeating: child, count: repeats)
             $0.repeatedMessage = array
         }
 
@@ -79,12 +79,12 @@ class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
         )
         let expected = String(repeating: child, count: repeats)
 
-        let msg = Fuzz_Testing_Message.with {
-            let child = Fuzz_Testing_Message.with {
+        let msg = MessageTestType.with {
+            let child = MessageTestType.with {
                 let duration = Google_Protobuf_Duration(seconds: 123, nanos: 123456789)
                 $0.wktAny = try! Google_Protobuf_Any(message: duration)
             }
-            let array = Array<Fuzz_Testing_Message>(repeating: child, count: repeats)
+            let array = Array<MessageTestType>(repeating: child, count: repeats)
             $0.repeatedMessage = array
         }
 

@@ -7,14 +7,14 @@ import SwiftProtobuf
 @_cdecl("LLVMFuzzerTestOneInput")
 public func FuzzDelimited(_ start: UnsafeRawPointer, _ count: Int) -> CInt {
   let bytes = UnsafeRawBufferPointer(start: start, count: count)
-  var msg: Fuzz_Testing_Message?
+  var msg: SwiftProtoTesting_Fuzz_Message?
   do {
     let istream = InputStream(data: Data(bytes))
     istream.open()
     msg = try BinaryDelimited.parse(
-      messageType: Fuzz_Testing_Message.self,
+      messageType: SwiftProtoTesting_Fuzz_Message.self,
       from: istream,
-      extensions: Fuzz_Testing_FuzzTesting_Extensions)
+      extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions)
   } catch {
     // Error parsing are to be expected since not all input will be well formed.
   }

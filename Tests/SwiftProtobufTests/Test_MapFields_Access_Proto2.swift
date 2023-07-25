@@ -23,7 +23,7 @@ import Foundation
 class Test_MapFields_Access_Proto2: XCTestCase {
 
   func testMapInt32Int32() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt32Int32, [:])
     msg.mapInt32Int32 = [70: 1070]
     XCTAssertEqual(msg.mapInt32Int32, [70: 1070])
@@ -32,7 +32,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapInt64Int64() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt64Int64, [:])
     msg.mapInt64Int64 = [71: 1071]
     XCTAssertEqual(msg.mapInt64Int64, [71: 1071])
@@ -41,7 +41,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapUint32Uint32() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapUint32Uint32, [:])
     msg.mapUint32Uint32 = [72: 1072]
     XCTAssertEqual(msg.mapUint32Uint32, [72: 1072])
@@ -50,7 +50,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapUint64Uint64() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapUint64Uint64, [:])
     msg.mapUint64Uint64 = [73: 1073]
     XCTAssertEqual(msg.mapUint64Uint64, [73: 1073])
@@ -59,7 +59,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapSint32Sint32() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapSint32Sint32, [:])
     msg.mapSint32Sint32 = [74: 1074]
     XCTAssertEqual(msg.mapSint32Sint32, [74: 1074])
@@ -68,7 +68,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapSint64Sint64() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapSint64Sint64, [:])
     msg.mapSint64Sint64 = [75: 1075]
     XCTAssertEqual(msg.mapSint64Sint64, [75: 1075])
@@ -77,7 +77,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapFixed32Fixed32() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapFixed32Fixed32, [:])
     msg.mapFixed32Fixed32 = [76: 1076]
     XCTAssertEqual(msg.mapFixed32Fixed32, [76: 1076])
@@ -86,7 +86,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapFixed64Fixed64() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapFixed64Fixed64, [:])
     msg.mapFixed64Fixed64 = [77: 1077]
     XCTAssertEqual(msg.mapFixed64Fixed64, [77: 1077])
@@ -95,7 +95,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapSfixed32Sfixed32() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapSfixed32Sfixed32, [:])
     msg.mapSfixed32Sfixed32 = [78: 1078]
     XCTAssertEqual(msg.mapSfixed32Sfixed32, [78: 1078])
@@ -104,7 +104,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapSfixed64Sfixed64() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapSfixed64Sfixed64, [:])
     msg.mapSfixed64Sfixed64 = [79: 1079]
     XCTAssertEqual(msg.mapSfixed64Sfixed64, [79: 1079])
@@ -113,7 +113,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapInt32Float() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt32Float, [:])
     msg.mapInt32Float = [80: 1080.0]
     XCTAssertEqual(msg.mapInt32Float, [80: 1080.0])
@@ -122,7 +122,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapInt32Double() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt32Double, [:])
     msg.mapInt32Double = [81: 1081.0]
     XCTAssertEqual(msg.mapInt32Double, [81: 1081.0])
@@ -131,7 +131,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapBoolBool() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapBoolBool, [:])
     msg.mapBoolBool = [true: false]
     XCTAssertEqual(msg.mapBoolBool, [true: false])
@@ -140,7 +140,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapStringString() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapStringString, [:])
     msg.mapStringString = ["83": "1083"]
     XCTAssertEqual(msg.mapStringString, ["83": "1083"])
@@ -149,7 +149,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapStringBytes() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapStringBytes, [:])
     msg.mapStringBytes = ["84": Data([84])]
     XCTAssertEqual(msg.mapStringBytes, ["84": Data([84])])
@@ -158,9 +158,9 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapStringMessage() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapStringMessage, [:])
-    var valueMsg1 = ProtobufUnittest_Message2()
+    var valueMsg1 = SwiftProtoTesting_Message2()
     valueMsg1.optionalInt32 = 1085
     msg.mapStringMessage = ["85": valueMsg1]
     XCTAssertEqual(msg.mapStringMessage.count, 1)
@@ -170,7 +170,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
       XCTFail("Lookup failed")
     }
     XCTAssertEqual(msg.mapStringMessage, ["85": valueMsg1])
-    var valueMsg2 = ProtobufUnittest_Message2()
+    var valueMsg2 = SwiftProtoTesting_Message2()
     valueMsg2.optionalInt32 = 1185
     msg.mapStringMessage["185"] = valueMsg2
     XCTAssertEqual(msg.mapStringMessage.count, 2)
@@ -188,7 +188,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapInt32Bytes() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt32Bytes, [:])
     msg.mapInt32Bytes = [86: Data([86])]
     XCTAssertEqual(msg.mapInt32Bytes, [86: Data([86])])
@@ -197,7 +197,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapInt32Enum() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt32Enum, [:])
     msg.mapInt32Enum = [87: .bar]
     XCTAssertEqual(msg.mapInt32Enum, [87: .bar])
@@ -206,9 +206,9 @@ class Test_MapFields_Access_Proto2: XCTestCase {
   }
 
   func testMapInt32Message() {
-    var msg = ProtobufUnittest_Message2()
+    var msg = SwiftProtoTesting_Message2()
     XCTAssertEqual(msg.mapInt32Message, [:])
-    var valueMsg1 = ProtobufUnittest_Message2()
+    var valueMsg1 = SwiftProtoTesting_Message2()
     valueMsg1.optionalInt32 = 1088
     msg.mapInt32Message = [88: valueMsg1]
     XCTAssertEqual(msg.mapInt32Message.count, 1)
@@ -218,7 +218,7 @@ class Test_MapFields_Access_Proto2: XCTestCase {
       XCTFail("Lookup failed")
     }
     XCTAssertEqual(msg.mapInt32Message, [88: valueMsg1])
-    var valueMsg2 = ProtobufUnittest_Message2()
+    var valueMsg2 = SwiftProtoTesting_Message2()
     valueMsg2.optionalInt32 = 1188
     msg.mapInt32Message[188] = valueMsg2
     XCTAssertEqual(msg.mapInt32Message.count, 2)

@@ -1,0 +1,19 @@
+// Protos/unittest_swift_json.proto
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2020 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+
+syntax = "proto3";
+
+package swift_proto_testing;
+
+import "google/protobuf/struct.proto";
+
+message SwiftJSONTest {
+  // This case was omitted from test_messages_proto3.proto
+  repeated google.protobuf.NullValue repeated_null_value = 318;
+}
