@@ -19,9 +19,25 @@ let package = Package(
     .library(name: "SwiftProtobufPluginLibrary", targets: ["SwiftProtobufPluginLibrary"]),
   ],
   targets: [
-    .target(name: "SwiftProtobuf"),
-    .target(name: "SwiftProtobufPluginLibrary",
-            dependencies: ["SwiftProtobuf"]),
+    .target(
+			name: "SwiftProtobuf",
+			swiftSettings: [
+				.unsafeFlags(["-Xfrontend", "-application-extension"])
+			],
+			linkerSettings: [
+				.unsafeFlags(["-Xlinker", "-application_extension"])
+			]
+		),
+    .target(
+			name: "SwiftProtobufPluginLibrary",
+			dependencies: ["SwiftProtobuf"],
+			swiftSettings: [
+				.unsafeFlags(["-Xfrontend", "-application-extension"])
+			],
+			linkerSettings: [
+				.unsafeFlags(["-Xlinker", "-application_extension"])
+			]
+		),
     .target(name: "SwiftProtobufTestHelpers",
             dependencies: ["SwiftProtobuf"]),
     .target(name: "protoc-gen-swift",
