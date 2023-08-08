@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_AsyncMessageSequence: XCTestCase {
+final class Test_AsyncMessageSequence: XCTestCase {
   
   // Decode a valid binary delimited stream
   func testValidSequence() async throws {
@@ -33,7 +33,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     try writeMessagesToFile(url, messages: messages)
     
     // Recreate the original array
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     let observed = try await decoded.reduce(into: [Int32]()) { array, element in
       array.append(element.optionalInt32)
     }
@@ -53,8 +53,8 @@ class Test_AsyncMessageSequence: XCTestCase {
     try writeMessagesToFile(url, messages: [message])
     
     var decodingOptions = BinaryDecodingOptions()
-    let decodedWithUnknown = SwiftProtoTesting_TestEmptyMessage.asyncSequence(
-      asyncBytes: url.resourceBytes,
+    let decodedWithUnknown = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestEmptyMessage>(
+      baseSequence: url.resourceBytes,
       options: decodingOptions
     )
     for try await message in decodedWithUnknown {
@@ -62,8 +62,8 @@ class Test_AsyncMessageSequence: XCTestCase {
     }
     
     decodingOptions.discardUnknownFields = true
-    let decodedWithUnknownDiscarded = SwiftProtoTesting_TestEmptyMessage.asyncSequence(
-      asyncBytes: url.resourceBytes,
+    let decodedWithUnknownDiscarded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestEmptyMessage>(
+      baseSequence: url.resourceBytes,
       options: decodingOptions
     )
     var count = 0;
@@ -84,7 +84,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     try writeMessagesToFile(url, messages: messages)
     
     var count = 0
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     for try await message in decoded {
       XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
       count += 1
@@ -97,7 +97,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     let url = temporaryFileURL()
     try Data([0]).write(to: url)
     
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     var count = 0
     for try await message in decoded {
       XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
@@ -110,7 +110,7 @@ class Test_AsyncMessageSequence: XCTestCase {
   func testEmptyStream() async throws {
     let url = temporaryFileURL()
     try writeMessagesToFile(url, messages: [SwiftProtoTesting_TestAllTypes]())
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     for try await _ in decoded {
       XCTFail("Shouldn't have returned a value for an empty stream.")
     }
@@ -121,7 +121,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     let expectation = expectation(description: "Should throw a BinaryDecodingError.truncated")
     let url = temporaryFileURL()
     try Data([0x96, 0x01]).write(to: url) //150 in decimal
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an empty stream.")
@@ -140,7 +140,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     let url = temporaryFileURL()
     let varInt: [UInt8] = [128, 128, 128, 128, 8]
     try Data(varInt).write(to: url)
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an invalid stream.")
@@ -158,7 +158,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     let expectation = expectation(description: "Should throw a BinaryDecodingError.truncated")
     let url = temporaryFileURL()
     try Data([192]).write(to: url)
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an empty stream.")
@@ -185,7 +185,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     
     do {
       var count = 0
-      let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(asyncBytes: url.resourceBytes)
+      let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
       for try await message in decoded {
         XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes.with {
           $0.optionalInt64 = 123456789
