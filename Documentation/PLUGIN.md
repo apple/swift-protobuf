@@ -32,9 +32,9 @@ To use Swift with Protocol buffers, you'll need:
 Building the plugin should be simple on any supported Swift platform:
 
 ```
-$ git clone https://github.com/apple/swift-protobuf
-$ cd swift-protobuf
-$ swift build -c release
+git clone https://github.com/apple/swift-protobuf
+cd swift-protobuf
+swift build -c release
 ```
 
 This will create a binary called `protoc-gen-swift` in the
@@ -51,7 +51,7 @@ To generate Swift output for your .proto files, you run the `protoc`
 command as usual, using the `--swift_out=<directory>` option:
 
 ```
-$ protoc --swift_out=. my.proto
+protoc --swift_out=. my.proto
 ```
 
 The `protoc` program will automatically look for `protoc-gen-swift` in your
@@ -69,13 +69,13 @@ specific needs.
 You can use the `--swift_opt` argument to `protoc` to pass options to the
 Swift code generator as follows:
 ```
-$ protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=[NAME]=[VALUE] --swift_out:. foo/bar/*.proto mumble/*.proto
 ```
 
 If you need to specify multiple options, you can use more than one
 `--swift_opt` argument:
 ```
-$ protoc \
+protoc \
     --swift_opt=[NAME1]=[VALUE1] \
     --swift_opt=[NAME2]=[VALUE2] \
     --swift_out=. foo/bar/*.proto mumble/*.proto
@@ -96,7 +96,7 @@ supports an option to control the generated file names, the option is
 given as part of the `--swift_opt` argument like this:
 
 ```
-$ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `FileNaming` are:
@@ -117,7 +117,7 @@ up with the default (`internal`) access.  You can change this with the
 `Visibility` option:
 
 ```
-$ protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=Visibility=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `Visibility` are:
@@ -139,7 +139,7 @@ generation to then `import` the module and scope the types. This option
 takes the path of a file providing the mapping:
 
 ```
-$ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
+protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
 ```
 
 The format of that mapping file is defined in
@@ -171,7 +171,7 @@ avoid exposing internal symbols to clients.
 You can change this with the `ImplementationOnlyImports` option:
 
 ```
-$ protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
+protoc --swift_opt=ImplementationOnlyImports=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `ImplementationOnlyImports` are:

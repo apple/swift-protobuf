@@ -31,7 +31,7 @@ When doing a release:
    1. Run our tool to ensure the versions are all in sync:
 
       ```
-      $ DevTools/LibraryVersions.py --validate
+      DevTools/LibraryVersions.py --validate
       ```
 
       This will run silently if everything was ok; if something was wrong, you'll need to figure
@@ -51,7 +51,7 @@ When doing a release:
 1. Publish the `SwiftProtobuf.podspec`
 
       ```
-      $ pod trunk push SwiftProtobuf.podspec
+      pod trunk push SwiftProtobuf.podspec
       ```
 
       _Note:_ This uses that local copy of `SwiftProtobuf.podspec`, but checks
@@ -63,7 +63,7 @@ When doing a release:
    bump it to a new revision:
 
    ```
-   $ DevTools/LibraryVersions.py [a.b.c]
+   DevTools/LibraryVersions.py [a.b.c]
    ```
 
    Where _c_ is one higher than the release that was just done.
