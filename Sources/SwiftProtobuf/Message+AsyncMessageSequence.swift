@@ -19,8 +19,21 @@ import Foundation
 extension Message {
   
   /// Creates an asynchronous sequence of messages decoded from resource bytes
-  public static func asyncSequence(asyncBytes: URL.AsyncBytes) -> AsyncMessageSequence<Self> {
-    AsyncMessageSequence(asyncBytesIterator: asyncBytes.makeAsyncIterator())
+  public static func asyncSequence(
+    asyncBytes: URL.AsyncBytes,
+    extensions: ExtensionMap? = nil,
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
+  ) -> AsyncMessageSequence<Self> {
+    let messageFactory = MessageFactory<Self>(
+      extensions: extensions,
+      partial: partial,
+      options: options
+    )
+    return AsyncMessageSequence(
+      asyncBytesIterator: asyncBytes.makeAsyncIterator(),
+      messageFactory: messageFactory
+    )
   }
 }
 
@@ -28,18 +41,19 @@ extension Message {
 public struct AsyncMessageSequence<M: Message> : AsyncSequence, Sendable {
   
   let asyncBytesIterator: URL.AsyncBytes.AsyncIterator
+  fileprivate let messageFactory: MessageFactory<M>
   
   /// The message type in this asynchronous sequence.
   public typealias Element = M
   
   /// An asynchronous iterator that produces the messages of this asynchronous sequence
-  @frozen public struct AsyncIterator : AsyncIteratorProtocol, Sendable {
+  public struct AsyncIterator : AsyncIteratorProtocol, Sendable {
     
     public var iter: URL.AsyncBytes.AsyncIterator
+    fileprivate let messageFactory: MessageFactory<M>
     
     /// Aysnchronously reads the next varint
     @inlinable public mutating func nextVarInt() async throws -> UInt64? {
-      
       var messageSize: UInt64 = 0
       var shift: UInt64 = 0
       
@@ -65,12 +79,12 @@ public struct AsyncMessageSequence<M: Message> : AsyncSequence, Sendable {
     ///
     /// - Returns: The next message, if it exists, or `nil` to signal the end of
     ///   the sequence.
-    @inlinable public mutating func next() async throws -> M? {
+    public mutating func next() async throws -> M? {
       guard let messageSize = try await nextVarInt() else {
         return nil
       }
       if messageSize == 0 {
-        return M()
+        return try messageFactory.createMesssage(serializedBytes: [])
       } else if messageSize > 0x7fffffff {
         throw BinaryDecodingError.tooLarge
       }
@@ -82,7 +96,7 @@ public struct AsyncMessageSequence<M: Message> : AsyncSequence, Sendable {
         buffer[consumedBytes] = byte
         consumedBytes += 1
         if consumedBytes == messageSize {
-          return try M(serializedBytes: buffer)
+          return try messageFactory.createMesssage(serializedBytes: buffer)
         }
       }
       throw BinaryDecodingError.truncated // The buffer was not filled.
@@ -97,6 +111,25 @@ public struct AsyncMessageSequence<M: Message> : AsyncSequence, Sendable {
   /// - Returns: An instance of the `AsyncIterator` type used to produce
   /// messages in the asynchronous sequence.
   public func makeAsyncIterator() -> AsyncMessageSequence.AsyncIterator {
-    return AsyncIterator(iter: asyncBytesIterator)
+    return AsyncIterator(
+      iter: asyncBytesIterator,
+      messageFactory: messageFactory
+    )
+  }
+}
+
+// Currently neither ExtensionMap nor BinaryDecodingOptions are Sendable
+// hence the @unchecked to suppress warnings
+fileprivate struct MessageFactory<M: Message>: @unchecked Sendable {
+  let extensions: ExtensionMap?
+  let partial: Bool
+  let options: BinaryDecodingOptions
+  
+  func createMesssage(serializedBytes: [UInt8]) throws -> M {
+    try M(
+      serializedBytes: serializedBytes,
+      extensions: extensions,
+      options: options
+    )
   }
 }

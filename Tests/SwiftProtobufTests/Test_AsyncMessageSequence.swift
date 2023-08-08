@@ -40,6 +40,40 @@ class Test_AsyncMessageSequence: XCTestCase {
     XCTAssertEqual(observed, expected, "The original and re-created arrays should be equal.")
   }
   
+  // Decode a message from a stream, discarding unknown fields
+  func testBinaryDecodingOptions() async throws {
+    let url = temporaryFileURL()
+    let unknownFields: [UInt8] = [
+      // Field 1, 150
+      0x08, 0x96, 0x01,
+      // Field 2, string "testing"
+      0x12, 0x07, 0x74, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x67
+    ]
+    let message = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: unknownFields)
+    try writeMessagesToFile(url, messages: [message])
+    
+    var decodingOptions = BinaryDecodingOptions()
+    let decodedWithUnknown = SwiftProtoTesting_TestEmptyMessage.asyncSequence(
+      asyncBytes: url.resourceBytes,
+      options: decodingOptions
+    )
+    for try await message in decodedWithUnknown {
+      XCTAssertEqual(Array(message.unknownFields.data), unknownFields)
+    }
+    
+    decodingOptions.discardUnknownFields = true
+    let decodedWithUnknownDiscarded = SwiftProtoTesting_TestEmptyMessage.asyncSequence(
+      asyncBytes: url.resourceBytes,
+      options: decodingOptions
+    )
+    var count = 0;
+    for try await message in decodedWithUnknownDiscarded {
+      XCTAssertTrue(message.unknownFields.data.isEmpty)
+      count += 1
+    }
+    XCTAssertEqual(count, 1, "Expected one message with unknown fields discarded.")
+  }
+  
   // Decode zero length messages
   func testZeroLengthMessages() async throws {
     var messages = [SwiftProtoTesting_TestAllTypes]()
@@ -99,7 +133,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     }
     await fulfillment(of: [expectation], timeout: 1)
   }
-
+  
   // Single varint describing a 2GB message
   func testTooLarge() async throws {
     let expectation = expectation(description: "Should throw a BinaryDecodingError.tooLarge")
@@ -137,7 +171,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     await fulfillment(of: [expectation], timeout: 1)
   }
   
-  //Stream with a valid varint and message, but the following varint is truncated
+  // Stream with a valid varint and message, but the following varint is truncated
   func testValidMessageThenTruncatedVarint() async throws {
     let expectSingleMessage = expectation(description: "One message should be deserialized")
     let expectTruncated = expectation(description: "Should encounter a BinaryDecodingError.truncated")
@@ -171,8 +205,8 @@ class Test_AsyncMessageSequence: XCTestCase {
     await fulfillment(of: [expectSingleMessage, expectTruncated], timeout: 1)
   }
   
-  //Creates a URL for a temporary file on disk. Registers a teardown block to
-  //delete a file at that URL (if one exists) during test teardown.
+  // Creates a URL for a temporary file on disk. Registers a teardown block to
+  // delete a file at that URL (if one exists) during test teardown.
   fileprivate func temporaryFileURL() -> URL {
     let directory = NSTemporaryDirectory()
     let filename = UUID().uuidString
@@ -192,7 +226,7 @@ class Test_AsyncMessageSequence: XCTestCase {
     return fileURL
   }
   
-  //Writes messages to the provided URL
+  // Writes messages to the provided URL
   fileprivate func writeMessagesToFile(_ fileURL: URL, messages: [Message], trailingData: [UInt8]? = nil) throws {
     let outputStream = OutputStream(url: fileURL, append: false)!
     outputStream.open()
