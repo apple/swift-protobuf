@@ -30,14 +30,14 @@ environment variable to the full path of the protobuf checkout.
 If the Makefile can find the protobuf project sources, then
 the following should suffice:
 ```console
-$ make test
+make test
 ```
 This will build and run the SwiftProtobuf test suite,
 verify the code generator, and finally run the conformance tests.
 
 You can also run the conformance tests by themselves:
 ```console
-$ make test-conformance
+make test-conformance
 ```
 
 ## Test Environment
@@ -54,7 +54,7 @@ GOOGLE_PROTOBUF_CHECKOUT?=../protobuf
 If these do not match your system, you can specify one or both
 on the command line
 ```
-$ make PROTOC=[path] GOOGLE_PROTOBUF_CHECKOUT=[path] test
+make PROTOC=[path] GOOGLE_PROTOBUF_CHECKOUT=[path] test
 ```
 
 ## If you have problems
@@ -64,16 +64,16 @@ program.  You may find it easier to switch to the directory where you
 have checked out Google's protobuf sources and build the host program
 manually:
 ```console
-$ cd protobuf
-$ ./configure
-$ make -C src
-$ make -C conformance
+cd protobuf
+./configure
+make -C src
+make -C conformance
 ```
 
 You can then manually run the conformance test using the following commands:
 ```console
-$ cd swift-protobuf
-$ ../protobuf/conformance/conformance-test-runner --failure_list failure_list_swift.txt .build/debug/Conformance
+cd swift-protobuf
+../protobuf/conformance/conformance-test-runner --failure_list failure_list_swift.txt .build/debug/Conformance
 ```
 
 ## Known Issues
