@@ -15,10 +15,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: `AnyMessageExtension` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
-
 /// Type-erased MessageExtension field implementation.
-public protocol AnyMessageExtension: Sendable {
+public protocol AnyMessageExtension: _ProtoSendable {
     var fieldNumber: Int { get }
     var fieldName: String { get }
     var messageType: Message.Type { get }
@@ -28,7 +26,7 @@ public protocol AnyMessageExtension: Sendable {
 /// A "Message Extension" relates a particular extension field to
 /// a particular message.  The generic constraints allow
 /// compile-time compatibility checks.
-public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension, Sendable {
+public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension, _ProtoSendable {
     public let fieldNumber: Int
     public let fieldName: String
     public let messageType: Message.Type

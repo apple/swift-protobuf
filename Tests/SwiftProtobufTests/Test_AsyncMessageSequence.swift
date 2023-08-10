@@ -17,6 +17,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
+#if swift(>=5.5) && canImport(_Concurrency)
 final class Test_AsyncMessageSequence: XCTestCase {
   
   // Decode a valid binary delimited stream
@@ -33,7 +34,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     try writeMessagesToFile(url, messages: messages)
     
     // Recreate the original array
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(baseSequence: url.resourceBytes)
+    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(baseSequence: url.resourceBytes)
     let observed = try await decoded.reduce(into: [Int32]()) { array, element in
       array.append(element.optionalInt32)
     }
@@ -53,7 +54,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     try writeMessagesToFile(url, messages: [message])
     
     var decodingOptions = BinaryDecodingOptions()
-    let decodedWithUnknown = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestEmptyMessage>(
+    let decodedWithUnknown = SwiftProtoTesting_TestEmptyMessage.asyncSequence(
       baseSequence: url.resourceBytes,
       options: decodingOptions
     )
@@ -62,7 +63,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     }
     
     decodingOptions.discardUnknownFields = true
-    let decodedWithUnknownDiscarded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestEmptyMessage>(
+    let decodedWithUnknownDiscarded = SwiftProtoTesting_TestEmptyMessage.asyncSequence(
       baseSequence: url.resourceBytes,
       options: decodingOptions
     )
@@ -239,3 +240,4 @@ final class Test_AsyncMessageSequence: XCTestCase {
     outputStream.close()
   }
 }
+#endif
