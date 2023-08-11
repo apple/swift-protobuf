@@ -16,8 +16,27 @@
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension Message {
   
-  /// Creates an asynchronous sequence of messages decoded from an asynchronous sequence of bytes.
-  public static func asyncSequence<Base: AsyncSequence> (
+  /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
+  /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
+  /// is a varint encoding the message size followed by a message of exactly that size.
+  ///
+  /// - Parameters:
+  ///   - baseSequence: The `AsyncSequence` to read messages from.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///    messages encoded by this sequence, or in messages nested within these messages.
+  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
+  ///     will be checked to ensure all fields are present. If any are missing,
+  ///     `BinaryEncodingError.missingRequiredFields` will be thrown.
+  ///   - options: The BinaryDecodingOptions to use.
+  /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+  /// - Throws: `BinaryDecodingError` if decoding fails, throws
+  ///           `BinaryDelimited.Error` for some reading errors,
+  ///           `BinaryDecodingError.truncated` if the sequence ends before fully decoding a
+  ///           message or a delimiter,
+  ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
+  ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
+  ///
+public static func asyncSequence<Base: AsyncSequence> (
     baseSequence: Base,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
@@ -35,7 +54,25 @@ extension Message {
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension AsyncSequence {
   
-  /// Creates an asynchronous sequence of messages decoded from this asynchronous sequence of bytes.
+  /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
+  /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
+  /// is a varint encoding the message size followed by a message of exactly that size.
+  ///
+  /// - Parameters:
+  ///   - messageType: The  type of message to read.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///    messages encoded by this sequence, or in messages nested within these messages.
+  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
+  ///     will be checked to ensure all fields are present. If any are missing,
+  ///     `BinaryEncodingError.missingRequiredFields` will be thrown.
+  ///   - options: The BinaryDecodingOptions to use.
+  /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+  /// - Throws: `BinaryDecodingError` if decoding fails, throws
+  ///           `BinaryDelimited.Error` for some reading errors,
+  ///           `BinaryDecodingError.truncated` if the stream ends before fully decoding a
+  ///           message or a delimiter,
+  ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
+  ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   public func decodedBinaryDelimitedMessages<M: Message>(
     messageType: M.Type,
     extensions: ExtensionMap? = nil,
@@ -65,6 +102,25 @@ where Base: Sendable, Base.Element == UInt8 {
   private let partial: Bool
   private let options: BinaryDecodingOptions
   
+  /// Reads size-delimited messages from the given sequence of bytes. Delimited
+  /// format allows a single file or stream to contain multiple messages. A delimited message
+  /// is a varint encoding the message size followed by a message of exactly that size.
+  ///
+  /// - Parameters:
+  ///   - baseSequence: The `AsyncSequence` to read messages from.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
+  ///    messages encoded by this sequence, or in messages nested within these messages.
+  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
+  ///     will be checked to ensure all fields are present. If any are missing,
+  ///     `BinaryEncodingError.missingRequiredFields` will be thrown.
+  ///   - options: The BinaryDecodingOptions to use.
+  /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
+  /// - Throws: `BinaryDecodingError` if decoding fails, throws
+  ///           `BinaryDelimited.Error` for some reading errors,
+  ///           `BinaryDecodingError.truncated` if the stream ends before fully decoding a
+  ///           message or a delimiter,
+  ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
+  ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   public init(
     baseSequence: Base,
     extensions: ExtensionMap? = nil,
