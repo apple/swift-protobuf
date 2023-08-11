@@ -33,6 +33,25 @@ extension Message {
 }
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+extension AsyncSequence {
+  
+  /// Creates an asynchronous sequence of messages decoded from this asynchronous sequence of bytes.
+  public func decodedBinaryDelimitedMessages<M: Message>(
+    messageType: M.Type,
+    extensions: ExtensionMap? = nil,
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
+  ) -> AsyncMessageSequence<Self, M> {
+    AsyncMessageSequence<Self, M>(
+      baseSequence: self,
+      extensions: extensions,
+      partial: partial,
+      options: options
+    )
+  }
+}
+
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 /// An asynchronous sequence of messages decoded from an asynchronous sequence of bytes.
 public struct AsyncMessageSequence<Base: AsyncSequence, M: Message>:
   AsyncSequence, Sendable

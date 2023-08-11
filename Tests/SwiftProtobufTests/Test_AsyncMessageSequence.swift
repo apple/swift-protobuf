@@ -34,7 +34,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     try writeMessagesToFile(url, messages: messages)
     
     // Recreate the original array
-    let decoded = SwiftProtoTesting_TestAllTypes.asyncSequence(baseSequence: url.resourceBytes)
+    let decoded = url.resourceBytes.decodedBinaryDelimitedMessages(messageType: SwiftProtoTesting_TestAllTypes.self)
     let observed = try await decoded.reduce(into: [Int32]()) { array, element in
       array.append(element.optionalInt32)
     }
