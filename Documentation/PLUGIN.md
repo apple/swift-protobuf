@@ -19,9 +19,8 @@ Swift runtime library to your project.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A recent Swift 4.0 compiler that includes the Swift Package Manager.
-  We recommend using the latest release build from
-  [Swift.org](https://swift.org) or the command-line tools included
+* A recent Swift compiler. We recommend using the latest release build
+  from [Swift.org](https://swift.org) or the command-line tools included
   with the latest version of Xcode.
 
 * Google's protoc compiler.  You can get recent versions from
@@ -40,10 +39,6 @@ swift build -c release
 This will create a binary called `protoc-gen-swift` in the
 `.build/release` directory.  To install, just copy this one executable
 anywhere in your PATH.
-
-NOTE: The Swift runtime support is now included with macOS. If you are
-using old Xcode versions or are on older system versions, you might need
-to use also use `--static-swift-stdlib` with `swift build`.
 
 ### Converting .proto files into Swift
 
@@ -165,8 +160,8 @@ The `proto_file_path` values here should match the paths used in the proto file
 ##### Generation Option: `ImplementationOnlyImports` - `@_implementationOnly`-annotated imports
 
 By default, SwiftProtobuf does not annotate any imports with `@_implementationOnly`.
-However, in some scenarios, such as when distributing an `XCFramework`, imports 
-for types used only internally should be annotated as `@_implementationOnly` to 
+However, in some scenarios, such as when distributing an `XCFramework`, imports
+for types used only internally should be annotated as `@_implementationOnly` to
 avoid exposing internal symbols to clients.
 You can change this with the `ImplementationOnlyImports` option:
 
@@ -178,11 +173,11 @@ The possible values for `ImplementationOnlyImports` are:
 
 * `false` (default): The `@_implementationOnly` annotation will never be used.
 * `true`: Imports of internal dependencies and any modules defined in the module
-mappings will be annotated as `@_implementationOnly`. 
+mappings will be annotated as `@_implementationOnly`.
 
-**Important:** Modules cannot be imported as implementation-only if they're 
+**Important:** Modules cannot be imported as implementation-only if they're
 exposed via public API, so even if `ImplementationOnlyImports` is set to `true`,
-this will only work if the `Visibility` is set to `internal`.  
+this will only work if the `Visibility` is set to `internal`.
 
 
 ### Building your project
