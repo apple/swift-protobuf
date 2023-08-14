@@ -14,44 +14,6 @@
 // -----------------------------------------------------------------------------
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-extension Message {
-  
-  /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
-  /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
-  /// is a varint encoding the message size followed by a message of exactly that size.
-  ///
-  /// - Parameters:
-  ///   - baseSequence: The `AsyncSequence` to read messages from.
-  ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
-  ///    messages encoded by this sequence, or in messages nested within these messages.
-  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
-  ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryEncodingError.missingRequiredFields` will be thrown.
-  ///   - options: The BinaryDecodingOptions to use.
-  /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors,
-  ///           `BinaryDecodingError.truncated` if the sequence ends before fully decoding a
-  ///           message or a delimiter,
-  ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
-  ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
-  ///
-public static func asyncSequence<Base: AsyncSequence> (
-    baseSequence: Base,
-    extensions: ExtensionMap? = nil,
-    partial: Bool = false,
-    options: BinaryDecodingOptions = BinaryDecodingOptions()
-  ) -> AsyncMessageSequence<Base, Self> {
-    AsyncMessageSequence<Base, Self>(
-      baseSequence: baseSequence,
-      extensions: extensions,
-      partial: partial,
-      options: options
-    )
-  }
-}
-
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 extension AsyncSequence {
   
   /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
@@ -64,7 +26,7 @@ extension AsyncSequence {
   ///    messages encoded by this sequence, or in messages nested within these messages.
   ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
   ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryEncodingError.missingRequiredFields` will be thrown.
+  ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
   /// - Throws: `BinaryDecodingError` if decoding fails, throws
@@ -74,13 +36,13 @@ extension AsyncSequence {
   ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
   ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   public func decodedBinaryDelimitedMessages<M: Message>(
-    messageType: M.Type,
+    of messageType: M.Type = M.self,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) -> AsyncMessageSequence<Self, M> {
     AsyncMessageSequence<Self, M>(
-      baseSequence: self,
+      base: self,
       extensions: extensions,
       partial: partial,
       options: options
@@ -90,14 +52,15 @@ extension AsyncSequence {
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 /// An asynchronous sequence of messages decoded from an asynchronous sequence of bytes.
-public struct AsyncMessageSequence<Base: AsyncSequence, M: Message>:
-  AsyncSequence, Sendable
-where Base: Sendable, Base.Element == UInt8 {
+public struct AsyncMessageSequence<
+  Base: AsyncSequence,
+  M: Message
+>: AsyncSequence where Base.Element == UInt8 {
   
   /// The message type in this asynchronous sequence.
   public typealias Element = M
   
-  private let baseSequence: Base
+  private let base: Base
   private let extensions: ExtensionMap?
   private let partial: Bool
   private let options: BinaryDecodingOptions
@@ -112,7 +75,7 @@ where Base: Sendable, Base.Element == UInt8 {
   ///    messages encoded by this sequence, or in messages nested within these messages.
   ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
   ///     will be checked to ensure all fields are present. If any are missing,
-  ///     `BinaryEncodingError.missingRequiredFields` will be thrown.
+  ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
   /// - Throws: `BinaryDecodingError` if decoding fails, throws
@@ -122,21 +85,19 @@ where Base: Sendable, Base.Element == UInt8 {
   ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
   ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   public init(
-    baseSequence: Base,
+    base: Base,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) {
-    self.baseSequence = baseSequence
+    self.base = base
     self.extensions = extensions
     self.partial = partial
     self.options = options
   }
   
   /// An asynchronous iterator that produces the messages of this asynchronous sequence
-  @frozen public struct AsyncIterator: AsyncIteratorProtocol, Sendable
-  where Base.AsyncIterator: Sendable {
-    
+  public struct AsyncIterator: AsyncIteratorProtocol {
     private var iterator: Base.AsyncIterator?
     private let extensions: ExtensionMap?
     private let partial: Bool
@@ -163,6 +124,7 @@ where Base: Sendable, Base.Element == UInt8 {
         messageSize |= UInt64(byte & 0x7f) << shift
         shift += UInt64(7)
         if shift > 35 {
+          iterator = nil
           throw BinaryDecodingError.malformedProtobuf
         }
         if (byte & 0x80 == 0) {
@@ -171,6 +133,7 @@ where Base: Sendable, Base.Element == UInt8 {
       }
       if (shift > 0) {
         // The stream has ended inside a varint.
+        iterator = nil
         throw BinaryDecodingError.truncated
       }
       return nil // End of stream reached.
@@ -194,6 +157,7 @@ where Base: Sendable, Base.Element == UInt8 {
           options: options
         )
       } else if messageSize > 0x7fffffff {
+        iterator = nil
         throw BinaryDecodingError.tooLarge
       }
       
@@ -223,10 +187,16 @@ where Base: Sendable, Base.Element == UInt8 {
   /// messages in the asynchronous sequence.
   public func makeAsyncIterator() -> AsyncMessageSequence.AsyncIterator {
     AsyncIterator(
-      iterator: baseSequence.makeAsyncIterator(),
+      iterator: base.makeAsyncIterator(),
       extensions: extensions,
       partial: partial,
       options: options
     )
   }
 }
+
+@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+extension AsyncMessageSequence: Sendable where Base: Sendable { }
+
+@available(*, unavailable)
+extension AsyncMessageSequence.AsyncIterator: Sendable { }
