@@ -14,8 +14,7 @@
 // -----------------------------------------------------------------------------
 
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
-extension AsyncSequence {
-  
+extension AsyncSequence where Element == UInt8 {
   /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
   /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
   /// is a varint encoding the message size followed by a message of exactly that size.
