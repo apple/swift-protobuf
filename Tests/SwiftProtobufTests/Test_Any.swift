@@ -827,7 +827,8 @@ class Test_Any: XCTestCase {
 struct ConflictingImportMessage:
     SwiftProtobuf.Message,
     SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding {
+    SwiftProtobuf._ProtoNameProviding,
+    @unchecked Sendable {  // Once swift(>=5.7) the '@unchecked' can be removed, it is needed for Data.
   static let protoMessageName: String = "swift_proto_testing.import.ImportMessage"
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -850,7 +851,3 @@ struct ConflictingImportMessage:
     return true
   }
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ConflictingImportMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
