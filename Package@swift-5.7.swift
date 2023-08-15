@@ -1,4 +1,4 @@
-// swift-tools-version:5.8
+// swift-tools-version:5.6
 
 // Package.swift
 //
@@ -37,10 +37,7 @@ let package = Package(
   targets: [
     .target(
         name: "SwiftProtobuf",
-        exclude: ["CMakeLists.txt"],
-        swiftSettings: [
-          .enableExperimentalFeature("StrictConcurrency=complete"),
-        ]
+        exclude: ["CMakeLists.txt"]
     ),
     .target(
         name: "SwiftProtobufPluginLibrary",
@@ -49,10 +46,7 @@ let package = Package(
     ),
     .target(
         name: "SwiftProtobufTestHelpers",
-        dependencies: ["SwiftProtobuf"],
-        swiftSettings: [
-          .enableExperimentalFeature("StrictConcurrency=complete"),
-        ]
+        dependencies: ["SwiftProtobuf"]
     ),
     .executableTarget(
         name: "protoc-gen-swift",
@@ -73,10 +67,7 @@ let package = Package(
     ),
     .testTarget(
         name: "SwiftProtobufTests",
-        dependencies: ["SwiftProtobuf"],
-        swiftSettings: [
-          .enableExperimentalFeature("StrictConcurrency=complete"),
-        ]
+        dependencies: ["SwiftProtobuf"]
     ),
     .testTarget(
         name: "SwiftProtobufPluginLibraryTests",
