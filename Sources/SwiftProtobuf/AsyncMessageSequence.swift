@@ -13,8 +13,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-#if swift(>=5.5) && canImport(_Concurrency)
-@available(macOS 10.15, *)
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension AsyncSequence where Element == UInt8 {
   /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
   /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
@@ -52,7 +51,7 @@ extension AsyncSequence where Element == UInt8 {
 }
 
 /// An asynchronous sequence of messages decoded from an asynchronous sequence of bytes.
-@available(macOS 10.15, *)
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public struct AsyncMessageSequence<
   Base: AsyncSequence,
   M: Message
@@ -196,9 +195,8 @@ public struct AsyncMessageSequence<
   }
 }
 
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension AsyncMessageSequence: Sendable where Base: Sendable { }
 
 @available(*, unavailable)
 extension AsyncMessageSequence.AsyncIterator: Sendable { }
-#endif

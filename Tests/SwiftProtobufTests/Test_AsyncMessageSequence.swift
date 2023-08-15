@@ -17,7 +17,6 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-#if swift(>=5.5) && canImport(_Concurrency)
 final class Test_AsyncMessageSequence: XCTestCase {
   
   // Decode a valid binary delimited stream
@@ -222,4 +221,3 @@ final class Test_AsyncMessageSequence: XCTestCase {
     return [UInt8](data)
   }
 }
-#endif

@@ -16,7 +16,7 @@
 // -----------------------------------------------------------------------------
 
 /// Type-erased MessageExtension field implementation.
-public protocol AnyMessageExtension: _ProtoSendable {
+public protocol AnyMessageExtension: Sendable {
     var fieldNumber: Int { get }
     var fieldName: String { get }
     var messageType: Message.Type { get }
@@ -26,7 +26,7 @@ public protocol AnyMessageExtension: _ProtoSendable {
 /// A "Message Extension" relates a particular extension field to
 /// a particular message.  The generic constraints allow
 /// compile-time compatibility checks.
-public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension, _ProtoSendable {
+public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension, Sendable {
     public let fieldNumber: Int
     public let fieldName: String
     public let messageType: Message.Type
