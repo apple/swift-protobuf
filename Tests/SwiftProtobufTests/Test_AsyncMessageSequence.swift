@@ -30,11 +30,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
       }
       messages.append(message)
     }
-    let url = temporaryFileURL()
-    try writeMessagesToFile(url, messages: messages)
+    let serialized = try serializedMessageData(messages: messages)
+    let asyncBytes = asyncByteStream(bytes: serialized)
     
     // Recreate the original array
-    let decoded = url.resourceBytes.decodedBinaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     let observed = try await decoded.reduce(into: [Int32]()) { array, element in
       array.append(element.optionalInt32)
     }
@@ -43,7 +43,6 @@ final class Test_AsyncMessageSequence: XCTestCase {
   
   // Decode a message from a stream, discarding unknown fields
   func testBinaryDecodingOptions() async throws {
-    let url = temporaryFileURL()
     let unknownFields: [UInt8] = [
       // Field 1, 150
       0x08, 0x96, 0x01,
@@ -51,19 +50,22 @@ final class Test_AsyncMessageSequence: XCTestCase {
       0x12, 0x07, 0x74, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x67
     ]
     let message = try SwiftProtoTesting_TestEmptyMessage(serializedBytes: unknownFields)
-    try writeMessagesToFile(url, messages: [message])
-    
+    let serialized = try serializedMessageData(messages: [message])
+    var asyncBytes = asyncByteStream(bytes: serialized)
     var decodingOptions = BinaryDecodingOptions()
-    let decodedWithUnknown = url.resourceBytes.decodedBinaryDelimitedMessages(
+    let decodedWithUnknown = asyncBytes.binaryDelimitedMessages(
       of: SwiftProtoTesting_TestEmptyMessage.self,
       options: decodingOptions
     )
+    
+    // First ensure unknown fields are decoded
     for try await message in decodedWithUnknown {
       XCTAssertEqual(Array(message.unknownFields.data), unknownFields)
     }
-    
+    asyncBytes = asyncByteStream(bytes: serialized)
+    // Then re-run ensuring unknowh fields are discarded
     decodingOptions.discardUnknownFields = true
-    let decodedWithUnknownDiscarded = url.resourceBytes.decodedBinaryDelimitedMessages(
+    let decodedWithUnknownDiscarded = asyncBytes.binaryDelimitedMessages(
       of: SwiftProtoTesting_TestEmptyMessage.self,
       options: decodingOptions
     )
@@ -81,11 +83,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
     for _ in 1...5 {
       messages.append(SwiftProtoTesting_TestAllTypes())
     }
-    let url = temporaryFileURL()
-    try writeMessagesToFile(url, messages: messages)
+    let serialized = try serializedMessageData(messages: messages)
+    let asyncBytes = asyncByteStream(bytes: serialized)
     
     var count = 0
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
+    let decoded = AsyncMessageSequence<AsyncStream<UInt8>, SwiftProtoTesting_TestAllTypes>(base: asyncBytes)
     for try await message in decoded {
       XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
       count += 1
@@ -95,10 +97,9 @@ final class Test_AsyncMessageSequence: XCTestCase {
   
   // Stream with a single zero varint
   func testStreamZeroVarintOnly() async throws {
-    let url = temporaryFileURL()
-    try Data([0]).write(to: url)
+    let seq = asyncByteStream(bytes: [0])
+    let decoded = seq.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
     var count = 0
     for try await message in decoded {
       XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
@@ -109,135 +110,116 @@ final class Test_AsyncMessageSequence: XCTestCase {
   
   // Empty stream with zero bytes
   func testEmptyStream() async throws {
-    let url = temporaryFileURL()
-    try writeMessagesToFile(url, messages: [SwiftProtoTesting_TestAllTypes]())
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
-    for try await _ in decoded {
+    let asyncBytes = asyncByteStream(bytes: [])
+    let messages = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    for try await _ in messages {
       XCTFail("Shouldn't have returned a value for an empty stream.")
     }
   }
   
   // A stream with legal non-zero varint but no message
   func testNonZeroVarintNoMessage() async throws {
-    let expectation = expectation(description: "Should throw a BinaryDecodingError.truncated")
-    let url = temporaryFileURL()
-    try Data([0x96, 0x01]).write(to: url) //150 in decimal
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
+    let asyncBytes = asyncByteStream(bytes: [0x96, 0x01])
+    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    var truncatedThrown = false
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
       if error as! BinaryDecodingError == .truncated {
-        expectation.fulfill()
+        truncatedThrown = true
       }
     }
-    await fulfillment(of: [expectation], timeout: 1)
+    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDecodingError.truncated")
   }
   
   // Single varint describing a 2GB message
   func testTooLarge() async throws {
-    let expectation = expectation(description: "Should throw a BinaryDecodingError.tooLarge")
-    let url = temporaryFileURL()
-    let varInt: [UInt8] = [128, 128, 128, 128, 8]
-    try Data(varInt).write(to: url)
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
+    let asyncBytes = asyncByteStream(bytes: [128, 128, 128, 128, 8])
+    var tooLargeThrown = false
+    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an invalid stream.")
       }
     } catch {
       if error as! BinaryDecodingError == .tooLarge {
-        expectation.fulfill()
+        tooLargeThrown = true
       }
     }
-    await fulfillment(of: [expectation], timeout: 1)
+    XCTAssertTrue(tooLargeThrown, "Should throw a BinaryDecodingError.tooLarge")
   }
   
   // Stream with truncated varint
   func testTruncatedVarint() async throws {
-    let expectation = expectation(description: "Should throw a BinaryDecodingError.truncated")
-    let url = temporaryFileURL()
-    try Data([192]).write(to: url)
-    let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
+    let asyncBytes = asyncByteStream(bytes: [192])
+    
+    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    var truncatedThrown = false
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
       if error as! BinaryDecodingError == .truncated {
-        expectation.fulfill()
+        truncatedThrown = true
       }
     }
-    await fulfillment(of: [expectation], timeout: 1)
+    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDecodingError.truncated")
   }
   
   // Stream with a valid varint and message, but the following varint is truncated
   func testValidMessageThenTruncatedVarint() async throws {
-    let expectSingleMessage = expectation(description: "One message should be deserialized")
-    let expectTruncated = expectation(description: "Should encounter a BinaryDecodingError.truncated")
-    let url = temporaryFileURL()
+    var truncatedThrown = false
     let msg = SwiftProtoTesting_TestAllTypes.with {
       $0.optionalInt64 = 123456789
     }
-    
     let truncatedVarint: [UInt8] = [224, 216]
-    try writeMessagesToFile(url, messages: [msg], trailingData: truncatedVarint)
+    var serialized = try serializedMessageData(messages: [msg])
+    serialized += truncatedVarint
+    let asyncBytes = asyncByteStream(bytes: serialized)
     
     do {
       var count = 0
-      let decoded = AsyncMessageSequence<URL.AsyncBytes, SwiftProtoTesting_TestAllTypes>(base: url.resourceBytes)
+      let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
       for try await message in decoded {
         XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes.with {
           $0.optionalInt64 = 123456789
         })
         count += 1
-        if count == 1 {
-          expectSingleMessage.fulfill()
-        } else {
+        if count > 1 {
           XCTFail("Expected one message only.")
         }
       }
+      XCTAssertEqual(count, 1, "One message should be deserialized")
     } catch {
       if error as! BinaryDecodingError == .truncated {
-        expectTruncated.fulfill()
+        truncatedThrown = true
       }
     }
-    await fulfillment(of: [expectSingleMessage, expectTruncated], timeout: 1)
+    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDecodingError.truncated")
   }
   
-  // Creates a URL for a temporary file on disk. Registers a teardown block to
-  // delete a file at that URL (if one exists) during test teardown.
-  fileprivate func temporaryFileURL() -> URL {
-    let directory = NSTemporaryDirectory()
-    let filename = UUID().uuidString
-    let fileURL = URL(fileURLWithPath: directory).appendingPathComponent(filename)
-    
-    addTeardownBlock {
-      do {
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: fileURL.path) {
-          try fileManager.removeItem(at: fileURL)
-          XCTAssertFalse(fileManager.fileExists(atPath: fileURL.path))
+  fileprivate func asyncByteStream(bytes: [UInt8]) -> AsyncStream<UInt8> {
+      AsyncStream(UInt8.self) { continuation in
+        for byte in bytes {
+          continuation.yield(byte)
         }
-      } catch {
-        XCTFail("Error while deleting temporary file: \(error)")
+        continuation.finish()
       }
-    }
-    return fileURL
   }
-  
-  // Writes messages to the provided URL
-  fileprivate func writeMessagesToFile(_ fileURL: URL, messages: [Message], trailingData: [UInt8]? = nil) throws {
-    let outputStream = OutputStream(url: fileURL, append: false)!
-    outputStream.open()
+
+  fileprivate func serializedMessageData(messages: [Message]) throws -> [UInt8] {
+    let memoryOutputStream = OutputStream.toMemory()
+    memoryOutputStream.open()
     for message in messages {
-      try BinaryDelimited.serialize(message: message, to: outputStream)
+      XCTAssertNoThrow(try BinaryDelimited.serialize(message: message, to: memoryOutputStream))
     }
-    if let trailingData {
-      outputStream.write(trailingData, maxLength: trailingData.count)
-    }
-    outputStream.close()
+    memoryOutputStream.close()
+    let nsData = memoryOutputStream.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
+    let data = Data(referencing: nsData)
+    return [UInt8](data)
   }
 }
 #endif

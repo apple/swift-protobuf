@@ -13,7 +13,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+#if swift(>=5.5) && canImport(_Concurrency)
+@available(macOS 10.15, *)
 extension AsyncSequence where Element == UInt8 {
   /// Creates an asynchronous sequence of size-delimited messages from this sequence of bytes.
   /// Delimited format allows a single file or stream to contain multiple messages. A delimited message
@@ -34,7 +35,8 @@ extension AsyncSequence where Element == UInt8 {
   ///           message or a delimiter,
   ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
   ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
-  public func decodedBinaryDelimitedMessages<M: Message>(
+  @inlinable
+  public func binaryDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
@@ -49,8 +51,8 @@ extension AsyncSequence where Element == UInt8 {
   }
 }
 
-@available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
 /// An asynchronous sequence of messages decoded from an asynchronous sequence of bytes.
+@available(macOS 10.15, *)
 public struct AsyncMessageSequence<
   Base: AsyncSequence,
   M: Message
@@ -199,3 +201,4 @@ extension AsyncMessageSequence: Sendable where Base: Sendable { }
 
 @available(*, unavailable)
 extension AsyncMessageSequence.AsyncIterator: Sendable { }
+#endif
