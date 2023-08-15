@@ -98,10 +98,14 @@ public struct AsyncMessageSequence<
   
   /// An asynchronous iterator that produces the messages of this asynchronous sequence
   public struct AsyncIterator: AsyncIteratorProtocol {
-    private var iterator: Base.AsyncIterator?
-    private let extensions: ExtensionMap?
-    private let partial: Bool
-    private let options: BinaryDecodingOptions
+    @usableFromInline
+    var iterator: Base.AsyncIterator?
+    @usableFromInline
+    let extensions: ExtensionMap?
+    @usableFromInline
+    let partial: Bool
+    @usableFromInline
+    let options: BinaryDecodingOptions
     
     init(
       iterator: Base.AsyncIterator,
@@ -116,7 +120,8 @@ public struct AsyncMessageSequence<
     }
     
     /// Aysnchronously reads the next varint
-    private mutating func nextVarInt() async throws -> UInt64? {
+    @inlinable
+    mutating func nextVarInt() async throws -> UInt64? {
       var messageSize: UInt64 = 0
       var shift: UInt64 = 0
       
@@ -144,6 +149,7 @@ public struct AsyncMessageSequence<
     ///
     /// - Returns: The next message, if it exists, or `nil` to signal the end of
     ///   the sequence.
+    @inlinable
     public mutating func next() async throws -> M? {
       guard let messageSize = try await nextVarInt() else {
         iterator = nil
