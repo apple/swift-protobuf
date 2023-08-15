@@ -113,9 +113,9 @@ public protocol Message: _MessageBase {
 }
 
 #if DEBUG
-public protocol _MessageBase: _ProtoSendable, CustomDebugStringConvertible {}
+public protocol _MessageBase: Sendable, CustomDebugStringConvertible {}
 #else
-public protocol _MessageBase: _ProtoSendable {}
+public protocol _MessageBase: Sendable {}
 #endif
 
 extension Message {
