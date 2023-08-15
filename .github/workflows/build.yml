@@ -60,10 +60,10 @@ jobs:
         esac
     - name: Build
       working-directory: main
-      run: make build
+      run: make build "SWIFT_BUILD_TEST_HOOK=-Xswiftc -warnings-as-errors"
     - name: Test runtime
       working-directory: main
-      run: make test-runtime
+      run: make test-runtime "SWIFT_BUILD_TEST_HOOK=-Xswiftc -warnings-as-errors"
     - name: Cache protobuf
       id: cache-protobuf
       uses: actions/cache@v3
