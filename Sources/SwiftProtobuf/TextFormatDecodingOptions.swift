@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 /// Options for TextFormatDecoding.
-public struct TextFormatDecodingOptions {
+public struct TextFormatDecodingOptions: Sendable {
   /// The maximum nesting of message with messages.  The default is 100.
   ///
   /// To prevent corrupt or malicious messages from causing stack overflows,
