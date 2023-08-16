@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 /// Options for JSONEncoding.
-public struct JSONEncodingOptions {
+public struct JSONEncodingOptions: Sendable {
 
   /// Always prints int64s values as numbers.
   /// By default, they are printed as strings as per proto3 JSON mapping rules.
