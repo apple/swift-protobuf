@@ -26,7 +26,7 @@ public protocol AnyMessageExtension: Sendable {
 /// A "Message Extension" relates a particular extension field to
 /// a particular message.  The generic constraints allow
 /// compile-time compatibility checks.
-public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension, Sendable {
+public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension {
     public let fieldNumber: Int
     public let fieldName: String
     public let messageType: Message.Type

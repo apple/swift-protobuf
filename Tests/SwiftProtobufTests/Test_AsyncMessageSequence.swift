@@ -33,7 +33,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     let asyncBytes = asyncByteStream(bytes: serialized)
     
     // Recreate the original array
-    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     let observed = try await decoded.reduce(into: [Int32]()) { array, element in
       array.append(element.optionalInt32)
     }
@@ -52,7 +52,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     let serialized = try serializedMessageData(messages: [message])
     var asyncBytes = asyncByteStream(bytes: serialized)
     var decodingOptions = BinaryDecodingOptions()
-    let decodedWithUnknown = asyncBytes.binaryDelimitedMessages(
+    let decodedWithUnknown = asyncBytes.binaryProtobufDelimitedMessages(
       of: SwiftProtoTesting_TestEmptyMessage.self,
       options: decodingOptions
     )
@@ -64,7 +64,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     asyncBytes = asyncByteStream(bytes: serialized)
     // Then re-run ensuring unknowh fields are discarded
     decodingOptions.discardUnknownFields = true
-    let decodedWithUnknownDiscarded = asyncBytes.binaryDelimitedMessages(
+    let decodedWithUnknownDiscarded = asyncBytes.binaryProtobufDelimitedMessages(
       of: SwiftProtoTesting_TestEmptyMessage.self,
       options: decodingOptions
     )
@@ -97,7 +97,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
   // Stream with a single zero varint
   func testStreamZeroVarintOnly() async throws {
     let seq = asyncByteStream(bytes: [0])
-    let decoded = seq.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let decoded = seq.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     
     var count = 0
     for try await message in decoded {
@@ -110,7 +110,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
   // Empty stream with zero bytes
   func testEmptyStream() async throws {
     let asyncBytes = asyncByteStream(bytes: [])
-    let messages = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let messages = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     for try await _ in messages {
       XCTFail("Shouldn't have returned a value for an empty stream.")
     }
@@ -119,7 +119,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
   // A stream with legal non-zero varint but no message
   func testNonZeroVarintNoMessage() async throws {
     let asyncBytes = asyncByteStream(bytes: [0x96, 0x01])
-    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     var truncatedThrown = false
     do {
       for try await _ in decoded {
@@ -137,7 +137,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
   func testTooLarge() async throws {
     let asyncBytes = asyncByteStream(bytes: [128, 128, 128, 128, 8])
     var tooLargeThrown = false
-    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     do {
       for try await _ in decoded {
         XCTFail("Shouldn't have returned a value for an invalid stream.")
@@ -154,7 +154,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
   func testTruncatedVarint() async throws {
     let asyncBytes = asyncByteStream(bytes: [192])
     
-    let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+    let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
     var truncatedThrown = false
     do {
       for try await _ in decoded {
@@ -181,7 +181,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
     
     do {
       var count = 0
-      let decoded = asyncBytes.binaryDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
+      let decoded = asyncBytes.binaryProtobufDelimitedMessages(of: SwiftProtoTesting_TestAllTypes.self)
       for try await message in decoded {
         XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes.with {
           $0.optionalInt64 = 123456789

@@ -20,7 +20,7 @@ extension AsyncSequence where Element == UInt8 {
   /// is a varint encoding the message size followed by a message of exactly that size.
   ///
   /// - Parameters:
-  ///   - messageType: The  type of message to read.
+  ///   - messageType: The type of message to read.
   ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
   ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
@@ -35,7 +35,7 @@ extension AsyncSequence where Element == UInt8 {
   ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
   ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   @inlinable
-  public func binaryDelimitedMessages<M: Message>(
+  public func binaryProtobufDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
     extensions: ExtensionMap? = nil,
     partial: Bool = false,
@@ -73,7 +73,7 @@ public struct AsyncMessageSequence<
   ///   - baseSequence: The `AsyncSequence` to read messages from.
   ///   - extensions: An `ExtensionMap` used to look up and decode any extensions in
   ///    messages encoded by this sequence, or in messages nested within these messages.
-  ///   - partial: If `false` (the default),  after decoding a message, `Message.isInitialized`
+  ///   - partial: If `false` (the default), after decoding a message, `Message.isInitialized`
   ///     will be checked to ensure all fields are present. If any are missing,
   ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
   ///   - options: The BinaryDecodingOptions to use.
