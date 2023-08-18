@@ -12,8 +12,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: `AnyExtensionField` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
-
 //
 // Type-erased Extension field implementation.
 // Note that it has no "self or associated type" references, so can
@@ -24,7 +22,7 @@
 // equality with some other extension field; but it's type-sealed
 // so you can't actually access the contained value itself.
 //
-public protocol AnyExtensionField {
+public protocol AnyExtensionField: Sendable {
   func hash(into hasher: inout Hasher)
   var protobufExtension: AnyMessageExtension { get }
   func isEqual(other: AnyExtensionField) -> Bool
@@ -48,7 +46,7 @@ extension AnyExtensionField {
 ///
 /// The regular ExtensionField type exposes the value directly.
 ///
-public protocol ExtensionField: AnyExtensionField, Hashable {
+public protocol ExtensionField: AnyExtensionField, Hashable, Sendable {
   associatedtype ValueType
   var value: ValueType { get set }
   init(protobufExtension: AnyMessageExtension, value: ValueType)

@@ -14,9 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: `ExtensionFieldValueSet` should be `Sendable` but we cannot do so yet without possibly breaking compatibility.
-
-public struct ExtensionFieldValueSet: Hashable {
+public struct ExtensionFieldValueSet: Hashable, Sendable {
   fileprivate var values = [Int : AnyExtensionField]()
 
   public static func ==(lhs: ExtensionFieldValueSet,

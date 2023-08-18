@@ -24,14 +24,12 @@
 
 import Foundation
 
-// TODO: `FieldType` and `FieldType.BaseType` should require `Sendable` but we cannot do so yet without possibly breaking compatibility.
-
 // Note: The protobuf- and JSON-specific methods here are defined
 // in ProtobufTypeAdditions.swift and JSONTypeAdditions.swift
-public protocol FieldType {
+public protocol FieldType: Sendable {
     // The Swift type used to store data for this field.  For example,
     // proto "sint32" fields use Swift "Int32" type.
-    associatedtype BaseType: Hashable
+    associatedtype BaseType: Hashable, Sendable
 
     // The default value for this field type before it has been set.
     // This is also used, for example, when JSON decodes a "null"
