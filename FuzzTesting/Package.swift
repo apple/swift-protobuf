@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "FuzzTesting",
+    platforms: [
+        .macOS(.v10_15),
+    ],
     dependencies: [
         .package(name: "SwiftProtobuf", path: ".."),
     ],
@@ -17,6 +20,9 @@ let package = Package(
             dependencies: ["SwiftProtobuf", "FuzzCommon"]),
         .target(
             name: "FuzzBinaryDelimited",
+            dependencies: ["SwiftProtobuf", "FuzzCommon"]),
+        .target(
+            name: "FuzzAsyncMessageSequence",
             dependencies: ["SwiftProtobuf", "FuzzCommon"]),
         .target(
             name: "FuzzJSON",
