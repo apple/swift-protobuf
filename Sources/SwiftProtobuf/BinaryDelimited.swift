@@ -32,6 +32,10 @@ public enum BinaryDelimited {
     /// Messages are limited by the protobuf spec to 2GB; when decoding, if the
     /// length says the payload is over 2GB, this error is raised.
     case tooLarge
+
+    /// While attempting to read the length of a message on the stream, the
+    /// bytes were malformed for the protobuf format.
+    case malformedLength
   }
 
   /// Serialize a single size-delimited message to the given stream. Delimited
@@ -246,7 +250,7 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
     }
     shift += 7
     if shift > 63 {
-      throw BinaryDecodingError.malformedProtobuf
+      throw BinaryDelimited.Error.malformedLength
     }
   }
 }
