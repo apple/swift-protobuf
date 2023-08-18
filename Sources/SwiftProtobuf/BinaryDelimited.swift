@@ -145,7 +145,7 @@ public enum BinaryDelimited {
   ///     extensions in this message or messages nested within this message's
   ///     fields.
   ///   - partial: If `false` (the default), this method will check
-  ///     `Message.isInitialized` before decoding to verify that all required
+  ///     `Message.isInitialized` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryDecodingError.missingRequiredFields`.
   ///   - options: The BinaryDecodingOptions to use.
