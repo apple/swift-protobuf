@@ -12,12 +12,98 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
+fileprivate func openInputStream(_ bytes: [UInt8]) -> InputStream {
+  let istream = InputStream(data: Data(bytes))
+  istream.open()
+  return istream
+}
+
 class Test_BinaryDelimited: XCTestCase {
 
-  func testEverything() {
-    // Don't need to test encode/decode since there are plenty of tests specific to that,
-    // just test the delimited behaviors.
+  /// Helper to assert the next message read matches and expected one.
+  func assertParse<M: Message & Equatable>(expected: M, onStream istream: InputStream) {
+    do {
+      let msg = try BinaryDelimited.parse(
+        messageType: M.self,
+        from: istream)
+      XCTAssertEqual(msg, expected)
+    } catch let e {
+      XCTFail("Unexpected failure: \(e)")
+    }
+  }
 
+  /// Helper to assert we're at the end of the stream.
+  ///
+  /// `hasBytesAvailable` is documented as maybe returning True and a read
+  /// has to happen to really know if ones at the end. This is especially
+  /// true with file based streams.
+  func assertParseFails(atEndOfStream istream: InputStream) {
+    XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
+                                                   from: istream)) { error in
+      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.truncated)
+    }
+  }
+
+  func assertParsing(failsWithTruncatedStream istream: InputStream) {
+    XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
+                                                   from: istream)) { error in
+      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.truncated)
+    }
+  }
+
+  func testNoData() {
+    let istream = openInputStream([])
+
+    assertParseFails(atEndOfStream: istream)
+  }
+
+  func testZeroLengthMessage() {
+    let istream = openInputStream([0])
+
+    assertParse(expected: SwiftProtoTesting_TestAllTypes(), onStream: istream)
+
+    assertParseFails(atEndOfStream: istream)
+  }
+
+  func testNoDataForMessage() {
+    let istream = openInputStream([0x96, 0x01])
+
+    // Length will be read, then the no data for the message, so .truncated.
+    assertParsing(failsWithTruncatedStream: istream)
+  }
+
+  func testNotEnoughDataForMessage() {
+    let istream = openInputStream([0x96, 0x01, 0x01, 0x02, 0x03])
+
+    // Length will be read, but not enought data, so .truncated
+    assertParsing(failsWithTruncatedStream: istream)
+  }
+
+  func testTruncatedLength() {
+    let istream = openInputStream([0x96]) // Needs something like `, 0x01`
+
+    assertParsing(failsWithTruncatedStream: istream)
+  }
+
+  func testTooLarge() {
+    let istream = openInputStream([0x80, 0x80, 0x80, 0x80, 0x08]) // 2GB
+
+    XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
+                                                   from: istream)) { error in
+      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.tooLarge)
+    }
+  }
+
+  func testOverEncodedLength() {
+    let istream = openInputStream([0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80 ,0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x80, 0x08])
+
+    XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
+                                                   from: istream)) { error in
+      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.malformedLength)
+    }
+  }
+
+  func testTwoMessages() {
     let stream1 = OutputStream.toMemory()
     stream1.open()
 
@@ -48,27 +134,15 @@ class Test_BinaryDelimited: XCTestCase {
     let stream2 = InputStream(data: data)
     stream2.open()
 
+    // Test using `merge`
     var msg1a = SwiftProtoTesting_TestAllTypes()
     XCTAssertNoThrow(try BinaryDelimited.merge(into: &msg1a, from: stream2))
     XCTAssertEqual(msg1, msg1a)
 
-    do {
-      let msg2a = try BinaryDelimited.parse(
-        messageType: SwiftProtoTesting_TestPackedTypes.self,
-        from: stream2)
-      XCTAssertEqual(msg2, msg2a)
-    } catch let e {
-      XCTFail("Unexpected failure: \(e)")
-    }
+    // Test using `parse`
+    assertParse(expected: msg2, onStream: stream2)
 
-    do {
-      _ = try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self, from: stream2)
-      XCTFail("Should not have gotten here")
-    } catch BinaryDelimited.Error.truncated {
-      // Nothing, this is what we expect since there is nothing left to read.
-    } catch let e {
-      XCTFail("Unexpected failure: \(e)")
-    }
+    assertParseFails(atEndOfStream: stream2)
   }
 
 }

@@ -126,11 +126,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if error as! BinaryDecodingError == .truncated {
+      if error as! BinaryDelimited.Error == .truncated {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDecodingError.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
   }
   
   // Single varint describing a 2GB message
@@ -161,11 +161,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
         XCTFail("Shouldn't have returned a value for an empty stream.")
       }
     } catch {
-      if error as! BinaryDecodingError == .truncated {
+      if error as! BinaryDelimited.Error == .truncated {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDecodingError.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
   }
   
   // Stream with a valid varint and message, but the following varint is truncated
@@ -193,11 +193,11 @@ final class Test_AsyncMessageSequence: XCTestCase {
       }
       XCTAssertEqual(count, 1, "One message should be deserialized")
     } catch {
-      if error as! BinaryDecodingError == .truncated {
+      if error as! BinaryDelimited.Error == .truncated {
         truncatedThrown = true
       }
     }
-    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDecodingError.truncated")
+    XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
   }
   
   fileprivate func asyncByteStream(bytes: [UInt8]) -> AsyncStream<UInt8> {

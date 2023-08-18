@@ -30,9 +30,9 @@ extension AsyncSequence where Element == UInt8 {
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
   /// - Throws: `BinaryDecodingError` if decoding fails, throws
   ///           `BinaryDelimited.Error` for some reading errors,
-  ///           `BinaryDecodingError.truncated` if the stream ends before fully decoding a
+  ///           `BinaryDelimited.Error.truncated` if the stream ends before fully decoding a
   ///           message or a delimiter,
-  ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
+  ///           `BinaryDelimited.Error.malformedLength`if a delimiter could not be read and
   ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   @inlinable
   public func binaryProtobufDelimitedMessages<M: Message>(
@@ -80,9 +80,9 @@ public struct AsyncMessageSequence<
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
   /// - Throws: `BinaryDecodingError` if decoding fails, throws
   ///           `BinaryDelimited.Error` for some reading errors,
-  ///           `BinaryDecodingError.truncated` if the stream ends before fully decoding a
+  ///           `BinaryDelimited.Error.truncated` if the stream ends before fully decoding a
   ///           message or a delimiter,
-  ///           `BinaryDecodingError.malformedProtobuf`if a delimiter could not be read and
+  ///           `BinaryDelimited.Error.malformedLength`if a delimiter could not be read and
   ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
   public init(
     base: Base,
@@ -130,7 +130,7 @@ public struct AsyncMessageSequence<
         shift += UInt64(7)
         if shift > 35 {
           iterator = nil
-          throw BinaryDecodingError.malformedProtobuf
+          throw BinaryDelimited.Error.malformedLength
         }
         if (byte & 0x80 == 0) {
           return messageSize
@@ -139,7 +139,7 @@ public struct AsyncMessageSequence<
       if (shift > 0) {
         // The stream has ended inside a varint.
         iterator = nil
-        throw BinaryDecodingError.truncated
+        throw BinaryDelimited.Error.truncated
       }
       return nil // End of stream reached.
     }
@@ -161,7 +161,7 @@ public struct AsyncMessageSequence<
           guard let byte = try await iterator?.next() else {
             // The iterator hit the end, but the chunk wasn't filled, so the full
             // payload wasn't read.
-            throw BinaryDecodingError.truncated
+            throw BinaryDelimited.Error.truncated
           }
           chunk[consumedBytes] = byte
           consumedBytes += 1
