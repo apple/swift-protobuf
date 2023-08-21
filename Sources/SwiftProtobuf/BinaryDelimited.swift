@@ -36,6 +36,15 @@ public enum BinaryDelimited {
     /// While attempting to read the length of a message on the stream, the
     /// bytes were malformed for the protobuf format.
     case malformedLength
+
+    /// This isn't really an "error". `InputStream` documents that
+    /// `hasBytesAvailable` _may_ return `True` if a read is needed to
+    /// determine if there really are bytes available. So this "error" is throw
+    /// when a `parse` or `merge` fails because there were no bytes available.
+    /// If this is rasied, the callers should decides via what ever other means
+    /// are correct if the stream has completely ended or if more bytes might
+    /// eventually show up.
+    case noBytesAvailable
   }
 
   /// Serialize a single size-delimited message to the given stream. Delimited
@@ -226,24 +235,31 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
   let readBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
   defer { readBuffer.deallocate() }
 
-  func nextByte() throws -> UInt8 {
+  func nextByte() throws -> UInt8? {
     let bytesRead = stream.read(readBuffer, maxLength: 1)
-    if bytesRead != 1 {
-      if bytesRead == -1 {
-        if let streamError = stream.streamError {
-          throw streamError
-        }
-        throw BinaryDelimited.Error.unknownStreamError
+    switch bytesRead {
+    case 1:
+      return readBuffer[0]
+    case 0:
+      return nil
+    default:
+      precondition(bytesRead == -1)
+      if let streamError = stream.streamError {
+        throw streamError
       }
-      throw BinaryDelimited.Error.truncated
+      throw BinaryDelimited.Error.unknownStreamError
     }
-    return readBuffer[0]
   }
 
   var value: UInt64 = 0
   var shift: UInt64 = 0
   while true {
-    let c = try nextByte()
+    guard let c = try nextByte() else {
+      if shift == 0 {
+        throw BinaryDelimited.Error.noBytesAvailable
+      }
+      throw BinaryDelimited.Error.truncated
+    }
     value |= UInt64(c & 0x7f) << shift
     if c & 0x80 == 0 {
       return value
