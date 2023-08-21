@@ -40,7 +40,7 @@ class Test_BinaryDelimited: XCTestCase {
   func assertParseFails(atEndOfStream istream: InputStream) {
     XCTAssertThrowsError(try BinaryDelimited.parse(messageType: SwiftProtoTesting_TestAllTypes.self,
                                                    from: istream)) { error in
-      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.truncated)
+      XCTAssertEqual(error as? BinaryDelimited.Error, BinaryDelimited.Error.noBytesAvailable)
     }
   }
 
