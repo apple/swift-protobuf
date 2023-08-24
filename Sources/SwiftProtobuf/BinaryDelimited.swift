@@ -123,7 +123,7 @@ public enum BinaryDelimited {
   /// - Returns: The message read.
   /// - Throws: `BinaryDecodingError` if decoding fails, throws
   ///           `BinaryDelimited.Error` for some reading errors, and the
-  ///           underlying InputStream.streamError for a stream error.
+  ///           underlying `InputStream.streamError` for a stream error.
   public static func parse<M: Message>(
     messageType: M.Type,
     from stream: InputStream,
@@ -164,7 +164,7 @@ public enum BinaryDelimited {
   ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails, throws
   ///           `BinaryDelimited.Error` for some reading errors, and the
-  ///           underlying InputStream.streamError for a stream error.
+  ///           underlying `InputStream.streamError` for a stream error.
   public static func merge<M: Message>(
     into message: inout M,
     from stream: InputStream,
