@@ -28,12 +28,9 @@ extension AsyncSequence where Element == UInt8 {
   ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors,
-  ///           `BinaryDelimited.Error.truncated` if the stream ends before fully decoding a
-  ///           message or a delimiter,
-  ///           `BinaryDelimited.Error.malformedLength`if a delimiter could not be read and
-  ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
+  /// - Throws: `BinaryDelimited.Error` for errors in the framing of the messages
+  ///           in the sequence, `BinaryDecodingError` for errors while decoding
+  ///           messages.
   @inlinable
   public func binaryProtobufDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
@@ -78,12 +75,9 @@ public struct AsyncMessageSequence<
   ///     `BinaryDecodingError.missingRequiredFields` will be thrown.
   ///   - options: The BinaryDecodingOptions to use.
   /// - Returns: An asynchronous sequence of messages read from the `AsyncSequence` of bytes.
-  /// - Throws: `BinaryDecodingError` if decoding fails, throws
-  ///           `BinaryDelimited.Error` for some reading errors,
-  ///           `BinaryDelimited.Error.truncated` if the stream ends before fully decoding a
-  ///           message or a delimiter,
-  ///           `BinaryDelimited.Error.malformedLength`if a delimiter could not be read and
-  ///           `BinaryDecodingError.tooLarge` if a size delimiter of 2GB or greater is found.
+  /// - Throws: `BinaryDelimited.Error` for errors in the framing of the messages
+  ///           in the sequence, `BinaryDecodingError` for errors while decoding
+  ///           messages.
   public init(
     base: Base,
     extensions: ExtensionMap? = nil,
