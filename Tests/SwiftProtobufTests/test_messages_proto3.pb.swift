@@ -859,7 +859,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 
 extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
+  static let allCases: [ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedEnum] = [
     .foo,
     .bar,
     .baz,

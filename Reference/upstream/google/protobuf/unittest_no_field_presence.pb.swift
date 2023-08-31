@@ -87,7 +87,7 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
 extension Proto2NofieldpresenceUnittest_ForeignEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto2NofieldpresenceUnittest_ForeignEnum] = [
+  static let allCases: [Proto2NofieldpresenceUnittest_ForeignEnum] = [
     .foreignFoo,
     .foreignBar,
     .foreignBaz,
@@ -482,7 +482,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
 
 extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = [
+  static let allCases: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = [
     .foo,
     .bar,
     .baz,
