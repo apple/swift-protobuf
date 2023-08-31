@@ -85,7 +85,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 
 extension ProtobufUnittest_MapEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [ProtobufUnittest_MapEnum] = [
+  static let allCases: [ProtobufUnittest_MapEnum] = [
     .foo,
     .bar,
     .baz,
