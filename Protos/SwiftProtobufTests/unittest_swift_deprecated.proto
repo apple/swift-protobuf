@@ -1,0 +1,84 @@
+// Protos/unittest_swift_deprecated.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2023 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test generation support of deprecated attributes.
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+package swift_proto_testing.deprecated;
+
+// The source generated from this file needs to be inspect to confirm it has all
+// of the expected comments. See
+// https://github.com/apple/swift-protobuf/issues/151 for why things currently
+// don't generate annotations. If/when that is resolved, this file should be
+// compiled also to confirm everything works as intended.
+
+
+// Marking fields as deprecated.
+message MyMsg {
+  extensions 100 to max;
+
+  // Field comment
+  optional string string_field = 1 [deprecated=true];
+  required int32 int_field = 2 [deprecated=true];
+  repeated fixed32 fixed_field = 3 [deprecated=true];
+  optional MyMsg msg_field = 4 [deprecated=true];
+}
+
+// Marking extension fields as deprecated.
+extend MyMsg {
+  // Extension field comment
+  optional string string_ext_field = 101 [deprecated=true];
+  optional int32 int_ext_field = 102 [deprecated=true];
+  repeated fixed32 fixed_ext_field = 103 [deprecated=true];
+  optional MyMsg msg_ext_field = 104 [deprecated=true];
+}
+
+// Marking extension fields (scoped to a message) as deprecated.
+message MsgScope {
+  extend MyMsg {
+    // Another extension field comment
+    optional string string_ext2_field = 201 [deprecated=true];
+    optional int32 int_ext2_field = 202 [deprecated=true];
+    repeated fixed32 fixed_ext2_field = 203 [deprecated=true];
+    optional MyMsg msg_ext2_field = 204 [deprecated=true];
+  }
+}
+
+// An enum value marked as deprecated.
+enum MyEnum {
+  MYENUM_ONE   = 1;
+  // Enum comment
+  MYENUM_TWO   = 2 [deprecated=true];
+  MYENUM_THREE = 3 [deprecated=true];
+}
+
+// Whole message marked as deprecated.
+message MyMsg2 {
+  option deprecated = true;
+
+  optional string string_field = 1;
+  required int32 int_field = 2;
+  repeated fixed32 fixed_field = 3;
+  optional MyMsg2 msg_field = 4;
+}
+
+// Whole enum marked as deprecated.
+enum MyEnum2 {
+  option deprecated = true;
+
+  MYENUM2_ONE   = 1;
+  MYENUM2_TWO   = 2;
+  MYENUM2_THREE = 3;
+}
