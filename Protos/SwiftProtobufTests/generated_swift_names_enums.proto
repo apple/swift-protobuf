@@ -28,8 +28,13 @@ message GeneratedSwiftReservedEnums {
   enum as { NONE_as = 0; }
   enum asciiOpenCurlyBracket { NONE_asciiOpenCurlyBracket = 0; }
   enum asciiZero { NONE_asciiZero = 0; }
+  enum async { NONE_async = 0; }
+  enum AsyncIterator { NONE_AsyncIterator = 0; }
+  enum AsyncIteratorProtocol { NONE_AsyncIteratorProtocol = 0; }
+  enum AsyncMessageSequence { NONE_AsyncMessageSequence = 0; }
   enum available { NONE_available = 0; }
   enum b { NONE_b = 0; }
+  enum Base { NONE_Base = 0; }
   enum base64Values { NONE_base64Values = 0; }
   enum baseAddress { NONE_baseAddress = 0; }
   enum BaseType { NONE_BaseType = 0; }
@@ -46,12 +51,14 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncodingSizeVisitor { NONE_BinaryEncodingSizeVisitor = 0; }
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
   enum binaryOptions { NONE_binaryOptions = 0; }
+  enum binaryProtobufDelimitedMessages { NONE_binaryProtobufDelimitedMessages = 0; }
   enum bitPattern { NONE_bitPattern = 0; }
   enum body { NONE_body = 0; }
   enum Bool { NONE_Bool = 0; }
   enum booleanLiteral { NONE_booleanLiteral = 0; }
   enum BooleanLiteralType { NONE_BooleanLiteralType = 0; }
   enum boolValue { NONE_boolValue = 0; }
+  enum buffer { NONE_buffer = 0; }
   enum bytes { NONE_bytes = 0; }
   enum bytesInGroup { NONE_bytesInGroup = 0; }
   enum bytesNeeded { NONE_bytesNeeded = 0; }
@@ -156,6 +163,7 @@ message GeneratedSwiftReservedEnums {
   enum Collection { NONE_Collection = 0; }
   enum com { NONE_com = 0; }
   enum comma { NONE_comma = 0; }
+  enum consumedBytes { NONE_consumedBytes = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
   enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
@@ -314,6 +322,7 @@ message GeneratedSwiftReservedEnums {
   enum fileName { NONE_fileName = 0; }
   enum FileOptions { NONE_FileOptions = 0; }
   enum filter { NONE_filter = 0; }
+  enum final { NONE_final = 0; }
   enum first { NONE_first = 0; }
   enum firstItem { NONE_firstItem = 0; }
   enum float { NONE_float = 0; }
@@ -512,7 +521,7 @@ message GeneratedSwiftReservedEnums {
   enum isInitialized { NONE_isInitialized = 0; }
   enum isNegative { NONE_isNegative = 0; }
   enum itemTagsEncodedSize { NONE_itemTagsEncodedSize = 0; }
-  enum Iterator { NONE_Iterator = 0; }
+  enum iterator { NONE_iterator = 0; }
   enum javaGenerateEqualsAndHash { NONE_javaGenerateEqualsAndHash = 0; }
   enum javaGenericServices { NONE_javaGenericServices = 0; }
   enum javaMultipleFiles { NONE_javaMultipleFiles = 0; }
@@ -563,6 +572,7 @@ message GeneratedSwiftReservedEnums {
   enum location { NONE_location = 0; }
   enum M { NONE_M = 0; }
   enum major { NONE_major = 0; }
+  enum makeAsyncIterator { NONE_makeAsyncIterator = 0; }
   enum makeIterator { NONE_makeIterator = 0; }
   enum mapEntry { NONE_mapEntry = 0; }
   enum MapKeyType { NONE_MapKeyType = 0; }
@@ -580,6 +590,7 @@ message GeneratedSwiftReservedEnums {
   enum MessageOptions { NONE_MessageOptions = 0; }
   enum MessageSet { NONE_MessageSet = 0; }
   enum messageSetWireFormat { NONE_messageSetWireFormat = 0; }
+  enum messageSize { NONE_messageSize = 0; }
   enum messageType { NONE_messageType = 0; }
   enum Method { NONE_Method = 0; }
   enum MethodDescriptorProto { NONE_MethodDescriptorProto = 0; }
@@ -607,8 +618,10 @@ message GeneratedSwiftReservedEnums {
   enum newL { NONE_newL = 0; }
   enum newList { NONE_newList = 0; }
   enum newValue { NONE_newValue = 0; }
+  enum next { NONE_next = 0; }
   enum nextByte { NONE_nextByte = 0; }
   enum nextFieldNumber { NONE_nextFieldNumber = 0; }
+  enum nextVarInt { NONE_nextVarInt = 0; }
   enum nil { NONE_nil = 0; }
   enum nilLiteral { NONE_nilLiteral = 0; }
   enum noStandardDescriptorAccessor { NONE_noStandardDescriptorAccessor = 0; }
@@ -696,7 +709,6 @@ message GeneratedSwiftReservedEnums {
   enum protoMessageName { NONE_protoMessageName = 0; }
   enum ProtoNameProviding { NONE_ProtoNameProviding = 0; }
   enum protoPaths { NONE_protoPaths = 0; }
-  enum ProtoSendable { NONE_ProtoSendable = 0; }
   enum public { NONE_public = 0; }
   enum publicDependency { NONE_publicDependency = 0; }
   enum putBoolValue { NONE_putBoolValue = 0; }
@@ -719,6 +731,7 @@ message GeneratedSwiftReservedEnums {
   enum RawRepresentable { NONE_RawRepresentable = 0; }
   enum RawValue { NONE_RawValue = 0; }
   enum read4HexDigits { NONE_read4HexDigits = 0; }
+  enum readBytes { NONE_readBytes = 0; }
   enum register { NONE_register = 0; }
   enum repeated { NONE_repeated = 0; }
   enum RepeatedEnumExtensionField { NONE_RepeatedEnumExtensionField = 0; }
@@ -763,6 +776,7 @@ message GeneratedSwiftReservedEnums {
   enum setExtensionValue { NONE_setExtensionValue = 0; }
   enum shift { NONE_shift = 0; }
   enum SimpleExtensionMap { NONE_SimpleExtensionMap = 0; }
+  enum size { NONE_size = 0; }
   enum sizer { NONE_sizer = 0; }
   enum source { NONE_source = 0; }
   enum sourceCodeInfo { NONE_sourceCodeInfo = 0; }
@@ -837,6 +851,7 @@ message GeneratedSwiftReservedEnums {
   enum UInt64 { NONE_UInt64 = 0; }
   enum UInt64Value { NONE_UInt64Value = 0; }
   enum UInt8 { NONE_UInt8 = 0; }
+  enum unchecked { NONE_unchecked = 0; }
   enum unicodeScalarLiteral { NONE_unicodeScalarLiteral = 0; }
   enum UnicodeScalarLiteralType { NONE_UnicodeScalarLiteralType = 0; }
   enum unicodeScalars { NONE_unicodeScalars = 0; }
