@@ -157,17 +157,17 @@ public final class FileDescriptor {
     self.options = proto.options
 
     let protoPackage = proto.package
-    self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, scope: protoPackage)
+    self.enums = proto.enumType.enumerated().map {
+      return EnumDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
     }
-    self.messages = proto.messageType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, scope: protoPackage)
+    self.messages = proto.messageType.enumerated().map {
+      return Descriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
     }
-    self.extensions = proto.extension.enumeratedMap {
-      return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
+    self.extensions = proto.extension.enumerated().map {
+      return FieldDescriptor(proto: $0.element, index: $0.offset, registry: registry, isExtension: true)
     }
-    self.services = proto.service.enumeratedMap {
-      return ServiceDescriptor(proto: $1, index: $0, registry: registry, scope: protoPackage)
+    self.services = proto.service.enumerated().map {
+      return ServiceDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: protoPackage)
     }
 
     // The compiler ensures there aren't cycles between a file and dependencies, so
@@ -340,20 +340,20 @@ public final class Descriptor {
     self.reservedRanges = proto.reservedRange.map { return $0.start ..< $0.end }
     self.reservedNames = proto.reservedName
 
-    self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, scope: fullName)
+    self.enums = proto.enumType.enumerated().map {
+      return EnumDescriptor(proto: $0.element, index: $0.offset, registry: registry, scope: fullName)
     }
-    self.messages = proto.nestedType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, scope: fullName)
+    self.messages = proto.nestedType.enumerated().map {
+      return Descriptor(proto: $0.element, index: $0.offset, registry: registry, scope: fullName)
     }
-    self.fields = proto.field.enumeratedMap {
-      return FieldDescriptor(proto: $1, index: $0, registry: registry)
+    self.fields = proto.field.enumerated().map {
+      return FieldDescriptor(proto: $0.element, index: $0.offset, registry: registry)
     }
-    self.oneofs = proto.oneofDecl.enumeratedMap {
-      return OneofDescriptor(proto: $1, index: $0, registry: registry)
+    self.oneofs = proto.oneofDecl.enumerated().map {
+      return OneofDescriptor(proto: $0.element, index: $0.offset, registry: registry)
     }
-    self.extensions = proto.extension.enumeratedMap {
-      return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
+    self.extensions = proto.extension.enumerated().map {
+      return FieldDescriptor(proto: $0.element, index: $0.offset, registry: registry, isExtension: true)
     }
 
     // Done initializing, register ourselves.
@@ -439,8 +439,8 @@ public final class EnumDescriptor {
     self.reservedRanges = proto.reservedRange.map { return $0.start ... $0.end }
     self.reservedNames = proto.reservedName
 
-    self.values = proto.value.enumeratedMap {
-      return EnumValueDescriptor(proto: $1, index: $0, scope: scope)
+    self.values = proto.value.enumerated().map {
+      return EnumValueDescriptor(proto: $0.element, index: $0.offset, scope: scope)
     }
 
     // Done initializing, register ourselves.
@@ -816,8 +816,8 @@ public final class ServiceDescriptor {
     self.index = index
     self.options = proto.options
 
-    self.methods = proto.method.enumeratedMap {
-      return MethodDescriptor(proto: $1, index: $0, registry: registry)
+    self.methods = proto.method.enumerated().map {
+      return MethodDescriptor(proto: $0.element, index: $0.offset, registry: registry)
     }
 
     // Done initializing, register ourselves.
