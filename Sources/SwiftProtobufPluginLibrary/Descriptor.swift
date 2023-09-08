@@ -848,6 +848,9 @@ public final class MethodDescriptor {
   /// The service tha defines this method.
   public var service: ServiceDescriptor { return _service! }
 
+  /// Get `Google_Protobuf_MethodOptions` for this method.
+  public let options: Google_Protobuf_MethodOptions
+
   /// The type of protocol message which this method accepts as input.
   public private(set) var inputType: Descriptor
   /// The type of protocol message which this message produces as output.
@@ -872,6 +875,7 @@ public final class MethodDescriptor {
                    registry: Registry) {
     self.name = proto.name
     self.index = index
+    self.options = proto.options
     self.clientStreaming = proto.clientStreaming
     self.serverStreaming = proto.serverStreaming
     // Can look these up because all the Descriptors are already registered

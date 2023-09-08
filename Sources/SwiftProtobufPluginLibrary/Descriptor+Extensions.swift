@@ -18,7 +18,7 @@ extension FileDescriptor: ProvidesSourceCodeLocation {
   }
 }
 
-extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
@@ -28,9 +28,12 @@ extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     }
     path.append(index)
   }
+
+  public var typeName: String { "message" }
+  public var isDeprecated: Bool { options.deprecated }
 }
 
-extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
@@ -40,14 +43,20 @@ extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     }
     path.append(index)
   }
+
+  public var typeName: String { "enum" }
+  public var isDeprecated: Bool { options.deprecated }
 }
 
-extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, SimpleProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     enumType.getLocationPath(path: &path)
     path.append(Google_Protobuf_EnumDescriptorProto.FieldNumbers.value)
     path.append(index)
   }
+
+  public var typeName: String { "enum value" }
+  public var isDeprecated: Bool { options.deprecated }
 }
 
 extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
@@ -58,7 +67,7 @@ extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   }
 }
 
-extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, ProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     if isExtension {
       if let extensionScope = extensionScope {
@@ -72,6 +81,18 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
     }
     path.append(index)
+  }
+
+  public func deprecationComment(commentPrefix: String) -> String {
+    // FieldDesciptor can be an extension field or a normal field, so it needs
+    // a custom imply to only look at the file for extentsion fields.
+    if options.deprecated {
+      return "\(commentPrefix) NOTE: This \(isExtension ? "extension field" : "field") was marked as deprecated in the .proto file.\n"
+    }
+    if isExtension && file.options.deprecated {
+      return "\(commentPrefix) NOTE: The whole .proto file that defined this extension field was marked as deprecated.\n"
+    }
+    return String()
   }
 
   /// Returns true if the type can be used for a Packed field.
@@ -95,17 +116,23 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   }
 }
 
-extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, TypeOrFileProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.service)
     path.append(index)
   }
+
+  public var typeName: String { "service" }
+  public var isDeprecated: Bool { options.deprecated }
 }
 
-extension MethodDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+extension MethodDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation, SimpleProvidesDeprecationComment {
   public func getLocationPath(path: inout IndexPath) {
     service.getLocationPath(path: &path)
     path.append(Google_Protobuf_ServiceDescriptorProto.FieldNumbers.method)
     path.append(index)
   }
+
+  public var typeName: String { "method" }
+  public var isDeprecated: Bool { options.deprecated }
 }
