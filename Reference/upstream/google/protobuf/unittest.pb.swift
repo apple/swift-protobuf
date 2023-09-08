@@ -1279,6 +1279,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedInt32: Int32 {
     get {return _storage._deprecatedInt32 ?? 0}
     set {_uniqueStorage()._deprecatedInt32 = newValue}
@@ -1288,11 +1289,13 @@ struct ProtobufUnittest_TestDeprecatedFields {
   /// Clears the value of `deprecatedInt32`. Subsequent reads from it will return its default value.
   mutating func clearDeprecatedInt32() {_uniqueStorage()._deprecatedInt32 = nil}
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedRepeatedString: [String] {
     get {return _storage._deprecatedRepeatedString}
     set {_uniqueStorage()._deprecatedRepeatedString = newValue}
   }
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return _storage._deprecatedMessage ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._deprecatedMessage = newValue}
@@ -1307,6 +1310,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
     set {_uniqueStorage()._oneofFields = newValue}
   }
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedInt32InOneof: Int32 {
     get {
       if case .deprecatedInt32InOneof(let v)? = _storage._oneofFields {return v}
@@ -1327,6 +1331,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_OneofFields: Equatable {
+    /// NOTE: This field was marked as deprecated in the .proto file.
     case deprecatedInt32InOneof(Int32)
 
   }
@@ -1336,6 +1341,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// NOTE: This message was marked as deprecated in the .proto file.
 struct ProtobufUnittest_TestDeprecatedMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
