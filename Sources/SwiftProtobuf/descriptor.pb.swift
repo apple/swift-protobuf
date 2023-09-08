@@ -1040,6 +1040,8 @@ public struct Google_Protobuf_FileOptions: ExtensibleMessage {
   public mutating func clearJavaMultipleFiles() {_uniqueStorage()._javaMultipleFiles = nil}
 
   /// This option does nothing.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   public var javaGenerateEqualsAndHash: Bool {
     get {return _storage._javaGenerateEqualsAndHash ?? false}
     set {_uniqueStorage()._javaGenerateEqualsAndHash = newValue}
@@ -1396,6 +1398,8 @@ public struct Google_Protobuf_MessageOptions: ExtensibleMessage {
   ///
   /// TODO(b/261750190) This is legacy behavior we plan to remove once downstream
   /// teams have had time to migrate.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   public var deprecatedLegacyJsonFieldConflicts: Bool {
     get {return _deprecatedLegacyJsonFieldConflicts ?? false}
     set {_deprecatedLegacyJsonFieldConflicts = newValue}
@@ -1865,6 +1869,8 @@ public struct Google_Protobuf_EnumOptions: ExtensibleMessage {
   /// well.
   /// TODO(b/261750190) Remove this legacy behavior once downstream teams have
   /// had time to migrate.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   public var deprecatedLegacyJsonFieldConflicts: Bool {
     get {return _deprecatedLegacyJsonFieldConflicts ?? false}
     set {_deprecatedLegacyJsonFieldConflicts = newValue}

@@ -1039,6 +1039,7 @@ struct ProtobufUnittest_TestDeprecatedLite {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedField: Int32 {
     get {return _storage._deprecatedField ?? 0}
     set {_uniqueStorage()._deprecatedField = newValue}
@@ -1048,6 +1049,7 @@ struct ProtobufUnittest_TestDeprecatedLite {
   /// Clears the value of `deprecatedField`. Subsequent reads from it will return its default value.
   mutating func clearDeprecatedField() {_uniqueStorage()._deprecatedField = nil}
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedField2: Int32 {
     get {return _storage._deprecatedField2 ?? 0}
     set {_uniqueStorage()._deprecatedField2 = newValue}
@@ -1057,6 +1059,7 @@ struct ProtobufUnittest_TestDeprecatedLite {
   /// Clears the value of `deprecatedField2`. Subsequent reads from it will return its default value.
   mutating func clearDeprecatedField2() {_uniqueStorage()._deprecatedField2 = nil}
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedField3: String {
     get {return _storage._deprecatedField3 ?? String()}
     set {_uniqueStorage()._deprecatedField3 = newValue}
@@ -1066,6 +1069,7 @@ struct ProtobufUnittest_TestDeprecatedLite {
   /// Clears the value of `deprecatedField3`. Subsequent reads from it will return its default value.
   mutating func clearDeprecatedField3() {_uniqueStorage()._deprecatedField3 = nil}
 
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var deprecatedField4: ProtobufUnittest_TestDeprecatedLite {
     get {return _storage._deprecatedField4 ?? ProtobufUnittest_TestDeprecatedLite()}
     set {_uniqueStorage()._deprecatedField4 = newValue}
