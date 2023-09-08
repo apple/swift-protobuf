@@ -57,7 +57,7 @@ class OneofGenerator {
             swiftType = descriptor.swiftType(namer: namer)
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
-            comments = descriptor.protoSourceComments()
+            comments = descriptor.protoSourceCommentsWithDeprecation()
 
             super.init(descriptor: descriptor)
         }

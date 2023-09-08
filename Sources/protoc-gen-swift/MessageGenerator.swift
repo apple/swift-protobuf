@@ -121,7 +121,7 @@ class MessageGenerator {
     }
     p.print(
         "",
-        "\(descriptor.protoSourceComments())\(visibility)struct \(swiftRelativeName)\(conformances) {")
+        "\(descriptor.protoSourceCommentsWithDeprecation())\(visibility)struct \(swiftRelativeName)\(conformances) {")
     p.withIndentation { p in
       p.print("""
               // \(namer.swiftProtobufModuleName).Message conformance is added in an extension below. See the
