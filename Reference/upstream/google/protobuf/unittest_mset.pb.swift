@@ -101,6 +101,15 @@ struct ProtobufUnittest_NestedTestMessageSetContainer {
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() {_uniqueStorage()._child = nil}
 
+  var lazyChild: ProtobufUnittest_NestedTestMessageSetContainer {
+    get {return _storage._lazyChild ?? ProtobufUnittest_NestedTestMessageSetContainer()}
+    set {_uniqueStorage()._lazyChild = newValue}
+  }
+  /// Returns true if `lazyChild` has been explicitly set.
+  var hasLazyChild: Bool {return _storage._lazyChild != nil}
+  /// Clears the value of `lazyChild`. Subsequent reads from it will return its default value.
+  mutating func clearLazyChild() {_uniqueStorage()._lazyChild = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -446,11 +455,13 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "container"),
     2: .same(proto: "child"),
+    3: .standard(proto: "lazy_child"),
   ]
 
   fileprivate class _StorageClass {
     var _container: ProtobufUnittest_TestMessageSetContainer? = nil
     var _child: ProtobufUnittest_NestedTestMessageSetContainer? = nil
+    var _lazyChild: ProtobufUnittest_NestedTestMessageSetContainer? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -459,6 +470,7 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
     init(copying source: _StorageClass) {
       _container = source._container
       _child = source._child
+      _lazyChild = source._lazyChild
     }
   }
 
@@ -473,6 +485,7 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._container, !v.isInitialized {return false}
       if let v = _storage._child, !v.isInitialized {return false}
+      if let v = _storage._lazyChild, !v.isInitialized {return false}
       return true
     }
   }
@@ -487,6 +500,7 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
         switch fieldNumber {
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._container) }()
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._lazyChild) }()
         default: break
         }
       }
@@ -505,6 +519,9 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
       try { if let v = _storage._child {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       } }()
+      try { if let v = _storage._lazyChild {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -516,6 +533,7 @@ extension ProtobufUnittest_NestedTestMessageSetContainer: SwiftProtobuf.Message,
         let rhs_storage = _args.1
         if _storage._container != rhs_storage._container {return false}
         if _storage._child != rhs_storage._child {return false}
+        if _storage._lazyChild != rhs_storage._lazyChild {return false}
         return true
       }
       if !storagesAreEqual {return false}

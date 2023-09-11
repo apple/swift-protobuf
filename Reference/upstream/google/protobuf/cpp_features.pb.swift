@@ -68,11 +68,65 @@ struct Pb_CppFeatures {
   /// Clears the value of `legacyClosedEnum`. Subsequent reads from it will return its default value.
   mutating func clearLegacyClosedEnum() {self._legacyClosedEnum = nil}
 
+  var utf8Validation: Pb_CppFeatures.Utf8Validation {
+    get {return _utf8Validation ?? .unknown}
+    set {_utf8Validation = newValue}
+  }
+  /// Returns true if `utf8Validation` has been explicitly set.
+  var hasUtf8Validation: Bool {return self._utf8Validation != nil}
+  /// Clears the value of `utf8Validation`. Subsequent reads from it will return its default value.
+  mutating func clearUtf8Validation() {self._utf8Validation = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  /// The UTF8 validation strategy to use.  See go/editions-utf8-validation for
+  /// more information on this feature.
+  enum Utf8Validation: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+
+    /// Invalid default, which should never be used.
+    case unknown // = 0
+
+    /// Default proto3 behavior, which verifies UTF8 validity during parse.
+    case verifyParse // = 1
+
+    /// Default proto2 behavior, which verifies UTF8 validity during both parse
+    /// and serialize in debug builds.  On failure an error is logged, but the
+    /// operation continues.
+    case verifyDlog // = 2
+
+    /// No UTF8 validation is done ever.
+    case none // = 3
+
+    init() {
+      self = .unknown
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unknown
+      case 1: self = .verifyParse
+      case 2: self = .verifyDlog
+      case 3: self = .none
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unknown: return 0
+      case .verifyParse: return 1
+      case .verifyDlog: return 2
+      case .none: return 3
+      }
+    }
+
+  }
 
   init() {}
 
   fileprivate var _legacyClosedEnum: Bool? = nil
+  fileprivate var _utf8Validation: Pb_CppFeatures.Utf8Validation? = nil
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
@@ -134,6 +188,7 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "legacy_closed_enum"),
+    2: .standard(proto: "utf8_validation"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -143,6 +198,7 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self._legacyClosedEnum) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       default: break
       }
     }
@@ -156,12 +212,25 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try { if let v = self._legacyClosedEnum {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
     } }()
+    try { if let v = self._utf8Validation {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_CppFeatures, rhs: Pb_CppFeatures) -> Bool {
     if lhs._legacyClosedEnum != rhs._legacyClosedEnum {return false}
+    if lhs._utf8Validation != rhs._utf8Validation {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Pb_CppFeatures.Utf8Validation: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UTF8_VALIDATION_UNKNOWN"),
+    1: .same(proto: "VERIFY_PARSE"),
+    2: .same(proto: "VERIFY_DLOG"),
+    3: .same(proto: "NONE"),
+  ]
 }

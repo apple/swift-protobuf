@@ -2127,6 +2127,8 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite)
   }
 
+  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_optionalCordExtensionLite: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite, value: newValue)}
@@ -2303,6 +2305,8 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension_lite, value: newValue)}
   }
 
+  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_repeatedCordExtensionLite: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension_lite) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension_lite, value: newValue)}
@@ -2599,6 +2603,8 @@ extension ProtobufUnittest_TestAllExtensionsLite {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension_lite)
   }
 
+  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_defaultCordExtensionLite: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension_lite) ?? "123"}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension_lite, value: newValue)}
@@ -3029,6 +3035,8 @@ let ProtobufUnittest_Extensions_optional_string_piece_extension_lite = SwiftProt
   fieldName: "protobuf_unittest.optional_string_piece_extension_lite"
 )
 
+/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_optional_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 25,
   fieldName: "protobuf_unittest.optional_cord_extension_lite"
@@ -3165,6 +3173,8 @@ let ProtobufUnittest_Extensions_repeated_string_piece_extension_lite = SwiftProt
   fieldName: "protobuf_unittest.repeated_string_piece_extension_lite"
 )
 
+/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_repeated_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 55,
   fieldName: "protobuf_unittest.repeated_cord_extension_lite"
@@ -3271,6 +3281,8 @@ let ProtobufUnittest_Extensions_default_string_piece_extension_lite = SwiftProto
   fieldName: "protobuf_unittest.default_string_piece_extension_lite"
 )
 
+/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_default_cord_extension_lite = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 85,
   fieldName: "protobuf_unittest.default_cord_extension_lite"
