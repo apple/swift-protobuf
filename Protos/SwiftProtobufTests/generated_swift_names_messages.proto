@@ -78,6 +78,7 @@ message GeneratedSwiftReservedMessages {
   message clearDeprecatedLegacyJsonFieldConflicts { int32 clearDeprecatedLegacyJsonFieldConflicts = 1; }
   message clearDoubleValue { int32 clearDoubleValue = 1; }
   message clearEdition { int32 clearEdition = 1; }
+  message clearEditionEnum { int32 clearEditionEnum = 1; }
   message clearEnd { int32 clearEnd = 1; }
   message clearEnumType { int32 clearEnumType = 1; }
   message clearExtendee { int32 clearExtendee = 1; }
@@ -103,8 +104,12 @@ message GeneratedSwiftReservedMessages {
   message clearLazy { int32 clearLazy = 1; }
   message clearLeadingComments { int32 clearLeadingComments = 1; }
   message clearMapEntry { int32 clearMapEntry = 1; }
+  message clearMaximumEdition { int32 clearMaximumEdition = 1; }
+  message clearMaximumEditionEnum { int32 clearMaximumEditionEnum = 1; }
   message clearMessageEncoding { int32 clearMessageEncoding = 1; }
   message clearMessageSetWireFormat { int32 clearMessageSetWireFormat = 1; }
+  message clearMinimumEdition { int32 clearMinimumEdition = 1; }
+  message clearMinimumEditionEnum { int32 clearMinimumEditionEnum = 1; }
   message clearName { int32 clearName = 1; }
   message clearNamePart { int32 clearNamePart = 1; }
   message clearNegativeIntValue { int32 clearNegativeIntValue = 1; }
@@ -124,7 +129,6 @@ message GeneratedSwiftReservedMessages {
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
   message clearProto3Optional { int32 clearProto3Optional = 1; }
   message clearPyGenericServices { int32 clearPyGenericServices = 1; }
-  message clearRawFeatures { int32 clearRawFeatures = 1; }
   message clearRepeated { int32 clearRepeated = 1; }
   message clearRepeatedFieldEncoding { int32 clearRepeatedFieldEncoding = 1; }
   message clearReserved { int32 clearReserved = 1; }
@@ -136,7 +140,6 @@ message GeneratedSwiftReservedMessages {
   message clearSourceContext { int32 clearSourceContext = 1; }
   message clearSourceFile { int32 clearSourceFile = 1; }
   message clearStart { int32 clearStart = 1; }
-  message clearStringFieldValidation { int32 clearStringFieldValidation = 1; }
   message clearStringValue { int32 clearStringValue = 1; }
   message clearSwiftPrefix { int32 clearSwiftPrefix = 1; }
   message clearSyntax { int32 clearSyntax = 1; }
@@ -218,6 +221,7 @@ message GeneratedSwiftReservedMessages {
   message decodeSingularUInt64Field { int32 decodeSingularUInt64Field = 1; }
   message decodeTextFormat { int32 decodeTextFormat = 1; }
   message defaultAnyTypeURLPrefix { int32 defaultAnyTypeURLPrefix = 1; }
+  message defaults { int32 defaults = 1; }
   message defaultValue { int32 defaultValue = 1; }
   message dependency { int32 dependency = 1; }
   message deprecated { int32 deprecated = 1; }
@@ -242,6 +246,7 @@ message GeneratedSwiftReservedMessages {
   message edition { int32 edition = 1; }
   message EditionDefault { int32 EditionDefault = 1; }
   message editionDefaults { int32 editionDefaults = 1; }
+  message editionEnum { int32 editionEnum = 1; }
   message Element { int32 Element = 1; }
   message elements { int32 elements = 1; }
   message emitExtensionFieldName { int32 emitExtensionFieldName = 1; }
@@ -291,6 +296,8 @@ message GeneratedSwiftReservedMessages {
   message false { int32 false = 1; }
   message features { int32 features = 1; }
   message FeatureSet { int32 FeatureSet = 1; }
+  message FeatureSetDefaults { int32 FeatureSetDefaults = 1; }
+  message FeatureSetEditionDefault { int32 FeatureSetEditionDefault = 1; }
   message field { int32 field = 1; }
   message fieldData { int32 fieldData = 1; }
   message FieldDescriptorProto { int32 FieldDescriptorProto = 1; }
@@ -343,6 +350,7 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_DescriptorProto { int32 Google_Protobuf_DescriptorProto = 1; }
   message Google_Protobuf_DoubleValue { int32 Google_Protobuf_DoubleValue = 1; }
   message Google_Protobuf_Duration { int32 Google_Protobuf_Duration = 1; }
+  message Google_Protobuf_Edition { int32 Google_Protobuf_Edition = 1; }
   message Google_Protobuf_Empty { int32 Google_Protobuf_Empty = 1; }
   message Google_Protobuf_Enum { int32 Google_Protobuf_Enum = 1; }
   message Google_Protobuf_EnumDescriptorProto { int32 Google_Protobuf_EnumDescriptorProto = 1; }
@@ -352,6 +360,7 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_EnumValueOptions { int32 Google_Protobuf_EnumValueOptions = 1; }
   message Google_Protobuf_ExtensionRangeOptions { int32 Google_Protobuf_ExtensionRangeOptions = 1; }
   message Google_Protobuf_FeatureSet { int32 Google_Protobuf_FeatureSet = 1; }
+  message Google_Protobuf_FeatureSetDefaults { int32 Google_Protobuf_FeatureSetDefaults = 1; }
   message Google_Protobuf_Field { int32 Google_Protobuf_Field = 1; }
   message Google_Protobuf_FieldDescriptorProto { int32 Google_Protobuf_FieldDescriptorProto = 1; }
   message Google_Protobuf_FieldMask { int32 Google_Protobuf_FieldMask = 1; }
@@ -407,6 +416,7 @@ message GeneratedSwiftReservedMessages {
   message hasDeprecatedLegacyJsonFieldConflicts { int32 hasDeprecatedLegacyJsonFieldConflicts = 1; }
   message hasDoubleValue { int32 hasDoubleValue = 1; }
   message hasEdition { int32 hasEdition = 1; }
+  message hasEditionEnum { int32 hasEditionEnum = 1; }
   message hasEnd { int32 hasEnd = 1; }
   message hasEnumType { int32 hasEnumType = 1; }
   message hasExtendee { int32 hasExtendee = 1; }
@@ -437,8 +447,12 @@ message GeneratedSwiftReservedMessages {
   message hasLazy { int32 hasLazy = 1; }
   message hasLeadingComments { int32 hasLeadingComments = 1; }
   message hasMapEntry { int32 hasMapEntry = 1; }
+  message hasMaximumEdition { int32 hasMaximumEdition = 1; }
+  message hasMaximumEditionEnum { int32 hasMaximumEditionEnum = 1; }
   message hasMessageEncoding { int32 hasMessageEncoding = 1; }
   message hasMessageSetWireFormat { int32 hasMessageSetWireFormat = 1; }
+  message hasMinimumEdition { int32 hasMinimumEdition = 1; }
+  message hasMinimumEditionEnum { int32 hasMinimumEditionEnum = 1; }
   message hasName { int32 hasName = 1; }
   message hasNamePart { int32 hasNamePart = 1; }
   message hasNegativeIntValue { int32 hasNegativeIntValue = 1; }
@@ -458,7 +472,6 @@ message GeneratedSwiftReservedMessages {
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
   message hasProto3Optional { int32 hasProto3Optional = 1; }
   message hasPyGenericServices { int32 hasPyGenericServices = 1; }
-  message hasRawFeatures { int32 hasRawFeatures = 1; }
   message hasRepeated { int32 hasRepeated = 1; }
   message hasRepeatedFieldEncoding { int32 hasRepeatedFieldEncoding = 1; }
   message hasReserved { int32 hasReserved = 1; }
@@ -470,7 +483,6 @@ message GeneratedSwiftReservedMessages {
   message hasSourceContext { int32 hasSourceContext = 1; }
   message hasSourceFile { int32 hasSourceFile = 1; }
   message hasStart { int32 hasStart = 1; }
-  message hasStringFieldValidation { int32 hasStringFieldValidation = 1; }
   message hasStringValue { int32 hasStringValue = 1; }
   message hasSwiftPrefix { int32 hasSwiftPrefix = 1; }
   message hasSyntax { int32 hasSyntax = 1; }
@@ -571,6 +583,8 @@ message GeneratedSwiftReservedMessages {
   message mapToMessages { int32 mapToMessages = 1; }
   message MapValueType { int32 MapValueType = 1; }
   message mapVisitor { int32 mapVisitor = 1; }
+  message maximumEdition { int32 maximumEdition = 1; }
+  message maximumEditionEnum { int32 maximumEditionEnum = 1; }
   message mdayStart { int32 mdayStart = 1; }
   message merge { int32 merge = 1; }
   message message { int32 message = 1; }
@@ -587,6 +601,8 @@ message GeneratedSwiftReservedMessages {
   message MethodOptions { int32 MethodOptions = 1; }
   message methods { int32 methods = 1; }
   message min { int32 min = 1; }
+  message minimumEdition { int32 minimumEdition = 1; }
+  message minimumEditionEnum { int32 minimumEditionEnum = 1; }
   message minor { int32 minor = 1; }
   message Mixin { int32 Mixin = 1; }
   message mixins { int32 mixins = 1; }
@@ -716,7 +732,6 @@ message GeneratedSwiftReservedMessages {
   message putZigZagVarInt { int32 putZigZagVarInt = 1; }
   message pyGenericServices { int32 pyGenericServices = 1; }
   message rawChars { int32 rawChars = 1; }
-  message rawFeatures { int32 rawFeatures = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
   message read4HexDigits { int32 read4HexDigits = 1; }
@@ -783,7 +798,6 @@ message GeneratedSwiftReservedMessages {
   message StaticString { int32 StaticString = 1; }
   message storage { int32 storage = 1; }
   message String { int32 String = 1; }
-  message stringFieldValidation { int32 stringFieldValidation = 1; }
   message stringLiteral { int32 stringLiteral = 1; }
   message StringLiteralType { int32 StringLiteralType = 1; }
   message stringResult { int32 stringResult = 1; }

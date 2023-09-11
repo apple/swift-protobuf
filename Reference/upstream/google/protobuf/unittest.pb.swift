@@ -1860,6 +1860,41 @@ struct ProtobufUnittest_TestNestedChildExtensionData {
   fileprivate var _child: ProtobufUnittest_TestChildExtensionData? = nil
 }
 
+/// Required and closed enum fields are considered unknown fields if the value is
+/// not valid. We need to make sure it functions as expected.
+struct ProtobufUnittest_TestRequiredEnum {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required closed enum results in missing required fields.
+  var requiredEnum: ProtobufUnittest_ForeignEnum {
+    get {return _requiredEnum ?? .foreignFoo}
+    set {_requiredEnum = newValue}
+  }
+  /// Returns true if `requiredEnum` has been explicitly set.
+  var hasRequiredEnum: Bool {return self._requiredEnum != nil}
+  /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum() {self._requiredEnum = nil}
+
+  /// A dummy optional field.
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _requiredEnum: ProtobufUnittest_ForeignEnum? = nil
+  fileprivate var _a: Int32? = nil
+}
+
 /// We have separate messages for testing required fields because it's
 /// annoying to have to fill in required fields in TestProto in order to
 /// do anything with it.  Note that we don't need to test every type of
@@ -2294,6 +2329,16 @@ struct ProtobufUnittest_TestNestedRequiredForeign {
   var hasDummy: Bool {return _storage._dummy != nil}
   /// Clears the value of `dummy`. Subsequent reads from it will return its default value.
   mutating func clearDummy() {_uniqueStorage()._dummy = nil}
+
+  /// optional message to test required closed enum.
+  var requiredEnum: ProtobufUnittest_TestRequiredEnum {
+    get {return _storage._requiredEnum ?? ProtobufUnittest_TestRequiredEnum()}
+    set {_uniqueStorage()._requiredEnum = newValue}
+  }
+  /// Returns true if `requiredEnum` has been explicitly set.
+  var hasRequiredEnum: Bool {return _storage._requiredEnum != nil}
+  /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum() {_uniqueStorage()._requiredEnum = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7611,6 +7656,237 @@ extension ProtobufUnittest_TestPackedEnumSmallRange.NestedEnum: CaseIterable {
 
 #endif  // swift(>=4.2)
 
+struct ProtobufUnittest_EnumsForBenchmark {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum Flat: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case a0 // = 0
+    case a1 // = 1
+    case a2 // = 2
+    case a3 // = 3
+    case a4 // = 4
+    case a5 // = 5
+    case a6 // = 6
+    case a7 // = 7
+    case a8 // = 8
+    case a9 // = 9
+    case a10 // = 10
+    case a11 // = 11
+    case a12 // = 12
+    case a13 // = 13
+    case a14 // = 14
+    case a15 // = 15
+
+    init() {
+      self = .a0
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .a0
+      case 1: self = .a1
+      case 2: self = .a2
+      case 3: self = .a3
+      case 4: self = .a4
+      case 5: self = .a5
+      case 6: self = .a6
+      case 7: self = .a7
+      case 8: self = .a8
+      case 9: self = .a9
+      case 10: self = .a10
+      case 11: self = .a11
+      case 12: self = .a12
+      case 13: self = .a13
+      case 14: self = .a14
+      case 15: self = .a15
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .a0: return 0
+      case .a1: return 1
+      case .a2: return 2
+      case .a3: return 3
+      case .a4: return 4
+      case .a5: return 5
+      case .a6: return 6
+      case .a7: return 7
+      case .a8: return 8
+      case .a9: return 9
+      case .a10: return 10
+      case .a11: return 11
+      case .a12: return 12
+      case .a13: return 13
+      case .a14: return 14
+      case .a15: return 15
+      }
+    }
+
+  }
+
+  /// Has a few holes, bitmap can be used.
+  enum AlmostFlat: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case b0 // = 0
+    case b1 // = 1
+    case b2 // = 2
+    case b3 // = 3
+    case b5 // = 5
+    case b6 // = 6
+    case b7 // = 7
+    case b8 // = 8
+    case b9 // = 9
+    case b11 // = 11
+    case b12 // = 12
+    case b13 // = 13
+    case b14 // = 14
+    case b15 // = 15
+    case b17 // = 17
+    case b19 // = 19
+
+    init() {
+      self = .b0
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .b0
+      case 1: self = .b1
+      case 2: self = .b2
+      case 3: self = .b3
+      case 5: self = .b5
+      case 6: self = .b6
+      case 7: self = .b7
+      case 8: self = .b8
+      case 9: self = .b9
+      case 11: self = .b11
+      case 12: self = .b12
+      case 13: self = .b13
+      case 14: self = .b14
+      case 15: self = .b15
+      case 17: self = .b17
+      case 19: self = .b19
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .b0: return 0
+      case .b1: return 1
+      case .b2: return 2
+      case .b3: return 3
+      case .b5: return 5
+      case .b6: return 6
+      case .b7: return 7
+      case .b8: return 8
+      case .b9: return 9
+      case .b11: return 11
+      case .b12: return 12
+      case .b13: return 13
+      case .b14: return 14
+      case .b15: return 15
+      case .b17: return 17
+      case .b19: return 19
+      }
+    }
+
+  }
+
+  enum Sparse: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case c536 // = 536
+    case c8387 // = 8387
+    case c9673 // = 9673
+    case c10285 // = 10285
+    case c13318 // = 13318
+    case c15963 // = 15963
+    case c16439 // = 16439
+    case c18197 // = 18197
+    case c19430 // = 19430
+    case c20361 // = 20361
+    case c20706 // = 20706
+    case c21050 // = 21050
+    case c21906 // = 21906
+    case c27265 // = 27265
+    case c30109 // = 30109
+    case c31670 // = 31670
+
+    init() {
+      self = .c536
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 536: self = .c536
+      case 8387: self = .c8387
+      case 9673: self = .c9673
+      case 10285: self = .c10285
+      case 13318: self = .c13318
+      case 15963: self = .c15963
+      case 16439: self = .c16439
+      case 18197: self = .c18197
+      case 19430: self = .c19430
+      case 20361: self = .c20361
+      case 20706: self = .c20706
+      case 21050: self = .c21050
+      case 21906: self = .c21906
+      case 27265: self = .c27265
+      case 30109: self = .c30109
+      case 31670: self = .c31670
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .c536: return 536
+      case .c8387: return 8387
+      case .c9673: return 9673
+      case .c10285: return 10285
+      case .c13318: return 13318
+      case .c15963: return 15963
+      case .c16439: return 16439
+      case .c18197: return 18197
+      case .c19430: return 19430
+      case .c20361: return 20361
+      case .c20706: return 20706
+      case .c21050: return 21050
+      case .c21906: return 21906
+      case .c27265: return 27265
+      case .c30109: return 30109
+      case .c31670: return 31670
+      }
+    }
+
+  }
+
+  init() {}
+}
+
+#if swift(>=4.2)
+
+extension ProtobufUnittest_EnumsForBenchmark.Flat: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension ProtobufUnittest_EnumsForBenchmark.AlmostFlat: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension ProtobufUnittest_EnumsForBenchmark.Sparse: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+#endif  // swift(>=4.2)
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_ForeignEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestReservedEnumFields: @unchecked Sendable {}
@@ -7644,6 +7920,7 @@ extension ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData: @
 extension ProtobufUnittest_TestChildExtensionData.NestedTestAllExtensionsData.NestedDynamicExtensions: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedChildExtension: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedChildExtensionData: @unchecked Sendable {}
+extension ProtobufUnittest_TestRequiredEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequired: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredForeign: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredMessage: @unchecked Sendable {}
@@ -7770,6 +8047,10 @@ extension ProtobufUnittest_RedactedFields: @unchecked Sendable {}
 extension ProtobufUnittest_TestCord: @unchecked Sendable {}
 extension ProtobufUnittest_TestPackedEnumSmallRange: @unchecked Sendable {}
 extension ProtobufUnittest_TestPackedEnumSmallRange.NestedEnum: @unchecked Sendable {}
+extension ProtobufUnittest_EnumsForBenchmark: @unchecked Sendable {}
+extension ProtobufUnittest_EnumsForBenchmark.Flat: @unchecked Sendable {}
+extension ProtobufUnittest_EnumsForBenchmark.AlmostFlat: @unchecked Sendable {}
+extension ProtobufUnittest_EnumsForBenchmark.Sparse: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest.proto.
@@ -8354,6 +8635,8 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension)
   }
 
+  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_optionalCordExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension, value: newValue)}
@@ -8760,6 +9043,8 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension)
   }
 
+  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_repeatedCordExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension) ?? []}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension, value: newValue)}
@@ -9076,6 +9361,8 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension)
   }
 
+  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_defaultCordExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension) ?? "123"}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension, value: newValue)}
@@ -10223,6 +10510,8 @@ let ProtobufUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.
   fieldName: "protobuf_unittest.optional_string_piece_extension"
 )
 
+/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 25,
   fieldName: "protobuf_unittest.optional_cord_extension"
@@ -10359,6 +10648,8 @@ let ProtobufUnittest_Extensions_repeated_string_piece_extension = SwiftProtobuf.
   fieldName: "protobuf_unittest.repeated_string_piece_extension"
 )
 
+/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 55,
   fieldName: "protobuf_unittest.repeated_cord_extension"
@@ -10465,6 +10756,8 @@ let ProtobufUnittest_Extensions_default_string_piece_extension = SwiftProtobuf.M
   fieldName: "protobuf_unittest.default_string_piece_extension"
 )
 
+/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 85,
   fieldName: "protobuf_unittest.default_cord_extension"
@@ -12708,6 +13001,53 @@ extension ProtobufUnittest_TestNestedChildExtensionData: SwiftProtobuf.Message, 
   }
 }
 
+extension ProtobufUnittest_TestRequiredEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredEnum"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "required_enum"),
+    2: .same(proto: "a"),
+  ]
+
+  public var isInitialized: Bool {
+    if self._requiredEnum == nil {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._requiredEnum {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestRequiredEnum, rhs: ProtobufUnittest_TestRequiredEnum) -> Bool {
+    if lhs._requiredEnum != rhs._requiredEnum {return false}
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -13171,12 +13511,14 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
     3: .same(proto: "dummy"),
+    5: .standard(proto: "required_enum"),
   ]
 
   fileprivate class _StorageClass {
     var _child: ProtobufUnittest_TestNestedRequiredForeign? = nil
     var _payload: ProtobufUnittest_TestRequiredForeign? = nil
     var _dummy: Int32? = nil
+    var _requiredEnum: ProtobufUnittest_TestRequiredEnum? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -13186,6 +13528,7 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
       _child = source._child
       _payload = source._payload
       _dummy = source._dummy
+      _requiredEnum = source._requiredEnum
     }
   }
 
@@ -13200,6 +13543,7 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._child, !v.isInitialized {return false}
       if let v = _storage._payload, !v.isInitialized {return false}
+      if let v = _storage._requiredEnum, !v.isInitialized {return false}
       return true
     }
   }
@@ -13215,6 +13559,7 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
         case 1: try { try decoder.decodeSingularMessageField(value: &_storage._child) }()
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._payload) }()
         case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._dummy) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._requiredEnum) }()
         default: break
         }
       }
@@ -13236,6 +13581,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
       try { if let v = _storage._dummy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       } }()
+      try { if let v = _storage._requiredEnum {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -13248,6 +13596,7 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
         if _storage._child != rhs_storage._child {return false}
         if _storage._payload != rhs_storage._payload {return false}
         if _storage._dummy != rhs_storage._dummy {return false}
+        if _storage._requiredEnum != rhs_storage._requiredEnum {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -20185,5 +20534,87 @@ extension ProtobufUnittest_TestPackedEnumSmallRange.NestedEnum: SwiftProtobuf._P
     1: .same(proto: "FOO"),
     2: .same(proto: "BAR"),
     3: .same(proto: "BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_EnumsForBenchmark: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".EnumsForBenchmark"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_EnumsForBenchmark, rhs: ProtobufUnittest_EnumsForBenchmark) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_EnumsForBenchmark.Flat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "A0"),
+    1: .same(proto: "A1"),
+    2: .same(proto: "A2"),
+    3: .same(proto: "A3"),
+    4: .same(proto: "A4"),
+    5: .same(proto: "A5"),
+    6: .same(proto: "A6"),
+    7: .same(proto: "A7"),
+    8: .same(proto: "A8"),
+    9: .same(proto: "A9"),
+    10: .same(proto: "A10"),
+    11: .same(proto: "A11"),
+    12: .same(proto: "A12"),
+    13: .same(proto: "A13"),
+    14: .same(proto: "A14"),
+    15: .same(proto: "A15"),
+  ]
+}
+
+extension ProtobufUnittest_EnumsForBenchmark.AlmostFlat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "B0"),
+    1: .same(proto: "B1"),
+    2: .same(proto: "B2"),
+    3: .same(proto: "B3"),
+    5: .same(proto: "B5"),
+    6: .same(proto: "B6"),
+    7: .same(proto: "B7"),
+    8: .same(proto: "B8"),
+    9: .same(proto: "B9"),
+    11: .same(proto: "B11"),
+    12: .same(proto: "B12"),
+    13: .same(proto: "B13"),
+    14: .same(proto: "B14"),
+    15: .same(proto: "B15"),
+    17: .same(proto: "B17"),
+    19: .same(proto: "B19"),
+  ]
+}
+
+extension ProtobufUnittest_EnumsForBenchmark.Sparse: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    536: .same(proto: "C536"),
+    8387: .same(proto: "C8387"),
+    9673: .same(proto: "C9673"),
+    10285: .same(proto: "C10285"),
+    13318: .same(proto: "C13318"),
+    15963: .same(proto: "C15963"),
+    16439: .same(proto: "C16439"),
+    18197: .same(proto: "C18197"),
+    19430: .same(proto: "C19430"),
+    20361: .same(proto: "C20361"),
+    20706: .same(proto: "C20706"),
+    21050: .same(proto: "C21050"),
+    21906: .same(proto: "C21906"),
+    27265: .same(proto: "C27265"),
+    30109: .same(proto: "C30109"),
+    31670: .same(proto: "C31670"),
   ]
 }
