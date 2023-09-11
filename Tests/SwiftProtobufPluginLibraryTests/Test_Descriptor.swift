@@ -44,7 +44,9 @@ class Test_Descriptor: XCTestCase {
 
     let descriptorFileDescriptor = descriptorSet.files[0]
 
-    XCTAssertEqual(descriptorFileDescriptor.enums.count, 0)
+    XCTAssertEqual(descriptorFileDescriptor.enums.count, 1)
+    XCTAssertEqual(descriptorFileDescriptor.enums[0].fullName, ".google.protobuf.Edition")
+    XCTAssertNil(descriptorFileDescriptor.enums[0].containingType)
     XCTAssertEqual(descriptorFileDescriptor.messages[4].enums.count, 2)
     XCTAssertEqual(descriptorFileDescriptor.messages[4].enums[0].fullName, ".google.protobuf.FieldDescriptorProto.Type")
     XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[0].containingType === descriptorFileDescriptor.messages[4])
