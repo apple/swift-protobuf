@@ -34,8 +34,14 @@ package pb;
 
 import "google/protobuf/descriptor.proto";
 
-message TestInvalid {
-  extend .google.protobuf.FeatureSet {
-    optional string scalar_extension = 9996;
-  }
+extend google.protobuf.FeatureSet {
+  optional TestInvalidFeatures test_invalid = 9996;
+}
+
+message TestInvalidFeatures {
+  repeated int32 repeated_feature = 1 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FIELD,
+    edition_defaults = { edition_enum: EDITION_2023, value: "3" }
+  ];
 }
