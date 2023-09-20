@@ -90,7 +90,7 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A Swift 5.6 or later compiler (or, if building with Xcode, Xcode 14.1 or later
+* A Swift 5.7 or later compiler (or, if building with Xcode, Xcode 14.1 or later
   as required by the App Store). The Swift protobuf project is being developed
   and tested against the latest release version of Swift available from
   [Swift.org](https://swift.org)
