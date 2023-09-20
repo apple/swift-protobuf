@@ -52,8 +52,22 @@ internal func typeName(fromURL s: String) -> String {
   return String(s[typeStart..<s.endIndex])
 }
 
+// This is adapted from SwiftNIO so sendable checks don't flag issues with
+// `knownTypes`. Another options would be something like NIO's `LockedValueBox`
+// or moving the entire handling to a Task.
+fileprivate final class UnsafeMutableTransferBox<Wrapped> {
+  var wrappedValue: Wrapped
+  init(_ wrappedValue: Wrapped) {
+    self.wrappedValue = wrappedValue
+  }
+}
+
+#if swift(>=5.5) && canImport(_Concurrency)
+extension UnsafeMutableTransferBox: @unchecked Sendable {}
+#endif
+
 // All access to this should be done on `knownTypesQueue`.
-fileprivate var knownTypes: [String:Message.Type] = [
+fileprivate let knownTypes: UnsafeMutableTransferBox<[String:Message.Type]> = .init([
   // Seeded with the Well Known Types.
   "google.protobuf.Any": Google_Protobuf_Any.self,
   "google.protobuf.BoolValue": Google_Protobuf_BoolValue.self,
@@ -72,7 +86,7 @@ fileprivate var knownTypes: [String:Message.Type] = [
   "google.protobuf.UInt32Value": Google_Protobuf_UInt32Value.self,
   "google.protobuf.UInt64Value": Google_Protobuf_UInt64Value.self,
   "google.protobuf.Value": Google_Protobuf_Value.self,
-]
+])
 
 extension Google_Protobuf_Any {
 
@@ -107,13 +121,13 @@ extension Google_Protobuf_Any {
         let messageTypeName = messageType.protoMessageName
         var result: Bool = false
         execute(flags: .barrier) {
-            if let alreadyRegistered = knownTypes[messageTypeName] {
+            if let alreadyRegistered = knownTypes.wrappedValue[messageTypeName] {
                 // Success/failure when something was already registered is
                 // based on if they are registering the same class or trying
                 // to register a different type
                 result = alreadyRegistered == messageType
             } else {
-                knownTypes[messageTypeName] = messageType
+                knownTypes.wrappedValue[messageTypeName] = messageType
                 result = true
             }
         }
@@ -131,7 +145,7 @@ extension Google_Protobuf_Any {
     public static func messageType(forMessageName name: String) -> Message.Type? {
         var result: Message.Type?
         execute(flags: .none) {
-            result = knownTypes[name]
+            result = knownTypes.wrappedValue[name]
         }
         return result
     }
