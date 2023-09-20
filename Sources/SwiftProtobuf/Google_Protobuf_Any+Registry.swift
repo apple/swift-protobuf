@@ -17,7 +17,7 @@ import Foundation
 #if !os(WASI)
 #if canImport(Dispatch)
 import Dispatch
-fileprivate var knownTypesQueue =
+fileprivate let knownTypesQueue =
     DispatchQueue(label: "org.swift.protobuf.typeRegistry",
                   attributes: .concurrent)
 #endif
