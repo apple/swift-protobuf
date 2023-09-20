@@ -16,11 +16,11 @@ jobs:
       fail-fast: false
       matrix:
         # Looking at https://hub.docker.com/_/swift, the version only tags (i.e.
-        # - 5.6.3) use different Ubuntu releases. Generally we want to avoid
+        # - 5.7.3) use different Ubuntu releases. Generally we want to avoid
         # bionic as it is older then we want to deal with having to build
         # protobuf on.
         #
-        # We also could use less specific tags (i.e. - 5.6), so they "float" as
+        # We also could use less specific tags (i.e. - 5.7), so they "float" as
         # new point release come, but to help make history/logs more clear,
         # being explicit (at the cost of having to update with point releases)
         # seems better. This should also ensure protobuf caching changes with
@@ -29,7 +29,6 @@ jobs:
         - 5.9-jammy
         - 5.8.1-jammy
         - 5.7.3-jammy
-        - 5.6.3-focal
         # protobuf_git can reference a commit, tag, or branch
         # commit: "commits/6935eae45c99926a000ecbef0be20dfd3d159e71"
         # tag: "ref/tags/v3.11.4"
