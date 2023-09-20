@@ -2583,7 +2583,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     }
 
     func testWithFactoryHelperRethrows() {
-        class TestWithFactoryHelperRethrows_Error : Error {}
+        struct TestWithFactoryHelperRethrows_Error : Error {}
 
         let pNoThrow: (inout SwiftProtoTesting_ForeignMessage) -> () = { $0.c = 1 }
         let m1 = SwiftProtoTesting_ForeignMessage.with(pNoThrow)
