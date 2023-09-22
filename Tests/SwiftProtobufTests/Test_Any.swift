@@ -828,7 +828,7 @@ struct ConflictingImportMessage:
     SwiftProtobuf.Message,
     SwiftProtobuf._MessageImplementationBase,
     SwiftProtobuf._ProtoNameProviding,
-    @unchecked Sendable {  // Once swift(>=5.7) the '@unchecked' can be removed, it is needed for Data.
+    @unchecked Sendable {  // Once swift(>=5.9) the '@unchecked' can be removed, it is needed for Data on linux.
   static let protoMessageName: String = "swift_proto_testing.import.ImportMessage"
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
