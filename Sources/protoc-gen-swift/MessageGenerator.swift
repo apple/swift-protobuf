@@ -186,9 +186,8 @@ class MessageGenerator {
   }
 
   func generateSendable(printer p: inout CodePrinter) {
-    // Once our minimum supported version has Data be Sendable, @unchecked
-    // will not be needed for all messages, provided that the extension types
-    // in the library are marked Sendable.
+    // Data isn't marked as Sendable on linux until Swift 5.9, so until then
+    // all messages with Data fields need to be manually marked as @unchecked.
     //
     // Messages that have a storage class will always need @unchecked.
     p.print("extension \(swiftFullName): @unchecked Sendable {}")

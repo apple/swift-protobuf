@@ -254,7 +254,10 @@ class OneofGenerator {
     }
 
     func generateSendable(printer p: inout CodePrinter) {
-        // Once our minimum supported version has Data be Sendable, @unchecked could be removed.
+        // Data isn't marked as Sendable on linux until Swift 5.9, so until then
+        // all oneof enums with Data fields need to be manually marked as @unchecked.
+        // TODO: Check if the enum has a byte field, otherwise, skip the @unchecked
+        // and just mark it Sendable.
         p.print("extension \(swiftFullName): @unchecked Sendable {}")
     }
 
