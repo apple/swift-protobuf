@@ -113,15 +113,23 @@ class MessageGenerator {
       }
     }
 
-    let conformances: String
+    var conformances = [String]()
     if isExtensible {
-      conformances = ": \(namer.swiftProtobufModulePrefix)ExtensibleMessage"
-    } else {
-      conformances = ""
+      conformances.append("\(namer.swiftProtobufModulePrefix)ExtensibleMessage")
     }
+
+    // Data isn't marked as Sendable on linux until Swift 5.9, so until then
+    // all messages with Data fields need to be manually marked as @unchecked.
+    //
+    // Messages that have a storage class will always need @unchecked.
+    let needsUnchecked = storage != nil || descriptor.fields.contains {
+      return $0.type == .bytes
+    }
+    conformances.append(needsUnchecked ? "@unchecked Sendable" : "Sendable")
+
     p.print(
         "",
-        "\(descriptor.protoSourceCommentsWithDeprecation())\(visibility)struct \(swiftRelativeName)\(conformances) {")
+        "\(descriptor.protoSourceCommentsWithDeprecation())\(visibility)struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {")
     p.withIndentation { p in
       p.print("""
               // \(namer.swiftProtobufModuleName).Message conformance is added in an extension below. See the
@@ -183,18 +191,6 @@ class MessageGenerator {
       }
     }
     p.print("}")
-  }
-
-  func generateSendable(printer p: inout CodePrinter) {
-    // Data isn't marked as Sendable on linux until Swift 5.9, so until then
-    // all messages with Data fields need to be manually marked as @unchecked.
-    //
-    // Messages that have a storage class will always need @unchecked.
-    p.print("extension \(swiftFullName): @unchecked Sendable {}")
-
-    for m in messages {
-      m.generateSendable(printer: &p)
-    }
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
