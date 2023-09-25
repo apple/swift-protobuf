@@ -2936,7 +2936,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _debugDescription_p: Int32? = nil
   }
 
-  struct Swift {
+  struct SwiftMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7458,7 +7458,7 @@ struct SwiftProtoTesting_Names_EnumNames {
 
   }
 
-  enum Swift: SwiftProtobuf.Enum {
+  enum SwiftEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aSwift // = 0
 
@@ -12951,7 +12951,7 @@ extension SwiftProtoTesting_Names_MessageNames.UIntMessage: @unchecked Sendable 
 extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Swift: @unchecked Sendable {}
+extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_MessageNames.classMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_MessageNames.deinitMessage: @unchecked Sendable {}
@@ -17814,7 +17814,7 @@ extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftPro
   }
 }
 
-extension SwiftProtoTesting_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Names_MessageNames.protoMessageName + ".Swift"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Swift"),
@@ -17843,7 +17843,7 @@ extension SwiftProtoTesting_Names_MessageNames.Swift: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Swift, rhs: SwiftProtoTesting_Names_MessageNames.Swift) -> Bool {
+  static func ==(lhs: SwiftProtoTesting_Names_MessageNames.SwiftMessage, rhs: SwiftProtoTesting_Names_MessageNames.SwiftMessage) -> Bool {
     if lhs._swift != rhs._swift {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -25267,7 +25267,7 @@ extension SwiftProtoTesting_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf.
   ]
 }
 
-extension SwiftProtoTesting_Names_EnumNames.Swift: SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtoTesting_Names_EnumNames.SwiftEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aSwift"),
   ]
