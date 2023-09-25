@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_TestMessageSetContainer {
+struct SwiftProtoTesting_TestMessageSetContainer: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,7 +78,7 @@ struct SwiftProtoTesting_TestMessageSetContainer {
   fileprivate var _messageSet: SwiftProtoTesting_WireFormat_TestMessageSet? = nil
 }
 
-struct SwiftProtoTesting_TestMessageSetExtension1 {
+struct SwiftProtoTesting_TestMessageSetExtension1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -119,7 +119,7 @@ struct SwiftProtoTesting_TestMessageSetExtension1 {
   fileprivate var _testAliasing: String? = nil
 }
 
-struct SwiftProtoTesting_TestMessageSetExtension2 {
+struct SwiftProtoTesting_TestMessageSetExtension2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -141,7 +141,7 @@ struct SwiftProtoTesting_TestMessageSetExtension2 {
 }
 
 /// MessageSet wire format is equivalent to this.
-struct SwiftProtoTesting_RawMessageSet {
+struct SwiftProtoTesting_RawMessageSet: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -150,7 +150,7 @@ struct SwiftProtoTesting_RawMessageSet {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Item {
+  struct Item: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -183,14 +183,6 @@ struct SwiftProtoTesting_RawMessageSet {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_TestMessageSetContainer: @unchecked Sendable {}
-extension SwiftProtoTesting_TestMessageSetExtension1: @unchecked Sendable {}
-extension SwiftProtoTesting_TestMessageSetExtension2: @unchecked Sendable {}
-extension SwiftProtoTesting_RawMessageSet: @unchecked Sendable {}
-extension SwiftProtoTesting_RawMessageSet.Item: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_mset.proto.
 

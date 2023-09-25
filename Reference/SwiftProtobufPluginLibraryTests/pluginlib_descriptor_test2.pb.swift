@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftDescriptorTest_Proto3MessageForPresence {
+struct SwiftDescriptorTest_Proto3MessageForPresence: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -191,7 +191,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
   fileprivate var _optMessageField: SwiftDescriptorTest_OtherMessage? = nil
 }
 
-struct SwiftDescriptorTest_OtherMessage {
+struct SwiftDescriptorTest_OtherMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -202,11 +202,6 @@ struct SwiftDescriptorTest_OtherMessage {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Sendable {}
-extension SwiftDescriptorTest_OtherMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

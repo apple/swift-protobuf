@@ -32,7 +32,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// Configuration used to define the mappings for generated proto files
 /// to the Swift module they will be included in.
-struct SwiftProtobuf_GenSwift_ModuleMappings {
+struct SwiftProtobuf_GenSwift_ModuleMappings: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -44,7 +44,7 @@ struct SwiftProtobuf_GenSwift_ModuleMappings {
 
   /// Individual listing of the module name and the files that will go
   /// into it.
-  struct Entry {
+  struct Entry: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -66,11 +66,6 @@ struct SwiftProtobuf_GenSwift_ModuleMappings {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtobuf_GenSwift_ModuleMappings: @unchecked Sendable {}
-extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -74,7 +74,7 @@ enum ProtobufUnittest_TopLevelEnum: SwiftProtobuf.Enum {
 }
 
 /// Retention attributes set on fields nested within a message
-struct ProtobufUnittest_OptionsMessage {
+struct ProtobufUnittest_OptionsMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -115,7 +115,7 @@ struct ProtobufUnittest_OptionsMessage {
   fileprivate var _sourceRetentionField: Int32? = nil
 }
 
-struct ProtobufUnittest_Extendee: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_Extendee: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -127,7 +127,7 @@ struct ProtobufUnittest_Extendee: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -181,7 +181,7 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -196,13 +196,6 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _f: Float? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_OptionsMessage: @unchecked Sendable {}
-extension ProtobufUnittest_Extendee: @unchecked Sendable {}
-extension ProtobufUnittest_TopLevelMessage: @unchecked Sendable {}
-extension ProtobufUnittest_TopLevelMessage.NestedMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_retention.proto.
 

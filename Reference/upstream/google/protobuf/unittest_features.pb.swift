@@ -50,14 +50,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct Pb_TestMessage {
+struct Pb_TestMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Nested {
+  struct Nested: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -70,7 +70,7 @@ struct Pb_TestMessage {
   init() {}
 }
 
-struct Pb_TestFeatures {
+struct Pb_TestFeatures: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -259,7 +259,7 @@ struct Pb_TestFeatures {
 
   }
 
-  struct MessageFeature {
+  struct MessageFeature: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -314,13 +314,6 @@ struct Pb_TestFeatures {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Pb_TestMessage: @unchecked Sendable {}
-extension Pb_TestMessage.Nested: @unchecked Sendable {}
-extension Pb_TestFeatures: @unchecked Sendable {}
-extension Pb_TestFeatures.MessageFeature: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_features.proto.
 

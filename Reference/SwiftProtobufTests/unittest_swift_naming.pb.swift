@@ -718,7 +718,7 @@ enum SwiftProtoTesting_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 
 }
 
-struct SwiftProtoTesting_Names_Foo: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_Foo: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -730,7 +730,7 @@ struct SwiftProtoTesting_Names_Foo: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftProtoTesting_Names_FieldNames {
+struct SwiftProtoTesting_Names_FieldNames: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2740,14 +2740,14 @@ struct SwiftProtoTesting_Names_FieldNames {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_Names_MessageNames {
+struct SwiftProtoTesting_Names_MessageNames: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct StringMessage {
+  struct StringMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2768,7 +2768,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _string: Int32? = nil
   }
 
-  struct ProtocolMessage {
+  struct ProtocolMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2789,7 +2789,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _protocol: Int32? = nil
   }
 
-  struct IntMessage {
+  struct IntMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2810,7 +2810,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _int: Int32? = nil
   }
 
-  struct DoubleMessage {
+  struct DoubleMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2831,7 +2831,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _double: Int32? = nil
   }
 
-  struct FloatMessage {
+  struct FloatMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2852,7 +2852,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _float: Int32? = nil
   }
 
-  struct UIntMessage {
+  struct UIntMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2873,7 +2873,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _uint: Int32? = nil
   }
 
-  struct hashValueMessage {
+  struct hashValueMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2894,7 +2894,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _hashValue_p: Int32? = nil
   }
 
-  struct descriptionMessage {
+  struct descriptionMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2915,7 +2915,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _description_p: Int32? = nil
   }
 
-  struct debugDescriptionMessage {
+  struct debugDescriptionMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2936,7 +2936,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _debugDescription_p: Int32? = nil
   }
 
-  struct SwiftMessage {
+  struct SwiftMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2957,7 +2957,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _swift: Int32? = nil
   }
 
-  struct UNRECOGNIZED {
+  struct UNRECOGNIZED: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2978,7 +2978,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _unrecognized: Int32? = nil
   }
 
-  struct classMessage {
+  struct classMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2999,7 +2999,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _class: Int32? = nil
   }
 
-  struct deinitMessage {
+  struct deinitMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3020,7 +3020,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _deinit: Int32? = nil
   }
 
-  struct enumMessage {
+  struct enumMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3041,7 +3041,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _enum: Int32? = nil
   }
 
-  struct extensionMessage {
+  struct extensionMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3062,7 +3062,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _extension: Int32? = nil
   }
 
-  struct funcMessage {
+  struct funcMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3083,7 +3083,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _func: Int32? = nil
   }
 
-  struct importMessage {
+  struct importMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3104,7 +3104,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _import: Int32? = nil
   }
 
-  struct initMessage {
+  struct initMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3125,7 +3125,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _init_p: Int32? = nil
   }
 
-  struct inoutMessage {
+  struct inoutMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3146,7 +3146,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _inout: Int32? = nil
   }
 
-  struct internalMessage {
+  struct internalMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3167,7 +3167,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _internal: Int32? = nil
   }
 
-  struct letMessage {
+  struct letMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3188,7 +3188,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _let: Int32? = nil
   }
 
-  struct operatorMessage {
+  struct operatorMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3209,7 +3209,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _operator: Int32? = nil
   }
 
-  struct privateMessage {
+  struct privateMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3230,7 +3230,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _private: Int32? = nil
   }
 
-  struct protocolMessage {
+  struct protocolMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3251,7 +3251,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _protocol: Int32? = nil
   }
 
-  struct publicMessage {
+  struct publicMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3272,7 +3272,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _public: Int32? = nil
   }
 
-  struct staticMessage {
+  struct staticMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3293,7 +3293,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _static: Int32? = nil
   }
 
-  struct structMessage {
+  struct structMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3314,7 +3314,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _struct: Int32? = nil
   }
 
-  struct subscriptMessage {
+  struct subscriptMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3335,7 +3335,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _subscript: Int32? = nil
   }
 
-  struct typealiasMessage {
+  struct typealiasMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3356,7 +3356,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _typealias: Int32? = nil
   }
 
-  struct varMessage {
+  struct varMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3377,7 +3377,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _var: Int32? = nil
   }
 
-  struct breakMessage {
+  struct breakMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3398,7 +3398,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _break: Int32? = nil
   }
 
-  struct caseMessage {
+  struct caseMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3419,7 +3419,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _case: Int32? = nil
   }
 
-  struct continueMessage {
+  struct continueMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3440,7 +3440,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _continue: Int32? = nil
   }
 
-  struct defaultMessage {
+  struct defaultMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3461,7 +3461,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _default: Int32? = nil
   }
 
-  struct deferMessage {
+  struct deferMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3482,7 +3482,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _defer: Int32? = nil
   }
 
-  struct doMessage {
+  struct doMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3503,7 +3503,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _do: Int32? = nil
   }
 
-  struct elseMessage {
+  struct elseMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3524,7 +3524,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _else: Int32? = nil
   }
 
-  struct fallthroughMessage {
+  struct fallthroughMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3545,7 +3545,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _fallthrough: Int32? = nil
   }
 
-  struct forMessage {
+  struct forMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3566,7 +3566,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _for: Int32? = nil
   }
 
-  struct guardMessage {
+  struct guardMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3587,7 +3587,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _guard: Int32? = nil
   }
 
-  struct ifMessage {
+  struct ifMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3608,7 +3608,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _if: Int32? = nil
   }
 
-  struct inMessage {
+  struct inMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3629,7 +3629,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _in: Int32? = nil
   }
 
-  struct repeatMessage {
+  struct repeatMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3650,7 +3650,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _repeat: Int32? = nil
   }
 
-  struct returnMessage {
+  struct returnMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3671,7 +3671,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _return: Int32? = nil
   }
 
-  struct switchMessage {
+  struct switchMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3692,7 +3692,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _switch: Int32? = nil
   }
 
-  struct whereMessage {
+  struct whereMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3713,7 +3713,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _where: Int32? = nil
   }
 
-  struct whileMessage {
+  struct whileMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3734,7 +3734,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _while: Int32? = nil
   }
 
-  struct asMessage {
+  struct asMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3755,7 +3755,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _as: Int32? = nil
   }
 
-  struct catchMessage {
+  struct catchMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3776,7 +3776,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _catch: Int32? = nil
   }
 
-  struct dynamicTypeMessage {
+  struct dynamicTypeMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3797,7 +3797,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _dynamicType_p: Int32? = nil
   }
 
-  struct falseMessage {
+  struct falseMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3818,7 +3818,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _false: Int32? = nil
   }
 
-  struct isMessage {
+  struct isMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3839,7 +3839,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _is: Int32? = nil
   }
 
-  struct nilMessage {
+  struct nilMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3860,7 +3860,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _nil: Int32? = nil
   }
 
-  struct rethrowsMessage {
+  struct rethrowsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3881,7 +3881,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _rethrows: Int32? = nil
   }
 
-  struct superMessage {
+  struct superMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3902,7 +3902,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _super: Int32? = nil
   }
 
-  struct selfMessage {
+  struct selfMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3923,7 +3923,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _self_p: Int32? = nil
   }
 
-  struct throwMessage {
+  struct throwMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3944,7 +3944,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _throw: Int32? = nil
   }
 
-  struct throwsMessage {
+  struct throwsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3965,7 +3965,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _throws: Int32? = nil
   }
 
-  struct trueMessage {
+  struct trueMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3986,7 +3986,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _true: Int32? = nil
   }
 
-  struct tryMessage {
+  struct tryMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4007,7 +4007,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _try: Int32? = nil
   }
 
-  struct __COLUMN__Message {
+  struct __COLUMN__Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4028,7 +4028,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var __Column__: Int32? = nil
   }
 
-  struct __FILE__Message {
+  struct __FILE__Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4049,7 +4049,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var __File__: Int32? = nil
   }
 
-  struct __FUNCTION__Message {
+  struct __FUNCTION__Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4070,7 +4070,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var __Function__: Int32? = nil
   }
 
-  struct __LINE__Message {
+  struct __LINE__Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4091,7 +4091,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var __Line__: Int32? = nil
   }
 
-  struct _Message {
+  struct _Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4112,7 +4112,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var ____: Int32? = nil
   }
 
-  struct __Message {
+  struct __Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4133,7 +4133,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _____: Int32? = nil
   }
 
-  struct associativity {
+  struct associativity: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4154,7 +4154,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _associativity: Int32? = nil
   }
 
-  struct convenience {
+  struct convenience: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4175,7 +4175,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _convenience: Int32? = nil
   }
 
-  struct dynamic {
+  struct dynamic: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4196,7 +4196,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _dynamic: Int32? = nil
   }
 
-  struct didSet {
+  struct didSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4217,7 +4217,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _didSet: Int32? = nil
   }
 
-  struct final {
+  struct final: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4238,7 +4238,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _final: Int32? = nil
   }
 
-  struct get {
+  struct get: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4259,7 +4259,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _get: Int32? = nil
   }
 
-  struct infix {
+  struct infix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4280,7 +4280,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _infix: Int32? = nil
   }
 
-  struct indirect {
+  struct indirect: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4301,7 +4301,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _indirect: Int32? = nil
   }
 
-  struct lazy {
+  struct lazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4322,7 +4322,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _lazy: Int32? = nil
   }
 
-  struct left {
+  struct left: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4343,7 +4343,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _left: Int32? = nil
   }
 
-  struct mutating {
+  struct mutating: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4364,7 +4364,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _mutating: Int32? = nil
   }
 
-  struct none {
+  struct none: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4385,7 +4385,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _none: Int32? = nil
   }
 
-  struct nonmutating {
+  struct nonmutating: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4406,7 +4406,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _nonmutating: Int32? = nil
   }
 
-  struct optional {
+  struct optional: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4427,7 +4427,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _optional: Int32? = nil
   }
 
-  struct override {
+  struct override: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4448,7 +4448,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _override: Int32? = nil
   }
 
-  struct postfix {
+  struct postfix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4469,7 +4469,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _postfix: Int32? = nil
   }
 
-  struct precedence {
+  struct precedence: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4490,7 +4490,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _precedence: Int32? = nil
   }
 
-  struct prefix {
+  struct prefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4511,7 +4511,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _prefix: Int32? = nil
   }
 
-  struct required {
+  struct required: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4532,7 +4532,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _required: Int32? = nil
   }
 
-  struct right {
+  struct right: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4553,7 +4553,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _right: Int32? = nil
   }
 
-  struct set {
+  struct set: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4574,7 +4574,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _set: Int32? = nil
   }
 
-  struct TypeMessage {
+  struct TypeMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4595,7 +4595,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _type: Int32? = nil
   }
 
-  struct unowned {
+  struct unowned: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4616,7 +4616,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _unowned: Int32? = nil
   }
 
-  struct weak {
+  struct weak: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4637,7 +4637,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _weak: Int32? = nil
   }
 
-  struct willSet {
+  struct willSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4658,7 +4658,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _willSet: Int32? = nil
   }
 
-  struct id {
+  struct id: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4679,7 +4679,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _id: Int32? = nil
   }
 
-  struct _cmd {
+  struct _cmd: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4700,7 +4700,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _cmd: Int32? = nil
   }
 
-  struct out {
+  struct out: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4721,7 +4721,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _out: Int32? = nil
   }
 
-  struct bycopy {
+  struct bycopy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4742,7 +4742,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _bycopy: Int32? = nil
   }
 
-  struct byref {
+  struct byref: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4763,7 +4763,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _byref: Int32? = nil
   }
 
-  struct oneway {
+  struct oneway: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4784,7 +4784,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _oneway: Int32? = nil
   }
 
-  struct and {
+  struct and: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4805,7 +4805,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _and: Int32? = nil
   }
 
-  struct and_eq {
+  struct and_eq: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4826,7 +4826,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _andEq: Int32? = nil
   }
 
-  struct alignas {
+  struct alignas: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4847,7 +4847,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _alignas: Int32? = nil
   }
 
-  struct alignof {
+  struct alignof: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4868,7 +4868,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _alignof: Int32? = nil
   }
 
-  struct asm {
+  struct asm: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4889,7 +4889,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _asm: Int32? = nil
   }
 
-  struct auto {
+  struct auto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4910,7 +4910,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _auto: Int32? = nil
   }
 
-  struct bitand {
+  struct bitand: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4931,7 +4931,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _bitand: Int32? = nil
   }
 
-  struct bitor {
+  struct bitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4952,7 +4952,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _bitor: Int32? = nil
   }
 
-  struct bool {
+  struct bool: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4973,7 +4973,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _bool: Int32? = nil
   }
 
-  struct char {
+  struct char: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4994,7 +4994,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _char: Int32? = nil
   }
 
-  struct char16_t {
+  struct char16_t: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5015,7 +5015,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _char16T: Int32? = nil
   }
 
-  struct char32_t {
+  struct char32_t: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5036,7 +5036,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _char32T: Int32? = nil
   }
 
-  struct compl {
+  struct compl: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5057,7 +5057,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _compl: Int32? = nil
   }
 
-  struct const {
+  struct const: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5078,7 +5078,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _const: Int32? = nil
   }
 
-  struct constexpr {
+  struct constexpr: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5099,7 +5099,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _constexpr: Int32? = nil
   }
 
-  struct const_cast {
+  struct const_cast: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5120,7 +5120,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _constCast: Int32? = nil
   }
 
-  struct decltype {
+  struct decltype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5141,7 +5141,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _decltype: Int32? = nil
   }
 
-  struct delete {
+  struct delete: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5162,7 +5162,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _delete: Int32? = nil
   }
 
-  struct dynamic_cast {
+  struct dynamic_cast: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5183,7 +5183,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _dynamicCast: Int32? = nil
   }
 
-  struct explicit {
+  struct explicit: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5204,7 +5204,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _explicit: Int32? = nil
   }
 
-  struct export {
+  struct export: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5225,7 +5225,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _export: Int32? = nil
   }
 
-  struct extern {
+  struct extern: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5246,7 +5246,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _extern: Int32? = nil
   }
 
-  struct friend {
+  struct friend: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5267,7 +5267,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _friend: Int32? = nil
   }
 
-  struct goto {
+  struct goto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5288,7 +5288,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _goto: Int32? = nil
   }
 
-  struct inline {
+  struct inline: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5309,7 +5309,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _inline: Int32? = nil
   }
 
-  struct long {
+  struct long: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5330,7 +5330,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _long: Int32? = nil
   }
 
-  struct mutable {
+  struct mutable: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5351,7 +5351,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _mutable: Int32? = nil
   }
 
-  struct namespace {
+  struct namespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5372,7 +5372,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _namespace: Int32? = nil
   }
 
-  struct new {
+  struct new: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5393,7 +5393,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _new: Int32? = nil
   }
 
-  struct noexcept {
+  struct noexcept: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5414,7 +5414,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _noexcept: Int32? = nil
   }
 
-  struct not {
+  struct not: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5435,7 +5435,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _not: Int32? = nil
   }
 
-  struct not_eq {
+  struct not_eq: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5456,7 +5456,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _notEq: Int32? = nil
   }
 
-  struct nullptr {
+  struct nullptr: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5477,7 +5477,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _nullptr: Int32? = nil
   }
 
-  struct or {
+  struct or: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5498,7 +5498,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _or: Int32? = nil
   }
 
-  struct or_eq {
+  struct or_eq: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5519,7 +5519,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _orEq: Int32? = nil
   }
 
-  struct protected {
+  struct protected: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5540,7 +5540,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _protected: Int32? = nil
   }
 
-  struct register {
+  struct register: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5561,7 +5561,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _register: Int32? = nil
   }
 
-  struct reinterpret_cast {
+  struct reinterpret_cast: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5582,7 +5582,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _reinterpretCast: Int32? = nil
   }
 
-  struct short {
+  struct short: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5603,7 +5603,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _short: Int32? = nil
   }
 
-  struct signed {
+  struct signed: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5624,7 +5624,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _signed: Int32? = nil
   }
 
-  struct sizeof {
+  struct sizeof: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5645,7 +5645,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _sizeof: Int32? = nil
   }
 
-  struct static_assert {
+  struct static_assert: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5666,7 +5666,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _staticAssert: Int32? = nil
   }
 
-  struct static_cast {
+  struct static_cast: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5687,7 +5687,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _staticCast: Int32? = nil
   }
 
-  struct template {
+  struct template: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5708,7 +5708,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _template: Int32? = nil
   }
 
-  struct this {
+  struct this: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5729,7 +5729,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _this: Int32? = nil
   }
 
-  struct thread_local {
+  struct thread_local: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5750,7 +5750,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _threadLocal: Int32? = nil
   }
 
-  struct typedef {
+  struct typedef: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5771,7 +5771,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _typedef: Int32? = nil
   }
 
-  struct typeid {
+  struct typeid: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5792,7 +5792,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _typeid: Int32? = nil
   }
 
-  struct typename {
+  struct typename: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5813,7 +5813,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _typename: Int32? = nil
   }
 
-  struct union {
+  struct union: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5834,7 +5834,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _union: Int32? = nil
   }
 
-  struct unsigned {
+  struct unsigned: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5855,7 +5855,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _unsigned: Int32? = nil
   }
 
-  struct using {
+  struct using: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5876,7 +5876,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _using: Int32? = nil
   }
 
-  struct virtual {
+  struct virtual: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5897,7 +5897,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _virtual: Int32? = nil
   }
 
-  struct void {
+  struct void: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5918,7 +5918,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _void: Int32? = nil
   }
 
-  struct volatile {
+  struct volatile: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5939,7 +5939,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _volatile: Int32? = nil
   }
 
-  struct wchar_t {
+  struct wchar_t: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5960,7 +5960,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _wcharT: Int32? = nil
   }
 
-  struct xor {
+  struct xor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5981,7 +5981,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _xor: Int32? = nil
   }
 
-  struct xor_eq {
+  struct xor_eq: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6002,7 +6002,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _xorEq: Int32? = nil
   }
 
-  struct restrict {
+  struct restrict: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6023,7 +6023,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _restrict: Int32? = nil
   }
 
-  struct Category {
+  struct Category: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6044,7 +6044,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _category: Int32? = nil
   }
 
-  struct Ivar {
+  struct Ivar: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6065,7 +6065,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _ivar: Int32? = nil
   }
 
-  struct Method {
+  struct Method: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6086,7 +6086,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _method: Int32? = nil
   }
 
-  struct finalize {
+  struct finalize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6107,7 +6107,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _finalize: Int32? = nil
   }
 
-  struct hash {
+  struct hash: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6128,7 +6128,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _hash: Int32? = nil
   }
 
-  struct dealloc {
+  struct dealloc: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6149,7 +6149,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _dealloc: Int32? = nil
   }
 
-  struct superclass {
+  struct superclass: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6170,7 +6170,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _superclass: Int32? = nil
   }
 
-  struct retain {
+  struct retain: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6191,7 +6191,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _retain: Int32? = nil
   }
 
-  struct release {
+  struct release: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6212,7 +6212,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _release: Int32? = nil
   }
 
-  struct autorelease {
+  struct autorelease: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6233,7 +6233,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _autorelease: Int32? = nil
   }
 
-  struct retainCount {
+  struct retainCount: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6254,7 +6254,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _retainCount: Int32? = nil
   }
 
-  struct zone {
+  struct zone: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6275,7 +6275,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _zone: Int32? = nil
   }
 
-  struct isProxy {
+  struct isProxy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6296,7 +6296,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _isProxy: Int32? = nil
   }
 
-  struct copy {
+  struct copy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6317,7 +6317,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _copy: Int32? = nil
   }
 
-  struct mutableCopy {
+  struct mutableCopy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6338,7 +6338,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _mutableCopy: Int32? = nil
   }
 
-  struct classForCoder {
+  struct classForCoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6359,7 +6359,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _classForCoder: Int32? = nil
   }
 
-  struct clear {
+  struct clear: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6380,7 +6380,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _clear: Int32? = nil
   }
 
-  struct data {
+  struct data: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6401,7 +6401,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _data: Int32? = nil
   }
 
-  struct delimitedData {
+  struct delimitedData: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6422,7 +6422,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _delimitedData: Int32? = nil
   }
 
-  struct descriptor {
+  struct descriptor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6443,7 +6443,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _descriptor: Int32? = nil
   }
 
-  struct extensionRegistry {
+  struct extensionRegistry: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6464,7 +6464,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _extensionRegistry: Int32? = nil
   }
 
-  struct extensionsCurrentlySet {
+  struct extensionsCurrentlySet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6485,7 +6485,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _extensionsCurrentlySet: Int32? = nil
   }
 
-  struct isInitializedMessage {
+  struct isInitializedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6506,7 +6506,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _isInitialized_p: Int32? = nil
   }
 
-  struct serializedSize {
+  struct serializedSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6527,7 +6527,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _serializedSize: Int32? = nil
   }
 
-  struct sortedExtensionsInUse {
+  struct sortedExtensionsInUse: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6548,7 +6548,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _sortedExtensionsInUse: Int32? = nil
   }
 
-  struct unknownFieldsMessage {
+  struct unknownFieldsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6569,7 +6569,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _unknownFields_p: Int32? = nil
   }
 
-  struct Fixed {
+  struct Fixed: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6590,7 +6590,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _fixed: Int32? = nil
   }
 
-  struct Fract {
+  struct Fract: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6611,7 +6611,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _fract: Int32? = nil
   }
 
-  struct Size {
+  struct Size: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6632,7 +6632,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _size: Int32? = nil
   }
 
-  struct LogicalAddress {
+  struct LogicalAddress: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6653,7 +6653,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _logicalAddress: Int32? = nil
   }
 
-  struct PhysicalAddress {
+  struct PhysicalAddress: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6674,7 +6674,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _physicalAddress: Int32? = nil
   }
 
-  struct ByteCount {
+  struct ByteCount: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6695,7 +6695,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _byteCount: Int32? = nil
   }
 
-  struct ByteOffset {
+  struct ByteOffset: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6716,7 +6716,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _byteOffset: Int32? = nil
   }
 
-  struct Duration {
+  struct Duration: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6737,7 +6737,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _duration: Int32? = nil
   }
 
-  struct AbsoluteTime {
+  struct AbsoluteTime: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6758,7 +6758,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _absoluteTime: Int32? = nil
   }
 
-  struct OptionBits {
+  struct OptionBits: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6779,7 +6779,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _optionBits: Int32? = nil
   }
 
-  struct ItemCount {
+  struct ItemCount: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6800,7 +6800,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _itemCount: Int32? = nil
   }
 
-  struct PBVersion {
+  struct PBVersion: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6821,7 +6821,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _pbversion: Int32? = nil
   }
 
-  struct ScriptCode {
+  struct ScriptCode: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6842,7 +6842,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _scriptCode: Int32? = nil
   }
 
-  struct LangCode {
+  struct LangCode: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6863,7 +6863,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _langCode: Int32? = nil
   }
 
-  struct RegionCode {
+  struct RegionCode: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6884,7 +6884,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _regionCode: Int32? = nil
   }
 
-  struct OSType {
+  struct OSType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6905,7 +6905,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _ostype: Int32? = nil
   }
 
-  struct ProcessSerialNumber {
+  struct ProcessSerialNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6926,7 +6926,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _processSerialNumber: Int32? = nil
   }
 
-  struct Point {
+  struct Point: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6947,7 +6947,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _point: Int32? = nil
   }
 
-  struct Rect {
+  struct Rect: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6968,7 +6968,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _rect: Int32? = nil
   }
 
-  struct FixedPoint {
+  struct FixedPoint: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6989,7 +6989,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _fixedPoint: Int32? = nil
   }
 
-  struct FixedRect {
+  struct FixedRect: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7010,7 +7010,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _fixedRect: Int32? = nil
   }
 
-  struct Style {
+  struct Style: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7031,7 +7031,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _style: Int32? = nil
   }
 
-  struct StyleParameter {
+  struct StyleParameter: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7052,7 +7052,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _styleParameter: Int32? = nil
   }
 
-  struct StyleField {
+  struct StyleField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7073,7 +7073,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _styleField: Int32? = nil
   }
 
-  struct TimeScale {
+  struct TimeScale: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7094,7 +7094,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _timeScale: Int32? = nil
   }
 
-  struct TimeBase {
+  struct TimeBase: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7115,7 +7115,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _timeBase: Int32? = nil
   }
 
-  struct TimeRecord {
+  struct TimeRecord: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7136,7 +7136,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _timeRecord: Int32? = nil
   }
 
-  struct serializedData {
+  struct serializedData: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7157,7 +7157,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _serializedData: Int32? = nil
   }
 
-  struct jsonUTF8Data {
+  struct jsonUTF8Data: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7178,7 +7178,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _jsonUtf8Data: Int32? = nil
   }
 
-  struct jsonString {
+  struct jsonString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7199,7 +7199,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _jsonString: Int32? = nil
   }
 
-  struct Extension {
+  struct Extension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7220,7 +7220,7 @@ struct SwiftProtoTesting_Names_MessageNames {
     fileprivate var _extension: Int32? = nil
   }
 
-  struct ExtensionsMessage {
+  struct ExtensionsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7244,7 +7244,7 @@ struct SwiftProtoTesting_Names_MessageNames {
   init() {}
 }
 
-struct SwiftProtoTesting_Names_EnumNames {
+struct SwiftProtoTesting_Names_EnumNames: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12107,14 +12107,14 @@ struct SwiftProtoTesting_Names_EnumNames {
   init() {}
 }
 
-struct SwiftProtoTesting_Names_FieldNamingInitials {
+struct SwiftProtoTesting_Names_FieldNamingInitials: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Lowers {
+  struct Lowers: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -12279,7 +12279,7 @@ struct SwiftProtoTesting_Names_FieldNamingInitials {
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  struct Uppers {
+  struct Uppers: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -12450,7 +12450,7 @@ struct SwiftProtoTesting_Names_FieldNamingInitials {
     fileprivate var _requestID: Int32? = nil
   }
 
-  struct WordCase {
+  struct WordCase: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -12624,7 +12624,7 @@ struct SwiftProtoTesting_Names_FieldNamingInitials {
   init() {}
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12636,7 +12636,7 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Extensible
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftProtoTesting_Names_Lowers {
+struct SwiftProtoTesting_Names_Lowers: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12646,7 +12646,7 @@ struct SwiftProtoTesting_Names_Lowers {
   init() {}
 }
 
-struct SwiftProtoTesting_Names_Uppers {
+struct SwiftProtoTesting_Names_Uppers: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12656,7 +12656,7 @@ struct SwiftProtoTesting_Names_Uppers {
   init() {}
 }
 
-struct SwiftProtoTesting_Names_WordCase {
+struct SwiftProtoTesting_Names_WordCase: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12666,19 +12666,7 @@ struct SwiftProtoTesting_Names_WordCase {
   init() {}
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.ExtensibleMessage {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  init() {}
-
-  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-}
-
-struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12690,7 +12678,7 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Exte
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12702,7 +12690,19 @@ struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Ex
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftProtoTesting_Names_ValidIdentifiers {
+struct SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.ExtensibleMessage, Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
+struct SwiftProtoTesting_Names_ValidIdentifiers: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12820,7 +12820,7 @@ struct SwiftProtoTesting_Names_ValidIdentifiers {
 /// For issue #1084 - If the generated code compiles, things are good.
 ///
 /// This gets special handling because of the generated setter.
-struct SwiftProtoTesting_Names_SpecialNames1 {
+struct SwiftProtoTesting_Names_SpecialNames1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12846,7 +12846,7 @@ struct SwiftProtoTesting_Names_SpecialNames1 {
 }
 
 /// No special handling needed in the generator.
-struct SwiftProtoTesting_Names_SpecialNames2 {
+struct SwiftProtoTesting_Names_SpecialNames2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12868,7 +12868,7 @@ struct SwiftProtoTesting_Names_SpecialNames2 {
 }
 
 /// No special handling needed in the generator.
-struct SwiftProtoTesting_Names_SpecialNames3 {
+struct SwiftProtoTesting_Names_SpecialNames3: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12908,7 +12908,7 @@ struct SwiftProtoTesting_Names_SpecialNames3 {
 }
 
 /// No special handling needed in the generator.
-struct SwiftProtoTesting_Names_SpecialNames4 {
+struct SwiftProtoTesting_Names_SpecialNames4: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -12937,243 +12937,6 @@ struct SwiftProtoTesting_Names_SpecialNames4 {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Names_Foo: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_FieldNames: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.StringMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.IntMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.FloatMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.UIntMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.classMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.deinitMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.enumMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.extensionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.funcMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.importMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.initMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.inoutMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.internalMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.letMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.operatorMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.privateMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.protocolMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.publicMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.staticMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.structMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.varMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.breakMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.caseMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.continueMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.defaultMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.deferMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.doMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.elseMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.forMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.guardMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ifMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.inMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.repeatMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.returnMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.switchMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.whereMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.whileMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.asMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.catchMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.falseMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.isMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.nilMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.superMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.selfMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.throwMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.throwsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.trueMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.tryMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames._Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.__Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.associativity: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.convenience: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.dynamic: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.didSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.final: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.get: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.infix: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.indirect: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.lazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.left: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.mutating: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.none: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.nonmutating: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.optional: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.override: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.postfix: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.precedence: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.prefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.required: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.right: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.set: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.TypeMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.unowned: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.weak: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.willSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.id: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames._cmd: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.out: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.bycopy: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.byref: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.oneway: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.and: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.and_eq: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.alignas: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.alignof: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.asm: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.auto: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.bitand: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.bitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.bool: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.char: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.char16_t: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.char32_t: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.compl: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.const: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.constexpr: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.const_cast: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.decltype: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.delete: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.explicit: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.export: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.extern: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.friend: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.goto: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.inline: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.long: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.mutable: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.namespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.new: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.noexcept: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.not: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.not_eq: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.nullptr: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.or: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.or_eq: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.protected: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.register: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.short: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.signed: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.sizeof: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.static_assert: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.static_cast: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.template: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.this: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.thread_local: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.typedef: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.typeid: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.typename: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.union: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.unsigned: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.using: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.virtual: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.void: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.volatile: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.wchar_t: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.xor: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.xor_eq: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.restrict: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Category: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Ivar: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Method: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.finalize: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.hash: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.dealloc: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.superclass: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.retain: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.release: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.autorelease: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.retainCount: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.zone: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.isProxy: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.copy: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.mutableCopy: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.classForCoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.clear: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.data: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.delimitedData: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.descriptor: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.serializedSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Fixed: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Fract: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Size: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ByteCount: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ByteOffset: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Duration: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.OptionBits: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ItemCount: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.PBVersion: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ScriptCode: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.LangCode: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.RegionCode: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.OSType: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Point: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Rect: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.FixedPoint: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.FixedRect: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Style: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.StyleParameter: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.StyleField: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.TimeScale: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.TimeBase: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.TimeRecord: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.serializedData: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.jsonString: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.Extension: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_EnumNames: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_FieldNamingInitials: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_ExtensionNamingInitials: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_Lowers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_Uppers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_WordCase: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_SpecialNames1: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_SpecialNames2: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_SpecialNames3: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_SpecialNames4: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_naming.proto.
 

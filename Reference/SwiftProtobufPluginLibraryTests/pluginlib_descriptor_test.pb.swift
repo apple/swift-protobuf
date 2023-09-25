@@ -65,7 +65,7 @@ enum SDTTopLevelEnum: SwiftProtobuf.Enum {
 
 }
 
-struct SDTTopLevelMessage {
+struct SDTTopLevelMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -164,7 +164,7 @@ struct SDTTopLevelMessage {
 
   }
 
-  struct SubMessage {
+  struct SubMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -208,7 +208,7 @@ struct SDTTopLevelMessage {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SDTTopLevelMessage2 {
+struct SDTTopLevelMessage2: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -238,7 +238,7 @@ struct SDTTopLevelMessage2 {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SDTExternalRefs {
+struct SDTExternalRefs: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -269,7 +269,7 @@ struct SDTExternalRefs {
   fileprivate var _ver: Google_Protobuf_Compiler_Version? = nil
 }
 
-struct SDTScoperForExt {
+struct SDTScoperForExt: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -279,7 +279,7 @@ struct SDTScoperForExt {
   init() {}
 }
 
-struct SDTProto2MessageForPresence {
+struct SDTProto2MessageForPresence: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -419,15 +419,6 @@ struct SDTProto2MessageForPresence {
   fileprivate var _optEnumField: SDTTopLevelEnum? = nil
   fileprivate var _optMessageField: SDTTopLevelMessage? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SDTTopLevelMessage: @unchecked Sendable {}
-extension SDTTopLevelMessage.SubMessage: @unchecked Sendable {}
-extension SDTTopLevelMessage2: @unchecked Sendable {}
-extension SDTExternalRefs: @unchecked Sendable {}
-extension SDTScoperForExt: @unchecked Sendable {}
-extension SDTProto2MessageForPresence: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 

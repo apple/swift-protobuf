@@ -92,7 +92,7 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
-struct Proto2NofieldpresenceUnittest_TestAllTypes {
+struct Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -436,7 +436,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -453,7 +453,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Proto2NofieldpresenceUnittest_TestProto2Required {
+struct Proto2NofieldpresenceUnittest_TestProto2Required: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -476,7 +476,7 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required {
 
 /// Define these after TestAllTypes to make sure the compiler can handle
 /// that.
-struct Proto2NofieldpresenceUnittest_ForeignMessage {
+struct Proto2NofieldpresenceUnittest_ForeignMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -487,13 +487,6 @@ struct Proto2NofieldpresenceUnittest_ForeignMessage {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Proto2NofieldpresenceUnittest_TestAllTypes: @unchecked Sendable {}
-extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
-extension Proto2NofieldpresenceUnittest_TestProto2Required: @unchecked Sendable {}
-extension Proto2NofieldpresenceUnittest_ForeignMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

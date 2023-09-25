@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestProto3Optional {
+struct ProtobufUnittest_TestProto3Optional: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -288,7 +288,7 @@ struct ProtobufUnittest_TestProto3Optional {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -317,7 +317,7 @@ struct ProtobufUnittest_TestProto3Optional {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_TestProto3OptionalMessage {
+struct ProtobufUnittest_TestProto3OptionalMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -342,7 +342,7 @@ struct ProtobufUnittest_TestProto3OptionalMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -360,7 +360,7 @@ struct ProtobufUnittest_TestProto3OptionalMessage {
   fileprivate var _optionalNestedMessage: ProtobufUnittest_TestProto3OptionalMessage.NestedMessage? = nil
 }
 
-struct ProtobufUnittest_Proto3OptionalExtensions {
+struct ProtobufUnittest_Proto3OptionalExtensions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -369,14 +369,6 @@ struct ProtobufUnittest_Proto3OptionalExtensions {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestProto3Optional: @unchecked Sendable {}
-extension ProtobufUnittest_TestProto3Optional.NestedMessage: @unchecked Sendable {}
-extension ProtobufUnittest_TestProto3OptionalMessage: @unchecked Sendable {}
-extension ProtobufUnittest_TestProto3OptionalMessage.NestedMessage: @unchecked Sendable {}
-extension ProtobufUnittest_Proto3OptionalExtensions: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_proto3_optional.proto.
 

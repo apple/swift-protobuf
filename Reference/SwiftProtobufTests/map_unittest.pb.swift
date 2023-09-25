@@ -89,7 +89,7 @@ enum SwiftProtoTesting_MapEnum: SwiftProtobuf.Enum {
 }
 
 /// Tests maps.
-struct SwiftProtoTesting_TestMap {
+struct SwiftProtoTesting_TestMap: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -197,7 +197,7 @@ struct SwiftProtoTesting_TestMap {
 }
 
 /// Test embedded message with required fields
-struct SwiftProtoTesting_TestRequiredMessageMap {
+struct SwiftProtoTesting_TestRequiredMessageMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -209,7 +209,7 @@ struct SwiftProtoTesting_TestRequiredMessageMap {
   init() {}
 }
 
-struct SwiftProtoTesting_TestRecursiveMapMessage {
+struct SwiftProtoTesting_TestRecursiveMapMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -220,12 +220,6 @@ struct SwiftProtoTesting_TestRecursiveMapMessage {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_TestMap: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequiredMessageMap: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRecursiveMapMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

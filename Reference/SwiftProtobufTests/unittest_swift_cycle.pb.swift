@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_CycleFoo {
+struct SwiftProtoTesting_CycleFoo: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -88,7 +88,7 @@ struct SwiftProtoTesting_CycleFoo {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_CycleBar {
+struct SwiftProtoTesting_CycleBar: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -127,7 +127,7 @@ struct SwiftProtoTesting_CycleBar {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_CycleBaz {
+struct SwiftProtoTesting_CycleBaz: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -165,12 +165,6 @@ struct SwiftProtoTesting_CycleBaz {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_CycleFoo: @unchecked Sendable {}
-extension SwiftProtoTesting_CycleBar: @unchecked Sendable {}
-extension SwiftProtoTesting_CycleBaz: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_TestProto3Optional {
+struct SwiftProtoTesting_TestProto3Optional: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -288,7 +288,7 @@ struct SwiftProtoTesting_TestProto3Optional {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -316,11 +316,6 @@ struct SwiftProtoTesting_TestProto3Optional {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_TestProto3Optional: @unchecked Sendable {}
-extension SwiftProtoTesting_TestProto3Optional.NestedMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

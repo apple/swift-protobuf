@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -121,7 +121,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -163,7 +163,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
 
 /// These checks how the traverse() generated for a oneof
 /// deals with field orders.  Currently requires inspecting the code.
-struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -289,12 +289,6 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Extensibl
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _m: Int32? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.
 

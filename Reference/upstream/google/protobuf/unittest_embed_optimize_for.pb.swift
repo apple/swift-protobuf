@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestEmbedOptimizedForSize {
+struct ProtobufUnittest_TestEmbedOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -80,10 +80,6 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize {
 
   fileprivate var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestEmbedOptimizedForSize: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

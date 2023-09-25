@@ -79,7 +79,7 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 
 }
 
-struct Proto2PreserveUnknownEnumUnittest_MyMessage {
+struct Proto2PreserveUnknownEnumUnittest_MyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -130,10 +130,6 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage {
 
   fileprivate var _e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Proto2PreserveUnknownEnumUnittest_MyMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

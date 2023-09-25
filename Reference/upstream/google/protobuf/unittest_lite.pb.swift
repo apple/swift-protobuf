@@ -133,7 +133,7 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
 }
 
 /// Same as TestAllTypes but with the lite runtime.
-struct ProtobufUnittest_TestAllTypesLite {
+struct ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -796,7 +796,7 @@ struct ProtobufUnittest_TestAllTypesLite {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -829,7 +829,7 @@ struct ProtobufUnittest_TestAllTypesLite {
     fileprivate var _cc: Int64? = nil
   }
 
-  struct NestedMessage2 {
+  struct NestedMessage2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -850,7 +850,7 @@ struct ProtobufUnittest_TestAllTypesLite {
     fileprivate var _dd: Int32? = nil
   }
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -871,7 +871,7 @@ struct ProtobufUnittest_TestAllTypesLite {
     fileprivate var _a: Int32? = nil
   }
 
-  struct RepeatedGroup {
+  struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -897,7 +897,7 @@ struct ProtobufUnittest_TestAllTypesLite {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_ForeignMessageLite {
+struct ProtobufUnittest_ForeignMessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -918,7 +918,7 @@ struct ProtobufUnittest_ForeignMessageLite {
   fileprivate var _c: Int32? = nil
 }
 
-struct ProtobufUnittest_TestPackedTypesLite {
+struct ProtobufUnittest_TestPackedTypesLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -956,7 +956,7 @@ struct ProtobufUnittest_TestPackedTypesLite {
   init() {}
 }
 
-struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -968,7 +968,7 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_OptionalGroup_extension_lite {
+struct ProtobufUnittest_OptionalGroup_extension_lite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -989,7 +989,7 @@ struct ProtobufUnittest_OptionalGroup_extension_lite {
   fileprivate var _a: Int32? = nil
 }
 
-struct ProtobufUnittest_RepeatedGroup_extension_lite {
+struct ProtobufUnittest_RepeatedGroup_extension_lite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1010,7 +1010,7 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite {
   fileprivate var _a: Int32? = nil
 }
 
-struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1022,7 +1022,7 @@ struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.ExtensibleMessag
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_TestNestedExtensionLite {
+struct ProtobufUnittest_TestNestedExtensionLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1034,7 +1034,7 @@ struct ProtobufUnittest_TestNestedExtensionLite {
 
 /// Test that deprecated fields work.  We only verify that they compile (at one
 /// point this failed).
-struct ProtobufUnittest_TestDeprecatedLite {
+struct ProtobufUnittest_TestDeprecatedLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1087,7 +1087,7 @@ struct ProtobufUnittest_TestDeprecatedLite {
 }
 
 /// See the comments of the same type in unittest.proto.
-struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1125,7 +1125,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct RepeatedFieldsGenerator {
+  struct RepeatedFieldsGenerator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1146,7 +1146,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct Group1 {
+    struct Group1: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -1167,7 +1167,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
       fileprivate var _field1: ProtobufUnittest_TestAllTypesLite? = nil
     }
 
-    struct Group2 {
+    struct Group2: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -1191,7 +1191,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
     init() {}
   }
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1212,7 +1212,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
     fileprivate var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
   }
 
-  struct RepeatedGroup {
+  struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1243,7 +1243,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.ExtensibleMessage {
 
 /// Test that the correct exception is thrown by parseFrom in a corner case
 /// involving merging, extensions, and required fields.
-struct ProtobufUnittest_TestMergeExceptionLite {
+struct ProtobufUnittest_TestMergeExceptionLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1265,7 +1265,7 @@ struct ProtobufUnittest_TestMergeExceptionLite {
 }
 
 /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
-struct ProtobufUnittest_TestEmptyMessageLite {
+struct ProtobufUnittest_TestEmptyMessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1277,7 +1277,7 @@ struct ProtobufUnittest_TestEmptyMessageLite {
 
 /// Like above, but declare all field numbers as potential extensions.  No
 /// actual extensions should ever be defined for this type.
-struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1289,7 +1289,7 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Extens
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_V1MessageLite {
+struct ProtobufUnittest_V1MessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1320,7 +1320,7 @@ struct ProtobufUnittest_V1MessageLite {
   fileprivate var _enumField: ProtobufUnittest_V1EnumLite? = nil
 }
 
-struct ProtobufUnittest_V2MessageLite {
+struct ProtobufUnittest_V2MessageLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1351,7 +1351,7 @@ struct ProtobufUnittest_V2MessageLite {
   fileprivate var _enumField: ProtobufUnittest_V2EnumLite? = nil
 }
 
-struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1469,7 +1469,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
 
   }
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1502,7 +1502,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
   fileprivate var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup? = nil
 }
 
-struct ProtobufUnittest_TestOneofParsingLite {
+struct ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1599,7 +1599,7 @@ struct ProtobufUnittest_TestOneofParsingLite {
   init() {}
 }
 
-struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1614,7 +1614,7 @@ struct ProtobufUnittest_TestMessageSetLite: SwiftProtobuf.ExtensibleMessage {
 /// The following four messages are set up to test for wire compatibility between
 /// packed and non-packed repeated fields. We use the field number 2048, because
 /// that is large enough to require a 3-byte varint for the tag.
-struct ProtobufUnittest_PackedInt32 {
+struct ProtobufUnittest_PackedInt32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1626,7 +1626,7 @@ struct ProtobufUnittest_PackedInt32 {
   init() {}
 }
 
-struct ProtobufUnittest_NonPackedInt32 {
+struct ProtobufUnittest_NonPackedInt32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1638,7 +1638,7 @@ struct ProtobufUnittest_NonPackedInt32 {
   init() {}
 }
 
-struct ProtobufUnittest_PackedFixed32 {
+struct ProtobufUnittest_PackedFixed32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1650,7 +1650,7 @@ struct ProtobufUnittest_PackedFixed32 {
   init() {}
 }
 
-struct ProtobufUnittest_NonPackedFixed32 {
+struct ProtobufUnittest_NonPackedFixed32: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1663,7 +1663,7 @@ struct ProtobufUnittest_NonPackedFixed32 {
 }
 
 /// Test an enum that has multiple values with the same number.
-struct ProtobufUnittest_DupEnum {
+struct ProtobufUnittest_DupEnum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1704,7 +1704,7 @@ struct ProtobufUnittest_DupEnum {
   init() {}
 }
 
-struct ProtobufUnittest_RecursiveMessage {
+struct ProtobufUnittest_RecursiveMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1733,43 +1733,6 @@ struct ProtobufUnittest_RecursiveMessage {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllTypesLite.NestedMessage: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: @unchecked Sendable {}
-extension ProtobufUnittest_ForeignMessageLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestPackedTypesLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllExtensionsLite: @unchecked Sendable {}
-extension ProtobufUnittest_OptionalGroup_extension_lite: @unchecked Sendable {}
-extension ProtobufUnittest_RepeatedGroup_extension_lite: @unchecked Sendable {}
-extension ProtobufUnittest_TestPackedExtensionsLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestNestedExtensionLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestDeprecatedLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestParsingMergeLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: @unchecked Sendable {}
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: @unchecked Sendable {}
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: @unchecked Sendable {}
-extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: @unchecked Sendable {}
-extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: @unchecked Sendable {}
-extension ProtobufUnittest_TestMergeExceptionLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestEmptyMessageLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: @unchecked Sendable {}
-extension ProtobufUnittest_V1MessageLite: @unchecked Sendable {}
-extension ProtobufUnittest_V2MessageLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestHugeFieldNumbersLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: @unchecked Sendable {}
-extension ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageSetLite: @unchecked Sendable {}
-extension ProtobufUnittest_PackedInt32: @unchecked Sendable {}
-extension ProtobufUnittest_NonPackedInt32: @unchecked Sendable {}
-extension ProtobufUnittest_PackedFixed32: @unchecked Sendable {}
-extension ProtobufUnittest_NonPackedFixed32: @unchecked Sendable {}
-extension ProtobufUnittest_DupEnum: @unchecked Sendable {}
-extension ProtobufUnittest_RecursiveMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_lite.proto.
 

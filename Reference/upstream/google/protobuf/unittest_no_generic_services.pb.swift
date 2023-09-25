@@ -75,7 +75,7 @@ enum ProtobufUnittest_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -96,10 +96,6 @@ struct ProtobufUnittest_NoGenericServicesTest_TestMessage: SwiftProtobuf.Extensi
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _a: Int32? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_NoGenericServicesTest_TestMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_no_generic_services.proto.
 

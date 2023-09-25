@@ -107,7 +107,7 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
 
 /// A test message with custom options at all possible locations (and also some
 /// regular options, to make sure they interact nicely).
-struct ProtobufUnittest_TestMessageWithCustomOptions {
+struct ProtobufUnittest_TestMessageWithCustomOptions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -173,7 +173,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions {
 
 /// A test RPC service with custom options at all possible locations (and also
 /// some regular options, to make sure they interact nicely).
-struct ProtobufUnittest_CustomOptionFooRequest {
+struct ProtobufUnittest_CustomOptionFooRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -183,7 +183,7 @@ struct ProtobufUnittest_CustomOptionFooRequest {
   init() {}
 }
 
-struct ProtobufUnittest_CustomOptionFooResponse {
+struct ProtobufUnittest_CustomOptionFooResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -193,7 +193,7 @@ struct ProtobufUnittest_CustomOptionFooResponse {
   init() {}
 }
 
-struct ProtobufUnittest_CustomOptionFooClientMessage {
+struct ProtobufUnittest_CustomOptionFooClientMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -203,7 +203,7 @@ struct ProtobufUnittest_CustomOptionFooClientMessage {
   init() {}
 }
 
-struct ProtobufUnittest_CustomOptionFooServerMessage {
+struct ProtobufUnittest_CustomOptionFooServerMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -213,7 +213,7 @@ struct ProtobufUnittest_CustomOptionFooServerMessage {
   init() {}
 }
 
-struct ProtobufUnittest_DummyMessageContainingEnum {
+struct ProtobufUnittest_DummyMessageContainingEnum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -249,7 +249,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum {
   init() {}
 }
 
-struct ProtobufUnittest_DummyMessageInvalidAsOptionType {
+struct ProtobufUnittest_DummyMessageInvalidAsOptionType: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -259,7 +259,7 @@ struct ProtobufUnittest_DummyMessageInvalidAsOptionType {
   init() {}
 }
 
-struct ProtobufUnittest_CustomOptionMinIntegerValues {
+struct ProtobufUnittest_CustomOptionMinIntegerValues: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -269,7 +269,7 @@ struct ProtobufUnittest_CustomOptionMinIntegerValues {
   init() {}
 }
 
-struct ProtobufUnittest_CustomOptionMaxIntegerValues {
+struct ProtobufUnittest_CustomOptionMaxIntegerValues: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -279,7 +279,7 @@ struct ProtobufUnittest_CustomOptionMaxIntegerValues {
   init() {}
 }
 
-struct ProtobufUnittest_CustomOptionOtherValues {
+struct ProtobufUnittest_CustomOptionOtherValues: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -289,7 +289,7 @@ struct ProtobufUnittest_CustomOptionOtherValues {
   init() {}
 }
 
-struct ProtobufUnittest_SettingRealsFromPositiveInts {
+struct ProtobufUnittest_SettingRealsFromPositiveInts: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -299,7 +299,7 @@ struct ProtobufUnittest_SettingRealsFromPositiveInts {
   init() {}
 }
 
-struct ProtobufUnittest_SettingRealsFromNegativeInts {
+struct ProtobufUnittest_SettingRealsFromNegativeInts: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -309,7 +309,7 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts {
   init() {}
 }
 
-struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -353,7 +353,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _foo3: Int32? = nil
 }
 
-struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -389,7 +389,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.ExtensibleMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct ComplexOptionType4 {
+  struct ComplexOptionType4: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -418,7 +418,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
 }
 
-struct ProtobufUnittest_ComplexOptionType3 {
+struct ProtobufUnittest_ComplexOptionType3: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -443,7 +443,7 @@ struct ProtobufUnittest_ComplexOptionType3 {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct ComplexOptionType5 {
+  struct ComplexOptionType5: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -470,7 +470,7 @@ struct ProtobufUnittest_ComplexOptionType3 {
   fileprivate var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
 }
 
-struct ProtobufUnittest_ComplexOpt6 {
+struct ProtobufUnittest_ComplexOpt6: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -492,7 +492,7 @@ struct ProtobufUnittest_ComplexOpt6 {
 }
 
 /// Note that we try various different ways of naming the same extension.
-struct ProtobufUnittest_VariousComplexOptions {
+struct ProtobufUnittest_VariousComplexOptions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -502,7 +502,7 @@ struct ProtobufUnittest_VariousComplexOptions {
   init() {}
 }
 
-struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -514,7 +514,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct ProtobufUnittest_AggregateMessageSetElement {
+struct ProtobufUnittest_AggregateMessageSetElement: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -536,7 +536,7 @@ struct ProtobufUnittest_AggregateMessageSetElement {
 }
 
 /// A helper type used to test aggregate option parsing
-struct ProtobufUnittest_Aggregate {
+struct ProtobufUnittest_Aggregate: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -606,7 +606,7 @@ struct ProtobufUnittest_Aggregate {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_AggregateMessage {
+struct ProtobufUnittest_AggregateMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -628,7 +628,7 @@ struct ProtobufUnittest_AggregateMessage {
 }
 
 /// Test custom options for nested type.
-struct ProtobufUnittest_NestedOptionType {
+struct ProtobufUnittest_NestedOptionType: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -658,7 +658,7 @@ struct ProtobufUnittest_NestedOptionType {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -684,7 +684,7 @@ struct ProtobufUnittest_NestedOptionType {
 
 /// Custom message option that has a required enum field.
 /// WARNING: this is strongly discouraged!
-struct ProtobufUnittest_OldOptionType {
+struct ProtobufUnittest_OldOptionType: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -729,7 +729,7 @@ struct ProtobufUnittest_OldOptionType {
 }
 
 /// Updated version of the custom option above.
-struct ProtobufUnittest_NewOptionType {
+struct ProtobufUnittest_NewOptionType: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -777,7 +777,7 @@ struct ProtobufUnittest_NewOptionType {
 }
 
 /// Test message using the "required_enum_opt" option defined above.
-struct ProtobufUnittest_TestMessageWithRequiredEnumOption {
+struct ProtobufUnittest_TestMessageWithRequiredEnumOption: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -786,37 +786,6 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestMessageWithCustomOptions: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionFooRequest: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionFooResponse: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionFooClientMessage: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionFooServerMessage: @unchecked Sendable {}
-extension ProtobufUnittest_DummyMessageContainingEnum: @unchecked Sendable {}
-extension ProtobufUnittest_DummyMessageInvalidAsOptionType: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionMinIntegerValues: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionMaxIntegerValues: @unchecked Sendable {}
-extension ProtobufUnittest_CustomOptionOtherValues: @unchecked Sendable {}
-extension ProtobufUnittest_SettingRealsFromPositiveInts: @unchecked Sendable {}
-extension ProtobufUnittest_SettingRealsFromNegativeInts: @unchecked Sendable {}
-extension ProtobufUnittest_ComplexOptionType1: @unchecked Sendable {}
-extension ProtobufUnittest_ComplexOptionType2: @unchecked Sendable {}
-extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4: @unchecked Sendable {}
-extension ProtobufUnittest_ComplexOptionType3: @unchecked Sendable {}
-extension ProtobufUnittest_ComplexOptionType3.ComplexOptionType5: @unchecked Sendable {}
-extension ProtobufUnittest_ComplexOpt6: @unchecked Sendable {}
-extension ProtobufUnittest_VariousComplexOptions: @unchecked Sendable {}
-extension ProtobufUnittest_AggregateMessageSet: @unchecked Sendable {}
-extension ProtobufUnittest_AggregateMessageSetElement: @unchecked Sendable {}
-extension ProtobufUnittest_Aggregate: @unchecked Sendable {}
-extension ProtobufUnittest_AggregateMessage: @unchecked Sendable {}
-extension ProtobufUnittest_NestedOptionType: @unchecked Sendable {}
-extension ProtobufUnittest_NestedOptionType.NestedMessage: @unchecked Sendable {}
-extension ProtobufUnittest_OldOptionType: @unchecked Sendable {}
-extension ProtobufUnittest_NewOptionType: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageWithRequiredEnumOption: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_custom_options.proto.
 

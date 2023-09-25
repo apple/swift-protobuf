@@ -93,7 +93,7 @@ public enum Google_Protobuf_NullValue: Enum {
 /// with the proto support for the language.
 ///
 /// The JSON representation for `Struct` is JSON object.
-public struct Google_Protobuf_Struct {
+public struct Google_Protobuf_Struct: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -112,7 +112,7 @@ public struct Google_Protobuf_Struct {
 /// variants. Absence of any variant indicates an error.
 ///
 /// The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value {
+public struct Google_Protobuf_Value: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -199,7 +199,7 @@ public struct Google_Protobuf_Value {
 /// `ListValue` is a wrapper around a repeated field of values.
 ///
 /// The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue {
+public struct Google_Protobuf_ListValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -211,12 +211,6 @@ public struct Google_Protobuf_ListValue {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_Struct: @unchecked Sendable {}
-extension Google_Protobuf_Value: @unchecked Sendable {}
-extension Google_Protobuf_ListValue: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

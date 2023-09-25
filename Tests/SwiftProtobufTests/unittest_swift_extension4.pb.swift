@@ -38,14 +38,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct Ext4MyMessage {
+struct Ext4MyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C {
+  struct C: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -69,7 +69,7 @@ struct Ext4MyMessage {
   init() {}
 }
 
-struct Ext4C {
+struct Ext4C: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -89,12 +89,6 @@ struct Ext4C {
 
   fileprivate var _c: Int64? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Ext4MyMessage: @unchecked Sendable {}
-extension Ext4MyMessage.C: @unchecked Sendable {}
-extension Ext4C: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_extension4.proto.
 

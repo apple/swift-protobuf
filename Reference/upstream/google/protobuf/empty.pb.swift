@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 ///     service Foo {
 ///       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
 ///     }
-struct Google_Protobuf_Empty {
+struct Google_Protobuf_Empty: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -65,10 +65,6 @@ struct Google_Protobuf_Empty {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_Empty: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

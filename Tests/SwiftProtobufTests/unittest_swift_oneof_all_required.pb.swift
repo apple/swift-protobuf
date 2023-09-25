@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_OneOfOptionMessage1 {
+struct SwiftProtoTesting_OneOfOptionMessage1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -71,7 +71,7 @@ struct SwiftProtoTesting_OneOfOptionMessage1 {
   fileprivate var _requiredField: Int32? = nil
 }
 
-struct SwiftProtoTesting_OneOfOptionMessage2 {
+struct SwiftProtoTesting_OneOfOptionMessage2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,7 +92,7 @@ struct SwiftProtoTesting_OneOfOptionMessage2 {
   fileprivate var _requiredField: Int32? = nil
 }
 
-struct SwiftProtoTesting_OneOfContainer {
+struct SwiftProtoTesting_OneOfContainer: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -162,7 +162,7 @@ struct SwiftProtoTesting_OneOfContainer {
 
   }
 
-  struct Option3 {
+  struct Option3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -195,13 +195,6 @@ struct SwiftProtoTesting_OneOfContainer {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_OneOfOptionMessage1: @unchecked Sendable {}
-extension SwiftProtoTesting_OneOfOptionMessage2: @unchecked Sendable {}
-extension SwiftProtoTesting_OneOfContainer: @unchecked Sendable {}
-extension SwiftProtoTesting_OneOfContainer.Option3: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

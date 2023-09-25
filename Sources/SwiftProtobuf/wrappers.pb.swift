@@ -62,7 +62,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// Wrapper message for `double`.
 ///
 /// The JSON representation for `DoubleValue` is JSON number.
-public struct Google_Protobuf_DoubleValue {
+public struct Google_Protobuf_DoubleValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,7 +78,7 @@ public struct Google_Protobuf_DoubleValue {
 /// Wrapper message for `float`.
 ///
 /// The JSON representation for `FloatValue` is JSON number.
-public struct Google_Protobuf_FloatValue {
+public struct Google_Protobuf_FloatValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ public struct Google_Protobuf_FloatValue {
 /// Wrapper message for `int64`.
 ///
 /// The JSON representation for `Int64Value` is JSON string.
-public struct Google_Protobuf_Int64Value {
+public struct Google_Protobuf_Int64Value: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -110,7 +110,7 @@ public struct Google_Protobuf_Int64Value {
 /// Wrapper message for `uint64`.
 ///
 /// The JSON representation for `UInt64Value` is JSON string.
-public struct Google_Protobuf_UInt64Value {
+public struct Google_Protobuf_UInt64Value: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -126,7 +126,7 @@ public struct Google_Protobuf_UInt64Value {
 /// Wrapper message for `int32`.
 ///
 /// The JSON representation for `Int32Value` is JSON number.
-public struct Google_Protobuf_Int32Value {
+public struct Google_Protobuf_Int32Value: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -142,7 +142,7 @@ public struct Google_Protobuf_Int32Value {
 /// Wrapper message for `uint32`.
 ///
 /// The JSON representation for `UInt32Value` is JSON number.
-public struct Google_Protobuf_UInt32Value {
+public struct Google_Protobuf_UInt32Value: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -158,7 +158,7 @@ public struct Google_Protobuf_UInt32Value {
 /// Wrapper message for `bool`.
 ///
 /// The JSON representation for `BoolValue` is JSON `true` and `false`.
-public struct Google_Protobuf_BoolValue {
+public struct Google_Protobuf_BoolValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -174,7 +174,7 @@ public struct Google_Protobuf_BoolValue {
 /// Wrapper message for `string`.
 ///
 /// The JSON representation for `StringValue` is JSON string.
-public struct Google_Protobuf_StringValue {
+public struct Google_Protobuf_StringValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -190,7 +190,7 @@ public struct Google_Protobuf_StringValue {
 /// Wrapper message for `bytes`.
 ///
 /// The JSON representation for `BytesValue` is JSON string.
-public struct Google_Protobuf_BytesValue {
+public struct Google_Protobuf_BytesValue: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -202,18 +202,6 @@ public struct Google_Protobuf_BytesValue {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_DoubleValue: @unchecked Sendable {}
-extension Google_Protobuf_FloatValue: @unchecked Sendable {}
-extension Google_Protobuf_Int64Value: @unchecked Sendable {}
-extension Google_Protobuf_UInt64Value: @unchecked Sendable {}
-extension Google_Protobuf_Int32Value: @unchecked Sendable {}
-extension Google_Protobuf_UInt32Value: @unchecked Sendable {}
-extension Google_Protobuf_BoolValue: @unchecked Sendable {}
-extension Google_Protobuf_StringValue: @unchecked Sendable {}
-extension Google_Protobuf_BytesValue: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -111,7 +111,7 @@ enum SwiftProtoTesting_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
 
 }
 
-struct SwiftProtoTesting_TestEnumMap {
+struct SwiftProtoTesting_TestEnumMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -150,7 +150,7 @@ struct SwiftProtoTesting_TestEnumMap {
   init() {}
 }
 
-struct SwiftProtoTesting_TestEnumMapPlusExtra {
+struct SwiftProtoTesting_TestEnumMapPlusExtra: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -188,11 +188,6 @@ struct SwiftProtoTesting_TestEnumMapPlusExtra {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_TestEnumMap: @unchecked Sendable {}
-extension SwiftProtoTesting_TestEnumMapPlusExtra: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

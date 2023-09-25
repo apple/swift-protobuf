@@ -144,7 +144,7 @@ enum Conformance_TestCategory: SwiftProtobuf.Enum {
 /// The conformance runner will request a list of failures as the first request.
 /// This will be known by message_type == "conformance.FailureSet", a conformance
 /// test should return a serialized FailureSet in protobuf_payload.
-struct Conformance_FailureSet {
+struct Conformance_FailureSet: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -161,7 +161,7 @@ struct Conformance_FailureSet {
 ///   1. parse this proto (which should always succeed)
 ///   2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///   3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest {
+struct Conformance_ConformanceRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -251,7 +251,7 @@ struct Conformance_ConformanceRequest {
 }
 
 /// Represents a single test case's output.
-struct Conformance_ConformanceResponse {
+struct Conformance_ConformanceResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -399,7 +399,7 @@ struct Conformance_ConformanceResponse {
 }
 
 /// Encoding options for jspb format.
-struct Conformance_JspbEncodingConfig {
+struct Conformance_JspbEncodingConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -411,13 +411,6 @@ struct Conformance_JspbEncodingConfig {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Conformance_FailureSet: @unchecked Sendable {}
-extension Conformance_ConformanceRequest: @unchecked Sendable {}
-extension Conformance_ConformanceResponse: @unchecked Sendable {}
-extension Conformance_JspbEncodingConfig: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

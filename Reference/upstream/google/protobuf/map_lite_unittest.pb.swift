@@ -140,7 +140,7 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_TestMapLite {
+struct ProtobufUnittest_TestMapLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -242,7 +242,7 @@ struct ProtobufUnittest_TestMapLite {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_TestArenaMapLite {
+struct ProtobufUnittest_TestArenaMapLite: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -340,7 +340,7 @@ struct ProtobufUnittest_TestArenaMapLite {
 }
 
 /// Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite {
+struct ProtobufUnittest_TestRequiredMessageMapLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -352,7 +352,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite {
   init() {}
 }
 
-struct ProtobufUnittest_TestEnumMapLite {
+struct ProtobufUnittest_TestEnumMapLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -366,7 +366,7 @@ struct ProtobufUnittest_TestEnumMapLite {
   init() {}
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -380,7 +380,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite {
   init() {}
 }
 
-struct ProtobufUnittest_TestMessageMapLite {
+struct ProtobufUnittest_TestMessageMapLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -392,7 +392,7 @@ struct ProtobufUnittest_TestMessageMapLite {
   init() {}
 }
 
-struct ProtobufUnittest_TestRequiredLite {
+struct ProtobufUnittest_TestRequiredLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -433,7 +433,7 @@ struct ProtobufUnittest_TestRequiredLite {
   fileprivate var _c: Int32? = nil
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite {
+struct ProtobufUnittest_ForeignMessageArenaLite: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -453,17 +453,6 @@ struct ProtobufUnittest_ForeignMessageArenaLite {
 
   fileprivate var _c: Int32? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestMapLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestArenaMapLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestRequiredMessageMapLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestEnumMapLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestEnumMapPlusExtraLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageMapLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestRequiredLite: @unchecked Sendable {}
-extension ProtobufUnittest_ForeignMessageArenaLite: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in map_lite_unittest.proto.
 

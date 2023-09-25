@@ -94,7 +94,7 @@ enum SwiftProtoTesting_Proto3_ForeignEnum: SwiftProtobuf.Enum {
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
-struct SwiftProtoTesting_Proto3_TestAllTypes {
+struct SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -470,7 +470,7 @@ struct SwiftProtoTesting_Proto3_TestAllTypes {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -490,7 +490,7 @@ struct SwiftProtoTesting_Proto3_TestAllTypes {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_Proto3_TestPackedTypes {
+struct SwiftProtoTesting_Proto3_TestPackedTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -529,7 +529,7 @@ struct SwiftProtoTesting_Proto3_TestPackedTypes {
 }
 
 /// Explicitly set packed to false
-struct SwiftProtoTesting_Proto3_TestUnpackedTypes {
+struct SwiftProtoTesting_Proto3_TestUnpackedTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -568,7 +568,7 @@ struct SwiftProtoTesting_Proto3_TestUnpackedTypes {
 }
 
 /// This proto includes a recursively nested message.
-struct SwiftProtoTesting_Proto3_NestedTestAllTypes {
+struct SwiftProtoTesting_Proto3_NestedTestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -600,7 +600,7 @@ struct SwiftProtoTesting_Proto3_NestedTestAllTypes {
 
 /// Define these after TestAllTypes to make sure the compiler can handle
 /// that.
-struct SwiftProtoTesting_Proto3_ForeignMessage {
+struct SwiftProtoTesting_Proto3_ForeignMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -613,7 +613,7 @@ struct SwiftProtoTesting_Proto3_ForeignMessage {
 }
 
 /// TestEmptyMessage is used to test behavior of unknown fields.
-struct SwiftProtoTesting_Proto3_TestEmptyMessage {
+struct SwiftProtoTesting_Proto3_TestEmptyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -624,7 +624,7 @@ struct SwiftProtoTesting_Proto3_TestEmptyMessage {
 }
 
 /// Test a proto3 defined message with a proto2 as a field that has required fields.
-struct SwiftProtoTesting_Proto3_TestProto2Required {
+struct SwiftProtoTesting_Proto3_TestProto2Required: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -644,17 +644,6 @@ struct SwiftProtoTesting_Proto3_TestProto2Required {
 
   fileprivate var _proto2: SwiftProtoTesting_TestRequired? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Proto3_TestAllTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_TestAllTypes.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_TestPackedTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_TestUnpackedTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_NestedTestAllTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_ForeignMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_TestEmptyMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Proto3_TestProto2Required: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

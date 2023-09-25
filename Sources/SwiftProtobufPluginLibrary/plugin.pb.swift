@@ -41,7 +41,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// The version number of protocol compiler.
-public struct Google_Protobuf_Compiler_Version {
+public struct Google_Protobuf_Compiler_Version: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -95,7 +95,7 @@ public struct Google_Protobuf_Compiler_Version {
 }
 
 /// An encoded CodeGeneratorRequest is written to the plugin's stdin.
-public struct Google_Protobuf_Compiler_CodeGeneratorRequest {
+public struct Google_Protobuf_Compiler_CodeGeneratorRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -160,7 +160,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest {
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.
-public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
+public struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -228,7 +228,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
   }
 
   /// Represents a single generated file.
-  public struct File {
+  public struct File: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -336,13 +336,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
   fileprivate var _error: String? = nil
   fileprivate var _supportedFeatures: UInt64? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_Compiler_Version: @unchecked Sendable {}
-extension Google_Protobuf_Compiler_CodeGeneratorRequest: @unchecked Sendable {}
-extension Google_Protobuf_Compiler_CodeGeneratorResponse: @unchecked Sendable {}
-extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

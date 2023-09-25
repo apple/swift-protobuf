@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct UnittestDropUnknownFields_Foo {
+struct UnittestDropUnknownFields_Foo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -102,7 +102,7 @@ struct UnittestDropUnknownFields_Foo {
   init() {}
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields {
+struct UnittestDropUnknownFields_FooWithExtraFields: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -159,11 +159,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension UnittestDropUnknownFields_Foo: @unchecked Sendable {}
-extension UnittestDropUnknownFields_FooWithExtraFields: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

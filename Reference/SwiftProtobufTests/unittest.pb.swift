@@ -121,7 +121,7 @@ enum SwiftProtoTesting_TestEnumWithDupValue: SwiftProtobuf.Enum {
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
-struct SwiftProtoTesting_TestAllTypes {
+struct SwiftProtoTesting_TestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -761,7 +761,7 @@ struct SwiftProtoTesting_TestAllTypes {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -785,7 +785,7 @@ struct SwiftProtoTesting_TestAllTypes {
     fileprivate var _bb: Int32? = nil
   }
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -806,7 +806,7 @@ struct SwiftProtoTesting_TestAllTypes {
     fileprivate var _a: Int32? = nil
   }
 
-  struct RepeatedGroup {
+  struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -833,7 +833,7 @@ struct SwiftProtoTesting_TestAllTypes {
 }
 
 /// This proto includes a recursively nested message.
-struct SwiftProtoTesting_NestedTestAllTypes {
+struct SwiftProtoTesting_NestedTestAllTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -888,7 +888,7 @@ struct SwiftProtoTesting_NestedTestAllTypes {
 
 /// Define these after TestAllTypes to make sure the compiler can handle
 /// that.
-struct SwiftProtoTesting_ForeignMessage {
+struct SwiftProtoTesting_ForeignMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -919,7 +919,7 @@ struct SwiftProtoTesting_ForeignMessage {
   fileprivate var _d: Int32? = nil
 }
 
-struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -931,7 +931,7 @@ struct SwiftProtoTesting_TestAllExtensions: SwiftProtobuf.ExtensibleMessage {
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftProtoTesting_OptionalGroup_extension {
+struct SwiftProtoTesting_OptionalGroup_extension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -952,7 +952,7 @@ struct SwiftProtoTesting_OptionalGroup_extension {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftProtoTesting_RepeatedGroup_extension {
+struct SwiftProtoTesting_RepeatedGroup_extension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -973,7 +973,7 @@ struct SwiftProtoTesting_RepeatedGroup_extension {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftProtoTesting_TestNestedExtension {
+struct SwiftProtoTesting_TestNestedExtension: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -988,7 +988,7 @@ struct SwiftProtoTesting_TestNestedExtension {
 /// do anything with it.  Note that we don't need to test every type of
 /// required filed because the code output is basically identical to
 /// optional fields for all types.
-struct SwiftProtoTesting_TestRequired {
+struct SwiftProtoTesting_TestRequired: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1309,7 +1309,7 @@ struct SwiftProtoTesting_TestRequired {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_TestRequiredForeign {
+struct SwiftProtoTesting_TestRequiredForeign: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1353,7 +1353,7 @@ struct SwiftProtoTesting_TestRequiredForeign {
   fileprivate var _optionalLazyMessage: SwiftProtoTesting_NestedTestAllTypes? = nil
 }
 
-struct SwiftProtoTesting_TestRequiredMessage {
+struct SwiftProtoTesting_TestRequiredMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1387,7 +1387,7 @@ struct SwiftProtoTesting_TestRequiredMessage {
 }
 
 /// TestEmptyMessage is used to test unknown field support.
-struct SwiftProtoTesting_TestEmptyMessage {
+struct SwiftProtoTesting_TestEmptyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1398,7 +1398,7 @@ struct SwiftProtoTesting_TestEmptyMessage {
 }
 
 /// Test that really large tag numbers don't break anything.
-struct SwiftProtoTesting_TestReallyLargeTagNumber {
+struct SwiftProtoTesting_TestReallyLargeTagNumber: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1431,7 +1431,7 @@ struct SwiftProtoTesting_TestReallyLargeTagNumber {
   fileprivate var _bb: Int32? = nil
 }
 
-struct SwiftProtoTesting_TestRecursiveMessage {
+struct SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1463,7 +1463,7 @@ struct SwiftProtoTesting_TestRecursiveMessage {
 
 /// We list fields out of order, to ensure that we're using field number and not
 /// field index to determine serialization order.
-struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1506,7 +1506,7 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1549,7 +1549,7 @@ struct SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _optionalNestedMessage: SwiftProtoTesting_TestFieldOrderings.NestedMessage? = nil
 }
 
-struct SwiftProtoTesting_TestExtremeDefaultValues {
+struct SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1817,7 +1817,7 @@ struct SwiftProtoTesting_TestExtremeDefaultValues {
 }
 
 /// Test oneofs.
-struct SwiftProtoTesting_TestOneof {
+struct SwiftProtoTesting_TestOneof: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1866,7 +1866,7 @@ struct SwiftProtoTesting_TestOneof {
 
   }
 
-  struct FooGroup {
+  struct FooGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1900,7 +1900,7 @@ struct SwiftProtoTesting_TestOneof {
   init() {}
 }
 
-struct SwiftProtoTesting_TestRequiredOneof {
+struct SwiftProtoTesting_TestRequiredOneof: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1966,7 +1966,7 @@ struct SwiftProtoTesting_TestRequiredOneof {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1990,7 +1990,7 @@ struct SwiftProtoTesting_TestRequiredOneof {
   init() {}
 }
 
-struct SwiftProtoTesting_TestPackedTypes {
+struct SwiftProtoTesting_TestPackedTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2030,7 +2030,7 @@ struct SwiftProtoTesting_TestPackedTypes {
 
 /// A message with the same fields as TestPackedTypes, but without packing. Used
 /// to test packed <-> unpacked wire compatibility.
-struct SwiftProtoTesting_TestUnpackedTypes {
+struct SwiftProtoTesting_TestUnpackedTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2068,7 +2068,7 @@ struct SwiftProtoTesting_TestUnpackedTypes {
   init() {}
 }
 
-struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2082,7 +2082,7 @@ struct SwiftProtoTesting_TestPackedExtensions: SwiftProtobuf.ExtensibleMessage {
 
 /// Test that if an optional or required message/group field appears multiple
 /// times in the input, they need to be merged.
-struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2125,7 +2125,7 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
   /// RepeatedFieldsGenerator to bytes, and parse the bytes to TestParsingMerge.
   /// Repeated fields in RepeatedFieldsGenerator are expected to be merged into
   /// the corresponding required/optional fields in TestParsingMerge.
-  struct RepeatedFieldsGenerator {
+  struct RepeatedFieldsGenerator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2146,7 +2146,7 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct Group1 {
+    struct Group1: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -2167,7 +2167,7 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
       fileprivate var _field1: SwiftProtoTesting_TestAllTypes? = nil
     }
 
-    struct Group2 {
+    struct Group2: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -2191,7 +2191,7 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
     init() {}
   }
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2212,7 +2212,7 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
     fileprivate var _optionalGroupAllTypes: SwiftProtoTesting_TestAllTypes? = nil
   }
 
-  struct RepeatedGroup {
+  struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2240,41 +2240,6 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _optionalAllTypes: SwiftProtoTesting_TestAllTypes? = nil
   fileprivate var _optionalGroup: SwiftProtoTesting_TestParsingMerge.OptionalGroup? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_TestAllTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllTypes.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllTypes.OptionalGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_NestedTestAllTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_ForeignMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllExtensions: @unchecked Sendable {}
-extension SwiftProtoTesting_OptionalGroup_extension: @unchecked Sendable {}
-extension SwiftProtoTesting_RepeatedGroup_extension: @unchecked Sendable {}
-extension SwiftProtoTesting_TestNestedExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequired: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequiredForeign: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequiredMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestEmptyMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestReallyLargeTagNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRecursiveMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestFieldOrderings: @unchecked Sendable {}
-extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {}
-extension SwiftProtoTesting_TestOneof: @unchecked Sendable {}
-extension SwiftProtoTesting_TestOneof.FooGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestPackedTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_TestUnpackedTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_TestPackedExtensions: @unchecked Sendable {}
-extension SwiftProtoTesting_TestParsingMerge: @unchecked Sendable {}
-extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}
-extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: @unchecked Sendable {}
-extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: @unchecked Sendable {}
-extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest.proto.
 
