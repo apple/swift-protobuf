@@ -2952,7 +2952,7 @@ struct SwiftUnittest_Names_MessageNames {
     fileprivate var _debugDescription_p: Int32? = nil
   }
 
-  struct Swift {
+  struct SwiftMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7474,7 +7474,7 @@ struct SwiftUnittest_Names_EnumNames {
 
   }
 
-  enum Swift: SwiftProtobuf.Enum {
+  enum SwiftEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aSwift // = 0
 
@@ -12161,7 +12161,7 @@ extension SwiftUnittest_Names_EnumNames.debugDescriptionEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
 
-extension SwiftUnittest_Names_EnumNames.Swift: CaseIterable {
+extension SwiftUnittest_Names_EnumNames.SwiftEnum: CaseIterable {
   // Support synthesized by the compiler.
 }
 
@@ -13869,7 +13869,7 @@ extension SwiftUnittest_Names_MessageNames.UIntMessage: @unchecked Sendable {}
 extension SwiftUnittest_Names_MessageNames.hashValueMessage: @unchecked Sendable {}
 extension SwiftUnittest_Names_MessageNames.descriptionMessage: @unchecked Sendable {}
 extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: @unchecked Sendable {}
-extension SwiftUnittest_Names_MessageNames.Swift: @unchecked Sendable {}
+extension SwiftUnittest_Names_MessageNames.SwiftMessage: @unchecked Sendable {}
 extension SwiftUnittest_Names_MessageNames.UNRECOGNIZED: @unchecked Sendable {}
 extension SwiftUnittest_Names_MessageNames.classMessage: @unchecked Sendable {}
 extension SwiftUnittest_Names_MessageNames.deinitMessage: @unchecked Sendable {}
@@ -14084,7 +14084,7 @@ extension SwiftUnittest_Names_EnumNames.UIntEnum: @unchecked Sendable {}
 extension SwiftUnittest_Names_EnumNames.hashValueEnum: @unchecked Sendable {}
 extension SwiftUnittest_Names_EnumNames.descriptionEnum: @unchecked Sendable {}
 extension SwiftUnittest_Names_EnumNames.debugDescriptionEnum: @unchecked Sendable {}
-extension SwiftUnittest_Names_EnumNames.Swift: @unchecked Sendable {}
+extension SwiftUnittest_Names_EnumNames.SwiftEnum: @unchecked Sendable {}
 extension SwiftUnittest_Names_EnumNames.UNRECOGNIZED: @unchecked Sendable {}
 extension SwiftUnittest_Names_EnumNames.classEnum: @unchecked Sendable {}
 extension SwiftUnittest_Names_EnumNames.deinitEnum: @unchecked Sendable {}
@@ -18944,7 +18944,7 @@ extension SwiftUnittest_Names_MessageNames.debugDescriptionMessage: SwiftProtobu
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.SwiftMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Swift"),
@@ -18973,7 +18973,7 @@ extension SwiftUnittest_Names_MessageNames.Swift: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: SwiftUnittest_Names_MessageNames.Swift, rhs: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
+  static func ==(lhs: SwiftUnittest_Names_MessageNames.SwiftMessage, rhs: SwiftUnittest_Names_MessageNames.SwiftMessage) -> Bool {
     if lhs._swift != rhs._swift {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -26397,7 +26397,7 @@ extension SwiftUnittest_Names_EnumNames.debugDescriptionEnum: SwiftProtobuf._Pro
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.Swift: SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_EnumNames.SwiftEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aSwift"),
   ]
