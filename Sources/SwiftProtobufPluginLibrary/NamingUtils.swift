@@ -62,6 +62,16 @@ fileprivate let reservedTypeNames: Set<String> = {
   names.insert("Type")
   names.insert("Protocol")
 
+  // Getting something called "Swift" would be bad as it blocks access
+  // to built in things.
+  names.insert("Swift")
+
+  // And getting things on some of the common protocols could create
+  // some odd confusion.
+  names.insert("Equatable")
+  names.insert("Hashable")
+  names.insert("Sendable")
+
   names = names.union(swiftKeywordsUsedInDeclarations)
   names = names.union(swiftKeywordsUsedInStatements)
   names = names.union(swiftKeywordsUsedInExpressionsAndTypes)
