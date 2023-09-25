@@ -974,9 +974,11 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   case withUnsafeBytes // = 945
   case withUnsafeMutableBytes // = 946
   case work // = 947
-  case wrappedType // = 948
-  case written // = 949
-  case yday // = 950
+  case wrapped // = 948
+  case wrappedType // = 949
+  case wrappedValue // = 950
+  case written // = 951
+  case yday // = 952
   case UNRECOGNIZED(Int)
 
   init() {
@@ -1933,9 +1935,11 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 945: self = .withUnsafeBytes
     case 946: self = .withUnsafeMutableBytes
     case 947: self = .work
-    case 948: self = .wrappedType
-    case 949: self = .written
-    case 950: self = .yday
+    case 948: self = .wrapped
+    case 949: self = .wrappedType
+    case 950: self = .wrappedValue
+    case 951: self = .written
+    case 952: self = .yday
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -2893,9 +2897,11 @@ enum ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .withUnsafeBytes: return 945
     case .withUnsafeMutableBytes: return 946
     case .work: return 947
-    case .wrappedType: return 948
-    case .written: return 949
-    case .yday: return 950
+    case .wrapped: return 948
+    case .wrappedType: return 949
+    case .wrappedValue: return 950
+    case .written: return 951
+    case .yday: return 952
     case .UNRECOGNIZED(let i): return i
     default: break
     }
@@ -3860,7 +3866,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: CaseIterable {
     .withUnsafeBytes,
     .withUnsafeMutableBytes,
     .work,
+    .wrapped,
     .wrappedType,
+    .wrappedValue,
     .written,
     .yday,
   ]
@@ -4824,8 +4832,10 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnum: SwiftProtobuf._P
     945: .same(proto: "withUnsafeBytes"),
     946: .same(proto: "withUnsafeMutableBytes"),
     947: .same(proto: "work"),
-    948: .same(proto: "WrappedType"),
-    949: .same(proto: "written"),
-    950: .same(proto: "yday"),
+    948: .same(proto: "Wrapped"),
+    949: .same(proto: "WrappedType"),
+    950: .same(proto: "wrappedValue"),
+    951: .same(proto: "written"),
+    952: .same(proto: "yday"),
   ]
 }
