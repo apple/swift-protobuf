@@ -6756,7 +6756,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum Equatable: SwiftProtobuf.Enum {
+  enum EquatableEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneEquatable // = 0
     case UNRECOGNIZED(Int)
@@ -10581,7 +10581,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum Hashable: SwiftProtobuf.Enum {
+  enum HashableEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHashable // = 0
     case UNRECOGNIZED(Int)
@@ -20106,7 +20106,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum Swift: SwiftProtobuf.Enum {
+  enum SwiftEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneSwift // = 0
     case UNRECOGNIZED(Int)
@@ -25719,9 +25719,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueOptions
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable: CaseIterable {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EquatableEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable] = [
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EquatableEnum] = [
     .noneEquatable,
   ]
 }
@@ -26790,9 +26790,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hash: CaseIterab
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: CaseIterable {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashableEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable] = [
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashableEnum] = [
     .noneHashable,
   ]
 }
@@ -29457,9 +29457,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subVisitor: Case
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift: CaseIterable {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftEnum: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift] = [
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftEnum] = [
     .noneSwift,
   ]
 }
@@ -30773,7 +30773,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumType: @unche
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumvalue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueDescriptorProto: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueOptions: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EquatableEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Error: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByDictionaryLiteral: @unchecked Sendable {}
@@ -30926,7 +30926,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasFieldPresence
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasFullName: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasGoPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hash: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashableEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasher: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashVisitor: @unchecked Sendable {}
@@ -31307,7 +31307,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structValue: @un
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subDecoder: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subscriptEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subVisitor: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.swiftPrefix: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftProtobufEnum: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.syntax: @unchecked Sendable {}
@@ -33095,7 +33095,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EnumValueOptions
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.EquatableEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Equatable"),
   ]
@@ -34013,7 +34013,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hash: SwiftProto
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashableEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Hashable"),
   ]
@@ -36299,7 +36299,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subVisitor: Swif
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Swift"),
   ]

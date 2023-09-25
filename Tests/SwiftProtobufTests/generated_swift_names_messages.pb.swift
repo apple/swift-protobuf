@@ -3259,7 +3259,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Equatable {
+  struct EquatableMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5095,7 +5095,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Hashable {
+  struct HashableMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9667,7 +9667,7 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Swift {
+  struct SwiftMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11729,7 +11729,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.enumType: @un
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.enumvalue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EnumValueDescriptorProto: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EnumValueOptions: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Equatable: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EquatableMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Error: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ExpressibleByArrayLiteral: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.ExpressibleByDictionaryLiteral: @unchecked Sendable {}
@@ -11882,7 +11882,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasFieldPrese
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasFullName: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasGoPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hash: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Hashable: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.HashableMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasher: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hashValueMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.HashVisitor: @unchecked Sendable {}
@@ -12263,7 +12263,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.structValue: 
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.subDecoder: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.subscriptMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.subVisitor: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Swift: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.SwiftMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.swiftPrefix: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.SwiftProtobufMessage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.syntax: @unchecked Sendable {}
@@ -21045,7 +21045,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EnumValueOpti
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Equatable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EquatableMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".Equatable"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Equatable"),
@@ -21070,7 +21070,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Equatable: Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Equatable, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Equatable) -> Bool {
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EquatableMessage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.EquatableMessage) -> Bool {
     if lhs.equatable != rhs.equatable {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -25941,7 +25941,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hash: SwiftPr
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Hashable: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.HashableMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".Hashable"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Hashable"),
@@ -25966,7 +25966,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Hashable: Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Hashable, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Hashable) -> Bool {
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.HashableMessage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.HashableMessage) -> Bool {
     if lhs.hashable != rhs.hashable {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -38133,7 +38133,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.subVisitor: S
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Swift: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.SwiftMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".Swift"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Swift"),
@@ -38158,7 +38158,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Swift: SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Swift, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.Swift) -> Bool {
+  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.SwiftMessage, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.SwiftMessage) -> Bool {
     if lhs.swift != rhs.swift {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
