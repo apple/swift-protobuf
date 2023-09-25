@@ -951,7 +951,9 @@ message GeneratedSwiftReservedFields {
   int32 withUnsafeBytes = 945;
   int32 withUnsafeMutableBytes = 946;
   int32 work = 947;
-  int32 WrappedType = 948;
-  int32 written = 949;
-  int32 yday = 950;
+  int32 Wrapped = 948;
+  int32 WrappedType = 949;
+  int32 wrappedValue = 950;
+  int32 written = 951;
+  int32 yday = 952;
 }

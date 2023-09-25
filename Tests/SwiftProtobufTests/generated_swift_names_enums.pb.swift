@@ -23706,6 +23706,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum Wrapped: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneWrapped // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWrapped
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWrapped
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWrapped: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum WrappedType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneWrappedType // = 0
@@ -23725,6 +23750,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .noneWrappedType: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum wrappedValue: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneWrappedValue // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWrappedValue
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWrappedValue
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWrappedValue: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -30415,10 +30465,24 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.work: CaseIterab
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Wrapped: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Wrapped] = [
+    .noneWrapped,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType] = [
     .noneWrappedType,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wrappedValue: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wrappedValue] = [
+    .noneWrappedValue,
   ]
 }
 
@@ -31387,7 +31451,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.with: @unchecked
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.withUnsafeBytes: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.withUnsafeMutableBytes: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.work: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Wrapped: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wrappedValue: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.written: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
@@ -37097,9 +37163,21 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.work: SwiftProto
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Wrapped: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_Wrapped"),
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_WrappedType"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wrappedValue: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_wrappedValue"),
   ]
 }
 

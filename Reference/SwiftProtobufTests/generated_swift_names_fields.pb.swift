@@ -4764,9 +4764,19 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedFields {
     set {_uniqueStorage()._work = newValue}
   }
 
+  var wrapped: Int32 {
+    get {return _storage._wrapped}
+    set {_uniqueStorage()._wrapped = newValue}
+  }
+
   var wrappedType: Int32 {
     get {return _storage._wrappedType}
     set {_uniqueStorage()._wrappedType = newValue}
+  }
+
+  var wrappedValue: Int32 {
+    get {return _storage._wrappedValue}
+    set {_uniqueStorage()._wrappedValue = newValue}
   }
 
   var written: Int32 {
@@ -5744,9 +5754,11 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     945: .same(proto: "withUnsafeBytes"),
     946: .same(proto: "withUnsafeMutableBytes"),
     947: .same(proto: "work"),
-    948: .same(proto: "WrappedType"),
-    949: .same(proto: "written"),
-    950: .same(proto: "yday"),
+    948: .same(proto: "Wrapped"),
+    949: .same(proto: "WrappedType"),
+    950: .same(proto: "wrappedValue"),
+    951: .same(proto: "written"),
+    952: .same(proto: "yday"),
   ]
 
   fileprivate class _StorageClass {
@@ -6697,7 +6709,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
     var _withUnsafeBytes: Int32 = 0
     var _withUnsafeMutableBytes: Int32 = 0
     var _work: Int32 = 0
+    var _wrapped: Int32 = 0
     var _wrappedType: Int32 = 0
+    var _wrappedValue: Int32 = 0
     var _written: Int32 = 0
     var _yday: Int32 = 0
 
@@ -7653,7 +7667,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       _withUnsafeBytes = source._withUnsafeBytes
       _withUnsafeMutableBytes = source._withUnsafeMutableBytes
       _work = source._work
+      _wrapped = source._wrapped
       _wrappedType = source._wrappedType
+      _wrappedValue = source._wrappedValue
       _written = source._written
       _yday = source._yday
     }
@@ -8621,9 +8637,11 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         case 945: try { try decoder.decodeSingularInt32Field(value: &_storage._withUnsafeBytes) }()
         case 946: try { try decoder.decodeSingularInt32Field(value: &_storage._withUnsafeMutableBytes) }()
         case 947: try { try decoder.decodeSingularInt32Field(value: &_storage._work) }()
-        case 948: try { try decoder.decodeSingularInt32Field(value: &_storage._wrappedType) }()
-        case 949: try { try decoder.decodeSingularInt32Field(value: &_storage._written) }()
-        case 950: try { try decoder.decodeSingularInt32Field(value: &_storage._yday) }()
+        case 948: try { try decoder.decodeSingularInt32Field(value: &_storage._wrapped) }()
+        case 949: try { try decoder.decodeSingularInt32Field(value: &_storage._wrappedType) }()
+        case 950: try { try decoder.decodeSingularInt32Field(value: &_storage._wrappedValue) }()
+        case 951: try { try decoder.decodeSingularInt32Field(value: &_storage._written) }()
+        case 952: try { try decoder.decodeSingularInt32Field(value: &_storage._yday) }()
         default: break
         }
       }
@@ -11473,14 +11491,20 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
       if _storage._work != 0 {
         try visitor.visitSingularInt32Field(value: _storage._work, fieldNumber: 947)
       }
+      if _storage._wrapped != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._wrapped, fieldNumber: 948)
+      }
       if _storage._wrappedType != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._wrappedType, fieldNumber: 948)
+        try visitor.visitSingularInt32Field(value: _storage._wrappedType, fieldNumber: 949)
+      }
+      if _storage._wrappedValue != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._wrappedValue, fieldNumber: 950)
       }
       if _storage._written != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._written, fieldNumber: 949)
+        try visitor.visitSingularInt32Field(value: _storage._written, fieldNumber: 951)
       }
       if _storage._yday != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._yday, fieldNumber: 950)
+        try visitor.visitSingularInt32Field(value: _storage._yday, fieldNumber: 952)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -12438,7 +12462,9 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedFields: SwiftProtobuf.
         if _storage._withUnsafeBytes != rhs_storage._withUnsafeBytes {return false}
         if _storage._withUnsafeMutableBytes != rhs_storage._withUnsafeMutableBytes {return false}
         if _storage._work != rhs_storage._work {return false}
+        if _storage._wrapped != rhs_storage._wrapped {return false}
         if _storage._wrappedType != rhs_storage._wrappedType {return false}
+        if _storage._wrappedValue != rhs_storage._wrappedValue {return false}
         if _storage._written != rhs_storage._written {return false}
         if _storage._yday != rhs_storage._yday {return false}
         return true

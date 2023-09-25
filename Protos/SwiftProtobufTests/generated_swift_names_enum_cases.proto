@@ -952,7 +952,9 @@ enum GeneratedSwiftReservedEnum {
   withUnsafeBytes = 945;
   withUnsafeMutableBytes = 946;
   work = 947;
-  WrappedType = 948;
-  written = 949;
-  yday = 950;
+  Wrapped = 948;
+  WrappedType = 949;
+  wrappedValue = 950;
+  written = 951;
+  yday = 952;
 }

@@ -951,7 +951,9 @@ message GeneratedSwiftReservedMessages {
   message withUnsafeBytes { int32 withUnsafeBytes = 1; }
   message withUnsafeMutableBytes { int32 withUnsafeMutableBytes = 1; }
   message work { int32 work = 1; }
+  message Wrapped { int32 Wrapped = 1; }
   message WrappedType { int32 WrappedType = 1; }
+  message wrappedValue { int32 wrappedValue = 1; }
   message written { int32 written = 1; }
   message yday { int32 yday = 1; }
 }
