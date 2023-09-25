@@ -113,7 +113,7 @@ struct SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.ExtensibleMessa
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Options: Equatable {
+  enum OneOf_Options: Equatable, Sendable {
     case oneofInt64(Int64)
     case oneofBool(Bool)
     case oneofString(String)
@@ -257,28 +257,28 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Extensibl
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Gaps, not no issues, no start:end: on traverse().
-  enum OneOf_OGood: Equatable {
+  enum OneOf_OGood: Equatable, Sendable {
     case a(Int32)
     case b(Int32)
 
   }
 
   /// Gaps with a field in the middle of the range.
-  enum OneOf_OConflictField: Equatable {
+  enum OneOf_OConflictField: Equatable, Sendable {
     case a2(Int32)
     case b2(Int32)
 
   }
 
   /// Gaps with an extension range in the middle of the range.
-  enum OneOf_OConflictExtensionsStart: Equatable {
+  enum OneOf_OConflictExtensionsStart: Equatable, Sendable {
     case a3(Int32)
     case b3(Int32)
 
   }
 
   /// Gaps with an extension range in the middle of the range.
-  enum OneOf_OConflictExtensionsEnd: Equatable {
+  enum OneOf_OConflictExtensionsEnd: Equatable, Sendable {
     case a4(Int32)
     case b4(Int32)
 
@@ -292,13 +292,8 @@ struct SwiftProtoTesting_Order_OneofTraversalGeneration: SwiftProtobuf.Extensibl
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftProtoTesting_Order_TestFieldOrderings: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_TestFieldOrderings.OneOf_Options: @unchecked Sendable {}
 extension SwiftProtoTesting_Order_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_Order_OneofTraversalGeneration: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OGood: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictField: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictExtensionsStart: @unchecked Sendable {}
-extension SwiftProtoTesting_Order_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.

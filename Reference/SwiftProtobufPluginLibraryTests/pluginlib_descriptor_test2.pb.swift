@@ -136,7 +136,7 @@ struct SwiftDescriptorTest_Proto3MessageForPresence {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable {
+  enum OneOf_O: Equatable, Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
     case oneofEnumField(SwiftDescriptorTest_Proto3MessageForPresence.SubEnum)
@@ -205,7 +205,6 @@ struct SwiftDescriptorTest_OtherMessage {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftDescriptorTest_Proto3MessageForPresence: @unchecked Sendable {}
-extension SwiftDescriptorTest_Proto3MessageForPresence.OneOf_O: @unchecked Sendable {}
 extension SwiftDescriptorTest_OtherMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

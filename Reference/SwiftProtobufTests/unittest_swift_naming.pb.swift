@@ -12763,7 +12763,7 @@ struct SwiftProtoTesting_Names_ValidIdentifiers {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf__2Of: Equatable {
+  enum OneOf__2Of: Equatable, Sendable {
     case _4(Int32)
     case _5Field(Int32)
 
@@ -12837,7 +12837,7 @@ struct SwiftProtoTesting_Names_SpecialNames1 {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_NewValue: Equatable {
+  enum OneOf_NewValue: Equatable, Sendable {
     case str(String)
 
   }
@@ -12897,7 +12897,7 @@ struct SwiftProtoTesting_Names_SpecialNames3 {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_NewValue: Equatable {
+  enum OneOf_NewValue: Equatable, Sendable {
     case str(String)
 
   }
@@ -13169,12 +13169,9 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: @unchecked Send
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_ValidIdentifiers: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_ValidIdentifiers.OneOf__2Of: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_SpecialNames1: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_SpecialNames1.OneOf_NewValue: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_SpecialNames2: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_SpecialNames3: @unchecked Sendable {}
-extension SwiftProtoTesting_Names_SpecialNames3.OneOf_NewValue: @unchecked Sendable {}
 extension SwiftProtoTesting_Names_SpecialNames4: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

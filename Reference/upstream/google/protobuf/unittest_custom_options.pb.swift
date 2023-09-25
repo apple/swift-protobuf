@@ -135,7 +135,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_AnOneof: Equatable {
+  enum OneOf_AnOneof: Equatable, Sendable {
     case oneofField(Int32)
 
   }
@@ -789,7 +789,6 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestMessageWithCustomOptions: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooRequest: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooResponse: @unchecked Sendable {}
 extension ProtobufUnittest_CustomOptionFooClientMessage: @unchecked Sendable {}

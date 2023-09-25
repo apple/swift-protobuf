@@ -133,7 +133,7 @@ struct SwiftProtoTesting_OneOfContainer {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Option: Equatable {
+  enum OneOf_Option: Equatable, Sendable {
     case option1(SwiftProtoTesting_OneOfOptionMessage1)
     case option2(SwiftProtoTesting_OneOfOptionMessage2)
     case option3(SwiftProtoTesting_OneOfContainer.Option3)
@@ -200,7 +200,6 @@ struct SwiftProtoTesting_OneOfContainer {
 extension SwiftProtoTesting_OneOfOptionMessage1: @unchecked Sendable {}
 extension SwiftProtoTesting_OneOfOptionMessage2: @unchecked Sendable {}
 extension SwiftProtoTesting_OneOfContainer: @unchecked Sendable {}
-extension SwiftProtoTesting_OneOfContainer.OneOf_Option: @unchecked Sendable {}
 extension SwiftProtoTesting_OneOfContainer.Option3: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

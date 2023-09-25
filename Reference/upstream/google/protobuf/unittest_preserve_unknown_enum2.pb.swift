@@ -120,7 +120,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable {
+  enum OneOf_O: Equatable, Sendable {
     case oneofE1(Proto2PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto2PreserveUnknownEnumUnittest_MyEnum)
 
@@ -133,7 +133,6 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Proto2PreserveUnknownEnumUnittest_MyMessage: @unchecked Sendable {}
-extension Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

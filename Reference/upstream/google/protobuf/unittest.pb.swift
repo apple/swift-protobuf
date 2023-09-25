@@ -1107,7 +1107,7 @@ struct ProtobufUnittest_TestAllTypes {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -1330,7 +1330,7 @@ struct ProtobufUnittest_TestDeprecatedFields {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofFields: Equatable {
+  enum OneOf_OneofFields: Equatable, Sendable {
     /// NOTE: This field was marked as deprecated in the .proto file.
     case deprecatedInt32InOneof(Int32)
 
@@ -3924,7 +3924,7 @@ struct ProtobufUnittest_TestOneof {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestAllTypes)
@@ -4237,7 +4237,7 @@ struct ProtobufUnittest_TestOneof2 {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, @unchecked Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooCord(String)
@@ -4251,7 +4251,7 @@ struct ProtobufUnittest_TestOneof2 {
 
   }
 
-  enum OneOf_Bar: Equatable {
+  enum OneOf_Bar: Equatable, @unchecked Sendable {
     case barInt(Int32)
     case barString(String)
     case barCord(String)
@@ -4395,7 +4395,7 @@ struct ProtobufUnittest_TestRequiredOneof {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(ProtobufUnittest_TestRequiredOneof.NestedMessage)
@@ -5241,7 +5241,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.ExtensibleMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypes)
     case oneofString(String)
@@ -7570,13 +7570,11 @@ struct ProtobufUnittest_EnumsForBenchmark {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestAllTypes: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypes.RepeatedGroup: @unchecked Sendable {}
 extension ProtobufUnittest_NestedTestAllTypes: @unchecked Sendable {}
 extension ProtobufUnittest_TestDeprecatedFields: @unchecked Sendable {}
-extension ProtobufUnittest_TestDeprecatedFields.OneOf_OneofFields: @unchecked Sendable {}
 extension ProtobufUnittest_TestDeprecatedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_ForeignMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestReservedFields: @unchecked Sendable {}
@@ -7646,17 +7644,13 @@ extension ProtobufUnittest_Int64Message: @unchecked Sendable {}
 extension ProtobufUnittest_Uint64Message: @unchecked Sendable {}
 extension ProtobufUnittest_BoolMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof: @unchecked Sendable {}
-extension ProtobufUnittest_TestOneof.OneOf_Foo: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof.FooGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofBackwardsCompatible: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2: @unchecked Sendable {}
-extension ProtobufUnittest_TestOneof2.OneOf_Foo: @unchecked Sendable {}
-extension ProtobufUnittest_TestOneof2.OneOf_Bar: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2.FooGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneof2.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredOneof: @unchecked Sendable {}
-extension ProtobufUnittest_TestRequiredOneof.OneOf_Foo: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredOneof.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestPackedTypes: @unchecked Sendable {}
 extension ProtobufUnittest_TestUnpackedTypes: @unchecked Sendable {}
@@ -7683,7 +7677,6 @@ extension ProtobufUnittest_BarRequest: @unchecked Sendable {}
 extension ProtobufUnittest_BarResponse: @unchecked Sendable {}
 extension ProtobufUnittest_TestJsonName: @unchecked Sendable {}
 extension ProtobufUnittest_TestHugeFieldNumbers: @unchecked Sendable {}
-extension ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestExtensionInsideTable: @unchecked Sendable {}
 extension ProtobufUnittest_TestNestedGroupExtensionOuter: @unchecked Sendable {}

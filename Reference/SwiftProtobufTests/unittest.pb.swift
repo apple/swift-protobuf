@@ -719,7 +719,7 @@ struct SwiftProtoTesting_TestAllTypes {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftProtoTesting_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -1858,7 +1858,7 @@ struct SwiftProtoTesting_TestOneof {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(SwiftProtoTesting_TestAllTypes)
@@ -1941,7 +1941,7 @@ struct SwiftProtoTesting_TestRequiredOneof {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, Sendable {
     case fooInt(Int32)
     case fooString(String)
     case fooMessage(SwiftProtoTesting_TestRequiredOneof.NestedMessage)
@@ -2243,7 +2243,6 @@ struct SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.ExtensibleMessage {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftProtoTesting_TestAllTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
 extension SwiftProtoTesting_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_TestAllTypes.OptionalGroup: @unchecked Sendable {}
 extension SwiftProtoTesting_TestAllTypes.RepeatedGroup: @unchecked Sendable {}
@@ -2263,10 +2262,8 @@ extension SwiftProtoTesting_TestFieldOrderings: @unchecked Sendable {}
 extension SwiftProtoTesting_TestFieldOrderings.NestedMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_TestExtremeDefaultValues: @unchecked Sendable {}
 extension SwiftProtoTesting_TestOneof: @unchecked Sendable {}
-extension SwiftProtoTesting_TestOneof.OneOf_Foo: @unchecked Sendable {}
 extension SwiftProtoTesting_TestOneof.FooGroup: @unchecked Sendable {}
 extension SwiftProtoTesting_TestRequiredOneof: @unchecked Sendable {}
-extension SwiftProtoTesting_TestRequiredOneof.OneOf_Foo: @unchecked Sendable {}
 extension SwiftProtoTesting_TestRequiredOneof.NestedMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_TestPackedTypes: @unchecked Sendable {}
 extension SwiftProtoTesting_TestUnpackedTypes: @unchecked Sendable {}

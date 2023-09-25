@@ -79,7 +79,7 @@ struct SwiftProtoTesting_Merging_TestMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(SwiftProtoTesting_Merging_TestMessage.NestedMessage)
     case oneofString(String)
@@ -170,7 +170,6 @@ struct SwiftProtoTesting_Merging_TestParsingMerge {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftProtoTesting_Merging_TestMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Merging_TestMessage.OneOf_OneofField: @unchecked Sendable {}
 extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: @unchecked Sendable {}
 extension SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Sendable {}
 extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}

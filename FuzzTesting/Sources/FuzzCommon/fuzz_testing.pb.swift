@@ -1663,7 +1663,7 @@ public struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// oneof
-  public enum OneOf_O: Equatable {
+  public enum OneOf_O: Equatable, @unchecked Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -1816,7 +1816,6 @@ public struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftProtoTesting_Fuzz_Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_Message.OneOf_O: @unchecked Sendable {}
 extension SwiftProtoTesting_Fuzz_Message.SingularGroup: @unchecked Sendable {}
 extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: @unchecked Sendable {}
 extension SwiftProtoTesting_Fuzz_Message.OneofGroup: @unchecked Sendable {}

@@ -99,7 +99,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, Sendable {
     case integerField(Int32)
     case stringField(String)
 
@@ -156,7 +156,6 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestOptimizedForSize: @unchecked Sendable {}
-extension ProtobufUnittest_TestOptimizedForSize.OneOf_Foo: @unchecked Sendable {}
 extension ProtobufUnittest_TestRequiredOptimizedForSize: @unchecked Sendable {}
 extension ProtobufUnittest_TestOptionalOptimizedForSize: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)

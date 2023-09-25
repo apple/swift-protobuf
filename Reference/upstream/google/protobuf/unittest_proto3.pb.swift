@@ -414,7 +414,7 @@ struct Proto3Unittest_TestAllTypes {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3Unittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -657,7 +657,7 @@ struct Proto3Unittest_TestOneof2 {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Foo: Equatable {
+  enum OneOf_Foo: Equatable, Sendable {
     case fooEnum(Proto3Unittest_TestOneof2.NestedEnum)
 
   }
@@ -709,7 +709,6 @@ struct Proto3Unittest_TestOneof2 {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Proto3Unittest_TestAllTypes: @unchecked Sendable {}
-extension Proto3Unittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
 extension Proto3Unittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestPackedTypes: @unchecked Sendable {}
 extension Proto3Unittest_TestUnpackedTypes: @unchecked Sendable {}
@@ -718,7 +717,6 @@ extension Proto3Unittest_ForeignMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestEmptyMessage: @unchecked Sendable {}
 extension Proto3Unittest_TestMessageWithDummy: @unchecked Sendable {}
 extension Proto3Unittest_TestOneof2: @unchecked Sendable {}
-extension Proto3Unittest_TestOneof2.OneOf_Foo: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
