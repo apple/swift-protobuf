@@ -200,11 +200,19 @@ class OneofGenerator {
     func generateMainEnum(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
 
+        // Data isn't marked as Sendable on linux until Swift 5.9, so until
+        // then all oneof enums with Data fields need to be manually marked as
+        // @unchecked.
+        let hasBytesField = oneofDescriptor.fields.contains {
+          return $0.type == .bytes
+        }
+        let sendableConformance = hasBytesField ? "@unchecked Sendable" : "Sendable"
+
         // Repeat the comment from the oneof to provide some context
         // to this enum we generated.
         p.print(
             "",
-            "\(comments)\(visibility)enum \(swiftRelativeName): Equatable {")
+            "\(comments)\(visibility)enum \(swiftRelativeName): Equatable, \(sendableConformance) {")
         p.withIndentation { p in
           // Oneof case for each ivar
           for f in fields {
@@ -251,14 +259,6 @@ class OneofGenerator {
           p.print()
         }
         p.print("}")
-    }
-
-    func generateSendable(printer p: inout CodePrinter) {
-        // Data isn't marked as Sendable on linux until Swift 5.9, so until then
-        // all oneof enums with Data fields need to be manually marked as @unchecked.
-        // TODO: Check if the enum has a byte field, otherwise, skip the @unchecked
-        // and just mark it Sendable.
-        p.print("extension \(swiftFullName): @unchecked Sendable {}")
     }
 
     private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {

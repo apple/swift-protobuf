@@ -192,10 +192,6 @@ class MessageGenerator {
     // Messages that have a storage class will always need @unchecked.
     p.print("extension \(swiftFullName): @unchecked Sendable {}")
 
-    for o in oneofs {
-      o.generateSendable(printer: &p)
-    }
-
     for m in messages {
       m.generateSendable(printer: &p)
     }
