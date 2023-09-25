@@ -757,7 +757,7 @@ struct ProtobufUnittest_TestAllTypesLite {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufUnittest_TestAllTypesLite.NestedMessage)
     case oneofString(String)
@@ -1461,7 +1461,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.ExtensibleMessag
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofTestAllTypes(ProtobufUnittest_TestAllTypesLite)
     case oneofString(String)
@@ -1583,7 +1583,7 @@ struct ProtobufUnittest_TestOneofParsingLite {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofInt32(Int32)
     case oneofSubmessage(ProtobufUnittest_TestAllTypesLite)
     case oneofString(String)
@@ -1736,7 +1736,6 @@ struct ProtobufUnittest_RecursiveMessage {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_TestAllTypesLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestAllTypesLite.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.NestedMessage: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.NestedMessage2: @unchecked Sendable {}
 extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: @unchecked Sendable {}
@@ -1761,10 +1760,8 @@ extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: @unchecked Sendab
 extension ProtobufUnittest_V1MessageLite: @unchecked Sendable {}
 extension ProtobufUnittest_V2MessageLite: @unchecked Sendable {}
 extension ProtobufUnittest_TestHugeFieldNumbersLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: @unchecked Sendable {}
 extension ProtobufUnittest_TestOneofParsingLite: @unchecked Sendable {}
-extension ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufUnittest_TestMessageSetLite: @unchecked Sendable {}
 extension ProtobufUnittest_PackedInt32: @unchecked Sendable {}
 extension ProtobufUnittest_NonPackedInt32: @unchecked Sendable {}

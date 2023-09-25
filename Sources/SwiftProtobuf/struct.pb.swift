@@ -177,7 +177,7 @@ public struct Google_Protobuf_Value {
   public var unknownFields = UnknownStorage()
 
   /// The kind of value.
-  public enum OneOf_Kind: Equatable {
+  public enum OneOf_Kind: Equatable, Sendable {
     /// Represents a null value.
     case nullValue(Google_Protobuf_NullValue)
     /// Represents a double value.
@@ -215,7 +215,6 @@ public struct Google_Protobuf_ListValue {
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Google_Protobuf_Struct: @unchecked Sendable {}
 extension Google_Protobuf_Value: @unchecked Sendable {}
-extension Google_Protobuf_Value.OneOf_Kind: @unchecked Sendable {}
 extension Google_Protobuf_ListValue: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

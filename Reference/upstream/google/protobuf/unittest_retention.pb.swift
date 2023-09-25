@@ -153,7 +153,7 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable {
+  enum OneOf_O: Equatable, Sendable {
     case i(Int64)
 
   }
@@ -201,7 +201,6 @@ struct ProtobufUnittest_TopLevelMessage: SwiftProtobuf.ExtensibleMessage {
 extension ProtobufUnittest_OptionsMessage: @unchecked Sendable {}
 extension ProtobufUnittest_Extendee: @unchecked Sendable {}
 extension ProtobufUnittest_TopLevelMessage: @unchecked Sendable {}
-extension ProtobufUnittest_TopLevelMessage.OneOf_O: @unchecked Sendable {}
 extension ProtobufUnittest_TopLevelMessage.NestedMessage: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

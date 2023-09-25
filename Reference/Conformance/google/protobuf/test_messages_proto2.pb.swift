@@ -1028,7 +1028,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage)
     case oneofString(String)
@@ -1936,7 +1936,6 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2.OneOf_OneofField: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage: @unchecked Sendable {}
 extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect: @unchecked Sendable {}

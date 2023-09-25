@@ -236,7 +236,7 @@ struct Conformance_ConformanceRequest {
   /// The payload (whether protobuf of JSON) is always for a
   /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
   /// src/google/protobuf/proto3_test_messages.proto).
-  enum OneOf_Payload: Equatable {
+  enum OneOf_Payload: Equatable, @unchecked Sendable {
     case protobufPayload(Data)
     case jsonPayload(String)
     /// Only used inside Google.  Opensource testees just skip it.
@@ -357,7 +357,7 @@ struct Conformance_ConformanceResponse {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Result: Equatable {
+  enum OneOf_Result: Equatable, @unchecked Sendable {
     /// This string should be set to indicate parsing failed.  The string can
     /// provide more information about the parse error if it is available.
     ///
@@ -415,9 +415,7 @@ struct Conformance_JspbEncodingConfig {
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Conformance_FailureSet: @unchecked Sendable {}
 extension Conformance_ConformanceRequest: @unchecked Sendable {}
-extension Conformance_ConformanceRequest.OneOf_Payload: @unchecked Sendable {}
 extension Conformance_ConformanceResponse: @unchecked Sendable {}
-extension Conformance_ConformanceResponse.OneOf_Result: @unchecked Sendable {}
 extension Conformance_JspbEncodingConfig: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 

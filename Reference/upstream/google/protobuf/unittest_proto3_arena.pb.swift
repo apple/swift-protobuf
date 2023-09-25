@@ -550,7 +550,7 @@ struct Proto3ArenaUnittest_TestAllTypes {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_OneofField: Equatable {
+  enum OneOf_OneofField: Equatable, @unchecked Sendable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3ArenaUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
@@ -810,7 +810,6 @@ struct Proto3ArenaUnittest_TestPickleNestedMessage {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension Proto3ArenaUnittest_TestAllTypes: @unchecked Sendable {}
-extension Proto3ArenaUnittest_TestAllTypes.OneOf_OneofField: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestAllTypes.NestedMessage: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestPackedTypes: @unchecked Sendable {}
 extension Proto3ArenaUnittest_TestUnpackedTypes: @unchecked Sendable {}

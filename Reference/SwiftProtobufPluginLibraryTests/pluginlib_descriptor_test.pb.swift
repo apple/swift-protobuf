@@ -127,7 +127,7 @@ struct SDTTopLevelMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable {
+  enum OneOf_O: Equatable, Sendable {
     case field3(SDTTopLevelEnum)
     case field4(SDTTopLevelMessage.SubEnum)
     case field5(SDTTopLevelMessage.SubMessage)
@@ -400,7 +400,7 @@ struct SDTProto2MessageForPresence {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable {
+  enum OneOf_O: Equatable, Sendable {
     case oneofStrField(String)
     case oneofInt32Field(Int32)
     case oneofEnumField(SDTTopLevelEnum)
@@ -422,13 +422,11 @@ struct SDTProto2MessageForPresence {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SDTTopLevelMessage: @unchecked Sendable {}
-extension SDTTopLevelMessage.OneOf_O: @unchecked Sendable {}
 extension SDTTopLevelMessage.SubMessage: @unchecked Sendable {}
 extension SDTTopLevelMessage2: @unchecked Sendable {}
 extension SDTExternalRefs: @unchecked Sendable {}
 extension SDTScoperForExt: @unchecked Sendable {}
 extension SDTProto2MessageForPresence: @unchecked Sendable {}
-extension SDTProto2MessageForPresence.OneOf_O: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.

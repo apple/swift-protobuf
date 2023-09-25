@@ -553,7 +553,7 @@ struct SwiftProtoTesting_Message2 {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_O: Equatable {
+  enum OneOf_O: Equatable, @unchecked Sendable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
     case oneofUint32(UInt32)
@@ -804,7 +804,6 @@ struct SwiftProtoTesting_Msg2NamesUsesStorage {
 
 #if swift(>=5.5) && canImport(_Concurrency)
 extension SwiftProtoTesting_Message2: @unchecked Sendable {}
-extension SwiftProtoTesting_Message2.OneOf_O: @unchecked Sendable {}
 extension SwiftProtoTesting_Message2.OptionalGroup: @unchecked Sendable {}
 extension SwiftProtoTesting_Message2.RepeatedGroup: @unchecked Sendable {}
 extension SwiftProtoTesting_Message2.OneofGroup: @unchecked Sendable {}
