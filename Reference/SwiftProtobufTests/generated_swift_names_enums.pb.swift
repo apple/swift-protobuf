@@ -28921,6 +28921,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum Wrapped: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneWrapped // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWrapped
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWrapped
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWrapped: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Wrapped] = [
+      .noneWrapped,
+    ]
+
+  }
+
   enum WrappedType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneWrappedType // = 0
@@ -28947,6 +28977,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.WrappedType] = [
       .noneWrappedType,
+    ]
+
+  }
+
+  enum wrappedValue: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneWrappedValue // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWrappedValue
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWrappedValue
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWrappedValue: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wrappedValue] = [
+      .noneWrappedValue,
     ]
 
   }
@@ -34819,9 +34879,21 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.work: SwiftPro
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Wrapped: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_Wrapped"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.WrappedType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_WrappedType"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.wrappedValue: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_wrappedValue"),
   ]
 }
 
