@@ -967,7 +967,9 @@ message GeneratedSwiftReservedEnums {
   enum withUnsafeBytes { NONE_withUnsafeBytes = 0; }
   enum withUnsafeMutableBytes { NONE_withUnsafeMutableBytes = 0; }
   enum work { NONE_work = 0; }
+  enum Wrapped { NONE_Wrapped = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
+  enum wrappedValue { NONE_wrappedValue = 0; }
   enum written { NONE_written = 0; }
   enum yday { NONE_yday = 0; }
 }
