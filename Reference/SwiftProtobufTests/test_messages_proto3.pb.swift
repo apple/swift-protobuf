@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// submessages of this message.  So for example, a fuzz test of TestAllTypes
 /// could trigger bugs that occur in any message type in this file.  We verify
 /// this stays true in a unit test.
-struct SwiftProtoTesting_Test3_TestAllTypesProto3 {
+struct SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -782,7 +782,7 @@ struct SwiftProtoTesting_Test3_TestAllTypesProto3 {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -812,11 +812,6 @@ struct SwiftProtoTesting_Test3_TestAllTypesProto3 {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Test3_TestAllTypesProto3: @unchecked Sendable {}
-extension SwiftProtoTesting_Test3_TestAllTypesProto3.NestedMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -58,7 +58,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 /// sometimes simply referred to as "APIs" in other contexts, such as the name of
 /// this message itself. See https://cloud.google.com/apis/design/glossary for
 /// detailed terminology.
-struct Google_Protobuf_Api {
+struct Google_Protobuf_Api: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -119,7 +119,7 @@ struct Google_Protobuf_Api {
 }
 
 /// Method represents a method of an API interface.
-struct Google_Protobuf_Method {
+struct Google_Protobuf_Method: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -228,7 +228,7 @@ struct Google_Protobuf_Method {
 ///       }
 ///       ...
 ///     }
-struct Google_Protobuf_Mixin {
+struct Google_Protobuf_Mixin: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -244,12 +244,6 @@ struct Google_Protobuf_Mixin {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_Api: @unchecked Sendable {}
-extension Google_Protobuf_Method: @unchecked Sendable {}
-extension Google_Protobuf_Mixin: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

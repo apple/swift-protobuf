@@ -52,7 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_TestAllRequiredTypes {
+struct SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -562,7 +562,7 @@ struct SwiftProtoTesting_TestAllRequiredTypes {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -586,7 +586,7 @@ struct SwiftProtoTesting_TestAllRequiredTypes {
     fileprivate var _bb: Int32? = nil
   }
 
-  struct RequiredGroup {
+  struct RequiredGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -612,7 +612,7 @@ struct SwiftProtoTesting_TestAllRequiredTypes {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_TestSomeRequiredTypes {
+struct SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -706,13 +706,6 @@ struct SwiftProtoTesting_TestSomeRequiredTypes {
   fileprivate var _requiredBytes: Data? = nil
   fileprivate var _requiredNestedEnum: SwiftProtoTesting_TestSomeRequiredTypes.NestedEnum? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_TestAllRequiredTypes: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllRequiredTypes.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_TestAllRequiredTypes.RequiredGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_TestSomeRequiredTypes: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

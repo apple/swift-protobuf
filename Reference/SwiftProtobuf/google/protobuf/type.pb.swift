@@ -95,7 +95,7 @@ enum Google_Protobuf_Syntax: Enum {
 }
 
 /// A protocol buffer message type.
-struct Google_Protobuf_Type {
+struct Google_Protobuf_Type: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -136,7 +136,7 @@ struct Google_Protobuf_Type {
 }
 
 /// A single field of a message type.
-struct Google_Protobuf_Field {
+struct Google_Protobuf_Field: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -371,7 +371,7 @@ struct Google_Protobuf_Field {
 }
 
 /// Enum type definition.
-struct Google_Protobuf_Enum {
+struct Google_Protobuf_Enum: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -409,7 +409,7 @@ struct Google_Protobuf_Enum {
 }
 
 /// Enum value definition.
-struct Google_Protobuf_EnumValue {
+struct Google_Protobuf_EnumValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -430,7 +430,7 @@ struct Google_Protobuf_EnumValue {
 
 /// A protocol buffer option, which can be attached to a message, field,
 /// enumeration, etc.
-struct Google_Protobuf_Option {
+struct Google_Protobuf_Option: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -460,14 +460,6 @@ struct Google_Protobuf_Option {
 
   fileprivate var _value: Google_Protobuf_Any? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_Type: @unchecked Sendable {}
-extension Google_Protobuf_Field: @unchecked Sendable {}
-extension Google_Protobuf_Enum: @unchecked Sendable {}
-extension Google_Protobuf_EnumValue: @unchecked Sendable {}
-extension Google_Protobuf_Option: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

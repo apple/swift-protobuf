@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Message2 {
+struct SwiftProtoTesting_Message2: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -607,7 +607,7 @@ struct SwiftProtoTesting_Message2 {
 
   }
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -628,7 +628,7 @@ struct SwiftProtoTesting_Message2 {
     fileprivate var _a: Int32? = nil
   }
 
-  struct RepeatedGroup {
+  struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -649,7 +649,7 @@ struct SwiftProtoTesting_Message2 {
     fileprivate var _a: Int32? = nil
   }
 
-  struct OneofGroup {
+  struct OneofGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -685,7 +685,7 @@ struct SwiftProtoTesting_Message2 {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_Msg2NoStorage {
+struct SwiftProtoTesting_Msg2NoStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -695,7 +695,7 @@ struct SwiftProtoTesting_Msg2NoStorage {
   init() {}
 }
 
-struct SwiftProtoTesting_Msg2UsesStorage {
+struct SwiftProtoTesting_Msg2UsesStorage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -718,7 +718,7 @@ struct SwiftProtoTesting_Msg2UsesStorage {
 }
 
 /// Names that match protocols - No Storage
-struct SwiftProtoTesting_Msg2NamesNoStorage {
+struct SwiftProtoTesting_Msg2NamesNoStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -760,7 +760,7 @@ struct SwiftProtoTesting_Msg2NamesNoStorage {
 }
 
 /// Names that match protocols - Storage
-struct SwiftProtoTesting_Msg2NamesUsesStorage {
+struct SwiftProtoTesting_Msg2NamesUsesStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -801,17 +801,6 @@ struct SwiftProtoTesting_Msg2NamesUsesStorage {
   fileprivate var _debugDescription_p: Int32? = nil
   fileprivate var _value: SwiftProtoTesting_Msg2UsesStorage? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Message2: @unchecked Sendable {}
-extension SwiftProtoTesting_Message2.OptionalGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Message2.RepeatedGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Message2.OneofGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg2NoStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg2UsesStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg2NamesNoStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg2NamesUsesStorage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

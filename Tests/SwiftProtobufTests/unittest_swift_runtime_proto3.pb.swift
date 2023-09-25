@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Message3 {
+struct SwiftProtoTesting_Message3: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -539,7 +539,7 @@ struct SwiftProtoTesting_Message3 {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct SwiftProtoTesting_Msg3NoStorage {
+struct SwiftProtoTesting_Msg3NoStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -549,7 +549,7 @@ struct SwiftProtoTesting_Msg3NoStorage {
   init() {}
 }
 
-struct SwiftProtoTesting_Msg3UsesStorage {
+struct SwiftProtoTesting_Msg3UsesStorage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -572,7 +572,7 @@ struct SwiftProtoTesting_Msg3UsesStorage {
 }
 
 /// Names that match protocols - No Storage
-struct SwiftProtoTesting_Msg3NamesNoStorage {
+struct SwiftProtoTesting_Msg3NamesNoStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -589,7 +589,7 @@ struct SwiftProtoTesting_Msg3NamesNoStorage {
 }
 
 /// Names that match protocols - No Storage
-struct SwiftProtoTesting_Msg3NamesUsesStorage {
+struct SwiftProtoTesting_Msg3NamesUsesStorage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -614,14 +614,6 @@ struct SwiftProtoTesting_Msg3NamesUsesStorage {
 
   fileprivate var _value: SwiftProtoTesting_Msg3UsesStorage? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Message3: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg3NoStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg3UsesStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg3NamesNoStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Msg3NamesUsesStorage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

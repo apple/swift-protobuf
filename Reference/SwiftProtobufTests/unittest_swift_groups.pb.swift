@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Same field number appears inside and outside of the group.
-struct SwiftTestGroupExtensions: SwiftProtobuf.ExtensibleMessage {
+struct SwiftTestGroupExtensions: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -73,7 +73,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _a: Int32? = nil
 }
 
-struct ExtensionGroup {
+struct ExtensionGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -94,7 +94,7 @@ struct ExtensionGroup {
   fileprivate var _a: Int32? = nil
 }
 
-struct RepeatedExtensionGroup {
+struct RepeatedExtensionGroup: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -115,7 +115,7 @@ struct RepeatedExtensionGroup {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftTestGroupUnextended {
+struct SwiftTestGroupUnextended: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -136,7 +136,7 @@ struct SwiftTestGroupUnextended {
   fileprivate var _a: Int32? = nil
 }
 
-struct SwiftTestNestingGroupsMessage {
+struct SwiftTestNestingGroupsMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -163,7 +163,7 @@ struct SwiftTestNestingGroupsMessage {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct SubGroup1 {
+  struct SubGroup1: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -188,7 +188,7 @@ struct SwiftTestNestingGroupsMessage {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup2 {
+    struct SubGroup2: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -215,7 +215,7 @@ struct SwiftTestNestingGroupsMessage {
     fileprivate var _subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2? = nil
   }
 
-  struct SubGroup3 {
+  struct SubGroup3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -233,7 +233,7 @@ struct SwiftTestNestingGroupsMessage {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct SubGroup4 {
+    struct SubGroup4: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -264,18 +264,6 @@ struct SwiftTestNestingGroupsMessage {
   fileprivate var _outerA: Int32? = nil
   fileprivate var _subGroup1: SwiftTestNestingGroupsMessage.SubGroup1? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftTestGroupExtensions: @unchecked Sendable {}
-extension ExtensionGroup: @unchecked Sendable {}
-extension RepeatedExtensionGroup: @unchecked Sendable {}
-extension SwiftTestGroupUnextended: @unchecked Sendable {}
-extension SwiftTestNestingGroupsMessage: @unchecked Sendable {}
-extension SwiftTestNestingGroupsMessage.SubGroup1: @unchecked Sendable {}
-extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: @unchecked Sendable {}
-extension SwiftTestNestingGroupsMessage.SubGroup3: @unchecked Sendable {}
-extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_groups.proto.
 

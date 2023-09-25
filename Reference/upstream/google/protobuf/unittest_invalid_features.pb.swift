@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct Pb_TestInvalidFeatures {
+struct Pb_TestInvalidFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -61,10 +61,6 @@ struct Pb_TestInvalidFeatures {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Pb_TestInvalidFeatures: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_invalid_features.proto.
 

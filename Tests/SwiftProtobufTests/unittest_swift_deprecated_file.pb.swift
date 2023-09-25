@@ -69,7 +69,7 @@ enum SwiftProtoTesting_DeprecatedFile_MyEnum: SwiftProtobuf.Enum {
 /// Message comment
 ///
 /// NOTE: The whole .proto file that defined this message was marked as deprecated.
-struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -92,7 +92,7 @@ struct SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.ExtensibleMessage {
 }
 
 /// NOTE: The whole .proto file that defined this message was marked as deprecated.
-struct SwiftProtoTesting_DeprecatedFile_MsgScope {
+struct SwiftProtoTesting_DeprecatedFile_MsgScope: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -101,11 +101,6 @@ struct SwiftProtoTesting_DeprecatedFile_MsgScope {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_DeprecatedFile_MyMsg: @unchecked Sendable {}
-extension SwiftProtoTesting_DeprecatedFile_MsgScope: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_deprecated_file.proto.
 

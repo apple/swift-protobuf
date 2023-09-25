@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct Pb_CppFeatures {
+struct Pb_CppFeatures: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -128,10 +128,6 @@ struct Pb_CppFeatures {
   fileprivate var _legacyClosedEnum: Bool? = nil
   fileprivate var _utf8Validation: Pb_CppFeatures.Utf8Validation? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Pb_CppFeatures: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in cpp_features.proto.
 

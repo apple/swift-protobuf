@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestMessageSetContainer {
+struct ProtobufUnittest_TestMessageSetContainer: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -78,7 +78,7 @@ struct ProtobufUnittest_TestMessageSetContainer {
   fileprivate var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 }
 
-struct ProtobufUnittest_NestedTestMessageSetContainer {
+struct ProtobufUnittest_NestedTestMessageSetContainer: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -117,7 +117,7 @@ struct ProtobufUnittest_NestedTestMessageSetContainer {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_NestedTestInt {
+struct ProtobufUnittest_NestedTestInt: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -156,7 +156,7 @@ struct ProtobufUnittest_NestedTestInt {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_TestMessageSetExtension1 {
+struct ProtobufUnittest_TestMessageSetExtension1: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -197,7 +197,7 @@ struct ProtobufUnittest_TestMessageSetExtension1 {
   fileprivate var _testAliasing: String? = nil
 }
 
-struct ProtobufUnittest_TestMessageSetExtension2 {
+struct ProtobufUnittest_TestMessageSetExtension2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -218,7 +218,7 @@ struct ProtobufUnittest_TestMessageSetExtension2 {
   fileprivate var _str: String? = nil
 }
 
-struct ProtobufUnittest_TestMessageSetExtension3 {
+struct ProtobufUnittest_TestMessageSetExtension3: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -250,7 +250,7 @@ struct ProtobufUnittest_TestMessageSetExtension3 {
 }
 
 /// MessageSet wire format is equivalent to this.
-struct ProtobufUnittest_RawMessageSet {
+struct ProtobufUnittest_RawMessageSet: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -259,7 +259,7 @@ struct ProtobufUnittest_RawMessageSet {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Item {
+  struct Item: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -292,17 +292,6 @@ struct ProtobufUnittest_RawMessageSet {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestMessageSetContainer: @unchecked Sendable {}
-extension ProtobufUnittest_NestedTestMessageSetContainer: @unchecked Sendable {}
-extension ProtobufUnittest_NestedTestInt: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageSetExtension1: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageSetExtension2: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageSetExtension3: @unchecked Sendable {}
-extension ProtobufUnittest_RawMessageSet: @unchecked Sendable {}
-extension ProtobufUnittest_RawMessageSet.Item: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_mset.proto.
 

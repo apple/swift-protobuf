@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: ProtobufAPIVersionCheck 
 
 /// `SourceContext` represents information about the source of a
 /// protobuf element, like the file in which it is defined.
-public struct Google_Protobuf_SourceContext {
+public struct Google_Protobuf_SourceContext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -64,10 +64,6 @@ public struct Google_Protobuf_SourceContext {
 
   public init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Protobuf_SourceContext: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

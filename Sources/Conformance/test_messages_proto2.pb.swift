@@ -92,7 +92,7 @@ enum ProtobufTestMessages_Proto2_ForeignEnumProto2: SwiftProtobuf.Enum {
 /// submessages of this message.  So for example, a fuzz test of TestAllTypes
 /// could trigger bugs that occur in any message type in this file.  We verify
 /// this stays true in a unit test.
-struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1080,7 +1080,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1111,7 +1111,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   }
 
   /// groups
-  struct DataMessage {
+  struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1143,7 +1143,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   }
 
   /// message_set test case.
-  struct MessageSetCorrect: SwiftProtobuf.ExtensibleMessage {
+  struct MessageSetCorrect: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1155,7 +1155,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct MessageSetCorrectExtension1 {
+  struct MessageSetCorrectExtension1: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1176,7 +1176,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
     fileprivate var _str: String? = nil
   }
 
-  struct MessageSetCorrectExtension2 {
+  struct MessageSetCorrectExtension2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1203,7 +1203,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.ExtensibleM
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufTestMessages_Proto2_ForeignMessageProto2 {
+struct ProtobufTestMessages_Proto2_ForeignMessageProto2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1224,7 +1224,7 @@ struct ProtobufTestMessages_Proto2_ForeignMessageProto2 {
   fileprivate var _c: Int32? = nil
 }
 
-struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
+struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1278,7 +1278,7 @@ struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct OptionalGroup {
+  struct OptionalGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1308,7 +1308,7 @@ struct ProtobufTestMessages_Proto2_UnknownToTestAllTypes {
   fileprivate var _optionalBool: Bool? = nil
 }
 
-struct ProtobufTestMessages_Proto2_NullHypothesisProto2 {
+struct ProtobufTestMessages_Proto2_NullHypothesisProto2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1318,7 +1318,7 @@ struct ProtobufTestMessages_Proto2_NullHypothesisProto2 {
   init() {}
 }
 
-struct ProtobufTestMessages_Proto2_EnumOnlyProto2 {
+struct ProtobufTestMessages_Proto2_EnumOnlyProto2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1354,7 +1354,7 @@ struct ProtobufTestMessages_Proto2_EnumOnlyProto2 {
   init() {}
 }
 
-struct ProtobufTestMessages_Proto2_OneStringProto2 {
+struct ProtobufTestMessages_Proto2_OneStringProto2: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1375,7 +1375,7 @@ struct ProtobufTestMessages_Proto2_OneStringProto2 {
   fileprivate var _data: String? = nil
 }
 
-struct ProtobufTestMessages_Proto2_ProtoWithKeywords {
+struct ProtobufTestMessages_Proto2_ProtoWithKeywords: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1408,7 +1408,7 @@ struct ProtobufTestMessages_Proto2_ProtoWithKeywords {
   fileprivate var _concept: String? = nil
 }
 
-struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1802,7 +1802,7 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1842,7 +1842,7 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
   }
 
   /// groups
-  struct DataMessage {
+  struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1874,7 +1874,7 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
   }
 
   /// message_set test case.
-  struct MessageSetCorrect: SwiftProtobuf.ExtensibleMessage {
+  struct MessageSetCorrect: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1886,7 +1886,7 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct MessageSetCorrectExtension1 {
+  struct MessageSetCorrectExtension1: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1907,7 +1907,7 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
     fileprivate var _str: String? = nil
   }
 
-  struct MessageSetCorrectExtension2 {
+  struct MessageSetCorrectExtension2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1933,28 +1933,6 @@ struct ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: SwiftProtobuf.Ext
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrect: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension1: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtension2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_ForeignMessageProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_UnknownToTestAllTypes.OptionalGroup: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_NullHypothesisProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_EnumOnlyProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_OneStringProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_ProtoWithKeywords: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.NestedMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.DataMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrect: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension1: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto2_TestAllRequiredTypesProto2.MessageSetCorrectExtension2: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in test_messages_proto2.proto.
 

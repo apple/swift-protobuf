@@ -66,7 +66,7 @@ enum SwiftProtoTesting_Fuzz_AnEnum: SwiftProtobuf.Enum {
 
 }
 
-struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage, @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1690,7 +1690,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage {
 
   }
 
-  struct SingularGroup {
+  struct SingularGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1711,7 +1711,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage {
     fileprivate var _groupField: Int32? = nil
   }
 
-  struct RepeatedGroup {
+  struct RepeatedGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1732,7 +1732,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage {
     fileprivate var _groupField: Int32? = nil
   }
 
-  struct OneofGroup {
+  struct OneofGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1760,7 +1760,7 @@ struct SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.ExtensibleMessage {
 }
 
 /// A message with message_set_wire_format.
-struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1772,7 +1772,7 @@ struct SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.ExtensibleMessag
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-struct SwiftProtoTesting_Fuzz_SingularGroup_ext {
+struct SwiftProtoTesting_Fuzz_SingularGroup_ext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1793,7 +1793,7 @@ struct SwiftProtoTesting_Fuzz_SingularGroup_ext {
   fileprivate var _groupField: Int32? = nil
 }
 
-struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext {
+struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1813,16 +1813,6 @@ struct SwiftProtoTesting_Fuzz_RepeatedGroup_ext {
 
   fileprivate var _groupField: Int32? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Fuzz_Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_Message.SingularGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_Message.OneofGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_AMessageSetMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_SingularGroup_ext: @unchecked Sendable {}
-extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in fuzz_testing.proto.
 

@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Merging_TestMessage {
+struct SwiftProtoTesting_Merging_TestMessage: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -87,7 +87,7 @@ struct SwiftProtoTesting_Merging_TestMessage {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -131,7 +131,7 @@ struct SwiftProtoTesting_Merging_TestMessage {
   init() {}
 }
 
-struct SwiftProtoTesting_Merging_TestParsingMerge {
+struct SwiftProtoTesting_Merging_TestParsingMerge: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -149,7 +149,7 @@ struct SwiftProtoTesting_Merging_TestParsingMerge {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct RepeatedFieldsGenerator {
+  struct RepeatedFieldsGenerator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -167,13 +167,6 @@ struct SwiftProtoTesting_Merging_TestParsingMerge {
 
   fileprivate var _optionalMessage: SwiftProtoTesting_Merging_TestMessage? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Merging_TestMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Merging_TestParsingMerge: @unchecked Sendable {}
-extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

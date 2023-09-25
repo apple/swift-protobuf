@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// A message with message_set_wire_format.
-struct SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.ExtensibleMessage {
+struct SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -68,10 +68,6 @@ struct SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.ExtensibleMess
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_WireFormat_TestMessageSet: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

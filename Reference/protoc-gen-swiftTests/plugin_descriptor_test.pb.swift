@@ -37,7 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// To check handling of extension ranges that are out of order.
-struct SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMessage {
+struct SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -51,7 +51,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrdering: SwiftProtobuf.ExtensibleMe
 
 /// To check handling of extension ranges that are out of order, have fields or
 /// reserved things mix through them.
-struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.ExtensibleMessage {
+struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -104,7 +104,7 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: SwiftProtobuf.Ex
 }
 
 /// Intermixed ranges and fields so help ensure no merge issues
-struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage {
+struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -175,12 +175,6 @@ struct SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: SwiftProtobuf.Ext
   fileprivate var _field15: Int32? = nil
   fileprivate var _field21: Int32? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftDescriptorTest_MsgExtensionRangeOrdering: @unchecked Sendable {}
-extension SwiftDescriptorTest_MsgExtensionRangeOrderingWithFields: @unchecked Sendable {}
-extension SwiftDescriptorTest_MsgExtensionRangeOrderingNoMerging: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

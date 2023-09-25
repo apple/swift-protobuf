@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_SwiftReservedTest {
+struct SwiftProtoTesting_SwiftReservedTest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -179,7 +179,7 @@ struct SwiftProtoTesting_SwiftReservedTest {
 
   }
 
-  struct classMessage: SwiftProtobuf.ExtensibleMessage {
+  struct classMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -191,7 +191,7 @@ struct SwiftProtoTesting_SwiftReservedTest {
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct TypeMessage: SwiftProtobuf.ExtensibleMessage {
+  struct TypeMessage: SwiftProtobuf.ExtensibleMessage, Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -203,7 +203,7 @@ struct SwiftProtoTesting_SwiftReservedTest {
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct isEqual {
+  struct isEqual: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -225,7 +225,7 @@ struct SwiftProtoTesting_SwiftReservedTest {
   fileprivate var _requiredInt: Int32? = nil
 }
 
-struct SwiftProtoTesting_SwiftReservedTestExt {
+struct SwiftProtoTesting_SwiftReservedTestExt: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -234,14 +234,6 @@ struct SwiftProtoTesting_SwiftReservedTestExt {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_SwiftReservedTest: @unchecked Sendable {}
-extension SwiftProtoTesting_SwiftReservedTest.classMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_SwiftReservedTest.isEqual: @unchecked Sendable {}
-extension SwiftProtoTesting_SwiftReservedTestExt: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_reserved.proto.
 

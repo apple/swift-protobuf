@@ -89,7 +89,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 }
 
 /// Tests maps.
-struct ProtobufUnittest_TestMap {
+struct ProtobufUnittest_TestMap: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -196,7 +196,7 @@ struct ProtobufUnittest_TestMap {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_TestMapSubmessage {
+struct ProtobufUnittest_TestMapSubmessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -217,7 +217,7 @@ struct ProtobufUnittest_TestMapSubmessage {
   fileprivate var _testMap: ProtobufUnittest_TestMap? = nil
 }
 
-struct ProtobufUnittest_TestMessageMap {
+struct ProtobufUnittest_TestMessageMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -230,7 +230,7 @@ struct ProtobufUnittest_TestMessageMap {
 }
 
 /// Two map fields share the same entry default instance.
-struct ProtobufUnittest_TestSameTypeMap {
+struct ProtobufUnittest_TestSameTypeMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -245,7 +245,7 @@ struct ProtobufUnittest_TestSameTypeMap {
 }
 
 /// Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMap {
+struct ProtobufUnittest_TestRequiredMessageMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -257,7 +257,7 @@ struct ProtobufUnittest_TestRequiredMessageMap {
   init() {}
 }
 
-struct ProtobufUnittest_TestArenaMap {
+struct ProtobufUnittest_TestArenaMap: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -356,7 +356,7 @@ struct ProtobufUnittest_TestArenaMap {
 
 /// Previously, message containing enum called Type cannot be used as value of
 /// map field.
-struct ProtobufUnittest_MessageContainingEnumCalledType {
+struct ProtobufUnittest_MessageContainingEnumCalledType: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -399,7 +399,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType {
 }
 
 /// Previously, message cannot contain map field called "entry".
-struct ProtobufUnittest_MessageContainingMapCalledEntry {
+struct ProtobufUnittest_MessageContainingMapCalledEntry: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -411,7 +411,7 @@ struct ProtobufUnittest_MessageContainingMapCalledEntry {
   init() {}
 }
 
-struct ProtobufUnittest_TestRecursiveMapMessage {
+struct ProtobufUnittest_TestRecursiveMapMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -422,18 +422,6 @@ struct ProtobufUnittest_TestRecursiveMapMessage {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestMapSubmessage: @unchecked Sendable {}
-extension ProtobufUnittest_TestMessageMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestSameTypeMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestRequiredMessageMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestArenaMap: @unchecked Sendable {}
-extension ProtobufUnittest_MessageContainingEnumCalledType: @unchecked Sendable {}
-extension ProtobufUnittest_MessageContainingMapCalledEntry: @unchecked Sendable {}
-extension ProtobufUnittest_TestRecursiveMapMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -101,7 +101,7 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
 /// submessages of this message.  So for example, a fuzz test of TestAllTypes
 /// could trigger bugs that occur in any message type in this file.  We verify
 /// this stays true in a unit test.
-struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
+struct ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1076,7 +1076,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
 
   }
 
-  struct NestedMessage {
+  struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1107,7 +1107,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypesProto3 {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufTestMessages_Proto3_ForeignMessage {
+struct ProtobufTestMessages_Proto3_ForeignMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1119,7 +1119,7 @@ struct ProtobufTestMessages_Proto3_ForeignMessage {
   init() {}
 }
 
-struct ProtobufTestMessages_Proto3_NullHypothesisProto3 {
+struct ProtobufTestMessages_Proto3_NullHypothesisProto3: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1129,7 +1129,7 @@ struct ProtobufTestMessages_Proto3_NullHypothesisProto3 {
   init() {}
 }
 
-struct ProtobufTestMessages_Proto3_EnumOnlyProto3 {
+struct ProtobufTestMessages_Proto3_EnumOnlyProto3: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1172,14 +1172,6 @@ struct ProtobufTestMessages_Proto3_EnumOnlyProto3 {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_TestAllTypesProto3.NestedMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_ForeignMessage: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_NullHypothesisProto3: @unchecked Sendable {}
-extension ProtobufTestMessages_Proto3_EnumOnlyProto3: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

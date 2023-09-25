@@ -36,14 +36,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Extend_EnumOptionalDefault {
+struct SwiftProtoTesting_Extend_EnumOptionalDefault: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct NestedMessage {
+  struct NestedMessage: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -98,7 +98,7 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault {
     fileprivate var _storage = _StorageClass.defaultInstance
   }
 
-  struct NestedMessage2 {
+  struct NestedMessage2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -144,12 +144,6 @@ struct SwiftProtoTesting_Extend_EnumOptionalDefault {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Extend_EnumOptionalDefault: @unchecked Sendable {}
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

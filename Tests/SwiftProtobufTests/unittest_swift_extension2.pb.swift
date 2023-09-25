@@ -38,14 +38,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Extend2_MyMessage {
+struct SwiftProtoTesting_Extend2_MyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C {
+  struct C: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -69,7 +69,7 @@ struct SwiftProtoTesting_Extend2_MyMessage {
   init() {}
 }
 
-struct SwiftProtoTesting_Extend2_C {
+struct SwiftProtoTesting_Extend2_C: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -89,12 +89,6 @@ struct SwiftProtoTesting_Extend2_C {
 
   fileprivate var _c: Int64? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Extend2_MyMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Extend2_MyMessage.C: @unchecked Sendable {}
-extension SwiftProtoTesting_Extend2_C: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_swift_extension2.proto.
 

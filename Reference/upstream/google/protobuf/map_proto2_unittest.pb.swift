@@ -111,7 +111,7 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
 
 }
 
-struct ProtobufUnittest_TestEnumMap {
+struct ProtobufUnittest_TestEnumMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -150,7 +150,7 @@ struct ProtobufUnittest_TestEnumMap {
   init() {}
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra {
+struct ProtobufUnittest_TestEnumMapPlusExtra: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -189,7 +189,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra {
   init() {}
 }
 
-struct ProtobufUnittest_TestImportEnumMap {
+struct ProtobufUnittest_TestImportEnumMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -201,7 +201,7 @@ struct ProtobufUnittest_TestImportEnumMap {
   init() {}
 }
 
-struct ProtobufUnittest_TestIntIntMap {
+struct ProtobufUnittest_TestIntIntMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -214,7 +214,7 @@ struct ProtobufUnittest_TestIntIntMap {
 }
 
 /// Test all key types: string, plus the non-floating-point scalars.
-struct ProtobufUnittest_TestMaps {
+struct ProtobufUnittest_TestMaps: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -249,7 +249,7 @@ struct ProtobufUnittest_TestMaps {
 }
 
 /// Test maps in submessages.
-struct ProtobufUnittest_TestSubmessageMaps {
+struct ProtobufUnittest_TestSubmessageMaps: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -270,7 +270,7 @@ struct ProtobufUnittest_TestSubmessageMaps {
   fileprivate var _m: ProtobufUnittest_TestMaps? = nil
 }
 
-struct ProtobufUnittest_TestProto2BytesMap {
+struct ProtobufUnittest_TestProto2BytesMap: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -283,16 +283,6 @@ struct ProtobufUnittest_TestProto2BytesMap {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestEnumMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestEnumMapPlusExtra: @unchecked Sendable {}
-extension ProtobufUnittest_TestImportEnumMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestIntIntMap: @unchecked Sendable {}
-extension ProtobufUnittest_TestMaps: @unchecked Sendable {}
-extension ProtobufUnittest_TestSubmessageMaps: @unchecked Sendable {}
-extension ProtobufUnittest_TestProto2BytesMap: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

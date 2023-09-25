@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_LazyImports_LazyMessage {
+struct ProtobufUnittest_LazyImports_LazyMessage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -76,10 +76,6 @@ struct ProtobufUnittest_LazyImports_LazyMessage {
 
   fileprivate var _a: Int32? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_LazyImports_LazyMessage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_lazy_dependencies_custom_option.proto.
 

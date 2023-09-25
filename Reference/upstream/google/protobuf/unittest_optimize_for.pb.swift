@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
+struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage, Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -112,7 +112,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _msg: ProtobufUnittest_ForeignMessage? = nil
 }
 
-struct ProtobufUnittest_TestRequiredOptimizedForSize {
+struct ProtobufUnittest_TestRequiredOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -133,7 +133,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize {
   fileprivate var _x: Int32? = nil
 }
 
-struct ProtobufUnittest_TestOptionalOptimizedForSize {
+struct ProtobufUnittest_TestOptionalOptimizedForSize: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -153,12 +153,6 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize {
 
   fileprivate var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestOptimizedForSize: @unchecked Sendable {}
-extension ProtobufUnittest_TestRequiredOptimizedForSize: @unchecked Sendable {}
-extension ProtobufUnittest_TestOptionalOptimizedForSize: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Extension support defined in unittest_optimize_for.proto.
 

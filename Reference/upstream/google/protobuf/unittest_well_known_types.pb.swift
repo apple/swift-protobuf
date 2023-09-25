@@ -30,7 +30,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Test that we can include all well-known types.
 /// Each wrapper type is included separately, as languages
 /// map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes {
+struct ProtobufUnittest_TestWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -215,7 +215,7 @@ struct ProtobufUnittest_TestWellKnownTypes {
 }
 
 /// A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes {
+struct ProtobufUnittest_RepeatedWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -318,7 +318,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes {
+struct ProtobufUnittest_OneofWellKnownTypes: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -499,7 +499,7 @@ struct ProtobufUnittest_OneofWellKnownTypes {
 /// A map field for each well-known type. We only
 /// need to worry about the value part of the map being the
 /// well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes {
+struct ProtobufUnittest_MapWellKnownTypes: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -600,13 +600,6 @@ struct ProtobufUnittest_MapWellKnownTypes {
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension ProtobufUnittest_TestWellKnownTypes: @unchecked Sendable {}
-extension ProtobufUnittest_RepeatedWellKnownTypes: @unchecked Sendable {}
-extension ProtobufUnittest_OneofWellKnownTypes: @unchecked Sendable {}
-extension ProtobufUnittest_MapWellKnownTypes: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -24,14 +24,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _3
 }
 
-struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
+struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct adjusted {
+  struct adjusted: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -43,7 +43,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct aggregateValue {
+  struct aggregateValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -55,7 +55,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct allCases {
+  struct allCases: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -67,7 +67,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct allowAlias {
+  struct allowAlias: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -79,7 +79,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct alwaysPrintEnumsAsInts {
+  struct alwaysPrintEnumsAsInts: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -91,7 +91,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct alwaysPrintInt64sAsNumbers {
+  struct alwaysPrintInt64sAsNumbers: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -103,7 +103,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct annotation {
+  struct annotation: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -115,7 +115,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct any {
+  struct any: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -127,7 +127,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AnyExtensionField {
+  struct AnyExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -139,7 +139,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AnyMessageExtension {
+  struct AnyMessageExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -151,7 +151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AnyMessageStorage {
+  struct AnyMessageStorage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -163,7 +163,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AnyUnpackError {
+  struct AnyUnpackError: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -175,7 +175,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Api {
+  struct Api: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -187,7 +187,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct appended {
+  struct appended: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -199,7 +199,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct appendUIntHex {
+  struct appendUIntHex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -211,7 +211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct appendUnknown {
+  struct appendUnknown: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -223,7 +223,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct areAllInitialized {
+  struct areAllInitialized: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -235,7 +235,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Array {
+  struct Array: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -247,7 +247,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct arrayDepth {
+  struct arrayDepth: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -259,7 +259,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct arrayLiteral {
+  struct arrayLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -271,7 +271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct arraySeparator {
+  struct arraySeparator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -283,7 +283,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct asMessage {
+  struct asMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -295,7 +295,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct asciiOpenCurlyBracket {
+  struct asciiOpenCurlyBracket: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -307,7 +307,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct asciiZero {
+  struct asciiZero: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -319,7 +319,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct async {
+  struct async: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -331,7 +331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AsyncIterator {
+  struct AsyncIterator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -343,7 +343,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AsyncIteratorProtocol {
+  struct AsyncIteratorProtocol: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -355,7 +355,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct AsyncMessageSequence {
+  struct AsyncMessageSequence: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -367,7 +367,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct available {
+  struct available: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -379,7 +379,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct b {
+  struct b: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -391,7 +391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Base {
+  struct Base: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -403,7 +403,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct base64Values {
+  struct base64Values: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -415,7 +415,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct baseAddress {
+  struct baseAddress: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -427,7 +427,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BaseType {
+  struct BaseType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -439,7 +439,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct begin {
+  struct begin: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -451,7 +451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct binary {
+  struct binary: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -463,7 +463,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryDecoder {
+  struct BinaryDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -475,7 +475,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryDecodingError {
+  struct BinaryDecodingError: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -487,7 +487,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryDecodingOptions {
+  struct BinaryDecodingOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -499,7 +499,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryDelimited {
+  struct BinaryDelimited: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -511,7 +511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryEncoder {
+  struct BinaryEncoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -523,7 +523,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryEncodingError {
+  struct BinaryEncodingError: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -535,7 +535,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryEncodingMessageSetSizeVisitor {
+  struct BinaryEncodingMessageSetSizeVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -547,7 +547,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryEncodingMessageSetVisitor {
+  struct BinaryEncodingMessageSetVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -559,7 +559,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryEncodingSizeVisitor {
+  struct BinaryEncodingSizeVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -571,7 +571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BinaryEncodingVisitor {
+  struct BinaryEncodingVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -583,7 +583,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct binaryOptions {
+  struct binaryOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -595,7 +595,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct binaryProtobufDelimitedMessages {
+  struct binaryProtobufDelimitedMessages: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -607,7 +607,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct bitPattern {
+  struct bitPattern: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -619,7 +619,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct body {
+  struct body: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -631,7 +631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BoolMessage {
+  struct BoolMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -643,7 +643,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct booleanLiteral {
+  struct booleanLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -655,7 +655,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BooleanLiteralType {
+  struct BooleanLiteralType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -667,7 +667,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct boolValue {
+  struct boolValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -679,7 +679,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct buffer {
+  struct buffer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -691,7 +691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct bytes {
+  struct bytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -703,7 +703,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct bytesInGroup {
+  struct bytesInGroup: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -715,7 +715,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct bytesNeeded {
+  struct bytesNeeded: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -727,7 +727,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct bytesRead {
+  struct bytesRead: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -739,7 +739,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct BytesValue {
+  struct BytesValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -751,7 +751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct c {
+  struct c: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -763,7 +763,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct capitalizeNext {
+  struct capitalizeNext: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -775,7 +775,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct cardinality {
+  struct cardinality: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -787,7 +787,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct CaseIterable {
+  struct CaseIterable: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -799,7 +799,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ccEnableArenas {
+  struct ccEnableArenas: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -811,7 +811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ccGenericServices {
+  struct ccGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -823,7 +823,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Character {
+  struct Character: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -835,7 +835,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct chars {
+  struct chars: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -847,7 +847,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct chunk {
+  struct chunk: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -859,7 +859,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct classMessage {
+  struct classMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -871,7 +871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearAggregateValue {
+  struct clearAggregateValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -883,7 +883,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearAllowAlias {
+  struct clearAllowAlias: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -895,7 +895,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearBegin {
+  struct clearBegin: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -907,7 +907,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearCcEnableArenas {
+  struct clearCcEnableArenas: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -919,7 +919,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearCcGenericServices {
+  struct clearCcGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -931,7 +931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearClientStreaming {
+  struct clearClientStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -943,7 +943,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearCsharpNamespace {
+  struct clearCsharpNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -955,7 +955,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearCtype {
+  struct clearCtype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -967,7 +967,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearDebugRedact {
+  struct clearDebugRedact: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -979,7 +979,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearDefaultValue {
+  struct clearDefaultValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -991,7 +991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearDeprecated {
+  struct clearDeprecated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1003,7 +1003,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearDeprecatedLegacyJsonFieldConflicts {
+  struct clearDeprecatedLegacyJsonFieldConflicts: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1015,7 +1015,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearDoubleValue {
+  struct clearDoubleValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1027,7 +1027,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearEdition {
+  struct clearEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1039,7 +1039,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearEditionEnum {
+  struct clearEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1051,7 +1051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearEnd {
+  struct clearEnd: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1063,7 +1063,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearEnumType {
+  struct clearEnumType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1075,7 +1075,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearExtendee {
+  struct clearExtendee: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1087,7 +1087,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearExtensionValue {
+  struct clearExtensionValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1099,7 +1099,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearFeatures {
+  struct clearFeatures: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1111,7 +1111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearFieldPresence {
+  struct clearFieldPresence: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1123,7 +1123,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearFullName {
+  struct clearFullName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1135,7 +1135,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearGoPackage {
+  struct clearGoPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1147,7 +1147,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearIdempotencyLevel {
+  struct clearIdempotencyLevel: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1159,7 +1159,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearIdentifierValue {
+  struct clearIdentifierValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1171,7 +1171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearInputType {
+  struct clearInputType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1183,7 +1183,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearIsExtension {
+  struct clearIsExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1195,7 +1195,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJavaGenerateEqualsAndHash {
+  struct clearJavaGenerateEqualsAndHash: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1207,7 +1207,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJavaGenericServices {
+  struct clearJavaGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1219,7 +1219,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJavaMultipleFiles {
+  struct clearJavaMultipleFiles: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1231,7 +1231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJavaOuterClassname {
+  struct clearJavaOuterClassname: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1243,7 +1243,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJavaPackage {
+  struct clearJavaPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1255,7 +1255,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJavaStringCheckUtf8 {
+  struct clearJavaStringCheckUtf8: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1267,7 +1267,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJsonFormat {
+  struct clearJsonFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1279,7 +1279,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJsonName {
+  struct clearJsonName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1291,7 +1291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearJstype {
+  struct clearJstype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1303,7 +1303,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearLabel {
+  struct clearLabel: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1315,7 +1315,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearLazy {
+  struct clearLazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1327,7 +1327,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearLeadingComments {
+  struct clearLeadingComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1339,7 +1339,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMapEntry {
+  struct clearMapEntry: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1351,7 +1351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMaximumEdition {
+  struct clearMaximumEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1363,7 +1363,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMaximumEditionEnum {
+  struct clearMaximumEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1375,7 +1375,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMessageEncoding {
+  struct clearMessageEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1387,7 +1387,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMessageSetWireFormat {
+  struct clearMessageSetWireFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1399,7 +1399,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMinimumEdition {
+  struct clearMinimumEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1411,7 +1411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearMinimumEditionEnum {
+  struct clearMinimumEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1423,7 +1423,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearName {
+  struct clearName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1435,7 +1435,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearNamePart {
+  struct clearNamePart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1447,7 +1447,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearNegativeIntValue {
+  struct clearNegativeIntValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1459,7 +1459,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearNoStandardDescriptorAccessor {
+  struct clearNoStandardDescriptorAccessor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1471,7 +1471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearNumber {
+  struct clearNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1483,7 +1483,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearObjcClassPrefix {
+  struct clearObjcClassPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1495,7 +1495,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearOneofIndex {
+  struct clearOneofIndex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1507,7 +1507,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearOptimizeFor {
+  struct clearOptimizeFor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1519,7 +1519,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearOptions {
+  struct clearOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1531,7 +1531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearOutputType {
+  struct clearOutputType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1543,7 +1543,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPackage {
+  struct clearPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1555,7 +1555,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPacked {
+  struct clearPacked: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1567,7 +1567,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPhpClassPrefix {
+  struct clearPhpClassPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1579,7 +1579,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPhpGenericServices {
+  struct clearPhpGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1591,7 +1591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPhpMetadataNamespace {
+  struct clearPhpMetadataNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1603,7 +1603,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPhpNamespace {
+  struct clearPhpNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1615,7 +1615,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPositiveIntValue {
+  struct clearPositiveIntValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1627,7 +1627,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearProto3Optional {
+  struct clearProto3Optional: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1639,7 +1639,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPyGenericServices {
+  struct clearPyGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1651,7 +1651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearRepeated {
+  struct clearRepeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1663,7 +1663,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearRepeatedFieldEncoding {
+  struct clearRepeatedFieldEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1675,7 +1675,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearReserved {
+  struct clearReserved: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1687,7 +1687,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearRetention {
+  struct clearRetention: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1699,7 +1699,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearRubyPackage {
+  struct clearRubyPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1711,7 +1711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearSemantic {
+  struct clearSemantic: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1723,7 +1723,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearServerStreaming {
+  struct clearServerStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1735,7 +1735,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearSourceCodeInfo {
+  struct clearSourceCodeInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1747,7 +1747,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearSourceContext {
+  struct clearSourceContext: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1759,7 +1759,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearSourceFile {
+  struct clearSourceFile: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1771,7 +1771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearStart {
+  struct clearStart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1783,7 +1783,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearStringValue {
+  struct clearStringValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1795,7 +1795,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearSwiftPrefix {
+  struct clearSwiftPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1807,7 +1807,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearSyntax {
+  struct clearSyntax: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1819,7 +1819,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearTrailingComments {
+  struct clearTrailingComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1831,7 +1831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearType {
+  struct clearType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1843,7 +1843,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearTypeName {
+  struct clearTypeName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1855,7 +1855,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearUnverifiedLazy {
+  struct clearUnverifiedLazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1867,7 +1867,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearValue {
+  struct clearValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1879,7 +1879,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearVerification {
+  struct clearVerification: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1891,7 +1891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearWeak {
+  struct clearWeak: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1903,7 +1903,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clientStreaming {
+  struct clientStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1915,7 +1915,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct codePoint {
+  struct codePoint: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1927,7 +1927,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct codeUnits {
+  struct codeUnits: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1939,7 +1939,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Collection {
+  struct Collection: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1951,7 +1951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct com {
+  struct com: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1963,7 +1963,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct comma {
+  struct comma: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1975,7 +1975,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct consumedBytes {
+  struct consumedBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1987,7 +1987,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct contentsOf {
+  struct contentsOf: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1999,7 +1999,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct count {
+  struct count: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2011,7 +2011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct countVarintsInBuffer {
+  struct countVarintsInBuffer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2023,7 +2023,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct csharpNamespace {
+  struct csharpNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2035,7 +2035,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ctype {
+  struct ctype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2047,7 +2047,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct customCodable {
+  struct customCodable: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2059,7 +2059,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct CustomDebugStringConvertible {
+  struct CustomDebugStringConvertible: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2071,7 +2071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct d {
+  struct d: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2083,7 +2083,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct DataMessage {
+  struct DataMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2095,7 +2095,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct dataResult {
+  struct dataResult: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2107,7 +2107,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct date {
+  struct date: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2119,7 +2119,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct daySec {
+  struct daySec: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2131,7 +2131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct daysSinceEpoch {
+  struct daysSinceEpoch: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2143,7 +2143,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct debugDescriptionMessage {
+  struct debugDescriptionMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2155,7 +2155,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct debugRedact {
+  struct debugRedact: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2167,7 +2167,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct declaration {
+  struct declaration: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2179,7 +2179,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decoded {
+  struct decoded: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2191,7 +2191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodedFromJSONNull {
+  struct decodedFromJSONNull: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2203,7 +2203,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeExtensionField {
+  struct decodeExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2215,7 +2215,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeExtensionFieldsAsMessageSet {
+  struct decodeExtensionFieldsAsMessageSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2227,7 +2227,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeJSON {
+  struct decodeJSON: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2239,7 +2239,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeMapField {
+  struct decodeMapField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2251,7 +2251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeMessageMessage {
+  struct decodeMessageMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2263,7 +2263,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decoder {
+  struct decoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2275,7 +2275,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeated {
+  struct decodeRepeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2287,7 +2287,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedBoolField {
+  struct decodeRepeatedBoolField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2299,7 +2299,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedBytesField {
+  struct decodeRepeatedBytesField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2311,7 +2311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedDoubleField {
+  struct decodeRepeatedDoubleField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2323,7 +2323,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedEnumField {
+  struct decodeRepeatedEnumField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2335,7 +2335,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedFixed32Field {
+  struct decodeRepeatedFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2347,7 +2347,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedFixed64Field {
+  struct decodeRepeatedFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2359,7 +2359,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedFloatField {
+  struct decodeRepeatedFloatField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2371,7 +2371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedGroupField {
+  struct decodeRepeatedGroupField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2383,7 +2383,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedInt32Field {
+  struct decodeRepeatedInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2395,7 +2395,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedInt64Field {
+  struct decodeRepeatedInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2407,7 +2407,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedMessageField {
+  struct decodeRepeatedMessageField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2419,7 +2419,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedSFixed32Field {
+  struct decodeRepeatedSFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2431,7 +2431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedSFixed64Field {
+  struct decodeRepeatedSFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2443,7 +2443,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedSInt32Field {
+  struct decodeRepeatedSInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2455,7 +2455,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedSInt64Field {
+  struct decodeRepeatedSInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2467,7 +2467,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedStringField {
+  struct decodeRepeatedStringField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2479,7 +2479,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedUInt32Field {
+  struct decodeRepeatedUInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2491,7 +2491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeRepeatedUInt64Field {
+  struct decodeRepeatedUInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2503,7 +2503,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingular {
+  struct decodeSingular: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2515,7 +2515,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularBoolField {
+  struct decodeSingularBoolField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2527,7 +2527,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularBytesField {
+  struct decodeSingularBytesField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2539,7 +2539,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularDoubleField {
+  struct decodeSingularDoubleField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2551,7 +2551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularEnumField {
+  struct decodeSingularEnumField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2563,7 +2563,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularFixed32Field {
+  struct decodeSingularFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2575,7 +2575,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularFixed64Field {
+  struct decodeSingularFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2587,7 +2587,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularFloatField {
+  struct decodeSingularFloatField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2599,7 +2599,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularGroupField {
+  struct decodeSingularGroupField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2611,7 +2611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularInt32Field {
+  struct decodeSingularInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2623,7 +2623,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularInt64Field {
+  struct decodeSingularInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2635,7 +2635,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularMessageField {
+  struct decodeSingularMessageField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2647,7 +2647,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularSFixed32Field {
+  struct decodeSingularSFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2659,7 +2659,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularSFixed64Field {
+  struct decodeSingularSFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2671,7 +2671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularSInt32Field {
+  struct decodeSingularSInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2683,7 +2683,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularSInt64Field {
+  struct decodeSingularSInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2695,7 +2695,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularStringField {
+  struct decodeSingularStringField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2707,7 +2707,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularUInt32Field {
+  struct decodeSingularUInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2719,7 +2719,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeSingularUInt64Field {
+  struct decodeSingularUInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2731,7 +2731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct decodeTextFormat {
+  struct decodeTextFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2743,7 +2743,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct defaultAnyTypeURLPrefix {
+  struct defaultAnyTypeURLPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2755,7 +2755,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct defaults {
+  struct defaults: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2767,7 +2767,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct defaultValue {
+  struct defaultValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2779,7 +2779,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct dependency {
+  struct dependency: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2791,7 +2791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct deprecated {
+  struct deprecated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2803,7 +2803,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct deprecatedLegacyJsonFieldConflicts {
+  struct deprecatedLegacyJsonFieldConflicts: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2815,7 +2815,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct descriptionMessage {
+  struct descriptionMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2827,7 +2827,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct DescriptorProto {
+  struct DescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2839,7 +2839,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Dictionary {
+  struct Dictionary: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2851,7 +2851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct dictionaryLiteral {
+  struct dictionaryLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2863,7 +2863,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct digit {
+  struct digit: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2875,7 +2875,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct digit0 {
+  struct digit0: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2887,7 +2887,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct digit1 {
+  struct digit1: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2899,7 +2899,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct digitCount {
+  struct digitCount: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2911,7 +2911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct digits {
+  struct digits: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2923,7 +2923,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct digitValue {
+  struct digitValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2935,7 +2935,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct discardableResult {
+  struct discardableResult: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2947,7 +2947,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct discardUnknownFields {
+  struct discardUnknownFields: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2959,7 +2959,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct distance {
+  struct distance: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2971,7 +2971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct double {
+  struct double: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2983,7 +2983,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct doubleValue {
+  struct doubleValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -2995,7 +2995,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Duration {
+  struct Duration: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3007,7 +3007,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct E {
+  struct E: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3019,7 +3019,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct edition {
+  struct edition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3031,7 +3031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EditionDefault {
+  struct EditionDefault: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3043,7 +3043,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct editionDefaults {
+  struct editionDefaults: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3055,7 +3055,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct editionEnum {
+  struct editionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3067,7 +3067,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Element {
+  struct Element: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3079,7 +3079,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct elements {
+  struct elements: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3091,7 +3091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct emitExtensionFieldName {
+  struct emitExtensionFieldName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3103,7 +3103,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct emitFieldName {
+  struct emitFieldName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3115,7 +3115,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct emitFieldNumber {
+  struct emitFieldNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3127,7 +3127,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Empty {
+  struct Empty: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3139,7 +3139,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct emptyData {
+  struct emptyData: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3151,7 +3151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct encodeAsBytes {
+  struct encodeAsBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3163,7 +3163,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct encoded {
+  struct encoded: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3175,7 +3175,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct encodedJSONString {
+  struct encodedJSONString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3187,7 +3187,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct encodedSize {
+  struct encodedSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3199,7 +3199,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct encodeField {
+  struct encodeField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3211,7 +3211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct encoder {
+  struct encoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3223,7 +3223,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct end {
+  struct end: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3235,7 +3235,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct endArray {
+  struct endArray: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3247,7 +3247,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct endMessageField {
+  struct endMessageField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3259,7 +3259,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct endObject {
+  struct endObject: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3271,7 +3271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct endRegularField {
+  struct endRegularField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3283,7 +3283,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct enumMessage {
+  struct enumMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3295,7 +3295,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EnumDescriptorProto {
+  struct EnumDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3307,7 +3307,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EnumOptions {
+  struct EnumOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3319,7 +3319,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EnumReservedRange {
+  struct EnumReservedRange: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3331,7 +3331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct enumType {
+  struct enumType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3343,7 +3343,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct enumvalue {
+  struct enumvalue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3355,7 +3355,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EnumValueDescriptorProto {
+  struct EnumValueDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3367,7 +3367,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EnumValueOptions {
+  struct EnumValueOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3379,7 +3379,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct EquatableMessage {
+  struct EquatableMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3391,7 +3391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Error {
+  struct Error: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3403,7 +3403,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExpressibleByArrayLiteral {
+  struct ExpressibleByArrayLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3415,7 +3415,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExpressibleByDictionaryLiteral {
+  struct ExpressibleByDictionaryLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3427,7 +3427,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ext {
+  struct ext: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3439,7 +3439,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extDecoder {
+  struct extDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3451,7 +3451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extendedGraphemeClusterLiteral {
+  struct extendedGraphemeClusterLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3463,7 +3463,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExtendedGraphemeClusterLiteralType {
+  struct ExtendedGraphemeClusterLiteralType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3475,7 +3475,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extendee {
+  struct extendee: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3487,7 +3487,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExtensibleMessage {
+  struct ExtensibleMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3499,7 +3499,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extensionMessage {
+  struct extensionMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3511,7 +3511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExtensionField {
+  struct ExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3523,7 +3523,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extensionFieldNumber {
+  struct extensionFieldNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3535,7 +3535,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExtensionFieldValueSet {
+  struct ExtensionFieldValueSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3547,7 +3547,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExtensionMap {
+  struct ExtensionMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3559,7 +3559,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extensionRange {
+  struct extensionRange: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3571,7 +3571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ExtensionRangeOptions {
+  struct ExtensionRangeOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3583,7 +3583,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extensions {
+  struct extensions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3595,7 +3595,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct extras {
+  struct extras: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3607,7 +3607,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct F {
+  struct F: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3619,7 +3619,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct falseMessage {
+  struct falseMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3631,7 +3631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct features {
+  struct features: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3643,7 +3643,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FeatureSet {
+  struct FeatureSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3655,7 +3655,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FeatureSetDefaults {
+  struct FeatureSetDefaults: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3667,7 +3667,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FeatureSetEditionDefault {
+  struct FeatureSetEditionDefault: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3679,7 +3679,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct field {
+  struct field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3691,7 +3691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldData {
+  struct fieldData: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3703,7 +3703,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FieldDescriptorProto {
+  struct FieldDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3715,7 +3715,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FieldMask {
+  struct FieldMask: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3727,7 +3727,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldName {
+  struct fieldName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3739,7 +3739,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldNameCount {
+  struct fieldNameCount: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3751,7 +3751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldNum {
+  struct fieldNum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3763,7 +3763,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldNumber {
+  struct fieldNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3775,7 +3775,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldNumberForProto {
+  struct fieldNumberForProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3787,7 +3787,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FieldOptions {
+  struct FieldOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3799,7 +3799,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldPresence {
+  struct fieldPresence: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3811,7 +3811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fields {
+  struct fields: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3823,7 +3823,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldSize {
+  struct fieldSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3835,7 +3835,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FieldTag {
+  struct FieldTag: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3847,7 +3847,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fieldType {
+  struct fieldType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3859,7 +3859,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct file {
+  struct file: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3871,7 +3871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FileDescriptorProto {
+  struct FileDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3883,7 +3883,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FileDescriptorSet {
+  struct FileDescriptorSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3895,7 +3895,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fileName {
+  struct fileName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3907,7 +3907,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FileOptions {
+  struct FileOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3919,7 +3919,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct filter {
+  struct filter: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3931,7 +3931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct final {
+  struct final: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3943,7 +3943,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct first {
+  struct first: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3955,7 +3955,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct firstItem {
+  struct firstItem: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3967,7 +3967,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct float {
+  struct float: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3979,7 +3979,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct floatLiteral {
+  struct floatLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -3991,7 +3991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FloatLiteralType {
+  struct FloatLiteralType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4003,7 +4003,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct FloatValue {
+  struct FloatValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4015,7 +4015,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct forMessageName {
+  struct forMessageName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4027,7 +4027,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct formUnion {
+  struct formUnion: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4039,7 +4039,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct forReadingFrom {
+  struct forReadingFrom: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4051,7 +4051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct forTypeURL {
+  struct forTypeURL: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4063,7 +4063,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ForwardParser {
+  struct ForwardParser: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4075,7 +4075,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct forWritingInto {
+  struct forWritingInto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4087,7 +4087,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct from {
+  struct from: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4099,7 +4099,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fromAscii2 {
+  struct fromAscii2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4111,7 +4111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fromAscii4 {
+  struct fromAscii4: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4123,7 +4123,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fromByteOffset {
+  struct fromByteOffset: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4135,7 +4135,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fromHexDigit {
+  struct fromHexDigit: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4147,7 +4147,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct fullName {
+  struct fullName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4159,7 +4159,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct funcMessage {
+  struct funcMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4171,7 +4171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct G {
+  struct G: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4183,7 +4183,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct GeneratedCodeInfo {
+  struct GeneratedCodeInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4195,7 +4195,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct get {
+  struct get: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4207,7 +4207,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct getExtensionValue {
+  struct getExtensionValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4219,7 +4219,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct googleapis {
+  struct googleapis: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4231,7 +4231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Any {
+  struct Google_Protobuf_Any: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4243,7 +4243,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Api {
+  struct Google_Protobuf_Api: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4255,7 +4255,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_BoolValue {
+  struct Google_Protobuf_BoolValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4267,7 +4267,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_BytesValue {
+  struct Google_Protobuf_BytesValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4279,7 +4279,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_DescriptorProto {
+  struct Google_Protobuf_DescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4291,7 +4291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_DoubleValue {
+  struct Google_Protobuf_DoubleValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4303,7 +4303,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Duration {
+  struct Google_Protobuf_Duration: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4315,7 +4315,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Edition {
+  struct Google_Protobuf_Edition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4327,7 +4327,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Empty {
+  struct Google_Protobuf_Empty: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4339,7 +4339,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Enum {
+  struct Google_Protobuf_Enum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4351,7 +4351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_EnumDescriptorProto {
+  struct Google_Protobuf_EnumDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4363,7 +4363,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_EnumOptions {
+  struct Google_Protobuf_EnumOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4375,7 +4375,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_EnumValue {
+  struct Google_Protobuf_EnumValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4387,7 +4387,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_EnumValueDescriptorProto {
+  struct Google_Protobuf_EnumValueDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4399,7 +4399,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_EnumValueOptions {
+  struct Google_Protobuf_EnumValueOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4411,7 +4411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_ExtensionRangeOptions {
+  struct Google_Protobuf_ExtensionRangeOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4423,7 +4423,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FeatureSet {
+  struct Google_Protobuf_FeatureSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4435,7 +4435,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FeatureSetDefaults {
+  struct Google_Protobuf_FeatureSetDefaults: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4447,7 +4447,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Field {
+  struct Google_Protobuf_Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4459,7 +4459,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FieldDescriptorProto {
+  struct Google_Protobuf_FieldDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4471,7 +4471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FieldMask {
+  struct Google_Protobuf_FieldMask: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4483,7 +4483,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FieldOptions {
+  struct Google_Protobuf_FieldOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4495,7 +4495,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FileDescriptorProto {
+  struct Google_Protobuf_FileDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4507,7 +4507,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FileDescriptorSet {
+  struct Google_Protobuf_FileDescriptorSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4519,7 +4519,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FileOptions {
+  struct Google_Protobuf_FileOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4531,7 +4531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_FloatValue {
+  struct Google_Protobuf_FloatValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4543,7 +4543,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_GeneratedCodeInfo {
+  struct Google_Protobuf_GeneratedCodeInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4555,7 +4555,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Int32Value {
+  struct Google_Protobuf_Int32Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4567,7 +4567,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Int64Value {
+  struct Google_Protobuf_Int64Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4579,7 +4579,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_ListValue {
+  struct Google_Protobuf_ListValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4591,7 +4591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_MessageOptions {
+  struct Google_Protobuf_MessageOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4603,7 +4603,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Method {
+  struct Google_Protobuf_Method: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4615,7 +4615,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_MethodDescriptorProto {
+  struct Google_Protobuf_MethodDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4627,7 +4627,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_MethodOptions {
+  struct Google_Protobuf_MethodOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4639,7 +4639,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Mixin {
+  struct Google_Protobuf_Mixin: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4651,7 +4651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_NullValue {
+  struct Google_Protobuf_NullValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4663,7 +4663,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_OneofDescriptorProto {
+  struct Google_Protobuf_OneofDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4675,7 +4675,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_OneofOptions {
+  struct Google_Protobuf_OneofOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4687,7 +4687,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Option {
+  struct Google_Protobuf_Option: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4699,7 +4699,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_ServiceDescriptorProto {
+  struct Google_Protobuf_ServiceDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4711,7 +4711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_ServiceOptions {
+  struct Google_Protobuf_ServiceOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4723,7 +4723,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_SourceCodeInfo {
+  struct Google_Protobuf_SourceCodeInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4735,7 +4735,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_SourceContext {
+  struct Google_Protobuf_SourceContext: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4747,7 +4747,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_StringValue {
+  struct Google_Protobuf_StringValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4759,7 +4759,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Struct {
+  struct Google_Protobuf_Struct: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4771,7 +4771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Syntax {
+  struct Google_Protobuf_Syntax: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4783,7 +4783,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Timestamp {
+  struct Google_Protobuf_Timestamp: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4795,7 +4795,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Type {
+  struct Google_Protobuf_Type: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4807,7 +4807,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_UInt32Value {
+  struct Google_Protobuf_UInt32Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4819,7 +4819,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_UInt64Value {
+  struct Google_Protobuf_UInt64Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4831,7 +4831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_UninterpretedOption {
+  struct Google_Protobuf_UninterpretedOption: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4843,7 +4843,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Google_Protobuf_Value {
+  struct Google_Protobuf_Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4855,7 +4855,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct goPackage {
+  struct goPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4867,7 +4867,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct group {
+  struct group: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4879,7 +4879,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct groupFieldNumberStack {
+  struct groupFieldNumberStack: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4891,7 +4891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct groupSize {
+  struct groupSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4903,7 +4903,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hadOneofValue {
+  struct hadOneofValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4915,7 +4915,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct handleConflictingOneOf {
+  struct handleConflictingOneOf: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4927,7 +4927,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasAggregateValue {
+  struct hasAggregateValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4939,7 +4939,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasAllowAlias {
+  struct hasAllowAlias: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4951,7 +4951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasBegin {
+  struct hasBegin: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4963,7 +4963,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasCcEnableArenas {
+  struct hasCcEnableArenas: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4975,7 +4975,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasCcGenericServices {
+  struct hasCcGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4987,7 +4987,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasClientStreaming {
+  struct hasClientStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -4999,7 +4999,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasCsharpNamespace {
+  struct hasCsharpNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5011,7 +5011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasCtype {
+  struct hasCtype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5023,7 +5023,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasDebugRedact {
+  struct hasDebugRedact: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5035,7 +5035,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasDefaultValue {
+  struct hasDefaultValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5047,7 +5047,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasDeprecated {
+  struct hasDeprecated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5059,7 +5059,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasDeprecatedLegacyJsonFieldConflicts {
+  struct hasDeprecatedLegacyJsonFieldConflicts: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5071,7 +5071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasDoubleValue {
+  struct hasDoubleValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5083,7 +5083,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasEdition {
+  struct hasEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5095,7 +5095,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasEditionEnum {
+  struct hasEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5107,7 +5107,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasEnd {
+  struct hasEnd: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5119,7 +5119,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasEnumType {
+  struct hasEnumType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5131,7 +5131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasExtendee {
+  struct hasExtendee: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5143,7 +5143,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasExtensionValue {
+  struct hasExtensionValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5155,7 +5155,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasFeatures {
+  struct hasFeatures: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5167,7 +5167,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasFieldPresence {
+  struct hasFieldPresence: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5179,7 +5179,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasFullName {
+  struct hasFullName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5191,7 +5191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasGoPackage {
+  struct hasGoPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5203,7 +5203,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hash {
+  struct hash: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5215,7 +5215,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct HashableMessage {
+  struct HashableMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5227,7 +5227,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasher {
+  struct hasher: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5239,7 +5239,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct HashVisitor {
+  struct HashVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5251,7 +5251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasIdempotencyLevel {
+  struct hasIdempotencyLevel: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5263,7 +5263,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasIdentifierValue {
+  struct hasIdentifierValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5275,7 +5275,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasInputType {
+  struct hasInputType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5287,7 +5287,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasIsExtension {
+  struct hasIsExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5299,7 +5299,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJavaGenerateEqualsAndHash {
+  struct hasJavaGenerateEqualsAndHash: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5311,7 +5311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJavaGenericServices {
+  struct hasJavaGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5323,7 +5323,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJavaMultipleFiles {
+  struct hasJavaMultipleFiles: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5335,7 +5335,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJavaOuterClassname {
+  struct hasJavaOuterClassname: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5347,7 +5347,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJavaPackage {
+  struct hasJavaPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5359,7 +5359,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJavaStringCheckUtf8 {
+  struct hasJavaStringCheckUtf8: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5371,7 +5371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJsonFormat {
+  struct hasJsonFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5383,7 +5383,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJsonName {
+  struct hasJsonName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5395,7 +5395,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasJstype {
+  struct hasJstype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5407,7 +5407,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasLabel {
+  struct hasLabel: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5419,7 +5419,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasLazy {
+  struct hasLazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5431,7 +5431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasLeadingComments {
+  struct hasLeadingComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5443,7 +5443,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMapEntry {
+  struct hasMapEntry: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5455,7 +5455,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMaximumEdition {
+  struct hasMaximumEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5467,7 +5467,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMaximumEditionEnum {
+  struct hasMaximumEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5479,7 +5479,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMessageEncoding {
+  struct hasMessageEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5491,7 +5491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMessageSetWireFormat {
+  struct hasMessageSetWireFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5503,7 +5503,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMinimumEdition {
+  struct hasMinimumEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5515,7 +5515,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasMinimumEditionEnum {
+  struct hasMinimumEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5527,7 +5527,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasName {
+  struct hasName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5539,7 +5539,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasNamePart {
+  struct hasNamePart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5551,7 +5551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasNegativeIntValue {
+  struct hasNegativeIntValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5563,7 +5563,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasNoStandardDescriptorAccessor {
+  struct hasNoStandardDescriptorAccessor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5575,7 +5575,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasNumber {
+  struct hasNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5587,7 +5587,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasObjcClassPrefix {
+  struct hasObjcClassPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5599,7 +5599,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasOneofIndex {
+  struct hasOneofIndex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5611,7 +5611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasOptimizeFor {
+  struct hasOptimizeFor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5623,7 +5623,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasOptions {
+  struct hasOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5635,7 +5635,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasOutputType {
+  struct hasOutputType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5647,7 +5647,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPackage {
+  struct hasPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5659,7 +5659,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPacked {
+  struct hasPacked: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5671,7 +5671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPhpClassPrefix {
+  struct hasPhpClassPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5683,7 +5683,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPhpGenericServices {
+  struct hasPhpGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5695,7 +5695,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPhpMetadataNamespace {
+  struct hasPhpMetadataNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5707,7 +5707,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPhpNamespace {
+  struct hasPhpNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5719,7 +5719,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPositiveIntValue {
+  struct hasPositiveIntValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5731,7 +5731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasProto3Optional {
+  struct hasProto3Optional: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5743,7 +5743,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPyGenericServices {
+  struct hasPyGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5755,7 +5755,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasRepeated {
+  struct hasRepeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5767,7 +5767,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasRepeatedFieldEncoding {
+  struct hasRepeatedFieldEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5779,7 +5779,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasReserved {
+  struct hasReserved: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5791,7 +5791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasRetention {
+  struct hasRetention: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5803,7 +5803,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasRubyPackage {
+  struct hasRubyPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5815,7 +5815,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasSemantic {
+  struct hasSemantic: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5827,7 +5827,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasServerStreaming {
+  struct hasServerStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5839,7 +5839,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasSourceCodeInfo {
+  struct hasSourceCodeInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5851,7 +5851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasSourceContext {
+  struct hasSourceContext: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5863,7 +5863,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasSourceFile {
+  struct hasSourceFile: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5875,7 +5875,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasStart {
+  struct hasStart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5887,7 +5887,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasStringValue {
+  struct hasStringValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5899,7 +5899,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasSwiftPrefix {
+  struct hasSwiftPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5911,7 +5911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasSyntax {
+  struct hasSyntax: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5923,7 +5923,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasTrailingComments {
+  struct hasTrailingComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5935,7 +5935,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasType {
+  struct hasType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5947,7 +5947,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasTypeName {
+  struct hasTypeName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5959,7 +5959,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasUnverifiedLazy {
+  struct hasUnverifiedLazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5971,7 +5971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasValue {
+  struct hasValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5983,7 +5983,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasVerification {
+  struct hasVerification: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -5995,7 +5995,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasWeak {
+  struct hasWeak: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6007,7 +6007,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hour {
+  struct hour: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6019,7 +6019,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct i {
+  struct i: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6031,7 +6031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct idempotencyLevel {
+  struct idempotencyLevel: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6043,7 +6043,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct identifierValue {
+  struct identifierValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6055,7 +6055,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ifMessage {
+  struct ifMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6067,7 +6067,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ignoreUnknownFields {
+  struct ignoreUnknownFields: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6079,7 +6079,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct index {
+  struct index: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6091,7 +6091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct initMessage {
+  struct initMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6103,7 +6103,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct inoutMessage {
+  struct inoutMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6115,7 +6115,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct inputType {
+  struct inputType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6127,7 +6127,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct insert {
+  struct insert: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6139,7 +6139,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct IntMessage {
+  struct IntMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6151,7 +6151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Int32Message {
+  struct Int32Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6163,7 +6163,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Int32Value {
+  struct Int32Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6175,7 +6175,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Int64Message {
+  struct Int64Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6187,7 +6187,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Int64Value {
+  struct Int64Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6199,7 +6199,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Int8 {
+  struct Int8: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6211,7 +6211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct integerLiteral {
+  struct integerLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6223,7 +6223,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct IntegerLiteralType {
+  struct IntegerLiteralType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6235,7 +6235,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct intern {
+  struct intern: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6247,7 +6247,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Internal {
+  struct Internal: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6259,7 +6259,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct InternalState {
+  struct InternalState: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6271,7 +6271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct into {
+  struct into: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6283,7 +6283,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ints {
+  struct ints: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6295,7 +6295,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct isA {
+  struct isA: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6307,7 +6307,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct isEqual {
+  struct isEqual: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6319,7 +6319,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct isEqualTo {
+  struct isEqualTo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6331,7 +6331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct isExtension {
+  struct isExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6343,7 +6343,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct isInitializedMessage {
+  struct isInitializedMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6355,7 +6355,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct isNegative {
+  struct isNegative: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6367,7 +6367,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct itemTagsEncodedSize {
+  struct itemTagsEncodedSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6379,7 +6379,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct iterator {
+  struct iterator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6391,7 +6391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct javaGenerateEqualsAndHash {
+  struct javaGenerateEqualsAndHash: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6403,7 +6403,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct javaGenericServices {
+  struct javaGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6415,7 +6415,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct javaMultipleFiles {
+  struct javaMultipleFiles: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6427,7 +6427,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct javaOuterClassname {
+  struct javaOuterClassname: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6439,7 +6439,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct javaPackage {
+  struct javaPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6451,7 +6451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct javaStringCheckUtf8 {
+  struct javaStringCheckUtf8: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6463,7 +6463,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONDecoder {
+  struct JSONDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6475,7 +6475,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONDecodingError {
+  struct JSONDecodingError: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6487,7 +6487,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONDecodingOptions {
+  struct JSONDecodingOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6499,7 +6499,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonEncoder {
+  struct jsonEncoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6511,7 +6511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONEncodingError {
+  struct JSONEncodingError: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6523,7 +6523,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONEncodingOptions {
+  struct JSONEncodingOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6535,7 +6535,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONEncodingVisitor {
+  struct JSONEncodingVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6547,7 +6547,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonFormat {
+  struct jsonFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6559,7 +6559,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONMapEncodingVisitor {
+  struct JSONMapEncodingVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6571,7 +6571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonName {
+  struct jsonName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6583,7 +6583,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonPath {
+  struct jsonPath: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6595,7 +6595,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonPaths {
+  struct jsonPaths: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6607,7 +6607,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct JSONScanner {
+  struct JSONScanner: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6619,7 +6619,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonString {
+  struct jsonString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6631,7 +6631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonText {
+  struct jsonText: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6643,7 +6643,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonUTF8Bytes {
+  struct jsonUTF8Bytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6655,7 +6655,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jsonUTF8Data {
+  struct jsonUTF8Data: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6667,7 +6667,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct jstype {
+  struct jstype: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6679,7 +6679,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct k {
+  struct k: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6691,7 +6691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct kChunkSize {
+  struct kChunkSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6703,7 +6703,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Key {
+  struct Key: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6715,7 +6715,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct keyField {
+  struct keyField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6727,7 +6727,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct keyFieldOpt {
+  struct keyFieldOpt: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6739,7 +6739,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct KeyType {
+  struct KeyType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6751,7 +6751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct kind {
+  struct kind: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6763,7 +6763,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct l {
+  struct l: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6775,7 +6775,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct label {
+  struct label: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6787,7 +6787,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct lazy {
+  struct lazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6799,7 +6799,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct leadingComments {
+  struct leadingComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6811,7 +6811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct leadingDetachedComments {
+  struct leadingDetachedComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6823,7 +6823,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct length {
+  struct length: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6835,7 +6835,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct lessThan {
+  struct lessThan: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6847,7 +6847,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct letMessage {
+  struct letMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6859,7 +6859,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct lhs {
+  struct lhs: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6871,7 +6871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct list {
+  struct list: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6883,7 +6883,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct listOfMessages {
+  struct listOfMessages: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6895,7 +6895,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct listValue {
+  struct listValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6907,7 +6907,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct littleEndian {
+  struct littleEndian: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6919,7 +6919,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct littleEndianBytes {
+  struct littleEndianBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6931,7 +6931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct load {
+  struct load: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6943,7 +6943,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct localHasher {
+  struct localHasher: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6955,7 +6955,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct location {
+  struct location: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6967,7 +6967,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct M {
+  struct M: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6979,7 +6979,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct major {
+  struct major: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -6991,7 +6991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct makeAsyncIterator {
+  struct makeAsyncIterator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7003,7 +7003,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct makeIterator {
+  struct makeIterator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7015,7 +7015,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct mapEntry {
+  struct mapEntry: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7027,7 +7027,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MapKeyType {
+  struct MapKeyType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7039,7 +7039,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct mapToMessages {
+  struct mapToMessages: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7051,7 +7051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MapValueType {
+  struct MapValueType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7063,7 +7063,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct mapVisitor {
+  struct mapVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7075,7 +7075,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct maximumEdition {
+  struct maximumEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7087,7 +7087,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct maximumEditionEnum {
+  struct maximumEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7099,7 +7099,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct mdayStart {
+  struct mdayStart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7111,7 +7111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct merge {
+  struct merge: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7123,7 +7123,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct message {
+  struct message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7135,7 +7135,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MessageBase {
+  struct MessageBase: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7147,7 +7147,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct messageDepthLimit {
+  struct messageDepthLimit: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7159,7 +7159,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct messageEncoding {
+  struct messageEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7171,7 +7171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MessageExtension {
+  struct MessageExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7183,7 +7183,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MessageImplementationBase {
+  struct MessageImplementationBase: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7195,7 +7195,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MessageOptions {
+  struct MessageOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7207,7 +7207,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MessageSet {
+  struct MessageSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7219,7 +7219,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct messageSetWireFormat {
+  struct messageSetWireFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7231,7 +7231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct messageSize {
+  struct messageSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7243,7 +7243,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct messageType {
+  struct messageType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7255,7 +7255,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Method {
+  struct Method: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7267,7 +7267,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MethodDescriptorProto {
+  struct MethodDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7279,7 +7279,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct MethodOptions {
+  struct MethodOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7291,7 +7291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct methods {
+  struct methods: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7303,7 +7303,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct min {
+  struct min: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7315,7 +7315,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct minimumEdition {
+  struct minimumEdition: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7327,7 +7327,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct minimumEditionEnum {
+  struct minimumEditionEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7339,7 +7339,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct minor {
+  struct minor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7351,7 +7351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Mixin {
+  struct Mixin: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7363,7 +7363,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct mixins {
+  struct mixins: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7375,7 +7375,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct modifier {
+  struct modifier: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7387,7 +7387,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct modify {
+  struct modify: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7399,7 +7399,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct month {
+  struct month: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7411,7 +7411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct msgExtension {
+  struct msgExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7423,7 +7423,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct mutating {
+  struct mutating: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7435,7 +7435,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct n {
+  struct n: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7447,7 +7447,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct name {
+  struct name: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7459,7 +7459,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct NameDescription {
+  struct NameDescription: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7471,7 +7471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct NameMap {
+  struct NameMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7483,7 +7483,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct NamePart {
+  struct NamePart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7495,7 +7495,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct names {
+  struct names: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7507,7 +7507,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nanos {
+  struct nanos: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7519,7 +7519,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nativeEndianBytes {
+  struct nativeEndianBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7531,7 +7531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct negativeIntValue {
+  struct negativeIntValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7543,7 +7543,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nestedType {
+  struct nestedType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7555,7 +7555,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct newL {
+  struct newL: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7567,7 +7567,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct newList {
+  struct newList: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7579,7 +7579,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct newValue {
+  struct newValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7591,7 +7591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct next {
+  struct next: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7603,7 +7603,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nextByte {
+  struct nextByte: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7615,7 +7615,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nextFieldNumber {
+  struct nextFieldNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7627,7 +7627,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nextVarInt {
+  struct nextVarInt: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7639,7 +7639,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nilMessage {
+  struct nilMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7651,7 +7651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nilLiteral {
+  struct nilLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7663,7 +7663,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct noStandardDescriptorAccessor {
+  struct noStandardDescriptorAccessor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7675,7 +7675,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct nullValue {
+  struct nullValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7687,7 +7687,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct number {
+  struct number: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7699,7 +7699,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct numberValue {
+  struct numberValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7711,7 +7711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct objcClassPrefix {
+  struct objcClassPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7723,7 +7723,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct of {
+  struct of: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7735,7 +7735,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct oneofDecl {
+  struct oneofDecl: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7747,7 +7747,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OneofDescriptorProto {
+  struct OneofDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7759,7 +7759,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct oneofIndex {
+  struct oneofIndex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7771,7 +7771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OneofOptions {
+  struct OneofOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7783,7 +7783,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct oneofs {
+  struct oneofs: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7795,7 +7795,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OneOf_Kind {
+  struct OneOf_Kind: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7807,7 +7807,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct optimizeFor {
+  struct optimizeFor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7819,7 +7819,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptimizeMode {
+  struct OptimizeMode: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7831,7 +7831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Option {
+  struct Option: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7843,7 +7843,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptionalEnumExtensionField {
+  struct OptionalEnumExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7855,7 +7855,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptionalExtensionField {
+  struct OptionalExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7867,7 +7867,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptionalGroupExtensionField {
+  struct OptionalGroupExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7879,7 +7879,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptionalMessageExtensionField {
+  struct OptionalMessageExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7891,7 +7891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptionRetention {
+  struct OptionRetention: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7903,7 +7903,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct options {
+  struct options: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7915,7 +7915,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct OptionTargetType {
+  struct OptionTargetType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7927,7 +7927,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct other {
+  struct other: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7939,7 +7939,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct others {
+  struct others: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7951,7 +7951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct out {
+  struct out: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7963,7 +7963,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct outputType {
+  struct outputType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7975,7 +7975,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct p {
+  struct p: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7987,7 +7987,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct package {
+  struct package: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -7999,7 +7999,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct packed {
+  struct packed: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8011,7 +8011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct PackedEnumExtensionField {
+  struct PackedEnumExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8023,7 +8023,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct PackedExtensionField {
+  struct PackedExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8035,7 +8035,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct padding {
+  struct padding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8047,7 +8047,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct parent {
+  struct parent: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8059,7 +8059,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct parse {
+  struct parse: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8071,7 +8071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct partial {
+  struct partial: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8083,7 +8083,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct path {
+  struct path: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8095,7 +8095,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct paths {
+  struct paths: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8107,7 +8107,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct payload {
+  struct payload: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8119,7 +8119,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct payloadSize {
+  struct payloadSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8131,7 +8131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct phpClassPrefix {
+  struct phpClassPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8143,7 +8143,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct phpGenericServices {
+  struct phpGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8155,7 +8155,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct phpMetadataNamespace {
+  struct phpMetadataNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8167,7 +8167,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct phpNamespace {
+  struct phpNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8179,7 +8179,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct pointer {
+  struct pointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8191,7 +8191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct pos {
+  struct pos: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8203,7 +8203,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct positiveIntValue {
+  struct positiveIntValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8215,7 +8215,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct prefix {
+  struct prefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8227,7 +8227,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct preserveProtoFieldNames {
+  struct preserveProtoFieldNames: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8239,7 +8239,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct preTraverse {
+  struct preTraverse: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8251,7 +8251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct printUnknownFields {
+  struct printUnknownFields: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8263,7 +8263,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct proto2 {
+  struct proto2: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8275,7 +8275,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct proto3DefaultValue {
+  struct proto3DefaultValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8287,7 +8287,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct proto3Optional {
+  struct proto3Optional: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8299,7 +8299,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufAPIVersionCheck {
+  struct ProtobufAPIVersionCheck: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8311,7 +8311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufAPIVersion_3 {
+  struct ProtobufAPIVersion_3: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8323,7 +8323,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufBool {
+  struct ProtobufBool: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8335,7 +8335,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufBytes {
+  struct ProtobufBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8347,7 +8347,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufDouble {
+  struct ProtobufDouble: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8359,7 +8359,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufEnumMap {
+  struct ProtobufEnumMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8371,7 +8371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobufExtension {
+  struct protobufExtension: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8383,7 +8383,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufFixed32 {
+  struct ProtobufFixed32: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8395,7 +8395,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufFixed64 {
+  struct ProtobufFixed64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8407,7 +8407,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufFloat {
+  struct ProtobufFloat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8419,7 +8419,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufInt32 {
+  struct ProtobufInt32: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8431,7 +8431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufInt64 {
+  struct ProtobufInt64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8443,7 +8443,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufMap {
+  struct ProtobufMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8455,7 +8455,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufMessageMap {
+  struct ProtobufMessageMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8467,7 +8467,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufSFixed32 {
+  struct ProtobufSFixed32: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8479,7 +8479,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufSFixed64 {
+  struct ProtobufSFixed64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8491,7 +8491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufSInt32 {
+  struct ProtobufSInt32: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8503,7 +8503,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufSInt64 {
+  struct ProtobufSInt64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8515,7 +8515,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufString {
+  struct ProtobufString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8527,7 +8527,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufUInt32 {
+  struct ProtobufUInt32: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8539,7 +8539,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtobufUInt64 {
+  struct ProtobufUInt64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8551,7 +8551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobuf_extensionFieldValues {
+  struct protobuf_extensionFieldValues: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8563,7 +8563,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobuf_fieldNumber {
+  struct protobuf_fieldNumber: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8575,7 +8575,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobuf_generated_isEqualTo {
+  struct protobuf_generated_isEqualTo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8587,7 +8587,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobuf_nameMap {
+  struct protobuf_nameMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8599,7 +8599,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobuf_newField {
+  struct protobuf_newField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8611,7 +8611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protobuf_package {
+  struct protobuf_package: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8623,7 +8623,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protocolMessage {
+  struct protocolMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8635,7 +8635,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protoFieldName {
+  struct protoFieldName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8647,7 +8647,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protoMessageNameMessage {
+  struct protoMessageNameMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8659,7 +8659,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ProtoNameProviding {
+  struct ProtoNameProviding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8671,7 +8671,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct protoPaths {
+  struct protoPaths: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8683,7 +8683,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct publicMessage {
+  struct publicMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8695,7 +8695,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct publicDependency {
+  struct publicDependency: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8707,7 +8707,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putBoolValue {
+  struct putBoolValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8719,7 +8719,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putBytesValue {
+  struct putBytesValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8731,7 +8731,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putDoubleValue {
+  struct putDoubleValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8743,7 +8743,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putEnumValue {
+  struct putEnumValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8755,7 +8755,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putFixedUInt32 {
+  struct putFixedUInt32: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8767,7 +8767,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putFixedUInt64 {
+  struct putFixedUInt64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8779,7 +8779,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putFloatValue {
+  struct putFloatValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8791,7 +8791,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putInt64 {
+  struct putInt64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8803,7 +8803,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putStringValue {
+  struct putStringValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8815,7 +8815,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putUInt64 {
+  struct putUInt64: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8827,7 +8827,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putUInt64Hex {
+  struct putUInt64Hex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8839,7 +8839,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putVarInt {
+  struct putVarInt: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8851,7 +8851,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct putZigZagVarInt {
+  struct putZigZagVarInt: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8863,7 +8863,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct pyGenericServices {
+  struct pyGenericServices: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8875,7 +8875,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct R {
+  struct R: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8887,7 +8887,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct rawChars {
+  struct rawChars: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8899,7 +8899,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct RawRepresentable {
+  struct RawRepresentable: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8911,7 +8911,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct RawValue {
+  struct RawValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8923,7 +8923,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct read4HexDigits {
+  struct read4HexDigits: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8935,7 +8935,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct readBytes {
+  struct readBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8947,7 +8947,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct register {
+  struct register: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8959,7 +8959,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct repeated {
+  struct repeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8971,7 +8971,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct RepeatedEnumExtensionField {
+  struct RepeatedEnumExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8983,7 +8983,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct RepeatedExtensionField {
+  struct RepeatedExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -8995,7 +8995,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct repeatedFieldEncoding {
+  struct repeatedFieldEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9007,7 +9007,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct RepeatedGroupExtensionField {
+  struct RepeatedGroupExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9019,7 +9019,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct RepeatedMessageExtensionField {
+  struct RepeatedMessageExtensionField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9031,7 +9031,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct repeating {
+  struct repeating: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9043,7 +9043,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct requestStreaming {
+  struct requestStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9055,7 +9055,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct requestTypeURL {
+  struct requestTypeURL: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9067,7 +9067,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct requiredSize {
+  struct requiredSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9079,7 +9079,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct responseStreaming {
+  struct responseStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9091,7 +9091,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct responseTypeURL {
+  struct responseTypeURL: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9103,7 +9103,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct result {
+  struct result: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9115,7 +9115,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct retention {
+  struct retention: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9127,7 +9127,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct rethrowsMessage {
+  struct rethrowsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9139,7 +9139,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct returnMessage {
+  struct returnMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9151,7 +9151,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ReturnType {
+  struct ReturnType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9163,7 +9163,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct revision {
+  struct revision: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9175,7 +9175,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct rhs {
+  struct rhs: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9187,7 +9187,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct root {
+  struct root: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9199,7 +9199,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct rubyPackage {
+  struct rubyPackage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9211,7 +9211,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct s {
+  struct s: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9223,7 +9223,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sawBackslash {
+  struct sawBackslash: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9235,7 +9235,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sawSection4Characters {
+  struct sawSection4Characters: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9247,7 +9247,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sawSection5Characters {
+  struct sawSection5Characters: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9259,7 +9259,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct scanner {
+  struct scanner: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9271,7 +9271,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct seconds {
+  struct seconds: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9283,7 +9283,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct selfMessage {
+  struct selfMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9295,7 +9295,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct semantic {
+  struct semantic: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9307,7 +9307,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct SendableMessage {
+  struct SendableMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9319,7 +9319,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct separator {
+  struct separator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9331,7 +9331,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct serialize {
+  struct serialize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9343,7 +9343,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct serializedBytes {
+  struct serializedBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9355,7 +9355,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct serializedData {
+  struct serializedData: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9367,7 +9367,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct serializedSize {
+  struct serializedSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9379,7 +9379,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct serverStreaming {
+  struct serverStreaming: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9391,7 +9391,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct service {
+  struct service: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9403,7 +9403,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ServiceDescriptorProto {
+  struct ServiceDescriptorProto: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9415,7 +9415,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ServiceOptions {
+  struct ServiceOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9427,7 +9427,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct set {
+  struct set: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9439,7 +9439,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct setExtensionValue {
+  struct setExtensionValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9451,7 +9451,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct shift {
+  struct shift: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9463,7 +9463,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct SimpleExtensionMap {
+  struct SimpleExtensionMap: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9475,7 +9475,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct size {
+  struct size: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9487,7 +9487,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sizer {
+  struct sizer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9499,7 +9499,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct source {
+  struct source: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9511,7 +9511,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sourceCodeInfo {
+  struct sourceCodeInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9523,7 +9523,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sourceContext {
+  struct sourceContext: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9535,7 +9535,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sourceEncoding {
+  struct sourceEncoding: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9547,7 +9547,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct sourceFile {
+  struct sourceFile: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9559,7 +9559,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct span {
+  struct span: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9571,7 +9571,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct split {
+  struct split: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9583,7 +9583,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct start {
+  struct start: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9595,7 +9595,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startArray {
+  struct startArray: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9607,7 +9607,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startArrayObject {
+  struct startArrayObject: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9619,7 +9619,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startField {
+  struct startField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9631,7 +9631,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startIndex {
+  struct startIndex: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9643,7 +9643,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startMessageField {
+  struct startMessageField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9655,7 +9655,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startObject {
+  struct startObject: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9667,7 +9667,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct startRegularField {
+  struct startRegularField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9679,7 +9679,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct state {
+  struct state: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9691,7 +9691,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct staticMessage {
+  struct staticMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9703,7 +9703,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct StaticString {
+  struct StaticString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9715,7 +9715,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct storage {
+  struct storage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9727,7 +9727,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct StringMessage {
+  struct StringMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9739,7 +9739,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct stringLiteral {
+  struct stringLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9751,7 +9751,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct StringLiteralType {
+  struct StringLiteralType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9763,7 +9763,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct stringResult {
+  struct stringResult: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9775,7 +9775,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct stringValue {
+  struct stringValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9787,7 +9787,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct structMessage {
+  struct structMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9799,7 +9799,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct structValue {
+  struct structValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9811,7 +9811,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct subDecoder {
+  struct subDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9823,7 +9823,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct subscriptMessage {
+  struct subscriptMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9835,7 +9835,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct subVisitor {
+  struct subVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9847,7 +9847,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct SwiftMessage {
+  struct SwiftMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9859,7 +9859,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct swiftPrefix {
+  struct swiftPrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9871,7 +9871,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct SwiftProtobufContiguousBytes {
+  struct SwiftProtobufContiguousBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9883,7 +9883,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct syntax {
+  struct syntax: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9895,7 +9895,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct T {
+  struct T: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9907,7 +9907,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct tag {
+  struct tag: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9919,7 +9919,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct targets {
+  struct targets: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9931,7 +9931,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct terminator {
+  struct terminator: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9943,7 +9943,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct testDecoder {
+  struct testDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9955,7 +9955,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct text {
+  struct text: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9967,7 +9967,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct textDecoder {
+  struct textDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9979,7 +9979,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct TextFormatDecoder {
+  struct TextFormatDecoder: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -9991,7 +9991,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct TextFormatDecodingError {
+  struct TextFormatDecodingError: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10003,7 +10003,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct TextFormatDecodingOptions {
+  struct TextFormatDecodingOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10015,7 +10015,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct TextFormatEncodingOptions {
+  struct TextFormatEncodingOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10027,7 +10027,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct TextFormatEncodingVisitor {
+  struct TextFormatEncodingVisitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10039,7 +10039,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct textFormatString {
+  struct textFormatString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10051,7 +10051,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct throwOrIgnore {
+  struct throwOrIgnore: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10063,7 +10063,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct throwsMessage {
+  struct throwsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10075,7 +10075,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct timeInterval {
+  struct timeInterval: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10087,7 +10087,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct timeIntervalSince1970 {
+  struct timeIntervalSince1970: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10099,7 +10099,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct timeIntervalSinceReferenceDate {
+  struct timeIntervalSinceReferenceDate: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10111,7 +10111,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Timestamp {
+  struct Timestamp: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10123,7 +10123,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct total {
+  struct total: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10135,7 +10135,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct totalArrayDepth {
+  struct totalArrayDepth: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10147,7 +10147,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct totalSize {
+  struct totalSize: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10159,7 +10159,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct trailingComments {
+  struct trailingComments: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10171,7 +10171,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct traverseMessage {
+  struct traverseMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10183,7 +10183,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct trueMessage {
+  struct trueMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10195,7 +10195,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct tryMessage {
+  struct tryMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10207,7 +10207,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct type {
+  struct type: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10219,7 +10219,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct typealiasMessage {
+  struct typealiasMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10231,7 +10231,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct TypeEnum {
+  struct TypeEnum: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10243,7 +10243,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct typeName {
+  struct typeName: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10255,7 +10255,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct typePrefix {
+  struct typePrefix: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10267,7 +10267,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct typeStart {
+  struct typeStart: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10279,7 +10279,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct typeUnknown {
+  struct typeUnknown: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10291,7 +10291,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct typeURL {
+  struct typeURL: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10303,7 +10303,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UInt32Message {
+  struct UInt32Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10315,7 +10315,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UInt32Value {
+  struct UInt32Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10327,7 +10327,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UInt64Message {
+  struct UInt64Message: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10339,7 +10339,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UInt64Value {
+  struct UInt64Value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10351,7 +10351,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UInt8 {
+  struct UInt8: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10363,7 +10363,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unchecked {
+  struct unchecked: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10375,7 +10375,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unicodeScalarLiteral {
+  struct unicodeScalarLiteral: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10387,7 +10387,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnicodeScalarLiteralType {
+  struct UnicodeScalarLiteralType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10399,7 +10399,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unicodeScalars {
+  struct unicodeScalars: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10411,7 +10411,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnicodeScalarView {
+  struct UnicodeScalarView: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10423,7 +10423,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct uninterpretedOption {
+  struct uninterpretedOption: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10435,7 +10435,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct union {
+  struct union: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10447,7 +10447,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct uniqueStorage {
+  struct uniqueStorage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10459,7 +10459,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unknown {
+  struct unknown: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10471,7 +10471,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unknownFieldsMessage {
+  struct unknownFieldsMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10483,7 +10483,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnknownStorage {
+  struct UnknownStorage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10495,7 +10495,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unpackTo {
+  struct unpackTo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10507,7 +10507,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeBufferPointer {
+  struct UnsafeBufferPointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10519,7 +10519,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeMutablePointer {
+  struct UnsafeMutablePointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10531,7 +10531,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeMutableRawBufferPointer {
+  struct UnsafeMutableRawBufferPointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10543,7 +10543,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeMutableRawPointer {
+  struct UnsafeMutableRawPointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10555,7 +10555,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeRawBufferPointer {
+  struct UnsafeRawBufferPointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10567,7 +10567,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UnsafeRawPointer {
+  struct UnsafeRawPointer: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10579,7 +10579,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct unverifiedLazy {
+  struct unverifiedLazy: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10591,7 +10591,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct updatedOptions {
+  struct updatedOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10603,7 +10603,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct url {
+  struct url: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10615,7 +10615,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct utf8 {
+  struct utf8: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10627,7 +10627,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct utf8Ptr {
+  struct utf8Ptr: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10639,7 +10639,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct utf8ToDouble {
+  struct utf8ToDouble: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10651,7 +10651,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct UTF8View {
+  struct UTF8View: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10663,7 +10663,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct v {
+  struct v: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10675,7 +10675,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct value {
+  struct value: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10687,7 +10687,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct valueField {
+  struct valueField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10699,7 +10699,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct values {
+  struct values: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10711,7 +10711,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct ValueType {
+  struct ValueType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10723,7 +10723,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct varMessage {
+  struct varMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10735,7 +10735,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct verification {
+  struct verification: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10747,7 +10747,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct VerificationState {
+  struct VerificationState: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10759,7 +10759,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Version {
+  struct Version: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10771,7 +10771,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct versionString {
+  struct versionString: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10783,7 +10783,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitExtensionFields {
+  struct visitExtensionFields: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10795,7 +10795,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitExtensionFieldsAsMessageSet {
+  struct visitExtensionFieldsAsMessageSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10807,7 +10807,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitMapField {
+  struct visitMapField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10819,7 +10819,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitor {
+  struct visitor: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10831,7 +10831,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPacked {
+  struct visitPacked: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10843,7 +10843,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedBoolField {
+  struct visitPackedBoolField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10855,7 +10855,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedDoubleField {
+  struct visitPackedDoubleField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10867,7 +10867,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedEnumField {
+  struct visitPackedEnumField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10879,7 +10879,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedFixed32Field {
+  struct visitPackedFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10891,7 +10891,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedFixed64Field {
+  struct visitPackedFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10903,7 +10903,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedFloatField {
+  struct visitPackedFloatField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10915,7 +10915,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedInt32Field {
+  struct visitPackedInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10927,7 +10927,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedInt64Field {
+  struct visitPackedInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10939,7 +10939,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedSFixed32Field {
+  struct visitPackedSFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10951,7 +10951,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedSFixed64Field {
+  struct visitPackedSFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10963,7 +10963,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedSInt32Field {
+  struct visitPackedSInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10975,7 +10975,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedSInt64Field {
+  struct visitPackedSInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10987,7 +10987,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedUInt32Field {
+  struct visitPackedUInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -10999,7 +10999,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitPackedUInt64Field {
+  struct visitPackedUInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11011,7 +11011,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeated {
+  struct visitRepeated: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11023,7 +11023,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedBoolField {
+  struct visitRepeatedBoolField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11035,7 +11035,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedBytesField {
+  struct visitRepeatedBytesField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11047,7 +11047,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedDoubleField {
+  struct visitRepeatedDoubleField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11059,7 +11059,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedEnumField {
+  struct visitRepeatedEnumField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11071,7 +11071,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedFixed32Field {
+  struct visitRepeatedFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11083,7 +11083,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedFixed64Field {
+  struct visitRepeatedFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11095,7 +11095,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedFloatField {
+  struct visitRepeatedFloatField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11107,7 +11107,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedGroupField {
+  struct visitRepeatedGroupField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11119,7 +11119,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedInt32Field {
+  struct visitRepeatedInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11131,7 +11131,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedInt64Field {
+  struct visitRepeatedInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11143,7 +11143,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedMessageField {
+  struct visitRepeatedMessageField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11155,7 +11155,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedSFixed32Field {
+  struct visitRepeatedSFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11167,7 +11167,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedSFixed64Field {
+  struct visitRepeatedSFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11179,7 +11179,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedSInt32Field {
+  struct visitRepeatedSInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11191,7 +11191,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedSInt64Field {
+  struct visitRepeatedSInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11203,7 +11203,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedStringField {
+  struct visitRepeatedStringField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11215,7 +11215,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedUInt32Field {
+  struct visitRepeatedUInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11227,7 +11227,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitRepeatedUInt64Field {
+  struct visitRepeatedUInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11239,7 +11239,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingular {
+  struct visitSingular: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11251,7 +11251,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularBoolField {
+  struct visitSingularBoolField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11263,7 +11263,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularBytesField {
+  struct visitSingularBytesField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11275,7 +11275,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularDoubleField {
+  struct visitSingularDoubleField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11287,7 +11287,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularEnumField {
+  struct visitSingularEnumField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11299,7 +11299,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularFixed32Field {
+  struct visitSingularFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11311,7 +11311,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularFixed64Field {
+  struct visitSingularFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11323,7 +11323,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularFloatField {
+  struct visitSingularFloatField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11335,7 +11335,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularGroupField {
+  struct visitSingularGroupField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11347,7 +11347,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularInt32Field {
+  struct visitSingularInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11359,7 +11359,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularInt64Field {
+  struct visitSingularInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11371,7 +11371,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularMessageField {
+  struct visitSingularMessageField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11383,7 +11383,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularSFixed32Field {
+  struct visitSingularSFixed32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11395,7 +11395,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularSFixed64Field {
+  struct visitSingularSFixed64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11407,7 +11407,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularSInt32Field {
+  struct visitSingularSInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11419,7 +11419,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularSInt64Field {
+  struct visitSingularSInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11431,7 +11431,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularStringField {
+  struct visitSingularStringField: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11443,7 +11443,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularUInt32Field {
+  struct visitSingularUInt32Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11455,7 +11455,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitSingularUInt64Field {
+  struct visitSingularUInt64Field: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11467,7 +11467,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct visitUnknown {
+  struct visitUnknown: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11479,7 +11479,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct wasDecoded {
+  struct wasDecoded: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11491,7 +11491,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct weak {
+  struct weak: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11503,7 +11503,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct weakDependency {
+  struct weakDependency: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11515,7 +11515,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct whereMessage {
+  struct whereMessage: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11527,7 +11527,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct wireFormat {
+  struct wireFormat: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11539,7 +11539,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct with {
+  struct with: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11551,7 +11551,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct withUnsafeBytes {
+  struct withUnsafeBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11563,7 +11563,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct withUnsafeMutableBytes {
+  struct withUnsafeMutableBytes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11575,7 +11575,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct work {
+  struct work: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11587,7 +11587,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct Wrapped {
+  struct Wrapped: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11599,7 +11599,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct WrappedType {
+  struct WrappedType: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11611,7 +11611,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct wrappedValue {
+  struct wrappedValue: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11623,7 +11623,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct written {
+  struct written: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11635,7 +11635,7 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct yday {
+  struct yday: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -11649,978 +11649,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.adjusted: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.aggregateValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.allCases: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.allowAlias: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.alwaysPrintEnumsAsInts: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.alwaysPrintInt64sAsNumbers: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.annotation: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.any: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessageExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyMessageStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AnyUnpackError: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Api: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appended: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appendUIntHex: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.appendUnknown: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.areAllInitialized: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Array: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arrayDepth: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arrayLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.arraySeparator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asciiOpenCurlyBracket: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.asciiZero: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.async: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncIterator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncIteratorProtocol: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.AsyncMessageSequence: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.available: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.b: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Base: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.base64Values: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.baseAddress: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BaseType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.begin: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binary: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecodingError: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDecodingOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryDelimited: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingError: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingMessageSetSizeVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingMessageSetVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingSizeVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BinaryEncodingVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.binaryProtobufDelimitedMessages: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bitPattern: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.body: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BoolMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.booleanLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BooleanLiteralType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.boolValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.buffer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesInGroup: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesNeeded: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.bytesRead: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.BytesValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.c: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.capitalizeNext: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.cardinality: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CaseIterable: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ccEnableArenas: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ccGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Character: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.chars: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.chunk: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.classMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearAggregateValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearAllowAlias: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearBegin: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCcEnableArenas: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCcGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearClientStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCsharpNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearCtype: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDebugRedact: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDefaultValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprecated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDeprecatedLegacyJsonFieldConflicts: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearDoubleValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnd: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearEnumType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearExtendee: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearExtensionValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFeatures: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFieldPresence: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearFullName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearGoPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIdempotencyLevel: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIdentifierValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearInputType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearIsExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaGenerateEqualsAndHash: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaMultipleFiles: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaOuterClassname: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJavaStringCheckUtf8: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJsonFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJsonName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearJstype: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLabel: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearLeadingComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMapEntry: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMaximumEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMaximumEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMessageEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMessageSetWireFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMinimumEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearMinimumEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNamePart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNegativeIntValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNoStandardDescriptorAccessor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearObjcClassPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOneofIndex: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOptimizeFor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearOutputType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPacked: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpClassPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpMetadataNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPositiveIntValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearProto3Optional: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPyGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRepeated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRepeatedFieldEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearReserved: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRetention: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearRubyPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSemantic: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearServerStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSourceCodeInfo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSourceContext: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSourceFile: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearStart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearStringValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSwiftPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearSyntax: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearTrailingComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearTypeName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearUnverifiedLazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearVerification: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearWeak: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clientStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.codePoint: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.codeUnits: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Collection: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.com: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.comma: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.consumedBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.contentsOf: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.count: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.countVarintsInBuffer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.csharpNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ctype: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.customCodable: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.CustomDebugStringConvertible: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.d: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DataMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dataResult: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.date: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.daySec: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.daysSinceEpoch: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.debugDescriptionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.debugRedact: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.declaration: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decoded: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodedFromJSONNull: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeExtensionFieldsAsMessageSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeJSON: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeMapField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeMessageMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedBoolField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedBytesField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedDoubleField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedEnumField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedFloatField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedGroupField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedMessageField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedSInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedStringField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedUInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeRepeatedUInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingular: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularBoolField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularBytesField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularDoubleField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularEnumField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularFloatField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularGroupField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularMessageField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularSInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularStringField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularUInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeSingularUInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.decodeTextFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultAnyTypeURLPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaults: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.defaultValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dependency: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.deprecatedLegacyJsonFieldConflicts: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.descriptionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.DescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Dictionary: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.dictionaryLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit0: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digit1: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digitCount: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digits: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.digitValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.discardableResult: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.discardUnknownFields: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.distance: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.double: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.doubleValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Duration: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.E: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.edition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EditionDefault: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionDefaults: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.editionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Element: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.elements: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitExtensionFieldName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitFieldName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emitFieldNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Empty: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.emptyData: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodeAsBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encoded: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodedJSONString: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodedSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encodeField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.encoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.end: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endArray: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endMessageField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endObject: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.endRegularField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumReservedRange: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.enumvalue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EnumValueOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.EquatableMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Error: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExpressibleByArrayLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExpressibleByDictionaryLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ext: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extendedGraphemeClusterLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtendedGraphemeClusterLiteralType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extendee: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensibleMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionFieldNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionFieldValueSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensionRange: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ExtensionRangeOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extensions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.extras: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.F: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.falseMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.features: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetDefaults: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FeatureSetEditionDefault: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldData: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldMask: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNameCount: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldNumberForProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldPresence: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fields: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FieldTag: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fieldType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.file: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileDescriptorSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fileName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FileOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.filter: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.final: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.first: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.firstItem: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.float: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.floatLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatLiteralType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.FloatValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forMessageName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.formUnion: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forReadingFrom: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forTypeURL: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ForwardParser: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.forWritingInto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.from: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromAscii2: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromAscii4: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromByteOffset: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fromHexDigit: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.fullName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.funcMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.G: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.GeneratedCodeInfo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.get: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.getExtensionValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.googleapis: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Any: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Api: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_BoolValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_BytesValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_DescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_DoubleValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Duration: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Edition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Empty: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Enum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumValueDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_EnumValueOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ExtensionRangeOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FeatureSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FeatureSetDefaults: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FieldDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FieldMask: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FieldOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FileDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FileDescriptorSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FileOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_FloatValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_GeneratedCodeInfo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Int32Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Int64Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ListValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_MessageOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Method: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_MethodDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_MethodOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Mixin: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_NullValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_OneofDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_OneofOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Option: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ServiceDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_ServiceOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_SourceCodeInfo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_SourceContext: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_StringValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Struct: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Syntax: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Timestamp: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Type: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_UInt32Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_UInt64Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_UninterpretedOption: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Google_Protobuf_Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.goPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.group: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.groupFieldNumberStack: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.groupSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hadOneofValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.handleConflictingOneOf: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasAggregateValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasAllowAlias: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasBegin: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCcEnableArenas: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCcGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasClientStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCsharpNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasCtype: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDebugRedact: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDefaultValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDeprecatedLegacyJsonFieldConflicts: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasDoubleValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnd: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasEnumType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExtendee: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasExtensionValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFeatures: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFieldPresence: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasFullName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasGoPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hash: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.HashableMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasher: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.HashVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIdempotencyLevel: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIdentifierValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasInputType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasIsExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaGenerateEqualsAndHash: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaMultipleFiles: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaOuterClassname: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJavaStringCheckUtf8: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJsonFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJsonName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasJstype: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLabel: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasLeadingComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMapEntry: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMaximumEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMaximumEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMessageEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMessageSetWireFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMinimumEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasMinimumEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNamePart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNegativeIntValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNoStandardDescriptorAccessor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasObjcClassPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOneofIndex: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOptimizeFor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasOutputType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPacked: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpClassPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpMetadataNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPositiveIntValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasProto3Optional: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPyGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRepeatedFieldEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasReserved: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRetention: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasRubyPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSemantic: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasServerStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceCodeInfo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceContext: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSourceFile: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasStart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasStringValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSwiftPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasSyntax: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasTrailingComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasTypeName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasUnverifiedLazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasVerification: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasWeak: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hour: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.i: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.idempotencyLevel: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.identifierValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ifMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ignoreUnknownFields: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.index: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.initMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.inoutMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.inputType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.insert: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.IntMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int32Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int64Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Int8: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.integerLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.IntegerLiteralType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.intern: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Internal: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.InternalState: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.into: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ints: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isA: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isEqual: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isEqualTo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isInitializedMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.isNegative: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.itemTagsEncodedSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.iterator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaGenerateEqualsAndHash: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaMultipleFiles: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaOuterClassname: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.javaStringCheckUtf8: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodingError: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONDecodingOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonEncoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodingError: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodingOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONEncodingVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONMapEncodingVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonPath: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonPaths: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.JSONScanner: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonString: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonText: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonUTF8Bytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jsonUTF8Data: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.jstype: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.k: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.kChunkSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Key: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.keyField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.keyFieldOpt: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.KeyType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.kind: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.l: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.label: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.leadingComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.leadingDetachedComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.length: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lessThan: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.letMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.lhs: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.list: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.listOfMessages: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.listValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndian: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.littleEndianBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.load: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.localHasher: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.location: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.M: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.major: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.makeAsyncIterator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.makeIterator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapEntry: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MapKeyType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapToMessages: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MapValueType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mapVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.maximumEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.maximumEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mdayStart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.merge: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.message: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageBase: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageDepthLimit: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageImplementationBase: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MessageSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageSetWireFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.messageType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Method: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.MethodOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.methods: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.min: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minimumEdition: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minimumEditionEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.minor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Mixin: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mixins: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.modifier: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.modify: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.month: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.msgExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.mutating: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.n: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.name: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NameDescription: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NameMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.NamePart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.names: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nanos: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nativeEndianBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.negativeIntValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nestedType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newL: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newList: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.newValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.next: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextByte: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextFieldNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nextVarInt: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nilMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nilLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.noStandardDescriptorAccessor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.nullValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.number: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.numberValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.objcClassPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.of: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofDecl: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofIndex: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneofOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.oneofs: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OneOf_Kind: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.optimizeFor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptimizeMode: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Option: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalEnumExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalGroupExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionalMessageExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionRetention: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.options: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.OptionTargetType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.other: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.others: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.out: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.outputType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.p: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.package: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.packed: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PackedEnumExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.PackedExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.padding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.parent: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.parse: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.partial: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.path: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.paths: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.payload: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.payloadSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpClassPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpMetadataNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpNamespace: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pos: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.positiveIntValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.prefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.preserveProtoFieldNames: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.preTraverse: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.printUnknownFields: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto2: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto3DefaultValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.proto3Optional: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersionCheck: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufAPIVersion_3: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufBool: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufDouble: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufEnumMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobufExtension: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFixed32: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFixed64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufFloat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufInt32: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufInt64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufMessageMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSFixed32: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSFixed64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSInt32: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufSInt64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufString: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufUInt32: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtobufUInt64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_extensionFieldValues: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_fieldNumber: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_generated_isEqualTo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_nameMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_newField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protobuf_package: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protocolMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoFieldName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageNameMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ProtoNameProviding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoPaths: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.publicMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.publicDependency: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putBoolValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putBytesValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putDoubleValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putEnumValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFixedUInt32: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFixedUInt64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putFloatValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putInt64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putStringValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putUInt64: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putUInt64Hex: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putVarInt: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.putZigZagVarInt: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.pyGenericServices: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.R: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rawChars: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RawRepresentable: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RawValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.read4HexDigits: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.readBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.register: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedEnumExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeatedFieldEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedGroupExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.RepeatedMessageExtensionField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.repeating: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requestStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requestTypeURL: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.requiredSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.responseStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.responseTypeURL: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.result: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.retention: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rethrowsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.returnMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ReturnType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.revision: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rhs: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.root: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.rubyPackage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.s: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawBackslash: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawSection4Characters: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sawSection5Characters: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.scanner: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.seconds: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.selfMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.semantic: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SendableMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.separator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serialize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedData: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serializedSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.serverStreaming: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.service: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceDescriptorProto: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ServiceOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.set: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.setExtensionValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.shift: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SimpleExtensionMap: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.size: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sizer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.source: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceCodeInfo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceContext: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceEncoding: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.sourceFile: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.span: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.split: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.start: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startArray: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startArrayObject: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startIndex: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startMessageField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startObject: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.startRegularField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.state: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.staticMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StaticString: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.storage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StringMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.StringLiteralType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringResult: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.stringValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.structMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.structValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subscriptMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.subVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.swiftPrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.SwiftProtobufContiguousBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.syntax: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.T: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tag: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.targets: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.terminator: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.testDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.text: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.textDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatDecoder: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatDecodingError: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatDecodingOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatEncodingOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TextFormatEncodingVisitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.textFormatString: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.throwOrIgnore: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.throwsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeInterval: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeIntervalSince1970: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.timeIntervalSinceReferenceDate: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Timestamp: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.total: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.totalArrayDepth: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.totalSize: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trailingComments: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.traverseMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.trueMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.tryMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.type: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typealiasMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.TypeEnum: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeName: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typePrefix: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeStart: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeUnknown: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.typeURL: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt32Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Message: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt64Value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UInt8: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unchecked: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unicodeScalarLiteral: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnicodeScalarLiteralType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unicodeScalars: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnicodeScalarView: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.uninterpretedOption: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.union: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.uniqueStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unknown: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unknownFieldsMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnknownStorage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unpackTo: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeBufferPointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutablePointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutableRawBufferPointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeMutableRawPointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeRawBufferPointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UnsafeRawPointer: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.unverifiedLazy: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.updatedOptions: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.url: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8Ptr: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.utf8ToDouble: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.UTF8View: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.v: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.value: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.valueField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.values: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.ValueType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.varMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.verification: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.VerificationState: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Version: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.versionString: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitExtensionFields: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitExtensionFieldsAsMessageSet: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitMapField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitor: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPacked: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedBoolField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedDoubleField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedEnumField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedFloatField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedSInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedUInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitPackedUInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeated: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedBoolField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedBytesField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedDoubleField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedEnumField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedFloatField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedGroupField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedMessageField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedSInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedStringField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedUInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitRepeatedUInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingular: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularBoolField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularBytesField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularDoubleField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularEnumField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularFloatField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularGroupField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularMessageField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSFixed32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSFixed64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularSInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularStringField: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularUInt32Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitSingularUInt64Field: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.visitUnknown: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wasDecoded: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.weak: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.weakDependency: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.whereMessage: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wireFormat: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.with: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.withUnsafeBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.withUnsafeMutableBytes: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.work: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.Wrapped: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.WrappedType: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.wrappedValue: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.written: @unchecked Sendable {}
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.yday: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
