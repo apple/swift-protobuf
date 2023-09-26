@@ -33,6 +33,7 @@ class GeneratorOptions {
   enum Visibility {
     case `internal`
     case `public`
+    case `package`
 
     init?(flag: String) {
       switch flag.lowercased() {
@@ -40,6 +41,8 @@ class GeneratorOptions {
         self = .internal
       case "public":
         self = .public
+      case "package":
+        self = .package
       default:
         return nil
       }
@@ -119,6 +122,8 @@ class GeneratorOptions {
       visibilitySourceSnippet = ""
     case .public:
       visibilitySourceSnippet = "public "
+    case .package:
+      visibilitySourceSnippet = "package "
     }
 
     self.implementationOnlyImports = implementationOnlyImports
