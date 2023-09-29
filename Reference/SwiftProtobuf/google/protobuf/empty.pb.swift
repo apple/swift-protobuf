@@ -75,8 +75,8 @@ extension Google_Protobuf_Empty: Message, _MessageImplementationBase, _ProtoName
   static let _protobuf_nameMap = _NameMap()
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   func traverse<V: Visitor>(visitor: inout V) throws {
