@@ -268,47 +268,48 @@ class MessageGenerator {
 
       } else {
 
-        let varName: String
+
         if fields.isEmpty && !isExtensible {
-          varName = "_"
+          p.print(
+            "// Load everything into unknown fields",
+            "while try decoder.nextFieldNumber() != nil {}")
         } else {
-          varName = "fieldNumber"
-        }
-        generateWithLifetimeExtension(printer: &p, throws: true) { p in
-          p.print("while let \(varName) = try decoder.nextFieldNumber() {")
-          p.withIndentation { p in
-            // If a message only has extensions and there are multiple extension
-            // ranges, get more compact source gen by still using the `switch..case`
-            // code. This also avoids typechecking performance issues if there are
-            // dozens of ranges because we aren't constructing a single large
-            // expression containing untyped integer literals.
-            let normalizedExtensionRanges = descriptor.normalizedExtensionRanges
-            if !fields.isEmpty || normalizedExtensionRanges.count > 3 {
-              p.print("""
-                  // The use of inline closures is to circumvent an issue where the compiler
-                  // allocates stack space for every case branch when no optimizations are
-                  // enabled. https://github.com/apple/swift-protobuf/issues/1034
-                  switch fieldNumber {
-                  """)
-              for f in fieldsSortedByNumber {
-                f.generateDecodeFieldCase(printer: &p)
+          generateWithLifetimeExtension(printer: &p, throws: true) { p in
+            p.print("while let fieldNumber = try decoder.nextFieldNumber() {")
+            p.withIndentation { p in
+              // If a message only has extensions and there are multiple extension
+              // ranges, get more compact source gen by still using the `switch..case`
+              // code. This also avoids typechecking performance issues if there are
+              // dozens of ranges because we aren't constructing a single large
+              // expression containing untyped integer literals.
+              let normalizedExtensionRanges = descriptor.normalizedExtensionRanges
+              if !fields.isEmpty || normalizedExtensionRanges.count > 3 {
+                p.print("""
+                    // The use of inline closures is to circumvent an issue where the compiler
+                    // allocates stack space for every case branch when no optimizations are
+                    // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                    switch fieldNumber {
+                    """)
+                for f in fieldsSortedByNumber {
+                  f.generateDecodeFieldCase(printer: &p)
+                }
+                if isExtensible {
+                  p.print("case \(normalizedExtensionRanges.swiftCaseExpression):")
+                  p.printIndented("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()")
+                }
+                p.print(
+                    "default: break",
+                    "}")
+              } else if isExtensible {
+                // Just output a simple if-statement if the message had no fields of its
+                // own but we still need to generate a decode statement for extensions.
+                p.print("if \(normalizedExtensionRanges.swiftBooleanExpression(variable: "fieldNumber")) {")
+                p.printIndented("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)")
+                p.print("}")
               }
-              if isExtensible {
-                p.print("case \(normalizedExtensionRanges.swiftCaseExpression):")
-                p.printIndented("try { try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber) }()")
-              }
-              p.print(
-                  "default: break",
-                  "}")
-            } else if isExtensible {
-              // Just output a simple if-statement if the message had no fields of its
-              // own but we still need to generate a decode statement for extensions.
-              p.print("if \(normalizedExtensionRanges.swiftBooleanExpression(variable: "fieldNumber")) {")
-              p.printIndented("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftFullName).self, fieldNumber: fieldNumber)")
-              p.print("}")
             }
+            p.print("}")
           }
-          p.print("}")
         }
 
       }
