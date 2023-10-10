@@ -107,9 +107,16 @@ struct InternalCodeGeneratorParameter: CodeGeneratorParameter {
       return []
     }
     let parts = parameter.components(separatedBy: ",")
-    let asPairs = parts.map { partition(string: $0, atFirstOccurrenceOf: "=") }
-    let result = asPairs.map { (key: trimWhitespace($0), value: trimWhitespace($1)) }
-    return result
+    return parts.map { s -> (key: String, value: String) in
+      guard let index = s.range(of: "=")?.lowerBound else {
+        // Key only, no value ("baz" in example).
+        return (trimWhitespace(s), "")
+      }
+      return (
+        key: trimWhitespace(s[..<index]),
+        value: trimWhitespace(s[s.index(after: index)...])
+      )
+    }
   }
 }
 

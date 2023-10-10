@@ -10,14 +10,12 @@
 
 import Foundation
 
-func partition(string: String, atFirstOccurrenceOf substring: String) -> (String, String) {
-  guard let index = string.range(of: substring)?.lowerBound else {
-    return (string, "")
-  }
-  return (String(string[..<index]),
-          String(string[string.index(after: index)...]))
+@inlinable
+func trimWhitespace(_ s: String) -> String {
+  return s.trimmingCharacters(in: .whitespacesAndNewlines)
 }
 
-func trimWhitespace(_ s: String) -> String {
+@inlinable
+func trimWhitespace(_ s: String.SubSequence) -> String {
   return s.trimmingCharacters(in: .whitespacesAndNewlines)
 }
