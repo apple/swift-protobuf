@@ -57,14 +57,14 @@ class GeneratorOptions {
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
 
-  init(parameter: String?) throws {
+  init(parameter: CodeGeneratorParameter) throws {
     var outputNaming: OutputNaming = .fullPath
     var moduleMapPath: String?
     var visibility: Visibility = .internal
     var swiftProtobufModuleName: String? = nil
     var implementationOnlyImports: Bool = false
 
-    for pair in parseParameter(string:parameter) {
+    for pair in parameter.parsedPairs {
       switch pair.key {
       case "FileNaming":
         if let naming = OutputNaming(flag: pair.value) {

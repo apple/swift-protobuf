@@ -23,16 +23,7 @@ import Foundation
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
-extension Google_Protobuf_Compiler_Version {
-  fileprivate var versionString: String {
-    if !suffix.isEmpty {
-      return "\(major).\(minor).\(patch).\(suffix)"
-    }
-    return "\(major).\(minor).\(patch)"
-  }
-}
-
-struct GeneratorPlugin {
+struct GeneratorPlugin: CodeGenerator {
   private enum Mode {
     case showHelp
     case showVersion
@@ -154,7 +145,7 @@ struct GeneratorPlugin {
     }
 
     auditProtoCVersion(request: request)
-    let response = generate(request: request)
+    let response = generateCode(request: request, generator: self)
     guard sendReply(response: response) else { return 1 }
     return 0
   }
@@ -182,7 +173,7 @@ struct GeneratorPlugin {
         continue
       }
 
-      let response = generate(request: request)
+      let response = generateCode(request: request, generator: self)
       if response.hasError {
         Stderr.print("Error while generating from \(p) - \(response.error)")
         result = 1
@@ -198,46 +189,31 @@ struct GeneratorPlugin {
     return result
   }
 
-  private func generate(
-    request: Google_Protobuf_Compiler_CodeGeneratorRequest
-  ) -> Google_Protobuf_Compiler_CodeGeneratorResponse {
-    let options: GeneratorOptions
-    do {
-      options = try GeneratorOptions(parameter: request.parameter)
-    } catch GenerationError.unknownParameter(let name) {
-      return Google_Protobuf_Compiler_CodeGeneratorResponse(
-        error: "Unknown generation parameter '\(name)'")
-    } catch GenerationError.invalidParameterValue(let name, let value) {
-      return Google_Protobuf_Compiler_CodeGeneratorResponse(
-        error: "Unknown value for generation parameter '\(name)': '\(value)'")
-    } catch GenerationError.wrappedError(let message, let e) {
-      return Google_Protobuf_Compiler_CodeGeneratorResponse(error: "\(message): \(e)")
-    } catch let e {
-      return Google_Protobuf_Compiler_CodeGeneratorResponse(
-        error: "Internal Error parsing request options: \(e)")
-    }
-
-    let descriptorSet = DescriptorSet(protos: request.protoFile)
+  func generate(
+    files: [SwiftProtobufPluginLibrary.FileDescriptor],
+    parameter: CodeGeneratorParameter,
+    protoCompilerContext: SwiftProtobufPluginLibrary.ProtoCompilerContext,
+    generatorOutputs: SwiftProtobufPluginLibrary.GeneratorOutputs
+  ) throws {
+    let options = try GeneratorOptions(parameter: parameter)
 
     var errorString: String? = nil
-    var responseFiles: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
-    for name in request.fileToGenerate {
-      let fileDescriptor = descriptorSet.fileDescriptor(named: name)!
+    for fileDescriptor in files {
       let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
       var printer = CodePrinter(addNewlines: true)
       fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
       if let errorString = errorString {
         // If generating multiple files, scope the message with the file that triggered it.
-        let fullError = request.fileToGenerate.count > 1 ? "\(name): \(errorString)" : errorString
-        return Google_Protobuf_Compiler_CodeGeneratorResponse(error: fullError)
+        let fullError = files.count > 1 ? "\(fileDescriptor.name): \(errorString)" : errorString
+        throw GenerationError.message(message: fullError)
       }
-      responseFiles.append(
-        Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
-                                                            content: printer.content))
+      try generatorOutputs.add(fileName: fileGenerator.outputFilename, contents: printer.content)
     }
-    return Google_Protobuf_Compiler_CodeGeneratorResponse(files: responseFiles,
-                                                          supportedFeatures: [.proto3Optional])
   }
+
+  var supportedFeatures: [SwiftProtobufPluginLibrary.Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] = [
+    .proto3Optional,
+  ]
 
   private func auditProtoCVersion(request: Google_Protobuf_Compiler_CodeGeneratorRequest) {
     guard request.hasCompilerVersion else {
