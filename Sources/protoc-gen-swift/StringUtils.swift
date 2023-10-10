@@ -35,28 +35,6 @@ func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   return (dir: dir, base: base, suffix: suffix)
 }
 
-func partition(string: String, atFirstOccurrenceOf substring: String) -> (String, String) {
-  guard let index = string.range(of: substring)?.lowerBound else {
-    return (string, "")
-  }
-  return (String(string[..<index]),
-          String(string[string.index(after: index)...]))
-}
-
-func parseParameter(string: String?) -> [(key:String, value:String)] {
-  guard let string = string, !string.isEmpty else {
-    return []
-  }
-  let parts = string.components(separatedBy: ",")
-  let asPairs = parts.map { partition(string: $0, atFirstOccurrenceOf: "=") }
-  let result = asPairs.map { (key:trimWhitespace($0), value:trimWhitespace($1)) }
-  return result
-}
-
-func trimWhitespace(_ s: String) -> String {
-  return s.trimmingCharacters(in: .whitespacesAndNewlines)
-}
-
 /// The protoc parser emits byte literals using an escaped C convention.
 /// Fortunately, it uses only a limited subset of the C escapse:
 ///  \n\r\t\\\'\" and three-digit octal escapes but nothing else.
