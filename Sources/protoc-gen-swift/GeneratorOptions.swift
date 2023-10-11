@@ -96,6 +96,9 @@ class GeneratorOptions {
       case "ImplementationOnlyImports":
         if let value = Bool(pair.value) {
           implementationOnlyImports = value
+        } else {
+          throw GenerationError.invalidParameterValue(name: pair.key,
+                                                      value: pair.value)
         }
       default:
         throw GenerationError.unknownParameter(name: pair.key)
