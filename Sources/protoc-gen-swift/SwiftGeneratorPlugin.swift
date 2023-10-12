@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/main.swift - Protoc plugin main
+// Sources/protoc-gen-swift/SwiftGeneratorPlugin.swift
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -10,12 +10,9 @@
 ///
 /// A protoc plugin is a code generator that accepts a protobuf-encoded
 /// request on stdin and writes the protobuf-encoded response to stdout.
-/// When protoc sees a command-line option of the form --foo_out=<path>,
+/// When protoc sees a command-line option of the form `--foo_out=<path>`,
 /// it will run a program called `protoc-gen-foo` as the corresponding
 /// plugin.
-///
-/// The request contains FileDescriptors with the parsed proto files
-/// to be processed and some additional processing information.
 ///
 // -----------------------------------------------------------------------------
 
@@ -23,7 +20,8 @@ import Foundation
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
-struct GeneratorPlugin: CodeGenerator {
+@main
+struct SwiftGeneratorPlugin: CodeGenerator {
 
   func generate(
     files: [SwiftProtobufPluginLibrary.FileDescriptor],
@@ -102,8 +100,3 @@ struct GeneratorPlugin: CodeGenerator {
   }
 
 }
-
-// MARK: - Hand off to the GeneratorPlugin
-
-let plugin = GeneratorPlugin()
-plugin.main(nil)
