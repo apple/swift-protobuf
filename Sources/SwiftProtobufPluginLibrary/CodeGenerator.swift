@@ -17,6 +17,8 @@ import Foundation
 /// A protocol that generator should conform to then get easy support for
 /// being a protocol buffer compiler pluign.
 public protocol CodeGenerator {
+  init()
+
   /// Generates code for the given proto files.
   ///
   /// - Parameters:
@@ -42,6 +44,107 @@ public protocol CodeGenerator {
   /// The list of features this CodeGenerator support to be reported back to
   /// the protocol buffer compiler.
   var supportedFeatures: [Google_Protobuf_Compiler_CodeGeneratorResponse.Feature] { get }
+
+  /// If provided, the argument parsing will support `--version` and report
+  /// this value.
+  var version: String? { get }
+
+  /// If provided and `printHelp` isn't provide, this value will be including in
+  /// default output for the `--help` output.
+  var projectURL: String? { get }
+
+  /// If provided and `printHelp` isn't provide, this value will be including in
+  /// default output for the `--help` output.
+  var copyrightLine: String? { get }
+
+  /// Will be called for `-h` or `--help`, should `print()` out whatever is
+  /// desired; there is a default implementation that uses the above info
+  /// when provided.
+  func printHelp()
+}
+
+extension CodeGenerator {
+  var programName: String {
+    guard let name = CommandLine.arguments.first?.split(separator: "/").last else {
+      return "<plugin>"
+    }
+    return String(name)
+  }
+
+  /// Runs as a protocol buffer compiler plugin based on the given arguments
+  /// or falls back to `CommandLine.arguments`.
+  public func main(_ args: [String]?) {
+    let args = args ?? Array(CommandLine.arguments.dropFirst())
+
+    for arg in args {
+      if arg == "--version", let version = version {
+        print("\(programName) \(version)")
+        return
+      }
+      if arg == "-h" || arg == "--help" {
+        printHelp()
+        return
+      }
+      // Could look at bringing back the support for recorded requests, but
+      // haven't needed it in a long time.
+      var stderr = StandardErrorOutputStream()
+      print("Unknown argument: \(arg)", to: &stderr)
+      return
+    }
+
+    let response: Google_Protobuf_Compiler_CodeGeneratorResponse
+    do {
+      let request = try Google_Protobuf_Compiler_CodeGeneratorRequest(
+        serializedData: FileHandle.standardInput.readDataToEndOfFile())
+      response = generateCode(request: request, generator: self)
+    } catch let e {
+      response = Google_Protobuf_Compiler_CodeGeneratorResponse(
+        error: "Received an unparsable request from the compiler: \(e)")
+    }
+
+    let serializedResponse: Data
+    do {
+      serializedResponse = try response.serializedBytes()
+    } catch let e {
+      var stderr = StandardErrorOutputStream()
+      print("\(programName): Failure while serializing response: \(e)", to: &stderr)
+      return
+    }
+    FileHandle.standardOutput.write(serializedResponse)
+  }
+
+  /// Runs as a protocol buffer compiler plugin; reading the generation request
+  /// off stdin and sending the response on stdout.
+  ///
+  /// Instead of calling this, just add `@main` to your `CodeGenerator`.
+  public static func main() {
+    let generator = Self()
+    generator.main(nil)
+  }
+}
+
+// Provide default implementation for things so `CodeGenerator`s only have to
+// provide them if they wish too.
+extension CodeGenerator {
+  public var version: String? { return nil }
+  public var projectURL: String? { return nil }
+  public var copyrightLine: String? { return nil }
+
+  public func printHelp() {
+    print("\(programName): A plugin for protoc and should not normally be run directly.")
+    if let copyright = copyrightLine {
+      print("\(copyright)")
+    }
+    if let projectURL = projectURL {
+      print(
+        """
+
+        For more information on the usage of this plugin, please see:
+          \(projectURL)
+
+        """)
+    }
+  }
 }
 
 /// Uses the given `Google_Protobuf_Compiler_CodeGeneratorRequest` and
