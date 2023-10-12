@@ -250,11 +250,13 @@ private final class InternalGeneratorOutputs: GeneratorOutputs {
   }
 
   var files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
+  private var fileNames: Set<String> = []
 
   func add(fileName: String, contents: String) throws {
-    guard !files.contains(where: { $0.name == fileName }) else {
+    guard !fileNames.contains(fileName) else {
       throw OutputError.duplicateName(fileName)
     }
+    fileNames.insert(fileName)
     files.append(
       Google_Protobuf_Compiler_CodeGeneratorResponse.File(
         name: fileName,
