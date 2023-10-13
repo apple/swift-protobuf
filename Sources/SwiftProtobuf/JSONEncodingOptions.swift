@@ -27,5 +27,10 @@ public struct JSONEncodingOptions: Sendable {
   /// By default they are converted to JSON(lowerCamelCase) names.
   public var preserveProtoFieldNames: Bool = false
 
+  /// Whether to use deterministic ordering when serializing.
+  /// For example, serializing a message which contains a map field should
+  /// consistently produce the same output (i.e., with sorted keys).
+  public var useDeterministicOrdering: Bool = false
+
   public init() {}
 }

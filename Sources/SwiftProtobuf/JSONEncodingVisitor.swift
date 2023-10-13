@@ -364,9 +364,17 @@ internal struct JSONEncodingVisitor: Visitor {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
-    for (k,v) in value {
+    if self.options.useDeterministicOrdering {
+      let keys = value.keys.sorted { KeyType._lessThan(lhs: $0, rhs: $1) }
+      for key in keys {
+        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &mapVisitor)
+        try ValueType.visitSingular(value: value[key]!, fieldNumber: 2, with: &mapVisitor)
+      }
+    } else {
+      for (k,v) in value {
         try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
         try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
+      }
     }
     encoder.append(utf8Bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
@@ -376,9 +384,17 @@ internal struct JSONEncodingVisitor: Visitor {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
-    for (k, v) in value {
-      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-      try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    if self.options.useDeterministicOrdering {
+      let keys = value.keys.sorted { KeyType._lessThan(lhs: $0, rhs: $1) }
+      for key in keys {
+        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &mapVisitor)
+        try mapVisitor.visitSingularEnumField(value: value[key]!, fieldNumber: 2)
+      }
+    } else {
+      for (k,v) in value {
+        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+        try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
+      }
     }
     encoder.append(utf8Bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
@@ -388,9 +404,17 @@ internal struct JSONEncodingVisitor: Visitor {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
-    for (k,v) in value {
+    if self.options.useDeterministicOrdering {
+      let keys = value.keys.sorted { KeyType._lessThan(lhs: $0, rhs: $1) }
+      for key in keys {
+        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &mapVisitor)
+        try mapVisitor.visitSingularMessageField(value: value[key]!, fieldNumber: 2)
+      }
+    } else {
+      for (k,v) in value {
         try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
         try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
     }
     encoder.append(utf8Bytes: mapVisitor.bytesResult)
     encoder.append(text: "}")
