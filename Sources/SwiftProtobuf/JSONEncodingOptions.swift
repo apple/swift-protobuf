@@ -28,8 +28,17 @@ public struct JSONEncodingOptions: Sendable {
   public var preserveProtoFieldNames: Bool = false
 
   /// Whether to use deterministic ordering when serializing.
-  /// For example, serializing a message which contains a map field should
-  /// consistently produce the same output (i.e., with sorted keys).
+  ///
+  /// Note that the deterministic serialization is NOT canonical across languages. 
+  /// It is not guaranteed to remain stable over time. It is unstable across 
+  /// different builds with schema changes due to unknown fields. Users who need
+  /// canonical serialization (e.g., persistent storage in a canonical form,
+  /// fingerprinting, etc.) should define their own canonicalization specification
+  /// and implement their own serializer rather than relying on this API.
+  ///
+  /// If deterministic serialization is requested, map entries will be sorted
+  /// by keys in lexographical order. This is an implementation detail
+  /// and subject to change.
   public var useDeterministicOrdering: Bool = false
 
   public init() {}
