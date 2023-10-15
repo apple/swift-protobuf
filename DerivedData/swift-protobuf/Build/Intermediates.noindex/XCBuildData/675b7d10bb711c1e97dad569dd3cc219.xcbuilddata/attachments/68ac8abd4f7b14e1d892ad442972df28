@@ -1,4 +1,0 @@
-module SwiftProtobuf {
-header "SwiftProtobuf-Swift.h"
-export *
-}
