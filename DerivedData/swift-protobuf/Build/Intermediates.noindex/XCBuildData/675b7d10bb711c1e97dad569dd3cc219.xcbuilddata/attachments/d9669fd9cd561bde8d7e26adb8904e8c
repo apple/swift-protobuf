@@ -1,0 +1,1048 @@
+{
+  "" : {
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/SwiftProtobufTests-master.dia",
+    "emit-module-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/SwiftProtobufTests-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/SwiftProtobufTests-master-emit-module.dia",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/SwiftProtobufTests-master.swiftdeps"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/any_test.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/any_test.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Data+TestHelpers.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Data+TestHelpers~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/fuzz_testing.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/fuzz_testing.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/generated_swift_names_enum_cases.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enum_cases.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/generated_swift_names_enums.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_enums.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/generated_swift_names_fields.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_fields.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/generated_swift_names_messages.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/generated_swift_names_messages.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/map_proto2_unittest.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_proto2_unittest.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/map_unittest.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/map_unittest.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_AllTypes_Proto3_Optional.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3_Optional~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_AllTypes_Proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes_Proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_AllTypes.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AllTypes~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Any.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Any~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Api.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Api~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_AsyncMessageSequence.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_AsyncMessageSequence~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_BasicFields_Access_Proto2.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto2~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_BasicFields_Access_Proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BasicFields_Access_Proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_BinaryDecodingOptions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDecodingOptions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_BinaryDelimited.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_BinaryDelimited~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Conformance.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Conformance~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Duration.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Duration~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Empty.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Empty~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Enum_Proto2.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum_Proto2~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Enum.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Enum~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_EnumWithAliases.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_EnumWithAliases~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Extensions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Extensions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_ExtremeDefaultValues.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ExtremeDefaultValues~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_FieldMask.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldMask~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_FieldOrdering.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FieldOrdering~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_FuzzTests.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_FuzzTests~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_GroupWithGroups.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_GroupWithGroups~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSON_Array.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Array~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSON_Conformance.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Conformance~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSON_Extensions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Extensions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSON_Group.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Group~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSON_Performance.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON_Performance~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSON.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSON~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSONDecodingOptions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONDecodingOptions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_JSONEncodingOptions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_JSONEncodingOptions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Map_JSON.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map_JSON~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Map.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Map~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_MapFields_Access_Proto2.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto2~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_MapFields_Access_Proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MapFields_Access_Proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Merge.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Merge~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/test_messages_proto3.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/test_messages_proto3.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_MessageSet.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_MessageSet~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Naming.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Naming~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_OneofFields_Access_Proto2.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto2~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_OneofFields_Access_Proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_OneofFields_Access_Proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Packed.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Packed~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_ParsingMerge.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ParsingMerge~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_ReallyLargeTagNumber.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_ReallyLargeTagNumber~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_RecursiveMap.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_RecursiveMap~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Required.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Required~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Reserved.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Reserved~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_SimpleExtensionMap.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_SimpleExtensionMap~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Struct.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Struct~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_Map_proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Map_proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_Performance.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Performance~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_proto2_extensions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2_extensions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_proto2.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto2~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_Unknown.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_Unknown~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormat_WKT_proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormat_WKT_proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_TextFormatDecodingOptions.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_TextFormatDecodingOptions~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Timestamp.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Timestamp~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Type.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Type~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Unknown_proto2.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto2~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Unknown_proto3.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Unknown_proto3~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/Test_Wrappers.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/Test_Wrappers~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/TestHelpers.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/TestHelpers~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_import_public.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import_public.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_import.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_import.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_mset_wire_format.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset_wire_format.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_mset.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_mset.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_preserve_unknown_enum.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_preserve_unknown_enum2.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_preserve_unknown_enum2.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_proto3_optional.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3_optional.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_proto3.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_proto3.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_all_required_types.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_all_required_types.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_cycle.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_cycle.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_deprecated_file.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated_file.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_deprecated.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_deprecated.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_enum_optional_default.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_optional_default.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_enum_proto2.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto2.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_enum_proto3.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_enum_proto3.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_extension.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_extension2.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension2.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_extension3.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension3.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_extension4.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_extension4.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_fieldorder.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_fieldorder.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_groups.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_groups.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_json.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_json.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_naming_no_prefix.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_no_prefix.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_naming_number_prefix.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming_number_prefix.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_naming.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_naming.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_oneof_all_required.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_all_required.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_oneof_merging.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_oneof_merging.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_reserved_ext.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved_ext.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_reserved.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_reserved.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_runtime_proto2.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto2.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_swift_runtime_proto3.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_swift_runtime_proto3.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest_well_known_types.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest_well_known_types.pb~partial.swiftmodule"
+  },
+  "/Users/rebello/Development/swift-protobuf/Tests/SwiftProtobufTests/unittest.pb.swift" : {
+    "const-values" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.swiftconstvalues",
+    "dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.d",
+    "diagnostics" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.dia",
+    "index-unit-output-path" : "/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.o",
+    "llvm-bc" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.bc",
+    "object" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.o",
+    "swift-dependencies" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb.swiftdeps",
+    "swiftmodule" : "/Users/rebello/Development/swift-protobuf/DerivedData/swift-protobuf/Build/Intermediates.noindex/SwiftProtobuf.build/Debug/SwiftProtobufTests.build/Objects-normal/arm64/unittest.pb~partial.swiftmodule"
+  }
+}

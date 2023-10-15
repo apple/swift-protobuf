@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'SwiftProtobufTests' in project 'SwiftProtobuf'
+➜ Explicit dependency on target 'SwiftProtobuf' in project 'SwiftProtobuf'
+Target 'SwiftProtobuf' in project 'SwiftProtobuf' (no dependencies)
