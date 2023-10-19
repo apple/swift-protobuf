@@ -1,4 +1,4 @@
-// Tests/SwiftProtobufTests/Test_JSONEncodingOptions.swift - Various JSON tests
+// Tests/SwiftProtobufTests/Test_BinaryEncodingOptions.swift - Various JSON tests
 //
 // Copyright (c) 2014 - 2018 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
