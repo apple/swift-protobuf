@@ -22,13 +22,17 @@ extension Message {
   /// - Parameters:
   ///   - partial: If `false` (the default), this method will check
   ///     `Message.isInitialized` before encoding to verify that all required
-  ///     fields are present. If any are missing, this method throws
+  ///     fields are present. If any are missing, this method throws.
   ///     `BinaryEncodingError.missingRequiredFields`.
+  ///   - options: The `BinaryEncodingOptions` to use.
   /// - Returns: A `SwiftProtobufContiguousBytes` instance containing the binary serialization
   /// of the message.
   ///
   /// - Throws: `BinaryEncodingError` if encoding fails.
-  public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false) throws -> Bytes {
+  public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
+    partial: Bool = false,
+    options: BinaryEncodingOptions = BinaryEncodingOptions()
+  ) throws -> Bytes {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
     }
@@ -48,7 +52,7 @@ extension Message {
     var data = Bytes(repeating: 0, count: requiredSize)
     try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
       if let baseAddress = body.baseAddress, body.count > 0 {
-        var visitor = BinaryEncodingVisitor(forWritingInto: baseAddress)
+        var visitor = BinaryEncodingVisitor(forWritingInto: baseAddress, options: options)
         try traverse(visitor: &visitor)
         // Currently not exposing this from the api because it really would be
         // an internal error in the library and should never happen.
