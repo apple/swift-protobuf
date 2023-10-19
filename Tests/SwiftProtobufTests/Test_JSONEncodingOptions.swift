@@ -308,7 +308,7 @@ class Test_JSONEncodingOptions: XCTestCase {
         5: .foo,
         3: .bar,
         0: .baz,
-        1: .extra3
+        1: .extra3,
       ]
     }
     XCTAssertEqual(
