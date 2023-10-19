@@ -58,7 +58,7 @@ extension Message {
   ///     `Message.isInitialized` after decoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryDecodingError.missingRequiredFields`.
-  ///   - options: The `BinaryDecodingOptions` to use.
+  ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   @inlinable
   public mutating func merge(
@@ -78,13 +78,9 @@ extension Message {
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryEncodingError.missingRequiredFields`.
-  ///   - options: The `BinaryEncodingOptions` to use.
   /// - Returns: A `Data` instance containing the binary serialization of the message.
   /// - Throws: `BinaryEncodingError` if encoding fails.
-  public func serializedData(
-    partial: Bool = false, 
-    options: BinaryEncodingOptions = BinaryEncodingOptions()
-  ) throws -> Data {
-    try serializedBytes(partial: partial, options: options)
+  public func serializedData(partial: Bool = false) throws -> Data {
+    try serializedBytes(partial: partial)
   }
 }

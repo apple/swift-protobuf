@@ -17,7 +17,6 @@ import Foundation
 
 /// Visitor that encodes a message graph in the protobuf binary wire format.
 internal struct BinaryEncodingVisitor: Visitor {
-  private let options: BinaryEncodingOptions
 
   var encoder: BinaryEncoder
 
@@ -27,9 +26,8 @@ internal struct BinaryEncodingVisitor: Visitor {
   /// - Precondition: `pointer` must point to an allocated block of memory that
   ///   is large enough to hold the entire encoded message. For performance
   ///   reasons, the encoder does not make any attempts to verify this.
-  init(forWritingInto pointer: UnsafeMutableRawPointer, options: BinaryEncodingOptions) {
-    self.encoder = BinaryEncoder(forWritingInto: pointer)
-    self.options = options
+  init(forWritingInto pointer: UnsafeMutableRawPointer) {
+    encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
   mutating func visitUnknown(bytes: Data) throws {
@@ -260,16 +258,16 @@ internal struct BinaryEncodingVisitor: Visitor {
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    try iterateAndEncode(
-      map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan,
-      encodeWithSizer: { sizer, key, value in
-        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &sizer)
-        try ValueType.visitSingular(value: value, fieldNumber: 2, with: &sizer)
-      }, encodeWithVisitor: { visitor, key, value in
-        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
-        try ValueType.visitSingular(value: value, fieldNumber: 2, with: &visitor)
-      }
-    )
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      var sizer = BinaryEncodingSizeVisitor()
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
+      try ValueType.visitSingular(value: v, fieldNumber: 2, with: &sizer)
+      let entrySize = sizer.serializedSize
+      encoder.putVarInt(value: entrySize)
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &self)
+      try ValueType.visitSingular(value: v, fieldNumber: 2, with: &self)
+    }
   }
 
   mutating func visitMapField<KeyType, ValueType>(
@@ -277,16 +275,16 @@ internal struct BinaryEncodingVisitor: Visitor {
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where ValueType.RawValue == Int {
-    try iterateAndEncode(
-      map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan,
-      encodeWithSizer: { sizer, key, value in
-        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &sizer)
-        try sizer.visitSingularEnumField(value: value, fieldNumber: 2)
-      }, encodeWithVisitor: { visitor, key, value in
-        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
-        try visitor.visitSingularEnumField(value: value, fieldNumber: 2)
-      }
-    )
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      var sizer = BinaryEncodingSizeVisitor()
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
+      try sizer.visitSingularEnumField(value: v, fieldNumber: 2)
+      let entrySize = sizer.serializedSize
+      encoder.putVarInt(value: entrySize)
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &self)
+      try visitSingularEnumField(value: v, fieldNumber: 2)
+    }
   }
 
   mutating func visitMapField<KeyType, ValueType>(
@@ -294,45 +292,15 @@ internal struct BinaryEncodingVisitor: Visitor {
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws {
-    try iterateAndEncode(
-      map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan,
-      encodeWithSizer: { sizer, key, value in
-        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &sizer)
-        try sizer.visitSingularMessageField(value: value, fieldNumber: 2)
-      }, encodeWithVisitor: { visitor, key, value in
-        try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
-        try visitor.visitSingularMessageField(value: value, fieldNumber: 2)
-      }
-    )
-  }
-
-  /// Helper to encapsulate the common structure of iterating over a map
-  /// and encoding the keys and values.
-  private mutating func iterateAndEncode<K, V>(
-    map: Dictionary<K, V>,
-    fieldNumber: Int,
-    isOrderedBefore: (K, K) -> Bool,
-    encodeWithSizer: (inout BinaryEncodingSizeVisitor, K, V) throws -> (),
-    encodeWithVisitor: (inout BinaryEncodingVisitor, K, V) throws -> ()
-  ) throws {
-    if options.useDeterministicOrdering {
-      for (k,v) in map.sorted(by: { isOrderedBefore( $0.0, $1.0) }) {
-        encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-        var sizer = BinaryEncodingSizeVisitor()
-        try encodeWithSizer(&sizer, k, v)
-        let entrySize = sizer.serializedSize
-        encoder.putVarInt(value: entrySize)
-        try encodeWithVisitor(&self, k, v)
-      }
-    } else {
-      for (k,v) in map {
-        encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-        var sizer = BinaryEncodingSizeVisitor()
-        try encodeWithSizer(&sizer, k, v)
-        let entrySize = sizer.serializedSize
-        encoder.putVarInt(value: entrySize)
-        try encodeWithVisitor(&self, k, v)
-      }
+    for (k,v) in value {
+      encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
+      var sizer = BinaryEncodingSizeVisitor()
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &sizer)
+      try sizer.visitSingularMessageField(value: v, fieldNumber: 2)
+      let entrySize = sizer.serializedSize
+      encoder.putVarInt(value: entrySize)
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &self)
+      try visitSingularMessageField(value: v, fieldNumber: 2)
     }
   }
 
@@ -370,9 +338,7 @@ extension BinaryEncodingVisitor {
       let length = try value.serializedDataSize()
       encoder.putVarInt(value: length)
       // Create the sub encoder after writing the length.
-      var subVisitor = BinaryEncodingVisitor(
-        forWritingInto: encoder.pointer, options: BinaryEncodingOptions()
-      )
+      var subVisitor = BinaryEncodingVisitor(forWritingInto: encoder.pointer)
       try value.traverse(visitor: &subVisitor)
       encoder.pointer = subVisitor.encoder.pointer
 
