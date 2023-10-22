@@ -392,7 +392,7 @@ internal struct JSONEncodingVisitor: Visitor {
   ) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
-    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
+    var mapVisitor = JSONMapEncodingVisitor(encoder: JSONEncoder(), options: options)
     if options.useDeterministicOrdering {
       for (k,v) in map.sorted(by: { isOrderedBefore( $0.0, $1.0) }) {
         try encode(&mapVisitor, k, v)
