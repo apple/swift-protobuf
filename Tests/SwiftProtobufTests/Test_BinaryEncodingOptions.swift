@@ -1,6 +1,6 @@
 // Tests/SwiftProtobufTests/Test_BinaryEncodingOptions.swift - Tests for binary encoding options
 //
-// Copyright (c) 2014 - 2018 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2023 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:

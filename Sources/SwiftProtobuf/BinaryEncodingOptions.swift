@@ -1,6 +1,6 @@
 // Sources/SwiftProtobuf/BinaryEncodingOptions.swift - Binary encoding options
 //
-// Copyright (c) 2014 - 2017 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2023 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:

@@ -341,7 +341,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     start: Int,
     end: Int
   ) throws {
-    var subVisitor = BinaryEncodingMessageSetVisitor(encoder: encoder)
+    var subVisitor = BinaryEncodingMessageSetVisitor(encoder: encoder, options: options)
     try fields.traverse(visitor: &subVisitor, start: start, end: end)
     encoder = subVisitor.encoder
   }
@@ -351,9 +351,12 @@ extension BinaryEncodingVisitor {
 
   // Helper Visitor to when writing out the extensions as MessageSets.
   internal struct BinaryEncodingMessageSetVisitor: SelectiveVisitor {
+    private let options: BinaryEncodingOptions
+
     var encoder: BinaryEncoder
 
-    init(encoder: BinaryEncoder) {
+    init(encoder: BinaryEncoder, options: BinaryEncodingOptions) {
+      self.options = options
       self.encoder = encoder
     }
 
@@ -371,7 +374,7 @@ extension BinaryEncodingVisitor {
       encoder.putVarInt(value: length)
       // Create the sub encoder after writing the length.
       var subVisitor = BinaryEncodingVisitor(
-        forWritingInto: encoder.pointer, options: BinaryEncodingOptions()
+        forWritingInto: encoder.pointer, options: options
       )
       try value.traverse(visitor: &subVisitor)
       encoder.pointer = subVisitor.encoder.pointer
@@ -381,5 +384,4 @@ extension BinaryEncodingVisitor {
 
     // SelectiveVisitor handles the rest.
   }
-
 }

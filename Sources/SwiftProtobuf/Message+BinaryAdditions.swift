@@ -36,6 +36,8 @@ extension Message {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
     }
+
+    // Note that this assumes `options` will not change the required size.
     let requiredSize = try serializedDataSize()
 
     // Messages have a 2GB limit in encoded size, the upstread C++ code
