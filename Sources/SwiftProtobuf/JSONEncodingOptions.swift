@@ -30,7 +30,7 @@ public struct JSONEncodingOptions: Sendable {
   /// Whether to use deterministic ordering when serializing.
   ///
   /// Note that the deterministic serialization is NOT canonical across languages. 
-  /// It is not guaranteed to remain stable over time. It is unstable across 
+  /// It is NOT guaranteed to remain stable over time. It is unstable across 
   /// different builds with schema changes due to unknown fields. Users who need
   /// canonical serialization (e.g., persistent storage in a canonical form,
   /// fingerprinting, etc.) should define their own canonicalization specification
