@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 /// Options for binary encoding.
-public struct BinaryEncodingOptions: Sendable {
+public struct BinaryEncodingOptions {
     /// Whether to use deterministic ordering when serializing.
     ///
     /// Note that the deterministic serialization is NOT canonical across languages.
