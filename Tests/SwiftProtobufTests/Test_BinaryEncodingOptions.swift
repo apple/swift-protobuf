@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-final class Test_BinaryEncodingOptions: XCTestCase {
+class Test_BinaryEncodingOptions: XCTestCase {
 
   func testUseDeterministicOrdering() throws {
     var options = BinaryEncodingOptions()
