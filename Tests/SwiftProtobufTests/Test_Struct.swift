@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Struct: XCTestCase, PBTestHelpers {
+final class Test_Struct: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Struct
 
     func testStruct_pbencode() {
@@ -103,7 +103,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
+final class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_ListValue
 
     // Since ProtobufJSONList is handbuilt rather than generated,
@@ -194,7 +194,7 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
 }
 
 
-class Test_Value: XCTestCase, PBTestHelpers {
+final class Test_Value: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Value
 
     func testValue_empty() throws {
@@ -213,7 +213,7 @@ class Test_Value: XCTestCase, PBTestHelpers {
 
 
 // TODO: Should have convenience initializers on Google_Protobuf_Value
-class Test_JSON_Value: XCTestCase, PBTestHelpers {
+final class Test_JSON_Value: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Value
 
     func testValue_emptyShouldThrow() throws {

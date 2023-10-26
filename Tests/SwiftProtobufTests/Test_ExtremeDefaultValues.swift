@@ -21,7 +21,7 @@ import XCTest
 // Verify that the Swift backend correctly encodes various
 // extreme values when generating code that applies defaults.
 //
-class Test_ExtremeDefaultValues: XCTestCase {
+final class Test_ExtremeDefaultValues: XCTestCase {
 
     func test_escapedBytes() {
         let m = SwiftProtoTesting_TestExtremeDefaultValues()

@@ -23,13 +23,13 @@ import SwiftProtobuf
 
 // NOTE: If this code fails to compile, make sure the name changes make sense.
 
-class Test_PackageMapping: XCTestCase {
+final class Test_PackageMapping: XCTestCase {
   func testPackageStartingWithNumber() {
     let _ = _4fun_SwiftProtoTesting_Mumble_MyMessage()
   }
 }
 
-class Test_FieldNamingInitials: XCTestCase {
+final class Test_FieldNamingInitials: XCTestCase {
   func testHidingFunctions() throws {
     // Check that we can access the standard `serializeData`, etc
     // methods even on messages that define fields or submessages with
@@ -257,7 +257,7 @@ class Test_FieldNamingInitials: XCTestCase {
   }
 }
 
-class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
+final class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
   func testLowers() {
     var msg = SwiftProtoTesting_Names_ExtensionNamingInitials()
 
@@ -467,7 +467,7 @@ class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
   }
 }
 
-class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
+final class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
   func testLowers() {
     var msg = SwiftProtoTesting_Names_ExtensionNamingInitialsLowers()
 
@@ -669,7 +669,7 @@ class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
   }
 }
 
-class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
+final class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
   func testLowers() {
     var msg = SwiftProtoTesting_Names_ExtensionNamingInitialsLowers()
 
@@ -879,7 +879,7 @@ class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
   }
 }
 
-class Test_ValidIdentifiers: XCTestCase {
+final class Test_ValidIdentifiers: XCTestCase {
   func testFieldNames() {
     let msg = SwiftProtoTesting_Names_ValidIdentifiers()
     XCTAssertEqual(msg._1Field, 0)

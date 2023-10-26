@@ -17,7 +17,7 @@ import XCTest
 import SwiftProtobuf
 import Foundation
 
-class Test_Duration: XCTestCase, PBTestHelpers {
+final class Test_Duration: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Duration
 
     func testJSON_encode() throws {

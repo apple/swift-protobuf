@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 @testable import SwiftProtobuf
 
-class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
+final class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestEmptyMessage
 
     func test_unknown_varint() throws {

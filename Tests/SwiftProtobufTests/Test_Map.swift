@@ -15,7 +15,7 @@
 import Foundation
 import XCTest
 
-class Test_Map: XCTestCase, PBTestHelpers {
+final class Test_Map: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestMap
 
     func assertMapEncode(_ expectedBlocks: [[UInt8]], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {

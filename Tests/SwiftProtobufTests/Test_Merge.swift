@@ -12,7 +12,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Merge: XCTestCase, PBTestHelpers {
+final class Test_Merge: XCTestCase, PBTestHelpers {
   typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
   func testMergeSimple() throws {

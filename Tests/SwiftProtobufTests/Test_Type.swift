@@ -20,7 +20,7 @@ import SwiftProtobuf
 // in it) this is a fairly thin test just to ensure that the proto
 // does get into the runtime:
 
-class Test_Type: XCTestCase, PBTestHelpers {
+final class Test_Type: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Type
 
     func testExists() {

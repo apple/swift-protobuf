@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
+final class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestWellKnownTypes
 
     func assertAnyTest<M: Message & Equatable>(_ message: M, expected: String, file: XCTestFileArgType = #file, line: UInt = #line) {

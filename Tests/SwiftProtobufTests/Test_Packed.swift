@@ -16,7 +16,7 @@
 import Foundation
 import XCTest
 
-class Test_Packed: XCTestCase, PBTestHelpers {
+final class Test_Packed: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestPackedTypes
 
     func testEncoding_packedInt32() {

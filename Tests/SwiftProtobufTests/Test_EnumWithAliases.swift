@@ -17,7 +17,7 @@
 import Foundation
 import XCTest
 
-class Test_EnumWithAliases: XCTestCase, PBTestHelpers {
+final class Test_EnumWithAliases: XCTestCase, PBTestHelpers {
   typealias MessageTestType = SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest
 
   func testJSONEncodeUsesOriginalNames() {

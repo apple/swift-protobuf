@@ -15,7 +15,7 @@
 import Foundation
 import XCTest
 
-class Test_ReallyLargeTagNumber: XCTestCase {
+final class Test_ReallyLargeTagNumber: XCTestCase {
 
     func test_ReallyLargeTagNumber() {
         var m = SwiftProtoTesting_TestReallyLargeTagNumber()

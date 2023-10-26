@@ -21,7 +21,7 @@ import SwiftProtobuf
 // TODO: Testing encoding needs some help, since the order of
 // entries isn't well-defined.
 
-class Test_Map_JSON: XCTestCase, PBTestHelpers {
+final class Test_Map_JSON: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestMap
 
     func testMapInt32Int32() throws {

@@ -12,7 +12,7 @@ import XCTest
 import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 
-class Test_Descriptor: XCTestCase {
+final class Test_Descriptor: XCTestCase {
 
   func testParsing() throws {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedData: fileDescriptorSetData)

@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_TextFormat_proto2: XCTestCase, PBTestHelpers {
+final class Test_TextFormat_proto2: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     func test_group() {

@@ -19,7 +19,7 @@ import Foundation
 import XCTest
 @testable import SwiftProtobuf
 
-class Test_Reserved: XCTestCase {
+final class Test_Reserved: XCTestCase {
     func testEnumNaming() {
         XCTAssertEqual(SwiftProtoTesting_SwiftReservedTest.Enum.double.rawValue, 1)
         XCTAssertEqual(String(describing: SwiftProtoTesting_SwiftReservedTest.Enum.double.name!), "DOUBLE")

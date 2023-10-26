@@ -32,7 +32,7 @@ import XCTest
 
 import SwiftProtobuf
 
-class Test_Required: XCTestCase, PBTestHelpers {
+final class Test_Required: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllRequiredTypes
 
     func test_IsInitialized() {
@@ -348,7 +348,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_SmallRequired: XCTestCase, PBTestHelpers {
+final class Test_SmallRequired: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestSomeRequiredTypes
     // Check behavior of a small message (non-heap-stored) with required fields
 

@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Enum: XCTestCase, PBTestHelpers {
+final class Test_Enum: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     func testEqual() {

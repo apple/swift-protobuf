@@ -24,7 +24,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Timestamp: XCTestCase, PBTestHelpers {
+final class Test_Timestamp: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Timestamp
 
     func testJSON() throws {

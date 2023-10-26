@@ -12,7 +12,7 @@ import XCTest
 import SwiftProtobuf
 @testable import SwiftProtobufPluginLibrary
 
-class Test_NamingUtils: XCTestCase {
+final class Test_NamingUtils: XCTestCase {
 
   func testTypePrefix() throws {
     // package, swiftPrefix, expected

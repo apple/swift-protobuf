@@ -50,7 +50,7 @@ let ext4 = MessageExtension<OptionalExtensionField<ProtobufBool>, SwiftProtoTest
 )
 
 
-class Test_SimpleExtensionMap: XCTestCase {
+final class Test_SimpleExtensionMap: XCTestCase {
   func assert(map: SimpleExtensionMap, contains: [AnyMessageExtension], line: UInt = #line) {
     // Extact what it constaings.
     var includes = [AnyMessageExtension]()

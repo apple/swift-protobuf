@@ -23,7 +23,7 @@
 import Foundation
 import XCTest
 
-class Test_FuzzTests: XCTestCase {
+final class Test_FuzzTests: XCTestCase {
 
   func assertBinaryFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
     XCTAssertThrowsError(

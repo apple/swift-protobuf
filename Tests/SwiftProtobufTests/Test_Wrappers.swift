@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Wrappers: XCTestCase {
+final class Test_Wrappers: XCTestCase {
 
     /// Asserts that decoding the JSON "null" literal for the given message type
     /// throws `illegalNull`.

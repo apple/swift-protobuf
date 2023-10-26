@@ -19,7 +19,7 @@ import Foundation
 import SwiftProtobuf
 import XCTest
 
-class Test_AllTypes: XCTestCase, PBTestHelpers {
+final class Test_AllTypes: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     // Custom decodeSucceeds that also does a round-trip through the Empty

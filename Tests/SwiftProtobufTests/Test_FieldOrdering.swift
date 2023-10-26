@@ -20,7 +20,7 @@
 import Foundation
 import XCTest
 
-class Test_FieldOrdering: XCTestCase {
+final class Test_FieldOrdering: XCTestCase {
     typealias MessageTestType = SwiftProtoTesting_Order_TestFieldOrderings
 
     func test_FieldOrdering() throws {

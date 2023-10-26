@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Conformance: XCTestCase, PBTestHelpers {
+final class Test_Conformance: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Test3_TestAllTypesProto3
 
     func testFieldNaming() throws {

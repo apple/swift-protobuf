@@ -11,7 +11,7 @@
 import Foundation
 import XCTest
 
-class Test_GroupWithinGroup: XCTestCase, PBTestHelpers {
+final class Test_GroupWithinGroup: XCTestCase, PBTestHelpers {
   typealias MessageTestType = SwiftTestNestingGroupsMessage
 
   func testGroupWithGroup_Single() {

@@ -15,7 +15,7 @@
 import XCTest
 import SwiftProtobufPluginLibrary
 
-class Test_SwiftLanguage: XCTestCase {
+final class Test_SwiftLanguage: XCTestCase {
     func testIsValidSwiftIdentifier() {
         let cases = [
             "H9000",

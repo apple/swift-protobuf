@@ -18,7 +18,7 @@ import SwiftProtobuf
 
 // Exercise the support for Proto2 extensions.
 
-class Test_Extensions: XCTestCase, PBTestHelpers {
+final class Test_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
     var extensions = SwiftProtobuf.SimpleExtensionMap()
 

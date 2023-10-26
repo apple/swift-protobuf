@@ -20,7 +20,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_FieldMask: XCTestCase, PBTestHelpers {
+final class Test_FieldMask: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_FieldMask
 
     func testJSON() {

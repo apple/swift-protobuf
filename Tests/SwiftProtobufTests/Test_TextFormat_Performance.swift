@@ -15,7 +15,7 @@
 import XCTest
 import SwiftProtobuf
 
-class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
+final class Test_TextFormat_Performance: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Fuzz_Message
 
     // Each of the following should be under 1s on a reasonably

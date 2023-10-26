@@ -30,7 +30,7 @@ extension ProtoFileToModuleMappings.LoadError: Equatable {
 
 fileprivate typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
 
-class Test_ProtoFileToModuleMappings: XCTestCase {
+final class Test_ProtoFileToModuleMappings: XCTestCase {
 
   func test_Initialization() {
     // ProtoFileToModuleMappings always includes mappings for the protos that

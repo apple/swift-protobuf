@@ -20,7 +20,7 @@ import Foundation
 // these tests should be done once with a message that gets that storage
 // class and a second time with messages that avoid that.
 
-class Test_OneofFields_Access_Proto2: XCTestCase {
+final class Test_OneofFields_Access_Proto2: XCTestCase {
 
   // Accessing one field.
   // - Returns default
