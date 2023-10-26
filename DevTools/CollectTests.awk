@@ -49,8 +49,8 @@ BEGIN {
 	printf("}\n")
     }
     split($0, a, ":")
-    split(a[1], words, " ")
-    CLASS=words[2]
+    n=split(a[1], words, " ")
+    CLASS=words[n]
     TESTCASES = TESTCASES TESTCASE_separator "\n" "        testCase(" CLASS ".allTests)"
     TESTCASE_separator = ","
     printf("\n")
