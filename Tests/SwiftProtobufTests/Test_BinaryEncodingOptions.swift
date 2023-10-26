@@ -22,7 +22,7 @@ final class Test_BinaryEncodingOptions: XCTestCase {
     var options = BinaryEncodingOptions()
     options.useDeterministicOrdering = true
 
-    let message1 = SwiftProtoTesting_Message3.with {
+    let message1 = ProtobufUnittest_Message3.with {
       $0.mapStringString = [
         "b": "B",
         "a": "A",
@@ -43,7 +43,7 @@ final class Test_BinaryEncodingOptions: XCTestCase {
       ]
     }
 
-    let message2 = SwiftProtoTesting_Message3.with {
+    let message2 = ProtobufUnittest_Message3.with {
       $0.mapStringString = [
         "UPPER": "v",
         "a": "A",

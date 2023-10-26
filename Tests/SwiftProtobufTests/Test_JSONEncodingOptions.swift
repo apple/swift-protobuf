@@ -186,7 +186,7 @@ class Test_JSONEncodingOptions: XCTestCase {
     var options = JSONEncodingOptions()
     options.useDeterministicOrdering = true
 
-    let stringMap = SwiftProtoTesting_Message3.with {
+    let stringMap = ProtobufUnittest_Message3.with {
       $0.mapStringString = [
         "b": "B",
         "a": "A",
@@ -200,7 +200,7 @@ class Test_JSONEncodingOptions: XCTestCase {
       "{\"mapStringString\":{\"0\":\"0\",\"UPPER\":\"v\",\"a\":\"A\",\"b\":\"B\",\"x\":\"X\"}}"
     )
 
-    let messageMap = SwiftProtoTesting_Message3.with {
+    let messageMap = ProtobufUnittest_Message3.with {
       $0.mapInt32Message = [
         5: .with { $0.optionalSint32 = 5 },
         1: .with { $0.optionalSint32 = 1 },
@@ -212,7 +212,7 @@ class Test_JSONEncodingOptions: XCTestCase {
       "{\"mapInt32Message\":{\"1\":{\"optionalSint32\":1},\"3\":{\"optionalSint32\":3},\"5\":{\"optionalSint32\":5}}}"
     )
 
-    let enumMap = SwiftProtoTesting_Message3.with {
+    let enumMap = ProtobufUnittest_Message3.with {
       $0.mapInt32Enum = [
         5: .foo,
         3: .bar,
