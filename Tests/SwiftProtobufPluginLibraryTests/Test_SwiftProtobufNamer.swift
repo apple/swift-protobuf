@@ -13,7 +13,7 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 import SwiftProtobufTestHelpers
 
-class Test_SwiftProtobufNamer: XCTestCase {
+final class Test_SwiftProtobufNamer: XCTestCase {
 
   func testEnumValueHandling_AliasNameMatches() throws {
     let txt = [

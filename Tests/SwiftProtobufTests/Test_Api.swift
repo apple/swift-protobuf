@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Api: XCTestCase, PBTestHelpers {
+final class Test_Api: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Api
 
     func testExists() {

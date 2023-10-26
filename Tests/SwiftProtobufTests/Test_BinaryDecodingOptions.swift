@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_BinaryDecodingOptions: XCTestCase {
+final class Test_BinaryDecodingOptions: XCTestCase {
 
     func testMessageDepthLimit() throws {
 

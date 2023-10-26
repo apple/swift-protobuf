@@ -18,7 +18,7 @@ fileprivate func openInputStream(_ bytes: [UInt8]) -> InputStream {
   return istream
 }
 
-class Test_BinaryDelimited: XCTestCase {
+final class Test_BinaryDelimited: XCTestCase {
 
   /// Helper to assert the next message read matches and expected one.
   func assertParse<M: Message & Equatable>(expected: M, onStream istream: InputStream) {

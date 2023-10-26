@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_JSON: XCTestCase, PBTestHelpers {
+final class Test_JSON: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     private func configureLargeObject(_ o: inout MessageTestType) {
@@ -973,7 +973,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 }
 
 
-class Test_JSONPacked: XCTestCase, PBTestHelpers {
+final class Test_JSONPacked: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestPackedTypes
 
     func testPackedFloat() {
@@ -1185,7 +1185,7 @@ class Test_JSONPacked: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_JSONrepeated: XCTestCase, PBTestHelpers {
+final class Test_JSONrepeated: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestUnpackedTypes
 
     func testPackedInt32() {

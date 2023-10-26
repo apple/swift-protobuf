@@ -15,7 +15,7 @@
 import Foundation
 import XCTest
 
-class Test_RecursiveMap: XCTestCase {
+final class Test_RecursiveMap: XCTestCase {
     func test_RecursiveMap() throws {
         let inner = SwiftProtoTesting_TestRecursiveMapMessage()
         var mid = SwiftProtoTesting_TestRecursiveMapMessage()

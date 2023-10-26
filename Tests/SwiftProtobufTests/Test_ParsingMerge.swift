@@ -18,7 +18,7 @@
 import Foundation
 import XCTest
 
-class Test_ParsingMerge: XCTestCase {
+final class Test_ParsingMerge: XCTestCase {
 
     func test_Merge() {
         // Repeated fields generator has field1

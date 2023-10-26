@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
+final class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllExtensions
     var extensions = SwiftProtobuf.SimpleExtensionMap()
 
@@ -131,7 +131,7 @@ class Test_JSON_Extensions: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_JSON_RecursiveNested_Extensions: XCTestCase, PBTestHelpers {
+final class Test_JSON_RecursiveNested_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Extend_Msg1
     let extensions = SwiftProtoTesting_Extend_UnittestSwiftExtension_Extensions
 

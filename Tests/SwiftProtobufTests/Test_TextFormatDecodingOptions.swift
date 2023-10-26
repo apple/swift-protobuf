@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_TextFormatDecodingOptions: XCTestCase {
+final class Test_TextFormatDecodingOptions: XCTestCase {
 
     func testMessageDepthLimit() {
         let textInput = "a: { a: { i: 1 } }"

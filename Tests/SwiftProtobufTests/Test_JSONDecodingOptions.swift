@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_JSONDecodingOptions: XCTestCase {
+final class Test_JSONDecodingOptions: XCTestCase {
 
     func testMessageDepthLimit() {
         let jsonInputs: [String] = [

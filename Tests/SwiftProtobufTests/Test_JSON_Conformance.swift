@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_JSON_Conformance: XCTestCase {
+final class Test_JSON_Conformance: XCTestCase {
     func assertEmptyDecode(_ json: String, file: XCTestFileArgType = #file, line: UInt = #line) -> () {
         do {
             let decoded = try SwiftProtoTesting_Test3_TestAllTypesProto3(jsonString: json)

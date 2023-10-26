@@ -22,7 +22,7 @@ import SwiftProtobuf
 // happens to be defined in a .proto that is also used for testing
 // C++ arena support.
 
-class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
+final class Test_Unknown_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestEmptyMessage
 
     /// Verify that json decode ignores the provided fields but otherwise succeeds

@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_JSONEncodingOptions: XCTestCase {
+final class Test_JSONEncodingOptions: XCTestCase {
   
   func testAlwaysPrintInt64sAsNumbers() {
     // Use explicit options (the default is false), no reason only others can be pedantic.

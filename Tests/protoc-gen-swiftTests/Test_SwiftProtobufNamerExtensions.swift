@@ -14,7 +14,7 @@ import SwiftProtobufPluginLibrary
 import SwiftProtobufTestHelpers
 @testable import protoc_gen_swift
 
-class Test_SwiftProtobufNamer: XCTestCase {
+final class Test_SwiftProtobufNamer: XCTestCase {
 
   func testEnumValueHandling_AliasNameMatches() throws {
     let txt = [

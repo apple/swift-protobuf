@@ -19,7 +19,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Any: XCTestCase {
+final class Test_Any: XCTestCase {
 
     func test_Any() throws {
         var content = SwiftProtoTesting_TestAllTypes()

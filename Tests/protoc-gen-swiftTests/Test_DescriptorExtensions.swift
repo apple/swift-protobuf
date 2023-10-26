@@ -13,7 +13,7 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 @testable import protoc_gen_swift
 
-class Test_DescriptorExtensions: XCTestCase {
+final class Test_DescriptorExtensions: XCTestCase {
 
   func testExtensionRanges() throws {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedData: fileDescriptorSetData)

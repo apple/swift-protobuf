@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_JSON_Array: XCTestCase, PBTestHelpers {
+final class Test_JSON_Array: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_Proto3_TestAllTypes
 
     private func configureTwoObjects(_ o: inout [MessageTestType]) {

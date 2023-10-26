@@ -17,7 +17,7 @@
 import Foundation
 import XCTest
 
-class Test_JSON_Group: XCTestCase, PBTestHelpers {
+final class Test_JSON_Group: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestAllTypes
 
     func testOptionalGroup() {

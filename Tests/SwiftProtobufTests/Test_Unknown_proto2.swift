@@ -20,7 +20,7 @@ import SwiftProtobuf
 // Verify that unknown fields are correctly preserved by
 // proto2 messages.
 
-class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
+final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     typealias MessageTestType = SwiftProtoTesting_TestEmptyMessage
 
     /// Verify that json decode ignores the provided fields but otherwise succeeds

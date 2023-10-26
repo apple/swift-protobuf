@@ -24,7 +24,7 @@ extension SwiftProtoTesting_RawMessageSet.Item {
   }
 }
 
-class Test_MessageSet: XCTestCase {
+final class Test_MessageSet: XCTestCase {
 
   // wireformat_unittest.cc: TEST(WireFormatTest, SerializeMessageSet)
   func testSerialize() throws {
