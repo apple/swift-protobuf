@@ -24,6 +24,22 @@ extension Message {
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws.
   ///     `BinaryEncodingError.missingRequiredFields`.
+  /// - Returns: A `SwiftProtobufContiguousBytes` instance containing the binary serialization
+  /// of the message.
+  ///
+  /// - Throws: `BinaryEncodingError` if encoding fails.
+  public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(partial: Bool = false) throws -> Bytes {
+    try serializedBytes(partial: partial, options: BinaryEncodingOptions())
+  }
+
+  /// Returns a `SwiftProtobufContiguousBytes` instance containing the Protocol Buffer binary
+  /// format serialization of the message.
+  ///
+  /// - Parameters:
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws.
+  ///     `BinaryEncodingError.missingRequiredFields`.
   ///   - options: The `BinaryEncodingOptions` to use.
   /// - Returns: A `SwiftProtobufContiguousBytes` instance containing the binary serialization
   /// of the message.
@@ -31,7 +47,7 @@ extension Message {
   /// - Throws: `BinaryEncodingError` if encoding fails.
   public func serializedBytes<Bytes: SwiftProtobufContiguousBytes>(
     partial: Bool = false,
-    options: BinaryEncodingOptions = BinaryEncodingOptions()
+    options: BinaryEncodingOptions
   ) throws -> Bytes {
     if !partial && !isInitialized {
       throw BinaryEncodingError.missingRequiredFields
