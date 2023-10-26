@@ -28,7 +28,7 @@ extension Message {
   ///   message.
   /// - Throws: `BinaryEncodingError` if encoding fails.
   public func serializedData(partial: Bool = false) throws -> Data {
-    try serializedData(partial: partial, options: BinaryEncodingOptions())
+    return try serializedData(partial: partial, options: BinaryEncodingOptions())
   }
 
   /// Returns a `Data` value containing the Protocol Buffer binary format
