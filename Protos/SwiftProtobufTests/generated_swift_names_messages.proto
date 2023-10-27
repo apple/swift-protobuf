@@ -42,6 +42,7 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncodingError { int32 BinaryEncodingError = 1; }
   message BinaryEncodingMessageSetSizeVisitor { int32 BinaryEncodingMessageSetSizeVisitor = 1; }
   message BinaryEncodingMessageSetVisitor { int32 BinaryEncodingMessageSetVisitor = 1; }
+  message BinaryEncodingOptions { int32 BinaryEncodingOptions = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
   message binaryOptions { int32 binaryOptions = 1; }
@@ -870,6 +871,7 @@ message GeneratedSwiftReservedMessages {
   message unverifiedLazy { int32 unverifiedLazy = 1; }
   message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
+  message useDeterministicOrdering { int32 useDeterministicOrdering = 1; }
   message utf8 { int32 utf8 = 1; }
   message utf8Ptr { int32 utf8Ptr = 1; }
   message utf8ToDouble { int32 utf8ToDouble = 1; }
