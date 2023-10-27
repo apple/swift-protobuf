@@ -181,4 +181,48 @@ class Test_JSONEncodingOptions: XCTestCase {
     XCTAssertEqual(try msg7.jsonString(options: protoNames),
                    "{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optional_nested_enum\":\"NEG\"}")
   }
+
+  func testUseDeterministicOrdering() {
+    var options = JSONEncodingOptions()
+    options.useDeterministicOrdering = true
+
+    let stringMap = ProtobufUnittest_Message3.with {
+      $0.mapStringString = [
+        "b": "B",
+        "a": "A",
+        "0": "0",
+        "UPPER": "v",
+        "x": "X",
+      ]
+    }
+    XCTAssertEqual(
+      try stringMap.jsonString(options: options),
+      "{\"mapStringString\":{\"0\":\"0\",\"UPPER\":\"v\",\"a\":\"A\",\"b\":\"B\",\"x\":\"X\"}}"
+    )
+
+    let messageMap = ProtobufUnittest_Message3.with {
+      $0.mapInt32Message = [
+        5: .with { $0.optionalSint32 = 5 },
+        1: .with { $0.optionalSint32 = 1 },
+        3: .with { $0.optionalSint32 = 3 },
+      ]
+    }
+    XCTAssertEqual(
+      try messageMap.jsonString(options: options),
+      "{\"mapInt32Message\":{\"1\":{\"optionalSint32\":1},\"3\":{\"optionalSint32\":3},\"5\":{\"optionalSint32\":5}}}"
+    )
+
+    let enumMap = ProtobufUnittest_Message3.with {
+      $0.mapInt32Enum = [
+        5: .foo,
+        3: .bar,
+        0: .baz,
+        1: .extra3,
+      ]
+    }
+    XCTAssertEqual(
+      try enumMap.jsonString(options: options),
+      "{\"mapInt32Enum\":{\"0\":\"BAZ\",\"1\":\"EXTRA_3\",\"3\":\"BAR\",\"5\":\"FOO\"}}"
+    )
+  }
 }

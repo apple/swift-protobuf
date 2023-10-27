@@ -340,39 +340,49 @@ internal struct JSONEncodingVisitor: Visitor {
   // Packed fields are handled the same as non-packed fields, so JSON just
   // relies on the default implementations in Visitor.swift
 
-
-
   mutating func visitMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
-    try startField(for: fieldNumber)
-    encoder.append(text: "{")
-    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
-    for (k,v) in value {
-        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-        try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
+    try iterateAndEncode(map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan) {
+      (visitor: inout JSONMapEncodingVisitor, key, value) throws -> () in
+      try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
+      try ValueType.visitSingular(value: value, fieldNumber: 2, with: &visitor)
     }
-    encoder = mapVisitor.encoder
-    encoder.append(text: "}")
   }
 
   mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where ValueType.RawValue == Int {
-    try startField(for: fieldNumber)
-    encoder.append(text: "{")
-    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
-    for (k, v) in value {
-      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-      try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    try iterateAndEncode(map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan) {
+      (visitor: inout JSONMapEncodingVisitor, key, value) throws -> () in
+      try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
+      try visitor.visitSingularEnumField(value: value, fieldNumber: 2)
     }
-    encoder = mapVisitor.encoder
-    encoder.append(text: "}")
   }
 
   mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
+    try iterateAndEncode(map: value, fieldNumber: fieldNumber, isOrderedBefore: KeyType._lessThan) {
+      (visitor: inout JSONMapEncodingVisitor, key, value) throws -> () in
+      try KeyType.visitSingular(value: key, fieldNumber: 1, with: &visitor)
+      try visitor.visitSingularMessageField(value: value, fieldNumber: 2)
+    }
+  }
+
+  /// Helper to encapsulate the common structure of iterating over a map
+  /// and encoding the keys and values.
+  private mutating func iterateAndEncode<K, V>(
+    map: Dictionary<K, V>,
+    fieldNumber: Int,
+    isOrderedBefore: (K, K) -> Bool,
+    encode: (inout JSONMapEncodingVisitor, K, V) throws -> ()
+  ) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder, options: options)
-    for (k,v) in value {
-        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-        try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    if options.useDeterministicOrdering {
+      for (k,v) in map.sorted(by: { isOrderedBefore( $0.0, $1.0) }) {
+        try encode(&mapVisitor, k, v)
+      }
+    } else {
+      for (k,v) in map {
+        try encode(&mapVisitor, k, v)
+      }
     }
     encoder = mapVisitor.encoder
     encoder.append(text: "}")
