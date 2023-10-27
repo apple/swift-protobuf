@@ -981,6 +981,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum BinaryEncodingOptions: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBinaryEncodingOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBinaryEncodingOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBinaryEncodingOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBinaryEncodingOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum BinaryEncodingSizeVisitor: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneBinaryEncodingSizeVisitor // = 0
@@ -21681,6 +21706,31 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
+  enum useDeterministicOrdering: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneUseDeterministicOrdering // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUseDeterministicOrdering
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUseDeterministicOrdering
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUseDeterministicOrdering: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum utf8: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneUtf8 // = 0
@@ -24099,6 +24149,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMe
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor] = [
     .noneBinaryEncodingMessageSetVisitor,
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingOptions: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingOptions] = [
+    .noneBinaryEncodingOptions,
   ]
 }
 
@@ -29898,6 +29955,13 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.url: CaseIterabl
   ]
 }
 
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.useDeterministicOrdering: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.useDeterministicOrdering] = [
+    .noneUseDeterministicOrdering,
+  ]
+}
+
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8] = [
@@ -30542,6 +30606,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncoder: @
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingError: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetSizeVisitor: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingOptions: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingSizeVisitor: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingVisitor: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binaryOptions: @unchecked Sendable {}
@@ -31370,6 +31435,7 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeRawPointer
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unverifiedLazy: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.url: @unchecked Sendable {}
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.useDeterministicOrdering: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8Ptr: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8ToDouble: @unchecked Sendable {}
@@ -31706,6 +31772,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMe
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingMessageSetVisitor"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_BinaryEncodingOptions"),
   ]
 }
 
@@ -36674,6 +36746,12 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions: 
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.url: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_url"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.useDeterministicOrdering: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_useDeterministicOrdering"),
   ]
 }
 
