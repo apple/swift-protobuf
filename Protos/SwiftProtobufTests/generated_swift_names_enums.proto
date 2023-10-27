@@ -48,6 +48,7 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncodingError { NONE_BinaryEncodingError = 0; }
   enum BinaryEncodingMessageSetSizeVisitor { NONE_BinaryEncodingMessageSetSizeVisitor = 0; }
   enum BinaryEncodingMessageSetVisitor { NONE_BinaryEncodingMessageSetVisitor = 0; }
+  enum BinaryEncodingOptions { NONE_BinaryEncodingOptions = 0; }
   enum BinaryEncodingSizeVisitor { NONE_BinaryEncodingSizeVisitor = 0; }
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
   enum binaryOptions { NONE_binaryOptions = 0; }
@@ -674,7 +675,6 @@ message GeneratedSwiftReservedEnums {
   enum padding { NONE_padding = 0; }
   enum parent { NONE_parent = 0; }
   enum parse { NONE_parse = 0; }
-  enum partial { NONE_partial = 0; }
   enum path { NONE_path = 0; }
   enum paths { NONE_paths = 0; }
   enum payload { NONE_payload = 0; }
@@ -886,6 +886,7 @@ message GeneratedSwiftReservedEnums {
   enum unverifiedLazy { NONE_unverifiedLazy = 0; }
   enum updatedOptions { NONE_updatedOptions = 0; }
   enum url { NONE_url = 0; }
+  enum useDeterministicOrdering { NONE_useDeterministicOrdering = 0; }
   enum utf8 { NONE_utf8 = 0; }
   enum utf8Ptr { NONE_utf8Ptr = 0; }
   enum utf8ToDouble { NONE_utf8ToDouble = 0; }

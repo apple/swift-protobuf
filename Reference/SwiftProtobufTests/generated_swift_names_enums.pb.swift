@@ -1351,6 +1351,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum BinaryEncodingOptions: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBinaryEncodingOptions // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBinaryEncodingOptions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBinaryEncodingOptions
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBinaryEncodingOptions: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncodingOptions] = [
+      .noneBinaryEncodingOptions,
+    ]
+
+  }
+
   enum BinaryEncodingSizeVisitor: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneBinaryEncodingSizeVisitor // = 0
@@ -20131,36 +20161,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum partial: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case nonePartial // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .nonePartial
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .nonePartial
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .nonePartial: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.partial] = [
-      .nonePartial,
-    ]
-
-  }
-
   enum path: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case nonePath // = 0
@@ -26491,6 +26491,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum useDeterministicOrdering: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneUseDeterministicOrdering // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUseDeterministicOrdering
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUseDeterministicOrdering
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUseDeterministicOrdering: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.useDeterministicOrdering] = [
+      .noneUseDeterministicOrdering,
+    ]
+
+  }
+
   enum utf8: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneUtf8 // = 0
@@ -29358,6 +29388,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncoding
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingMessageSetVisitor"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.BinaryEncodingOptions: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_BinaryEncodingOptions"),
   ]
 }
 
@@ -33117,12 +33153,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.parse: SwiftPr
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.partial: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_partial"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.path: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_path"),
@@ -34386,6 +34416,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.updatedOptions
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.url: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_url"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.useDeterministicOrdering: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_useDeterministicOrdering"),
   ]
 }
 
