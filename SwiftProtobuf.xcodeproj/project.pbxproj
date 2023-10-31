@@ -302,6 +302,13 @@
 		ECBC5C4F1DF6ABC500F658E8 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
 		ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		ECBC5C511DF6ABC500F658E8 /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
+		F406A5982AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A5972AF1468800C84497 /* BinaryEncodingOptions.swift */; };
+		F406A5992AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A5972AF1468800C84497 /* BinaryEncodingOptions.swift */; };
+		F406A59A2AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A5972AF1468800C84497 /* BinaryEncodingOptions.swift */; };
+		F406A59B2AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A5972AF1468800C84497 /* BinaryEncodingOptions.swift */; };
+		F406A59D2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A59C2AF146A200C84497 /* Test_BinaryEncodingOptions.swift */; };
+		F406A59E2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A59C2AF146A200C84497 /* Test_BinaryEncodingOptions.swift */; };
+		F406A59F2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F406A59C2AF146A200C84497 /* Test_BinaryEncodingOptions.swift */; };
 		F40D33EA2017ED2100ABAF0F /* unittest_swift_enum_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D33E82017ECD300ABAF0F /* unittest_swift_enum_proto3.pb.swift */; };
 		F40D33EB2017ED2200ABAF0F /* unittest_swift_enum_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D33E82017ECD300ABAF0F /* unittest_swift_enum_proto3.pb.swift */; };
 		F40D33EC2017ED2300ABAF0F /* unittest_swift_enum_proto3.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40D33E82017ECD300ABAF0F /* unittest_swift_enum_proto3.pb.swift */; };
@@ -789,6 +796,8 @@
 		DB2E0AF91EB24C7600F59319 /* Test_JSON_Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_JSON_Array.swift; sourceTree = "<group>"; };
 		DB2E0AFD1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "Message+JSONArrayAdditions.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		E7038A23224D7F1000B68775 /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		F406A5972AF1468800C84497 /* BinaryEncodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryEncodingOptions.swift; sourceTree = "<group>"; };
+		F406A59C2AF146A200C84497 /* Test_BinaryEncodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_BinaryEncodingOptions.swift; sourceTree = "<group>"; };
 		F40D33E82017ECD300ABAF0F /* unittest_swift_enum_proto3.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_enum_proto3.pb.swift; sourceTree = "<group>"; };
 		F411FE941EDDD6AA001AE6B2 /* BinaryDecodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryDecodingOptions.swift; sourceTree = "<group>"; };
 		F411FEAA1EDDDC5D001AE6B2 /* Test_BinaryDecodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_BinaryDecodingOptions.swift; sourceTree = "<group>"; };
@@ -1026,6 +1035,7 @@
 		"_______Group_Protobuf" /* SwiftProtobuf */ = {
 			isa = PBXGroup;
 			children = (
+				F406A5972AF1468800C84497 /* BinaryEncodingOptions.swift */,
 				F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */,
 				F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */,
 				F41BA4171E79C568004F6E95 /* AnyUnpackError.swift */,
@@ -1118,6 +1128,7 @@
 		"_______Group_ProtobufTestSuite" /* SwiftProtobufTests */ = {
 			isa = PBXGroup;
 			children = (
+				F406A59C2AF146A200C84497 /* Test_BinaryEncodingOptions.swift */,
 				__PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */,
 				__PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */,
 				F451075723A2B9B500488257 /* Data+TestHelpers.swift */,
@@ -1512,6 +1523,7 @@
 				F4D3154A1DEC811B005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
 				F4584D3C1ECA4FC700803AB6 /* unittest_swift_oneof_merging.pb.swift in Sources */,
 				9C8CDA641D7A28F600E207CA /* unittest_swift_naming.pb.swift in Sources */,
+				F406A59E2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */,
 				F4A07B2D1E4A3E630035678A /* test_messages_proto3.pb.swift in Sources */,
 				9C8CDA521D7A28F600E207CA /* unittest_mset_wire_format.pb.swift in Sources */,
 				F47C42B62437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
@@ -1618,6 +1630,7 @@
 				9C75F8861DDD3045005CCFF2 /* SimpleExtensionMap.swift in Sources */,
 				F451074723A288E400488257 /* UnsafeRawPointer+Shims.swift in Sources */,
 				9C84E4901E5E3ABD00513BE0 /* BinaryEncodingError.swift in Sources */,
+				F406A5992AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */,
 				9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */,
 				9C0B366C1E5FAB910094E128 /* JSONMapEncodingVisitor.swift in Sources */,
 				9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */,
@@ -1709,6 +1722,7 @@
 				9C84E48F1E5E3ABD00513BE0 /* BinaryEncodingError.swift in Sources */,
 				F451074623A288E400488257 /* UnsafeRawPointer+Shims.swift in Sources */,
 				9C667A911E4C203D008B974F /* JSONDecodingError.swift in Sources */,
+				F406A5982AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */,
 				9C0B366B1E5FAB910094E128 /* JSONMapEncodingVisitor.swift in Sources */,
 				9CEB0D681DF5E934002D80F0 /* TextFormatEncodingVisitor.swift in Sources */,
 				9CEB0D6C1DF5F921002D80F0 /* TextFormatScanner.swift in Sources */,
@@ -1817,6 +1831,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_mset_wire_format.pb.swift /* unittest_mset_wire_format.pb.swift in Sources */,
 				F4584D3B1ECA4FC600803AB6 /* unittest_swift_oneof_merging.pb.swift in Sources */,
 				9C60CBE81DF8AC3F00F7B14E /* Test_TextFormat_Map_proto3.swift in Sources */,
+				F406A59D2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */,
 				F47C42B52437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_field_presence.pb.swift /* unittest_no_field_presence.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_no_generic_services.pb.swift /* unittest_no_generic_services.pb.swift in Sources */,
@@ -1923,6 +1938,7 @@
 				9C84E4911E5E3ABD00513BE0 /* BinaryEncodingError.swift in Sources */,
 				F451074823A288E400488257 /* UnsafeRawPointer+Shims.swift in Sources */,
 				F44F93931DAEA76700BC5B85 /* FieldTypes.swift in Sources */,
+				F406A59A2AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */,
 				9C0B366D1E5FAB910094E128 /* JSONMapEncodingVisitor.swift in Sources */,
 				9C75F8871DDD3045005CCFF2 /* SimpleExtensionMap.swift in Sources */,
 				F44F937D1DAEA76700BC5B85 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
@@ -2031,6 +2047,7 @@
 				F44F93DA1DAEA8C900BC5B85 /* unittest_import_public.pb.swift in Sources */,
 				F4A07B2E1E4A3E640035678A /* test_messages_proto3.pb.swift in Sources */,
 				AA6CF6F71DB6D229007DF26B /* Test_Enum_Proto2.swift in Sources */,
+				F406A59F2AF146A200C84497 /* Test_BinaryEncodingOptions.swift in Sources */,
 				F47C42B72437A3C700C08579 /* unittest_proto3_optional.pb.swift in Sources */,
 				F44F94371DBF9AEA00BC5B85 /* Test_BasicFields_Access_Proto2.swift in Sources */,
 				F44F93C71DAEA8C900BC5B85 /* Test_ReallyLargeTagNumber.swift in Sources */,
@@ -2137,6 +2154,7 @@
 				9C84E4921E5E3ABD00513BE0 /* BinaryEncodingError.swift in Sources */,
 				F451074923A288E400488257 /* UnsafeRawPointer+Shims.swift in Sources */,
 				9C5890AB1DFF6375001CFC34 /* TextFormatScanner.swift in Sources */,
+				F406A59B2AF1468800C84497 /* BinaryEncodingOptions.swift in Sources */,
 				9C0B366E1E5FAB910094E128 /* JSONMapEncodingVisitor.swift in Sources */,
 				9C5890AD1DFF6375001CFC34 /* Message+TextFormatAdditions.swift in Sources */,
 				ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */,
