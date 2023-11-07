@@ -31,7 +31,7 @@
 /// `Version.compatibilityVersion` in `protoc-gen-swift`. That version and this
 /// version must match for the generated protos to be compatible, so if you
 /// update one, make sure to update it here and in the associated type below.
-public protocol ProtobufAPIVersion_3 {}
+@_marker public protocol ProtobufAPIVersion_3 {}
 
 /// This protocol is expected to be implemented by a `fileprivate` type in each
 /// source file emitted by `protoc-gen-swift`. It effectively creates a binding

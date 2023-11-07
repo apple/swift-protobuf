@@ -115,7 +115,7 @@ public protocol Message: _MessageBase {
 #if DEBUG
 public protocol _MessageBase: Sendable, CustomDebugStringConvertible {}
 #else
-public protocol _MessageBase: Sendable {}
+@_marker public protocol _MessageBase: Sendable {}
 #endif
 
 extension Message {
