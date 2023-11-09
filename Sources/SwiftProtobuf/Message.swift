@@ -31,7 +31,7 @@
 ///
 /// The actual functionality is implemented either in the generated code or in
 /// default implementations of the below methods and properties.
-public protocol Message: _MessageBase {
+public protocol Message: _CommonMessageConformances {
   /// Creates a new message with all of its fields initialized to their default
   /// values.
   init()
@@ -113,9 +113,10 @@ public protocol Message: _MessageBase {
 }
 
 #if DEBUG
-public typealias _MessageBase = Sendable & CustomDebugStringConvertible
+public typealias _CommonMessageConformances =
+  Sendable & CustomDebugStringConvertible
 #else
-public typealias _MessageBase = Sendable
+public typealias _CommonMessageConformances = Sendable
 #endif
 
 extension Message {
