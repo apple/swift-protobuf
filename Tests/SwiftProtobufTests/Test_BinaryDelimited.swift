@@ -145,4 +145,20 @@ final class Test_BinaryDelimited: XCTestCase {
     assertParseFails(atEndOfStream: stream2)
   }
 
+  // oss-fuzz found this case that runs slowly for AsyncMessageSequence
+  // Copied here as well for comparison.
+  func testLargeExample() throws {
+    let bytes = [UInt8](repeating: 0, count: 1000000)
+    let istream = openInputStream(bytes)
+
+    for _ in 0..<1000000 {
+      let msg = try BinaryDelimited.parse(
+	messageType: SwiftProtoTesting_TestAllTypes.self,
+	from: istream)
+      XCTAssertEqual(msg, SwiftProtoTesting_TestAllTypes())
+    }
+    XCTAssertThrowsError(try BinaryDelimited.parse(
+	messageType: SwiftProtoTesting_TestAllTypes.self,
+	from: istream))
+  }
 }

@@ -199,6 +199,23 @@ final class Test_AsyncMessageSequence: XCTestCase {
     }
     XCTAssertTrue(truncatedThrown, "Should throw a BinaryDelimited.Error.truncated")
   }
+
+  // Slow test case found by oss-fuzz: 1 million zero-sized messages
+  // A similar test with BinaryDelimited is about 4x faster, showing
+  // that we have some room for improvement here:
+  func testLargeExample() async throws {
+    let bytes = [UInt8](repeating: 0, count: 1000000)
+    let byteStream = asyncByteStream(bytes: bytes)
+    let decodedStream = byteStream.binaryProtobufDelimitedMessages(
+                    of: SwiftProtoTesting_TestAllTypes.self,
+                    extensions: SwiftProtoTesting_Fuzz_FuzzTesting_Extensions)
+    var count = 0
+    for try await message in decodedStream {
+      XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
+      count += 1
+    }
+    XCTAssertEqual(count, 1000000)
+  }
   
   fileprivate func asyncByteStream(bytes: [UInt8]) -> AsyncStream<UInt8> {
       AsyncStream(UInt8.self) { continuation in
