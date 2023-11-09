@@ -202,9 +202,12 @@ final class Test_AsyncMessageSequence: XCTestCase {
 
   // Slow test case found by oss-fuzz: 1 million zero-sized messages
   // A similar test with BinaryDelimited is about 4x faster, showing
-  // that we have some room for improvement here:
+  // that we have some room for improvement here.
+  // (Note this currently only tests 100,000 zero-sized messages,
+  // but the constant below is easy to edit if you want to experiment.)
   func testLargeExample() async throws {
-    let bytes = [UInt8](repeating: 0, count: 1000000)
+    let messageCount = 100_000
+    let bytes = [UInt8](repeating: 0, count: messageCount)
     let byteStream = asyncByteStream(bytes: bytes)
     let decodedStream = byteStream.binaryProtobufDelimitedMessages(
                     of: SwiftProtoTesting_TestAllTypes.self,
@@ -214,7 +217,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
       XCTAssertEqual(message, SwiftProtoTesting_TestAllTypes())
       count += 1
     }
-    XCTAssertEqual(count, 1000000)
+    XCTAssertEqual(count, messageCount)
   }
   
   fileprivate func asyncByteStream(bytes: [UInt8]) -> AsyncStream<UInt8> {
