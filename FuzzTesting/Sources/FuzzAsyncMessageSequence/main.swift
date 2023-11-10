@@ -25,9 +25,14 @@ public func FuzzAsyncMessageSequence(_ start: UnsafeRawPointer, _ count: Int) ->
   Task {
     do {
       for try await msg in decoding {
-        // Test serialization for completeness.
-        // There is no output sequence version, so generate the bytes.
-        let _: [UInt8] = try! msg.serializedBytes()
+        // TODO: Test serialization for completeness.
+        // We could serialize individual messages like this:
+        // let _: [UInt8] = try! msg.serializedBytes()
+        // but we don't have a stream writer which is what
+        // we really want to exercise here.
+
+        // Also, serialization here more than doubles the total
+        // run time, leading to timeouts for the fuzz tester. :(
       }
     } catch {
       // Error parsing are to be expected since not all input will be well formed.
