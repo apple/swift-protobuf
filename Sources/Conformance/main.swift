@@ -15,8 +15,10 @@
 ///
 // -----------------------------------------------------------------------------
 
-#if os(Linux)
+#if canImport(Glibc)
 import Glibc
+#elseif canImport(Musl)
+import Musl
 #else
 import Darwin.C
 #endif
