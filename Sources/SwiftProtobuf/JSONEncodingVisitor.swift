@@ -34,7 +34,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   /// Creates a new visitor for serializing a message of the given type to JSON
   /// format.
-  init(type: Message.Type, options: JSONEncodingOptions) throws {
+  init(type: any Message.Type, options: JSONEncodingOptions) throws {
     if let nameProviding = type as? _ProtoNameProviding.Type {
       self.nameMap = nameProviding._protobuf_nameMap
     } else {
@@ -51,13 +51,13 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.endArray()
   }
 
-  mutating func startObject(message: Message) {
-    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+  mutating func startObject(message: any Message) {
+    self.extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
     encoder.startObject()
   }
 
-  mutating func startArrayObject(message: Message) {
-    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+  mutating func startArrayObject(message: any Message) {
+    self.extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
     encoder.startArrayObject()
   }
 

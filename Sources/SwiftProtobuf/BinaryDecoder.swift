@@ -1090,7 +1090,7 @@ internal struct BinaryDecoder: Decoder {
 
     internal mutating func decodeExtensionField(
       values: inout ExtensionFieldValueSet,
-      messageType: Message.Type,
+      messageType: any Message.Type,
       fieldNumber: Int
     ) throws {
         if let ext = extensions?[messageType, fieldNumber] {
@@ -1104,7 +1104,7 @@ internal struct BinaryDecoder: Decoder {
     /// Helper to reuse between Extension decoding and MessageSet Extension decoding.
     private mutating func decodeExtensionField(
       values: inout ExtensionFieldValueSet,
-      messageType: Message.Type,
+      messageType: any Message.Type,
       fieldNumber: Int,
       messageExtension ext: AnyMessageExtension
     ) throws {
@@ -1131,7 +1131,7 @@ internal struct BinaryDecoder: Decoder {
 
     internal mutating func decodeExtensionFieldsAsMessageSet(
       values: inout ExtensionFieldValueSet,
-      messageType: Message.Type
+      messageType: any Message.Type
     ) throws {
         // Spin looking for the Item group, everything else will end up in unknown fields.
         while let fieldNumber = try self.nextFieldNumber() {
@@ -1175,7 +1175,7 @@ internal struct BinaryDecoder: Decoder {
 
     private mutating func decodeMessageSetItem(
       values: inout ExtensionFieldValueSet,
-      messageType: Message.Type
+      messageType: any Message.Type
     ) throws -> DecodeMessageSetItemResult {
         // This is loosely based on the C++:
         //   ExtensionSet::ParseMessageSetItem()

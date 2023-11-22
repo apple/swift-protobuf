@@ -1252,7 +1252,7 @@ internal struct JSONScanner {
   /// it silently skips it.
   internal mutating func nextFieldNumber(
     names: _NameMap,
-    messageType: Message.Type
+    messageType: any Message.Type
   ) throws -> Int? {
     while true {
       var fieldName: String

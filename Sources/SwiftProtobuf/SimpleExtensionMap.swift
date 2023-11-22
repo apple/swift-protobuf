@@ -32,7 +32,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
       }
     }
 
-    public subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? {
+    public subscript(messageType: any Message.Type, fieldNumber: Int) -> AnyMessageExtension? {
         get {
             if let l = fields[fieldNumber] {
                 for e in l {
@@ -45,7 +45,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
         }
     }
 
-    public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
+    public func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
             for e in list {

@@ -795,7 +795,7 @@ final class Test_Any: XCTestCase {
       XCTAssertNil(Google_Protobuf_Any.messageType(forMessageName: SwiftProtoTesting_TestMap.protoMessageName))
 
       // All the WKTs should be registered.
-      let wkts: [Message.Type] = [
+      let wkts: [any Message.Type] = [
         Google_Protobuf_Any.self,
         Google_Protobuf_BoolValue.self,
         Google_Protobuf_BytesValue.self,

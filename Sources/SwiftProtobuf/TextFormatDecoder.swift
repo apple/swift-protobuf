@@ -25,7 +25,7 @@ internal struct TextFormatDecoder: Decoder {
     private var fieldCount = 0
     private var terminator: UInt8?
     private var fieldNameMap: _NameMap?
-    private var messageType: Message.Type?
+    private var messageType: (any Message.Type)?
 
     internal var complete: Bool {
         mutating get {
@@ -34,7 +34,7 @@ internal struct TextFormatDecoder: Decoder {
     }
 
     internal init(
-      messageType: Message.Type,
+      messageType: any Message.Type,
       utf8Pointer: UnsafeRawPointer,
       count: Int,
       options: TextFormatDecodingOptions,
@@ -48,7 +48,7 @@ internal struct TextFormatDecoder: Decoder {
         self.messageType = messageType
     }
 
-    internal init(messageType: Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
+    internal init(messageType: any Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
         self.scanner = scanner
         self.terminator = terminator
         guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
@@ -706,7 +706,7 @@ internal struct TextFormatDecoder: Decoder {
         }
     }
 
-    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
+    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: any Message.Type, fieldNumber: Int) throws {
         if let ext = scanner.extensions?[messageType, fieldNumber] {
             try values.modify(index: fieldNumber) { fieldValue in
                 if fieldValue != nil {

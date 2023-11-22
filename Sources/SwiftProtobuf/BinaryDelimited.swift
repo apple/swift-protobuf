@@ -65,7 +65,7 @@ public enum BinaryDelimited {
   ///           `BinaryDelimited.Error` for some writing errors, or the
   ///           underlying `OutputStream.streamError` for a stream error.
   public static func serialize(
-    message: Message,
+    message: any Message,
     to stream: OutputStream,
     partial: Bool = false
   ) throws {

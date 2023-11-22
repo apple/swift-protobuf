@@ -19,7 +19,7 @@
 public protocol AnyMessageExtension: Sendable {
     var fieldNumber: Int { get }
     var fieldName: String { get }
-    var messageType: Message.Type { get }
+    var messageType: any Message.Type { get }
     func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> AnyExtensionField?
 }
 
@@ -29,7 +29,7 @@ public protocol AnyMessageExtension: Sendable {
 public final class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension {
     public let fieldNumber: Int
     public let fieldName: String
-    public let messageType: Message.Type
+    public let messageType: any Message.Type
     public init(_protobuf_fieldNumber: Int, fieldName: String) {
         self.fieldNumber = _protobuf_fieldNumber
         self.fieldName = fieldName

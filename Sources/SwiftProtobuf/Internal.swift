@@ -29,7 +29,7 @@ public enum Internal {
 
   /// Helper to loop over a list of Messages to see if they are all
   /// initialized (see Message.isInitialized for what that means).
-  public static func areAllInitialized(_ listOfMessages: [Message]) -> Bool {
+  public static func areAllInitialized(_ listOfMessages: [any Message]) -> Bool {
     for msg in listOfMessages {
       if !msg.isInitialized {
         return false
@@ -40,7 +40,7 @@ public enum Internal {
 
   /// Helper to loop over dictionary with values that are Messages to see if
   /// they are all initialized (see Message.isInitialized for what that means).
-  public static func areAllInitialized<K>(_ mapToMessages: [K: Message]) -> Bool {
+  public static func areAllInitialized<K>(_ mapToMessages: [K: any Message]) -> Bool {
     for (_, msg) in mapToMessages {
       if !msg.isInitialized {
         return false

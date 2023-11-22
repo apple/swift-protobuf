@@ -159,7 +159,7 @@ final class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     }
 
 
-    func assertUnknownFields(_ message: Message, _ bytes: [UInt8], line: UInt = #line) {
+    func assertUnknownFields(_ message: any Message, _ bytes: [UInt8], line: UInt = #line) {
         XCTAssertEqual(message.unknownFields.data, Data(bytes), line: line)
     }
 
