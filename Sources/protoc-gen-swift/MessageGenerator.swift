@@ -217,6 +217,8 @@ class MessageGenerator {
       // generateIsInitialized provides a blank line after itself.
       generateDecodeMessage(printer: &p)
       p.print()
+      generateFieldNodes(printer: &p)
+      p.print()
       generateTraverse(printer: &p)
       p.print()
       generateMessageEquality(printer: &p)
@@ -311,53 +313,53 @@ class MessageGenerator {
             p.print("}")
           }
         }
-
       }
     }
     p.print("}")
   }
 
-  /// Generates the `traverse` method for the message.
-  ///
-  /// - Parameter p: The code printer.
-  private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func traverse<V: \(namer.swiftProtobufModulePrefix)Visitor>(visitor: inout V) throws {")
+  private func generateFieldNodes(printer p: inout CodePrinter) {
+    let visitExtensionsName = descriptor.useMessageSetWireFormat ? "extensionFieldsAsMessageSet" : "extensionFields"
+
+    p.print("\(visibility)static let _fields: [Field<Self>] = [")
+      
+    // Use the "ambitious" ranges because for visit because subranges with no
+    // intermixed fields can be merged to reduce the number of calls for
+    // extension visitation.
+    var ranges = descriptor.ambitiousExtensionRanges.makeIterator()
+    var nextRange = ranges.next()
+
     p.withIndentation { p in
-      generateWithLifetimeExtension(printer: &p, throws: true) { p in
-        if let storage = storage {
-          storage.generatePreTraverse(printer: &p)
-        }
-
-        let visitExtensionsName =
-          descriptor.useMessageSetWireFormat ? "visitExtensionFieldsAsMessageSet" : "visitExtensionFields"
-
-        let usesLocals = fields.reduce(false) { $0 || $1.generateTraverseUsesLocals }
-        if usesLocals {
-          p.print("""
-            // The use of inline closures is to circumvent an issue where the compiler
-            // allocates stack space for every if/case branch local when no optimizations
-            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-            // https://github.com/apple/swift-protobuf/issues/1182
-            """)
-        }
-
-        // Use the "ambitious" ranges because for visit because subranges with no
-        // intermixed fields can be merged to reduce the number of calls for
-        // extension visitation.
-        var ranges = descriptor.ambitiousExtensionRanges.makeIterator()
-        var nextRange = ranges.next()
-        for f in fieldsSortedByNumber {
-          while nextRange != nil && Int(nextRange!.lowerBound) < f.number {
-            p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))")
-            nextRange = ranges.next()
-          }
-          f.generateTraverse(printer: &p)
-        }
-        while nextRange != nil {
-          p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound))")
+      for f in fieldsSortedByNumber {
+        while nextRange != nil && Int(nextRange!.lowerBound) < f.number {
+          p.print(".\(visitExtensionsName)({ $0._protobuf_extensionFieldValues }, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound)),")
           nextRange = ranges.next()
         }
+        f.generateFieldNode(printer: &p)
       }
+      while nextRange != nil {
+        p.print(".\(visitExtensionsName)({ $0._protobuf_extensionFieldValues }, start: \(nextRange!.lowerBound), end: \(nextRange!.upperBound)),")
+        nextRange = ranges.next()
+      }
+    }
+    p.print("]")
+      
+    for oneof in oneofs {
+      oneof.generateFieldNodeStaticLet(printer: &p)
+    }
+  }
+    
+  private func generateTraverse(printer p: inout CodePrinter) {
+    // If we have an AnyMessageStorageClass we need to generate the traverse function so it can include a preTraverse call
+    guard let storage, storage is AnyMessageStorageClassGenerator else {
+      return
+    }
+    p.print("\(visibility)func traverse<V: Visitor>(visitor: inout V) throws {")
+    p.withIndentation { p in
+      p.print("try _storage.preTraverse()")
+      p.print("for field in Self._fields {")
+      p.printIndented("try field.traverse(message: self, visitor: &visitor)")
+      p.print("}")
       p.print("try unknownFields.traverse(visitor: &visitor)")
     }
     p.print("}")
