@@ -79,16 +79,10 @@ extension _4fun_SwiftProtoTesting_Mumble_MyMessage: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._a {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.a }, fieldNumber: 1, isUnset: { $0._a == nil }),
+  ]
+
 
   static func ==(lhs: _4fun_SwiftProtoTesting_Mumble_MyMessage, rhs: _4fun_SwiftProtoTesting_Mumble_MyMessage) -> Bool {
     if lhs._a != rhs._a {return false}

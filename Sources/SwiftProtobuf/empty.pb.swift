@@ -79,9 +79,9 @@ extension Google_Protobuf_Empty: Message, _MessageImplementationBase, _ProtoName
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Empty, rhs: Google_Protobuf_Empty) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}

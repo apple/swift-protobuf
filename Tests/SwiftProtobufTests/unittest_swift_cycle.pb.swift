@@ -218,24 +218,12 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._aFoo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._aBar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._aBaz {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularMessage({ $0.aFoo }, fieldNumber: 1, isUnset: { $0._storage._aFoo == nil }),
+    .singularMessage({ $0.aBar }, fieldNumber: 2, isUnset: { $0._storage._aBar == nil }),
+    .singularMessage({ $0.aBaz }, fieldNumber: 3, isUnset: { $0._storage._aBaz == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_CycleFoo, rhs: SwiftProtoTesting_CycleFoo) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -302,24 +290,12 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._aBar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._aBaz {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._aFoo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularMessage({ $0.aBar }, fieldNumber: 1, isUnset: { $0._storage._aBar == nil }),
+    .singularMessage({ $0.aBaz }, fieldNumber: 2, isUnset: { $0._storage._aBaz == nil }),
+    .singularMessage({ $0.aFoo }, fieldNumber: 3, isUnset: { $0._storage._aFoo == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_CycleBar, rhs: SwiftProtoTesting_CycleBar) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -386,24 +362,12 @@ extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._aBaz {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._aFoo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._aBar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularMessage({ $0.aBaz }, fieldNumber: 1, isUnset: { $0._storage._aBaz == nil }),
+    .singularMessage({ $0.aFoo }, fieldNumber: 2, isUnset: { $0._storage._aFoo == nil }),
+    .singularMessage({ $0.aBar }, fieldNumber: 3, isUnset: { $0._storage._aBar == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_CycleBaz, rhs: SwiftProtoTesting_CycleBaz) -> Bool {
     if lhs._storage !== rhs._storage {

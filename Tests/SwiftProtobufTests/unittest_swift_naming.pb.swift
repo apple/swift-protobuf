@@ -15383,10 +15383,10 @@ extension SwiftProtoTesting_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 5001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_Foo, rhs: SwiftProtoTesting_Names_Foo) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -16319,681 +16319,231 @@ extension SwiftProtoTesting_Names_FieldNames: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._string {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._int {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._double {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._float {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      } }()
-      try { if let v = _storage._uint {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
-      } }()
-      try { if let v = _storage._hashValue_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
-      } }()
-      try { if let v = _storage._description_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
-      } }()
-      try { if let v = _storage._debugDescription_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
-      } }()
-      try { if let v = _storage._swift {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
-      } }()
-      try { if let v = _storage._unrecognized {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-      } }()
-      try { if let v = _storage._class {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-      } }()
-      try { if let v = _storage._deinit {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      } }()
-      try { if let v = _storage._enum {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      } }()
-      try { if let v = _storage._func {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
-      } }()
-      try { if let v = _storage._import {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 16)
-      } }()
-      try { if let v = _storage._init_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
-      } }()
-      try { if let v = _storage._inout {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
-      } }()
-      try { if let v = _storage._internal {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 19)
-      } }()
-      try { if let v = _storage._let {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 20)
-      } }()
-      try { if let v = _storage._operator {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-      } }()
-      try { if let v = _storage._private {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-      } }()
-      try { if let v = _storage._protocol {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-      } }()
-      try { if let v = _storage._public {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-      } }()
-      try { if let v = _storage._static {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 25)
-      } }()
-      try { if let v = _storage._struct {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
-      } }()
-      try { if let v = _storage._subscript {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 27)
-      } }()
-      try { if let v = _storage._typealias {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 28)
-      } }()
-      try { if let v = _storage._var {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 29)
-      } }()
-      try { if let v = _storage._break {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
-      } }()
-      try { if let v = _storage._case {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
-      } }()
-      try { if let v = _storage._continue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
-      } }()
-      try { if let v = _storage._default {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
-      } }()
-      try { if let v = _storage._defer {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 34)
-      } }()
-      try { if let v = _storage._do {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 35)
-      } }()
-      try { if let v = _storage._else {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 36)
-      } }()
-      try { if let v = _storage._fallthrough {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 37)
-      } }()
-      try { if let v = _storage._for {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 38)
-      } }()
-      try { if let v = _storage._guard {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 39)
-      } }()
-      try { if let v = _storage._if {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 40)
-      } }()
-      try { if let v = _storage._in {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-      } }()
-      try { if let v = _storage._repeat {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-      } }()
-      try { if let v = _storage._return {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-      } }()
-      try { if let v = _storage._switch {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-      } }()
-      try { if let v = _storage._where {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 45)
-      } }()
-      try { if let v = _storage._while {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 46)
-      } }()
-      try { if let v = _storage._as {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
-      } }()
-      try { if let v = _storage._catch {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
-      } }()
-      try { if let v = _storage._dynamicType_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 49)
-      } }()
-      try { if let v = _storage._false {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 50)
-      } }()
-      try { if let v = _storage._is {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
-      } }()
-      try { if let v = _storage._nil {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 52)
-      } }()
-      try { if let v = _storage._rethrows {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 53)
-      } }()
-      try { if let v = _storage._super {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 54)
-      } }()
-      try { if let v = _storage._self_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 55)
-      } }()
-      try { if let v = _storage._throw {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 57)
-      } }()
-      try { if let v = _storage._throws {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 58)
-      } }()
-      try { if let v = _storage._true {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 59)
-      } }()
-      try { if let v = _storage._try {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 60)
-      } }()
-      try { if let v = _storage.__Column__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
-      } }()
-      try { if let v = _storage.__File__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 62)
-      } }()
-      try { if let v = _storage.__Function__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
-      } }()
-      try { if let v = _storage.__Line__ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
-      } }()
-      try { if let v = _storage.____ {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
-      } }()
-      try { if let v = _storage._associativity {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 66)
-      } }()
-      try { if let v = _storage._convenience {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 67)
-      } }()
-      try { if let v = _storage._dynamic {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 68)
-      } }()
-      try { if let v = _storage._didSet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 69)
-      } }()
-      try { if let v = _storage._final {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 70)
-      } }()
-      try { if let v = _storage._get {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 71)
-      } }()
-      try { if let v = _storage._infix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 72)
-      } }()
-      try { if let v = _storage._indirect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 73)
-      } }()
-      try { if let v = _storage._lazy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 74)
-      } }()
-      try { if let v = _storage._left {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 75)
-      } }()
-      try { if let v = _storage._mutating {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 76)
-      } }()
-      try { if let v = _storage._none {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 77)
-      } }()
-      try { if let v = _storage._nonmutating {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
-      } }()
-      try { if let v = _storage._optional {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 79)
-      } }()
-      try { if let v = _storage._override {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 80)
-      } }()
-      try { if let v = _storage._postfix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 81)
-      } }()
-      try { if let v = _storage._precedence {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 82)
-      } }()
-      try { if let v = _storage._prefix {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 83)
-      } }()
-      try { if let v = _storage._required {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 85)
-      } }()
-      try { if let v = _storage._right {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 86)
-      } }()
-      try { if let v = _storage._set {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 87)
-      } }()
-      try { if let v = _storage._type {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 88)
-      } }()
-      try { if let v = _storage._unowned {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 89)
-      } }()
-      try { if let v = _storage._weak {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 90)
-      } }()
-      try { if let v = _storage._willSet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 91)
-      } }()
-      try { if let v = _storage._id {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 92)
-      } }()
-      try { if let v = _storage._cmd {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 93)
-      } }()
-      try { if let v = _storage._out {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 96)
-      } }()
-      try { if let v = _storage._bycopy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 98)
-      } }()
-      try { if let v = _storage._byref {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
-      } }()
-      try { if let v = _storage._oneway {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 100)
-      } }()
-      try { if let v = _storage._and {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 102)
-      } }()
-      try { if let v = _storage._andEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 103)
-      } }()
-      try { if let v = _storage._alignas {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 104)
-      } }()
-      try { if let v = _storage._alignof {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 105)
-      } }()
-      try { if let v = _storage._asm {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 106)
-      } }()
-      try { if let v = _storage._auto {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 107)
-      } }()
-      try { if let v = _storage._bitand {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 108)
-      } }()
-      try { if let v = _storage._bitor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 109)
-      } }()
-      try { if let v = _storage._bool {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 110)
-      } }()
-      try { if let v = _storage._char {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 114)
-      } }()
-      try { if let v = _storage._char16T {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 115)
-      } }()
-      try { if let v = _storage._char32T {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
-      } }()
-      try { if let v = _storage._compl {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 118)
-      } }()
-      try { if let v = _storage._const {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 119)
-      } }()
-      try { if let v = _storage._constexpr {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 120)
-      } }()
-      try { if let v = _storage._constCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 121)
-      } }()
-      try { if let v = _storage._decltype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 123)
-      } }()
-      try { if let v = _storage._delete {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 125)
-      } }()
-      try { if let v = _storage._dynamicCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 127)
-      } }()
-      try { if let v = _storage._explicit {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 130)
-      } }()
-      try { if let v = _storage._export {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 131)
-      } }()
-      try { if let v = _storage._extern {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 132)
-      } }()
-      try { if let v = _storage._friend {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 136)
-      } }()
-      try { if let v = _storage._goto {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 137)
-      } }()
-      try { if let v = _storage._inline {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 139)
-      } }()
-      try { if let v = _storage._long {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 141)
-      } }()
-      try { if let v = _storage._mutable {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 142)
-      } }()
-      try { if let v = _storage._namespace {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 143)
-      } }()
-      try { if let v = _storage._new {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 144)
-      } }()
-      try { if let v = _storage._noexcept {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 145)
-      } }()
-      try { if let v = _storage._not {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 146)
-      } }()
-      try { if let v = _storage._notEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 147)
-      } }()
-      try { if let v = _storage._nullptr {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 148)
-      } }()
-      try { if let v = _storage._or {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 150)
-      } }()
-      try { if let v = _storage._orEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 151)
-      } }()
-      try { if let v = _storage._protected {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 153)
-      } }()
-      try { if let v = _storage._register {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 155)
-      } }()
-      try { if let v = _storage._reinterpretCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 156)
-      } }()
-      try { if let v = _storage._short {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 158)
-      } }()
-      try { if let v = _storage._signed {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 159)
-      } }()
-      try { if let v = _storage._sizeof {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 160)
-      } }()
-      try { if let v = _storage._staticAssert {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 162)
-      } }()
-      try { if let v = _storage._staticCast {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 163)
-      } }()
-      try { if let v = _storage._template {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 166)
-      } }()
-      try { if let v = _storage._this {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
-      } }()
-      try { if let v = _storage._threadLocal {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 168)
-      } }()
-      try { if let v = _storage._typedef {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 172)
-      } }()
-      try { if let v = _storage._typeid {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 173)
-      } }()
-      try { if let v = _storage._typename {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 174)
-      } }()
-      try { if let v = _storage._union {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 175)
-      } }()
-      try { if let v = _storage._unsigned {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 176)
-      } }()
-      try { if let v = _storage._using {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 177)
-      } }()
-      try { if let v = _storage._virtual {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 178)
-      } }()
-      try { if let v = _storage._void {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 179)
-      } }()
-      try { if let v = _storage._volatile {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 180)
-      } }()
-      try { if let v = _storage._wcharT {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 181)
-      } }()
-      try { if let v = _storage._xor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 183)
-      } }()
-      try { if let v = _storage._xorEq {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 184)
-      } }()
-      try { if let v = _storage._restrict {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 185)
-      } }()
-      try { if let v = _storage._category {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 186)
-      } }()
-      try { if let v = _storage._ivar {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 187)
-      } }()
-      try { if let v = _storage._method {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 188)
-      } }()
-      try { if let v = _storage._finalize {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
-      } }()
-      try { if let v = _storage._hash {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
-      } }()
-      try { if let v = _storage._dealloc {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 194)
-      } }()
-      try { if let v = _storage._superclass {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 197)
-      } }()
-      try { if let v = _storage._retain {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 198)
-      } }()
-      try { if let v = _storage._release {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 199)
-      } }()
-      try { if let v = _storage._autorelease {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
-      } }()
-      try { if let v = _storage._retainCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
-      } }()
-      try { if let v = _storage._zone {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 202)
-      } }()
-      try { if let v = _storage._isProxy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 203)
-      } }()
-      try { if let v = _storage._copy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 204)
-      } }()
-      try { if let v = _storage._mutableCopy {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 205)
-      } }()
-      try { if let v = _storage._classForCoder {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
-      } }()
-      try { if let v = _storage._clear {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
-      } }()
-      try { if let v = _storage._data {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 208)
-      } }()
-      try { if let v = _storage._delimitedData {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 209)
-      } }()
-      try { if let v = _storage._descriptor {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 210)
-      } }()
-      try { if let v = _storage._extensionRegistry {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 211)
-      } }()
-      try { if let v = _storage._extensionsCurrentlySet {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 212)
-      } }()
-      try { if let v = _storage._isInitialized_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 213)
-      } }()
-      try { if let v = _storage._serializedSize {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 214)
-      } }()
-      try { if let v = _storage._sortedExtensionsInUse {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 215)
-      } }()
-      try { if let v = _storage._unknownFields_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 216)
-      } }()
-      try { if let v = _storage._fixed {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 217)
-      } }()
-      try { if let v = _storage._fract {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 218)
-      } }()
-      try { if let v = _storage._size {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 219)
-      } }()
-      try { if let v = _storage._logicalAddress {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 220)
-      } }()
-      try { if let v = _storage._physicalAddress {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 221)
-      } }()
-      try { if let v = _storage._byteCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 222)
-      } }()
-      try { if let v = _storage._byteOffset {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 223)
-      } }()
-      try { if let v = _storage._duration {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 224)
-      } }()
-      try { if let v = _storage._absoluteTime {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 225)
-      } }()
-      try { if let v = _storage._optionBits {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
-      } }()
-      try { if let v = _storage._itemCount {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 227)
-      } }()
-      try { if let v = _storage._pbversion {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 228)
-      } }()
-      try { if let v = _storage._scriptCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 229)
-      } }()
-      try { if let v = _storage._langCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 230)
-      } }()
-      try { if let v = _storage._regionCode {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 231)
-      } }()
-      try { if let v = _storage._ostype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 232)
-      } }()
-      try { if let v = _storage._processSerialNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 233)
-      } }()
-      try { if let v = _storage._point {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 234)
-      } }()
-      try { if let v = _storage._rect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 235)
-      } }()
-      try { if let v = _storage._fixedPoint {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 236)
-      } }()
-      try { if let v = _storage._fixedRect {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 237)
-      } }()
-      try { if let v = _storage._style {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 238)
-      } }()
-      try { if let v = _storage._styleParameter {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 239)
-      } }()
-      try { if let v = _storage._styleField {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 240)
-      } }()
-      try { if let v = _storage._timeScale {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
-      } }()
-      try { if let v = _storage._timeBase {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 242)
-      } }()
-      try { if let v = _storage._timeRecord {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 243)
-      } }()
-      try { if let v = _storage._jsonShouldBeOverridden {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
-      } }()
-      try { if let v = _storage._any {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 245)
-      } }()
-      try { if let v = _storage._int32 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 246)
-      } }()
-      try { if let v = _storage._int64 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 247)
-      } }()
-      try { if let v = _storage._uint32 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 250)
-      } }()
-      try { if let v = _storage._uint64 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 251)
-      } }()
-      try { if let v = _storage._associatedtype {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 252)
-      } }()
-      try { if let v = _storage._fileprivate {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 253)
-      } }()
-      try { if let v = _storage._open {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 254)
-      } }()
-      try { if let v = _storage._serializedData {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 255)
-      } }()
-      try { if let v = _storage._hasSerializedData_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 256)
-      } }()
-      try { if let v = _storage._clearSerializedData_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 257)
-      } }()
-      try { if let v = _storage._jsonUtf8Data {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 258)
-      } }()
-      try { if let v = _storage._jsonString {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 259)
-      } }()
-      try { if let v = _storage._extension {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 260)
-      } }()
-      try { if let v = _storage._extensions {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 261)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.string }, fieldNumber: 1, isUnset: { $0._storage._string == nil }),
+    .singularInt32({ $0.int }, fieldNumber: 2, isUnset: { $0._storage._int == nil }),
+    .singularInt32({ $0.double }, fieldNumber: 3, isUnset: { $0._storage._double == nil }),
+    .singularInt32({ $0.float }, fieldNumber: 4, isUnset: { $0._storage._float == nil }),
+    .singularInt32({ $0.uint }, fieldNumber: 5, isUnset: { $0._storage._uint == nil }),
+    .singularInt32({ $0.hashValue_p }, fieldNumber: 6, isUnset: { $0._storage._hashValue_p == nil }),
+    .singularInt32({ $0.description_p }, fieldNumber: 7, isUnset: { $0._storage._description_p == nil }),
+    .singularInt32({ $0.debugDescription_p }, fieldNumber: 8, isUnset: { $0._storage._debugDescription_p == nil }),
+    .singularInt32({ $0.swift }, fieldNumber: 9, isUnset: { $0._storage._swift == nil }),
+    .singularInt32({ $0.unrecognized }, fieldNumber: 10, isUnset: { $0._storage._unrecognized == nil }),
+    .singularInt32({ $0.`class` }, fieldNumber: 11, isUnset: { $0._storage._class == nil }),
+    .singularInt32({ $0.`deinit` }, fieldNumber: 12, isUnset: { $0._storage._deinit == nil }),
+    .singularInt32({ $0.`enum` }, fieldNumber: 13, isUnset: { $0._storage._enum == nil }),
+    .singularInt32({ $0.`func` }, fieldNumber: 15, isUnset: { $0._storage._func == nil }),
+    .singularInt32({ $0.`import` }, fieldNumber: 16, isUnset: { $0._storage._import == nil }),
+    .singularInt32({ $0.init_p }, fieldNumber: 17, isUnset: { $0._storage._init_p == nil }),
+    .singularInt32({ $0.`inout` }, fieldNumber: 18, isUnset: { $0._storage._inout == nil }),
+    .singularInt32({ $0.`internal` }, fieldNumber: 19, isUnset: { $0._storage._internal == nil }),
+    .singularInt32({ $0.`let` }, fieldNumber: 20, isUnset: { $0._storage._let == nil }),
+    .singularInt32({ $0.`operator` }, fieldNumber: 21, isUnset: { $0._storage._operator == nil }),
+    .singularInt32({ $0.`private` }, fieldNumber: 22, isUnset: { $0._storage._private == nil }),
+    .singularInt32({ $0.`protocol` }, fieldNumber: 23, isUnset: { $0._storage._protocol == nil }),
+    .singularInt32({ $0.`public` }, fieldNumber: 24, isUnset: { $0._storage._public == nil }),
+    .singularInt32({ $0.`static` }, fieldNumber: 25, isUnset: { $0._storage._static == nil }),
+    .singularInt32({ $0.`struct` }, fieldNumber: 26, isUnset: { $0._storage._struct == nil }),
+    .singularInt32({ $0.`subscript` }, fieldNumber: 27, isUnset: { $0._storage._subscript == nil }),
+    .singularInt32({ $0.`typealias` }, fieldNumber: 28, isUnset: { $0._storage._typealias == nil }),
+    .singularInt32({ $0.`var` }, fieldNumber: 29, isUnset: { $0._storage._var == nil }),
+    .singularInt32({ $0.`break` }, fieldNumber: 30, isUnset: { $0._storage._break == nil }),
+    .singularInt32({ $0.`case` }, fieldNumber: 31, isUnset: { $0._storage._case == nil }),
+    .singularInt32({ $0.`continue` }, fieldNumber: 32, isUnset: { $0._storage._continue == nil }),
+    .singularInt32({ $0.`default` }, fieldNumber: 33, isUnset: { $0._storage._default == nil }),
+    .singularInt32({ $0.`defer` }, fieldNumber: 34, isUnset: { $0._storage._defer == nil }),
+    .singularInt32({ $0.`do` }, fieldNumber: 35, isUnset: { $0._storage._do == nil }),
+    .singularInt32({ $0.`else` }, fieldNumber: 36, isUnset: { $0._storage._else == nil }),
+    .singularInt32({ $0.`fallthrough` }, fieldNumber: 37, isUnset: { $0._storage._fallthrough == nil }),
+    .singularInt32({ $0.`for` }, fieldNumber: 38, isUnset: { $0._storage._for == nil }),
+    .singularInt32({ $0.`guard` }, fieldNumber: 39, isUnset: { $0._storage._guard == nil }),
+    .singularInt32({ $0.`if` }, fieldNumber: 40, isUnset: { $0._storage._if == nil }),
+    .singularInt32({ $0.`in` }, fieldNumber: 41, isUnset: { $0._storage._in == nil }),
+    .singularInt32({ $0.`repeat` }, fieldNumber: 42, isUnset: { $0._storage._repeat == nil }),
+    .singularInt32({ $0.`return` }, fieldNumber: 43, isUnset: { $0._storage._return == nil }),
+    .singularInt32({ $0.`switch` }, fieldNumber: 44, isUnset: { $0._storage._switch == nil }),
+    .singularInt32({ $0.`where` }, fieldNumber: 45, isUnset: { $0._storage._where == nil }),
+    .singularInt32({ $0.`while` }, fieldNumber: 46, isUnset: { $0._storage._while == nil }),
+    .singularInt32({ $0.`as` }, fieldNumber: 47, isUnset: { $0._storage._as == nil }),
+    .singularInt32({ $0.`catch` }, fieldNumber: 48, isUnset: { $0._storage._catch == nil }),
+    .singularInt32({ $0.dynamicType_p }, fieldNumber: 49, isUnset: { $0._storage._dynamicType_p == nil }),
+    .singularInt32({ $0.`false` }, fieldNumber: 50, isUnset: { $0._storage._false == nil }),
+    .singularInt32({ $0.`is` }, fieldNumber: 51, isUnset: { $0._storage._is == nil }),
+    .singularInt32({ $0.`nil` }, fieldNumber: 52, isUnset: { $0._storage._nil == nil }),
+    .singularInt32({ $0.`rethrows` }, fieldNumber: 53, isUnset: { $0._storage._rethrows == nil }),
+    .singularInt32({ $0.`super` }, fieldNumber: 54, isUnset: { $0._storage._super == nil }),
+    .singularInt32({ $0.self_p }, fieldNumber: 55, isUnset: { $0._storage._self_p == nil }),
+    .singularInt32({ $0.`throw` }, fieldNumber: 57, isUnset: { $0._storage._throw == nil }),
+    .singularInt32({ $0.`throws` }, fieldNumber: 58, isUnset: { $0._storage._throws == nil }),
+    .singularInt32({ $0.`true` }, fieldNumber: 59, isUnset: { $0._storage._true == nil }),
+    .singularInt32({ $0.`try` }, fieldNumber: 60, isUnset: { $0._storage._try == nil }),
+    .singularInt32({ $0._Column__ }, fieldNumber: 61, isUnset: { $0._storage.__Column__ == nil }),
+    .singularInt32({ $0._File__ }, fieldNumber: 62, isUnset: { $0._storage.__File__ == nil }),
+    .singularInt32({ $0._Function__ }, fieldNumber: 63, isUnset: { $0._storage.__Function__ == nil }),
+    .singularInt32({ $0._Line__ }, fieldNumber: 64, isUnset: { $0._storage.__Line__ == nil }),
+    .singularInt32({ $0.___ }, fieldNumber: 65, isUnset: { $0._storage.____ == nil }),
+    .singularInt32({ $0.associativity }, fieldNumber: 66, isUnset: { $0._storage._associativity == nil }),
+    .singularInt32({ $0.convenience }, fieldNumber: 67, isUnset: { $0._storage._convenience == nil }),
+    .singularInt32({ $0.dynamic }, fieldNumber: 68, isUnset: { $0._storage._dynamic == nil }),
+    .singularInt32({ $0.didSet }, fieldNumber: 69, isUnset: { $0._storage._didSet == nil }),
+    .singularInt32({ $0.final }, fieldNumber: 70, isUnset: { $0._storage._final == nil }),
+    .singularInt32({ $0.get }, fieldNumber: 71, isUnset: { $0._storage._get == nil }),
+    .singularInt32({ $0.infix }, fieldNumber: 72, isUnset: { $0._storage._infix == nil }),
+    .singularInt32({ $0.indirect }, fieldNumber: 73, isUnset: { $0._storage._indirect == nil }),
+    .singularInt32({ $0.lazy }, fieldNumber: 74, isUnset: { $0._storage._lazy == nil }),
+    .singularInt32({ $0.left }, fieldNumber: 75, isUnset: { $0._storage._left == nil }),
+    .singularInt32({ $0.mutating }, fieldNumber: 76, isUnset: { $0._storage._mutating == nil }),
+    .singularInt32({ $0.none }, fieldNumber: 77, isUnset: { $0._storage._none == nil }),
+    .singularInt32({ $0.nonmutating }, fieldNumber: 78, isUnset: { $0._storage._nonmutating == nil }),
+    .singularInt32({ $0.optional }, fieldNumber: 79, isUnset: { $0._storage._optional == nil }),
+    .singularInt32({ $0.override }, fieldNumber: 80, isUnset: { $0._storage._override == nil }),
+    .singularInt32({ $0.postfix }, fieldNumber: 81, isUnset: { $0._storage._postfix == nil }),
+    .singularInt32({ $0.precedence }, fieldNumber: 82, isUnset: { $0._storage._precedence == nil }),
+    .singularInt32({ $0.prefix }, fieldNumber: 83, isUnset: { $0._storage._prefix == nil }),
+    .singularInt32({ $0.required }, fieldNumber: 85, isUnset: { $0._storage._required == nil }),
+    .singularInt32({ $0.right }, fieldNumber: 86, isUnset: { $0._storage._right == nil }),
+    .singularInt32({ $0.set }, fieldNumber: 87, isUnset: { $0._storage._set == nil }),
+    .singularInt32({ $0.type }, fieldNumber: 88, isUnset: { $0._storage._type == nil }),
+    .singularInt32({ $0.unowned }, fieldNumber: 89, isUnset: { $0._storage._unowned == nil }),
+    .singularInt32({ $0.weak }, fieldNumber: 90, isUnset: { $0._storage._weak == nil }),
+    .singularInt32({ $0.willSet }, fieldNumber: 91, isUnset: { $0._storage._willSet == nil }),
+    .singularInt32({ $0.id }, fieldNumber: 92, isUnset: { $0._storage._id == nil }),
+    .singularInt32({ $0.cmd }, fieldNumber: 93, isUnset: { $0._storage._cmd == nil }),
+    .singularInt32({ $0.out }, fieldNumber: 96, isUnset: { $0._storage._out == nil }),
+    .singularInt32({ $0.bycopy }, fieldNumber: 98, isUnset: { $0._storage._bycopy == nil }),
+    .singularInt32({ $0.byref }, fieldNumber: 99, isUnset: { $0._storage._byref == nil }),
+    .singularInt32({ $0.oneway }, fieldNumber: 100, isUnset: { $0._storage._oneway == nil }),
+    .singularInt32({ $0.and }, fieldNumber: 102, isUnset: { $0._storage._and == nil }),
+    .singularInt32({ $0.andEq }, fieldNumber: 103, isUnset: { $0._storage._andEq == nil }),
+    .singularInt32({ $0.alignas }, fieldNumber: 104, isUnset: { $0._storage._alignas == nil }),
+    .singularInt32({ $0.alignof }, fieldNumber: 105, isUnset: { $0._storage._alignof == nil }),
+    .singularInt32({ $0.asm }, fieldNumber: 106, isUnset: { $0._storage._asm == nil }),
+    .singularInt32({ $0.auto }, fieldNumber: 107, isUnset: { $0._storage._auto == nil }),
+    .singularInt32({ $0.bitand }, fieldNumber: 108, isUnset: { $0._storage._bitand == nil }),
+    .singularInt32({ $0.bitor }, fieldNumber: 109, isUnset: { $0._storage._bitor == nil }),
+    .singularInt32({ $0.bool }, fieldNumber: 110, isUnset: { $0._storage._bool == nil }),
+    .singularInt32({ $0.char }, fieldNumber: 114, isUnset: { $0._storage._char == nil }),
+    .singularInt32({ $0.char16T }, fieldNumber: 115, isUnset: { $0._storage._char16T == nil }),
+    .singularInt32({ $0.char32T }, fieldNumber: 116, isUnset: { $0._storage._char32T == nil }),
+    .singularInt32({ $0.compl }, fieldNumber: 118, isUnset: { $0._storage._compl == nil }),
+    .singularInt32({ $0.const }, fieldNumber: 119, isUnset: { $0._storage._const == nil }),
+    .singularInt32({ $0.constexpr }, fieldNumber: 120, isUnset: { $0._storage._constexpr == nil }),
+    .singularInt32({ $0.constCast }, fieldNumber: 121, isUnset: { $0._storage._constCast == nil }),
+    .singularInt32({ $0.decltype }, fieldNumber: 123, isUnset: { $0._storage._decltype == nil }),
+    .singularInt32({ $0.delete }, fieldNumber: 125, isUnset: { $0._storage._delete == nil }),
+    .singularInt32({ $0.dynamicCast }, fieldNumber: 127, isUnset: { $0._storage._dynamicCast == nil }),
+    .singularInt32({ $0.explicit }, fieldNumber: 130, isUnset: { $0._storage._explicit == nil }),
+    .singularInt32({ $0.export }, fieldNumber: 131, isUnset: { $0._storage._export == nil }),
+    .singularInt32({ $0.extern }, fieldNumber: 132, isUnset: { $0._storage._extern == nil }),
+    .singularInt32({ $0.friend }, fieldNumber: 136, isUnset: { $0._storage._friend == nil }),
+    .singularInt32({ $0.goto }, fieldNumber: 137, isUnset: { $0._storage._goto == nil }),
+    .singularInt32({ $0.inline }, fieldNumber: 139, isUnset: { $0._storage._inline == nil }),
+    .singularInt32({ $0.long }, fieldNumber: 141, isUnset: { $0._storage._long == nil }),
+    .singularInt32({ $0.mutable }, fieldNumber: 142, isUnset: { $0._storage._mutable == nil }),
+    .singularInt32({ $0.namespace }, fieldNumber: 143, isUnset: { $0._storage._namespace == nil }),
+    .singularInt32({ $0.new }, fieldNumber: 144, isUnset: { $0._storage._new == nil }),
+    .singularInt32({ $0.noexcept }, fieldNumber: 145, isUnset: { $0._storage._noexcept == nil }),
+    .singularInt32({ $0.not }, fieldNumber: 146, isUnset: { $0._storage._not == nil }),
+    .singularInt32({ $0.notEq }, fieldNumber: 147, isUnset: { $0._storage._notEq == nil }),
+    .singularInt32({ $0.nullptr }, fieldNumber: 148, isUnset: { $0._storage._nullptr == nil }),
+    .singularInt32({ $0.or }, fieldNumber: 150, isUnset: { $0._storage._or == nil }),
+    .singularInt32({ $0.orEq }, fieldNumber: 151, isUnset: { $0._storage._orEq == nil }),
+    .singularInt32({ $0.protected }, fieldNumber: 153, isUnset: { $0._storage._protected == nil }),
+    .singularInt32({ $0.register }, fieldNumber: 155, isUnset: { $0._storage._register == nil }),
+    .singularInt32({ $0.reinterpretCast }, fieldNumber: 156, isUnset: { $0._storage._reinterpretCast == nil }),
+    .singularInt32({ $0.short }, fieldNumber: 158, isUnset: { $0._storage._short == nil }),
+    .singularInt32({ $0.signed }, fieldNumber: 159, isUnset: { $0._storage._signed == nil }),
+    .singularInt32({ $0.sizeof }, fieldNumber: 160, isUnset: { $0._storage._sizeof == nil }),
+    .singularInt32({ $0.staticAssert }, fieldNumber: 162, isUnset: { $0._storage._staticAssert == nil }),
+    .singularInt32({ $0.staticCast }, fieldNumber: 163, isUnset: { $0._storage._staticCast == nil }),
+    .singularInt32({ $0.template }, fieldNumber: 166, isUnset: { $0._storage._template == nil }),
+    .singularInt32({ $0.this }, fieldNumber: 167, isUnset: { $0._storage._this == nil }),
+    .singularInt32({ $0.threadLocal }, fieldNumber: 168, isUnset: { $0._storage._threadLocal == nil }),
+    .singularInt32({ $0.typedef }, fieldNumber: 172, isUnset: { $0._storage._typedef == nil }),
+    .singularInt32({ $0.typeid }, fieldNumber: 173, isUnset: { $0._storage._typeid == nil }),
+    .singularInt32({ $0.typename }, fieldNumber: 174, isUnset: { $0._storage._typename == nil }),
+    .singularInt32({ $0.union }, fieldNumber: 175, isUnset: { $0._storage._union == nil }),
+    .singularInt32({ $0.unsigned }, fieldNumber: 176, isUnset: { $0._storage._unsigned == nil }),
+    .singularInt32({ $0.using }, fieldNumber: 177, isUnset: { $0._storage._using == nil }),
+    .singularInt32({ $0.virtual }, fieldNumber: 178, isUnset: { $0._storage._virtual == nil }),
+    .singularInt32({ $0.void }, fieldNumber: 179, isUnset: { $0._storage._void == nil }),
+    .singularInt32({ $0.volatile }, fieldNumber: 180, isUnset: { $0._storage._volatile == nil }),
+    .singularInt32({ $0.wcharT }, fieldNumber: 181, isUnset: { $0._storage._wcharT == nil }),
+    .singularInt32({ $0.xor }, fieldNumber: 183, isUnset: { $0._storage._xor == nil }),
+    .singularInt32({ $0.xorEq }, fieldNumber: 184, isUnset: { $0._storage._xorEq == nil }),
+    .singularInt32({ $0.restrict }, fieldNumber: 185, isUnset: { $0._storage._restrict == nil }),
+    .singularInt32({ $0.category }, fieldNumber: 186, isUnset: { $0._storage._category == nil }),
+    .singularInt32({ $0.ivar }, fieldNumber: 187, isUnset: { $0._storage._ivar == nil }),
+    .singularInt32({ $0.method }, fieldNumber: 188, isUnset: { $0._storage._method == nil }),
+    .singularInt32({ $0.finalize }, fieldNumber: 192, isUnset: { $0._storage._finalize == nil }),
+    .singularInt32({ $0.hash }, fieldNumber: 193, isUnset: { $0._storage._hash == nil }),
+    .singularInt32({ $0.dealloc }, fieldNumber: 194, isUnset: { $0._storage._dealloc == nil }),
+    .singularInt32({ $0.superclass }, fieldNumber: 197, isUnset: { $0._storage._superclass == nil }),
+    .singularInt32({ $0.retain }, fieldNumber: 198, isUnset: { $0._storage._retain == nil }),
+    .singularInt32({ $0.release }, fieldNumber: 199, isUnset: { $0._storage._release == nil }),
+    .singularInt32({ $0.autorelease }, fieldNumber: 200, isUnset: { $0._storage._autorelease == nil }),
+    .singularInt32({ $0.retainCount }, fieldNumber: 201, isUnset: { $0._storage._retainCount == nil }),
+    .singularInt32({ $0.zone }, fieldNumber: 202, isUnset: { $0._storage._zone == nil }),
+    .singularInt32({ $0.isProxy }, fieldNumber: 203, isUnset: { $0._storage._isProxy == nil }),
+    .singularInt32({ $0.copy }, fieldNumber: 204, isUnset: { $0._storage._copy == nil }),
+    .singularInt32({ $0.mutableCopy }, fieldNumber: 205, isUnset: { $0._storage._mutableCopy == nil }),
+    .singularInt32({ $0.classForCoder }, fieldNumber: 206, isUnset: { $0._storage._classForCoder == nil }),
+    .singularInt32({ $0.clear }, fieldNumber: 207, isUnset: { $0._storage._clear == nil }),
+    .singularInt32({ $0.data }, fieldNumber: 208, isUnset: { $0._storage._data == nil }),
+    .singularInt32({ $0.delimitedData }, fieldNumber: 209, isUnset: { $0._storage._delimitedData == nil }),
+    .singularInt32({ $0.descriptor }, fieldNumber: 210, isUnset: { $0._storage._descriptor == nil }),
+    .singularInt32({ $0.extensionRegistry }, fieldNumber: 211, isUnset: { $0._storage._extensionRegistry == nil }),
+    .singularInt32({ $0.extensionsCurrentlySet }, fieldNumber: 212, isUnset: { $0._storage._extensionsCurrentlySet == nil }),
+    .singularInt32({ $0.isInitialized_p }, fieldNumber: 213, isUnset: { $0._storage._isInitialized_p == nil }),
+    .singularInt32({ $0.serializedSize }, fieldNumber: 214, isUnset: { $0._storage._serializedSize == nil }),
+    .singularInt32({ $0.sortedExtensionsInUse }, fieldNumber: 215, isUnset: { $0._storage._sortedExtensionsInUse == nil }),
+    .singularInt32({ $0.unknownFields_p }, fieldNumber: 216, isUnset: { $0._storage._unknownFields_p == nil }),
+    .singularInt32({ $0.fixed }, fieldNumber: 217, isUnset: { $0._storage._fixed == nil }),
+    .singularInt32({ $0.fract }, fieldNumber: 218, isUnset: { $0._storage._fract == nil }),
+    .singularInt32({ $0.size }, fieldNumber: 219, isUnset: { $0._storage._size == nil }),
+    .singularInt32({ $0.logicalAddress }, fieldNumber: 220, isUnset: { $0._storage._logicalAddress == nil }),
+    .singularInt32({ $0.physicalAddress }, fieldNumber: 221, isUnset: { $0._storage._physicalAddress == nil }),
+    .singularInt32({ $0.byteCount }, fieldNumber: 222, isUnset: { $0._storage._byteCount == nil }),
+    .singularInt32({ $0.byteOffset }, fieldNumber: 223, isUnset: { $0._storage._byteOffset == nil }),
+    .singularInt32({ $0.duration }, fieldNumber: 224, isUnset: { $0._storage._duration == nil }),
+    .singularInt32({ $0.absoluteTime }, fieldNumber: 225, isUnset: { $0._storage._absoluteTime == nil }),
+    .singularInt32({ $0.optionBits }, fieldNumber: 226, isUnset: { $0._storage._optionBits == nil }),
+    .singularInt32({ $0.itemCount }, fieldNumber: 227, isUnset: { $0._storage._itemCount == nil }),
+    .singularInt32({ $0.pbversion }, fieldNumber: 228, isUnset: { $0._storage._pbversion == nil }),
+    .singularInt32({ $0.scriptCode }, fieldNumber: 229, isUnset: { $0._storage._scriptCode == nil }),
+    .singularInt32({ $0.langCode }, fieldNumber: 230, isUnset: { $0._storage._langCode == nil }),
+    .singularInt32({ $0.regionCode }, fieldNumber: 231, isUnset: { $0._storage._regionCode == nil }),
+    .singularInt32({ $0.ostype }, fieldNumber: 232, isUnset: { $0._storage._ostype == nil }),
+    .singularInt32({ $0.processSerialNumber }, fieldNumber: 233, isUnset: { $0._storage._processSerialNumber == nil }),
+    .singularInt32({ $0.point }, fieldNumber: 234, isUnset: { $0._storage._point == nil }),
+    .singularInt32({ $0.rect }, fieldNumber: 235, isUnset: { $0._storage._rect == nil }),
+    .singularInt32({ $0.fixedPoint }, fieldNumber: 236, isUnset: { $0._storage._fixedPoint == nil }),
+    .singularInt32({ $0.fixedRect }, fieldNumber: 237, isUnset: { $0._storage._fixedRect == nil }),
+    .singularInt32({ $0.style }, fieldNumber: 238, isUnset: { $0._storage._style == nil }),
+    .singularInt32({ $0.styleParameter }, fieldNumber: 239, isUnset: { $0._storage._styleParameter == nil }),
+    .singularInt32({ $0.styleField }, fieldNumber: 240, isUnset: { $0._storage._styleField == nil }),
+    .singularInt32({ $0.timeScale }, fieldNumber: 241, isUnset: { $0._storage._timeScale == nil }),
+    .singularInt32({ $0.timeBase }, fieldNumber: 242, isUnset: { $0._storage._timeBase == nil }),
+    .singularInt32({ $0.timeRecord }, fieldNumber: 243, isUnset: { $0._storage._timeRecord == nil }),
+    .singularInt32({ $0.jsonShouldBeOverridden }, fieldNumber: 244, isUnset: { $0._storage._jsonShouldBeOverridden == nil }),
+    .singularInt32({ $0.any }, fieldNumber: 245, isUnset: { $0._storage._any == nil }),
+    .singularInt32({ $0.int32 }, fieldNumber: 246, isUnset: { $0._storage._int32 == nil }),
+    .singularInt32({ $0.int64 }, fieldNumber: 247, isUnset: { $0._storage._int64 == nil }),
+    .singularInt32({ $0.uint32 }, fieldNumber: 250, isUnset: { $0._storage._uint32 == nil }),
+    .singularInt32({ $0.uint64 }, fieldNumber: 251, isUnset: { $0._storage._uint64 == nil }),
+    .singularInt32({ $0.`associatedtype` }, fieldNumber: 252, isUnset: { $0._storage._associatedtype == nil }),
+    .singularInt32({ $0.`fileprivate` }, fieldNumber: 253, isUnset: { $0._storage._fileprivate == nil }),
+    .singularInt32({ $0.`open` }, fieldNumber: 254, isUnset: { $0._storage._open == nil }),
+    .singularInt32({ $0.serializedData }, fieldNumber: 255, isUnset: { $0._storage._serializedData == nil }),
+    .singularInt32({ $0.hasSerializedData_p }, fieldNumber: 256, isUnset: { $0._storage._hasSerializedData_p == nil }),
+    .singularInt32({ $0.clearSerializedData_p }, fieldNumber: 257, isUnset: { $0._storage._clearSerializedData_p == nil }),
+    .singularInt32({ $0.jsonUtf8Data }, fieldNumber: 258, isUnset: { $0._storage._jsonUtf8Data == nil }),
+    .singularInt32({ $0.jsonString }, fieldNumber: 259, isUnset: { $0._storage._jsonString == nil }),
+    .singularInt32({ $0.`extension` }, fieldNumber: 260, isUnset: { $0._storage._extension == nil }),
+    .singularInt32({ $0.extensions }, fieldNumber: 261, isUnset: { $0._storage._extensions == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_FieldNames, rhs: SwiftProtoTesting_Names_FieldNames) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -17240,9 +16790,9 @@ extension SwiftProtoTesting_Names_MessageNames: SwiftProtobuf.Message, SwiftProt
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames, rhs: SwiftProtoTesting_Names_MessageNames) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -17268,16 +16818,10 @@ extension SwiftProtoTesting_Names_MessageNames.StringMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._string {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.string }, fieldNumber: 1, isUnset: { $0._string == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.StringMessage, rhs: SwiftProtoTesting_Names_MessageNames.StringMessage) -> Bool {
     if lhs._string != rhs._string {return false}
@@ -17304,16 +16848,10 @@ extension SwiftProtoTesting_Names_MessageNames.ProtocolMessage: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._protocol {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`protocol` }, fieldNumber: 1, isUnset: { $0._protocol == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ProtocolMessage, rhs: SwiftProtoTesting_Names_MessageNames.ProtocolMessage) -> Bool {
     if lhs._protocol != rhs._protocol {return false}
@@ -17340,16 +16878,10 @@ extension SwiftProtoTesting_Names_MessageNames.IntMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._int {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.int }, fieldNumber: 1, isUnset: { $0._int == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.IntMessage, rhs: SwiftProtoTesting_Names_MessageNames.IntMessage) -> Bool {
     if lhs._int != rhs._int {return false}
@@ -17376,16 +16908,10 @@ extension SwiftProtoTesting_Names_MessageNames.DoubleMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._double {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.double }, fieldNumber: 1, isUnset: { $0._double == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.DoubleMessage, rhs: SwiftProtoTesting_Names_MessageNames.DoubleMessage) -> Bool {
     if lhs._double != rhs._double {return false}
@@ -17412,16 +16938,10 @@ extension SwiftProtoTesting_Names_MessageNames.FloatMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._float {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.float }, fieldNumber: 1, isUnset: { $0._float == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.FloatMessage, rhs: SwiftProtoTesting_Names_MessageNames.FloatMessage) -> Bool {
     if lhs._float != rhs._float {return false}
@@ -17448,16 +16968,10 @@ extension SwiftProtoTesting_Names_MessageNames.UIntMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._uint {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.uint }, fieldNumber: 1, isUnset: { $0._uint == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.UIntMessage, rhs: SwiftProtoTesting_Names_MessageNames.UIntMessage) -> Bool {
     if lhs._uint != rhs._uint {return false}
@@ -17484,16 +16998,10 @@ extension SwiftProtoTesting_Names_MessageNames.hashValueMessage: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._hashValue_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.hashValue_p }, fieldNumber: 1, isUnset: { $0._hashValue_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.hashValueMessage, rhs: SwiftProtoTesting_Names_MessageNames.hashValueMessage) -> Bool {
     if lhs._hashValue_p != rhs._hashValue_p {return false}
@@ -17520,16 +17028,10 @@ extension SwiftProtoTesting_Names_MessageNames.descriptionMessage: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._description_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.description_p }, fieldNumber: 1, isUnset: { $0._description_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.descriptionMessage, rhs: SwiftProtoTesting_Names_MessageNames.descriptionMessage) -> Bool {
     if lhs._description_p != rhs._description_p {return false}
@@ -17556,16 +17058,10 @@ extension SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._debugDescription_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.debugDescription_p }, fieldNumber: 1, isUnset: { $0._debugDescription_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage, rhs: SwiftProtoTesting_Names_MessageNames.debugDescriptionMessage) -> Bool {
     if lhs._debugDescription_p != rhs._debugDescription_p {return false}
@@ -17592,16 +17088,10 @@ extension SwiftProtoTesting_Names_MessageNames.SwiftMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._swift {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.swift }, fieldNumber: 1, isUnset: { $0._swift == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.SwiftMessage, rhs: SwiftProtoTesting_Names_MessageNames.SwiftMessage) -> Bool {
     if lhs._swift != rhs._swift {return false}
@@ -17628,16 +17118,10 @@ extension SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._unrecognized {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.unrecognized }, fieldNumber: 1, isUnset: { $0._unrecognized == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED, rhs: SwiftProtoTesting_Names_MessageNames.UNRECOGNIZED) -> Bool {
     if lhs._unrecognized != rhs._unrecognized {return false}
@@ -17664,16 +17148,10 @@ extension SwiftProtoTesting_Names_MessageNames.classMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._class {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`class` }, fieldNumber: 1, isUnset: { $0._class == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.classMessage, rhs: SwiftProtoTesting_Names_MessageNames.classMessage) -> Bool {
     if lhs._class != rhs._class {return false}
@@ -17700,16 +17178,10 @@ extension SwiftProtoTesting_Names_MessageNames.deinitMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._deinit {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`deinit` }, fieldNumber: 1, isUnset: { $0._deinit == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.deinitMessage, rhs: SwiftProtoTesting_Names_MessageNames.deinitMessage) -> Bool {
     if lhs._deinit != rhs._deinit {return false}
@@ -17736,16 +17208,10 @@ extension SwiftProtoTesting_Names_MessageNames.enumMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._enum {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`enum` }, fieldNumber: 1, isUnset: { $0._enum == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.enumMessage, rhs: SwiftProtoTesting_Names_MessageNames.enumMessage) -> Bool {
     if lhs._enum != rhs._enum {return false}
@@ -17772,16 +17238,10 @@ extension SwiftProtoTesting_Names_MessageNames.extensionMessage: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._extension {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`extension` }, fieldNumber: 1, isUnset: { $0._extension == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extensionMessage, rhs: SwiftProtoTesting_Names_MessageNames.extensionMessage) -> Bool {
     if lhs._extension != rhs._extension {return false}
@@ -17808,16 +17268,10 @@ extension SwiftProtoTesting_Names_MessageNames.funcMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._func {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`func` }, fieldNumber: 1, isUnset: { $0._func == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.funcMessage, rhs: SwiftProtoTesting_Names_MessageNames.funcMessage) -> Bool {
     if lhs._func != rhs._func {return false}
@@ -17844,16 +17298,10 @@ extension SwiftProtoTesting_Names_MessageNames.importMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._import {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`import` }, fieldNumber: 1, isUnset: { $0._import == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.importMessage, rhs: SwiftProtoTesting_Names_MessageNames.importMessage) -> Bool {
     if lhs._import != rhs._import {return false}
@@ -17880,16 +17328,10 @@ extension SwiftProtoTesting_Names_MessageNames.initMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._init_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.init_p }, fieldNumber: 1, isUnset: { $0._init_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.initMessage, rhs: SwiftProtoTesting_Names_MessageNames.initMessage) -> Bool {
     if lhs._init_p != rhs._init_p {return false}
@@ -17916,16 +17358,10 @@ extension SwiftProtoTesting_Names_MessageNames.inoutMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._inout {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`inout` }, fieldNumber: 1, isUnset: { $0._inout == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.inoutMessage, rhs: SwiftProtoTesting_Names_MessageNames.inoutMessage) -> Bool {
     if lhs._inout != rhs._inout {return false}
@@ -17952,16 +17388,10 @@ extension SwiftProtoTesting_Names_MessageNames.internalMessage: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._internal {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`internal` }, fieldNumber: 1, isUnset: { $0._internal == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.internalMessage, rhs: SwiftProtoTesting_Names_MessageNames.internalMessage) -> Bool {
     if lhs._internal != rhs._internal {return false}
@@ -17988,16 +17418,10 @@ extension SwiftProtoTesting_Names_MessageNames.letMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._let {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`let` }, fieldNumber: 1, isUnset: { $0._let == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.letMessage, rhs: SwiftProtoTesting_Names_MessageNames.letMessage) -> Bool {
     if lhs._let != rhs._let {return false}
@@ -18024,16 +17448,10 @@ extension SwiftProtoTesting_Names_MessageNames.operatorMessage: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._operator {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`operator` }, fieldNumber: 1, isUnset: { $0._operator == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.operatorMessage, rhs: SwiftProtoTesting_Names_MessageNames.operatorMessage) -> Bool {
     if lhs._operator != rhs._operator {return false}
@@ -18060,16 +17478,10 @@ extension SwiftProtoTesting_Names_MessageNames.privateMessage: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._private {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`private` }, fieldNumber: 1, isUnset: { $0._private == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.privateMessage, rhs: SwiftProtoTesting_Names_MessageNames.privateMessage) -> Bool {
     if lhs._private != rhs._private {return false}
@@ -18096,16 +17508,10 @@ extension SwiftProtoTesting_Names_MessageNames.protocolMessage: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._protocol {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`protocol` }, fieldNumber: 1, isUnset: { $0._protocol == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.protocolMessage, rhs: SwiftProtoTesting_Names_MessageNames.protocolMessage) -> Bool {
     if lhs._protocol != rhs._protocol {return false}
@@ -18132,16 +17538,10 @@ extension SwiftProtoTesting_Names_MessageNames.publicMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._public {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`public` }, fieldNumber: 1, isUnset: { $0._public == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.publicMessage, rhs: SwiftProtoTesting_Names_MessageNames.publicMessage) -> Bool {
     if lhs._public != rhs._public {return false}
@@ -18168,16 +17568,10 @@ extension SwiftProtoTesting_Names_MessageNames.staticMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._static {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`static` }, fieldNumber: 1, isUnset: { $0._static == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.staticMessage, rhs: SwiftProtoTesting_Names_MessageNames.staticMessage) -> Bool {
     if lhs._static != rhs._static {return false}
@@ -18204,16 +17598,10 @@ extension SwiftProtoTesting_Names_MessageNames.structMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._struct {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`struct` }, fieldNumber: 1, isUnset: { $0._struct == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.structMessage, rhs: SwiftProtoTesting_Names_MessageNames.structMessage) -> Bool {
     if lhs._struct != rhs._struct {return false}
@@ -18240,16 +17628,10 @@ extension SwiftProtoTesting_Names_MessageNames.subscriptMessage: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._subscript {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`subscript` }, fieldNumber: 1, isUnset: { $0._subscript == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.subscriptMessage, rhs: SwiftProtoTesting_Names_MessageNames.subscriptMessage) -> Bool {
     if lhs._subscript != rhs._subscript {return false}
@@ -18276,16 +17658,10 @@ extension SwiftProtoTesting_Names_MessageNames.typealiasMessage: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._typealias {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`typealias` }, fieldNumber: 1, isUnset: { $0._typealias == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typealiasMessage, rhs: SwiftProtoTesting_Names_MessageNames.typealiasMessage) -> Bool {
     if lhs._typealias != rhs._typealias {return false}
@@ -18312,16 +17688,10 @@ extension SwiftProtoTesting_Names_MessageNames.varMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._var {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`var` }, fieldNumber: 1, isUnset: { $0._var == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.varMessage, rhs: SwiftProtoTesting_Names_MessageNames.varMessage) -> Bool {
     if lhs._var != rhs._var {return false}
@@ -18348,16 +17718,10 @@ extension SwiftProtoTesting_Names_MessageNames.breakMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._break {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`break` }, fieldNumber: 1, isUnset: { $0._break == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.breakMessage, rhs: SwiftProtoTesting_Names_MessageNames.breakMessage) -> Bool {
     if lhs._break != rhs._break {return false}
@@ -18384,16 +17748,10 @@ extension SwiftProtoTesting_Names_MessageNames.caseMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._case {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`case` }, fieldNumber: 1, isUnset: { $0._case == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.caseMessage, rhs: SwiftProtoTesting_Names_MessageNames.caseMessage) -> Bool {
     if lhs._case != rhs._case {return false}
@@ -18420,16 +17778,10 @@ extension SwiftProtoTesting_Names_MessageNames.continueMessage: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._continue {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`continue` }, fieldNumber: 1, isUnset: { $0._continue == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.continueMessage, rhs: SwiftProtoTesting_Names_MessageNames.continueMessage) -> Bool {
     if lhs._continue != rhs._continue {return false}
@@ -18456,16 +17808,10 @@ extension SwiftProtoTesting_Names_MessageNames.defaultMessage: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._default {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`default` }, fieldNumber: 1, isUnset: { $0._default == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.defaultMessage, rhs: SwiftProtoTesting_Names_MessageNames.defaultMessage) -> Bool {
     if lhs._default != rhs._default {return false}
@@ -18492,16 +17838,10 @@ extension SwiftProtoTesting_Names_MessageNames.deferMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._defer {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`defer` }, fieldNumber: 1, isUnset: { $0._defer == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.deferMessage, rhs: SwiftProtoTesting_Names_MessageNames.deferMessage) -> Bool {
     if lhs._defer != rhs._defer {return false}
@@ -18528,16 +17868,10 @@ extension SwiftProtoTesting_Names_MessageNames.doMessage: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._do {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`do` }, fieldNumber: 1, isUnset: { $0._do == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.doMessage, rhs: SwiftProtoTesting_Names_MessageNames.doMessage) -> Bool {
     if lhs._do != rhs._do {return false}
@@ -18564,16 +17898,10 @@ extension SwiftProtoTesting_Names_MessageNames.elseMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._else {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`else` }, fieldNumber: 1, isUnset: { $0._else == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.elseMessage, rhs: SwiftProtoTesting_Names_MessageNames.elseMessage) -> Bool {
     if lhs._else != rhs._else {return false}
@@ -18600,16 +17928,10 @@ extension SwiftProtoTesting_Names_MessageNames.fallthroughMessage: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._fallthrough {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`fallthrough` }, fieldNumber: 1, isUnset: { $0._fallthrough == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.fallthroughMessage, rhs: SwiftProtoTesting_Names_MessageNames.fallthroughMessage) -> Bool {
     if lhs._fallthrough != rhs._fallthrough {return false}
@@ -18636,16 +17958,10 @@ extension SwiftProtoTesting_Names_MessageNames.forMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._for {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`for` }, fieldNumber: 1, isUnset: { $0._for == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.forMessage, rhs: SwiftProtoTesting_Names_MessageNames.forMessage) -> Bool {
     if lhs._for != rhs._for {return false}
@@ -18672,16 +17988,10 @@ extension SwiftProtoTesting_Names_MessageNames.guardMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._guard {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`guard` }, fieldNumber: 1, isUnset: { $0._guard == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.guardMessage, rhs: SwiftProtoTesting_Names_MessageNames.guardMessage) -> Bool {
     if lhs._guard != rhs._guard {return false}
@@ -18708,16 +18018,10 @@ extension SwiftProtoTesting_Names_MessageNames.ifMessage: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._if {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`if` }, fieldNumber: 1, isUnset: { $0._if == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ifMessage, rhs: SwiftProtoTesting_Names_MessageNames.ifMessage) -> Bool {
     if lhs._if != rhs._if {return false}
@@ -18744,16 +18048,10 @@ extension SwiftProtoTesting_Names_MessageNames.inMessage: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._in {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`in` }, fieldNumber: 1, isUnset: { $0._in == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.inMessage, rhs: SwiftProtoTesting_Names_MessageNames.inMessage) -> Bool {
     if lhs._in != rhs._in {return false}
@@ -18780,16 +18078,10 @@ extension SwiftProtoTesting_Names_MessageNames.repeatMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._repeat {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`repeat` }, fieldNumber: 1, isUnset: { $0._repeat == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.repeatMessage, rhs: SwiftProtoTesting_Names_MessageNames.repeatMessage) -> Bool {
     if lhs._repeat != rhs._repeat {return false}
@@ -18816,16 +18108,10 @@ extension SwiftProtoTesting_Names_MessageNames.returnMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._return {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`return` }, fieldNumber: 1, isUnset: { $0._return == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.returnMessage, rhs: SwiftProtoTesting_Names_MessageNames.returnMessage) -> Bool {
     if lhs._return != rhs._return {return false}
@@ -18852,16 +18138,10 @@ extension SwiftProtoTesting_Names_MessageNames.switchMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._switch {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`switch` }, fieldNumber: 1, isUnset: { $0._switch == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.switchMessage, rhs: SwiftProtoTesting_Names_MessageNames.switchMessage) -> Bool {
     if lhs._switch != rhs._switch {return false}
@@ -18888,16 +18168,10 @@ extension SwiftProtoTesting_Names_MessageNames.whereMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._where {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`where` }, fieldNumber: 1, isUnset: { $0._where == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.whereMessage, rhs: SwiftProtoTesting_Names_MessageNames.whereMessage) -> Bool {
     if lhs._where != rhs._where {return false}
@@ -18924,16 +18198,10 @@ extension SwiftProtoTesting_Names_MessageNames.whileMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._while {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`while` }, fieldNumber: 1, isUnset: { $0._while == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.whileMessage, rhs: SwiftProtoTesting_Names_MessageNames.whileMessage) -> Bool {
     if lhs._while != rhs._while {return false}
@@ -18960,16 +18228,10 @@ extension SwiftProtoTesting_Names_MessageNames.asMessage: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._as {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`as` }, fieldNumber: 1, isUnset: { $0._as == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.asMessage, rhs: SwiftProtoTesting_Names_MessageNames.asMessage) -> Bool {
     if lhs._as != rhs._as {return false}
@@ -18996,16 +18258,10 @@ extension SwiftProtoTesting_Names_MessageNames.catchMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._catch {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`catch` }, fieldNumber: 1, isUnset: { $0._catch == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.catchMessage, rhs: SwiftProtoTesting_Names_MessageNames.catchMessage) -> Bool {
     if lhs._catch != rhs._catch {return false}
@@ -19032,16 +18288,10 @@ extension SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._dynamicType_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.dynamicType_p }, fieldNumber: 1, isUnset: { $0._dynamicType_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage, rhs: SwiftProtoTesting_Names_MessageNames.dynamicTypeMessage) -> Bool {
     if lhs._dynamicType_p != rhs._dynamicType_p {return false}
@@ -19068,16 +18318,10 @@ extension SwiftProtoTesting_Names_MessageNames.falseMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._false {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`false` }, fieldNumber: 1, isUnset: { $0._false == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.falseMessage, rhs: SwiftProtoTesting_Names_MessageNames.falseMessage) -> Bool {
     if lhs._false != rhs._false {return false}
@@ -19104,16 +18348,10 @@ extension SwiftProtoTesting_Names_MessageNames.isMessage: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._is {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`is` }, fieldNumber: 1, isUnset: { $0._is == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.isMessage, rhs: SwiftProtoTesting_Names_MessageNames.isMessage) -> Bool {
     if lhs._is != rhs._is {return false}
@@ -19140,16 +18378,10 @@ extension SwiftProtoTesting_Names_MessageNames.nilMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._nil {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`nil` }, fieldNumber: 1, isUnset: { $0._nil == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.nilMessage, rhs: SwiftProtoTesting_Names_MessageNames.nilMessage) -> Bool {
     if lhs._nil != rhs._nil {return false}
@@ -19176,16 +18408,10 @@ extension SwiftProtoTesting_Names_MessageNames.rethrowsMessage: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._rethrows {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`rethrows` }, fieldNumber: 1, isUnset: { $0._rethrows == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.rethrowsMessage, rhs: SwiftProtoTesting_Names_MessageNames.rethrowsMessage) -> Bool {
     if lhs._rethrows != rhs._rethrows {return false}
@@ -19212,16 +18438,10 @@ extension SwiftProtoTesting_Names_MessageNames.superMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._super {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`super` }, fieldNumber: 1, isUnset: { $0._super == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.superMessage, rhs: SwiftProtoTesting_Names_MessageNames.superMessage) -> Bool {
     if lhs._super != rhs._super {return false}
@@ -19248,16 +18468,10 @@ extension SwiftProtoTesting_Names_MessageNames.selfMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._self_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.self_p }, fieldNumber: 1, isUnset: { $0._self_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.selfMessage, rhs: SwiftProtoTesting_Names_MessageNames.selfMessage) -> Bool {
     if lhs._self_p != rhs._self_p {return false}
@@ -19284,16 +18498,10 @@ extension SwiftProtoTesting_Names_MessageNames.throwMessage: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._throw {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`throw` }, fieldNumber: 1, isUnset: { $0._throw == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.throwMessage, rhs: SwiftProtoTesting_Names_MessageNames.throwMessage) -> Bool {
     if lhs._throw != rhs._throw {return false}
@@ -19320,16 +18528,10 @@ extension SwiftProtoTesting_Names_MessageNames.throwsMessage: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._throws {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`throws` }, fieldNumber: 1, isUnset: { $0._throws == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.throwsMessage, rhs: SwiftProtoTesting_Names_MessageNames.throwsMessage) -> Bool {
     if lhs._throws != rhs._throws {return false}
@@ -19356,16 +18558,10 @@ extension SwiftProtoTesting_Names_MessageNames.trueMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._true {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`true` }, fieldNumber: 1, isUnset: { $0._true == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.trueMessage, rhs: SwiftProtoTesting_Names_MessageNames.trueMessage) -> Bool {
     if lhs._true != rhs._true {return false}
@@ -19392,16 +18588,10 @@ extension SwiftProtoTesting_Names_MessageNames.tryMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._try {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`try` }, fieldNumber: 1, isUnset: { $0._try == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.tryMessage, rhs: SwiftProtoTesting_Names_MessageNames.tryMessage) -> Bool {
     if lhs._try != rhs._try {return false}
@@ -19428,16 +18618,10 @@ extension SwiftProtoTesting_Names_MessageNames.__COLUMN__Message: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self.__Column__ {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0._Column__ }, fieldNumber: 1, isUnset: { $0.__Column__ == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__COLUMN__Message, rhs: SwiftProtoTesting_Names_MessageNames.__COLUMN__Message) -> Bool {
     if lhs.__Column__ != rhs.__Column__ {return false}
@@ -19464,16 +18648,10 @@ extension SwiftProtoTesting_Names_MessageNames.__FILE__Message: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self.__File__ {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0._File__ }, fieldNumber: 1, isUnset: { $0.__File__ == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__FILE__Message, rhs: SwiftProtoTesting_Names_MessageNames.__FILE__Message) -> Bool {
     if lhs.__File__ != rhs.__File__ {return false}
@@ -19500,16 +18678,10 @@ extension SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self.__Function__ {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0._Function__ }, fieldNumber: 1, isUnset: { $0.__Function__ == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message, rhs: SwiftProtoTesting_Names_MessageNames.__FUNCTION__Message) -> Bool {
     if lhs.__Function__ != rhs.__Function__ {return false}
@@ -19536,16 +18708,10 @@ extension SwiftProtoTesting_Names_MessageNames.__LINE__Message: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self.__Line__ {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0._Line__ }, fieldNumber: 1, isUnset: { $0.__Line__ == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__LINE__Message, rhs: SwiftProtoTesting_Names_MessageNames.__LINE__Message) -> Bool {
     if lhs.__Line__ != rhs.__Line__ {return false}
@@ -19572,16 +18738,10 @@ extension SwiftProtoTesting_Names_MessageNames._Message: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self.____ {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.___ }, fieldNumber: 1, isUnset: { $0.____ == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames._Message, rhs: SwiftProtoTesting_Names_MessageNames._Message) -> Bool {
     if lhs.____ != rhs.____ {return false}
@@ -19608,16 +18768,10 @@ extension SwiftProtoTesting_Names_MessageNames.__Message: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._____ {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.____ }, fieldNumber: 1, isUnset: { $0._____ == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.__Message, rhs: SwiftProtoTesting_Names_MessageNames.__Message) -> Bool {
     if lhs._____ != rhs._____ {return false}
@@ -19644,16 +18798,10 @@ extension SwiftProtoTesting_Names_MessageNames.associativity: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._associativity {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.associativity }, fieldNumber: 1, isUnset: { $0._associativity == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.associativity, rhs: SwiftProtoTesting_Names_MessageNames.associativity) -> Bool {
     if lhs._associativity != rhs._associativity {return false}
@@ -19680,16 +18828,10 @@ extension SwiftProtoTesting_Names_MessageNames.convenience: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._convenience {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.convenience }, fieldNumber: 1, isUnset: { $0._convenience == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.convenience, rhs: SwiftProtoTesting_Names_MessageNames.convenience) -> Bool {
     if lhs._convenience != rhs._convenience {return false}
@@ -19716,16 +18858,10 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._dynamic {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.dynamic }, fieldNumber: 1, isUnset: { $0._dynamic == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dynamic, rhs: SwiftProtoTesting_Names_MessageNames.dynamic) -> Bool {
     if lhs._dynamic != rhs._dynamic {return false}
@@ -19752,16 +18888,10 @@ extension SwiftProtoTesting_Names_MessageNames.didSet: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._didSet {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.didSet }, fieldNumber: 1, isUnset: { $0._didSet == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.didSet, rhs: SwiftProtoTesting_Names_MessageNames.didSet) -> Bool {
     if lhs._didSet != rhs._didSet {return false}
@@ -19788,16 +18918,10 @@ extension SwiftProtoTesting_Names_MessageNames.final: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._final {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.final }, fieldNumber: 1, isUnset: { $0._final == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.final, rhs: SwiftProtoTesting_Names_MessageNames.final) -> Bool {
     if lhs._final != rhs._final {return false}
@@ -19824,16 +18948,10 @@ extension SwiftProtoTesting_Names_MessageNames.get: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._get {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.get }, fieldNumber: 1, isUnset: { $0._get == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.get, rhs: SwiftProtoTesting_Names_MessageNames.get) -> Bool {
     if lhs._get != rhs._get {return false}
@@ -19860,16 +18978,10 @@ extension SwiftProtoTesting_Names_MessageNames.infix: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._infix {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.infix }, fieldNumber: 1, isUnset: { $0._infix == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.infix, rhs: SwiftProtoTesting_Names_MessageNames.infix) -> Bool {
     if lhs._infix != rhs._infix {return false}
@@ -19896,16 +19008,10 @@ extension SwiftProtoTesting_Names_MessageNames.indirect: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._indirect {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.indirect }, fieldNumber: 1, isUnset: { $0._indirect == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.indirect, rhs: SwiftProtoTesting_Names_MessageNames.indirect) -> Bool {
     if lhs._indirect != rhs._indirect {return false}
@@ -19932,16 +19038,10 @@ extension SwiftProtoTesting_Names_MessageNames.lazy: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._lazy {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.lazy }, fieldNumber: 1, isUnset: { $0._lazy == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.lazy, rhs: SwiftProtoTesting_Names_MessageNames.lazy) -> Bool {
     if lhs._lazy != rhs._lazy {return false}
@@ -19968,16 +19068,10 @@ extension SwiftProtoTesting_Names_MessageNames.left: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._left {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.left }, fieldNumber: 1, isUnset: { $0._left == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.left, rhs: SwiftProtoTesting_Names_MessageNames.left) -> Bool {
     if lhs._left != rhs._left {return false}
@@ -20004,16 +19098,10 @@ extension SwiftProtoTesting_Names_MessageNames.mutating: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._mutating {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.mutating }, fieldNumber: 1, isUnset: { $0._mutating == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.mutating, rhs: SwiftProtoTesting_Names_MessageNames.mutating) -> Bool {
     if lhs._mutating != rhs._mutating {return false}
@@ -20040,16 +19128,10 @@ extension SwiftProtoTesting_Names_MessageNames.none: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._none {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.none }, fieldNumber: 1, isUnset: { $0._none == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.none, rhs: SwiftProtoTesting_Names_MessageNames.none) -> Bool {
     if lhs._none != rhs._none {return false}
@@ -20076,16 +19158,10 @@ extension SwiftProtoTesting_Names_MessageNames.nonmutating: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._nonmutating {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.nonmutating }, fieldNumber: 1, isUnset: { $0._nonmutating == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.nonmutating, rhs: SwiftProtoTesting_Names_MessageNames.nonmutating) -> Bool {
     if lhs._nonmutating != rhs._nonmutating {return false}
@@ -20112,16 +19188,10 @@ extension SwiftProtoTesting_Names_MessageNames.optional: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._optional {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.optional }, fieldNumber: 1, isUnset: { $0._optional == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.optional, rhs: SwiftProtoTesting_Names_MessageNames.optional) -> Bool {
     if lhs._optional != rhs._optional {return false}
@@ -20148,16 +19218,10 @@ extension SwiftProtoTesting_Names_MessageNames.override: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._override {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.override }, fieldNumber: 1, isUnset: { $0._override == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.override, rhs: SwiftProtoTesting_Names_MessageNames.override) -> Bool {
     if lhs._override != rhs._override {return false}
@@ -20184,16 +19248,10 @@ extension SwiftProtoTesting_Names_MessageNames.postfix: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._postfix {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.postfix }, fieldNumber: 1, isUnset: { $0._postfix == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.postfix, rhs: SwiftProtoTesting_Names_MessageNames.postfix) -> Bool {
     if lhs._postfix != rhs._postfix {return false}
@@ -20220,16 +19278,10 @@ extension SwiftProtoTesting_Names_MessageNames.precedence: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._precedence {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.precedence }, fieldNumber: 1, isUnset: { $0._precedence == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.precedence, rhs: SwiftProtoTesting_Names_MessageNames.precedence) -> Bool {
     if lhs._precedence != rhs._precedence {return false}
@@ -20256,16 +19308,10 @@ extension SwiftProtoTesting_Names_MessageNames.prefix: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._prefix {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.prefix }, fieldNumber: 1, isUnset: { $0._prefix == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.prefix, rhs: SwiftProtoTesting_Names_MessageNames.prefix) -> Bool {
     if lhs._prefix != rhs._prefix {return false}
@@ -20292,16 +19338,10 @@ extension SwiftProtoTesting_Names_MessageNames.required: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._required {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.required }, fieldNumber: 1, isUnset: { $0._required == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.required, rhs: SwiftProtoTesting_Names_MessageNames.required) -> Bool {
     if lhs._required != rhs._required {return false}
@@ -20328,16 +19368,10 @@ extension SwiftProtoTesting_Names_MessageNames.right: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._right {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.right }, fieldNumber: 1, isUnset: { $0._right == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.right, rhs: SwiftProtoTesting_Names_MessageNames.right) -> Bool {
     if lhs._right != rhs._right {return false}
@@ -20364,16 +19398,10 @@ extension SwiftProtoTesting_Names_MessageNames.set: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._set {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.set }, fieldNumber: 1, isUnset: { $0._set == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.set, rhs: SwiftProtoTesting_Names_MessageNames.set) -> Bool {
     if lhs._set != rhs._set {return false}
@@ -20400,16 +19428,10 @@ extension SwiftProtoTesting_Names_MessageNames.TypeMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._type {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.type }, fieldNumber: 1, isUnset: { $0._type == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TypeMessage, rhs: SwiftProtoTesting_Names_MessageNames.TypeMessage) -> Bool {
     if lhs._type != rhs._type {return false}
@@ -20436,16 +19458,10 @@ extension SwiftProtoTesting_Names_MessageNames.unowned: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._unowned {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.unowned }, fieldNumber: 1, isUnset: { $0._unowned == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.unowned, rhs: SwiftProtoTesting_Names_MessageNames.unowned) -> Bool {
     if lhs._unowned != rhs._unowned {return false}
@@ -20472,16 +19488,10 @@ extension SwiftProtoTesting_Names_MessageNames.weak: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._weak {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.weak }, fieldNumber: 1, isUnset: { $0._weak == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.weak, rhs: SwiftProtoTesting_Names_MessageNames.weak) -> Bool {
     if lhs._weak != rhs._weak {return false}
@@ -20508,16 +19518,10 @@ extension SwiftProtoTesting_Names_MessageNames.willSet: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._willSet {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.willSet }, fieldNumber: 1, isUnset: { $0._willSet == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.willSet, rhs: SwiftProtoTesting_Names_MessageNames.willSet) -> Bool {
     if lhs._willSet != rhs._willSet {return false}
@@ -20544,16 +19548,10 @@ extension SwiftProtoTesting_Names_MessageNames.id: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._id {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.id }, fieldNumber: 1, isUnset: { $0._id == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.id, rhs: SwiftProtoTesting_Names_MessageNames.id) -> Bool {
     if lhs._id != rhs._id {return false}
@@ -20580,16 +19578,10 @@ extension SwiftProtoTesting_Names_MessageNames._cmd: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._cmd {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.cmd }, fieldNumber: 1, isUnset: { $0._cmd == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames._cmd, rhs: SwiftProtoTesting_Names_MessageNames._cmd) -> Bool {
     if lhs._cmd != rhs._cmd {return false}
@@ -20616,16 +19608,10 @@ extension SwiftProtoTesting_Names_MessageNames.out: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._out {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.out }, fieldNumber: 1, isUnset: { $0._out == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.out, rhs: SwiftProtoTesting_Names_MessageNames.out) -> Bool {
     if lhs._out != rhs._out {return false}
@@ -20652,16 +19638,10 @@ extension SwiftProtoTesting_Names_MessageNames.bycopy: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._bycopy {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.bycopy }, fieldNumber: 1, isUnset: { $0._bycopy == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bycopy, rhs: SwiftProtoTesting_Names_MessageNames.bycopy) -> Bool {
     if lhs._bycopy != rhs._bycopy {return false}
@@ -20688,16 +19668,10 @@ extension SwiftProtoTesting_Names_MessageNames.byref: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._byref {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.byref }, fieldNumber: 1, isUnset: { $0._byref == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.byref, rhs: SwiftProtoTesting_Names_MessageNames.byref) -> Bool {
     if lhs._byref != rhs._byref {return false}
@@ -20724,16 +19698,10 @@ extension SwiftProtoTesting_Names_MessageNames.oneway: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._oneway {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.oneway }, fieldNumber: 1, isUnset: { $0._oneway == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.oneway, rhs: SwiftProtoTesting_Names_MessageNames.oneway) -> Bool {
     if lhs._oneway != rhs._oneway {return false}
@@ -20760,16 +19728,10 @@ extension SwiftProtoTesting_Names_MessageNames.and: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._and {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.and }, fieldNumber: 1, isUnset: { $0._and == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.and, rhs: SwiftProtoTesting_Names_MessageNames.and) -> Bool {
     if lhs._and != rhs._and {return false}
@@ -20796,16 +19758,10 @@ extension SwiftProtoTesting_Names_MessageNames.and_eq: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._andEq {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.andEq }, fieldNumber: 1, isUnset: { $0._andEq == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.and_eq, rhs: SwiftProtoTesting_Names_MessageNames.and_eq) -> Bool {
     if lhs._andEq != rhs._andEq {return false}
@@ -20832,16 +19788,10 @@ extension SwiftProtoTesting_Names_MessageNames.alignas: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._alignas {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.alignas }, fieldNumber: 1, isUnset: { $0._alignas == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.alignas, rhs: SwiftProtoTesting_Names_MessageNames.alignas) -> Bool {
     if lhs._alignas != rhs._alignas {return false}
@@ -20868,16 +19818,10 @@ extension SwiftProtoTesting_Names_MessageNames.alignof: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._alignof {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.alignof }, fieldNumber: 1, isUnset: { $0._alignof == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.alignof, rhs: SwiftProtoTesting_Names_MessageNames.alignof) -> Bool {
     if lhs._alignof != rhs._alignof {return false}
@@ -20904,16 +19848,10 @@ extension SwiftProtoTesting_Names_MessageNames.asm: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._asm {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.asm }, fieldNumber: 1, isUnset: { $0._asm == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.asm, rhs: SwiftProtoTesting_Names_MessageNames.asm) -> Bool {
     if lhs._asm != rhs._asm {return false}
@@ -20940,16 +19878,10 @@ extension SwiftProtoTesting_Names_MessageNames.auto: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._auto {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.auto }, fieldNumber: 1, isUnset: { $0._auto == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.auto, rhs: SwiftProtoTesting_Names_MessageNames.auto) -> Bool {
     if lhs._auto != rhs._auto {return false}
@@ -20976,16 +19908,10 @@ extension SwiftProtoTesting_Names_MessageNames.bitand: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._bitand {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.bitand }, fieldNumber: 1, isUnset: { $0._bitand == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bitand, rhs: SwiftProtoTesting_Names_MessageNames.bitand) -> Bool {
     if lhs._bitand != rhs._bitand {return false}
@@ -21012,16 +19938,10 @@ extension SwiftProtoTesting_Names_MessageNames.bitor: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._bitor {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.bitor }, fieldNumber: 1, isUnset: { $0._bitor == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bitor, rhs: SwiftProtoTesting_Names_MessageNames.bitor) -> Bool {
     if lhs._bitor != rhs._bitor {return false}
@@ -21048,16 +19968,10 @@ extension SwiftProtoTesting_Names_MessageNames.bool: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._bool {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.bool }, fieldNumber: 1, isUnset: { $0._bool == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.bool, rhs: SwiftProtoTesting_Names_MessageNames.bool) -> Bool {
     if lhs._bool != rhs._bool {return false}
@@ -21084,16 +19998,10 @@ extension SwiftProtoTesting_Names_MessageNames.char: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._char {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.char }, fieldNumber: 1, isUnset: { $0._char == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.char, rhs: SwiftProtoTesting_Names_MessageNames.char) -> Bool {
     if lhs._char != rhs._char {return false}
@@ -21120,16 +20028,10 @@ extension SwiftProtoTesting_Names_MessageNames.char16_t: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._char16T {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.char16T }, fieldNumber: 1, isUnset: { $0._char16T == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.char16_t, rhs: SwiftProtoTesting_Names_MessageNames.char16_t) -> Bool {
     if lhs._char16T != rhs._char16T {return false}
@@ -21156,16 +20058,10 @@ extension SwiftProtoTesting_Names_MessageNames.char32_t: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._char32T {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.char32T }, fieldNumber: 1, isUnset: { $0._char32T == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.char32_t, rhs: SwiftProtoTesting_Names_MessageNames.char32_t) -> Bool {
     if lhs._char32T != rhs._char32T {return false}
@@ -21192,16 +20088,10 @@ extension SwiftProtoTesting_Names_MessageNames.compl: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._compl {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.compl }, fieldNumber: 1, isUnset: { $0._compl == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.compl, rhs: SwiftProtoTesting_Names_MessageNames.compl) -> Bool {
     if lhs._compl != rhs._compl {return false}
@@ -21228,16 +20118,10 @@ extension SwiftProtoTesting_Names_MessageNames.const: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._const {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.const }, fieldNumber: 1, isUnset: { $0._const == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.const, rhs: SwiftProtoTesting_Names_MessageNames.const) -> Bool {
     if lhs._const != rhs._const {return false}
@@ -21264,16 +20148,10 @@ extension SwiftProtoTesting_Names_MessageNames.constexpr: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._constexpr {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.constexpr }, fieldNumber: 1, isUnset: { $0._constexpr == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.constexpr, rhs: SwiftProtoTesting_Names_MessageNames.constexpr) -> Bool {
     if lhs._constexpr != rhs._constexpr {return false}
@@ -21300,16 +20178,10 @@ extension SwiftProtoTesting_Names_MessageNames.const_cast: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._constCast {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.constCast }, fieldNumber: 1, isUnset: { $0._constCast == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.const_cast, rhs: SwiftProtoTesting_Names_MessageNames.const_cast) -> Bool {
     if lhs._constCast != rhs._constCast {return false}
@@ -21336,16 +20208,10 @@ extension SwiftProtoTesting_Names_MessageNames.decltype: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._decltype {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.decltype }, fieldNumber: 1, isUnset: { $0._decltype == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.decltype, rhs: SwiftProtoTesting_Names_MessageNames.decltype) -> Bool {
     if lhs._decltype != rhs._decltype {return false}
@@ -21372,16 +20238,10 @@ extension SwiftProtoTesting_Names_MessageNames.delete: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._delete {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.delete }, fieldNumber: 1, isUnset: { $0._delete == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.delete, rhs: SwiftProtoTesting_Names_MessageNames.delete) -> Bool {
     if lhs._delete != rhs._delete {return false}
@@ -21408,16 +20268,10 @@ extension SwiftProtoTesting_Names_MessageNames.dynamic_cast: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._dynamicCast {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.dynamicCast }, fieldNumber: 1, isUnset: { $0._dynamicCast == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dynamic_cast, rhs: SwiftProtoTesting_Names_MessageNames.dynamic_cast) -> Bool {
     if lhs._dynamicCast != rhs._dynamicCast {return false}
@@ -21444,16 +20298,10 @@ extension SwiftProtoTesting_Names_MessageNames.explicit: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._explicit {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.explicit }, fieldNumber: 1, isUnset: { $0._explicit == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.explicit, rhs: SwiftProtoTesting_Names_MessageNames.explicit) -> Bool {
     if lhs._explicit != rhs._explicit {return false}
@@ -21480,16 +20328,10 @@ extension SwiftProtoTesting_Names_MessageNames.export: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._export {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.export }, fieldNumber: 1, isUnset: { $0._export == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.export, rhs: SwiftProtoTesting_Names_MessageNames.export) -> Bool {
     if lhs._export != rhs._export {return false}
@@ -21516,16 +20358,10 @@ extension SwiftProtoTesting_Names_MessageNames.extern: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._extern {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.extern }, fieldNumber: 1, isUnset: { $0._extern == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extern, rhs: SwiftProtoTesting_Names_MessageNames.extern) -> Bool {
     if lhs._extern != rhs._extern {return false}
@@ -21552,16 +20388,10 @@ extension SwiftProtoTesting_Names_MessageNames.friend: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._friend {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.friend }, fieldNumber: 1, isUnset: { $0._friend == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.friend, rhs: SwiftProtoTesting_Names_MessageNames.friend) -> Bool {
     if lhs._friend != rhs._friend {return false}
@@ -21588,16 +20418,10 @@ extension SwiftProtoTesting_Names_MessageNames.goto: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._goto {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.goto }, fieldNumber: 1, isUnset: { $0._goto == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.goto, rhs: SwiftProtoTesting_Names_MessageNames.goto) -> Bool {
     if lhs._goto != rhs._goto {return false}
@@ -21624,16 +20448,10 @@ extension SwiftProtoTesting_Names_MessageNames.inline: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._inline {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.inline }, fieldNumber: 1, isUnset: { $0._inline == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.inline, rhs: SwiftProtoTesting_Names_MessageNames.inline) -> Bool {
     if lhs._inline != rhs._inline {return false}
@@ -21660,16 +20478,10 @@ extension SwiftProtoTesting_Names_MessageNames.long: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._long {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.long }, fieldNumber: 1, isUnset: { $0._long == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.long, rhs: SwiftProtoTesting_Names_MessageNames.long) -> Bool {
     if lhs._long != rhs._long {return false}
@@ -21696,16 +20508,10 @@ extension SwiftProtoTesting_Names_MessageNames.mutable: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._mutable {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.mutable }, fieldNumber: 1, isUnset: { $0._mutable == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.mutable, rhs: SwiftProtoTesting_Names_MessageNames.mutable) -> Bool {
     if lhs._mutable != rhs._mutable {return false}
@@ -21732,16 +20538,10 @@ extension SwiftProtoTesting_Names_MessageNames.namespace: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._namespace {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.namespace }, fieldNumber: 1, isUnset: { $0._namespace == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.namespace, rhs: SwiftProtoTesting_Names_MessageNames.namespace) -> Bool {
     if lhs._namespace != rhs._namespace {return false}
@@ -21768,16 +20568,10 @@ extension SwiftProtoTesting_Names_MessageNames.new: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._new {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.new }, fieldNumber: 1, isUnset: { $0._new == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.new, rhs: SwiftProtoTesting_Names_MessageNames.new) -> Bool {
     if lhs._new != rhs._new {return false}
@@ -21804,16 +20598,10 @@ extension SwiftProtoTesting_Names_MessageNames.noexcept: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._noexcept {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.noexcept }, fieldNumber: 1, isUnset: { $0._noexcept == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.noexcept, rhs: SwiftProtoTesting_Names_MessageNames.noexcept) -> Bool {
     if lhs._noexcept != rhs._noexcept {return false}
@@ -21840,16 +20628,10 @@ extension SwiftProtoTesting_Names_MessageNames.not: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._not {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.not }, fieldNumber: 1, isUnset: { $0._not == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.not, rhs: SwiftProtoTesting_Names_MessageNames.not) -> Bool {
     if lhs._not != rhs._not {return false}
@@ -21876,16 +20658,10 @@ extension SwiftProtoTesting_Names_MessageNames.not_eq: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._notEq {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.notEq }, fieldNumber: 1, isUnset: { $0._notEq == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.not_eq, rhs: SwiftProtoTesting_Names_MessageNames.not_eq) -> Bool {
     if lhs._notEq != rhs._notEq {return false}
@@ -21912,16 +20688,10 @@ extension SwiftProtoTesting_Names_MessageNames.nullptr: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._nullptr {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.nullptr }, fieldNumber: 1, isUnset: { $0._nullptr == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.nullptr, rhs: SwiftProtoTesting_Names_MessageNames.nullptr) -> Bool {
     if lhs._nullptr != rhs._nullptr {return false}
@@ -21948,16 +20718,10 @@ extension SwiftProtoTesting_Names_MessageNames.or: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._or {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.or }, fieldNumber: 1, isUnset: { $0._or == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.or, rhs: SwiftProtoTesting_Names_MessageNames.or) -> Bool {
     if lhs._or != rhs._or {return false}
@@ -21984,16 +20748,10 @@ extension SwiftProtoTesting_Names_MessageNames.or_eq: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._orEq {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.orEq }, fieldNumber: 1, isUnset: { $0._orEq == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.or_eq, rhs: SwiftProtoTesting_Names_MessageNames.or_eq) -> Bool {
     if lhs._orEq != rhs._orEq {return false}
@@ -22020,16 +20778,10 @@ extension SwiftProtoTesting_Names_MessageNames.protected: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._protected {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.protected }, fieldNumber: 1, isUnset: { $0._protected == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.protected, rhs: SwiftProtoTesting_Names_MessageNames.protected) -> Bool {
     if lhs._protected != rhs._protected {return false}
@@ -22056,16 +20808,10 @@ extension SwiftProtoTesting_Names_MessageNames.register: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._register {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.register }, fieldNumber: 1, isUnset: { $0._register == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.register, rhs: SwiftProtoTesting_Names_MessageNames.register) -> Bool {
     if lhs._register != rhs._register {return false}
@@ -22092,16 +20838,10 @@ extension SwiftProtoTesting_Names_MessageNames.reinterpret_cast: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._reinterpretCast {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.reinterpretCast }, fieldNumber: 1, isUnset: { $0._reinterpretCast == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.reinterpret_cast, rhs: SwiftProtoTesting_Names_MessageNames.reinterpret_cast) -> Bool {
     if lhs._reinterpretCast != rhs._reinterpretCast {return false}
@@ -22128,16 +20868,10 @@ extension SwiftProtoTesting_Names_MessageNames.short: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._short {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.short }, fieldNumber: 1, isUnset: { $0._short == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.short, rhs: SwiftProtoTesting_Names_MessageNames.short) -> Bool {
     if lhs._short != rhs._short {return false}
@@ -22164,16 +20898,10 @@ extension SwiftProtoTesting_Names_MessageNames.signed: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._signed {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.signed }, fieldNumber: 1, isUnset: { $0._signed == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.signed, rhs: SwiftProtoTesting_Names_MessageNames.signed) -> Bool {
     if lhs._signed != rhs._signed {return false}
@@ -22200,16 +20928,10 @@ extension SwiftProtoTesting_Names_MessageNames.sizeof: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._sizeof {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.sizeof }, fieldNumber: 1, isUnset: { $0._sizeof == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.sizeof, rhs: SwiftProtoTesting_Names_MessageNames.sizeof) -> Bool {
     if lhs._sizeof != rhs._sizeof {return false}
@@ -22236,16 +20958,10 @@ extension SwiftProtoTesting_Names_MessageNames.static_assert: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._staticAssert {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.staticAssert }, fieldNumber: 1, isUnset: { $0._staticAssert == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.static_assert, rhs: SwiftProtoTesting_Names_MessageNames.static_assert) -> Bool {
     if lhs._staticAssert != rhs._staticAssert {return false}
@@ -22272,16 +20988,10 @@ extension SwiftProtoTesting_Names_MessageNames.static_cast: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._staticCast {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.staticCast }, fieldNumber: 1, isUnset: { $0._staticCast == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.static_cast, rhs: SwiftProtoTesting_Names_MessageNames.static_cast) -> Bool {
     if lhs._staticCast != rhs._staticCast {return false}
@@ -22308,16 +21018,10 @@ extension SwiftProtoTesting_Names_MessageNames.template: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._template {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.template }, fieldNumber: 1, isUnset: { $0._template == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.template, rhs: SwiftProtoTesting_Names_MessageNames.template) -> Bool {
     if lhs._template != rhs._template {return false}
@@ -22344,16 +21048,10 @@ extension SwiftProtoTesting_Names_MessageNames.this: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._this {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.this }, fieldNumber: 1, isUnset: { $0._this == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.this, rhs: SwiftProtoTesting_Names_MessageNames.this) -> Bool {
     if lhs._this != rhs._this {return false}
@@ -22380,16 +21078,10 @@ extension SwiftProtoTesting_Names_MessageNames.thread_local: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._threadLocal {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.threadLocal }, fieldNumber: 1, isUnset: { $0._threadLocal == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.thread_local, rhs: SwiftProtoTesting_Names_MessageNames.thread_local) -> Bool {
     if lhs._threadLocal != rhs._threadLocal {return false}
@@ -22416,16 +21108,10 @@ extension SwiftProtoTesting_Names_MessageNames.typedef: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._typedef {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.typedef }, fieldNumber: 1, isUnset: { $0._typedef == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typedef, rhs: SwiftProtoTesting_Names_MessageNames.typedef) -> Bool {
     if lhs._typedef != rhs._typedef {return false}
@@ -22452,16 +21138,10 @@ extension SwiftProtoTesting_Names_MessageNames.typeid: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._typeid {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.typeid }, fieldNumber: 1, isUnset: { $0._typeid == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typeid, rhs: SwiftProtoTesting_Names_MessageNames.typeid) -> Bool {
     if lhs._typeid != rhs._typeid {return false}
@@ -22488,16 +21168,10 @@ extension SwiftProtoTesting_Names_MessageNames.typename: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._typename {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.typename }, fieldNumber: 1, isUnset: { $0._typename == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.typename, rhs: SwiftProtoTesting_Names_MessageNames.typename) -> Bool {
     if lhs._typename != rhs._typename {return false}
@@ -22524,16 +21198,10 @@ extension SwiftProtoTesting_Names_MessageNames.union: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._union {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.union }, fieldNumber: 1, isUnset: { $0._union == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.union, rhs: SwiftProtoTesting_Names_MessageNames.union) -> Bool {
     if lhs._union != rhs._union {return false}
@@ -22560,16 +21228,10 @@ extension SwiftProtoTesting_Names_MessageNames.unsigned: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._unsigned {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.unsigned }, fieldNumber: 1, isUnset: { $0._unsigned == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.unsigned, rhs: SwiftProtoTesting_Names_MessageNames.unsigned) -> Bool {
     if lhs._unsigned != rhs._unsigned {return false}
@@ -22596,16 +21258,10 @@ extension SwiftProtoTesting_Names_MessageNames.using: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._using {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.using }, fieldNumber: 1, isUnset: { $0._using == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.using, rhs: SwiftProtoTesting_Names_MessageNames.using) -> Bool {
     if lhs._using != rhs._using {return false}
@@ -22632,16 +21288,10 @@ extension SwiftProtoTesting_Names_MessageNames.virtual: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._virtual {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.virtual }, fieldNumber: 1, isUnset: { $0._virtual == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.virtual, rhs: SwiftProtoTesting_Names_MessageNames.virtual) -> Bool {
     if lhs._virtual != rhs._virtual {return false}
@@ -22668,16 +21318,10 @@ extension SwiftProtoTesting_Names_MessageNames.void: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._void {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.void }, fieldNumber: 1, isUnset: { $0._void == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.void, rhs: SwiftProtoTesting_Names_MessageNames.void) -> Bool {
     if lhs._void != rhs._void {return false}
@@ -22704,16 +21348,10 @@ extension SwiftProtoTesting_Names_MessageNames.volatile: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._volatile {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.volatile }, fieldNumber: 1, isUnset: { $0._volatile == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.volatile, rhs: SwiftProtoTesting_Names_MessageNames.volatile) -> Bool {
     if lhs._volatile != rhs._volatile {return false}
@@ -22740,16 +21378,10 @@ extension SwiftProtoTesting_Names_MessageNames.wchar_t: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._wcharT {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.wcharT }, fieldNumber: 1, isUnset: { $0._wcharT == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.wchar_t, rhs: SwiftProtoTesting_Names_MessageNames.wchar_t) -> Bool {
     if lhs._wcharT != rhs._wcharT {return false}
@@ -22776,16 +21408,10 @@ extension SwiftProtoTesting_Names_MessageNames.xor: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._xor {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.xor }, fieldNumber: 1, isUnset: { $0._xor == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.xor, rhs: SwiftProtoTesting_Names_MessageNames.xor) -> Bool {
     if lhs._xor != rhs._xor {return false}
@@ -22812,16 +21438,10 @@ extension SwiftProtoTesting_Names_MessageNames.xor_eq: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._xorEq {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.xorEq }, fieldNumber: 1, isUnset: { $0._xorEq == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.xor_eq, rhs: SwiftProtoTesting_Names_MessageNames.xor_eq) -> Bool {
     if lhs._xorEq != rhs._xorEq {return false}
@@ -22848,16 +21468,10 @@ extension SwiftProtoTesting_Names_MessageNames.restrict: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._restrict {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.restrict }, fieldNumber: 1, isUnset: { $0._restrict == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.restrict, rhs: SwiftProtoTesting_Names_MessageNames.restrict) -> Bool {
     if lhs._restrict != rhs._restrict {return false}
@@ -22884,16 +21498,10 @@ extension SwiftProtoTesting_Names_MessageNames.Category: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._category {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.category }, fieldNumber: 1, isUnset: { $0._category == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Category, rhs: SwiftProtoTesting_Names_MessageNames.Category) -> Bool {
     if lhs._category != rhs._category {return false}
@@ -22920,16 +21528,10 @@ extension SwiftProtoTesting_Names_MessageNames.Ivar: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._ivar {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.ivar }, fieldNumber: 1, isUnset: { $0._ivar == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Ivar, rhs: SwiftProtoTesting_Names_MessageNames.Ivar) -> Bool {
     if lhs._ivar != rhs._ivar {return false}
@@ -22956,16 +21558,10 @@ extension SwiftProtoTesting_Names_MessageNames.Method: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._method {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.method }, fieldNumber: 1, isUnset: { $0._method == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Method, rhs: SwiftProtoTesting_Names_MessageNames.Method) -> Bool {
     if lhs._method != rhs._method {return false}
@@ -22992,16 +21588,10 @@ extension SwiftProtoTesting_Names_MessageNames.finalize: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._finalize {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.finalize }, fieldNumber: 1, isUnset: { $0._finalize == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.finalize, rhs: SwiftProtoTesting_Names_MessageNames.finalize) -> Bool {
     if lhs._finalize != rhs._finalize {return false}
@@ -23028,16 +21618,10 @@ extension SwiftProtoTesting_Names_MessageNames.hash: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._hash {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.hash }, fieldNumber: 1, isUnset: { $0._hash == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.hash, rhs: SwiftProtoTesting_Names_MessageNames.hash) -> Bool {
     if lhs._hash != rhs._hash {return false}
@@ -23064,16 +21648,10 @@ extension SwiftProtoTesting_Names_MessageNames.dealloc: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._dealloc {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.dealloc }, fieldNumber: 1, isUnset: { $0._dealloc == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.dealloc, rhs: SwiftProtoTesting_Names_MessageNames.dealloc) -> Bool {
     if lhs._dealloc != rhs._dealloc {return false}
@@ -23100,16 +21678,10 @@ extension SwiftProtoTesting_Names_MessageNames.superclass: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._superclass {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.superclass }, fieldNumber: 1, isUnset: { $0._superclass == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.superclass, rhs: SwiftProtoTesting_Names_MessageNames.superclass) -> Bool {
     if lhs._superclass != rhs._superclass {return false}
@@ -23136,16 +21708,10 @@ extension SwiftProtoTesting_Names_MessageNames.retain: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._retain {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.retain }, fieldNumber: 1, isUnset: { $0._retain == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.retain, rhs: SwiftProtoTesting_Names_MessageNames.retain) -> Bool {
     if lhs._retain != rhs._retain {return false}
@@ -23172,16 +21738,10 @@ extension SwiftProtoTesting_Names_MessageNames.release: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._release {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.release }, fieldNumber: 1, isUnset: { $0._release == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.release, rhs: SwiftProtoTesting_Names_MessageNames.release) -> Bool {
     if lhs._release != rhs._release {return false}
@@ -23208,16 +21768,10 @@ extension SwiftProtoTesting_Names_MessageNames.autorelease: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._autorelease {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.autorelease }, fieldNumber: 1, isUnset: { $0._autorelease == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.autorelease, rhs: SwiftProtoTesting_Names_MessageNames.autorelease) -> Bool {
     if lhs._autorelease != rhs._autorelease {return false}
@@ -23244,16 +21798,10 @@ extension SwiftProtoTesting_Names_MessageNames.retainCount: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._retainCount {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.retainCount }, fieldNumber: 1, isUnset: { $0._retainCount == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.retainCount, rhs: SwiftProtoTesting_Names_MessageNames.retainCount) -> Bool {
     if lhs._retainCount != rhs._retainCount {return false}
@@ -23280,16 +21828,10 @@ extension SwiftProtoTesting_Names_MessageNames.zone: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._zone {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.zone }, fieldNumber: 1, isUnset: { $0._zone == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.zone, rhs: SwiftProtoTesting_Names_MessageNames.zone) -> Bool {
     if lhs._zone != rhs._zone {return false}
@@ -23316,16 +21858,10 @@ extension SwiftProtoTesting_Names_MessageNames.isProxy: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._isProxy {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.isProxy }, fieldNumber: 1, isUnset: { $0._isProxy == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.isProxy, rhs: SwiftProtoTesting_Names_MessageNames.isProxy) -> Bool {
     if lhs._isProxy != rhs._isProxy {return false}
@@ -23352,16 +21888,10 @@ extension SwiftProtoTesting_Names_MessageNames.copy: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._copy {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.copy }, fieldNumber: 1, isUnset: { $0._copy == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.copy, rhs: SwiftProtoTesting_Names_MessageNames.copy) -> Bool {
     if lhs._copy != rhs._copy {return false}
@@ -23388,16 +21918,10 @@ extension SwiftProtoTesting_Names_MessageNames.mutableCopy: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._mutableCopy {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.mutableCopy }, fieldNumber: 1, isUnset: { $0._mutableCopy == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.mutableCopy, rhs: SwiftProtoTesting_Names_MessageNames.mutableCopy) -> Bool {
     if lhs._mutableCopy != rhs._mutableCopy {return false}
@@ -23424,16 +21948,10 @@ extension SwiftProtoTesting_Names_MessageNames.classForCoder: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._classForCoder {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.classForCoder }, fieldNumber: 1, isUnset: { $0._classForCoder == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.classForCoder, rhs: SwiftProtoTesting_Names_MessageNames.classForCoder) -> Bool {
     if lhs._classForCoder != rhs._classForCoder {return false}
@@ -23460,16 +21978,10 @@ extension SwiftProtoTesting_Names_MessageNames.clear: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._clear {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.clear }, fieldNumber: 1, isUnset: { $0._clear == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.clear, rhs: SwiftProtoTesting_Names_MessageNames.clear) -> Bool {
     if lhs._clear != rhs._clear {return false}
@@ -23496,16 +22008,10 @@ extension SwiftProtoTesting_Names_MessageNames.data: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._data {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.data }, fieldNumber: 1, isUnset: { $0._data == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.data, rhs: SwiftProtoTesting_Names_MessageNames.data) -> Bool {
     if lhs._data != rhs._data {return false}
@@ -23532,16 +22038,10 @@ extension SwiftProtoTesting_Names_MessageNames.delimitedData: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._delimitedData {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.delimitedData }, fieldNumber: 1, isUnset: { $0._delimitedData == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.delimitedData, rhs: SwiftProtoTesting_Names_MessageNames.delimitedData) -> Bool {
     if lhs._delimitedData != rhs._delimitedData {return false}
@@ -23568,16 +22068,10 @@ extension SwiftProtoTesting_Names_MessageNames.descriptor: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._descriptor {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.descriptor }, fieldNumber: 1, isUnset: { $0._descriptor == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.descriptor, rhs: SwiftProtoTesting_Names_MessageNames.descriptor) -> Bool {
     if lhs._descriptor != rhs._descriptor {return false}
@@ -23604,16 +22098,10 @@ extension SwiftProtoTesting_Names_MessageNames.extensionRegistry: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._extensionRegistry {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.extensionRegistry }, fieldNumber: 1, isUnset: { $0._extensionRegistry == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extensionRegistry, rhs: SwiftProtoTesting_Names_MessageNames.extensionRegistry) -> Bool {
     if lhs._extensionRegistry != rhs._extensionRegistry {return false}
@@ -23640,16 +22128,10 @@ extension SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet: SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._extensionsCurrentlySet {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.extensionsCurrentlySet }, fieldNumber: 1, isUnset: { $0._extensionsCurrentlySet == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet, rhs: SwiftProtoTesting_Names_MessageNames.extensionsCurrentlySet) -> Bool {
     if lhs._extensionsCurrentlySet != rhs._extensionsCurrentlySet {return false}
@@ -23676,16 +22158,10 @@ extension SwiftProtoTesting_Names_MessageNames.isInitializedMessage: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._isInitialized_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.isInitialized_p }, fieldNumber: 1, isUnset: { $0._isInitialized_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.isInitializedMessage, rhs: SwiftProtoTesting_Names_MessageNames.isInitializedMessage) -> Bool {
     if lhs._isInitialized_p != rhs._isInitialized_p {return false}
@@ -23712,16 +22188,10 @@ extension SwiftProtoTesting_Names_MessageNames.serializedSize: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._serializedSize {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.serializedSize }, fieldNumber: 1, isUnset: { $0._serializedSize == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.serializedSize, rhs: SwiftProtoTesting_Names_MessageNames.serializedSize) -> Bool {
     if lhs._serializedSize != rhs._serializedSize {return false}
@@ -23748,16 +22218,10 @@ extension SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse: SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._sortedExtensionsInUse {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.sortedExtensionsInUse }, fieldNumber: 1, isUnset: { $0._sortedExtensionsInUse == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse, rhs: SwiftProtoTesting_Names_MessageNames.sortedExtensionsInUse) -> Bool {
     if lhs._sortedExtensionsInUse != rhs._sortedExtensionsInUse {return false}
@@ -23784,16 +22248,10 @@ extension SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._unknownFields_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.unknownFields_p }, fieldNumber: 1, isUnset: { $0._unknownFields_p == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage, rhs: SwiftProtoTesting_Names_MessageNames.unknownFieldsMessage) -> Bool {
     if lhs._unknownFields_p != rhs._unknownFields_p {return false}
@@ -23820,16 +22278,10 @@ extension SwiftProtoTesting_Names_MessageNames.Fixed: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._fixed {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.fixed }, fieldNumber: 1, isUnset: { $0._fixed == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Fixed, rhs: SwiftProtoTesting_Names_MessageNames.Fixed) -> Bool {
     if lhs._fixed != rhs._fixed {return false}
@@ -23856,16 +22308,10 @@ extension SwiftProtoTesting_Names_MessageNames.Fract: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._fract {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.fract }, fieldNumber: 1, isUnset: { $0._fract == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Fract, rhs: SwiftProtoTesting_Names_MessageNames.Fract) -> Bool {
     if lhs._fract != rhs._fract {return false}
@@ -23892,16 +22338,10 @@ extension SwiftProtoTesting_Names_MessageNames.Size: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._size {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.size }, fieldNumber: 1, isUnset: { $0._size == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Size, rhs: SwiftProtoTesting_Names_MessageNames.Size) -> Bool {
     if lhs._size != rhs._size {return false}
@@ -23928,16 +22368,10 @@ extension SwiftProtoTesting_Names_MessageNames.LogicalAddress: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._logicalAddress {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.logicalAddress }, fieldNumber: 1, isUnset: { $0._logicalAddress == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.LogicalAddress, rhs: SwiftProtoTesting_Names_MessageNames.LogicalAddress) -> Bool {
     if lhs._logicalAddress != rhs._logicalAddress {return false}
@@ -23964,16 +22398,10 @@ extension SwiftProtoTesting_Names_MessageNames.PhysicalAddress: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._physicalAddress {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.physicalAddress }, fieldNumber: 1, isUnset: { $0._physicalAddress == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.PhysicalAddress, rhs: SwiftProtoTesting_Names_MessageNames.PhysicalAddress) -> Bool {
     if lhs._physicalAddress != rhs._physicalAddress {return false}
@@ -24000,16 +22428,10 @@ extension SwiftProtoTesting_Names_MessageNames.ByteCount: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._byteCount {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.byteCount }, fieldNumber: 1, isUnset: { $0._byteCount == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ByteCount, rhs: SwiftProtoTesting_Names_MessageNames.ByteCount) -> Bool {
     if lhs._byteCount != rhs._byteCount {return false}
@@ -24036,16 +22458,10 @@ extension SwiftProtoTesting_Names_MessageNames.ByteOffset: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._byteOffset {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.byteOffset }, fieldNumber: 1, isUnset: { $0._byteOffset == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ByteOffset, rhs: SwiftProtoTesting_Names_MessageNames.ByteOffset) -> Bool {
     if lhs._byteOffset != rhs._byteOffset {return false}
@@ -24072,16 +22488,10 @@ extension SwiftProtoTesting_Names_MessageNames.Duration: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._duration {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.duration }, fieldNumber: 1, isUnset: { $0._duration == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Duration, rhs: SwiftProtoTesting_Names_MessageNames.Duration) -> Bool {
     if lhs._duration != rhs._duration {return false}
@@ -24108,16 +22518,10 @@ extension SwiftProtoTesting_Names_MessageNames.AbsoluteTime: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._absoluteTime {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.absoluteTime }, fieldNumber: 1, isUnset: { $0._absoluteTime == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.AbsoluteTime, rhs: SwiftProtoTesting_Names_MessageNames.AbsoluteTime) -> Bool {
     if lhs._absoluteTime != rhs._absoluteTime {return false}
@@ -24144,16 +22548,10 @@ extension SwiftProtoTesting_Names_MessageNames.OptionBits: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._optionBits {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.optionBits }, fieldNumber: 1, isUnset: { $0._optionBits == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.OptionBits, rhs: SwiftProtoTesting_Names_MessageNames.OptionBits) -> Bool {
     if lhs._optionBits != rhs._optionBits {return false}
@@ -24180,16 +22578,10 @@ extension SwiftProtoTesting_Names_MessageNames.ItemCount: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._itemCount {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.itemCount }, fieldNumber: 1, isUnset: { $0._itemCount == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ItemCount, rhs: SwiftProtoTesting_Names_MessageNames.ItemCount) -> Bool {
     if lhs._itemCount != rhs._itemCount {return false}
@@ -24216,16 +22608,10 @@ extension SwiftProtoTesting_Names_MessageNames.PBVersion: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._pbversion {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.pbversion }, fieldNumber: 1, isUnset: { $0._pbversion == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.PBVersion, rhs: SwiftProtoTesting_Names_MessageNames.PBVersion) -> Bool {
     if lhs._pbversion != rhs._pbversion {return false}
@@ -24252,16 +22638,10 @@ extension SwiftProtoTesting_Names_MessageNames.ScriptCode: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._scriptCode {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.scriptCode }, fieldNumber: 1, isUnset: { $0._scriptCode == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ScriptCode, rhs: SwiftProtoTesting_Names_MessageNames.ScriptCode) -> Bool {
     if lhs._scriptCode != rhs._scriptCode {return false}
@@ -24288,16 +22668,10 @@ extension SwiftProtoTesting_Names_MessageNames.LangCode: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._langCode {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.langCode }, fieldNumber: 1, isUnset: { $0._langCode == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.LangCode, rhs: SwiftProtoTesting_Names_MessageNames.LangCode) -> Bool {
     if lhs._langCode != rhs._langCode {return false}
@@ -24324,16 +22698,10 @@ extension SwiftProtoTesting_Names_MessageNames.RegionCode: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._regionCode {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.regionCode }, fieldNumber: 1, isUnset: { $0._regionCode == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.RegionCode, rhs: SwiftProtoTesting_Names_MessageNames.RegionCode) -> Bool {
     if lhs._regionCode != rhs._regionCode {return false}
@@ -24360,16 +22728,10 @@ extension SwiftProtoTesting_Names_MessageNames.OSType: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._ostype {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.ostype }, fieldNumber: 1, isUnset: { $0._ostype == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.OSType, rhs: SwiftProtoTesting_Names_MessageNames.OSType) -> Bool {
     if lhs._ostype != rhs._ostype {return false}
@@ -24396,16 +22758,10 @@ extension SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._processSerialNumber {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.processSerialNumber }, fieldNumber: 1, isUnset: { $0._processSerialNumber == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber, rhs: SwiftProtoTesting_Names_MessageNames.ProcessSerialNumber) -> Bool {
     if lhs._processSerialNumber != rhs._processSerialNumber {return false}
@@ -24432,16 +22788,10 @@ extension SwiftProtoTesting_Names_MessageNames.Point: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._point {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.point }, fieldNumber: 1, isUnset: { $0._point == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Point, rhs: SwiftProtoTesting_Names_MessageNames.Point) -> Bool {
     if lhs._point != rhs._point {return false}
@@ -24468,16 +22818,10 @@ extension SwiftProtoTesting_Names_MessageNames.Rect: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._rect {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.rect }, fieldNumber: 1, isUnset: { $0._rect == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Rect, rhs: SwiftProtoTesting_Names_MessageNames.Rect) -> Bool {
     if lhs._rect != rhs._rect {return false}
@@ -24504,16 +22848,10 @@ extension SwiftProtoTesting_Names_MessageNames.FixedPoint: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._fixedPoint {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.fixedPoint }, fieldNumber: 1, isUnset: { $0._fixedPoint == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.FixedPoint, rhs: SwiftProtoTesting_Names_MessageNames.FixedPoint) -> Bool {
     if lhs._fixedPoint != rhs._fixedPoint {return false}
@@ -24540,16 +22878,10 @@ extension SwiftProtoTesting_Names_MessageNames.FixedRect: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._fixedRect {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.fixedRect }, fieldNumber: 1, isUnset: { $0._fixedRect == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.FixedRect, rhs: SwiftProtoTesting_Names_MessageNames.FixedRect) -> Bool {
     if lhs._fixedRect != rhs._fixedRect {return false}
@@ -24576,16 +22908,10 @@ extension SwiftProtoTesting_Names_MessageNames.Style: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._style {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.style }, fieldNumber: 1, isUnset: { $0._style == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Style, rhs: SwiftProtoTesting_Names_MessageNames.Style) -> Bool {
     if lhs._style != rhs._style {return false}
@@ -24612,16 +22938,10 @@ extension SwiftProtoTesting_Names_MessageNames.StyleParameter: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._styleParameter {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.styleParameter }, fieldNumber: 1, isUnset: { $0._styleParameter == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.StyleParameter, rhs: SwiftProtoTesting_Names_MessageNames.StyleParameter) -> Bool {
     if lhs._styleParameter != rhs._styleParameter {return false}
@@ -24648,16 +22968,10 @@ extension SwiftProtoTesting_Names_MessageNames.StyleField: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._styleField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.styleField }, fieldNumber: 1, isUnset: { $0._styleField == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.StyleField, rhs: SwiftProtoTesting_Names_MessageNames.StyleField) -> Bool {
     if lhs._styleField != rhs._styleField {return false}
@@ -24684,16 +22998,10 @@ extension SwiftProtoTesting_Names_MessageNames.TimeScale: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._timeScale {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.timeScale }, fieldNumber: 1, isUnset: { $0._timeScale == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TimeScale, rhs: SwiftProtoTesting_Names_MessageNames.TimeScale) -> Bool {
     if lhs._timeScale != rhs._timeScale {return false}
@@ -24720,16 +23028,10 @@ extension SwiftProtoTesting_Names_MessageNames.TimeBase: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._timeBase {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.timeBase }, fieldNumber: 1, isUnset: { $0._timeBase == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TimeBase, rhs: SwiftProtoTesting_Names_MessageNames.TimeBase) -> Bool {
     if lhs._timeBase != rhs._timeBase {return false}
@@ -24756,16 +23058,10 @@ extension SwiftProtoTesting_Names_MessageNames.TimeRecord: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._timeRecord {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.timeRecord }, fieldNumber: 1, isUnset: { $0._timeRecord == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.TimeRecord, rhs: SwiftProtoTesting_Names_MessageNames.TimeRecord) -> Bool {
     if lhs._timeRecord != rhs._timeRecord {return false}
@@ -24792,16 +23088,10 @@ extension SwiftProtoTesting_Names_MessageNames.serializedData: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._serializedData {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.serializedData }, fieldNumber: 1, isUnset: { $0._serializedData == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.serializedData, rhs: SwiftProtoTesting_Names_MessageNames.serializedData) -> Bool {
     if lhs._serializedData != rhs._serializedData {return false}
@@ -24828,16 +23118,10 @@ extension SwiftProtoTesting_Names_MessageNames.jsonUTF8Data: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._jsonUtf8Data {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.jsonUtf8Data }, fieldNumber: 1, isUnset: { $0._jsonUtf8Data == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.jsonUTF8Data, rhs: SwiftProtoTesting_Names_MessageNames.jsonUTF8Data) -> Bool {
     if lhs._jsonUtf8Data != rhs._jsonUtf8Data {return false}
@@ -24864,16 +23148,10 @@ extension SwiftProtoTesting_Names_MessageNames.jsonString: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._jsonString {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.jsonString }, fieldNumber: 1, isUnset: { $0._jsonString == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.jsonString, rhs: SwiftProtoTesting_Names_MessageNames.jsonString) -> Bool {
     if lhs._jsonString != rhs._jsonString {return false}
@@ -24900,16 +23178,10 @@ extension SwiftProtoTesting_Names_MessageNames.Extension: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._extension {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.`extension` }, fieldNumber: 1, isUnset: { $0._extension == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.Extension, rhs: SwiftProtoTesting_Names_MessageNames.Extension) -> Bool {
     if lhs._extension != rhs._extension {return false}
@@ -24936,16 +23208,10 @@ extension SwiftProtoTesting_Names_MessageNames.ExtensionsMessage: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._extensions {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.extensions }, fieldNumber: 1, isUnset: { $0._extensions == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_MessageNames.ExtensionsMessage, rhs: SwiftProtoTesting_Names_MessageNames.ExtensionsMessage) -> Bool {
     if lhs._extensions != rhs._extensions {return false}
@@ -24963,9 +23229,9 @@ extension SwiftProtoTesting_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobu
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_EnumNames, rhs: SwiftProtoTesting_Names_EnumNames) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26248,9 +24514,9 @@ extension SwiftProtoTesting_Names_FieldNamingInitials: SwiftProtobuf.Message, Sw
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials, rhs: SwiftProtoTesting_Names_FieldNamingInitials) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26362,66 +24628,26 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Lowers: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._http {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._httpRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._theHTTPRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._theHTTP {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      } }()
-      try { if let v = _storage._https {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-      } }()
-      try { if let v = _storage._httpsRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      } }()
-      try { if let v = _storage._theHTTPSRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      } }()
-      try { if let v = _storage._theHTTPS {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-      } }()
-      try { if let v = _storage._url {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-      } }()
-      try { if let v = _storage._urlValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-      } }()
-      try { if let v = _storage._theURLValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-      } }()
-      try { if let v = _storage._theURL {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-      } }()
-      try { if let v = _storage._aBC {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
-      } }()
-      try { if let v = _storage._id {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-      } }()
-      try { if let v = _storage._idNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-      } }()
-      try { if let v = _storage._theIDNumber {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-      } }()
-      try { if let v = _storage._requestID {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.http }, fieldNumber: 1, isUnset: { $0._storage._http == nil }),
+    .singularInt32({ $0.httpRequest }, fieldNumber: 2, isUnset: { $0._storage._httpRequest == nil }),
+    .singularInt32({ $0.theHTTPRequest }, fieldNumber: 3, isUnset: { $0._storage._theHTTPRequest == nil }),
+    .singularInt32({ $0.theHTTP }, fieldNumber: 4, isUnset: { $0._storage._theHTTP == nil }),
+    .singularInt32({ $0.https }, fieldNumber: 11, isUnset: { $0._storage._https == nil }),
+    .singularInt32({ $0.httpsRequest }, fieldNumber: 12, isUnset: { $0._storage._httpsRequest == nil }),
+    .singularInt32({ $0.theHTTPSRequest }, fieldNumber: 13, isUnset: { $0._storage._theHTTPSRequest == nil }),
+    .singularInt32({ $0.theHTTPS }, fieldNumber: 14, isUnset: { $0._storage._theHTTPS == nil }),
+    .singularInt32({ $0.url }, fieldNumber: 21, isUnset: { $0._storage._url == nil }),
+    .singularInt32({ $0.urlValue }, fieldNumber: 22, isUnset: { $0._storage._urlValue == nil }),
+    .singularInt32({ $0.theURLValue }, fieldNumber: 23, isUnset: { $0._storage._theURLValue == nil }),
+    .singularInt32({ $0.theURL }, fieldNumber: 24, isUnset: { $0._storage._theURL == nil }),
+    .singularInt32({ $0.aBC }, fieldNumber: 31, isUnset: { $0._storage._aBC == nil }),
+    .singularInt32({ $0.id }, fieldNumber: 41, isUnset: { $0._storage._id == nil }),
+    .singularInt32({ $0.idNumber }, fieldNumber: 42, isUnset: { $0._storage._idNumber == nil }),
+    .singularInt32({ $0.theIDNumber }, fieldNumber: 43, isUnset: { $0._storage._theIDNumber == nil }),
+    .singularInt32({ $0.requestID }, fieldNumber: 44, isUnset: { $0._storage._requestID == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials.Lowers, rhs: SwiftProtoTesting_Names_FieldNamingInitials.Lowers) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -26502,61 +24728,25 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.Uppers: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._http {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._httpRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._theHTTPRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._theHTTP {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-    } }()
-    try { if let v = self._https {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-    } }()
-    try { if let v = self._httpsRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-    } }()
-    try { if let v = self._theHTTPSRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-    } }()
-    try { if let v = self._theHTTPS {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-    } }()
-    try { if let v = self._url {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-    } }()
-    try { if let v = self._urlValue {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-    } }()
-    try { if let v = self._theURLValue {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-    } }()
-    try { if let v = self._theURL {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-    } }()
-    try { if let v = self._id {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-    } }()
-    try { if let v = self._idNumber {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-    } }()
-    try { if let v = self._theIDNumber {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-    } }()
-    try { if let v = self._requestID {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.http }, fieldNumber: 1, isUnset: { $0._http == nil }),
+    .singularInt32({ $0.httpRequest }, fieldNumber: 2, isUnset: { $0._httpRequest == nil }),
+    .singularInt32({ $0.theHTTPRequest }, fieldNumber: 3, isUnset: { $0._theHTTPRequest == nil }),
+    .singularInt32({ $0.theHTTP }, fieldNumber: 4, isUnset: { $0._theHTTP == nil }),
+    .singularInt32({ $0.https }, fieldNumber: 11, isUnset: { $0._https == nil }),
+    .singularInt32({ $0.httpsRequest }, fieldNumber: 12, isUnset: { $0._httpsRequest == nil }),
+    .singularInt32({ $0.theHTTPSRequest }, fieldNumber: 13, isUnset: { $0._theHTTPSRequest == nil }),
+    .singularInt32({ $0.theHTTPS }, fieldNumber: 14, isUnset: { $0._theHTTPS == nil }),
+    .singularInt32({ $0.url }, fieldNumber: 21, isUnset: { $0._url == nil }),
+    .singularInt32({ $0.urlValue }, fieldNumber: 22, isUnset: { $0._urlValue == nil }),
+    .singularInt32({ $0.theURLValue }, fieldNumber: 23, isUnset: { $0._theURLValue == nil }),
+    .singularInt32({ $0.theURL }, fieldNumber: 24, isUnset: { $0._theURL == nil }),
+    .singularInt32({ $0.id }, fieldNumber: 41, isUnset: { $0._id == nil }),
+    .singularInt32({ $0.idNumber }, fieldNumber: 42, isUnset: { $0._idNumber == nil }),
+    .singularInt32({ $0.theIDNumber }, fieldNumber: 43, isUnset: { $0._theIDNumber == nil }),
+    .singularInt32({ $0.requestID }, fieldNumber: 44, isUnset: { $0._requestID == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials.Uppers, rhs: SwiftProtoTesting_Names_FieldNamingInitials.Uppers) -> Bool {
     if lhs._http != rhs._http {return false}
@@ -26628,61 +24818,25 @@ extension SwiftProtoTesting_Names_FieldNamingInitials.WordCase: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._http {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._httpRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._theHTTPRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._theHTTP {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-    } }()
-    try { if let v = self._https {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-    } }()
-    try { if let v = self._httpsRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-    } }()
-    try { if let v = self._theHTTPSRequest {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-    } }()
-    try { if let v = self._theHTTPS {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-    } }()
-    try { if let v = self._url {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-    } }()
-    try { if let v = self._urlValue {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-    } }()
-    try { if let v = self._theURLValue {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-    } }()
-    try { if let v = self._theURL {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-    } }()
-    try { if let v = self._id {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
-    } }()
-    try { if let v = self._idNumber {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
-    } }()
-    try { if let v = self._theIDNumber {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
-    } }()
-    try { if let v = self._requestID {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.http }, fieldNumber: 1, isUnset: { $0._http == nil }),
+    .singularInt32({ $0.httpRequest }, fieldNumber: 2, isUnset: { $0._httpRequest == nil }),
+    .singularInt32({ $0.theHTTPRequest }, fieldNumber: 3, isUnset: { $0._theHTTPRequest == nil }),
+    .singularInt32({ $0.theHTTP }, fieldNumber: 4, isUnset: { $0._theHTTP == nil }),
+    .singularInt32({ $0.https }, fieldNumber: 11, isUnset: { $0._https == nil }),
+    .singularInt32({ $0.httpsRequest }, fieldNumber: 12, isUnset: { $0._httpsRequest == nil }),
+    .singularInt32({ $0.theHTTPSRequest }, fieldNumber: 13, isUnset: { $0._theHTTPSRequest == nil }),
+    .singularInt32({ $0.theHTTPS }, fieldNumber: 14, isUnset: { $0._theHTTPS == nil }),
+    .singularInt32({ $0.url }, fieldNumber: 21, isUnset: { $0._url == nil }),
+    .singularInt32({ $0.urlValue }, fieldNumber: 22, isUnset: { $0._urlValue == nil }),
+    .singularInt32({ $0.theURLValue }, fieldNumber: 23, isUnset: { $0._theURLValue == nil }),
+    .singularInt32({ $0.theURL }, fieldNumber: 24, isUnset: { $0._theURL == nil }),
+    .singularInt32({ $0.id }, fieldNumber: 41, isUnset: { $0._id == nil }),
+    .singularInt32({ $0.idNumber }, fieldNumber: 42, isUnset: { $0._idNumber == nil }),
+    .singularInt32({ $0.theIDNumber }, fieldNumber: 43, isUnset: { $0._theIDNumber == nil }),
+    .singularInt32({ $0.requestID }, fieldNumber: 44, isUnset: { $0._requestID == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_FieldNamingInitials.WordCase, rhs: SwiftProtoTesting_Names_FieldNamingInitials.WordCase) -> Bool {
     if lhs._http != rhs._http {return false}
@@ -26723,10 +24877,10 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitials: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitials, rhs: SwiftProtoTesting_Names_ExtensionNamingInitials) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26744,9 +24898,9 @@ extension SwiftProtoTesting_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_Lowers, rhs: SwiftProtoTesting_Names_Lowers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26763,9 +24917,9 @@ extension SwiftProtoTesting_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_Uppers, rhs: SwiftProtoTesting_Names_Uppers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26782,9 +24936,9 @@ extension SwiftProtoTesting_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_WordCase, rhs: SwiftProtoTesting_Names_WordCase) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26809,10 +24963,10 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitialsLowers, rhs: SwiftProtoTesting_Names_ExtensionNamingInitialsLowers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26838,10 +24992,10 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitialsUppers, rhs: SwiftProtoTesting_Names_ExtensionNamingInitialsUppers) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26867,10 +25021,10 @@ extension SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase, rhs: SwiftProtoTesting_Names_ExtensionNamingInitialsWordCase) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -26921,36 +25075,23 @@ extension SwiftProtoTesting_Names_ValidIdentifiers: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self.__1Field {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._field {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self.__3Field3 {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    } }()
-    switch self._2Of {
-    case ._4?: try {
-      guard case ._4(let v)? = self._2Of else { preconditionFailure() }
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-    }()
-    case ._5Field?: try {
-      guard case ._5Field(let v)? = self._2Of else { preconditionFailure() }
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
-    }()
-    case nil: break
-    }
-    try { if let v = self._enumField {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0._1Field }, fieldNumber: 1, isUnset: { $0.__1Field == nil }),
+    .singularInt32({ $0.field }, fieldNumber: 2, isUnset: { $0._field == nil }),
+    .singularInt32({ $0._3Field3 }, fieldNumber: 3, isUnset: { $0.__3Field3 == nil }),
+    .oneOf({ $0._2Of }) {
+      switch $0 {
+      case ._4:
+        return _oneOfField__4
+      case ._5Field:
+        return _oneOfField__5Field
+      }
+    },
+    .singularEnum({ $0.enumField }, fieldNumber: 6, isUnset: { $0._enumField == nil }),
+  ]
+  private static let _oneOfField__4: Field<Self> = .singularInt32({ $0._4 }, fieldNumber: 4, isUnset: { _ in false })
+  private static let _oneOfField__5Field: Field<Self> = .singularInt32({ $0._5Field }, fieldNumber: 5, isUnset: { _ in false })
+
 
   static func ==(lhs: SwiftProtoTesting_Names_ValidIdentifiers, rhs: SwiftProtoTesting_Names_ValidIdentifiers) -> Bool {
     if lhs.__1Field != rhs.__1Field {return false}
@@ -26997,16 +25138,16 @@ extension SwiftProtoTesting_Names_SpecialNames1: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if case .str(let v)? = self.newValue {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .oneOf({ $0.newValue }) {
+      switch $0 {
+      case .str:
+        return _oneOfField_str
+      }
+    },
+  ]
+  private static let _oneOfField_str: Field<Self> = .singularString({ $0.str }, fieldNumber: 1, isUnset: { _ in false })
+
 
   static func ==(lhs: SwiftProtoTesting_Names_SpecialNames1, rhs: SwiftProtoTesting_Names_SpecialNames1) -> Bool {
     if lhs.newValue != rhs.newValue {return false}
@@ -27033,16 +25174,10 @@ extension SwiftProtoTesting_Names_SpecialNames2: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._newValue {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularString({ $0.newValue }, fieldNumber: 1, isUnset: { $0._newValue == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_SpecialNames2, rhs: SwiftProtoTesting_Names_SpecialNames2) -> Bool {
     if lhs._newValue != rhs._newValue {return false}
@@ -27102,21 +25237,17 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if case .str(let v)? = _storage._newValue {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._forcesStorage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .oneOf({ $0.newValue }) {
+      switch $0 {
+      case .str:
+        return _oneOfField_str
+      }
+    },
+    .singularMessage({ $0.forcesStorage }, fieldNumber: 2, isUnset: { $0._storage._forcesStorage == nil }),
+  ]
+  private static let _oneOfField_str: Field<Self> = .singularString({ $0.str }, fieldNumber: 1, isUnset: { _ in false })
+
 
   static func ==(lhs: SwiftProtoTesting_Names_SpecialNames3, rhs: SwiftProtoTesting_Names_SpecialNames3) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -27178,21 +25309,11 @@ extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._newValue {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._forcesStorage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularString({ $0.newValue }, fieldNumber: 1, isUnset: { $0._storage._newValue == nil }),
+    .singularMessage({ $0.forcesStorage }, fieldNumber: 2, isUnset: { $0._storage._forcesStorage == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Names_SpecialNames4, rhs: SwiftProtoTesting_Names_SpecialNames4) -> Bool {
     if lhs._storage !== rhs._storage {

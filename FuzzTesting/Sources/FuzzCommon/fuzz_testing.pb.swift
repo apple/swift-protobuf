@@ -3852,862 +3852,325 @@ extension SwiftProtoTesting_Fuzz_Message: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._singularInt32 {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._singularInt64 {
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._singularUint32 {
-        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 3)
-      } }()
-      try { if let v = _storage._singularUint64 {
-        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 4)
-      } }()
-      try { if let v = _storage._singularSint32 {
-        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 5)
-      } }()
-      try { if let v = _storage._singularSint64 {
-        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 6)
-      } }()
-      try { if let v = _storage._singularFixed32 {
-        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 7)
-      } }()
-      try { if let v = _storage._singularFixed64 {
-        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 8)
-      } }()
-      try { if let v = _storage._singularSfixed32 {
-        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 9)
-      } }()
-      try { if let v = _storage._singularSfixed64 {
-        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 10)
-      } }()
-      try { if let v = _storage._singularFloat {
-        try visitor.visitSingularFloatField(value: v, fieldNumber: 11)
-      } }()
-      try { if let v = _storage._singularDouble {
-        try visitor.visitSingularDoubleField(value: v, fieldNumber: 12)
-      } }()
-      try { if let v = _storage._singularBool {
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
-      } }()
-      try { if let v = _storage._singularString {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-      } }()
-      try { if let v = _storage._singularBytes {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
-      } }()
-      try { if let v = _storage._singularEnum {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 16)
-      } }()
-      try { if let v = _storage._singularGroup {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 17)
-      } }()
-      try { if let v = _storage._singularMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      } }()
-      if !_storage._repeatedInt32.isEmpty {
-        try visitor.visitRepeatedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
-      }
-      if !_storage._repeatedInt64.isEmpty {
-        try visitor.visitRepeatedInt64Field(value: _storage._repeatedInt64, fieldNumber: 32)
-      }
-      if !_storage._repeatedUint32.isEmpty {
-        try visitor.visitRepeatedUInt32Field(value: _storage._repeatedUint32, fieldNumber: 33)
-      }
-      if !_storage._repeatedUint64.isEmpty {
-        try visitor.visitRepeatedUInt64Field(value: _storage._repeatedUint64, fieldNumber: 34)
-      }
-      if !_storage._repeatedSint32.isEmpty {
-        try visitor.visitRepeatedSInt32Field(value: _storage._repeatedSint32, fieldNumber: 35)
-      }
-      if !_storage._repeatedSint64.isEmpty {
-        try visitor.visitRepeatedSInt64Field(value: _storage._repeatedSint64, fieldNumber: 36)
-      }
-      if !_storage._repeatedFixed32.isEmpty {
-        try visitor.visitRepeatedFixed32Field(value: _storage._repeatedFixed32, fieldNumber: 37)
-      }
-      if !_storage._repeatedFixed64.isEmpty {
-        try visitor.visitRepeatedFixed64Field(value: _storage._repeatedFixed64, fieldNumber: 38)
-      }
-      if !_storage._repeatedSfixed32.isEmpty {
-        try visitor.visitRepeatedSFixed32Field(value: _storage._repeatedSfixed32, fieldNumber: 39)
-      }
-      if !_storage._repeatedSfixed64.isEmpty {
-        try visitor.visitRepeatedSFixed64Field(value: _storage._repeatedSfixed64, fieldNumber: 40)
-      }
-      if !_storage._repeatedFloat.isEmpty {
-        try visitor.visitRepeatedFloatField(value: _storage._repeatedFloat, fieldNumber: 41)
-      }
-      if !_storage._repeatedDouble.isEmpty {
-        try visitor.visitRepeatedDoubleField(value: _storage._repeatedDouble, fieldNumber: 42)
-      }
-      if !_storage._repeatedBool.isEmpty {
-        try visitor.visitRepeatedBoolField(value: _storage._repeatedBool, fieldNumber: 43)
-      }
-      if !_storage._repeatedString.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._repeatedString, fieldNumber: 44)
-      }
-      if !_storage._repeatedBytes.isEmpty {
-        try visitor.visitRepeatedBytesField(value: _storage._repeatedBytes, fieldNumber: 45)
-      }
-      if !_storage._repeatedEnum.isEmpty {
-        try visitor.visitRepeatedEnumField(value: _storage._repeatedEnum, fieldNumber: 46)
-      }
-      if !_storage._repeatedGroup.isEmpty {
-        try visitor.visitRepeatedGroupField(value: _storage._repeatedGroup, fieldNumber: 47)
-      }
-      if !_storage._repeatedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._repeatedMessage, fieldNumber: 49)
-      }
-      switch _storage._o {
-      case .oneofInt32?: try {
-        guard case .oneofInt32(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
-      }()
-      case .oneofInt64?: try {
-        guard case .oneofInt64(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 62)
-      }()
-      case .oneofUint32?: try {
-        guard case .oneofUint32(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 63)
-      }()
-      case .oneofUint64?: try {
-        guard case .oneofUint64(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 64)
-      }()
-      case .oneofSint32?: try {
-        guard case .oneofSint32(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 65)
-      }()
-      case .oneofSint64?: try {
-        guard case .oneofSint64(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 66)
-      }()
-      case .oneofFixed32?: try {
-        guard case .oneofFixed32(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 67)
-      }()
-      case .oneofFixed64?: try {
-        guard case .oneofFixed64(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 68)
-      }()
-      case .oneofSfixed32?: try {
-        guard case .oneofSfixed32(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 69)
-      }()
-      case .oneofSfixed64?: try {
-        guard case .oneofSfixed64(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 70)
-      }()
-      case .oneofFloat?: try {
-        guard case .oneofFloat(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularFloatField(value: v, fieldNumber: 71)
-      }()
-      case .oneofDouble?: try {
-        guard case .oneofDouble(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularDoubleField(value: v, fieldNumber: 72)
-      }()
-      case .oneofBool?: try {
-        guard case .oneofBool(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 73)
-      }()
-      case .oneofString?: try {
-        guard case .oneofString(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularStringField(value: v, fieldNumber: 74)
-      }()
-      case .oneofBytes?: try {
-        guard case .oneofBytes(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 75)
-      }()
-      case .oneofEnum?: try {
-        guard case .oneofEnum(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 76)
-      }()
-      case .oneofGroup?: try {
-        guard case .oneofGroup(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 77)
-      }()
-      case .oneofMessage?: try {
-        guard case .oneofMessage(let v)? = _storage._o else { preconditionFailure() }
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 79)
-      }()
-      case nil: break
-      }
-      if !_storage._repeatedPackedInt32.isEmpty {
-        try visitor.visitPackedInt32Field(value: _storage._repeatedPackedInt32, fieldNumber: 81)
-      }
-      if !_storage._repeatedPackedInt64.isEmpty {
-        try visitor.visitPackedInt64Field(value: _storage._repeatedPackedInt64, fieldNumber: 82)
-      }
-      if !_storage._repeatedPackedUint32.isEmpty {
-        try visitor.visitPackedUInt32Field(value: _storage._repeatedPackedUint32, fieldNumber: 83)
-      }
-      if !_storage._repeatedPackedUint64.isEmpty {
-        try visitor.visitPackedUInt64Field(value: _storage._repeatedPackedUint64, fieldNumber: 84)
-      }
-      if !_storage._repeatedPackedSint32.isEmpty {
-        try visitor.visitPackedSInt32Field(value: _storage._repeatedPackedSint32, fieldNumber: 85)
-      }
-      if !_storage._repeatedPackedSint64.isEmpty {
-        try visitor.visitPackedSInt64Field(value: _storage._repeatedPackedSint64, fieldNumber: 86)
-      }
-      if !_storage._repeatedPackedFixed32.isEmpty {
-        try visitor.visitPackedFixed32Field(value: _storage._repeatedPackedFixed32, fieldNumber: 87)
-      }
-      if !_storage._repeatedPackedFixed64.isEmpty {
-        try visitor.visitPackedFixed64Field(value: _storage._repeatedPackedFixed64, fieldNumber: 88)
-      }
-      if !_storage._repeatedPackedSfixed32.isEmpty {
-        try visitor.visitPackedSFixed32Field(value: _storage._repeatedPackedSfixed32, fieldNumber: 89)
-      }
-      if !_storage._repeatedPackedSfixed64.isEmpty {
-        try visitor.visitPackedSFixed64Field(value: _storage._repeatedPackedSfixed64, fieldNumber: 90)
-      }
-      if !_storage._repeatedPackedFloat.isEmpty {
-        try visitor.visitPackedFloatField(value: _storage._repeatedPackedFloat, fieldNumber: 91)
-      }
-      if !_storage._repeatedPackedDouble.isEmpty {
-        try visitor.visitPackedDoubleField(value: _storage._repeatedPackedDouble, fieldNumber: 92)
-      }
-      if !_storage._repeatedPackedBool.isEmpty {
-        try visitor.visitPackedBoolField(value: _storage._repeatedPackedBool, fieldNumber: 93)
-      }
-      if !_storage._repeatedPackedEnum.isEmpty {
-        try visitor.visitPackedEnumField(value: _storage._repeatedPackedEnum, fieldNumber: 94)
-      }
-      if !_storage._mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 100)
-      }
-      if !_storage._mapInt32Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapInt32Int64, fieldNumber: 101)
-      }
-      if !_storage._mapInt32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapInt32Uint32, fieldNumber: 102)
-      }
-      if !_storage._mapInt32Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapInt32Uint64, fieldNumber: 103)
-      }
-      if !_storage._mapInt32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapInt32Sint32, fieldNumber: 104)
-      }
-      if !_storage._mapInt32Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapInt32Sint64, fieldNumber: 105)
-      }
-      if !_storage._mapInt32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapInt32Fixed32, fieldNumber: 106)
-      }
-      if !_storage._mapInt32Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapInt32Fixed64, fieldNumber: 107)
-      }
-      if !_storage._mapInt32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapInt32Sfixed32, fieldNumber: 108)
-      }
-      if !_storage._mapInt32Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapInt32Sfixed64, fieldNumber: 109)
-      }
-      if !_storage._mapInt32Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapInt32Float, fieldNumber: 110)
-      }
-      if !_storage._mapInt32Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapInt32Double, fieldNumber: 111)
-      }
-      if !_storage._mapInt32Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapInt32Bool, fieldNumber: 112)
-      }
-      if !_storage._mapInt32String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._mapInt32String, fieldNumber: 113)
-      }
-      if !_storage._mapInt32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapInt32Bytes, fieldNumber: 114)
-      }
-      if !_storage._mapInt32AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapInt32AnEnum, fieldNumber: 115)
-      }
-      if !_storage._mapInt32Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapInt32Message, fieldNumber: 116)
-      }
-      if !_storage._mapInt64Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt64Int32, fieldNumber: 117)
-      }
-      if !_storage._mapInt64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapInt64Int64, fieldNumber: 118)
-      }
-      if !_storage._mapInt64Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapInt64Uint32, fieldNumber: 119)
-      }
-      if !_storage._mapInt64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapInt64Uint64, fieldNumber: 120)
-      }
-      if !_storage._mapInt64Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapInt64Sint32, fieldNumber: 121)
-      }
-      if !_storage._mapInt64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapInt64Sint64, fieldNumber: 122)
-      }
-      if !_storage._mapInt64Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapInt64Fixed32, fieldNumber: 123)
-      }
-      if !_storage._mapInt64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapInt64Fixed64, fieldNumber: 124)
-      }
-      if !_storage._mapInt64Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapInt64Sfixed32, fieldNumber: 125)
-      }
-      if !_storage._mapInt64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapInt64Sfixed64, fieldNumber: 126)
-      }
-      if !_storage._mapInt64Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapInt64Float, fieldNumber: 127)
-      }
-      if !_storage._mapInt64Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapInt64Double, fieldNumber: 128)
-      }
-      if !_storage._mapInt64Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapInt64Bool, fieldNumber: 129)
-      }
-      if !_storage._mapInt64String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufString>.self, value: _storage._mapInt64String, fieldNumber: 130)
-      }
-      if !_storage._mapInt64Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapInt64Bytes, fieldNumber: 131)
-      }
-      if !_storage._mapInt64AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt64,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapInt64AnEnum, fieldNumber: 132)
-      }
-      if !_storage._mapInt64Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapInt64Message, fieldNumber: 133)
-      }
-      if !_storage._mapUint32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapUint32Int32, fieldNumber: 134)
-      }
-      if !_storage._mapUint32Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapUint32Int64, fieldNumber: 135)
-      }
-      if !_storage._mapUint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapUint32Uint32, fieldNumber: 136)
-      }
-      if !_storage._mapUint32Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapUint32Uint64, fieldNumber: 137)
-      }
-      if !_storage._mapUint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapUint32Sint32, fieldNumber: 138)
-      }
-      if !_storage._mapUint32Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapUint32Sint64, fieldNumber: 139)
-      }
-      if !_storage._mapUint32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapUint32Fixed32, fieldNumber: 140)
-      }
-      if !_storage._mapUint32Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapUint32Fixed64, fieldNumber: 141)
-      }
-      if !_storage._mapUint32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapUint32Sfixed32, fieldNumber: 142)
-      }
-      if !_storage._mapUint32Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapUint32Sfixed64, fieldNumber: 143)
-      }
-      if !_storage._mapUint32Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapUint32Float, fieldNumber: 144)
-      }
-      if !_storage._mapUint32Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapUint32Double, fieldNumber: 145)
-      }
-      if !_storage._mapUint32Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapUint32Bool, fieldNumber: 146)
-      }
-      if !_storage._mapUint32String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._mapUint32String, fieldNumber: 147)
-      }
-      if !_storage._mapUint32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapUint32Bytes, fieldNumber: 148)
-      }
-      if !_storage._mapUint32AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt32,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapUint32AnEnum, fieldNumber: 149)
-      }
-      if !_storage._mapUint32Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt32,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapUint32Message, fieldNumber: 150)
-      }
-      if !_storage._mapUint64Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapUint64Int32, fieldNumber: 151)
-      }
-      if !_storage._mapUint64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapUint64Int64, fieldNumber: 152)
-      }
-      if !_storage._mapUint64Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapUint64Uint32, fieldNumber: 153)
-      }
-      if !_storage._mapUint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapUint64Uint64, fieldNumber: 154)
-      }
-      if !_storage._mapUint64Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapUint64Sint32, fieldNumber: 155)
-      }
-      if !_storage._mapUint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapUint64Sint64, fieldNumber: 156)
-      }
-      if !_storage._mapUint64Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapUint64Fixed32, fieldNumber: 157)
-      }
-      if !_storage._mapUint64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapUint64Fixed64, fieldNumber: 158)
-      }
-      if !_storage._mapUint64Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapUint64Sfixed32, fieldNumber: 159)
-      }
-      if !_storage._mapUint64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapUint64Sfixed64, fieldNumber: 160)
-      }
-      if !_storage._mapUint64Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapUint64Float, fieldNumber: 161)
-      }
-      if !_storage._mapUint64Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapUint64Double, fieldNumber: 162)
-      }
-      if !_storage._mapUint64Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapUint64Bool, fieldNumber: 163)
-      }
-      if !_storage._mapUint64String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufString>.self, value: _storage._mapUint64String, fieldNumber: 164)
-      }
-      if !_storage._mapUint64Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapUint64Bytes, fieldNumber: 165)
-      }
-      if !_storage._mapUint64AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt64,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapUint64AnEnum, fieldNumber: 166)
-      }
-      if !_storage._mapUint64Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt64,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapUint64Message, fieldNumber: 167)
-      }
-      if !_storage._mapSint32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapSint32Int32, fieldNumber: 168)
-      }
-      if !_storage._mapSint32Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapSint32Int64, fieldNumber: 169)
-      }
-      if !_storage._mapSint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapSint32Uint32, fieldNumber: 170)
-      }
-      if !_storage._mapSint32Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapSint32Uint64, fieldNumber: 171)
-      }
-      if !_storage._mapSint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapSint32Sint32, fieldNumber: 172)
-      }
-      if !_storage._mapSint32Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapSint32Sint64, fieldNumber: 173)
-      }
-      if !_storage._mapSint32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapSint32Fixed32, fieldNumber: 174)
-      }
-      if !_storage._mapSint32Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapSint32Fixed64, fieldNumber: 175)
-      }
-      if !_storage._mapSint32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapSint32Sfixed32, fieldNumber: 176)
-      }
-      if !_storage._mapSint32Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapSint32Sfixed64, fieldNumber: 177)
-      }
-      if !_storage._mapSint32Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapSint32Float, fieldNumber: 178)
-      }
-      if !_storage._mapSint32Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapSint32Double, fieldNumber: 179)
-      }
-      if !_storage._mapSint32Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapSint32Bool, fieldNumber: 180)
-      }
-      if !_storage._mapSint32String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufString>.self, value: _storage._mapSint32String, fieldNumber: 181)
-      }
-      if !_storage._mapSint32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapSint32Bytes, fieldNumber: 182)
-      }
-      if !_storage._mapSint32AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt32,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapSint32AnEnum, fieldNumber: 183)
-      }
-      if !_storage._mapSint32Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt32,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapSint32Message, fieldNumber: 184)
-      }
-      if !_storage._mapSint64Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapSint64Int32, fieldNumber: 185)
-      }
-      if !_storage._mapSint64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapSint64Int64, fieldNumber: 186)
-      }
-      if !_storage._mapSint64Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapSint64Uint32, fieldNumber: 187)
-      }
-      if !_storage._mapSint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapSint64Uint64, fieldNumber: 188)
-      }
-      if !_storage._mapSint64Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapSint64Sint32, fieldNumber: 189)
-      }
-      if !_storage._mapSint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapSint64Sint64, fieldNumber: 190)
-      }
-      if !_storage._mapSint64Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapSint64Fixed32, fieldNumber: 191)
-      }
-      if !_storage._mapSint64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapSint64Fixed64, fieldNumber: 192)
-      }
-      if !_storage._mapSint64Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapSint64Sfixed32, fieldNumber: 193)
-      }
-      if !_storage._mapSint64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapSint64Sfixed64, fieldNumber: 194)
-      }
-      if !_storage._mapSint64Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapSint64Float, fieldNumber: 195)
-      }
-      if !_storage._mapSint64Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapSint64Double, fieldNumber: 196)
-      }
-      if !_storage._mapSint64Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapSint64Bool, fieldNumber: 197)
-      }
-      if !_storage._mapSint64String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufString>.self, value: _storage._mapSint64String, fieldNumber: 198)
-      }
-      if !_storage._mapSint64Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapSint64Bytes, fieldNumber: 199)
-      }
-      if !_storage._mapSint64AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt64,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapSint64AnEnum, fieldNumber: 200)
-      }
-      if !_storage._mapSint64Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt64,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapSint64Message, fieldNumber: 201)
-      }
-      if !_storage._mapFixed32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapFixed32Int32, fieldNumber: 202)
-      }
-      if !_storage._mapFixed32Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapFixed32Int64, fieldNumber: 203)
-      }
-      if !_storage._mapFixed32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapFixed32Uint32, fieldNumber: 204)
-      }
-      if !_storage._mapFixed32Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapFixed32Uint64, fieldNumber: 205)
-      }
-      if !_storage._mapFixed32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapFixed32Sint32, fieldNumber: 206)
-      }
-      if !_storage._mapFixed32Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapFixed32Sint64, fieldNumber: 207)
-      }
-      if !_storage._mapFixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapFixed32Fixed32, fieldNumber: 208)
-      }
-      if !_storage._mapFixed32Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapFixed32Fixed64, fieldNumber: 209)
-      }
-      if !_storage._mapFixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapFixed32Sfixed32, fieldNumber: 210)
-      }
-      if !_storage._mapFixed32Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapFixed32Sfixed64, fieldNumber: 211)
-      }
-      if !_storage._mapFixed32Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapFixed32Float, fieldNumber: 212)
-      }
-      if !_storage._mapFixed32Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapFixed32Double, fieldNumber: 213)
-      }
-      if !_storage._mapFixed32Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapFixed32Bool, fieldNumber: 214)
-      }
-      if !_storage._mapFixed32String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufString>.self, value: _storage._mapFixed32String, fieldNumber: 215)
-      }
-      if !_storage._mapFixed32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapFixed32Bytes, fieldNumber: 216)
-      }
-      if !_storage._mapFixed32AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed32,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapFixed32AnEnum, fieldNumber: 217)
-      }
-      if !_storage._mapFixed32Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed32,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapFixed32Message, fieldNumber: 218)
-      }
-      if !_storage._mapFixed64Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapFixed64Int32, fieldNumber: 219)
-      }
-      if !_storage._mapFixed64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapFixed64Int64, fieldNumber: 220)
-      }
-      if !_storage._mapFixed64Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapFixed64Uint32, fieldNumber: 221)
-      }
-      if !_storage._mapFixed64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapFixed64Uint64, fieldNumber: 222)
-      }
-      if !_storage._mapFixed64Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapFixed64Sint32, fieldNumber: 223)
-      }
-      if !_storage._mapFixed64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapFixed64Sint64, fieldNumber: 224)
-      }
-      if !_storage._mapFixed64Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapFixed64Fixed32, fieldNumber: 225)
-      }
-      if !_storage._mapFixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapFixed64Fixed64, fieldNumber: 226)
-      }
-      if !_storage._mapFixed64Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapFixed64Sfixed32, fieldNumber: 227)
-      }
-      if !_storage._mapFixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapFixed64Sfixed64, fieldNumber: 228)
-      }
-      if !_storage._mapFixed64Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapFixed64Float, fieldNumber: 229)
-      }
-      if !_storage._mapFixed64Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapFixed64Double, fieldNumber: 230)
-      }
-      if !_storage._mapFixed64Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapFixed64Bool, fieldNumber: 231)
-      }
-      if !_storage._mapFixed64String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufString>.self, value: _storage._mapFixed64String, fieldNumber: 232)
-      }
-      if !_storage._mapFixed64Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapFixed64Bytes, fieldNumber: 233)
-      }
-      if !_storage._mapFixed64AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed64,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapFixed64AnEnum, fieldNumber: 234)
-      }
-      if !_storage._mapFixed64Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed64,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapFixed64Message, fieldNumber: 235)
-      }
-      if !_storage._mapSfixed32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapSfixed32Int32, fieldNumber: 236)
-      }
-      if !_storage._mapSfixed32Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapSfixed32Int64, fieldNumber: 237)
-      }
-      if !_storage._mapSfixed32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapSfixed32Uint32, fieldNumber: 238)
-      }
-      if !_storage._mapSfixed32Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapSfixed32Uint64, fieldNumber: 239)
-      }
-      if !_storage._mapSfixed32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapSfixed32Sint32, fieldNumber: 240)
-      }
-      if !_storage._mapSfixed32Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapSfixed32Sint64, fieldNumber: 241)
-      }
-      if !_storage._mapSfixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapSfixed32Fixed32, fieldNumber: 242)
-      }
-      if !_storage._mapSfixed32Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapSfixed32Fixed64, fieldNumber: 243)
-      }
-      if !_storage._mapSfixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapSfixed32Sfixed32, fieldNumber: 244)
-      }
-      if !_storage._mapSfixed32Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapSfixed32Sfixed64, fieldNumber: 245)
-      }
-      if !_storage._mapSfixed32Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapSfixed32Float, fieldNumber: 246)
-      }
-      if !_storage._mapSfixed32Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapSfixed32Double, fieldNumber: 247)
-      }
-      if !_storage._mapSfixed32Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapSfixed32Bool, fieldNumber: 248)
-      }
-      if !_storage._mapSfixed32String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufString>.self, value: _storage._mapSfixed32String, fieldNumber: 249)
-      }
-      if !_storage._mapSfixed32Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapSfixed32Bytes, fieldNumber: 250)
-      }
-      if !_storage._mapSfixed32AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapSfixed32AnEnum, fieldNumber: 251)
-      }
-      if !_storage._mapSfixed32Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapSfixed32Message, fieldNumber: 252)
-      }
-      if !_storage._mapSfixed64Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapSfixed64Int32, fieldNumber: 253)
-      }
-      if !_storage._mapSfixed64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapSfixed64Int64, fieldNumber: 254)
-      }
-      if !_storage._mapSfixed64Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapSfixed64Uint32, fieldNumber: 255)
-      }
-      if !_storage._mapSfixed64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapSfixed64Uint64, fieldNumber: 256)
-      }
-      if !_storage._mapSfixed64Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapSfixed64Sint32, fieldNumber: 257)
-      }
-      if !_storage._mapSfixed64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapSfixed64Sint64, fieldNumber: 258)
-      }
-      if !_storage._mapSfixed64Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapSfixed64Fixed32, fieldNumber: 259)
-      }
-      if !_storage._mapSfixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapSfixed64Fixed64, fieldNumber: 260)
-      }
-      if !_storage._mapSfixed64Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapSfixed64Sfixed32, fieldNumber: 261)
-      }
-      if !_storage._mapSfixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapSfixed64Sfixed64, fieldNumber: 262)
-      }
-      if !_storage._mapSfixed64Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapSfixed64Float, fieldNumber: 263)
-      }
-      if !_storage._mapSfixed64Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapSfixed64Double, fieldNumber: 264)
-      }
-      if !_storage._mapSfixed64Bool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapSfixed64Bool, fieldNumber: 265)
-      }
-      if !_storage._mapSfixed64String.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufString>.self, value: _storage._mapSfixed64String, fieldNumber: 266)
-      }
-      if !_storage._mapSfixed64Bytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapSfixed64Bytes, fieldNumber: 267)
-      }
-      if !_storage._mapSfixed64AnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapSfixed64AnEnum, fieldNumber: 268)
-      }
-      if !_storage._mapSfixed64Message.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapSfixed64Message, fieldNumber: 269)
-      }
-      if !_storage._mapBoolInt32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapBoolInt32, fieldNumber: 270)
-      }
-      if !_storage._mapBoolInt64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapBoolInt64, fieldNumber: 271)
-      }
-      if !_storage._mapBoolUint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapBoolUint32, fieldNumber: 272)
-      }
-      if !_storage._mapBoolUint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapBoolUint64, fieldNumber: 273)
-      }
-      if !_storage._mapBoolSint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapBoolSint32, fieldNumber: 274)
-      }
-      if !_storage._mapBoolSint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapBoolSint64, fieldNumber: 275)
-      }
-      if !_storage._mapBoolFixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapBoolFixed32, fieldNumber: 276)
-      }
-      if !_storage._mapBoolFixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapBoolFixed64, fieldNumber: 277)
-      }
-      if !_storage._mapBoolSfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapBoolSfixed32, fieldNumber: 278)
-      }
-      if !_storage._mapBoolSfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapBoolSfixed64, fieldNumber: 279)
-      }
-      if !_storage._mapBoolFloat.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapBoolFloat, fieldNumber: 280)
-      }
-      if !_storage._mapBoolDouble.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapBoolDouble, fieldNumber: 281)
-      }
-      if !_storage._mapBoolBool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapBoolBool, fieldNumber: 282)
-      }
-      if !_storage._mapBoolString.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufString>.self, value: _storage._mapBoolString, fieldNumber: 283)
-      }
-      if !_storage._mapBoolBytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapBoolBytes, fieldNumber: 284)
-      }
-      if !_storage._mapBoolAnEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufBool,SwiftProtoTesting_Fuzz_AnEnum>.self, value: _storage._mapBoolAnEnum, fieldNumber: 285)
-      }
-      if !_storage._mapBoolMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,SwiftProtoTesting_Fuzz_Message>.self, value: _storage._mapBoolMessage, fieldNumber: 286)
-      }
-      try { if let v = _storage._wktAny {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 500)
-      } }()
-      try { if let v = _storage._wktApi {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 501)
-      } }()
-      try { if let v = _storage._wktDuration {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 502)
-      } }()
-      try { if let v = _storage._wktEmpty {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 503)
-      } }()
-      try { if let v = _storage._wktFieldMask {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 504)
-      } }()
-      try { if let v = _storage._wktSourceContext {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 505)
-      } }()
-      try { if let v = _storage._wktStruct {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 506)
-      } }()
-      try { if let v = _storage._wktTimestamp {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 507)
-      } }()
-      try { if let v = _storage._wktType {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 508)
-      } }()
-      try { if let v = _storage._wktDoubleValue {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 509)
-      } }()
-      try { if let v = _storage._wktFloatValue {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 510)
-      } }()
-      try { if let v = _storage._wktInt64Value {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 511)
-      } }()
-      try { if let v = _storage._wktUint64Value {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 512)
-      } }()
-      try { if let v = _storage._wktInt32Value {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 513)
-      } }()
-      try { if let v = _storage._wktUint32Value {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 514)
-      } }()
-      try { if let v = _storage._wktBoolValue {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 515)
-      } }()
-      try { if let v = _storage._wktStringValue {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 516)
-      } }()
-      try { if let v = _storage._wktBytesValue {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 517)
-      } }()
-      try { if let v = _storage._singularMessageSet {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 600)
-      } }()
-      if !_storage._repeatedMessageSet.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._repeatedMessageSet, fieldNumber: 601)
-      }
-      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.singularInt32 }, fieldNumber: 1, isUnset: { $0._storage._singularInt32 == nil }),
+    .singularInt64({ $0.singularInt64 }, fieldNumber: 2, isUnset: { $0._storage._singularInt64 == nil }),
+    .singularUInt32({ $0.singularUint32 }, fieldNumber: 3, isUnset: { $0._storage._singularUint32 == nil }),
+    .singularUInt64({ $0.singularUint64 }, fieldNumber: 4, isUnset: { $0._storage._singularUint64 == nil }),
+    .singularSInt32({ $0.singularSint32 }, fieldNumber: 5, isUnset: { $0._storage._singularSint32 == nil }),
+    .singularSInt64({ $0.singularSint64 }, fieldNumber: 6, isUnset: { $0._storage._singularSint64 == nil }),
+    .singularFixed32({ $0.singularFixed32 }, fieldNumber: 7, isUnset: { $0._storage._singularFixed32 == nil }),
+    .singularFixed64({ $0.singularFixed64 }, fieldNumber: 8, isUnset: { $0._storage._singularFixed64 == nil }),
+    .singularSFixed32({ $0.singularSfixed32 }, fieldNumber: 9, isUnset: { $0._storage._singularSfixed32 == nil }),
+    .singularSFixed64({ $0.singularSfixed64 }, fieldNumber: 10, isUnset: { $0._storage._singularSfixed64 == nil }),
+    .singularFloat({ $0.singularFloat }, fieldNumber: 11, isUnset: { $0._storage._singularFloat == nil }),
+    .singularDouble({ $0.singularDouble }, fieldNumber: 12, isUnset: { $0._storage._singularDouble == nil }),
+    .singularBool({ $0.singularBool }, fieldNumber: 13, isUnset: { $0._storage._singularBool == nil }),
+    .singularString({ $0.singularString }, fieldNumber: 14, isUnset: { $0._storage._singularString == nil }),
+    .singularBytes({ $0.singularBytes }, fieldNumber: 15, isUnset: { $0._storage._singularBytes == nil }),
+    .singularEnum({ $0.singularEnum }, fieldNumber: 16, isUnset: { $0._storage._singularEnum == nil }),
+    .singularGroup({ $0.singularGroup }, fieldNumber: 17, isUnset: { $0._storage._singularGroup == nil }),
+    .singularMessage({ $0.singularMessage }, fieldNumber: 19, isUnset: { $0._storage._singularMessage == nil }),
+    .repeatedInt32({ $0.repeatedInt32 }, fieldNumber: 31),
+    .repeatedInt64({ $0.repeatedInt64 }, fieldNumber: 32),
+    .repeatedUInt32({ $0.repeatedUint32 }, fieldNumber: 33),
+    .repeatedUInt64({ $0.repeatedUint64 }, fieldNumber: 34),
+    .repeatedSInt32({ $0.repeatedSint32 }, fieldNumber: 35),
+    .repeatedSInt64({ $0.repeatedSint64 }, fieldNumber: 36),
+    .repeatedFixed32({ $0.repeatedFixed32 }, fieldNumber: 37),
+    .repeatedFixed64({ $0.repeatedFixed64 }, fieldNumber: 38),
+    .repeatedSFixed32({ $0.repeatedSfixed32 }, fieldNumber: 39),
+    .repeatedSFixed64({ $0.repeatedSfixed64 }, fieldNumber: 40),
+    .repeatedFloat({ $0.repeatedFloat }, fieldNumber: 41),
+    .repeatedDouble({ $0.repeatedDouble }, fieldNumber: 42),
+    .repeatedBool({ $0.repeatedBool }, fieldNumber: 43),
+    .repeatedString({ $0.repeatedString }, fieldNumber: 44),
+    .repeatedBytes({ $0.repeatedBytes }, fieldNumber: 45),
+    .repeatedEnum({ $0.repeatedEnum }, fieldNumber: 46),
+    .repeatedGroup({ $0.repeatedGroup }, fieldNumber: 47),
+    .repeatedMessage({ $0.repeatedMessage }, fieldNumber: 49),
+    .oneOf({ $0.o }) {
+      switch $0 {
+      case .oneofInt32:
+        return _oneOfField_oneofInt32
+      case .oneofInt64:
+        return _oneOfField_oneofInt64
+      case .oneofUint32:
+        return _oneOfField_oneofUint32
+      case .oneofUint64:
+        return _oneOfField_oneofUint64
+      case .oneofSint32:
+        return _oneOfField_oneofSint32
+      case .oneofSint64:
+        return _oneOfField_oneofSint64
+      case .oneofFixed32:
+        return _oneOfField_oneofFixed32
+      case .oneofFixed64:
+        return _oneOfField_oneofFixed64
+      case .oneofSfixed32:
+        return _oneOfField_oneofSfixed32
+      case .oneofSfixed64:
+        return _oneOfField_oneofSfixed64
+      case .oneofFloat:
+        return _oneOfField_oneofFloat
+      case .oneofDouble:
+        return _oneOfField_oneofDouble
+      case .oneofBool:
+        return _oneOfField_oneofBool
+      case .oneofString:
+        return _oneOfField_oneofString
+      case .oneofBytes:
+        return _oneOfField_oneofBytes
+      case .oneofEnum:
+        return _oneOfField_oneofEnum
+      case .oneofGroup:
+        return _oneOfField_oneofGroup
+      case .oneofMessage:
+        return _oneOfField_oneofMessage
+      }
+    },
+    .packedInt32({ $0.repeatedPackedInt32 }, fieldNumber: 81),
+    .packedInt64({ $0.repeatedPackedInt64 }, fieldNumber: 82),
+    .packedUInt32({ $0.repeatedPackedUint32 }, fieldNumber: 83),
+    .packedUInt64({ $0.repeatedPackedUint64 }, fieldNumber: 84),
+    .packedSInt32({ $0.repeatedPackedSint32 }, fieldNumber: 85),
+    .packedSInt64({ $0.repeatedPackedSint64 }, fieldNumber: 86),
+    .packedFixed32({ $0.repeatedPackedFixed32 }, fieldNumber: 87),
+    .packedFixed64({ $0.repeatedPackedFixed64 }, fieldNumber: 88),
+    .packedSFixed32({ $0.repeatedPackedSfixed32 }, fieldNumber: 89),
+    .packedSFixed64({ $0.repeatedPackedSfixed64 }, fieldNumber: 90),
+    .packedFloat({ $0.repeatedPackedFloat }, fieldNumber: 91),
+    .packedDouble({ $0.repeatedPackedDouble }, fieldNumber: 92),
+    .packedBool({ $0.repeatedPackedBool }, fieldNumber: 93),
+    .packedEnum({ $0.repeatedPackedEnum }, fieldNumber: 94),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, { $0.mapInt32Int32 }, fieldNumber: 100),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt64>.self, { $0.mapInt32Int64 }, fieldNumber: 101),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapInt32Uint32 }, fieldNumber: 102),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapInt32Uint64 }, fieldNumber: 103),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapInt32Sint32 }, fieldNumber: 104),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapInt32Sint64 }, fieldNumber: 105),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapInt32Fixed32 }, fieldNumber: 106),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapInt32Fixed64 }, fieldNumber: 107),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapInt32Sfixed32 }, fieldNumber: 108),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapInt32Sfixed64 }, fieldNumber: 109),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, { $0.mapInt32Float }, fieldNumber: 110),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, { $0.mapInt32Double }, fieldNumber: 111),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBool>.self, { $0.mapInt32Bool }, fieldNumber: 112),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, { $0.mapInt32String }, fieldNumber: 113),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, { $0.mapInt32Bytes }, fieldNumber: 114),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapInt32AnEnum }, fieldNumber: 115),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapInt32Message }, fieldNumber: 116),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt32>.self, { $0.mapInt64Int32 }, fieldNumber: 117),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, { $0.mapInt64Int64 }, fieldNumber: 118),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapInt64Uint32 }, fieldNumber: 119),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapInt64Uint64 }, fieldNumber: 120),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapInt64Sint32 }, fieldNumber: 121),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapInt64Sint64 }, fieldNumber: 122),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapInt64Fixed32 }, fieldNumber: 123),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapInt64Fixed64 }, fieldNumber: 124),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapInt64Sfixed32 }, fieldNumber: 125),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapInt64Sfixed64 }, fieldNumber: 126),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufFloat>.self, { $0.mapInt64Float }, fieldNumber: 127),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufDouble>.self, { $0.mapInt64Double }, fieldNumber: 128),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufBool>.self, { $0.mapInt64Bool }, fieldNumber: 129),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufString>.self, { $0.mapInt64String }, fieldNumber: 130),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufBytes>.self, { $0.mapInt64Bytes }, fieldNumber: 131),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt64,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapInt64AnEnum }, fieldNumber: 132),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt64,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapInt64Message }, fieldNumber: 133),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufInt32>.self, { $0.mapUint32Int32 }, fieldNumber: 134),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufInt64>.self, { $0.mapUint32Int64 }, fieldNumber: 135),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapUint32Uint32 }, fieldNumber: 136),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapUint32Uint64 }, fieldNumber: 137),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapUint32Sint32 }, fieldNumber: 138),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapUint32Sint64 }, fieldNumber: 139),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapUint32Fixed32 }, fieldNumber: 140),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapUint32Fixed64 }, fieldNumber: 141),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapUint32Sfixed32 }, fieldNumber: 142),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapUint32Sfixed64 }, fieldNumber: 143),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufFloat>.self, { $0.mapUint32Float }, fieldNumber: 144),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufDouble>.self, { $0.mapUint32Double }, fieldNumber: 145),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufBool>.self, { $0.mapUint32Bool }, fieldNumber: 146),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufString>.self, { $0.mapUint32String }, fieldNumber: 147),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufBytes>.self, { $0.mapUint32Bytes }, fieldNumber: 148),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt32,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapUint32AnEnum }, fieldNumber: 149),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt32,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapUint32Message }, fieldNumber: 150),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufInt32>.self, { $0.mapUint64Int32 }, fieldNumber: 151),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufInt64>.self, { $0.mapUint64Int64 }, fieldNumber: 152),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapUint64Uint32 }, fieldNumber: 153),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapUint64Uint64 }, fieldNumber: 154),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapUint64Sint32 }, fieldNumber: 155),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapUint64Sint64 }, fieldNumber: 156),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapUint64Fixed32 }, fieldNumber: 157),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapUint64Fixed64 }, fieldNumber: 158),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapUint64Sfixed32 }, fieldNumber: 159),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapUint64Sfixed64 }, fieldNumber: 160),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufFloat>.self, { $0.mapUint64Float }, fieldNumber: 161),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufDouble>.self, { $0.mapUint64Double }, fieldNumber: 162),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufBool>.self, { $0.mapUint64Bool }, fieldNumber: 163),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufString>.self, { $0.mapUint64String }, fieldNumber: 164),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufBytes>.self, { $0.mapUint64Bytes }, fieldNumber: 165),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufUInt64,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapUint64AnEnum }, fieldNumber: 166),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufUInt64,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapUint64Message }, fieldNumber: 167),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufInt32>.self, { $0.mapSint32Int32 }, fieldNumber: 168),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufInt64>.self, { $0.mapSint32Int64 }, fieldNumber: 169),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapSint32Uint32 }, fieldNumber: 170),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapSint32Uint64 }, fieldNumber: 171),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapSint32Sint32 }, fieldNumber: 172),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapSint32Sint64 }, fieldNumber: 173),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapSint32Fixed32 }, fieldNumber: 174),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapSint32Fixed64 }, fieldNumber: 175),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapSint32Sfixed32 }, fieldNumber: 176),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapSint32Sfixed64 }, fieldNumber: 177),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufFloat>.self, { $0.mapSint32Float }, fieldNumber: 178),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufDouble>.self, { $0.mapSint32Double }, fieldNumber: 179),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufBool>.self, { $0.mapSint32Bool }, fieldNumber: 180),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufString>.self, { $0.mapSint32String }, fieldNumber: 181),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufBytes>.self, { $0.mapSint32Bytes }, fieldNumber: 182),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt32,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapSint32AnEnum }, fieldNumber: 183),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt32,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapSint32Message }, fieldNumber: 184),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufInt32>.self, { $0.mapSint64Int32 }, fieldNumber: 185),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufInt64>.self, { $0.mapSint64Int64 }, fieldNumber: 186),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapSint64Uint32 }, fieldNumber: 187),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapSint64Uint64 }, fieldNumber: 188),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapSint64Sint32 }, fieldNumber: 189),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapSint64Sint64 }, fieldNumber: 190),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapSint64Fixed32 }, fieldNumber: 191),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapSint64Fixed64 }, fieldNumber: 192),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapSint64Sfixed32 }, fieldNumber: 193),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapSint64Sfixed64 }, fieldNumber: 194),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufFloat>.self, { $0.mapSint64Float }, fieldNumber: 195),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufDouble>.self, { $0.mapSint64Double }, fieldNumber: 196),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufBool>.self, { $0.mapSint64Bool }, fieldNumber: 197),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufString>.self, { $0.mapSint64String }, fieldNumber: 198),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufBytes>.self, { $0.mapSint64Bytes }, fieldNumber: 199),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSInt64,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapSint64AnEnum }, fieldNumber: 200),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSInt64,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapSint64Message }, fieldNumber: 201),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufInt32>.self, { $0.mapFixed32Int32 }, fieldNumber: 202),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufInt64>.self, { $0.mapFixed32Int64 }, fieldNumber: 203),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapFixed32Uint32 }, fieldNumber: 204),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapFixed32Uint64 }, fieldNumber: 205),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapFixed32Sint32 }, fieldNumber: 206),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapFixed32Sint64 }, fieldNumber: 207),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapFixed32Fixed32 }, fieldNumber: 208),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapFixed32Fixed64 }, fieldNumber: 209),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapFixed32Sfixed32 }, fieldNumber: 210),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapFixed32Sfixed64 }, fieldNumber: 211),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFloat>.self, { $0.mapFixed32Float }, fieldNumber: 212),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufDouble>.self, { $0.mapFixed32Double }, fieldNumber: 213),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufBool>.self, { $0.mapFixed32Bool }, fieldNumber: 214),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufString>.self, { $0.mapFixed32String }, fieldNumber: 215),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufBytes>.self, { $0.mapFixed32Bytes }, fieldNumber: 216),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed32,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapFixed32AnEnum }, fieldNumber: 217),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed32,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapFixed32Message }, fieldNumber: 218),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufInt32>.self, { $0.mapFixed64Int32 }, fieldNumber: 219),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufInt64>.self, { $0.mapFixed64Int64 }, fieldNumber: 220),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapFixed64Uint32 }, fieldNumber: 221),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapFixed64Uint64 }, fieldNumber: 222),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapFixed64Sint32 }, fieldNumber: 223),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapFixed64Sint64 }, fieldNumber: 224),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapFixed64Fixed32 }, fieldNumber: 225),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapFixed64Fixed64 }, fieldNumber: 226),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapFixed64Sfixed32 }, fieldNumber: 227),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapFixed64Sfixed64 }, fieldNumber: 228),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFloat>.self, { $0.mapFixed64Float }, fieldNumber: 229),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufDouble>.self, { $0.mapFixed64Double }, fieldNumber: 230),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufBool>.self, { $0.mapFixed64Bool }, fieldNumber: 231),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufString>.self, { $0.mapFixed64String }, fieldNumber: 232),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufBytes>.self, { $0.mapFixed64Bytes }, fieldNumber: 233),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufFixed64,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapFixed64AnEnum }, fieldNumber: 234),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufFixed64,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapFixed64Message }, fieldNumber: 235),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufInt32>.self, { $0.mapSfixed32Int32 }, fieldNumber: 236),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufInt64>.self, { $0.mapSfixed32Int64 }, fieldNumber: 237),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapSfixed32Uint32 }, fieldNumber: 238),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapSfixed32Uint64 }, fieldNumber: 239),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapSfixed32Sint32 }, fieldNumber: 240),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapSfixed32Sint64 }, fieldNumber: 241),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapSfixed32Fixed32 }, fieldNumber: 242),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapSfixed32Fixed64 }, fieldNumber: 243),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapSfixed32Sfixed32 }, fieldNumber: 244),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapSfixed32Sfixed64 }, fieldNumber: 245),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufFloat>.self, { $0.mapSfixed32Float }, fieldNumber: 246),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufDouble>.self, { $0.mapSfixed32Double }, fieldNumber: 247),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufBool>.self, { $0.mapSfixed32Bool }, fieldNumber: 248),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufString>.self, { $0.mapSfixed32String }, fieldNumber: 249),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufBytes>.self, { $0.mapSfixed32Bytes }, fieldNumber: 250),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapSfixed32AnEnum }, fieldNumber: 251),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapSfixed32Message }, fieldNumber: 252),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufInt32>.self, { $0.mapSfixed64Int32 }, fieldNumber: 253),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufInt64>.self, { $0.mapSfixed64Int64 }, fieldNumber: 254),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapSfixed64Uint32 }, fieldNumber: 255),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapSfixed64Uint64 }, fieldNumber: 256),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapSfixed64Sint32 }, fieldNumber: 257),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapSfixed64Sint64 }, fieldNumber: 258),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapSfixed64Fixed32 }, fieldNumber: 259),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapSfixed64Fixed64 }, fieldNumber: 260),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapSfixed64Sfixed32 }, fieldNumber: 261),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapSfixed64Sfixed64 }, fieldNumber: 262),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufFloat>.self, { $0.mapSfixed64Float }, fieldNumber: 263),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufDouble>.self, { $0.mapSfixed64Double }, fieldNumber: 264),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufBool>.self, { $0.mapSfixed64Bool }, fieldNumber: 265),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufString>.self, { $0.mapSfixed64String }, fieldNumber: 266),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufBytes>.self, { $0.mapSfixed64Bytes }, fieldNumber: 267),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapSfixed64AnEnum }, fieldNumber: 268),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapSfixed64Message }, fieldNumber: 269),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufInt32>.self, { $0.mapBoolInt32 }, fieldNumber: 270),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufInt64>.self, { $0.mapBoolInt64 }, fieldNumber: 271),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapBoolUint32 }, fieldNumber: 272),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapBoolUint64 }, fieldNumber: 273),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapBoolSint32 }, fieldNumber: 274),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapBoolSint64 }, fieldNumber: 275),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapBoolFixed32 }, fieldNumber: 276),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapBoolFixed64 }, fieldNumber: 277),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapBoolSfixed32 }, fieldNumber: 278),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapBoolSfixed64 }, fieldNumber: 279),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufFloat>.self, { $0.mapBoolFloat }, fieldNumber: 280),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufDouble>.self, { $0.mapBoolDouble }, fieldNumber: 281),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, { $0.mapBoolBool }, fieldNumber: 282),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufString>.self, { $0.mapBoolString }, fieldNumber: 283),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBytes>.self, { $0.mapBoolBytes }, fieldNumber: 284),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufBool,SwiftProtoTesting_Fuzz_AnEnum>.self, { $0.mapBoolAnEnum }, fieldNumber: 285),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufBool,SwiftProtoTesting_Fuzz_Message>.self, { $0.mapBoolMessage }, fieldNumber: 286),
+    .singularMessage({ $0.wktAny }, fieldNumber: 500, isUnset: { $0._storage._wktAny == nil }),
+    .singularMessage({ $0.wktApi }, fieldNumber: 501, isUnset: { $0._storage._wktApi == nil }),
+    .singularMessage({ $0.wktDuration }, fieldNumber: 502, isUnset: { $0._storage._wktDuration == nil }),
+    .singularMessage({ $0.wktEmpty }, fieldNumber: 503, isUnset: { $0._storage._wktEmpty == nil }),
+    .singularMessage({ $0.wktFieldMask }, fieldNumber: 504, isUnset: { $0._storage._wktFieldMask == nil }),
+    .singularMessage({ $0.wktSourceContext }, fieldNumber: 505, isUnset: { $0._storage._wktSourceContext == nil }),
+    .singularMessage({ $0.wktStruct }, fieldNumber: 506, isUnset: { $0._storage._wktStruct == nil }),
+    .singularMessage({ $0.wktTimestamp }, fieldNumber: 507, isUnset: { $0._storage._wktTimestamp == nil }),
+    .singularMessage({ $0.wktType }, fieldNumber: 508, isUnset: { $0._storage._wktType == nil }),
+    .singularMessage({ $0.wktDoubleValue }, fieldNumber: 509, isUnset: { $0._storage._wktDoubleValue == nil }),
+    .singularMessage({ $0.wktFloatValue }, fieldNumber: 510, isUnset: { $0._storage._wktFloatValue == nil }),
+    .singularMessage({ $0.wktInt64Value }, fieldNumber: 511, isUnset: { $0._storage._wktInt64Value == nil }),
+    .singularMessage({ $0.wktUint64Value }, fieldNumber: 512, isUnset: { $0._storage._wktUint64Value == nil }),
+    .singularMessage({ $0.wktInt32Value }, fieldNumber: 513, isUnset: { $0._storage._wktInt32Value == nil }),
+    .singularMessage({ $0.wktUint32Value }, fieldNumber: 514, isUnset: { $0._storage._wktUint32Value == nil }),
+    .singularMessage({ $0.wktBoolValue }, fieldNumber: 515, isUnset: { $0._storage._wktBoolValue == nil }),
+    .singularMessage({ $0.wktStringValue }, fieldNumber: 516, isUnset: { $0._storage._wktStringValue == nil }),
+    .singularMessage({ $0.wktBytesValue }, fieldNumber: 517, isUnset: { $0._storage._wktBytesValue == nil }),
+    .singularMessage({ $0.singularMessageSet }, fieldNumber: 600, isUnset: { $0._storage._singularMessageSet == nil }),
+    .repeatedMessage({ $0.repeatedMessageSet }, fieldNumber: 601),
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 2001),
+  ]
+  private static let _oneOfField_oneofInt32: Field<Self> = .singularInt32({ $0.oneofInt32 }, fieldNumber: 61, isUnset: { _ in false })
+  private static let _oneOfField_oneofInt64: Field<Self> = .singularInt64({ $0.oneofInt64 }, fieldNumber: 62, isUnset: { _ in false })
+  private static let _oneOfField_oneofUint32: Field<Self> = .singularUInt32({ $0.oneofUint32 }, fieldNumber: 63, isUnset: { _ in false })
+  private static let _oneOfField_oneofUint64: Field<Self> = .singularUInt64({ $0.oneofUint64 }, fieldNumber: 64, isUnset: { _ in false })
+  private static let _oneOfField_oneofSint32: Field<Self> = .singularSInt32({ $0.oneofSint32 }, fieldNumber: 65, isUnset: { _ in false })
+  private static let _oneOfField_oneofSint64: Field<Self> = .singularSInt64({ $0.oneofSint64 }, fieldNumber: 66, isUnset: { _ in false })
+  private static let _oneOfField_oneofFixed32: Field<Self> = .singularFixed32({ $0.oneofFixed32 }, fieldNumber: 67, isUnset: { _ in false })
+  private static let _oneOfField_oneofFixed64: Field<Self> = .singularFixed64({ $0.oneofFixed64 }, fieldNumber: 68, isUnset: { _ in false })
+  private static let _oneOfField_oneofSfixed32: Field<Self> = .singularSFixed32({ $0.oneofSfixed32 }, fieldNumber: 69, isUnset: { _ in false })
+  private static let _oneOfField_oneofSfixed64: Field<Self> = .singularSFixed64({ $0.oneofSfixed64 }, fieldNumber: 70, isUnset: { _ in false })
+  private static let _oneOfField_oneofFloat: Field<Self> = .singularFloat({ $0.oneofFloat }, fieldNumber: 71, isUnset: { _ in false })
+  private static let _oneOfField_oneofDouble: Field<Self> = .singularDouble({ $0.oneofDouble }, fieldNumber: 72, isUnset: { _ in false })
+  private static let _oneOfField_oneofBool: Field<Self> = .singularBool({ $0.oneofBool }, fieldNumber: 73, isUnset: { _ in false })
+  private static let _oneOfField_oneofString: Field<Self> = .singularString({ $0.oneofString }, fieldNumber: 74, isUnset: { _ in false })
+  private static let _oneOfField_oneofBytes: Field<Self> = .singularBytes({ $0.oneofBytes }, fieldNumber: 75, isUnset: { _ in false })
+  private static let _oneOfField_oneofEnum: Field<Self> = .singularEnum({ $0.oneofEnum }, fieldNumber: 76, isUnset: { _ in false })
+  private static let _oneOfField_oneofGroup: Field<Self> = .singularGroup({ $0.oneofGroup }, fieldNumber: 77, isUnset: { _ in false })
+  private static let _oneOfField_oneofMessage: Field<Self> = .singularMessage({ $0.oneofMessage }, fieldNumber: 79, isUnset: { _ in false })
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_Message, rhs: SwiftProtoTesting_Fuzz_Message) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -5000,16 +4463,10 @@ extension SwiftProtoTesting_Fuzz_Message.SingularGroup: SwiftProtobuf.Message, S
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._groupField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.groupField }, fieldNumber: 18, isUnset: { $0._groupField == nil }),
+  ]
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_Message.SingularGroup, rhs: SwiftProtoTesting_Fuzz_Message.SingularGroup) -> Bool {
     if lhs._groupField != rhs._groupField {return false}
@@ -5036,16 +4493,10 @@ extension SwiftProtoTesting_Fuzz_Message.RepeatedGroup: SwiftProtobuf.Message, S
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._groupField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.groupField }, fieldNumber: 48, isUnset: { $0._groupField == nil }),
+  ]
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_Message.RepeatedGroup, rhs: SwiftProtoTesting_Fuzz_Message.RepeatedGroup) -> Bool {
     if lhs._groupField != rhs._groupField {return false}
@@ -5072,16 +4523,10 @@ extension SwiftProtoTesting_Fuzz_Message.OneofGroup: SwiftProtobuf.Message, Swif
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._groupField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.groupField }, fieldNumber: 78, isUnset: { $0._groupField == nil }),
+  ]
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_Message.OneofGroup, rhs: SwiftProtoTesting_Fuzz_Message.OneofGroup) -> Bool {
     if lhs._groupField != rhs._groupField {return false}
@@ -5103,10 +4548,10 @@ extension SwiftProtoTesting_Fuzz_AMessageSetMessage: SwiftProtobuf.Message, Swif
     try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_Fuzz_AMessageSetMessage.self)
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFieldsAsMessageSet(fields: _protobuf_extensionFieldValues, start: 4, end: 2147483647)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .extensionFieldsAsMessageSet({ $0._protobuf_extensionFieldValues }, start: 4, end: 2147483647),
+  ]
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_AMessageSetMessage, rhs: SwiftProtoTesting_Fuzz_AMessageSetMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -5133,16 +4578,10 @@ extension SwiftProtoTesting_Fuzz_SingularGroup_ext: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._groupField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1018)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.groupField }, fieldNumber: 1018, isUnset: { $0._groupField == nil }),
+  ]
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_SingularGroup_ext, rhs: SwiftProtoTesting_Fuzz_SingularGroup_ext) -> Bool {
     if lhs._groupField != rhs._groupField {return false}
@@ -5169,16 +4608,10 @@ extension SwiftProtoTesting_Fuzz_RepeatedGroup_ext: SwiftProtobuf.Message, Swift
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._groupField {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1048)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.groupField }, fieldNumber: 1048, isUnset: { $0._groupField == nil }),
+  ]
+
 
   public static func ==(lhs: SwiftProtoTesting_Fuzz_RepeatedGroup_ext, rhs: SwiftProtoTesting_Fuzz_RepeatedGroup_ext) -> Bool {
     if lhs._groupField != rhs._groupField {return false}

@@ -245,21 +245,13 @@ extension SwiftProtoTesting_Enum2_SwiftEnumTest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.values1.isEmpty {
-      try visitor.visitRepeatedEnumField(value: self.values1, fieldNumber: 1)
-    }
-    if !self.values2.isEmpty {
-      try visitor.visitRepeatedEnumField(value: self.values2, fieldNumber: 2)
-    }
-    if !self.values3.isEmpty {
-      try visitor.visitRepeatedEnumField(value: self.values3, fieldNumber: 3)
-    }
-    if !self.values4.isEmpty {
-      try visitor.visitRepeatedEnumField(value: self.values4, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .repeatedEnum({ $0.values1 }, fieldNumber: 1),
+    .repeatedEnum({ $0.values2 }, fieldNumber: 2),
+    .repeatedEnum({ $0.values3 }, fieldNumber: 3),
+    .repeatedEnum({ $0.values4 }, fieldNumber: 4),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Enum2_SwiftEnumTest, rhs: SwiftProtoTesting_Enum2_SwiftEnumTest) -> Bool {
     if lhs.values1 != rhs.values1 {return false}
@@ -317,12 +309,10 @@ extension SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.values.isEmpty {
-      try visitor.visitPackedEnumField(value: self.values, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .packedEnum({ $0.values }, fieldNumber: 1),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest, rhs: SwiftProtoTesting_Enum2_SwiftEnumWithAliasTest) -> Bool {
     if lhs.values != rhs.values {return false}

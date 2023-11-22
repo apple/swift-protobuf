@@ -240,12 +240,10 @@ extension Google_Protobuf_Struct: Message, _MessageImplementationBase, _ProtoNam
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.fields.isEmpty {
-      try visitor.visitMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: self.fields, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .map(type: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, { $0.fields }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Struct, rhs: Google_Protobuf_Struct) -> Bool {
     if lhs.fields != rhs.fields {return false}
@@ -334,40 +332,31 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.kind {
-    case .nullValue?: try {
-      guard case .nullValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    }()
-    case .numberValue?: try {
-      guard case .numberValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
-    }()
-    case .stringValue?: try {
-      guard case .stringValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    }()
-    case .boolValue?: try {
-      guard case .boolValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
-    }()
-    case .structValue?: try {
-      guard case .structValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }()
-    case .listValue?: try {
-      guard case .listValue(let v)? = self.kind else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .oneOf({ $0.kind }) {
+      switch $0 {
+      case .nullValue:
+        return _oneOfField_nullValue
+      case .numberValue:
+        return _oneOfField_numberValue
+      case .stringValue:
+        return _oneOfField_stringValue
+      case .boolValue:
+        return _oneOfField_boolValue
+      case .structValue:
+        return _oneOfField_structValue
+      case .listValue:
+        return _oneOfField_listValue
+      }
+    },
+  ]
+  private static let _oneOfField_nullValue: Field<Self> = .singularEnum({ $0.nullValue }, fieldNumber: 1, isUnset: { _ in false })
+  private static let _oneOfField_numberValue: Field<Self> = .singularDouble({ $0.numberValue }, fieldNumber: 2, isUnset: { _ in false })
+  private static let _oneOfField_stringValue: Field<Self> = .singularString({ $0.stringValue }, fieldNumber: 3, isUnset: { _ in false })
+  private static let _oneOfField_boolValue: Field<Self> = .singularBool({ $0.boolValue }, fieldNumber: 4, isUnset: { _ in false })
+  private static let _oneOfField_structValue: Field<Self> = .singularMessage({ $0.structValue }, fieldNumber: 5, isUnset: { _ in false })
+  private static let _oneOfField_listValue: Field<Self> = .singularMessage({ $0.listValue }, fieldNumber: 6, isUnset: { _ in false })
+
 
   public static func ==(lhs: Google_Protobuf_Value, rhs: Google_Protobuf_Value) -> Bool {
     if lhs.kind != rhs.kind {return false}
@@ -394,12 +383,10 @@ extension Google_Protobuf_ListValue: Message, _MessageImplementationBase, _Proto
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.values.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .repeatedMessage({ $0.values }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_ListValue, rhs: Google_Protobuf_ListValue) -> Bool {
     if lhs.values != rhs.values {return false}

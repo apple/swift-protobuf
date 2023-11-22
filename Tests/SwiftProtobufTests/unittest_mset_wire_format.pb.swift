@@ -86,10 +86,10 @@ extension SwiftProtoTesting_WireFormat_TestMessageSet: SwiftProtobuf.Message, Sw
     try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: SwiftProtoTesting_WireFormat_TestMessageSet.self)
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFieldsAsMessageSet(fields: _protobuf_extensionFieldValues, start: 4, end: 2147483647)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFieldsAsMessageSet({ $0._protobuf_extensionFieldValues }, start: 4, end: 2147483647),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_WireFormat_TestMessageSet, rhs: SwiftProtoTesting_WireFormat_TestMessageSet) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}

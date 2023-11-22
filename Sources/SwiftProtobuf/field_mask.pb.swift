@@ -283,12 +283,10 @@ extension Google_Protobuf_FieldMask: Message, _MessageImplementationBase, _Proto
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.paths.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.paths, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .repeatedString({ $0.paths }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_FieldMask, rhs: Google_Protobuf_FieldMask) -> Bool {
     if lhs.paths != rhs.paths {return false}

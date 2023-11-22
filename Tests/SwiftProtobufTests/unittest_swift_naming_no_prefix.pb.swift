@@ -1156,10 +1156,10 @@ extension BaseMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: BaseMessage, rhs: BaseMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}

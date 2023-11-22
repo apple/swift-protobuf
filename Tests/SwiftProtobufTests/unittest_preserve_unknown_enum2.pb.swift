@@ -185,36 +185,23 @@ extension SwiftProtoTesting_UnknownEnum_Proto2_MyMessage: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._e {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    } }()
-    if !self.repeatedE.isEmpty {
-      try visitor.visitRepeatedEnumField(value: self.repeatedE, fieldNumber: 2)
-    }
-    if !self.repeatedPackedE.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
-    }
-    if !self.repeatedPackedUnexpectedE.isEmpty {
-      try visitor.visitRepeatedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
-    }
-    switch self.o {
-    case .oneofE1?: try {
-      guard case .oneofE1(let v)? = self.o else { preconditionFailure() }
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    }()
-    case .oneofE2?: try {
-      guard case .oneofE2(let v)? = self.o else { preconditionFailure() }
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularEnum({ $0.e }, fieldNumber: 1, isUnset: { $0._e == nil }),
+    .repeatedEnum({ $0.repeatedE }, fieldNumber: 2),
+    .packedEnum({ $0.repeatedPackedE }, fieldNumber: 3),
+    .repeatedEnum({ $0.repeatedPackedUnexpectedE }, fieldNumber: 4),
+    .oneOf({ $0.o }) {
+      switch $0 {
+      case .oneofE1:
+        return _oneOfField_oneofE1
+      case .oneofE2:
+        return _oneOfField_oneofE2
+      }
+    },
+  ]
+  private static let _oneOfField_oneofE1: Field<Self> = .singularEnum({ $0.oneofE1 }, fieldNumber: 5, isUnset: { _ in false })
+  private static let _oneOfField_oneofE2: Field<Self> = .singularEnum({ $0.oneofE2 }, fieldNumber: 6, isUnset: { _ in false })
+
 
   static func ==(lhs: SwiftProtoTesting_UnknownEnum_Proto2_MyMessage, rhs: SwiftProtoTesting_UnknownEnum_Proto2_MyMessage) -> Bool {
     if lhs._e != rhs._e {return false}

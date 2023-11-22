@@ -221,15 +221,15 @@ extension Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNamePr
     }
   }
 
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.typeURL }, fieldNumber: 1),
+    .singularBytes({ $0.value }, fieldNumber: 2),
+  ]
+
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage.preTraverse()
-      if !_storage._typeURL.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._typeURL, fieldNumber: 1)
-      }
-      if !_storage._value.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._value, fieldNumber: 2)
-      }
+    try _storage.preTraverse()
+    for field in Self._fields {
+      try field.traverse(message: self, visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }

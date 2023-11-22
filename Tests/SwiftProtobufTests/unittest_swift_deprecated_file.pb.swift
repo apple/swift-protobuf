@@ -341,17 +341,11 @@ extension SwiftProtoTesting_DeprecatedFile_MyMsg: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._stringField {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularString({ $0.stringField }, fieldNumber: 1, isUnset: { $0._stringField == nil }),
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 536870912),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_DeprecatedFile_MyMsg, rhs: SwiftProtoTesting_DeprecatedFile_MyMsg) -> Bool {
     if lhs._stringField != rhs._stringField {return false}
@@ -370,9 +364,9 @@ extension SwiftProtoTesting_DeprecatedFile_MsgScope: SwiftProtobuf.Message, Swif
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_DeprecatedFile_MsgScope, rhs: SwiftProtoTesting_DeprecatedFile_MsgScope) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}

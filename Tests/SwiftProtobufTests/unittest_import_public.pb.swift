@@ -95,16 +95,10 @@ extension SwiftProtoTesting_Import_PublicImportMessage: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._e {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.e }, fieldNumber: 1, isUnset: { $0._e == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Import_PublicImportMessage, rhs: SwiftProtoTesting_Import_PublicImportMessage) -> Bool {
     if lhs._e != rhs._e {return false}

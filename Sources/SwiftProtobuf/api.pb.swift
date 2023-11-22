@@ -279,34 +279,16 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.methods.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.methods, fieldNumber: 2)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
-    }
-    if !self.version.isEmpty {
-      try visitor.visitSingularStringField(value: self.version, fieldNumber: 4)
-    }
-    try { if let v = self._sourceContext {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    } }()
-    if !self.mixins.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.mixins, fieldNumber: 6)
-    }
-    if self.syntax != .proto2 {
-      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .repeatedMessage({ $0.methods }, fieldNumber: 2),
+    .repeatedMessage({ $0.options }, fieldNumber: 3),
+    .singularString({ $0.version }, fieldNumber: 4),
+    .singularMessage({ $0.sourceContext }, fieldNumber: 5, isUnset: { $0._sourceContext == nil }),
+    .repeatedMessage({ $0.mixins }, fieldNumber: 6),
+    .singularEnum({ $0.syntax }, fieldNumber: 7, defaultValue: .proto2),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Api, rhs: Google_Protobuf_Api) -> Bool {
     if lhs.name != rhs.name {return false}
@@ -351,30 +333,16 @@ extension Google_Protobuf_Method: Message, _MessageImplementationBase, _ProtoNam
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.requestTypeURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.requestTypeURL, fieldNumber: 2)
-    }
-    if self.requestStreaming != false {
-      try visitor.visitSingularBoolField(value: self.requestStreaming, fieldNumber: 3)
-    }
-    if !self.responseTypeURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.responseTypeURL, fieldNumber: 4)
-    }
-    if self.responseStreaming != false {
-      try visitor.visitSingularBoolField(value: self.responseStreaming, fieldNumber: 5)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 6)
-    }
-    if self.syntax != .proto2 {
-      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .singularString({ $0.requestTypeURL }, fieldNumber: 2),
+    .singularBool({ $0.requestStreaming }, fieldNumber: 3),
+    .singularString({ $0.responseTypeURL }, fieldNumber: 4),
+    .singularBool({ $0.responseStreaming }, fieldNumber: 5),
+    .repeatedMessage({ $0.options }, fieldNumber: 6),
+    .singularEnum({ $0.syntax }, fieldNumber: 7, defaultValue: .proto2),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Method, rhs: Google_Protobuf_Method) -> Bool {
     if lhs.name != rhs.name {return false}
@@ -409,15 +377,11 @@ extension Google_Protobuf_Mixin: Message, _MessageImplementationBase, _ProtoName
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.root.isEmpty {
-      try visitor.visitSingularStringField(value: self.root, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .singularString({ $0.root }, fieldNumber: 2),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Mixin, rhs: Google_Protobuf_Mixin) -> Bool {
     if lhs.name != rhs.name {return false}

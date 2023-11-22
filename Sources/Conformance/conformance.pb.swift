@@ -455,12 +455,10 @@ extension Conformance_FailureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.failure.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.failure, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .repeatedString({ $0.failure }, fieldNumber: 1),
+  ]
+
 
   static func ==(lhs: Conformance_FailureSet, rhs: Conformance_FailureSet) -> Bool {
     if lhs.failure != rhs.failure {return false}
@@ -531,50 +529,38 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.payload {
-    case .protobufPayload?: try {
-      guard case .protobufPayload(let v)? = self.payload else { preconditionFailure() }
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
-    }()
-    case .jsonPayload?: try {
-      guard case .jsonPayload(let v)? = self.payload else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }()
-    default: break
-    }
-    if self.requestedOutputFormat != .unspecified {
-      try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
-    }
-    if !self.messageType.isEmpty {
-      try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
-    }
-    if self.testCategory != .unspecifiedTest {
-      try visitor.visitSingularEnumField(value: self.testCategory, fieldNumber: 5)
-    }
-    try { if let v = self._jspbEncodingOptions {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    } }()
-    switch self.payload {
-    case .jspbPayload?: try {
-      guard case .jspbPayload(let v)? = self.payload else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-    }()
-    case .textPayload?: try {
-      guard case .textPayload(let v)? = self.payload else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 8)
-    }()
-    default: break
-    }
-    if self.printUnknownFields != false {
-      try visitor.visitSingularBoolField(value: self.printUnknownFields, fieldNumber: 9)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .oneOf({ $0.payload }) {
+      switch $0 {
+      case .protobufPayload:
+        return _oneOfField_protobufPayload
+      case .jsonPayload:
+        return _oneOfField_jsonPayload
+      default:
+        return nil
+      }
+    },
+    .singularEnum({ $0.requestedOutputFormat }, fieldNumber: 3, defaultValue: .unspecified),
+    .singularString({ $0.messageType }, fieldNumber: 4),
+    .singularEnum({ $0.testCategory }, fieldNumber: 5, defaultValue: .unspecifiedTest),
+    .singularMessage({ $0.jspbEncodingOptions }, fieldNumber: 6, isUnset: { $0._jspbEncodingOptions == nil }),
+    .oneOf({ $0.payload }) {
+      switch $0 {
+      case .jspbPayload:
+        return _oneOfField_jspbPayload
+      case .textPayload:
+        return _oneOfField_textPayload
+      default:
+        return nil
+      }
+    },
+    .singularBool({ $0.printUnknownFields }, fieldNumber: 9),
+  ]
+  private static let _oneOfField_protobufPayload: Field<Self> = .singularBytes({ $0.protobufPayload }, fieldNumber: 1, isUnset: { _ in false })
+  private static let _oneOfField_jsonPayload: Field<Self> = .singularString({ $0.jsonPayload }, fieldNumber: 2, isUnset: { _ in false })
+  private static let _oneOfField_jspbPayload: Field<Self> = .singularString({ $0.jspbPayload }, fieldNumber: 7, isUnset: { _ in false })
+  private static let _oneOfField_textPayload: Field<Self> = .singularString({ $0.textPayload }, fieldNumber: 8, isUnset: { _ in false })
+
 
   static func ==(lhs: Conformance_ConformanceRequest, rhs: Conformance_ConformanceRequest) -> Bool {
     if lhs.payload != rhs.payload {return false}
@@ -685,52 +671,40 @@ extension Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.result {
-    case .parseError?: try {
-      guard case .parseError(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }()
-    case .runtimeError?: try {
-      guard case .runtimeError(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }()
-    case .protobufPayload?: try {
-      guard case .protobufPayload(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
-    }()
-    case .jsonPayload?: try {
-      guard case .jsonPayload(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-    }()
-    case .skipped?: try {
-      guard case .skipped(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-    }()
-    case .serializeError?: try {
-      guard case .serializeError(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-    }()
-    case .jspbPayload?: try {
-      guard case .jspbPayload(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 7)
-    }()
-    case .textPayload?: try {
-      guard case .textPayload(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 8)
-    }()
-    case .timeoutError?: try {
-      guard case .timeoutError(let v)? = self.result else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 9)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .oneOf({ $0.result }) {
+      switch $0 {
+      case .parseError:
+        return _oneOfField_parseError
+      case .runtimeError:
+        return _oneOfField_runtimeError
+      case .protobufPayload:
+        return _oneOfField_protobufPayload
+      case .jsonPayload:
+        return _oneOfField_jsonPayload
+      case .skipped:
+        return _oneOfField_skipped
+      case .serializeError:
+        return _oneOfField_serializeError
+      case .jspbPayload:
+        return _oneOfField_jspbPayload
+      case .textPayload:
+        return _oneOfField_textPayload
+      case .timeoutError:
+        return _oneOfField_timeoutError
+      }
+    },
+  ]
+  private static let _oneOfField_parseError: Field<Self> = .singularString({ $0.parseError }, fieldNumber: 1, isUnset: { _ in false })
+  private static let _oneOfField_runtimeError: Field<Self> = .singularString({ $0.runtimeError }, fieldNumber: 2, isUnset: { _ in false })
+  private static let _oneOfField_protobufPayload: Field<Self> = .singularBytes({ $0.protobufPayload }, fieldNumber: 3, isUnset: { _ in false })
+  private static let _oneOfField_jsonPayload: Field<Self> = .singularString({ $0.jsonPayload }, fieldNumber: 4, isUnset: { _ in false })
+  private static let _oneOfField_skipped: Field<Self> = .singularString({ $0.skipped }, fieldNumber: 5, isUnset: { _ in false })
+  private static let _oneOfField_serializeError: Field<Self> = .singularString({ $0.serializeError }, fieldNumber: 6, isUnset: { _ in false })
+  private static let _oneOfField_jspbPayload: Field<Self> = .singularString({ $0.jspbPayload }, fieldNumber: 7, isUnset: { _ in false })
+  private static let _oneOfField_textPayload: Field<Self> = .singularString({ $0.textPayload }, fieldNumber: 8, isUnset: { _ in false })
+  private static let _oneOfField_timeoutError: Field<Self> = .singularString({ $0.timeoutError }, fieldNumber: 9, isUnset: { _ in false })
+
 
   static func ==(lhs: Conformance_ConformanceResponse, rhs: Conformance_ConformanceResponse) -> Bool {
     if lhs.result != rhs.result {return false}
@@ -757,12 +731,10 @@ extension Conformance_JspbEncodingConfig: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.useJspbArrayAnyFormat != false {
-      try visitor.visitSingularBoolField(value: self.useJspbArrayAnyFormat, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularBool({ $0.useJspbArrayAnyFormat }, fieldNumber: 1),
+  ]
+
 
   static func ==(lhs: Conformance_JspbEncodingConfig, rhs: Conformance_JspbEncodingConfig) -> Bool {
     if lhs.useJspbArrayAnyFormat != rhs.useJspbArrayAnyFormat {return false}

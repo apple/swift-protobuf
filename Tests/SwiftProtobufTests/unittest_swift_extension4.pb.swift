@@ -217,9 +217,9 @@ extension Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: Ext4MyMessage, rhs: Ext4MyMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -245,16 +245,10 @@ extension Ext4MyMessage.C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._c {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1410)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.c }, fieldNumber: 1410, isUnset: { $0._c == nil }),
+  ]
+
 
   static func ==(lhs: Ext4MyMessage.C, rhs: Ext4MyMessage.C) -> Bool {
     if lhs._c != rhs._c {return false}
@@ -281,16 +275,10 @@ extension Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._c {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1420)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.c }, fieldNumber: 1420, isUnset: { $0._c == nil }),
+  ]
+
 
   static func ==(lhs: Ext4C, rhs: Ext4C) -> Bool {
     if lhs._c != rhs._c {return false}
