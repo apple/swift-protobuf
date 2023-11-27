@@ -292,16 +292,3 @@ internal struct ApplyingDecoder: Decoder {
   }
 
 }
-
-public extension Message {
-  func applying(_ value: Any, for fieldNumber: Int) throws -> Self {
-    var copy = self
-    try copy.apply(value, for: fieldNumber)
-    return copy
-  }
-
-  mutating func apply(_ value: Any, for fieldNumber: Int) throws {
-    var decoder = ApplyingDecoder(fieldNumber: fieldNumber, value: value)
-    try decodeMessage(decoder: &decoder)
-  }
-}
