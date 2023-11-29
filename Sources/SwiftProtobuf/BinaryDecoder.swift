@@ -1213,7 +1213,7 @@ internal struct BinaryDecoder: Decoder {
                         extDecoder.fieldWireFormat = .lengthDelimited
                         try extDecoder.decodeExtensionField(values: &values,
                                                             messageType: messageType,
-                                                            fieldNumber: fieldNumber,
+                                                            fieldNumber: ext.fieldNumber,
                                                             messageExtension: ext)
                         wasDecoded = extDecoder.consumed
                       }
