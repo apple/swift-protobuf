@@ -53,7 +53,7 @@ extension Message {
 
     var data = Bytes(repeating: 0, count: requiredSize)
     try data.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
-      var visitor = BinaryEncodingVisitor(forWritingInto: body, options: options)
+      var visitor = BinaryReverseEncodingVisitor(forWritingInto: body, options: options)
       try traverse(visitor: &visitor)
       // Currently not exposing this from the api because it really would be
       // an internal error in the library and should never happen.
