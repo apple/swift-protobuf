@@ -27,8 +27,8 @@ internal struct BinaryEncodingVisitor: Visitor {
   /// - Precondition: `pointer` must point to an allocated block of memory that
   ///   is large enough to hold the entire encoded message. For performance
   ///   reasons, the encoder does not make any attempts to verify this.
-  init(forWritingInto pointer: UnsafeMutableRawPointer, options: BinaryEncodingOptions) {
-    self.encoder = BinaryEncoder(forWritingInto: pointer)
+  init(forWritingInto buffer: UnsafeMutableRawBufferPointer, options: BinaryEncodingOptions) {
+    self.encoder = BinaryEncoder(forWritingInto: buffer)
     self.options = options
   }
 
@@ -374,10 +374,10 @@ extension BinaryEncodingVisitor {
       encoder.putVarInt(value: length)
       // Create the sub encoder after writing the length.
       var subVisitor = BinaryEncodingVisitor(
-        forWritingInto: encoder.pointer, options: options
+        forWritingInto: encoder.remainder, options: options
       )
       try value.traverse(visitor: &subVisitor)
-      encoder.pointer = subVisitor.encoder.pointer
+      encoder.advance(subVisitor.encoder.used)
 
       encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.itemEnd.rawValue))
     }
