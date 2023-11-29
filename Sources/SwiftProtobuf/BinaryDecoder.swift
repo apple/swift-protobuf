@@ -1445,21 +1445,15 @@ internal struct BinaryDecoder: Decoder {
     private mutating func decodeFloat() throws -> Float {
         var littleEndianBytes: UInt32 = 0
         try decodeFourByteNumber(value: &littleEndianBytes)
-        var nativeEndianBytes = UInt32(littleEndian: littleEndianBytes)
-        var float: Float = 0
-        let n = MemoryLayout<Float>.size
-        memcpy(&float, &nativeEndianBytes, n)
-        return float
+        let nativeEndianBytes = UInt32(littleEndian: littleEndianBytes)
+        return Float(bitPattern: nativeEndianBytes)
     }
 
     private mutating func decodeDouble() throws -> Double {
         var littleEndianBytes: UInt64 = 0
         try decodeEightByteNumber(value: &littleEndianBytes)
-        var nativeEndianBytes = UInt64(littleEndian: littleEndianBytes)
-        var double: Double = 0
-        let n = MemoryLayout<Double>.size
-        memcpy(&double, &nativeEndianBytes, n)
-        return double
+        let nativeEndianBytes = UInt64(littleEndian: littleEndianBytes)
+        return Double(bitPattern: nativeEndianBytes)
     }
 
     /// Private: Get the start and length for the body of
