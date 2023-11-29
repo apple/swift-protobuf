@@ -144,6 +144,44 @@ final class Test_MessageSet: XCTestCase {
     "}\n"
   )
 
+  func testParseOrder1() throws {
+    let serialized = Data([11,
+        16, 176, 166, 94, // Extension ID
+        26, 2, 120, 123, // Payload message
+        12])
+
+    let msg: SwiftProtoTesting_WireFormat_TestMessageSet
+    do {
+      msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
+        serializedBytes: serialized,
+        extensions: SwiftProtoTesting_UnittestMset_Extensions)
+    } catch let e {
+      XCTFail("Failed to parse: \(e)")
+      return
+    }
+    XCTAssertEqual(
+      msg.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i, 123)
+  }
+
+  func testParseOrder2() throws {
+    let serialized = Data([11,
+        26, 2, 120, 123, // Payload message
+        16, 176, 166, 94, // Extension ID
+        12])
+
+    let msg: SwiftProtoTesting_WireFormat_TestMessageSet
+    do {
+      msg = try SwiftProtoTesting_WireFormat_TestMessageSet(
+        serializedBytes: serialized,
+        extensions: SwiftProtoTesting_UnittestMset_Extensions)
+    } catch let e {
+      XCTFail("Failed to parse: \(e)")
+      return
+    }
+    XCTAssertEqual(
+      msg.SwiftProtoTesting_TestMessageSetExtension1_messageSetExtension.i, 123)
+  }
+
   // text_format_unittest.cc: TEST_F(TextFormatMessageSetTest, Serialize)
   func testTextFormat_Serialize() {
     let msg = SwiftProtoTesting_TestMessageSetContainer.with {
