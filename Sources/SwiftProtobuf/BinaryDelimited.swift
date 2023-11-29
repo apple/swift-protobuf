@@ -74,10 +74,8 @@ public enum BinaryDelimited {
     let totalSize = Varint.encodedSize(of: UInt64(serialized.count)) + serialized.count
     var bytes: [UInt8] = Array(repeating: 0, count: totalSize)
     bytes.withUnsafeMutableBytes { (body: UnsafeMutableRawBufferPointer) in
-      if let baseAddress = body.baseAddress, body.count > 0 {
-        var encoder = BinaryEncoder(forWritingInto: baseAddress)
-        encoder.putBytesValue(value: serialized)
-      }
+      var encoder = BinaryEncoder(forWritingInto: body)
+      encoder.putBytesValue(value: serialized)
     }
 
     var written: Int = 0
