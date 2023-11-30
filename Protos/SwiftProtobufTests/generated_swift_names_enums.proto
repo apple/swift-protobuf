@@ -249,8 +249,7 @@ message GeneratedSwiftReservedEnums {
   enum digitValue { NONE_digitValue = 0; }
   enum discardableResult { NONE_discardableResult = 0; }
   enum discardUnknownFields { NONE_discardUnknownFields = 0; }
-  enum distance { NONE_distance = 0; }
-  enum double { NONE_double = 0; }
+  enum Double { NONE_Double = 0; }
   enum doubleValue { NONE_doubleValue = 0; }
   enum Duration { NONE_Duration = 0; }
   enum E { NONE_E = 0; }
@@ -264,7 +263,6 @@ message GeneratedSwiftReservedEnums {
   enum emitFieldName { NONE_emitFieldName = 0; }
   enum emitFieldNumber { NONE_emitFieldNumber = 0; }
   enum Empty { NONE_Empty = 0; }
-  enum emptyData { NONE_emptyData = 0; }
   enum encodeAsBytes { NONE_encodeAsBytes = 0; }
   enum encoded { NONE_encoded = 0; }
   enum encodedJSONString { NONE_encodedJSONString = 0; }
@@ -333,7 +331,7 @@ message GeneratedSwiftReservedEnums {
   enum final { NONE_final = 0; }
   enum first { NONE_first = 0; }
   enum firstItem { NONE_firstItem = 0; }
-  enum float { NONE_float = 0; }
+  enum Float { NONE_Float = 0; }
   enum floatLiteral { NONE_floatLiteral = 0; }
   enum FloatLiteralType { NONE_FloatLiteralType = 0; }
   enum FloatValue { NONE_FloatValue = 0; }
@@ -628,7 +626,6 @@ message GeneratedSwiftReservedEnums {
   enum NamePart { NONE_NamePart = 0; }
   enum names { NONE_names = 0; }
   enum nanos { NONE_nanos = 0; }
-  enum nativeEndianBytes { NONE_nativeEndianBytes = 0; }
   enum negativeIntValue { NONE_negativeIntValue = 0; }
   enum nestedType { NONE_nestedType = 0; }
   enum newL { NONE_newL = 0; }
@@ -682,7 +679,6 @@ message GeneratedSwiftReservedEnums {
   enum phpGenericServices { NONE_phpGenericServices = 0; }
   enum phpMetadataNamespace { NONE_phpMetadataNamespace = 0; }
   enum phpNamespace { NONE_phpNamespace = 0; }
-  enum pointer { NONE_pointer = 0; }
   enum pos { NONE_pos = 0; }
   enum positiveIntValue { NONE_positiveIntValue = 0; }
   enum prefix { NONE_prefix = 0; }
@@ -879,7 +875,6 @@ message GeneratedSwiftReservedEnums {
   enum UnsafeBufferPointer { NONE_UnsafeBufferPointer = 0; }
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
   enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }
-  enum UnsafeMutableRawPointer { NONE_UnsafeMutableRawPointer = 0; }
   enum UnsafeRawBufferPointer { NONE_UnsafeRawBufferPointer = 0; }
   enum UnsafeRawPointer { NONE_UnsafeRawPointer = 0; }
   enum unverifiedLazy { NONE_unverifiedLazy = 0; }
