@@ -249,8 +249,7 @@ message GeneratedSwiftReservedMessages {
   message digitValue { int32 digitValue = 1; }
   message discardableResult { int32 discardableResult = 1; }
   message discardUnknownFields { int32 discardUnknownFields = 1; }
-  message distance { int32 distance = 1; }
-  message double { int32 double = 1; }
+  message Double { int32 Double = 1; }
   message doubleValue { int32 doubleValue = 1; }
   message Duration { int32 Duration = 1; }
   message E { int32 E = 1; }
@@ -264,7 +263,6 @@ message GeneratedSwiftReservedMessages {
   message emitFieldName { int32 emitFieldName = 1; }
   message emitFieldNumber { int32 emitFieldNumber = 1; }
   message Empty { int32 Empty = 1; }
-  message emptyData { int32 emptyData = 1; }
   message encodeAsBytes { int32 encodeAsBytes = 1; }
   message encoded { int32 encoded = 1; }
   message encodedJSONString { int32 encodedJSONString = 1; }
@@ -333,7 +331,7 @@ message GeneratedSwiftReservedMessages {
   message final { int32 final = 1; }
   message first { int32 first = 1; }
   message firstItem { int32 firstItem = 1; }
-  message float { int32 float = 1; }
+  message Float { int32 Float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
   message FloatLiteralType { int32 FloatLiteralType = 1; }
   message FloatValue { int32 FloatValue = 1; }
@@ -628,7 +626,6 @@ message GeneratedSwiftReservedMessages {
   message NamePart { int32 NamePart = 1; }
   message names { int32 names = 1; }
   message nanos { int32 nanos = 1; }
-  message nativeEndianBytes { int32 nativeEndianBytes = 1; }
   message negativeIntValue { int32 negativeIntValue = 1; }
   message nestedType { int32 nestedType = 1; }
   message newL { int32 newL = 1; }
@@ -682,7 +679,6 @@ message GeneratedSwiftReservedMessages {
   message phpGenericServices { int32 phpGenericServices = 1; }
   message phpMetadataNamespace { int32 phpMetadataNamespace = 1; }
   message phpNamespace { int32 phpNamespace = 1; }
-  message pointer { int32 pointer = 1; }
   message pos { int32 pos = 1; }
   message positiveIntValue { int32 positiveIntValue = 1; }
   message prefix { int32 prefix = 1; }
@@ -879,7 +875,6 @@ message GeneratedSwiftReservedMessages {
   message UnsafeBufferPointer { int32 UnsafeBufferPointer = 1; }
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
-  message UnsafeMutableRawPointer { int32 UnsafeMutableRawPointer = 1; }
   message UnsafeRawBufferPointer { int32 UnsafeRawBufferPointer = 1; }
   message UnsafeRawPointer { int32 UnsafeRawPointer = 1; }
   message unverifiedLazy { int32 unverifiedLazy = 1; }
