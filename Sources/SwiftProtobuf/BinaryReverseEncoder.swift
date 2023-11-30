@@ -31,12 +31,7 @@ internal struct BinaryReverseEncoder {
     }
 
     private mutating func prepend<Bytes: SwiftProtobufContiguousBytes>(contentsOf bytes: Bytes) {
-        bytes.withUnsafeBytes { dataPointer in
-            if let baseAddress = dataPointer.baseAddress, dataPointer.count > 0 {
-		consume(dataPointer.count)
-                pointer.copyMemory(from: baseAddress, byteCount: dataPointer.count)
-            }
-        }
+        bytes.withUnsafeBytes { prepend(contentsOf: $0) }
     }
 
     internal var used: Int {
@@ -45,21 +40,19 @@ internal struct BinaryReverseEncoder {
 
     internal var remainder: UnsafeMutableRawBufferPointer {
         return UnsafeMutableRawBufferPointer(start: buffer.baseAddress!,
-	    count: buffer.count - used)
+            count: buffer.count - used)
     }
 
     internal mutating func consume(_ bytes: Int) {
         pointer = pointer.advanced(by: -bytes)
     }
 
-    @discardableResult
-    private mutating func prepend(contentsOf bufferPointer: UnsafeRawBufferPointer) -> Int {
+    private mutating func prepend(contentsOf bufferPointer: UnsafeRawBufferPointer) {
         let count = bufferPointer.count
-	consume(count)
+        consume(count)
         if let baseAddress = bufferPointer.baseAddress, count > 0 {
             pointer.copyMemory(from: baseAddress, byteCount: count)
         }
-        return count
     }
 
     mutating func appendUnknown(data: Data) {
@@ -76,11 +69,11 @@ internal struct BinaryReverseEncoder {
 
     mutating func putVarInt(value: UInt64) {
         if value > 127 {
-	    putVarInt(value: value >> 7)
+            putVarInt(value: value >> 7)
             prepend(UInt8(value & 0x7f | 0x80))
         } else {
             prepend(UInt8(value))
-	}
+        }
     }
 
     mutating func putVarInt(value: Int64) {
@@ -103,28 +96,28 @@ internal struct BinaryReverseEncoder {
     mutating func putFixedUInt64(value: UInt64) {
         var v = value.littleEndian
         let n = MemoryLayout<UInt64>.size
-	consume(n)
+        consume(n)
         pointer.copyMemory(from: &v, byteCount: n)
     }
 
     mutating func putFixedUInt32(value: UInt32) {
         var v = value.littleEndian
         let n = MemoryLayout<UInt32>.size
-	consume(n)
+        consume(n)
         pointer.copyMemory(from: &v, byteCount: n)
     }
 
     mutating func putFloatValue(value: Float) {
         let n = MemoryLayout<Float>.size
         var v = value.bitPattern.littleEndian
-	consume(n)
+        consume(n)
         pointer.copyMemory(from: &v, byteCount: n)
     }
 
     mutating func putDoubleValue(value: Double) {
         let n = MemoryLayout<Double>.size
         var v = value.bitPattern.littleEndian
-	consume(n)
+        consume(n)
         pointer.copyMemory(from: &v, byteCount: n)
     }
 
@@ -133,19 +126,20 @@ internal struct BinaryReverseEncoder {
         let utf8 = value.utf8
         // If the String does not support an internal representation in a form
         // of contiguous storage, body is not called and nil is returned.
-        let isAvailable = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Int in
-            let r = prepend(contentsOf: UnsafeRawBufferPointer(body))
+        let usedContiguousCopy = utf8.withContiguousStorageIfAvailable { (body: UnsafeBufferPointer<UInt8>) -> Bool in
+            prepend(contentsOf: UnsafeRawBufferPointer(body))
             putVarInt(value: body.count)
-	    return r
+            return true
         }
-        if isAvailable == nil {
-            precondition(false)
+        if usedContiguousCopy == nil {
             let count = utf8.count
-            putVarInt(value: count)
+            consume(count)
+            var i = 0
             for b in utf8 {
-                pointer.storeBytes(of: b, as: UInt8.self)
-		consume(1)
+                pointer[i] = b
+                i += 1
             }
+            putVarInt(value: count)
         }
     }
 
