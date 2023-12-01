@@ -348,9 +348,12 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
                                              fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .lengthDelimited).encodedSize
-    let messageSize = try value.serializedDataSize()
-    serializedSize +=
-      tagSize + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
+    // Compute the message size by visiting it (and thus adding it to the size)
+    let sizeBefore = serializedSize
+    try value.traverse(visitor: &self)
+    let messageSize = serializedSize - sizeBefore
+    // Now just add the cost of framing that many bytes.
+    serializedSize += tagSize + Varint.encodedSize(of: UInt64(messageSize))
   }
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M],
@@ -360,8 +363,12 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
                            wireFormat: .lengthDelimited).encodedSize
     serializedSize += value.count * tagSize
     let dataSize = try value.reduce(0) {
-      let messageSize = try $1.serializedDataSize()
-      return $0 + Varint.encodedSize(of: UInt64(messageSize)) + messageSize
+      // Compute the message size by visiting it (and thus adding it to the size)
+      let sizeBefore = serializedSize
+      try $1.traverse(visitor: &self)
+      let messageSize = serializedSize - sizeBefore
+      // Now just add the cost of framing that many bytes.
+      return $0 + Varint.encodedSize(of: UInt64(messageSize))
     }
     serializedSize += dataSize
   }
@@ -461,7 +468,9 @@ extension BinaryEncodingSizeVisitor {
 
       groupSize += Varint.encodedSize(of: Int32(fieldNumber))
 
-      let messageSize = try value.serializedDataSize()
+      var subVisitor = BinaryEncodingSizeVisitor()
+      try value.traverse(visitor: &subVisitor)
+      let messageSize = subVisitor.serializedSize
       groupSize += Varint.encodedSize(of: UInt64(messageSize)) + messageSize
 
       serializedSize += groupSize
