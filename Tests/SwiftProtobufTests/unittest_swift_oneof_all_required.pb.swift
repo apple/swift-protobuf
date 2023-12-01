@@ -356,9 +356,9 @@ extension SwiftProtoTesting_OneOfContainer: SwiftProtobuf.Message, SwiftProtobuf
       }
     },
   ]
-  private static let _oneOfField_option1: Field<Self> = .singularMessage({ $0.option1 }, fieldNumber: 1, isUnset: { _ in false })
-  private static let _oneOfField_option2: Field<Self> = .singularMessage({ $0.option2 }, fieldNumber: 2, isUnset: { _ in false })
-  private static let _oneOfField_option3: Field<Self> = .singularGroup({ $0.option3 }, fieldNumber: 3, isUnset: { _ in false })
+  private static let _oneOfField_option1: Field<Self> = .singularMessage({ $0.option1 }, fieldNumber: 1)
+  private static let _oneOfField_option2: Field<Self> = .singularMessage({ $0.option2 }, fieldNumber: 2)
+  private static let _oneOfField_option3: Field<Self> = .singularGroup({ $0.option3 }, fieldNumber: 3)
   private static let _oneOfField_option4: Field<Self> = .singularInt32({ $0.option4 }, fieldNumber: 6, isUnset: { _ in false })
 
 

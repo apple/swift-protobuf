@@ -219,9 +219,9 @@ extension SwiftProtoTesting_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.aFoo }, fieldNumber: 1, isUnset: { $0._storage._aFoo == nil }),
-    .singularMessage({ $0.aBar }, fieldNumber: 2, isUnset: { $0._storage._aBar == nil }),
-    .singularMessage({ $0.aBaz }, fieldNumber: 3, isUnset: { $0._storage._aBaz == nil }),
+    .singularMessage({ $0._storage._aFoo }, fieldNumber: 1),
+    .singularMessage({ $0._storage._aBar }, fieldNumber: 2),
+    .singularMessage({ $0._storage._aBaz }, fieldNumber: 3),
   ]
 
 
@@ -291,9 +291,9 @@ extension SwiftProtoTesting_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.aBar }, fieldNumber: 1, isUnset: { $0._storage._aBar == nil }),
-    .singularMessage({ $0.aBaz }, fieldNumber: 2, isUnset: { $0._storage._aBaz == nil }),
-    .singularMessage({ $0.aFoo }, fieldNumber: 3, isUnset: { $0._storage._aFoo == nil }),
+    .singularMessage({ $0._storage._aBar }, fieldNumber: 1),
+    .singularMessage({ $0._storage._aBaz }, fieldNumber: 2),
+    .singularMessage({ $0._storage._aFoo }, fieldNumber: 3),
   ]
 
 
@@ -363,9 +363,9 @@ extension SwiftProtoTesting_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.aBaz }, fieldNumber: 1, isUnset: { $0._storage._aBaz == nil }),
-    .singularMessage({ $0.aFoo }, fieldNumber: 2, isUnset: { $0._storage._aFoo == nil }),
-    .singularMessage({ $0.aBar }, fieldNumber: 3, isUnset: { $0._storage._aBar == nil }),
+    .singularMessage({ $0._storage._aBaz }, fieldNumber: 1),
+    .singularMessage({ $0._storage._aFoo }, fieldNumber: 2),
+    .singularMessage({ $0._storage._aBar }, fieldNumber: 3),
   ]
 
 

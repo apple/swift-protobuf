@@ -3037,8 +3037,8 @@ extension Google_Protobuf_FileDescriptorProto: Message, _MessageImplementationBa
     .repeatedMessage({ $0.enumType }, fieldNumber: 5),
     .repeatedMessage({ $0.service }, fieldNumber: 6),
     .repeatedMessage({ $0.`extension` }, fieldNumber: 7),
-    .singularMessage({ $0.options }, fieldNumber: 8, isUnset: { $0._options == nil }),
-    .singularMessage({ $0.sourceCodeInfo }, fieldNumber: 9, isUnset: { $0._sourceCodeInfo == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 8),
+    .singularMessage({ $0._sourceCodeInfo }, fieldNumber: 9),
     .repeatedInt32({ $0.publicDependency }, fieldNumber: 10),
     .repeatedInt32({ $0.weakDependency }, fieldNumber: 11),
     .singularString({ $0.syntax }, fieldNumber: 12, isUnset: { $0._syntax == nil }),
@@ -3156,14 +3156,14 @@ extension Google_Protobuf_DescriptorProto: Message, _MessageImplementationBase, 
 
   public static let _fields: [Field<Self>] = [
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._storage._name == nil }),
-    .repeatedMessage({ $0.field }, fieldNumber: 2),
-    .repeatedMessage({ $0.nestedType }, fieldNumber: 3),
-    .repeatedMessage({ $0.enumType }, fieldNumber: 4),
-    .repeatedMessage({ $0.extensionRange }, fieldNumber: 5),
-    .repeatedMessage({ $0.`extension` }, fieldNumber: 6),
-    .singularMessage({ $0.options }, fieldNumber: 7, isUnset: { $0._storage._options == nil }),
-    .repeatedMessage({ $0.oneofDecl }, fieldNumber: 8),
-    .repeatedMessage({ $0.reservedRange }, fieldNumber: 9),
+    .repeatedMessage({ $0._storage._field }, fieldNumber: 2),
+    .repeatedMessage({ $0._storage._nestedType }, fieldNumber: 3),
+    .repeatedMessage({ $0._storage._enumType }, fieldNumber: 4),
+    .repeatedMessage({ $0._storage._extensionRange }, fieldNumber: 5),
+    .repeatedMessage({ $0._storage._extension }, fieldNumber: 6),
+    .singularMessage({ $0._storage._options }, fieldNumber: 7),
+    .repeatedMessage({ $0._storage._oneofDecl }, fieldNumber: 8),
+    .repeatedMessage({ $0._storage._reservedRange }, fieldNumber: 9),
     .repeatedString({ $0.reservedName }, fieldNumber: 10),
   ]
 
@@ -3222,7 +3222,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: Message, _MessageImple
   public static let _fields: [Field<Self>] = [
     .singularInt32({ $0.start }, fieldNumber: 1, isUnset: { $0._start == nil }),
     .singularInt32({ $0.end }, fieldNumber: 2, isUnset: { $0._end == nil }),
-    .singularMessage({ $0.options }, fieldNumber: 3, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 3),
   ]
 
 
@@ -3305,7 +3305,7 @@ extension Google_Protobuf_ExtensionRangeOptions: Message, _MessageImplementation
   public static let _fields: [Field<Self>] = [
     .repeatedMessage({ $0.declaration }, fieldNumber: 2),
     .singularEnum({ $0.verification }, fieldNumber: 3, isUnset: { $0._verification == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 50, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 50),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -3426,7 +3426,7 @@ extension Google_Protobuf_FieldDescriptorProto: Message, _MessageImplementationB
     .singularEnum({ $0.type }, fieldNumber: 5, isUnset: { $0._type == nil }),
     .singularString({ $0.typeName }, fieldNumber: 6, isUnset: { $0._typeName == nil }),
     .singularString({ $0.defaultValue }, fieldNumber: 7, isUnset: { $0._defaultValue == nil }),
-    .singularMessage({ $0.options }, fieldNumber: 8, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 8),
     .singularInt32({ $0.oneofIndex }, fieldNumber: 9, isUnset: { $0._oneofIndex == nil }),
     .singularString({ $0.jsonName }, fieldNumber: 10, isUnset: { $0._jsonName == nil }),
     .singularBool({ $0.proto3Optional }, fieldNumber: 17, isUnset: { $0._proto3Optional == nil }),
@@ -3508,7 +3508,7 @@ extension Google_Protobuf_OneofDescriptorProto: Message, _MessageImplementationB
 
   public static let _fields: [Field<Self>] = [
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
-    .singularMessage({ $0.options }, fieldNumber: 2, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 2),
   ]
 
 
@@ -3555,7 +3555,7 @@ extension Google_Protobuf_EnumDescriptorProto: Message, _MessageImplementationBa
   public static let _fields: [Field<Self>] = [
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
     .repeatedMessage({ $0.value }, fieldNumber: 2),
-    .singularMessage({ $0.options }, fieldNumber: 3, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 3),
     .repeatedMessage({ $0.reservedRange }, fieldNumber: 4),
     .repeatedString({ $0.reservedName }, fieldNumber: 5),
   ]
@@ -3636,7 +3636,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: Message, _MessageImplementat
   public static let _fields: [Field<Self>] = [
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
     .singularInt32({ $0.number }, fieldNumber: 2, isUnset: { $0._number == nil }),
-    .singularMessage({ $0.options }, fieldNumber: 3, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 3),
   ]
 
 
@@ -3680,7 +3680,7 @@ extension Google_Protobuf_ServiceDescriptorProto: Message, _MessageImplementatio
   public static let _fields: [Field<Self>] = [
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
     .repeatedMessage({ $0.method }, fieldNumber: 2),
-    .singularMessage({ $0.options }, fieldNumber: 3, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 3),
   ]
 
 
@@ -3730,7 +3730,7 @@ extension Google_Protobuf_MethodDescriptorProto: Message, _MessageImplementation
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
     .singularString({ $0.inputType }, fieldNumber: 2, isUnset: { $0._inputType == nil }),
     .singularString({ $0.outputType }, fieldNumber: 3, isUnset: { $0._outputType == nil }),
-    .singularMessage({ $0.options }, fieldNumber: 4, isUnset: { $0._options == nil }),
+    .singularMessage({ $0._options }, fieldNumber: 4),
     .singularBool({ $0.clientStreaming }, fieldNumber: 5, isUnset: { $0._clientStreaming == nil }),
     .singularBool({ $0.serverStreaming }, fieldNumber: 6, isUnset: { $0._serverStreaming == nil }),
   ]
@@ -3904,8 +3904,8 @@ extension Google_Protobuf_FileOptions: Message, _MessageImplementationBase, _Pro
     .singularBool({ $0.phpGenericServices }, fieldNumber: 42, isUnset: { $0._storage._phpGenericServices == nil }),
     .singularString({ $0.phpMetadataNamespace }, fieldNumber: 44, isUnset: { $0._storage._phpMetadataNamespace == nil }),
     .singularString({ $0.rubyPackage }, fieldNumber: 45, isUnset: { $0._storage._rubyPackage == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 50, isUnset: { $0._storage._features == nil }),
-    .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
+    .singularMessage({ $0._storage._features }, fieldNumber: 50),
+    .repeatedMessage({ $0._storage._uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
 
@@ -4000,7 +4000,7 @@ extension Google_Protobuf_MessageOptions: Message, _MessageImplementationBase, _
     .singularBool({ $0.deprecated }, fieldNumber: 3, isUnset: { $0._deprecated == nil }),
     .singularBool({ $0.mapEntry }, fieldNumber: 7, isUnset: { $0._mapEntry == nil }),
     .singularBool({ $0.deprecatedLegacyJsonFieldConflicts }, fieldNumber: 11, isUnset: { $0._deprecatedLegacyJsonFieldConflicts == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 12, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 12),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -4130,9 +4130,9 @@ extension Google_Protobuf_FieldOptions: Message, _MessageImplementationBase, _Pr
     .singularBool({ $0.debugRedact }, fieldNumber: 16, isUnset: { $0._storage._debugRedact == nil }),
     .singularEnum({ $0.retention }, fieldNumber: 17, isUnset: { $0._storage._retention == nil }),
     .repeatedEnum({ $0.targets }, fieldNumber: 19),
-    .repeatedMessage({ $0.editionDefaults }, fieldNumber: 20),
-    .singularMessage({ $0.features }, fieldNumber: 21, isUnset: { $0._storage._features == nil }),
-    .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
+    .repeatedMessage({ $0._storage._editionDefaults }, fieldNumber: 20),
+    .singularMessage({ $0._storage._features }, fieldNumber: 21),
+    .repeatedMessage({ $0._storage._uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
 
@@ -4268,7 +4268,7 @@ extension Google_Protobuf_OneofOptions: Message, _MessageImplementationBase, _Pr
   }
 
   public static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.features }, fieldNumber: 1, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 1),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -4322,7 +4322,7 @@ extension Google_Protobuf_EnumOptions: Message, _MessageImplementationBase, _Pro
     .singularBool({ $0.allowAlias }, fieldNumber: 2, isUnset: { $0._allowAlias == nil }),
     .singularBool({ $0.deprecated }, fieldNumber: 3, isUnset: { $0._deprecated == nil }),
     .singularBool({ $0.deprecatedLegacyJsonFieldConflicts }, fieldNumber: 6, isUnset: { $0._deprecatedLegacyJsonFieldConflicts == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 7, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 7),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -4375,7 +4375,7 @@ extension Google_Protobuf_EnumValueOptions: Message, _MessageImplementationBase,
 
   public static let _fields: [Field<Self>] = [
     .singularBool({ $0.deprecated }, fieldNumber: 1, isUnset: { $0._deprecated == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 2, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 2),
     .singularBool({ $0.debugRedact }, fieldNumber: 3, isUnset: { $0._debugRedact == nil }),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
@@ -4426,7 +4426,7 @@ extension Google_Protobuf_ServiceOptions: Message, _MessageImplementationBase, _
 
   public static let _fields: [Field<Self>] = [
     .singularBool({ $0.deprecated }, fieldNumber: 33, isUnset: { $0._deprecated == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 34, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 34),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -4478,7 +4478,7 @@ extension Google_Protobuf_MethodOptions: Message, _MessageImplementationBase, _P
   public static let _fields: [Field<Self>] = [
     .singularBool({ $0.deprecated }, fieldNumber: 33, isUnset: { $0._deprecated == nil }),
     .singularEnum({ $0.idempotencyLevel }, fieldNumber: 34, isUnset: { $0._idempotencyLevel == nil }),
-    .singularMessage({ $0.features }, fieldNumber: 35, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 35),
     .repeatedMessage({ $0.uninterpretedOption }, fieldNumber: 999),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -4779,7 +4779,7 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: Message, 
   }
 
   public static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.features }, fieldNumber: 2, isUnset: { $0._features == nil }),
+    .singularMessage({ $0._features }, fieldNumber: 2),
     .singularEnum({ $0.edition }, fieldNumber: 3, isUnset: { $0._edition == nil }),
   ]
 

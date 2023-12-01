@@ -543,7 +543,7 @@ extension Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._
     .singularEnum({ $0.requestedOutputFormat }, fieldNumber: 3, defaultValue: .unspecified),
     .singularString({ $0.messageType }, fieldNumber: 4),
     .singularEnum({ $0.testCategory }, fieldNumber: 5, defaultValue: .unspecifiedTest),
-    .singularMessage({ $0.jspbEncodingOptions }, fieldNumber: 6, isUnset: { $0._jspbEncodingOptions == nil }),
+    .singularMessage({ $0._jspbEncodingOptions }, fieldNumber: 6),
     .oneOf({ $0.payload }) {
       switch $0 {
       case .jspbPayload:

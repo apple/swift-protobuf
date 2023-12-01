@@ -669,7 +669,7 @@ extension SwiftProtoTesting_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftP
 
   static let _fields: [Field<Self>] = [
     .singularInt32({ $0.x }, fieldNumber: 1, isUnset: { $0._storage._x == nil }),
-    .singularMessage({ $0.y }, fieldNumber: 2, isUnset: { $0._storage._y == nil }),
+    .singularMessage({ $0._storage._y }, fieldNumber: 2),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 201),
   ]
 

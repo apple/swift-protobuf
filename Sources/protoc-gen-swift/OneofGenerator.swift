@@ -388,7 +388,8 @@ class OneofGenerator {
     
     func generateFieldNodeStaticLet(printer p: inout CodePrinter) {
         for field in fieldsSortedByNumber {
-            p.print("private static let _oneOfField_\(field.swiftName): Field<Self> = .singular\(field.protoGenericType)({ $0.\(field.swiftName) }, fieldNumber: \(field.number), isUnset: { _ in false })")
+            let suffix = field.isGroupOrMessage ? "" :  ", isUnset: { _ in false }"
+            p.print("private static let _oneOfField_\(field.swiftName): Field<Self> = .singular\(field.protoGenericType)({ $0.\(field.swiftName) }, fieldNumber: \(field.number)\(suffix))")
         }
         
     }

@@ -284,7 +284,7 @@ extension Google_Protobuf_Api: Message, _MessageImplementationBase, _ProtoNamePr
     .repeatedMessage({ $0.methods }, fieldNumber: 2),
     .repeatedMessage({ $0.options }, fieldNumber: 3),
     .singularString({ $0.version }, fieldNumber: 4),
-    .singularMessage({ $0.sourceContext }, fieldNumber: 5, isUnset: { $0._sourceContext == nil }),
+    .singularMessage({ $0._sourceContext }, fieldNumber: 5),
     .repeatedMessage({ $0.mixins }, fieldNumber: 6),
     .singularEnum({ $0.syntax }, fieldNumber: 7, defaultValue: .proto2),
   ]

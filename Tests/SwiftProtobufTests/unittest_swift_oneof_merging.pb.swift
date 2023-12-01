@@ -244,7 +244,7 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftPro
     },
   ]
   private static let _oneOfField_oneofUint32: Field<Self> = .singularUInt32({ $0.oneofUint32 }, fieldNumber: 111, isUnset: { _ in false })
-  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112, isUnset: { _ in false })
+  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112)
   private static let _oneOfField_oneofString: Field<Self> = .singularString({ $0.oneofString }, fieldNumber: 113, isUnset: { _ in false })
   private static let _oneOfField_oneofBytes: Field<Self> = .singularBytes({ $0.oneofBytes }, fieldNumber: 114, isUnset: { _ in false })
 
@@ -315,7 +315,7 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, Swi
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.optionalMessage }, fieldNumber: 1, isUnset: { $0._optionalMessage == nil }),
+    .singularMessage({ $0._optionalMessage }, fieldNumber: 1),
     .repeatedMessage({ $0.repeatedMessage }, fieldNumber: 2),
   ]
 

@@ -446,7 +446,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
   public static let _fields: [Field<Self>] = [
     .repeatedString({ $0.fileToGenerate }, fieldNumber: 1),
     .singularString({ $0.parameter }, fieldNumber: 2, isUnset: { $0._parameter == nil }),
-    .singularMessage({ $0.compilerVersion }, fieldNumber: 3, isUnset: { $0._compilerVersion == nil }),
+    .singularMessage({ $0._compilerVersion }, fieldNumber: 3),
     .repeatedMessage({ $0.protoFile }, fieldNumber: 15),
     .repeatedMessage({ $0.sourceFileDescriptors }, fieldNumber: 17),
   ]
@@ -545,7 +545,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
     .singularString({ $0.insertionPoint }, fieldNumber: 2, isUnset: { $0._insertionPoint == nil }),
     .singularString({ $0.content }, fieldNumber: 15, isUnset: { $0._content == nil }),
-    .singularMessage({ $0.generatedCodeInfo }, fieldNumber: 16, isUnset: { $0._generatedCodeInfo == nil }),
+    .singularMessage({ $0._generatedCodeInfo }, fieldNumber: 16),
   ]
 
 

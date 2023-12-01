@@ -237,8 +237,10 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
           traitsArg = ""
       }
       
+      let getterName = isGroupOrMessage ? storedPropertyWithoutSelf : swiftName
+      
       let suffix: String
-      if isRepeated {
+      if isRepeated || isGroupOrMessage {
         suffix = ""
       } else if hasFieldPresence {
         suffix = ", isUnset: { $0.\(storedPropertyWithoutSelf) == nil }"
@@ -247,6 +249,6 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
       } else {
         suffix = ""
       }
-      p.print(".\(factoryMethod)(\(traitsArg){ $0.\(swiftName) }, fieldNumber: \(number)\(suffix)),")
+      p.print(".\(factoryMethod)(\(traitsArg){ $0.\(getterName) }, fieldNumber: \(number)\(suffix)),")
     }
 }

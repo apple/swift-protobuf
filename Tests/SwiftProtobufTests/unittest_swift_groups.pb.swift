@@ -478,7 +478,7 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
   static let _fields: [Field<Self>] = [
     .singularInt32({ $0.outerA }, fieldNumber: 1, isUnset: { $0._outerA == nil }),
-    .singularGroup({ $0.subGroup1 }, fieldNumber: 2, isUnset: { $0._subGroup1 == nil }),
+    .singularGroup({ $0._subGroup1 }, fieldNumber: 2),
     .repeatedGroup({ $0.subGroup3 }, fieldNumber: 3),
   ]
 
@@ -514,7 +514,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf.Message, SwiftP
 
   static let _fields: [Field<Self>] = [
     .singularInt32({ $0.sub1A }, fieldNumber: 1, isUnset: { $0._sub1A == nil }),
-    .singularGroup({ $0.subGroup2 }, fieldNumber: 2, isUnset: { $0._subGroup2 == nil }),
+    .singularGroup({ $0._subGroup2 }, fieldNumber: 2),
   ]
 
 

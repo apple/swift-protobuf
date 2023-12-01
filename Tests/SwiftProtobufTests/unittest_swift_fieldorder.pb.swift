@@ -461,7 +461,7 @@ extension SwiftProtoTesting_Order_TestFieldOrderings: SwiftProtobuf.Message, Swi
         return nil
       }
     },
-    .singularMessage({ $0.optionalNestedMessage }, fieldNumber: 200, isUnset: { $0._optionalNestedMessage == nil }),
+    .singularMessage({ $0._optionalNestedMessage }, fieldNumber: 200),
   ]
   private static let _oneOfField_oneofBool: Field<Self> = .singularBool({ $0.oneofBool }, fieldNumber: 9, isUnset: { _ in false })
   private static let _oneOfField_oneofInt32: Field<Self> = .singularInt32({ $0.oneofInt32 }, fieldNumber: 10, isUnset: { _ in false })

@@ -213,7 +213,7 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.message }, fieldNumber: 1, isUnset: { $0._storage._message == nil }),
+    .singularMessage({ $0._storage._message }, fieldNumber: 1),
     .singularEnum({ $0.optionalEnum }, fieldNumber: 17, isUnset: { $0._storage._optionalEnum == nil }),
   ]
 

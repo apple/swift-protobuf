@@ -30,6 +30,7 @@ public struct Field<M: Message> {
     public static func singularFloat(_ getValue: @escaping (M) -> Float, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularFloatField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularDouble(_ getValue: @escaping (M) -> Double, fieldNumber: Int, defaultValue: Double = 0) -> Self {
         Self(field: SingularDoubleField(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -37,6 +38,7 @@ public struct Field<M: Message> {
     public static func singularDouble(_ getValue: @escaping (M) -> Double, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularDoubleField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularInt32(_ getValue: @escaping (M) -> Int32, fieldNumber: Int, defaultValue: Int32 = 0) -> Self {
         Self(field: SingularInt32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -44,6 +46,7 @@ public struct Field<M: Message> {
     public static func singularInt32(_ getValue: @escaping (M) -> Int32, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularInt32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularInt64(_ getValue: @escaping (M) -> Int64, fieldNumber: Int, defaultValue: Int64 = 0) -> Self {
         Self(field: SingularInt64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -51,6 +54,7 @@ public struct Field<M: Message> {
     public static func singularInt64(_ getValue: @escaping (M) -> Int64, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularInt64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularUInt32(_ getValue: @escaping (M) -> UInt32, fieldNumber: Int, defaultValue: UInt32 = 0) -> Self {
         Self(field: SingularUInt32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -58,6 +62,7 @@ public struct Field<M: Message> {
     public static func singularUInt32(_ getValue: @escaping (M) -> UInt32, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularUInt32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularUInt64(_ getValue: @escaping (M) -> UInt64, fieldNumber: Int, defaultValue: UInt64 = 0) -> Self {
         Self(field: SingularUInt64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -65,6 +70,7 @@ public struct Field<M: Message> {
     public static func singularUInt64(_ getValue: @escaping (M) -> UInt64, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularUInt64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularSInt32(_ getValue: @escaping (M) -> Int32, fieldNumber: Int, defaultValue: Int32 = 0) -> Self {
         Self(field: SingularSInt32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -72,6 +78,7 @@ public struct Field<M: Message> {
     public static func singularSInt32(_ getValue: @escaping (M) -> Int32, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularSInt32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularSInt64(_ getValue: @escaping (M) -> Int64, fieldNumber: Int, defaultValue: Int64 = 0) -> Self {
         Self(field: SingularSInt64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -79,6 +86,7 @@ public struct Field<M: Message> {
     public static func singularSInt64(_ getValue: @escaping (M) -> Int64, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularSInt64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularFixed32(_ getValue: @escaping (M) -> UInt32, fieldNumber: Int, defaultValue: UInt32 = 0) -> Self {
         Self(field: SingularFixed32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -86,6 +94,7 @@ public struct Field<M: Message> {
     public static func singularFixed32(_ getValue: @escaping (M) -> UInt32, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularFixed32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularFixed64(_ getValue: @escaping (M) -> UInt64, fieldNumber: Int, defaultValue: UInt64 = 0) -> Self {
         Self(field: SingularFixed64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -93,6 +102,7 @@ public struct Field<M: Message> {
     public static func singularFixed64(_ getValue: @escaping (M) -> UInt64, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularFixed64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularSFixed32(_ getValue: @escaping (M) -> Int32, fieldNumber: Int, defaultValue: Int32 = 0) -> Self {
         Self(field: SingularSFixed32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -100,6 +110,7 @@ public struct Field<M: Message> {
     public static func singularSFixed32(_ getValue: @escaping (M) -> Int32, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularSFixed32Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularSFixed64(_ getValue: @escaping (M) -> Int64, fieldNumber: Int, defaultValue: Int64 = 0) -> Self {
         Self(field: SingularSFixed64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -107,6 +118,7 @@ public struct Field<M: Message> {
     public static func singularSFixed64(_ getValue: @escaping (M) -> Int64, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularSFixed64Field(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularBool(_ getValue: @escaping (M) -> Bool, fieldNumber: Int, defaultValue: Bool = false) -> Self {
         Self(field: SingularBoolField(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -114,6 +126,7 @@ public struct Field<M: Message> {
     public static func singularBool(_ getValue: @escaping (M) -> Bool, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularBoolField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularString(_ getValue: @escaping (M) -> String, fieldNumber: Int, defaultValue: String = "") -> Self {
         Self(field: SingularStringField(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -121,6 +134,7 @@ public struct Field<M: Message> {
     public static func singularString(_ getValue: @escaping (M) -> String, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularStringField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+
     public static func singularBytes(_ getValue: @escaping (M) -> Data, fieldNumber: Int, defaultValue: Data = Data()) -> Self {
         Self(field: SingularBytesField(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == defaultValue })
     }
@@ -248,13 +262,20 @@ public struct Field<M: Message> {
     public static func singularEnum<E: Enum>(_ getValue: @escaping (M) -> E, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
         Self(field: SingularEnumField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
     }
+  
+  public static func singularMessage<MessageType: Message>(_ getValue: @escaping (M) -> MessageType, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
+    Self(field: SingularMessageField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
+  }
+  public static func singularGroup<MessageType: Message>(_ getValue: @escaping (M) -> MessageType, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
+    Self(field: SingularGroupField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
+  }
 
-    public static func singularMessage<MessageType: Message>(_ getValue: @escaping (M) -> MessageType, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
-        Self(field: SingularMessageField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
+    public static func singularMessage<MessageType: Message>(_ getValue: @escaping (M) -> MessageType?, fieldNumber: Int) -> Self {
+        Self(field: SingularMessageField(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == nil })
     }
     
-    public static func singularGroup<MessageType: Message>(_ getValue: @escaping (M) -> MessageType, fieldNumber: Int, isUnset: @escaping (M) -> Bool) -> Self {
-        Self(field: SingularGroupField(getValue: getValue), fieldNumber: fieldNumber, isDefault: isUnset)
+    public static func singularGroup<MessageType: Message>(_ getValue: @escaping (M) -> MessageType?, fieldNumber: Int) -> Self {
+        Self(field: SingularGroupField(getValue: getValue), fieldNumber: fieldNumber, isDefault: { getValue($0) == nil })
     }
 
     public static func repeatedEnum<E: Enum>(_ getValue: @escaping (M) -> [E], fieldNumber: Int) -> Self {
@@ -677,18 +698,18 @@ fileprivate struct PackedBoolField<M: Message>: FieldItem {
 }
 
 fileprivate struct SingularMessageField<M: Message, F: Message>: FieldItem {
-    let getValue: (M) -> F
+    let getValue: (M) -> F?
     
     func traverse<V: Visitor>(message: M, fieldNumber: Int, visitor: inout V) throws {
-        try visitor.visitSingularMessageField(value: getValue(message), fieldNumber: fieldNumber)
+        try visitor.visitSingularMessageField(value: getValue(message) ?? .init(), fieldNumber: fieldNumber)
     }
 }
 
 fileprivate struct SingularGroupField<M: Message, F: Message>: FieldItem {
-    let getValue: (M) -> F
+    let getValue: (M) -> F?
     
     func traverse<V: Visitor>(message: M, fieldNumber: Int, visitor: inout V) throws {
-        try visitor.visitSingularGroupField(value: getValue(message), fieldNumber: fieldNumber)
+        try visitor.visitSingularGroupField(value: getValue(message) ?? .init(), fieldNumber: fieldNumber)
     }
 }
 

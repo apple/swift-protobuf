@@ -503,7 +503,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtob
     .singularString({ $0.stringField }, fieldNumber: 1, isUnset: { $0._storage._stringField == nil }),
     .singularInt32({ $0.intField }, fieldNumber: 2, isUnset: { $0._storage._intField == nil }),
     .repeatedFixed32({ $0.fixedField }, fieldNumber: 3),
-    .singularMessage({ $0.msgField }, fieldNumber: 4, isUnset: { $0._storage._msgField == nil }),
+    .singularMessage({ $0._storage._msgField }, fieldNumber: 4),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 536870912),
   ]
 
@@ -610,7 +610,7 @@ extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message, SwiftProto
     .singularString({ $0.stringField }, fieldNumber: 1, isUnset: { $0._storage._stringField == nil }),
     .singularInt32({ $0.intField }, fieldNumber: 2, isUnset: { $0._storage._intField == nil }),
     .repeatedFixed32({ $0.fixedField }, fieldNumber: 3),
-    .singularMessage({ $0.msgField }, fieldNumber: 4, isUnset: { $0._storage._msgField == nil }),
+    .singularMessage({ $0._storage._msgField }, fieldNumber: 4),
   ]
 
 

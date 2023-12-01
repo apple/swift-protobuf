@@ -4355,18 +4355,18 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     .singularBool({ $0.optionalBool }, fieldNumber: 13, isUnset: { $0._storage._optionalBool == nil }),
     .singularString({ $0.optionalString }, fieldNumber: 14, isUnset: { $0._storage._optionalString == nil }),
     .singularBytes({ $0.optionalBytes }, fieldNumber: 15, isUnset: { $0._storage._optionalBytes == nil }),
-    .singularGroup({ $0.optionalGroup }, fieldNumber: 16, isUnset: { $0._storage._optionalGroup == nil }),
-    .singularMessage({ $0.optionalNestedMessage }, fieldNumber: 18, isUnset: { $0._storage._optionalNestedMessage == nil }),
-    .singularMessage({ $0.optionalForeignMessage }, fieldNumber: 19, isUnset: { $0._storage._optionalForeignMessage == nil }),
-    .singularMessage({ $0.optionalImportMessage }, fieldNumber: 20, isUnset: { $0._storage._optionalImportMessage == nil }),
+    .singularGroup({ $0._storage._optionalGroup }, fieldNumber: 16),
+    .singularMessage({ $0._storage._optionalNestedMessage }, fieldNumber: 18),
+    .singularMessage({ $0._storage._optionalForeignMessage }, fieldNumber: 19),
+    .singularMessage({ $0._storage._optionalImportMessage }, fieldNumber: 20),
     .singularEnum({ $0.optionalNestedEnum }, fieldNumber: 21, isUnset: { $0._storage._optionalNestedEnum == nil }),
     .singularEnum({ $0.optionalForeignEnum }, fieldNumber: 22, isUnset: { $0._storage._optionalForeignEnum == nil }),
     .singularEnum({ $0.optionalImportEnum }, fieldNumber: 23, isUnset: { $0._storage._optionalImportEnum == nil }),
     .singularString({ $0.optionalStringPiece }, fieldNumber: 24, isUnset: { $0._storage._optionalStringPiece == nil }),
     .singularString({ $0.optionalCord }, fieldNumber: 25, isUnset: { $0._storage._optionalCord == nil }),
-    .singularMessage({ $0.optionalPublicImportMessage }, fieldNumber: 26, isUnset: { $0._storage._optionalPublicImportMessage == nil }),
-    .singularMessage({ $0.optionalLazyMessage }, fieldNumber: 27, isUnset: { $0._storage._optionalLazyMessage == nil }),
-    .singularMessage({ $0.optionalUnverifiedLazyMessage }, fieldNumber: 28, isUnset: { $0._storage._optionalUnverifiedLazyMessage == nil }),
+    .singularMessage({ $0._storage._optionalPublicImportMessage }, fieldNumber: 26),
+    .singularMessage({ $0._storage._optionalLazyMessage }, fieldNumber: 27),
+    .singularMessage({ $0._storage._optionalUnverifiedLazyMessage }, fieldNumber: 28),
     .repeatedInt32({ $0.repeatedInt32 }, fieldNumber: 31),
     .repeatedInt64({ $0.repeatedInt64 }, fieldNumber: 32),
     .repeatedUInt32({ $0.repeatedUint32 }, fieldNumber: 33),
@@ -4382,16 +4382,16 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     .repeatedBool({ $0.repeatedBool }, fieldNumber: 43),
     .repeatedString({ $0.repeatedString }, fieldNumber: 44),
     .repeatedBytes({ $0.repeatedBytes }, fieldNumber: 45),
-    .repeatedGroup({ $0.repeatedGroup }, fieldNumber: 46),
-    .repeatedMessage({ $0.repeatedNestedMessage }, fieldNumber: 48),
-    .repeatedMessage({ $0.repeatedForeignMessage }, fieldNumber: 49),
-    .repeatedMessage({ $0.repeatedImportMessage }, fieldNumber: 50),
+    .repeatedGroup({ $0._storage._repeatedGroup }, fieldNumber: 46),
+    .repeatedMessage({ $0._storage._repeatedNestedMessage }, fieldNumber: 48),
+    .repeatedMessage({ $0._storage._repeatedForeignMessage }, fieldNumber: 49),
+    .repeatedMessage({ $0._storage._repeatedImportMessage }, fieldNumber: 50),
     .repeatedEnum({ $0.repeatedNestedEnum }, fieldNumber: 51),
     .repeatedEnum({ $0.repeatedForeignEnum }, fieldNumber: 52),
     .repeatedEnum({ $0.repeatedImportEnum }, fieldNumber: 53),
     .repeatedString({ $0.repeatedStringPiece }, fieldNumber: 54),
     .repeatedString({ $0.repeatedCord }, fieldNumber: 55),
-    .repeatedMessage({ $0.repeatedLazyMessage }, fieldNumber: 57),
+    .repeatedMessage({ $0._storage._repeatedLazyMessage }, fieldNumber: 57),
     .singularInt32({ $0.defaultInt32 }, fieldNumber: 61, isUnset: { $0._storage._defaultInt32 == nil }),
     .singularInt64({ $0.defaultInt64 }, fieldNumber: 62, isUnset: { $0._storage._defaultInt64 == nil }),
     .singularUInt32({ $0.defaultUint32 }, fieldNumber: 63, isUnset: { $0._storage._defaultUint32 == nil }),
@@ -4426,7 +4426,7 @@ extension SwiftProtoTesting_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._
     },
   ]
   private static let _oneOfField_oneofUint32: Field<Self> = .singularUInt32({ $0.oneofUint32 }, fieldNumber: 111, isUnset: { _ in false })
-  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112, isUnset: { _ in false })
+  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112)
   private static let _oneOfField_oneofString: Field<Self> = .singularString({ $0.oneofString }, fieldNumber: 113, isUnset: { _ in false })
   private static let _oneOfField_oneofBytes: Field<Self> = .singularBytes({ $0.oneofBytes }, fieldNumber: 114, isUnset: { _ in false })
 
@@ -4674,11 +4674,11 @@ extension SwiftProtoTesting_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProt
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.child }, fieldNumber: 1, isUnset: { $0._storage._child == nil }),
-    .singularMessage({ $0.payload }, fieldNumber: 2, isUnset: { $0._storage._payload == nil }),
-    .repeatedMessage({ $0.repeatedChild }, fieldNumber: 3),
-    .singularMessage({ $0.lazyChild }, fieldNumber: 4, isUnset: { $0._storage._lazyChild == nil }),
-    .singularMessage({ $0.eagerChild }, fieldNumber: 5, isUnset: { $0._storage._eagerChild == nil }),
+    .singularMessage({ $0._storage._child }, fieldNumber: 1),
+    .singularMessage({ $0._storage._payload }, fieldNumber: 2),
+    .repeatedMessage({ $0._storage._repeatedChild }, fieldNumber: 3),
+    .singularMessage({ $0._storage._lazyChild }, fieldNumber: 4),
+    .singularMessage({ $0._storage._eagerChild }, fieldNumber: 5),
   ]
 
 
@@ -5058,7 +5058,7 @@ extension SwiftProtoTesting_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._
     .singularInt32({ $0.dummy31 }, fieldNumber: 31, isUnset: { $0._storage._dummy31 == nil }),
     .singularInt32({ $0.dummy32 }, fieldNumber: 32, isUnset: { $0._storage._dummy32 == nil }),
     .singularInt32({ $0.c }, fieldNumber: 33, isUnset: { $0._storage._c == nil }),
-    .singularMessage({ $0.optionalForeign }, fieldNumber: 34, isUnset: { $0._storage._optionalForeign == nil }),
+    .singularMessage({ $0._storage._optionalForeign }, fieldNumber: 34),
   ]
 
 
@@ -5141,10 +5141,10 @@ extension SwiftProtoTesting_TestRequiredForeign: SwiftProtobuf.Message, SwiftPro
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.optionalMessage }, fieldNumber: 1, isUnset: { $0._optionalMessage == nil }),
+    .singularMessage({ $0._optionalMessage }, fieldNumber: 1),
     .repeatedMessage({ $0.repeatedMessage }, fieldNumber: 2),
     .singularInt32({ $0.dummy }, fieldNumber: 3, isUnset: { $0._dummy == nil }),
-    .singularMessage({ $0.optionalLazyMessage }, fieldNumber: 4, isUnset: { $0._optionalLazyMessage == nil }),
+    .singularMessage({ $0._optionalLazyMessage }, fieldNumber: 4),
   ]
 
 
@@ -5189,9 +5189,9 @@ extension SwiftProtoTesting_TestRequiredMessage: SwiftProtobuf.Message, SwiftPro
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.optionalMessage }, fieldNumber: 1, isUnset: { $0._optionalMessage == nil }),
+    .singularMessage({ $0._optionalMessage }, fieldNumber: 1),
     .repeatedMessage({ $0.repeatedMessage }, fieldNumber: 2),
-    .singularMessage({ $0.requiredMessage }, fieldNumber: 3, isUnset: { $0._requiredMessage == nil }),
+    .singularMessage({ $0._requiredMessage }, fieldNumber: 3),
   ]
 
 
@@ -5302,7 +5302,7 @@ extension SwiftProtoTesting_TestRecursiveMessage: SwiftProtobuf.Message, SwiftPr
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.a }, fieldNumber: 1, isUnset: { $0._storage._a == nil }),
+    .singularMessage({ $0._storage._a }, fieldNumber: 1),
     .singularInt32({ $0.i }, fieldNumber: 2, isUnset: { $0._storage._i == nil }),
   ]
 
@@ -5360,7 +5360,7 @@ extension SwiftProtoTesting_TestFieldOrderings: SwiftProtobuf.Message, SwiftProt
     .singularString({ $0.myString }, fieldNumber: 11, isUnset: { $0._myString == nil }),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 12, end: 101),
     .singularFloat({ $0.myFloat }, fieldNumber: 101, isUnset: { $0._myFloat == nil }),
-    .singularMessage({ $0.optionalNestedMessage }, fieldNumber: 200, isUnset: { $0._optionalNestedMessage == nil }),
+    .singularMessage({ $0._optionalNestedMessage }, fieldNumber: 200),
   ]
 
 
@@ -5703,8 +5703,8 @@ extension SwiftProtoTesting_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Mes
   ]
   private static let _oneOfField_fooInt: Field<Self> = .singularInt32({ $0.fooInt }, fieldNumber: 1, isUnset: { _ in false })
   private static let _oneOfField_fooString: Field<Self> = .singularString({ $0.fooString }, fieldNumber: 2, isUnset: { _ in false })
-  private static let _oneOfField_fooMessage: Field<Self> = .singularMessage({ $0.fooMessage }, fieldNumber: 3, isUnset: { _ in false })
-  private static let _oneOfField_fooGroup: Field<Self> = .singularGroup({ $0.fooGroup }, fieldNumber: 4, isUnset: { _ in false })
+  private static let _oneOfField_fooMessage: Field<Self> = .singularMessage({ $0.fooMessage }, fieldNumber: 3)
+  private static let _oneOfField_fooGroup: Field<Self> = .singularGroup({ $0.fooGroup }, fieldNumber: 4)
 
 
   static func ==(lhs: SwiftProtoTesting_TestOneof, rhs: SwiftProtoTesting_TestOneof) -> Bool {
@@ -5831,8 +5831,8 @@ extension SwiftProtoTesting_TestRequiredOneof: SwiftProtobuf.Message, SwiftProto
   ]
   private static let _oneOfField_fooInt: Field<Self> = .singularInt32({ $0.fooInt }, fieldNumber: 1, isUnset: { _ in false })
   private static let _oneOfField_fooString: Field<Self> = .singularString({ $0.fooString }, fieldNumber: 2, isUnset: { _ in false })
-  private static let _oneOfField_fooMessage: Field<Self> = .singularMessage({ $0.fooMessage }, fieldNumber: 3, isUnset: { _ in false })
-  private static let _oneOfField_fooLazyMessage: Field<Self> = .singularMessage({ $0.fooLazyMessage }, fieldNumber: 4, isUnset: { _ in false })
+  private static let _oneOfField_fooMessage: Field<Self> = .singularMessage({ $0.fooMessage }, fieldNumber: 3)
+  private static let _oneOfField_fooLazyMessage: Field<Self> = .singularMessage({ $0.fooLazyMessage }, fieldNumber: 4)
 
 
   static func ==(lhs: SwiftProtoTesting_TestRequiredOneof, rhs: SwiftProtoTesting_TestRequiredOneof) -> Bool {
@@ -6105,10 +6105,10 @@ extension SwiftProtoTesting_TestParsingMerge: SwiftProtobuf.Message, SwiftProtob
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.requiredAllTypes }, fieldNumber: 1, isUnset: { $0._requiredAllTypes == nil }),
-    .singularMessage({ $0.optionalAllTypes }, fieldNumber: 2, isUnset: { $0._optionalAllTypes == nil }),
+    .singularMessage({ $0._requiredAllTypes }, fieldNumber: 1),
+    .singularMessage({ $0._optionalAllTypes }, fieldNumber: 2),
     .repeatedMessage({ $0.repeatedAllTypes }, fieldNumber: 3),
-    .singularGroup({ $0.optionalGroup }, fieldNumber: 10, isUnset: { $0._optionalGroup == nil }),
+    .singularGroup({ $0._optionalGroup }, fieldNumber: 10),
     .repeatedGroup({ $0.repeatedGroup }, fieldNumber: 20),
     .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 536870912),
   ]
@@ -6199,7 +6199,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swi
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.field1 }, fieldNumber: 11, isUnset: { $0._field1 == nil }),
+    .singularMessage({ $0._field1 }, fieldNumber: 11),
   ]
 
 
@@ -6229,7 +6229,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swi
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.field1 }, fieldNumber: 21, isUnset: { $0._field1 == nil }),
+    .singularMessage({ $0._field1 }, fieldNumber: 21),
   ]
 
 
@@ -6259,7 +6259,7 @@ extension SwiftProtoTesting_TestParsingMerge.OptionalGroup: SwiftProtobuf.Messag
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.optionalGroupAllTypes }, fieldNumber: 11, isUnset: { $0._optionalGroupAllTypes == nil }),
+    .singularMessage({ $0._optionalGroupAllTypes }, fieldNumber: 11),
   ]
 
 
@@ -6289,7 +6289,7 @@ extension SwiftProtoTesting_TestParsingMerge.RepeatedGroup: SwiftProtobuf.Messag
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.repeatedGroupAllTypes }, fieldNumber: 21, isUnset: { $0._repeatedGroupAllTypes == nil }),
+    .singularMessage({ $0._repeatedGroupAllTypes }, fieldNumber: 21),
   ]
 
 

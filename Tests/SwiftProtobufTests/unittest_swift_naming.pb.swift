@@ -25244,7 +25244,7 @@ extension SwiftProtoTesting_Names_SpecialNames3: SwiftProtobuf.Message, SwiftPro
         return _oneOfField_str
       }
     },
-    .singularMessage({ $0.forcesStorage }, fieldNumber: 2, isUnset: { $0._storage._forcesStorage == nil }),
+    .singularMessage({ $0._storage._forcesStorage }, fieldNumber: 2),
   ]
   private static let _oneOfField_str: Field<Self> = .singularString({ $0.str }, fieldNumber: 1, isUnset: { _ in false })
 
@@ -25311,7 +25311,7 @@ extension SwiftProtoTesting_Names_SpecialNames4: SwiftProtobuf.Message, SwiftPro
 
   static let _fields: [Field<Self>] = [
     .singularString({ $0.newValue }, fieldNumber: 1, isUnset: { $0._storage._newValue == nil }),
-    .singularMessage({ $0.forcesStorage }, fieldNumber: 2, isUnset: { $0._storage._forcesStorage == nil }),
+    .singularMessage({ $0._storage._forcesStorage }, fieldNumber: 2),
   ]
 
 

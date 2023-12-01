@@ -1046,17 +1046,17 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
     .singularBool({ $0.requiredBool }, fieldNumber: 13, isUnset: { $0._storage._requiredBool == nil }),
     .singularString({ $0.requiredString }, fieldNumber: 14, isUnset: { $0._storage._requiredString == nil }),
     .singularBytes({ $0.requiredBytes }, fieldNumber: 15, isUnset: { $0._storage._requiredBytes == nil }),
-    .singularGroup({ $0.requiredGroup }, fieldNumber: 16, isUnset: { $0._storage._requiredGroup == nil }),
-    .singularMessage({ $0.requiredNestedMessage }, fieldNumber: 18, isUnset: { $0._storage._requiredNestedMessage == nil }),
-    .singularMessage({ $0.requiredForeignMessage }, fieldNumber: 19, isUnset: { $0._storage._requiredForeignMessage == nil }),
-    .singularMessage({ $0.requiredImportMessage }, fieldNumber: 20, isUnset: { $0._storage._requiredImportMessage == nil }),
+    .singularGroup({ $0._storage._requiredGroup }, fieldNumber: 16),
+    .singularMessage({ $0._storage._requiredNestedMessage }, fieldNumber: 18),
+    .singularMessage({ $0._storage._requiredForeignMessage }, fieldNumber: 19),
+    .singularMessage({ $0._storage._requiredImportMessage }, fieldNumber: 20),
     .singularEnum({ $0.requiredNestedEnum }, fieldNumber: 21, isUnset: { $0._storage._requiredNestedEnum == nil }),
     .singularEnum({ $0.requiredForeignEnum }, fieldNumber: 22, isUnset: { $0._storage._requiredForeignEnum == nil }),
     .singularEnum({ $0.requiredImportEnum }, fieldNumber: 23, isUnset: { $0._storage._requiredImportEnum == nil }),
     .singularString({ $0.requiredStringPiece }, fieldNumber: 24, isUnset: { $0._storage._requiredStringPiece == nil }),
     .singularString({ $0.requiredCord }, fieldNumber: 25, isUnset: { $0._storage._requiredCord == nil }),
-    .singularMessage({ $0.requiredPublicImportMessage }, fieldNumber: 26, isUnset: { $0._storage._requiredPublicImportMessage == nil }),
-    .singularMessage({ $0.requiredLazyMessage }, fieldNumber: 27, isUnset: { $0._storage._requiredLazyMessage == nil }),
+    .singularMessage({ $0._storage._requiredPublicImportMessage }, fieldNumber: 26),
+    .singularMessage({ $0._storage._requiredLazyMessage }, fieldNumber: 27),
     .singularInt32({ $0.defaultInt32 }, fieldNumber: 61, isUnset: { $0._storage._defaultInt32 == nil }),
     .singularInt64({ $0.defaultInt64 }, fieldNumber: 62, isUnset: { $0._storage._defaultInt64 == nil }),
     .singularUInt32({ $0.defaultUint32 }, fieldNumber: 63, isUnset: { $0._storage._defaultUint32 == nil }),
@@ -1091,7 +1091,7 @@ extension SwiftProtoTesting_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftPr
     },
   ]
   private static let _oneOfField_oneofUint32: Field<Self> = .singularUInt32({ $0.oneofUint32 }, fieldNumber: 111, isUnset: { _ in false })
-  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112, isUnset: { _ in false })
+  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112)
   private static let _oneOfField_oneofString: Field<Self> = .singularString({ $0.oneofString }, fieldNumber: 113, isUnset: { _ in false })
   private static let _oneOfField_oneofBytes: Field<Self> = .singularBytes({ $0.oneofBytes }, fieldNumber: 114, isUnset: { _ in false })
 

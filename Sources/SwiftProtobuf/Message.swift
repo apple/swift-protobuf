@@ -110,9 +110,6 @@ public protocol Message: _CommonMessageConformances {
   /// normal `Equatable`. `Equatable` is provided with specific generated
   /// types.
   func isEqualTo(message: any Message) -> Bool
-    
-  /// Provides `Field` information for this `Message` type used to provide a default implementation of `traverse`
-  static var _fields: [Field<Self>] { get }
 }
 
 #if DEBUG
@@ -130,14 +127,6 @@ extension Message {
   public var isInitialized: Bool {
     // The generated code will include a specialization as needed.
     return true
-  }
-
-  /// Default traverse implementation
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    for field in Self._fields {
-      try field.traverse(message: self, visitor: &visitor)
-    }
-    try unknownFields.traverse(visitor: &visitor)
   }
 
   /// A hash based on the message's full contents.
@@ -197,6 +186,9 @@ public protocol _MessageImplementationBase: Message, Hashable {
 
   // Legacy function; no longer used, but left to maintain source compatibility.
   func _protobuf_generated_isEqualTo(other: Self) -> Bool
+    
+  /// Provides `Field` information for this `Message` type used to provide a default implementation of `traverse`
+  static var _fields: [Field<Self>] { get }
 }
 
 extension _MessageImplementationBase {
@@ -205,6 +197,14 @@ extension _MessageImplementationBase {
       return false
     }
     return self == other
+  }
+  
+  /// Default traverse implementation
+  public func traverse<V: Visitor>(visitor: inout V) throws {
+    for field in Self._fields {
+      try field.traverse(message: self, visitor: &visitor)
+    }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   // Legacy default implementation that is used by old generated code, current

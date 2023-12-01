@@ -1252,8 +1252,8 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message, SwiftProtobuf._Mess
     .singularBool({ $0.optionalBool }, fieldNumber: 13, isUnset: { $0._storage._optionalBool == nil }),
     .singularString({ $0.optionalString }, fieldNumber: 14, isUnset: { $0._storage._optionalString == nil }),
     .singularBytes({ $0.optionalBytes }, fieldNumber: 15, isUnset: { $0._storage._optionalBytes == nil }),
-    .singularGroup({ $0.optionalGroup }, fieldNumber: 16, isUnset: { $0._storage._optionalGroup == nil }),
-    .singularMessage({ $0.optionalMessage }, fieldNumber: 18, isUnset: { $0._storage._optionalMessage == nil }),
+    .singularGroup({ $0._storage._optionalGroup }, fieldNumber: 16),
+    .singularMessage({ $0._storage._optionalMessage }, fieldNumber: 18),
     .singularEnum({ $0.optionalEnum }, fieldNumber: 19, isUnset: { $0._storage._optionalEnum == nil }),
     .repeatedInt32({ $0.repeatedInt32 }, fieldNumber: 31),
     .repeatedInt64({ $0.repeatedInt64 }, fieldNumber: 32),
@@ -1270,8 +1270,8 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message, SwiftProtobuf._Mess
     .repeatedBool({ $0.repeatedBool }, fieldNumber: 43),
     .repeatedString({ $0.repeatedString }, fieldNumber: 44),
     .repeatedBytes({ $0.repeatedBytes }, fieldNumber: 45),
-    .repeatedGroup({ $0.repeatedGroup }, fieldNumber: 46),
-    .repeatedMessage({ $0.repeatedMessage }, fieldNumber: 48),
+    .repeatedGroup({ $0._storage._repeatedGroup }, fieldNumber: 46),
+    .repeatedMessage({ $0._storage._repeatedMessage }, fieldNumber: 48),
     .repeatedEnum({ $0.repeatedEnum }, fieldNumber: 49),
     .oneOf({ $0.o }) {
       switch $0 {
@@ -1313,25 +1313,25 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message, SwiftProtobuf._Mess
         return _oneOfField_oneofEnum
       }
     },
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, { $0.mapInt32Int32 }, fieldNumber: 70),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, { $0.mapInt64Int64 }, fieldNumber: 71),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, { $0.mapUint32Uint32 }, fieldNumber: 72),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, { $0.mapUint64Uint64 }, fieldNumber: 73),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, { $0.mapSint32Sint32 }, fieldNumber: 74),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, { $0.mapSint64Sint64 }, fieldNumber: 75),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, { $0.mapFixed32Fixed32 }, fieldNumber: 76),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, { $0.mapFixed64Fixed64 }, fieldNumber: 77),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, { $0.mapSfixed32Sfixed32 }, fieldNumber: 78),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, { $0.mapSfixed64Sfixed64 }, fieldNumber: 79),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, { $0.mapInt32Float }, fieldNumber: 80),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, { $0.mapInt32Double }, fieldNumber: 81),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, { $0.mapBoolBool }, fieldNumber: 82),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, { $0.mapStringString }, fieldNumber: 83),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, { $0.mapStringBytes }, fieldNumber: 84),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Message2>.self, { $0.mapStringMessage }, fieldNumber: 85),
-    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, { $0.mapInt32Bytes }, fieldNumber: 86),
-    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message2.Enum>.self, { $0.mapInt32Enum }, fieldNumber: 87),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message2>.self, { $0.mapInt32Message }, fieldNumber: 88),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, { $0._storage._mapInt32Int32 }, fieldNumber: 70),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, { $0._storage._mapInt64Int64 }, fieldNumber: 71),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, { $0._storage._mapUint32Uint32 }, fieldNumber: 72),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, { $0._storage._mapUint64Uint64 }, fieldNumber: 73),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, { $0._storage._mapSint32Sint32 }, fieldNumber: 74),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, { $0._storage._mapSint64Sint64 }, fieldNumber: 75),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, { $0._storage._mapFixed32Fixed32 }, fieldNumber: 76),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, { $0._storage._mapFixed64Fixed64 }, fieldNumber: 77),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, { $0._storage._mapSfixed32Sfixed32 }, fieldNumber: 78),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, { $0._storage._mapSfixed64Sfixed64 }, fieldNumber: 79),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, { $0._storage._mapInt32Float }, fieldNumber: 80),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, { $0._storage._mapInt32Double }, fieldNumber: 81),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, { $0._storage._mapBoolBool }, fieldNumber: 82),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, { $0._storage._mapStringString }, fieldNumber: 83),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, { $0._storage._mapStringBytes }, fieldNumber: 84),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,SwiftProtoTesting_Message2>.self, { $0._storage._mapStringMessage }, fieldNumber: 85),
+    .map(type: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufBytes>.self, { $0._storage._mapInt32Bytes }, fieldNumber: 86),
+    .map(type: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message2.Enum>.self, { $0._storage._mapInt32Enum }, fieldNumber: 87),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtoTesting_Message2>.self, { $0._storage._mapInt32Message }, fieldNumber: 88),
   ]
   private static let _oneOfField_oneofInt32: Field<Self> = .singularInt32({ $0.oneofInt32 }, fieldNumber: 51, isUnset: { _ in false })
   private static let _oneOfField_oneofInt64: Field<Self> = .singularInt64({ $0.oneofInt64 }, fieldNumber: 52, isUnset: { _ in false })
@@ -1348,8 +1348,8 @@ extension SwiftProtoTesting_Message2: SwiftProtobuf.Message, SwiftProtobuf._Mess
   private static let _oneOfField_oneofBool: Field<Self> = .singularBool({ $0.oneofBool }, fieldNumber: 63, isUnset: { _ in false })
   private static let _oneOfField_oneofString: Field<Self> = .singularString({ $0.oneofString }, fieldNumber: 64, isUnset: { _ in false })
   private static let _oneOfField_oneofBytes: Field<Self> = .singularBytes({ $0.oneofBytes }, fieldNumber: 65, isUnset: { _ in false })
-  private static let _oneOfField_oneofGroup: Field<Self> = .singularGroup({ $0.oneofGroup }, fieldNumber: 66, isUnset: { _ in false })
-  private static let _oneOfField_oneofMessage: Field<Self> = .singularMessage({ $0.oneofMessage }, fieldNumber: 68, isUnset: { _ in false })
+  private static let _oneOfField_oneofGroup: Field<Self> = .singularGroup({ $0.oneofGroup }, fieldNumber: 66)
+  private static let _oneOfField_oneofMessage: Field<Self> = .singularMessage({ $0.oneofMessage }, fieldNumber: 68)
   private static let _oneOfField_oneofEnum: Field<Self> = .singularEnum({ $0.oneofEnum }, fieldNumber: 69, isUnset: { _ in false })
 
 
@@ -1586,7 +1586,7 @@ extension SwiftProtoTesting_Msg2UsesStorage: SwiftProtobuf.Message, SwiftProtobu
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.y }, fieldNumber: 999, isUnset: { $0._storage._y == nil }),
+    .singularMessage({ $0._storage._y }, fieldNumber: 999),
   ]
 
 
@@ -1668,7 +1668,7 @@ extension SwiftProtoTesting_Msg2NamesUsesStorage: SwiftProtobuf.Message, SwiftPr
   static let _fields: [Field<Self>] = [
     .singularInt32({ $0.isInitialized_p }, fieldNumber: 1, isUnset: { $0._isInitialized_p == nil }),
     .singularInt32({ $0.debugDescription_p }, fieldNumber: 2, isUnset: { $0._debugDescription_p == nil }),
-    .singularMessage({ $0.value }, fieldNumber: 3, isUnset: { $0._value == nil }),
+    .singularMessage({ $0._value }, fieldNumber: 3),
   ]
 
 

@@ -107,7 +107,7 @@ extension SwiftProtoTesting_TestAny: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   static let _fields: [Field<Self>] = [
     .singularInt32({ $0.int32Value }, fieldNumber: 1),
-    .singularMessage({ $0.anyValue }, fieldNumber: 2, isUnset: { $0._anyValue == nil }),
+    .singularMessage({ $0._anyValue }, fieldNumber: 2),
     .repeatedMessage({ $0.repeatedAnyValue }, fieldNumber: 3),
     .singularString({ $0.text }, fieldNumber: 4),
   ]

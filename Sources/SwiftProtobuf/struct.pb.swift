@@ -354,8 +354,8 @@ extension Google_Protobuf_Value: Message, _MessageImplementationBase, _ProtoName
   private static let _oneOfField_numberValue: Field<Self> = .singularDouble({ $0.numberValue }, fieldNumber: 2, isUnset: { _ in false })
   private static let _oneOfField_stringValue: Field<Self> = .singularString({ $0.stringValue }, fieldNumber: 3, isUnset: { _ in false })
   private static let _oneOfField_boolValue: Field<Self> = .singularBool({ $0.boolValue }, fieldNumber: 4, isUnset: { _ in false })
-  private static let _oneOfField_structValue: Field<Self> = .singularMessage({ $0.structValue }, fieldNumber: 5, isUnset: { _ in false })
-  private static let _oneOfField_listValue: Field<Self> = .singularMessage({ $0.listValue }, fieldNumber: 6, isUnset: { _ in false })
+  private static let _oneOfField_structValue: Field<Self> = .singularMessage({ $0.structValue }, fieldNumber: 5)
+  private static let _oneOfField_listValue: Field<Self> = .singularMessage({ $0.listValue }, fieldNumber: 6)
 
 
   public static func ==(lhs: Google_Protobuf_Value, rhs: Google_Protobuf_Value) -> Bool {

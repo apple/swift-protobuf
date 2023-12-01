@@ -741,25 +741,25 @@ extension SwiftProtoTesting_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProt
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.anyField }, fieldNumber: 1, isUnset: { $0._storage._anyField == nil }),
-    .singularMessage({ $0.apiField }, fieldNumber: 2, isUnset: { $0._storage._apiField == nil }),
-    .singularMessage({ $0.durationField }, fieldNumber: 3, isUnset: { $0._storage._durationField == nil }),
-    .singularMessage({ $0.emptyField }, fieldNumber: 4, isUnset: { $0._storage._emptyField == nil }),
-    .singularMessage({ $0.fieldMaskField }, fieldNumber: 5, isUnset: { $0._storage._fieldMaskField == nil }),
-    .singularMessage({ $0.sourceContextField }, fieldNumber: 6, isUnset: { $0._storage._sourceContextField == nil }),
-    .singularMessage({ $0.structField }, fieldNumber: 7, isUnset: { $0._storage._structField == nil }),
-    .singularMessage({ $0.timestampField }, fieldNumber: 8, isUnset: { $0._storage._timestampField == nil }),
-    .singularMessage({ $0.typeField }, fieldNumber: 9, isUnset: { $0._storage._typeField == nil }),
-    .singularMessage({ $0.doubleField }, fieldNumber: 10, isUnset: { $0._storage._doubleField == nil }),
-    .singularMessage({ $0.floatField }, fieldNumber: 11, isUnset: { $0._storage._floatField == nil }),
-    .singularMessage({ $0.int64Field }, fieldNumber: 12, isUnset: { $0._storage._int64Field == nil }),
-    .singularMessage({ $0.uint64Field }, fieldNumber: 13, isUnset: { $0._storage._uint64Field == nil }),
-    .singularMessage({ $0.int32Field }, fieldNumber: 14, isUnset: { $0._storage._int32Field == nil }),
-    .singularMessage({ $0.uint32Field }, fieldNumber: 15, isUnset: { $0._storage._uint32Field == nil }),
-    .singularMessage({ $0.boolField }, fieldNumber: 16, isUnset: { $0._storage._boolField == nil }),
-    .singularMessage({ $0.stringField }, fieldNumber: 17, isUnset: { $0._storage._stringField == nil }),
-    .singularMessage({ $0.bytesField }, fieldNumber: 18, isUnset: { $0._storage._bytesField == nil }),
-    .singularMessage({ $0.valueField }, fieldNumber: 19, isUnset: { $0._storage._valueField == nil }),
+    .singularMessage({ $0._storage._anyField }, fieldNumber: 1),
+    .singularMessage({ $0._storage._apiField }, fieldNumber: 2),
+    .singularMessage({ $0._storage._durationField }, fieldNumber: 3),
+    .singularMessage({ $0._storage._emptyField }, fieldNumber: 4),
+    .singularMessage({ $0._storage._fieldMaskField }, fieldNumber: 5),
+    .singularMessage({ $0._storage._sourceContextField }, fieldNumber: 6),
+    .singularMessage({ $0._storage._structField }, fieldNumber: 7),
+    .singularMessage({ $0._storage._timestampField }, fieldNumber: 8),
+    .singularMessage({ $0._storage._typeField }, fieldNumber: 9),
+    .singularMessage({ $0._storage._doubleField }, fieldNumber: 10),
+    .singularMessage({ $0._storage._floatField }, fieldNumber: 11),
+    .singularMessage({ $0._storage._int64Field }, fieldNumber: 12),
+    .singularMessage({ $0._storage._uint64Field }, fieldNumber: 13),
+    .singularMessage({ $0._storage._int32Field }, fieldNumber: 14),
+    .singularMessage({ $0._storage._uint32Field }, fieldNumber: 15),
+    .singularMessage({ $0._storage._boolField }, fieldNumber: 16),
+    .singularMessage({ $0._storage._stringField }, fieldNumber: 17),
+    .singularMessage({ $0._storage._bytesField }, fieldNumber: 18),
+    .singularMessage({ $0._storage._valueField }, fieldNumber: 19),
   ]
 
 
@@ -905,24 +905,24 @@ extension SwiftProtoTesting_RepeatedWellKnownTypes: SwiftProtobuf.Message, Swift
   }
 
   static let _fields: [Field<Self>] = [
-    .repeatedMessage({ $0.anyField }, fieldNumber: 1),
-    .repeatedMessage({ $0.apiField }, fieldNumber: 2),
-    .repeatedMessage({ $0.durationField }, fieldNumber: 3),
-    .repeatedMessage({ $0.emptyField }, fieldNumber: 4),
-    .repeatedMessage({ $0.fieldMaskField }, fieldNumber: 5),
-    .repeatedMessage({ $0.sourceContextField }, fieldNumber: 6),
-    .repeatedMessage({ $0.structField }, fieldNumber: 7),
-    .repeatedMessage({ $0.timestampField }, fieldNumber: 8),
-    .repeatedMessage({ $0.typeField }, fieldNumber: 9),
-    .repeatedMessage({ $0.doubleField }, fieldNumber: 10),
-    .repeatedMessage({ $0.floatField }, fieldNumber: 11),
-    .repeatedMessage({ $0.int64Field }, fieldNumber: 12),
-    .repeatedMessage({ $0.uint64Field }, fieldNumber: 13),
-    .repeatedMessage({ $0.int32Field }, fieldNumber: 14),
-    .repeatedMessage({ $0.uint32Field }, fieldNumber: 15),
-    .repeatedMessage({ $0.boolField }, fieldNumber: 16),
-    .repeatedMessage({ $0.stringField }, fieldNumber: 17),
-    .repeatedMessage({ $0.bytesField }, fieldNumber: 18),
+    .repeatedMessage({ $0._storage._anyField }, fieldNumber: 1),
+    .repeatedMessage({ $0._storage._apiField }, fieldNumber: 2),
+    .repeatedMessage({ $0._storage._durationField }, fieldNumber: 3),
+    .repeatedMessage({ $0._storage._emptyField }, fieldNumber: 4),
+    .repeatedMessage({ $0._storage._fieldMaskField }, fieldNumber: 5),
+    .repeatedMessage({ $0._storage._sourceContextField }, fieldNumber: 6),
+    .repeatedMessage({ $0._storage._structField }, fieldNumber: 7),
+    .repeatedMessage({ $0._storage._timestampField }, fieldNumber: 8),
+    .repeatedMessage({ $0._storage._typeField }, fieldNumber: 9),
+    .repeatedMessage({ $0._storage._doubleField }, fieldNumber: 10),
+    .repeatedMessage({ $0._storage._floatField }, fieldNumber: 11),
+    .repeatedMessage({ $0._storage._int64Field }, fieldNumber: 12),
+    .repeatedMessage({ $0._storage._uint64Field }, fieldNumber: 13),
+    .repeatedMessage({ $0._storage._int32Field }, fieldNumber: 14),
+    .repeatedMessage({ $0._storage._uint32Field }, fieldNumber: 15),
+    .repeatedMessage({ $0._storage._boolField }, fieldNumber: 16),
+    .repeatedMessage({ $0._storage._stringField }, fieldNumber: 17),
+    .repeatedMessage({ $0._storage._bytesField }, fieldNumber: 18),
   ]
 
 
@@ -1268,24 +1268,24 @@ extension SwiftProtoTesting_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftPro
       }
     },
   ]
-  private static let _oneOfField_anyField: Field<Self> = .singularMessage({ $0.anyField }, fieldNumber: 1, isUnset: { _ in false })
-  private static let _oneOfField_apiField: Field<Self> = .singularMessage({ $0.apiField }, fieldNumber: 2, isUnset: { _ in false })
-  private static let _oneOfField_durationField: Field<Self> = .singularMessage({ $0.durationField }, fieldNumber: 3, isUnset: { _ in false })
-  private static let _oneOfField_emptyField: Field<Self> = .singularMessage({ $0.emptyField }, fieldNumber: 4, isUnset: { _ in false })
-  private static let _oneOfField_fieldMaskField: Field<Self> = .singularMessage({ $0.fieldMaskField }, fieldNumber: 5, isUnset: { _ in false })
-  private static let _oneOfField_sourceContextField: Field<Self> = .singularMessage({ $0.sourceContextField }, fieldNumber: 6, isUnset: { _ in false })
-  private static let _oneOfField_structField: Field<Self> = .singularMessage({ $0.structField }, fieldNumber: 7, isUnset: { _ in false })
-  private static let _oneOfField_timestampField: Field<Self> = .singularMessage({ $0.timestampField }, fieldNumber: 8, isUnset: { _ in false })
-  private static let _oneOfField_typeField: Field<Self> = .singularMessage({ $0.typeField }, fieldNumber: 9, isUnset: { _ in false })
-  private static let _oneOfField_doubleField: Field<Self> = .singularMessage({ $0.doubleField }, fieldNumber: 10, isUnset: { _ in false })
-  private static let _oneOfField_floatField: Field<Self> = .singularMessage({ $0.floatField }, fieldNumber: 11, isUnset: { _ in false })
-  private static let _oneOfField_int64Field: Field<Self> = .singularMessage({ $0.int64Field }, fieldNumber: 12, isUnset: { _ in false })
-  private static let _oneOfField_uint64Field: Field<Self> = .singularMessage({ $0.uint64Field }, fieldNumber: 13, isUnset: { _ in false })
-  private static let _oneOfField_int32Field: Field<Self> = .singularMessage({ $0.int32Field }, fieldNumber: 14, isUnset: { _ in false })
-  private static let _oneOfField_uint32Field: Field<Self> = .singularMessage({ $0.uint32Field }, fieldNumber: 15, isUnset: { _ in false })
-  private static let _oneOfField_boolField: Field<Self> = .singularMessage({ $0.boolField }, fieldNumber: 16, isUnset: { _ in false })
-  private static let _oneOfField_stringField: Field<Self> = .singularMessage({ $0.stringField }, fieldNumber: 17, isUnset: { _ in false })
-  private static let _oneOfField_bytesField: Field<Self> = .singularMessage({ $0.bytesField }, fieldNumber: 18, isUnset: { _ in false })
+  private static let _oneOfField_anyField: Field<Self> = .singularMessage({ $0.anyField }, fieldNumber: 1)
+  private static let _oneOfField_apiField: Field<Self> = .singularMessage({ $0.apiField }, fieldNumber: 2)
+  private static let _oneOfField_durationField: Field<Self> = .singularMessage({ $0.durationField }, fieldNumber: 3)
+  private static let _oneOfField_emptyField: Field<Self> = .singularMessage({ $0.emptyField }, fieldNumber: 4)
+  private static let _oneOfField_fieldMaskField: Field<Self> = .singularMessage({ $0.fieldMaskField }, fieldNumber: 5)
+  private static let _oneOfField_sourceContextField: Field<Self> = .singularMessage({ $0.sourceContextField }, fieldNumber: 6)
+  private static let _oneOfField_structField: Field<Self> = .singularMessage({ $0.structField }, fieldNumber: 7)
+  private static let _oneOfField_timestampField: Field<Self> = .singularMessage({ $0.timestampField }, fieldNumber: 8)
+  private static let _oneOfField_typeField: Field<Self> = .singularMessage({ $0.typeField }, fieldNumber: 9)
+  private static let _oneOfField_doubleField: Field<Self> = .singularMessage({ $0.doubleField }, fieldNumber: 10)
+  private static let _oneOfField_floatField: Field<Self> = .singularMessage({ $0.floatField }, fieldNumber: 11)
+  private static let _oneOfField_int64Field: Field<Self> = .singularMessage({ $0.int64Field }, fieldNumber: 12)
+  private static let _oneOfField_uint64Field: Field<Self> = .singularMessage({ $0.uint64Field }, fieldNumber: 13)
+  private static let _oneOfField_int32Field: Field<Self> = .singularMessage({ $0.int32Field }, fieldNumber: 14)
+  private static let _oneOfField_uint32Field: Field<Self> = .singularMessage({ $0.uint32Field }, fieldNumber: 15)
+  private static let _oneOfField_boolField: Field<Self> = .singularMessage({ $0.boolField }, fieldNumber: 16)
+  private static let _oneOfField_stringField: Field<Self> = .singularMessage({ $0.stringField }, fieldNumber: 17)
+  private static let _oneOfField_bytesField: Field<Self> = .singularMessage({ $0.bytesField }, fieldNumber: 18)
 
 
   static func ==(lhs: SwiftProtoTesting_OneofWellKnownTypes, rhs: SwiftProtoTesting_OneofWellKnownTypes) -> Bool {
@@ -1404,24 +1404,24 @@ extension SwiftProtoTesting_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProto
   }
 
   static let _fields: [Field<Self>] = [
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Any>.self, { $0.anyField }, fieldNumber: 1),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Api>.self, { $0.apiField }, fieldNumber: 2),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Duration>.self, { $0.durationField }, fieldNumber: 3),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Empty>.self, { $0.emptyField }, fieldNumber: 4),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_FieldMask>.self, { $0.fieldMaskField }, fieldNumber: 5),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_SourceContext>.self, { $0.sourceContextField }, fieldNumber: 6),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Struct>.self, { $0.structField }, fieldNumber: 7),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Timestamp>.self, { $0.timestampField }, fieldNumber: 8),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Type>.self, { $0.typeField }, fieldNumber: 9),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_DoubleValue>.self, { $0.doubleField }, fieldNumber: 10),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_FloatValue>.self, { $0.floatField }, fieldNumber: 11),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Int64Value>.self, { $0.int64Field }, fieldNumber: 12),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_UInt64Value>.self, { $0.uint64Field }, fieldNumber: 13),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Int32Value>.self, { $0.int32Field }, fieldNumber: 14),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_UInt32Value>.self, { $0.uint32Field }, fieldNumber: 15),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_BoolValue>.self, { $0.boolField }, fieldNumber: 16),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_StringValue>.self, { $0.stringField }, fieldNumber: 17),
-    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_BytesValue>.self, { $0.bytesField }, fieldNumber: 18),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Any>.self, { $0._storage._anyField }, fieldNumber: 1),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Api>.self, { $0._storage._apiField }, fieldNumber: 2),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Duration>.self, { $0._storage._durationField }, fieldNumber: 3),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Empty>.self, { $0._storage._emptyField }, fieldNumber: 4),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_FieldMask>.self, { $0._storage._fieldMaskField }, fieldNumber: 5),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_SourceContext>.self, { $0._storage._sourceContextField }, fieldNumber: 6),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Struct>.self, { $0._storage._structField }, fieldNumber: 7),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Timestamp>.self, { $0._storage._timestampField }, fieldNumber: 8),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Type>.self, { $0._storage._typeField }, fieldNumber: 9),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_DoubleValue>.self, { $0._storage._doubleField }, fieldNumber: 10),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_FloatValue>.self, { $0._storage._floatField }, fieldNumber: 11),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Int64Value>.self, { $0._storage._int64Field }, fieldNumber: 12),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_UInt64Value>.self, { $0._storage._uint64Field }, fieldNumber: 13),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_Int32Value>.self, { $0._storage._int32Field }, fieldNumber: 14),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_UInt32Value>.self, { $0._storage._uint32Field }, fieldNumber: 15),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_BoolValue>.self, { $0._storage._boolField }, fieldNumber: 16),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_StringValue>.self, { $0._storage._stringField }, fieldNumber: 17),
+    .map(type: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.Google_Protobuf_BytesValue>.self, { $0._storage._bytesField }, fieldNumber: 18),
   ]
 
 

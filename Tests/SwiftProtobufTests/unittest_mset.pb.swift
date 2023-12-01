@@ -288,7 +288,7 @@ extension SwiftProtoTesting_TestMessageSetContainer: SwiftProtobuf.Message, Swif
   }
 
   static let _fields: [Field<Self>] = [
-    .singularMessage({ $0.messageSet }, fieldNumber: 1, isUnset: { $0._messageSet == nil }),
+    .singularMessage({ $0._messageSet }, fieldNumber: 1),
   ]
 
 
@@ -328,7 +328,7 @@ extension SwiftProtoTesting_TestMessageSetExtension1: SwiftProtobuf.Message, Swi
 
   static let _fields: [Field<Self>] = [
     .singularInt32({ $0.i }, fieldNumber: 15, isUnset: { $0._i == nil }),
-    .singularMessage({ $0.recursive }, fieldNumber: 16, isUnset: { $0._recursive == nil }),
+    .singularMessage({ $0._recursive }, fieldNumber: 16),
     .singularString({ $0.testAliasing }, fieldNumber: 17, isUnset: { $0._testAliasing == nil }),
   ]
 

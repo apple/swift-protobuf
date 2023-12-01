@@ -508,7 +508,7 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
     .repeatedMessage({ $0.fields }, fieldNumber: 2),
     .repeatedString({ $0.oneofs }, fieldNumber: 3),
     .repeatedMessage({ $0.options }, fieldNumber: 4),
-    .singularMessage({ $0.sourceContext }, fieldNumber: 5, isUnset: { $0._sourceContext == nil }),
+    .singularMessage({ $0._sourceContext }, fieldNumber: 5),
     .singularEnum({ $0.syntax }, fieldNumber: 6, defaultValue: .proto2),
     .singularString({ $0.edition }, fieldNumber: 7),
   ]
@@ -658,7 +658,7 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
     .singularString({ $0.name }, fieldNumber: 1),
     .repeatedMessage({ $0.enumvalue }, fieldNumber: 2),
     .repeatedMessage({ $0.options }, fieldNumber: 3),
-    .singularMessage({ $0.sourceContext }, fieldNumber: 4, isUnset: { $0._sourceContext == nil }),
+    .singularMessage({ $0._sourceContext }, fieldNumber: 4),
     .singularEnum({ $0.syntax }, fieldNumber: 5, defaultValue: .proto2),
     .singularString({ $0.edition }, fieldNumber: 6),
   ]
@@ -736,7 +736,7 @@ extension Google_Protobuf_Option: Message, _MessageImplementationBase, _ProtoNam
 
   public static let _fields: [Field<Self>] = [
     .singularString({ $0.name }, fieldNumber: 1),
-    .singularMessage({ $0.value }, fieldNumber: 2, isUnset: { $0._value == nil }),
+    .singularMessage({ $0._value }, fieldNumber: 2),
   ]
 
 
