@@ -3,7 +3,6 @@ add_library(SwiftProtobuf
   AnyMessageStorage.swift
   AnyUnpackError.swift
   api.pb.swift
-  Applying.swift
   BinaryDecoder.swift
   BinaryDecodingError.swift
   BinaryDecodingOptions.swift
@@ -50,7 +49,6 @@ add_library(SwiftProtobuf
   JSONScanner.swift
   MathUtils.swift
   Message+AnyAdditions.swift
-  Message+Applying.swift
   Message+BinaryAdditions.swift
   Message+JSONAdditions.swift
   Message+JSONArrayAdditions.swift
