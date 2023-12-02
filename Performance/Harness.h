@@ -94,7 +94,7 @@ private:
    * from the main results.
    */
   template <typename Function>
-  typename std::result_of<Function()>::type measure_subtask(
+  typename std::invoke_result<Function>::type measure_subtask(
       const std::string& name, Function&& func);
 
   /**
@@ -171,7 +171,7 @@ void Harness::measure(const Function& func) {
 }
 
 template <typename Function>
-typename std::result_of<Function()>::type Harness::measure_subtask(
+typename std::invoke_result<Function>::type Harness::measure_subtask(
   const std::string& name, Function&& func) {
   subtask_names.push_back(name);
   using std::chrono::steady_clock;
