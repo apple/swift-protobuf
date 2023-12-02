@@ -26,7 +26,9 @@ function run_cpp_harness() {
     gen_harness_path="$script_dir/_generated/Harness+Generated.cc"
     generate_cpp_harness
 
-    echo "Building C++ test harness..."
+    echo
+    echo "Building C++ libprotobuf and performance test harness..."
+    echo
 
     pushd $script_dir/runners
     cmake -B ../_generated -S .
@@ -34,5 +36,6 @@ function run_cpp_harness() {
     popd
     
     run_harness_and_concatenate_results "C++" "$harness" "$partial_results"
+    echo
   )
 }
