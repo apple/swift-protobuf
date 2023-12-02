@@ -151,8 +151,10 @@ function profile_harness() {
   perf_dir="$3"
 
   echo "Running $description test harness in Instruments..."
-  instruments -t "$script_dir/Protobuf" -D "$results_trace" \
-      "$harness" -e DYLD_LIBRARY_PATH "$perf_dir/_generated"
+  mkdir -p "$results_trace"
+  xctrace record --template 'Time Profiler' --output "$results_trace" \
+	  --env DYLD_LIBRARY_PATH="$perf_dir/_generated" \
+	  --launch -- "$harness"
 }
 
 # Inserts the partial visualization results from all the languages tested into
@@ -359,6 +361,5 @@ EOF
 
 insert_visualization_results "$partial_results" "$results_js"
 
-# Open the Instruments trace and HTML report at the end.
-open -g "$display_results_trace.trace"
+# Open the HTML report at the end.
 open -g "$script_dir/harness-visualization.html"
