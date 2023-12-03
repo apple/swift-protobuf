@@ -14,6 +14,16 @@
 
 import Foundation
 
+/// Describes errors can occure during decoding a proto by path.
+public enum PathDecodingError: Error {
+
+  /// Describes a mismatch in type of the fields.
+  ///
+  /// If a value of type A is applied to a path with type B.
+  /// this error will be thrown.
+  case typeMismatch
+}
+
 extension Message {
   static func number(for field: String) -> Int? {
     guard let type = Self.self as? _ProtoNameProviding.Type else {
@@ -21,10 +31,6 @@ extension Message {
     }
     return type._protobuf_nameMap.number(forJSONName: field)
   }
-}
-
-enum PathDecodingError: Error {
-  case typeMismatch
 }
 
 struct SetPathDecoder<T: Message>: Decoder {
