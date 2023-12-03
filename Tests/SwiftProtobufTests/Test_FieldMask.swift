@@ -13,8 +13,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: We should have utility functions for applying a mask to an arbitrary
-// message, intersecting two masks, etc.
+// TODO: We should have utility functions for intersecting two masks, etc.
 
 import Foundation
 import XCTest
@@ -108,5 +107,104 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             let m = Google_Protobuf_FieldMask(protoPaths: c)
             XCTAssertThrowsError(try m.jsonString())
         }
+    }
+
+    func testMaskFieldsOfAMessage() throws {
+        var message = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 1
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 2
+            }
+        }
+
+        try message.mask(by: .init(protoPaths: "optional_nested_message.bb"))
+        XCTAssertEqual(message.optionalInt32, 1)
+        XCTAssertEqual(message.optionalNestedMessage.bb, 0)
+
+        try message.mask(by: .init(protoPaths: "optional_int32"))
+        XCTAssertEqual(message.optionalInt32, 0)
+        XCTAssertEqual(message.optionalNestedMessage.bb, 0)
+    }
+
+    func testMaskedFieldsOfAMessage() throws {
+        let message = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 1
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 2
+            }
+        }
+
+        let newMessage1 = try message.masked(by: .init(protoPaths: "optional_nested_message.bb"))
+        XCTAssertEqual(newMessage1.optionalInt32, 1)
+        XCTAssertEqual(newMessage1.optionalNestedMessage.bb, 0)
+
+        let newMessage2 = try message.masked(by: .init(protoPaths: "optional_int32"))
+        XCTAssertEqual(newMessage2.optionalInt32, 0)
+        XCTAssertEqual(newMessage2.optionalNestedMessage.bb, 2)
+    }
+
+    func testOverrideFieldsOfAMessage() throws {
+        var message = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 1
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 2
+            }
+        }
+
+        let secondMessage = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 2
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 3
+            }
+        }
+
+        try message.override(with: secondMessage, by: .init(protoPaths: "optional_nested_message.bb"))
+        XCTAssertEqual(message.optionalInt32, 1)
+        XCTAssertEqual(message.optionalNestedMessage.bb, 3)
+
+        try message.override(with: secondMessage, by: .init(protoPaths: "optional_int32"))
+        XCTAssertEqual(message.optionalInt32, 2)
+        XCTAssertEqual(message.optionalNestedMessage.bb, 3)
+    }
+
+    func testOverridenFieldsOfAMessage() throws {
+        let message = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 1
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 2
+            }
+        }
+
+        let secondMessage = SwiftProtoTesting_TestAllTypes.with { model in
+            model.optionalInt32 = 2
+            model.optionalNestedMessage = .with { nested in
+                nested.bb = 3
+            }
+        }
+
+        let newMessage1 = try message.overriden(with: secondMessage, by: .init(protoPaths: "optional_nested_message.bb"))
+        XCTAssertEqual(newMessage1.optionalInt32, 1)
+        XCTAssertEqual(newMessage1.optionalNestedMessage.bb, 3)
+
+        let newMessage2 = try message.overriden(with: secondMessage, by: .init(protoPaths: "optional_int32"))
+        XCTAssertEqual(newMessage2.optionalInt32, 2)
+        XCTAssertEqual(newMessage2.optionalNestedMessage.bb, 2)
+    }
+
+    func testFieldMaskMessageInits() {
+        let m1 = Google_Protobuf_FieldMask(from: SwiftProtoTesting_TestAny.self)
+        XCTAssertEqual(m1.paths.sorted(), ["any_value", "int32_value", "repeated_any_value", "text"])
+
+        let m2 = Google_Protobuf_FieldMask(from: SwiftProtoTesting_TestAny.self, fieldNumbers: [1, 2])
+        XCTAssertEqual(m2.paths.sorted(), ["any_value", "int32_value"])
+
+        let m3 = Google_Protobuf_FieldMask(from: SwiftProtoTesting_TestAny.self, excludedPaths: ["int32_value"])
+        XCTAssertEqual(m3.paths.sorted(), ["any_value", "repeated_any_value", "text"])
+    }
+
+    func testReverseFieldMask() {
+        let m1 = Google_Protobuf_FieldMask(protoPaths: ["any_value"])
+        let m2 = m1.reverse(SwiftProtoTesting_TestAny.self)
+        XCTAssertEqual(m2.paths.sorted(), ["int32_value", "repeated_any_value", "text"])
     }
 }

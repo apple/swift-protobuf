@@ -278,4 +278,11 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     let n = Name(transientUtf8Buffer: raw)
     return jsonToNumberMap[n]
   }
+  
+  /// Returns all proto names
+  internal var names: [Name] {
+    protoToNumberMap.map {
+      $0.key
+    }
+  }
 }

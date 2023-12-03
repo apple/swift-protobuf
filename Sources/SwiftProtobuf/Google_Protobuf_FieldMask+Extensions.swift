@@ -184,3 +184,60 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
     return "\"" + jsonPaths.joined(separator: ",") + "\""
   }
 }
+
+extension Google_Protobuf_FieldMask {
+
+  /// Initiates a field mask with all fields of the message type.
+  /// - Parameter messageType: Message type to get all paths from.
+  public init<M: Message & _ProtoNameProviding>(
+    from messageType: M.Type
+  ) {
+    let paths = M._protobuf_nameMap.names.map(\.description)
+    self = .with { mask in
+      mask.paths = paths
+    }
+  }
+
+  /// Initiates a field mask from some particular field numbers of a message
+  /// - Parameters:
+  ///   - messageType: Message type to get all paths from.
+  ///   - fieldNumbers: Field numbers of paths to be included.
+  /// - Returns: Field mask that include paths of corresponding field numbers.
+  public init<M: Message & _ProtoNameProviding>(
+    from messageType: M.Type, 
+    fieldNumbers: [Int]
+  ) {
+    let paths = fieldNumbers.compactMap { number in
+      M._protobuf_nameMap.names(for: number)?.proto.description
+    }
+    self = .with { mask in
+      mask.paths = paths
+    }
+  }
+
+  /// Initiates a field mask by excluding some paths
+  /// - Parameters:
+  ///   - messageType: Message type to get all paths from.
+  ///   - paths: Paths to be excluded.
+  /// - Returns: Field mask that does not include the paths.
+  public init<M: Message & _ProtoNameProviding>(
+    from messageType: M.Type, 
+    excludedPaths paths: [String]
+  ) {
+    let allPaths = M._protobuf_nameMap.names.map(\.description)
+    let _paths = Set(allPaths).subtracting(.init(paths))
+    self = .with { mask in
+      mask.paths = Array(_paths)
+    }
+  }
+
+  /// Returns a field mask by reversing all fields. So all excluded paths from
+  /// the original field mask will be included, and vise versa.
+  /// - Parameter messageType: Message type to get all paths from.
+  /// - Returns: Field mask which is completly reverse of the cuurent one.
+  public func reverse<M: Message & _ProtoNameProviding>(
+    _ messageType: M.Type
+  ) -> Google_Protobuf_FieldMask {
+    .init(from: M.self, excludedPaths: self.paths)
+  }
+}
