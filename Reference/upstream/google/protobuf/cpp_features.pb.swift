@@ -9,33 +9,10 @@
 
 // Protocol Buffers - Google's data interchange format
 // Copyright 2023 Google Inc.  All rights reserved.
-// https://developers.google.com/protocol-buffers/
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//     * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//     * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//     * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
 
 import Foundation
 import SwiftProtobuf
@@ -68,65 +45,11 @@ struct Pb_CppFeatures: Sendable {
   /// Clears the value of `legacyClosedEnum`. Subsequent reads from it will return its default value.
   mutating func clearLegacyClosedEnum() {self._legacyClosedEnum = nil}
 
-  var utf8Validation: Pb_CppFeatures.Utf8Validation {
-    get {return _utf8Validation ?? .unknown}
-    set {_utf8Validation = newValue}
-  }
-  /// Returns true if `utf8Validation` has been explicitly set.
-  var hasUtf8Validation: Bool {return self._utf8Validation != nil}
-  /// Clears the value of `utf8Validation`. Subsequent reads from it will return its default value.
-  mutating func clearUtf8Validation() {self._utf8Validation = nil}
-
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  /// The UTF8 validation strategy to use.  See go/editions-utf8-validation for
-  /// more information on this feature.
-  enum Utf8Validation: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-
-    /// Invalid default, which should never be used.
-    case unknown // = 0
-
-    /// Default proto3 behavior, which verifies UTF8 validity during parse.
-    case verifyParse // = 1
-
-    /// Default proto2 behavior, which verifies UTF8 validity during both parse
-    /// and serialize in debug builds.  On failure an error is logged, but the
-    /// operation continues.
-    case verifyDlog // = 2
-
-    /// No UTF8 validation is done ever.
-    case none // = 3
-
-    init() {
-      self = .unknown
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .unknown
-      case 1: self = .verifyParse
-      case 2: self = .verifyDlog
-      case 3: self = .none
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .unknown: return 0
-      case .verifyParse: return 1
-      case .verifyDlog: return 2
-      case .none: return 3
-      }
-    }
-
-  }
 
   init() {}
 
   fileprivate var _legacyClosedEnum: Bool? = nil
-  fileprivate var _utf8Validation: Pb_CppFeatures.Utf8Validation? = nil
 }
 
 // MARK: - Extension support defined in cpp_features.proto.
@@ -184,7 +107,6 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
   static let protoMessageName: String = _protobuf_package + ".CppFeatures"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "legacy_closed_enum"),
-    2: .standard(proto: "utf8_validation"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -194,7 +116,6 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularBoolField(value: &self._legacyClosedEnum) }()
-      case 2: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       default: break
       }
     }
@@ -208,25 +129,12 @@ extension Pb_CppFeatures: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try { if let v = self._legacyClosedEnum {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 1)
     } }()
-    try { if let v = self._utf8Validation {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Pb_CppFeatures, rhs: Pb_CppFeatures) -> Bool {
     if lhs._legacyClosedEnum != rhs._legacyClosedEnum {return false}
-    if lhs._utf8Validation != rhs._utf8Validation {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
-}
-
-extension Pb_CppFeatures.Utf8Validation: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UTF8_VALIDATION_UNKNOWN"),
-    1: .same(proto: "VERIFY_PARSE"),
-    2: .same(proto: "VERIFY_DLOG"),
-    3: .same(proto: "NONE"),
-  ]
 }

@@ -2581,36 +2581,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneClearEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneClearEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneClearEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneClearEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionEnum] = [
-      .noneClearEditionEnum,
-    ]
-
-  }
-
   enum clearEnd: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearEnd // = 0
@@ -3391,36 +3361,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum clearMaximumEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneClearMaximumEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneClearMaximumEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneClearMaximumEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneClearMaximumEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMaximumEditionEnum] = [
-      .noneClearMaximumEditionEnum,
-    ]
-
-  }
-
   enum clearMessageEncoding: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearMessageEncoding // = 0
@@ -3507,36 +3447,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMinimumEdition] = [
       .noneClearMinimumEdition,
-    ]
-
-  }
-
-  enum clearMinimumEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneClearMinimumEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneClearMinimumEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneClearMinimumEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneClearMinimumEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMinimumEditionEnum] = [
-      .noneClearMinimumEditionEnum,
     ]
 
   }
@@ -4647,6 +4557,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearUnverifiedLazy] = [
       .noneClearUnverifiedLazy,
+    ]
+
+  }
+
+  enum clearUtf8Validation: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneClearUtf8Validation // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneClearUtf8Validation
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneClearUtf8Validation
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneClearUtf8Validation: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearUtf8Validation] = [
+      .noneClearUtf8Validation,
     ]
 
   }
@@ -7587,36 +7527,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDefaults] = [
       .noneEditionDefaults,
-    ]
-
-  }
-
-  enum editionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionEnum] = [
-      .noneEditionEnum,
     ]
 
   }
@@ -12661,36 +12571,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneHasEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneHasEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneHasEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneHasEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionEnum] = [
-      .noneHasEditionEnum,
-    ]
-
-  }
-
   enum hasEnd: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHasEnd // = 0
@@ -13591,36 +13471,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum hasMaximumEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneHasMaximumEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneHasMaximumEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneHasMaximumEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneHasMaximumEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMaximumEditionEnum] = [
-      .noneHasMaximumEditionEnum,
-    ]
-
-  }
-
   enum hasMessageEncoding: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHasMessageEncoding // = 0
@@ -13707,36 +13557,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMinimumEdition] = [
       .noneHasMinimumEdition,
-    ]
-
-  }
-
-  enum hasMinimumEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneHasMinimumEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneHasMinimumEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneHasMinimumEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneHasMinimumEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMinimumEditionEnum] = [
-      .noneHasMinimumEditionEnum,
     ]
 
   }
@@ -14847,6 +14667,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasUnverifiedLazy] = [
       .noneHasUnverifiedLazy,
+    ]
+
+  }
+
+  enum hasUtf8Validation: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneHasUtf8Validation // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneHasUtf8Validation
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneHasUtf8Validation
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneHasUtf8Validation: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasUtf8Validation] = [
+      .noneHasUtf8Validation,
     ]
 
   }
@@ -17641,36 +17491,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
-  enum maximumEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneMaximumEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneMaximumEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneMaximumEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneMaximumEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.maximumEditionEnum] = [
-      .noneMaximumEditionEnum,
-    ]
-
-  }
-
   enum mdayStart: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneMdayStart // = 0
@@ -18207,36 +18027,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumEdition] = [
       .noneMinimumEdition,
-    ]
-
-  }
-
-  enum minimumEditionEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneMinimumEditionEnum // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneMinimumEditionEnum
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneMinimumEditionEnum
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneMinimumEditionEnum: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-    // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumEditionEnum] = [
-      .noneMinimumEditionEnum,
     ]
 
   }
@@ -26431,6 +26221,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum utf8Validation: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneUtf8Validation // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneUtf8Validation
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneUtf8Validation
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneUtf8Validation: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8Validation] = [
+      .noneUtf8Validation,
+    ]
+
+  }
+
   enum UTF8View: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneUtf8View // = 0
@@ -29457,12 +29277,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEdition: 
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_clearEditionEnum"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearEnd: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearEnd"),
@@ -29619,12 +29433,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMaximumEd
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMaximumEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_clearMaximumEditionEnum"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMessageEncoding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearMessageEncoding"),
@@ -29640,12 +29448,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMessageSe
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMinimumEdition: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearMinimumEdition"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearMinimumEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_clearMinimumEditionEnum"),
   ]
 }
 
@@ -29868,6 +29670,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearTypeName:
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearUnverifiedLazy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearUnverifiedLazy"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.clearUtf8Validation: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_clearUtf8Validation"),
   ]
 }
 
@@ -30456,12 +30264,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.EditionDefault
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionDefaults: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_editionDefaults"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.editionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_editionEnum"),
   ]
 }
 
@@ -31473,12 +31275,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEdition: Sw
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_hasEditionEnum"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasEnd: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasEnd"),
@@ -31659,12 +31455,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMaximumEdit
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMaximumEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_hasMaximumEditionEnum"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMessageEncoding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasMessageEncoding"),
@@ -31680,12 +31470,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMessageSetW
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMinimumEdition: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasMinimumEdition"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasMinimumEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_hasMinimumEditionEnum"),
   ]
 }
 
@@ -31908,6 +31692,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasTypeName: S
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasUnverifiedLazy: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasUnverifiedLazy"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.hasUtf8Validation: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_hasUtf8Validation"),
   ]
 }
 
@@ -32469,12 +32259,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.maximumEdition
   ]
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.maximumEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_maximumEditionEnum"),
-  ]
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.mdayStart: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mdayStart"),
@@ -32580,12 +32364,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.min: SwiftProt
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumEdition: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_minimumEdition"),
-  ]
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.minimumEditionEnum: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_minimumEditionEnum"),
   ]
 }
 
@@ -34224,6 +34002,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8Ptr: Swift
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8ToDouble: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_utf8ToDouble"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.utf8Validation: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_utf8Validation"),
   ]
 }
 

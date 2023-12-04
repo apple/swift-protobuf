@@ -193,6 +193,32 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
   /// Clears the value of `supportedFeatures`. Subsequent reads from it will return its default value.
   mutating func clearSupportedFeatures() {self._supportedFeatures = nil}
 
+  /// The minimum edition this plugin supports.  This will be treated as an
+  /// Edition enum, but we want to allow unknown values.  It should be specified
+  /// according the edition enum value, *not* the edition number.  Only takes
+  /// effect for plugins that have FEATURE_SUPPORTS_EDITIONS set.
+  var minimumEdition: Int32 {
+    get {return _minimumEdition ?? 0}
+    set {_minimumEdition = newValue}
+  }
+  /// Returns true if `minimumEdition` has been explicitly set.
+  var hasMinimumEdition: Bool {return self._minimumEdition != nil}
+  /// Clears the value of `minimumEdition`. Subsequent reads from it will return its default value.
+  mutating func clearMinimumEdition() {self._minimumEdition = nil}
+
+  /// The maximum edition this plugin supports.  This will be treated as an
+  /// Edition enum, but we want to allow unknown values.  It should be specified
+  /// according the edition enum value, *not* the edition number.  Only takes
+  /// effect for plugins that have FEATURE_SUPPORTS_EDITIONS set.
+  var maximumEdition: Int32 {
+    get {return _maximumEdition ?? 0}
+    set {_maximumEdition = newValue}
+  }
+  /// Returns true if `maximumEdition` has been explicitly set.
+  var hasMaximumEdition: Bool {return self._maximumEdition != nil}
+  /// Clears the value of `maximumEdition`. Subsequent reads from it will return its default value.
+  mutating func clearMaximumEdition() {self._maximumEdition = nil}
+
   var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -335,6 +361,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: Sendable {
 
   fileprivate var _error: String? = nil
   fileprivate var _supportedFeatures: UInt64? = nil
+  fileprivate var _minimumEdition: Int32? = nil
+  fileprivate var _maximumEdition: Int32? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -466,6 +494,8 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
     2: .standard(proto: "supported_features"),
+    3: .standard(proto: "minimum_edition"),
+    4: .standard(proto: "maximum_edition"),
     15: .same(proto: "file"),
   ]
 
@@ -477,6 +507,8 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self._error) }()
       case 2: try { try decoder.decodeSingularUInt64Field(value: &self._supportedFeatures) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._minimumEdition) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self._maximumEdition) }()
       case 15: try { try decoder.decodeRepeatedMessageField(value: &self.file) }()
       default: break
       }
@@ -494,6 +526,12 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
     try { if let v = self._supportedFeatures {
       try visitor.visitSingularUInt64Field(value: v, fieldNumber: 2)
     } }()
+    try { if let v = self._minimumEdition {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._maximumEdition {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+    } }()
     if !self.file.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 15)
     }
@@ -503,6 +541,8 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
   static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
     if lhs._error != rhs._error {return false}
     if lhs._supportedFeatures != rhs._supportedFeatures {return false}
+    if lhs._minimumEdition != rhs._minimumEdition {return false}
+    if lhs._maximumEdition != rhs._maximumEdition {return false}
     if lhs.file != rhs.file {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
