@@ -9,33 +9,10 @@
 
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// https://developers.google.com/protocol-buffers/
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
-//
-//     * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//     * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//     * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
 
 // Author: kenton@google.com (Kenton Varda)
 //  Based on original Protocol Buffers design by
@@ -64,6 +41,9 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
   case foreignBar // = 5
   case foreignBaz // = 6
 
+  /// (1 << 32) to generate a 64b bitmask would be incorrect.
+  case foreignBax // = 32
+
   init() {
     self = .foreignFoo
   }
@@ -73,6 +53,7 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
     case 4: self = .foreignFoo
     case 5: self = .foreignBar
     case 6: self = .foreignBaz
+    case 32: self = .foreignBax
     default: return nil
     }
   }
@@ -82,6 +63,7 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
     case .foreignFoo: return 4
     case .foreignBar: return 5
     case .foreignBaz: return 6
+    case .foreignBax: return 32
     }
   }
 
@@ -1104,6 +1086,30 @@ struct ProtobufUnittest_TestAllTypes: @unchecked Sendable {
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
+  var oneofCord: String {
+    get {
+      if case .oneofCord(let v)? = _storage._oneofField {return v}
+      return String()
+    }
+    set {_uniqueStorage()._oneofField = .oneofCord(newValue)}
+  }
+
+  var oneofStringPiece: String {
+    get {
+      if case .oneofStringPiece(let v)? = _storage._oneofField {return v}
+      return String()
+    }
+    set {_uniqueStorage()._oneofField = .oneofStringPiece(newValue)}
+  }
+
+  var oneofLazyNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
+    get {
+      if case .oneofLazyNestedMessage(let v)? = _storage._oneofField {return v}
+      return ProtobufUnittest_TestAllTypes.NestedMessage()
+    }
+    set {_uniqueStorage()._oneofField = .oneofLazyNestedMessage(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For oneof test
@@ -1112,6 +1118,9 @@ struct ProtobufUnittest_TestAllTypes: @unchecked Sendable {
     case oneofNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
+    case oneofCord(String)
+    case oneofStringPiece(String)
+    case oneofLazyNestedMessage(ProtobufUnittest_TestAllTypes.NestedMessage)
 
   }
 
@@ -1786,7 +1795,6 @@ struct ProtobufUnittest_TestRequiredEnum: Sendable {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Required closed enum results in missing required fields.
   var requiredEnum: ProtobufUnittest_ForeignEnum {
     get {return _requiredEnum ?? .foreignFoo}
     set {_requiredEnum = newValue}
@@ -1812,6 +1820,274 @@ struct ProtobufUnittest_TestRequiredEnum: Sendable {
 
   fileprivate var _requiredEnum: ProtobufUnittest_ForeignEnum? = nil
   fileprivate var _a: Int32? = nil
+}
+
+/// TestRequiredEnum + using enum values that won't fit to 64 bitmask.
+struct ProtobufUnittest_TestRequiredEnumNoMask: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var requiredEnum: ProtobufUnittest_TestRequiredEnumNoMask.NestedEnum {
+    get {return _requiredEnum ?? .unspecified}
+    set {_requiredEnum = newValue}
+  }
+  /// Returns true if `requiredEnum` has been explicitly set.
+  var hasRequiredEnum: Bool {return self._requiredEnum != nil}
+  /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum() {self._requiredEnum = nil}
+
+  /// A dummy optional field.
+  var a: Int32 {
+    get {return _a ?? 0}
+    set {_a = newValue}
+  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unspecified // = 0
+    case foo // = 2
+    case bar // = 100
+
+    /// Intentionally negative.
+    case baz // = -1
+
+    init() {
+      self = .unspecified
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case -1: self = .baz
+      case 0: self = .unspecified
+      case 2: self = .foo
+      case 100: self = .bar
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .baz: return -1
+      case .unspecified: return 0
+      case .foo: return 2
+      case .bar: return 100
+      }
+    }
+
+  }
+
+  init() {}
+
+  fileprivate var _requiredEnum: ProtobufUnittest_TestRequiredEnumNoMask.NestedEnum? = nil
+  fileprivate var _a: Int32? = nil
+}
+
+struct ProtobufUnittest_TestRequiredEnumMulti: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Intentionally placed in descending field number to force sorting in closed
+  /// enum verification.
+  var requiredEnum4: ProtobufUnittest_TestRequiredEnumMulti.NestedEnum {
+    get {return _requiredEnum4 ?? .unspecified}
+    set {_requiredEnum4 = newValue}
+  }
+  /// Returns true if `requiredEnum4` has been explicitly set.
+  var hasRequiredEnum4: Bool {return self._requiredEnum4 != nil}
+  /// Clears the value of `requiredEnum4`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum4() {self._requiredEnum4 = nil}
+
+  var a3: Int32 {
+    get {return _a3 ?? 0}
+    set {_a3 = newValue}
+  }
+  /// Returns true if `a3` has been explicitly set.
+  var hasA3: Bool {return self._a3 != nil}
+  /// Clears the value of `a3`. Subsequent reads from it will return its default value.
+  mutating func clearA3() {self._a3 = nil}
+
+  var requiredEnum2: ProtobufUnittest_TestRequiredEnumMulti.NestedEnum {
+    get {return _requiredEnum2 ?? .unspecified}
+    set {_requiredEnum2 = newValue}
+  }
+  /// Returns true if `requiredEnum2` has been explicitly set.
+  var hasRequiredEnum2: Bool {return self._requiredEnum2 != nil}
+  /// Clears the value of `requiredEnum2`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum2() {self._requiredEnum2 = nil}
+
+  var requiredEnum1: ProtobufUnittest_ForeignEnum {
+    get {return _requiredEnum1 ?? .foreignFoo}
+    set {_requiredEnum1 = newValue}
+  }
+  /// Returns true if `requiredEnum1` has been explicitly set.
+  var hasRequiredEnum1: Bool {return self._requiredEnum1 != nil}
+  /// Clears the value of `requiredEnum1`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum1() {self._requiredEnum1 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unspecified // = 0
+    case foo // = 1
+    case bar // = 2
+    case baz // = 100
+
+    init() {
+      self = .unspecified
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unspecified
+      case 1: self = .foo
+      case 2: self = .bar
+      case 100: self = .baz
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unspecified: return 0
+      case .foo: return 1
+      case .bar: return 2
+      case .baz: return 100
+      }
+    }
+
+  }
+
+  init() {}
+
+  fileprivate var _requiredEnum4: ProtobufUnittest_TestRequiredEnumMulti.NestedEnum? = nil
+  fileprivate var _a3: Int32? = nil
+  fileprivate var _requiredEnum2: ProtobufUnittest_TestRequiredEnumMulti.NestedEnum? = nil
+  fileprivate var _requiredEnum1: ProtobufUnittest_ForeignEnum? = nil
+}
+
+struct ProtobufUnittest_TestRequiredNoMaskMulti: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Intentionally placed in descending field number to force sorting in closed
+  /// enum verification. Also, using large field numbers to use tag only
+  /// matching for required fields.
+  var requiredFixed3280: UInt32 {
+    get {return _requiredFixed3280 ?? 0}
+    set {_requiredFixed3280 = newValue}
+  }
+  /// Returns true if `requiredFixed3280` has been explicitly set.
+  var hasRequiredFixed3280: Bool {return self._requiredFixed3280 != nil}
+  /// Clears the value of `requiredFixed3280`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredFixed3280() {self._requiredFixed3280 = nil}
+
+  var requiredFixed3270: UInt32 {
+    get {return _requiredFixed3270 ?? 0}
+    set {_requiredFixed3270 = newValue}
+  }
+  /// Returns true if `requiredFixed3270` has been explicitly set.
+  var hasRequiredFixed3270: Bool {return self._requiredFixed3270 != nil}
+  /// Clears the value of `requiredFixed3270`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredFixed3270() {self._requiredFixed3270 = nil}
+
+  var requiredEnum64: ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum {
+    get {return _requiredEnum64 ?? .unspecified}
+    set {_requiredEnum64 = newValue}
+  }
+  /// Returns true if `requiredEnum64` has been explicitly set.
+  var hasRequiredEnum64: Bool {return self._requiredEnum64 != nil}
+  /// Clears the value of `requiredEnum64`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum64() {self._requiredEnum64 = nil}
+
+  var requiredEnum4: ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum {
+    get {return _requiredEnum4 ?? .unspecified}
+    set {_requiredEnum4 = newValue}
+  }
+  /// Returns true if `requiredEnum4` has been explicitly set.
+  var hasRequiredEnum4: Bool {return self._requiredEnum4 != nil}
+  /// Clears the value of `requiredEnum4`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum4() {self._requiredEnum4 = nil}
+
+  var a3: Int32 {
+    get {return _a3 ?? 0}
+    set {_a3 = newValue}
+  }
+  /// Returns true if `a3` has been explicitly set.
+  var hasA3: Bool {return self._a3 != nil}
+  /// Clears the value of `a3`. Subsequent reads from it will return its default value.
+  mutating func clearA3() {self._a3 = nil}
+
+  var requiredEnum2: ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum {
+    get {return _requiredEnum2 ?? .unspecified}
+    set {_requiredEnum2 = newValue}
+  }
+  /// Returns true if `requiredEnum2` has been explicitly set.
+  var hasRequiredEnum2: Bool {return self._requiredEnum2 != nil}
+  /// Clears the value of `requiredEnum2`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum2() {self._requiredEnum2 = nil}
+
+  var requiredEnum1: ProtobufUnittest_ForeignEnum {
+    get {return _requiredEnum1 ?? .foreignFoo}
+    set {_requiredEnum1 = newValue}
+  }
+  /// Returns true if `requiredEnum1` has been explicitly set.
+  var hasRequiredEnum1: Bool {return self._requiredEnum1 != nil}
+  /// Clears the value of `requiredEnum1`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnum1() {self._requiredEnum1 = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unspecified // = 0
+    case foo // = 1
+    case bar // = 2
+    case baz // = 100
+
+    init() {
+      self = .unspecified
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unspecified
+      case 1: self = .foo
+      case 2: self = .bar
+      case 100: self = .baz
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unspecified: return 0
+      case .foo: return 1
+      case .bar: return 2
+      case .baz: return 100
+      }
+    }
+
+  }
+
+  init() {}
+
+  fileprivate var _requiredFixed3280: UInt32? = nil
+  fileprivate var _requiredFixed3270: UInt32? = nil
+  fileprivate var _requiredEnum64: ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum? = nil
+  fileprivate var _requiredEnum4: ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum? = nil
+  fileprivate var _a3: Int32? = nil
+  fileprivate var _requiredEnum2: ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum? = nil
+  fileprivate var _requiredEnum1: ProtobufUnittest_ForeignEnum? = nil
 }
 
 /// We have separate messages for testing required fields because it's
@@ -2258,6 +2534,33 @@ struct ProtobufUnittest_TestNestedRequiredForeign: @unchecked Sendable {
   var hasRequiredEnum: Bool {return _storage._requiredEnum != nil}
   /// Clears the value of `requiredEnum`. Subsequent reads from it will return its default value.
   mutating func clearRequiredEnum() {_uniqueStorage()._requiredEnum = nil}
+
+  var requiredEnumNoMask: ProtobufUnittest_TestRequiredEnumNoMask {
+    get {return _storage._requiredEnumNoMask ?? ProtobufUnittest_TestRequiredEnumNoMask()}
+    set {_uniqueStorage()._requiredEnumNoMask = newValue}
+  }
+  /// Returns true if `requiredEnumNoMask` has been explicitly set.
+  var hasRequiredEnumNoMask: Bool {return _storage._requiredEnumNoMask != nil}
+  /// Clears the value of `requiredEnumNoMask`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnumNoMask() {_uniqueStorage()._requiredEnumNoMask = nil}
+
+  var requiredEnumMulti: ProtobufUnittest_TestRequiredEnumMulti {
+    get {return _storage._requiredEnumMulti ?? ProtobufUnittest_TestRequiredEnumMulti()}
+    set {_uniqueStorage()._requiredEnumMulti = newValue}
+  }
+  /// Returns true if `requiredEnumMulti` has been explicitly set.
+  var hasRequiredEnumMulti: Bool {return _storage._requiredEnumMulti != nil}
+  /// Clears the value of `requiredEnumMulti`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredEnumMulti() {_uniqueStorage()._requiredEnumMulti = nil}
+
+  var requiredNoMask: ProtobufUnittest_TestRequiredNoMaskMulti {
+    get {return _storage._requiredNoMask ?? ProtobufUnittest_TestRequiredNoMaskMulti()}
+    set {_uniqueStorage()._requiredNoMask = newValue}
+  }
+  /// Returns true if `requiredNoMask` has been explicitly set.
+  var hasRequiredNoMask: Bool {return _storage._requiredNoMask != nil}
+  /// Clears the value of `requiredNoMask`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredNoMask() {_uniqueStorage()._requiredNoMask = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5384,7 +5687,7 @@ struct ProtobufUnittest_TestExtensionInsideTable: SwiftProtobuf.ExtensibleMessag
   fileprivate var _field10: Int32? = nil
 }
 
-/// NOTE(b/202996544): Intentionally nested to mirror go/glep.
+/// NOTE: Intentionally nested to mirror go/glep.
 struct ProtobufUnittest_TestNestedGroupExtensionOuter: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -7568,6 +7871,178 @@ struct ProtobufUnittest_EnumsForBenchmark: Sendable {
   init() {}
 }
 
+struct ProtobufUnittest_TestMessageWithManyRepeatedPtrFields: @unchecked Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var repeatedString1: [String] {
+    get {return _storage._repeatedString1}
+    set {_uniqueStorage()._repeatedString1 = newValue}
+  }
+
+  var repeatedString2: [String] {
+    get {return _storage._repeatedString2}
+    set {_uniqueStorage()._repeatedString2 = newValue}
+  }
+
+  var repeatedString3: [String] {
+    get {return _storage._repeatedString3}
+    set {_uniqueStorage()._repeatedString3 = newValue}
+  }
+
+  var repeatedString4: [String] {
+    get {return _storage._repeatedString4}
+    set {_uniqueStorage()._repeatedString4 = newValue}
+  }
+
+  var repeatedString5: [String] {
+    get {return _storage._repeatedString5}
+    set {_uniqueStorage()._repeatedString5 = newValue}
+  }
+
+  var repeatedString6: [String] {
+    get {return _storage._repeatedString6}
+    set {_uniqueStorage()._repeatedString6 = newValue}
+  }
+
+  var repeatedString7: [String] {
+    get {return _storage._repeatedString7}
+    set {_uniqueStorage()._repeatedString7 = newValue}
+  }
+
+  var repeatedString8: [String] {
+    get {return _storage._repeatedString8}
+    set {_uniqueStorage()._repeatedString8 = newValue}
+  }
+
+  var repeatedString9: [String] {
+    get {return _storage._repeatedString9}
+    set {_uniqueStorage()._repeatedString9 = newValue}
+  }
+
+  var repeatedString10: [String] {
+    get {return _storage._repeatedString10}
+    set {_uniqueStorage()._repeatedString10 = newValue}
+  }
+
+  var repeatedString11: [String] {
+    get {return _storage._repeatedString11}
+    set {_uniqueStorage()._repeatedString11 = newValue}
+  }
+
+  var repeatedString12: [String] {
+    get {return _storage._repeatedString12}
+    set {_uniqueStorage()._repeatedString12 = newValue}
+  }
+
+  var repeatedString13: [String] {
+    get {return _storage._repeatedString13}
+    set {_uniqueStorage()._repeatedString13 = newValue}
+  }
+
+  var repeatedString14: [String] {
+    get {return _storage._repeatedString14}
+    set {_uniqueStorage()._repeatedString14 = newValue}
+  }
+
+  var repeatedString15: [String] {
+    get {return _storage._repeatedString15}
+    set {_uniqueStorage()._repeatedString15 = newValue}
+  }
+
+  var repeatedString16: [String] {
+    get {return _storage._repeatedString16}
+    set {_uniqueStorage()._repeatedString16 = newValue}
+  }
+
+  var repeatedString17: [String] {
+    get {return _storage._repeatedString17}
+    set {_uniqueStorage()._repeatedString17 = newValue}
+  }
+
+  var repeatedString18: [String] {
+    get {return _storage._repeatedString18}
+    set {_uniqueStorage()._repeatedString18 = newValue}
+  }
+
+  var repeatedString19: [String] {
+    get {return _storage._repeatedString19}
+    set {_uniqueStorage()._repeatedString19 = newValue}
+  }
+
+  var repeatedString20: [String] {
+    get {return _storage._repeatedString20}
+    set {_uniqueStorage()._repeatedString20 = newValue}
+  }
+
+  var repeatedString21: [String] {
+    get {return _storage._repeatedString21}
+    set {_uniqueStorage()._repeatedString21 = newValue}
+  }
+
+  var repeatedString22: [String] {
+    get {return _storage._repeatedString22}
+    set {_uniqueStorage()._repeatedString22 = newValue}
+  }
+
+  var repeatedString23: [String] {
+    get {return _storage._repeatedString23}
+    set {_uniqueStorage()._repeatedString23 = newValue}
+  }
+
+  var repeatedString24: [String] {
+    get {return _storage._repeatedString24}
+    set {_uniqueStorage()._repeatedString24 = newValue}
+  }
+
+  var repeatedString25: [String] {
+    get {return _storage._repeatedString25}
+    set {_uniqueStorage()._repeatedString25 = newValue}
+  }
+
+  var repeatedString26: [String] {
+    get {return _storage._repeatedString26}
+    set {_uniqueStorage()._repeatedString26 = newValue}
+  }
+
+  var repeatedString27: [String] {
+    get {return _storage._repeatedString27}
+    set {_uniqueStorage()._repeatedString27 = newValue}
+  }
+
+  var repeatedString28: [String] {
+    get {return _storage._repeatedString28}
+    set {_uniqueStorage()._repeatedString28 = newValue}
+  }
+
+  var repeatedString29: [String] {
+    get {return _storage._repeatedString29}
+    set {_uniqueStorage()._repeatedString29 = newValue}
+  }
+
+  var repeatedString30: [String] {
+    get {return _storage._repeatedString30}
+    set {_uniqueStorage()._repeatedString30 = newValue}
+  }
+
+  var repeatedString31: [String] {
+    get {return _storage._repeatedString31}
+    set {_uniqueStorage()._repeatedString31 = newValue}
+  }
+
+  var repeatedString32: [String] {
+    get {return _storage._repeatedString32}
+    set {_uniqueStorage()._repeatedString32 = newValue}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Extension support defined in unittest.proto.
 
 // MARK: - Extension Properties
@@ -8060,7 +8535,7 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension)
   }
 
-  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_optionalCordExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension) ?? String()}
@@ -8238,7 +8713,7 @@ extension ProtobufUnittest_TestAllExtensions {
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension, value: newValue)}
   }
 
-  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_repeatedCordExtension: [String] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension) ?? []}
@@ -8536,7 +9011,7 @@ extension ProtobufUnittest_TestAllExtensions {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension)
   }
 
-  /// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+  /// TODO: ctype=CORD is not supported for extension. Add
   /// ctype=CORD option back after it is supported.
   var ProtobufUnittest_defaultCordExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension) ?? "123"}
@@ -9375,7 +9850,7 @@ let ProtobufUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.
   fieldName: "protobuf_unittest.optional_string_piece_extension"
 )
 
-/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 25,
@@ -9513,7 +9988,7 @@ let ProtobufUnittest_Extensions_repeated_string_piece_extension = SwiftProtobuf.
   fieldName: "protobuf_unittest.repeated_string_piece_extension"
 )
 
-/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_repeated_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 55,
@@ -9621,7 +10096,7 @@ let ProtobufUnittest_Extensions_default_string_piece_extension = SwiftProtobuf.M
   fieldName: "protobuf_unittest.default_string_piece_extension"
 )
 
-/// TODO(b/294946958): ctype=CORD is not supported for extension. Add
+/// TODO: ctype=CORD is not supported for extension. Add
 /// ctype=CORD option back after it is supported.
 let ProtobufUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 85,
@@ -10039,6 +10514,7 @@ extension ProtobufUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
     4: .same(proto: "FOREIGN_FOO"),
     5: .same(proto: "FOREIGN_BAR"),
     6: .same(proto: "FOREIGN_BAZ"),
+    32: .same(proto: "FOREIGN_BAX"),
   ]
 }
 
@@ -10253,6 +10729,9 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     112: .standard(proto: "oneof_nested_message"),
     113: .standard(proto: "oneof_string"),
     114: .standard(proto: "oneof_bytes"),
+    115: .standard(proto: "oneof_cord"),
+    116: .standard(proto: "oneof_string_piece"),
+    117: .standard(proto: "oneof_lazy_nested_message"),
   ]
 
   fileprivate class _StorageClass {
@@ -10535,6 +11014,35 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
             _storage._oneofField = .oneofBytes(v)
           }
         }()
+        case 115: try {
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofCord(v)
+          }
+        }()
+        case 116: try {
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {
+            if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofStringPiece(v)
+          }
+        }()
+        case 117: try {
+          var v: ProtobufUnittest_TestAllTypes.NestedMessage?
+          var hadOneofValue = false
+          if let current = _storage._oneofField {
+            hadOneofValue = true
+            if case .oneofLazyNestedMessage(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._oneofField = .oneofLazyNestedMessage(v)
+          }
+        }()
         default: break
         }
       }
@@ -10779,6 +11287,18 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
       case .oneofBytes?: try {
         guard case .oneofBytes(let v)? = _storage._oneofField else { preconditionFailure() }
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+      }()
+      case .oneofCord?: try {
+        guard case .oneofCord(let v)? = _storage._oneofField else { preconditionFailure() }
+        try visitor.visitSingularStringField(value: v, fieldNumber: 115)
+      }()
+      case .oneofStringPiece?: try {
+        guard case .oneofStringPiece(let v)? = _storage._oneofField else { preconditionFailure() }
+        try visitor.visitSingularStringField(value: v, fieldNumber: 116)
+      }()
+      case .oneofLazyNestedMessage?: try {
+        guard case .oneofLazyNestedMessage(let v)? = _storage._oneofField else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 117)
       }()
       case nil: break
       }
@@ -11913,6 +12433,223 @@ extension ProtobufUnittest_TestRequiredEnum: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
+extension ProtobufUnittest_TestRequiredEnumNoMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredEnumNoMask"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "required_enum"),
+    2: .same(proto: "a"),
+  ]
+
+  public var isInitialized: Bool {
+    if self._requiredEnum == nil {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self._a) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._requiredEnum {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._a {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestRequiredEnumNoMask, rhs: ProtobufUnittest_TestRequiredEnumNoMask) -> Bool {
+    if lhs._requiredEnum != rhs._requiredEnum {return false}
+    if lhs._a != rhs._a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredEnumNoMask.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "BAZ"),
+    0: .same(proto: "UNSPECIFIED"),
+    2: .same(proto: "FOO"),
+    100: .same(proto: "BAR"),
+  ]
+}
+
+extension ProtobufUnittest_TestRequiredEnumMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredEnumMulti"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    4: .standard(proto: "required_enum_4"),
+    3: .standard(proto: "a_3"),
+    2: .standard(proto: "required_enum_2"),
+    1: .standard(proto: "required_enum_1"),
+  ]
+
+  public var isInitialized: Bool {
+    if self._requiredEnum4 == nil {return false}
+    if self._requiredEnum2 == nil {return false}
+    if self._requiredEnum1 == nil {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum1) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum2) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._a3) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum4) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._requiredEnum1 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._requiredEnum2 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._a3 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._requiredEnum4 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestRequiredEnumMulti, rhs: ProtobufUnittest_TestRequiredEnumMulti) -> Bool {
+    if lhs._requiredEnum4 != rhs._requiredEnum4 {return false}
+    if lhs._a3 != rhs._a3 {return false}
+    if lhs._requiredEnum2 != rhs._requiredEnum2 {return false}
+    if lhs._requiredEnum1 != rhs._requiredEnum1 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredEnumMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNSPECIFIED"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    100: .same(proto: "BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_TestRequiredNoMaskMulti: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredNoMaskMulti"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    80: .standard(proto: "required_fixed32_80"),
+    70: .standard(proto: "required_fixed32_70"),
+    64: .standard(proto: "required_enum_64"),
+    4: .standard(proto: "required_enum_4"),
+    3: .standard(proto: "a_3"),
+    2: .standard(proto: "required_enum_2"),
+    1: .standard(proto: "required_enum_1"),
+  ]
+
+  public var isInitialized: Bool {
+    if self._requiredFixed3280 == nil {return false}
+    if self._requiredFixed3270 == nil {return false}
+    if self._requiredEnum64 == nil {return false}
+    if self._requiredEnum4 == nil {return false}
+    if self._requiredEnum2 == nil {return false}
+    if self._requiredEnum1 == nil {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum1) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum2) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self._a3) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum4) }()
+      case 64: try { try decoder.decodeSingularEnumField(value: &self._requiredEnum64) }()
+      case 70: try { try decoder.decodeSingularFixed32Field(value: &self._requiredFixed3270) }()
+      case 80: try { try decoder.decodeSingularFixed32Field(value: &self._requiredFixed3280) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._requiredEnum1 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._requiredEnum2 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    } }()
+    try { if let v = self._a3 {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._requiredEnum4 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._requiredEnum64 {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 64)
+    } }()
+    try { if let v = self._requiredFixed3270 {
+      try visitor.visitSingularFixed32Field(value: v, fieldNumber: 70)
+    } }()
+    try { if let v = self._requiredFixed3280 {
+      try visitor.visitSingularFixed32Field(value: v, fieldNumber: 80)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestRequiredNoMaskMulti, rhs: ProtobufUnittest_TestRequiredNoMaskMulti) -> Bool {
+    if lhs._requiredFixed3280 != rhs._requiredFixed3280 {return false}
+    if lhs._requiredFixed3270 != rhs._requiredFixed3270 {return false}
+    if lhs._requiredEnum64 != rhs._requiredEnum64 {return false}
+    if lhs._requiredEnum4 != rhs._requiredEnum4 {return false}
+    if lhs._a3 != rhs._a3 {return false}
+    if lhs._requiredEnum2 != rhs._requiredEnum2 {return false}
+    if lhs._requiredEnum1 != rhs._requiredEnum1 {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredNoMaskMulti.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNSPECIFIED"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    100: .same(proto: "BAZ"),
+  ]
+}
+
 extension ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -12377,6 +13114,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
     2: .same(proto: "payload"),
     3: .same(proto: "dummy"),
     5: .standard(proto: "required_enum"),
+    6: .standard(proto: "required_enum_no_mask"),
+    7: .standard(proto: "required_enum_multi"),
+    9: .standard(proto: "required_no_mask"),
   ]
 
   fileprivate class _StorageClass {
@@ -12384,6 +13124,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
     var _payload: ProtobufUnittest_TestRequiredForeign? = nil
     var _dummy: Int32? = nil
     var _requiredEnum: ProtobufUnittest_TestRequiredEnum? = nil
+    var _requiredEnumNoMask: ProtobufUnittest_TestRequiredEnumNoMask? = nil
+    var _requiredEnumMulti: ProtobufUnittest_TestRequiredEnumMulti? = nil
+    var _requiredNoMask: ProtobufUnittest_TestRequiredNoMaskMulti? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -12394,6 +13137,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
       _payload = source._payload
       _dummy = source._dummy
       _requiredEnum = source._requiredEnum
+      _requiredEnumNoMask = source._requiredEnumNoMask
+      _requiredEnumMulti = source._requiredEnumMulti
+      _requiredNoMask = source._requiredNoMask
     }
   }
 
@@ -12409,6 +13155,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
       if let v = _storage._child, !v.isInitialized {return false}
       if let v = _storage._payload, !v.isInitialized {return false}
       if let v = _storage._requiredEnum, !v.isInitialized {return false}
+      if let v = _storage._requiredEnumNoMask, !v.isInitialized {return false}
+      if let v = _storage._requiredEnumMulti, !v.isInitialized {return false}
+      if let v = _storage._requiredNoMask, !v.isInitialized {return false}
       return true
     }
   }
@@ -12425,6 +13174,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
         case 2: try { try decoder.decodeSingularMessageField(value: &_storage._payload) }()
         case 3: try { try decoder.decodeSingularInt32Field(value: &_storage._dummy) }()
         case 5: try { try decoder.decodeSingularMessageField(value: &_storage._requiredEnum) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._requiredEnumNoMask) }()
+        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._requiredEnumMulti) }()
+        case 9: try { try decoder.decodeSingularMessageField(value: &_storage._requiredNoMask) }()
         default: break
         }
       }
@@ -12449,6 +13201,15 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
       try { if let v = _storage._requiredEnum {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       } }()
+      try { if let v = _storage._requiredEnumNoMask {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._requiredEnumMulti {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      } }()
+      try { if let v = _storage._requiredNoMask {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -12462,6 +13223,9 @@ extension ProtobufUnittest_TestNestedRequiredForeign: SwiftProtobuf.Message, Swi
         if _storage._payload != rhs_storage._payload {return false}
         if _storage._dummy != rhs_storage._dummy {return false}
         if _storage._requiredEnum != rhs_storage._requiredEnum {return false}
+        if _storage._requiredEnumNoMask != rhs_storage._requiredEnumNoMask {return false}
+        if _storage._requiredEnumMulti != rhs_storage._requiredEnumMulti {return false}
+        if _storage._requiredNoMask != rhs_storage._requiredNoMask {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -19482,4 +20246,316 @@ extension ProtobufUnittest_EnumsForBenchmark.Sparse: SwiftProtobuf._ProtoNamePro
     30109: .same(proto: "C30109"),
     31670: .same(proto: "C31670"),
   ]
+}
+
+extension ProtobufUnittest_TestMessageWithManyRepeatedPtrFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestMessageWithManyRepeatedPtrFields"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "repeated_string_1"),
+    2: .standard(proto: "repeated_string_2"),
+    3: .standard(proto: "repeated_string_3"),
+    4: .standard(proto: "repeated_string_4"),
+    5: .standard(proto: "repeated_string_5"),
+    6: .standard(proto: "repeated_string_6"),
+    7: .standard(proto: "repeated_string_7"),
+    8: .standard(proto: "repeated_string_8"),
+    9: .standard(proto: "repeated_string_9"),
+    10: .standard(proto: "repeated_string_10"),
+    11: .standard(proto: "repeated_string_11"),
+    12: .standard(proto: "repeated_string_12"),
+    13: .standard(proto: "repeated_string_13"),
+    14: .standard(proto: "repeated_string_14"),
+    15: .standard(proto: "repeated_string_15"),
+    16: .standard(proto: "repeated_string_16"),
+    17: .standard(proto: "repeated_string_17"),
+    18: .standard(proto: "repeated_string_18"),
+    19: .standard(proto: "repeated_string_19"),
+    20: .standard(proto: "repeated_string_20"),
+    21: .standard(proto: "repeated_string_21"),
+    22: .standard(proto: "repeated_string_22"),
+    23: .standard(proto: "repeated_string_23"),
+    24: .standard(proto: "repeated_string_24"),
+    25: .standard(proto: "repeated_string_25"),
+    26: .standard(proto: "repeated_string_26"),
+    27: .standard(proto: "repeated_string_27"),
+    28: .standard(proto: "repeated_string_28"),
+    29: .standard(proto: "repeated_string_29"),
+    30: .standard(proto: "repeated_string_30"),
+    31: .standard(proto: "repeated_string_31"),
+    32: .standard(proto: "repeated_string_32"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _repeatedString1: [String] = []
+    var _repeatedString2: [String] = []
+    var _repeatedString3: [String] = []
+    var _repeatedString4: [String] = []
+    var _repeatedString5: [String] = []
+    var _repeatedString6: [String] = []
+    var _repeatedString7: [String] = []
+    var _repeatedString8: [String] = []
+    var _repeatedString9: [String] = []
+    var _repeatedString10: [String] = []
+    var _repeatedString11: [String] = []
+    var _repeatedString12: [String] = []
+    var _repeatedString13: [String] = []
+    var _repeatedString14: [String] = []
+    var _repeatedString15: [String] = []
+    var _repeatedString16: [String] = []
+    var _repeatedString17: [String] = []
+    var _repeatedString18: [String] = []
+    var _repeatedString19: [String] = []
+    var _repeatedString20: [String] = []
+    var _repeatedString21: [String] = []
+    var _repeatedString22: [String] = []
+    var _repeatedString23: [String] = []
+    var _repeatedString24: [String] = []
+    var _repeatedString25: [String] = []
+    var _repeatedString26: [String] = []
+    var _repeatedString27: [String] = []
+    var _repeatedString28: [String] = []
+    var _repeatedString29: [String] = []
+    var _repeatedString30: [String] = []
+    var _repeatedString31: [String] = []
+    var _repeatedString32: [String] = []
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _repeatedString1 = source._repeatedString1
+      _repeatedString2 = source._repeatedString2
+      _repeatedString3 = source._repeatedString3
+      _repeatedString4 = source._repeatedString4
+      _repeatedString5 = source._repeatedString5
+      _repeatedString6 = source._repeatedString6
+      _repeatedString7 = source._repeatedString7
+      _repeatedString8 = source._repeatedString8
+      _repeatedString9 = source._repeatedString9
+      _repeatedString10 = source._repeatedString10
+      _repeatedString11 = source._repeatedString11
+      _repeatedString12 = source._repeatedString12
+      _repeatedString13 = source._repeatedString13
+      _repeatedString14 = source._repeatedString14
+      _repeatedString15 = source._repeatedString15
+      _repeatedString16 = source._repeatedString16
+      _repeatedString17 = source._repeatedString17
+      _repeatedString18 = source._repeatedString18
+      _repeatedString19 = source._repeatedString19
+      _repeatedString20 = source._repeatedString20
+      _repeatedString21 = source._repeatedString21
+      _repeatedString22 = source._repeatedString22
+      _repeatedString23 = source._repeatedString23
+      _repeatedString24 = source._repeatedString24
+      _repeatedString25 = source._repeatedString25
+      _repeatedString26 = source._repeatedString26
+      _repeatedString27 = source._repeatedString27
+      _repeatedString28 = source._repeatedString28
+      _repeatedString29 = source._repeatedString29
+      _repeatedString30 = source._repeatedString30
+      _repeatedString31 = source._repeatedString31
+      _repeatedString32 = source._repeatedString32
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString1) }()
+        case 2: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString2) }()
+        case 3: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString3) }()
+        case 4: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString4) }()
+        case 5: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString5) }()
+        case 6: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString6) }()
+        case 7: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString7) }()
+        case 8: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString8) }()
+        case 9: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString9) }()
+        case 10: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString10) }()
+        case 11: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString11) }()
+        case 12: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString12) }()
+        case 13: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString13) }()
+        case 14: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString14) }()
+        case 15: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString15) }()
+        case 16: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString16) }()
+        case 17: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString17) }()
+        case 18: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString18) }()
+        case 19: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString19) }()
+        case 20: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString20) }()
+        case 21: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString21) }()
+        case 22: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString22) }()
+        case 23: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString23) }()
+        case 24: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString24) }()
+        case 25: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString25) }()
+        case 26: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString26) }()
+        case 27: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString27) }()
+        case 28: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString28) }()
+        case 29: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString29) }()
+        case 30: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString30) }()
+        case 31: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString31) }()
+        case 32: try { try decoder.decodeRepeatedStringField(value: &_storage._repeatedString32) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._repeatedString1.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString1, fieldNumber: 1)
+      }
+      if !_storage._repeatedString2.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString2, fieldNumber: 2)
+      }
+      if !_storage._repeatedString3.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString3, fieldNumber: 3)
+      }
+      if !_storage._repeatedString4.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString4, fieldNumber: 4)
+      }
+      if !_storage._repeatedString5.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString5, fieldNumber: 5)
+      }
+      if !_storage._repeatedString6.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString6, fieldNumber: 6)
+      }
+      if !_storage._repeatedString7.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString7, fieldNumber: 7)
+      }
+      if !_storage._repeatedString8.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString8, fieldNumber: 8)
+      }
+      if !_storage._repeatedString9.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString9, fieldNumber: 9)
+      }
+      if !_storage._repeatedString10.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString10, fieldNumber: 10)
+      }
+      if !_storage._repeatedString11.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString11, fieldNumber: 11)
+      }
+      if !_storage._repeatedString12.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString12, fieldNumber: 12)
+      }
+      if !_storage._repeatedString13.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString13, fieldNumber: 13)
+      }
+      if !_storage._repeatedString14.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString14, fieldNumber: 14)
+      }
+      if !_storage._repeatedString15.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString15, fieldNumber: 15)
+      }
+      if !_storage._repeatedString16.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString16, fieldNumber: 16)
+      }
+      if !_storage._repeatedString17.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString17, fieldNumber: 17)
+      }
+      if !_storage._repeatedString18.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString18, fieldNumber: 18)
+      }
+      if !_storage._repeatedString19.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString19, fieldNumber: 19)
+      }
+      if !_storage._repeatedString20.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString20, fieldNumber: 20)
+      }
+      if !_storage._repeatedString21.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString21, fieldNumber: 21)
+      }
+      if !_storage._repeatedString22.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString22, fieldNumber: 22)
+      }
+      if !_storage._repeatedString23.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString23, fieldNumber: 23)
+      }
+      if !_storage._repeatedString24.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString24, fieldNumber: 24)
+      }
+      if !_storage._repeatedString25.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString25, fieldNumber: 25)
+      }
+      if !_storage._repeatedString26.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString26, fieldNumber: 26)
+      }
+      if !_storage._repeatedString27.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString27, fieldNumber: 27)
+      }
+      if !_storage._repeatedString28.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString28, fieldNumber: 28)
+      }
+      if !_storage._repeatedString29.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString29, fieldNumber: 29)
+      }
+      if !_storage._repeatedString30.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString30, fieldNumber: 30)
+      }
+      if !_storage._repeatedString31.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString31, fieldNumber: 31)
+      }
+      if !_storage._repeatedString32.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString32, fieldNumber: 32)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestMessageWithManyRepeatedPtrFields, rhs: ProtobufUnittest_TestMessageWithManyRepeatedPtrFields) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._repeatedString1 != rhs_storage._repeatedString1 {return false}
+        if _storage._repeatedString2 != rhs_storage._repeatedString2 {return false}
+        if _storage._repeatedString3 != rhs_storage._repeatedString3 {return false}
+        if _storage._repeatedString4 != rhs_storage._repeatedString4 {return false}
+        if _storage._repeatedString5 != rhs_storage._repeatedString5 {return false}
+        if _storage._repeatedString6 != rhs_storage._repeatedString6 {return false}
+        if _storage._repeatedString7 != rhs_storage._repeatedString7 {return false}
+        if _storage._repeatedString8 != rhs_storage._repeatedString8 {return false}
+        if _storage._repeatedString9 != rhs_storage._repeatedString9 {return false}
+        if _storage._repeatedString10 != rhs_storage._repeatedString10 {return false}
+        if _storage._repeatedString11 != rhs_storage._repeatedString11 {return false}
+        if _storage._repeatedString12 != rhs_storage._repeatedString12 {return false}
+        if _storage._repeatedString13 != rhs_storage._repeatedString13 {return false}
+        if _storage._repeatedString14 != rhs_storage._repeatedString14 {return false}
+        if _storage._repeatedString15 != rhs_storage._repeatedString15 {return false}
+        if _storage._repeatedString16 != rhs_storage._repeatedString16 {return false}
+        if _storage._repeatedString17 != rhs_storage._repeatedString17 {return false}
+        if _storage._repeatedString18 != rhs_storage._repeatedString18 {return false}
+        if _storage._repeatedString19 != rhs_storage._repeatedString19 {return false}
+        if _storage._repeatedString20 != rhs_storage._repeatedString20 {return false}
+        if _storage._repeatedString21 != rhs_storage._repeatedString21 {return false}
+        if _storage._repeatedString22 != rhs_storage._repeatedString22 {return false}
+        if _storage._repeatedString23 != rhs_storage._repeatedString23 {return false}
+        if _storage._repeatedString24 != rhs_storage._repeatedString24 {return false}
+        if _storage._repeatedString25 != rhs_storage._repeatedString25 {return false}
+        if _storage._repeatedString26 != rhs_storage._repeatedString26 {return false}
+        if _storage._repeatedString27 != rhs_storage._repeatedString27 {return false}
+        if _storage._repeatedString28 != rhs_storage._repeatedString28 {return false}
+        if _storage._repeatedString29 != rhs_storage._repeatedString29 {return false}
+        if _storage._repeatedString30 != rhs_storage._repeatedString30 {return false}
+        if _storage._repeatedString31 != rhs_storage._repeatedString31 {return false}
+        if _storage._repeatedString32 != rhs_storage._repeatedString32 {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }
