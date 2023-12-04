@@ -64,6 +64,13 @@ enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
   /// A placeholder for an unknown edition value.
   case unknown // = 0
 
+  /// Legacy syntax "editions".  These pre-date editions, but behave much like
+  /// distinct editions.  These can't be used to specify the edition of proto
+  /// files, but feature definitions must supply proto2/proto3 defaults for
+  /// backwards compatibility.
+  case proto2 // = 998
+  case proto3 // = 999
+
   /// Editions that have been released.  The specific values are arbitrary and
   /// should not be depended on, but they will always be time-ordered for easy
   /// comparison.
@@ -77,6 +84,11 @@ enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
   case edition99998TestOnly // = 99998
   case edition99999TestOnly // = 99999
 
+  /// Placeholder for specifying unbounded edition support.  This should only
+  /// ever be used by plugins that can expect to never require any changes to
+  /// support a new edition.
+  case max // = 2147483647
+
   init() {
     self = .unknown
   }
@@ -86,10 +98,13 @@ enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
     case 0: self = .unknown
     case 1: self = .edition1TestOnly
     case 2: self = .edition2TestOnly
+    case 998: self = .proto2
+    case 999: self = .proto3
     case 1000: self = .edition2023
     case 99997: self = .edition99997TestOnly
     case 99998: self = .edition99998TestOnly
     case 99999: self = .edition99999TestOnly
+    case 2147483647: self = .max
     default: return nil
     }
   }
@@ -99,10 +114,13 @@ enum Google_Protobuf_Edition: SwiftProtobuf.Enum {
     case .unknown: return 0
     case .edition1TestOnly: return 1
     case .edition2TestOnly: return 2
+    case .proto2: return 998
+    case .proto3: return 999
     case .edition2023: return 1000
     case .edition99997TestOnly: return 99997
     case .edition99998TestOnly: return 99998
     case .edition99999TestOnly: return 99999
+    case .max: return 2147483647
     }
   }
 
@@ -210,26 +228,15 @@ struct Google_Protobuf_FileDescriptorProto {
   /// Clears the value of `syntax`. Subsequent reads from it will return its default value.
   mutating func clearSyntax() {self._syntax = nil}
 
-  /// The edition of the proto file, which is an opaque string.
-  /// TODO(b/297898292) Deprecate and remove this field in favor of enums.
-  var edition: String {
-    get {return _edition ?? String()}
+  /// The edition of the proto file.
+  var edition: Google_Protobuf_Edition {
+    get {return _edition ?? .unknown}
     set {_edition = newValue}
   }
   /// Returns true if `edition` has been explicitly set.
   var hasEdition: Bool {return self._edition != nil}
   /// Clears the value of `edition`. Subsequent reads from it will return its default value.
   mutating func clearEdition() {self._edition = nil}
-
-  /// The edition of the proto file.
-  var editionEnum: Google_Protobuf_Edition {
-    get {return _editionEnum ?? .unknown}
-    set {_editionEnum = newValue}
-  }
-  /// Returns true if `editionEnum` has been explicitly set.
-  var hasEditionEnum: Bool {return self._editionEnum != nil}
-  /// Clears the value of `editionEnum`. Subsequent reads from it will return its default value.
-  mutating func clearEditionEnum() {self._editionEnum = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -240,8 +247,7 @@ struct Google_Protobuf_FileDescriptorProto {
   fileprivate var _options: Google_Protobuf_FileOptions? = nil
   fileprivate var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
   fileprivate var _syntax: String? = nil
-  fileprivate var _edition: String? = nil
-  fileprivate var _editionEnum: Google_Protobuf_Edition? = nil
+  fileprivate var _edition: Google_Protobuf_Edition? = nil
 }
 
 /// Describes a message type.
@@ -420,7 +426,7 @@ struct Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.ExtensibleMessage {
   mutating func clearFeatures() {self._features = nil}
 
   /// The verification state of the range.
-  /// TODO(b/278783756): flip the default to DECLARATION once all empty ranges
+  /// TODO: flip the default to DECLARATION once all empty ranges
   /// are marked as UNVERIFIED.
   var verification: Google_Protobuf_ExtensionRangeOptions.VerificationState {
     get {return _verification ?? .unverified}
@@ -667,12 +673,12 @@ struct Google_Protobuf_FieldDescriptorProto {
   /// If true, this is a proto3 "optional". When a proto3 field is optional, it
   /// tracks presence regardless of field type.
   ///
-  /// When proto3_optional is true, this field must be belong to a oneof to
-  /// signal to old proto3 clients that presence is tracked for this field. This
-  /// oneof is known as a "synthetic" oneof, and this field must be its sole
-  /// member (each proto3 optional field gets its own synthetic oneof). Synthetic
-  /// oneofs exist in the descriptor only, and do not generate any API. Synthetic
-  /// oneofs must be ordered after all "real" oneofs.
+  /// When proto3_optional is true, this field must belong to a oneof to signal
+  /// to old proto3 clients that presence is tracked for this field. This oneof
+  /// is known as a "synthetic" oneof, and this field must be its sole member
+  /// (each proto3 optional field gets its own synthetic oneof). Synthetic oneofs
+  /// exist in the descriptor only, and do not generate any API. Synthetic oneofs
+  /// must be ordered after all "real" oneofs.
   ///
   /// For message fields, proto3_optional doesn't create any semantic change,
   /// since non-repeated message fields always track presence. However it still
@@ -718,9 +724,10 @@ struct Google_Protobuf_FieldDescriptorProto {
     case string // = 9
 
     /// Tag-delimited aggregate.
-    /// Group type is deprecated and not supported in proto3. However, Proto3
+    /// Group type is deprecated and not supported after google.protobuf. However, Proto3
     /// implementations should still be able to parse the group wire format and
-    /// treat group fields as unknown fields.
+    /// treat group fields as unknown fields.  In Editions, the group wire format
+    /// can be enabled via the `message_encoding` feature.
     case group // = 10
 
     /// Length-delimited aggregate.
@@ -797,8 +804,12 @@ struct Google_Protobuf_FieldDescriptorProto {
 
     /// 0 is reserved for errors
     case `optional` // = 1
-    case `required` // = 2
     case repeated // = 3
+
+    /// The required label is only allowed in google.protobuf.  In proto3 and Editions
+    /// it's explicitly prohibited.  In Editions, the `field_presence` feature
+    /// can be used to get this behavior.
+    case `required` // = 2
 
     init() {
       self = .optional
@@ -1526,7 +1537,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   /// This should only be used as a temporary measure against broken builds due
   /// to the change in behavior for JSON field name conflicts.
   ///
-  /// TODO(b/261750190) This is legacy behavior we plan to remove once downstream
+  /// TODO This is legacy behavior we plan to remove once downstream
   /// teams have had time to migrate.
   var deprecatedLegacyJsonFieldConflicts: Bool {
     get {return _deprecatedLegacyJsonFieldConflicts ?? false}
@@ -1587,7 +1598,9 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// a more efficient representation on the wire. Rather than repeatedly
   /// writing the tag and type for each element, the entire array is encoded as
   /// a single length-delimited blob. In proto3, only explicit setting it to
-  /// false will avoid using packed encoding.
+  /// false will avoid using packed encoding.  This option is prohibited in
+  /// Editions, but the `repeated_field_encoding` feature can be used to control
+  /// the behavior.
   var packed: Bool {
     get {return _storage._packed ?? false}
     set {_uniqueStorage()._packed = newValue}
@@ -1903,24 +1916,14 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// TODO(b/297898292) Deprecate and remove this field in favor of enums.
-    var edition: String {
-      get {return _edition ?? String()}
+    var edition: Google_Protobuf_Edition {
+      get {return _edition ?? .unknown}
       set {_edition = newValue}
     }
     /// Returns true if `edition` has been explicitly set.
     var hasEdition: Bool {return self._edition != nil}
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
     mutating func clearEdition() {self._edition = nil}
-
-    var editionEnum: Google_Protobuf_Edition {
-      get {return _editionEnum ?? .unknown}
-      set {_editionEnum = newValue}
-    }
-    /// Returns true if `editionEnum` has been explicitly set.
-    var hasEditionEnum: Bool {return self._editionEnum != nil}
-    /// Clears the value of `editionEnum`. Subsequent reads from it will return its default value.
-    mutating func clearEditionEnum() {self._editionEnum = nil}
 
     /// Textproto value.
     var value: String {
@@ -1936,8 +1939,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
 
     init() {}
 
-    fileprivate var _edition: String? = nil
-    fileprivate var _editionEnum: Google_Protobuf_Edition? = nil
+    fileprivate var _edition: Google_Protobuf_Edition? = nil
     fileprivate var _value: String? = nil
   }
 
@@ -2026,7 +2028,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.ExtensibleMessage {
   /// and strips underscored from the fields before comparison in proto3 only.
   /// The new behavior takes `json_name` into account and applies to proto2 as
   /// well.
-  /// TODO(b/261750190) Remove this legacy behavior once downstream teams have
+  /// TODO Remove this legacy behavior once downstream teams have
   /// had time to migrate.
   var deprecatedLegacyJsonFieldConflicts: Bool {
     get {return _deprecatedLegacyJsonFieldConflicts ?? false}
@@ -2365,7 +2367,7 @@ struct Google_Protobuf_UninterpretedOption {
   fileprivate var _aggregateValue: String? = nil
 }
 
-/// TODO(b/274655146) Enums in C++ gencode (and potentially other languages) are
+/// TODO Enums in C++ gencode (and potentially other languages) are
 /// not well scoped.  This means that each of the feature enums below can clash
 /// with each other.  The short names we've chosen maximize call-site
 /// readability, but leave us very open to this scenario.  A future feature will
@@ -2402,6 +2404,15 @@ struct Google_Protobuf_FeatureSet: SwiftProtobuf.ExtensibleMessage {
   var hasRepeatedFieldEncoding: Bool {return self._repeatedFieldEncoding != nil}
   /// Clears the value of `repeatedFieldEncoding`. Subsequent reads from it will return its default value.
   mutating func clearRepeatedFieldEncoding() {self._repeatedFieldEncoding = nil}
+
+  var utf8Validation: Google_Protobuf_FeatureSet.Utf8Validation {
+    get {return _utf8Validation ?? .unknown}
+    set {_utf8Validation = newValue}
+  }
+  /// Returns true if `utf8Validation` has been explicitly set.
+  var hasUtf8Validation: Bool {return self._utf8Validation != nil}
+  /// Clears the value of `utf8Validation`. Subsequent reads from it will return its default value.
+  mutating func clearUtf8Validation() {self._utf8Validation = nil}
 
   var messageEncoding: Google_Protobuf_FeatureSet.MessageEncoding {
     get {return _messageEncoding ?? .unknown}
@@ -2513,6 +2524,35 @@ struct Google_Protobuf_FeatureSet: SwiftProtobuf.ExtensibleMessage {
 
   }
 
+  enum Utf8Validation: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case unknown // = 0
+    case verify // = 2
+    case none // = 3
+
+    init() {
+      self = .unknown
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unknown
+      case 2: self = .verify
+      case 3: self = .none
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unknown: return 0
+      case .verify: return 2
+      case .none: return 3
+      }
+    }
+
+  }
+
   enum MessageEncoding: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case unknown // = 0
@@ -2577,6 +2617,7 @@ struct Google_Protobuf_FeatureSet: SwiftProtobuf.ExtensibleMessage {
   fileprivate var _fieldPresence: Google_Protobuf_FeatureSet.FieldPresence? = nil
   fileprivate var _enumType: Google_Protobuf_FeatureSet.EnumType? = nil
   fileprivate var _repeatedFieldEncoding: Google_Protobuf_FeatureSet.RepeatedFieldEncoding? = nil
+  fileprivate var _utf8Validation: Google_Protobuf_FeatureSet.Utf8Validation? = nil
   fileprivate var _messageEncoding: Google_Protobuf_FeatureSet.MessageEncoding? = nil
   fileprivate var _jsonFormat: Google_Protobuf_FeatureSet.JsonFormat? = nil
 }
@@ -2592,6 +2633,10 @@ extension Google_Protobuf_FeatureSet.EnumType: CaseIterable {
 }
 
 extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: CaseIterable {
+  // Support synthesized by the compiler.
+}
+
+extension Google_Protobuf_FeatureSet.Utf8Validation: CaseIterable {
   // Support synthesized by the compiler.
 }
 
@@ -2616,9 +2661,10 @@ struct Google_Protobuf_FeatureSetDefaults {
 
   var defaults: [Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault] = []
 
-  /// TODO(b/297898292) Deprecate and remove these fields in favor of enums.
-  var minimumEdition: String {
-    get {return _minimumEdition ?? String()}
+  /// The minimum supported edition (inclusive) when this was constructed.
+  /// Editions before this will not have defaults.
+  var minimumEdition: Google_Protobuf_Edition {
+    get {return _minimumEdition ?? .unknown}
     set {_minimumEdition = newValue}
   }
   /// Returns true if `minimumEdition` has been explicitly set.
@@ -2626,36 +2672,16 @@ struct Google_Protobuf_FeatureSetDefaults {
   /// Clears the value of `minimumEdition`. Subsequent reads from it will return its default value.
   mutating func clearMinimumEdition() {self._minimumEdition = nil}
 
-  var maximumEdition: String {
-    get {return _maximumEdition ?? String()}
+  /// The maximum known edition (inclusive) when this was constructed. Editions
+  /// after this will not have reliable defaults.
+  var maximumEdition: Google_Protobuf_Edition {
+    get {return _maximumEdition ?? .unknown}
     set {_maximumEdition = newValue}
   }
   /// Returns true if `maximumEdition` has been explicitly set.
   var hasMaximumEdition: Bool {return self._maximumEdition != nil}
   /// Clears the value of `maximumEdition`. Subsequent reads from it will return its default value.
   mutating func clearMaximumEdition() {self._maximumEdition = nil}
-
-  /// The minimum supported edition (inclusive) when this was constructed.
-  /// Editions before this will not have defaults.
-  var minimumEditionEnum: Google_Protobuf_Edition {
-    get {return _minimumEditionEnum ?? .unknown}
-    set {_minimumEditionEnum = newValue}
-  }
-  /// Returns true if `minimumEditionEnum` has been explicitly set.
-  var hasMinimumEditionEnum: Bool {return self._minimumEditionEnum != nil}
-  /// Clears the value of `minimumEditionEnum`. Subsequent reads from it will return its default value.
-  mutating func clearMinimumEditionEnum() {self._minimumEditionEnum = nil}
-
-  /// The maximum known edition (inclusive) when this was constructed. Editions
-  /// after this will not have reliable defaults.
-  var maximumEditionEnum: Google_Protobuf_Edition {
-    get {return _maximumEditionEnum ?? .unknown}
-    set {_maximumEditionEnum = newValue}
-  }
-  /// Returns true if `maximumEditionEnum` has been explicitly set.
-  var hasMaximumEditionEnum: Bool {return self._maximumEditionEnum != nil}
-  /// Clears the value of `maximumEditionEnum`. Subsequent reads from it will return its default value.
-  mutating func clearMaximumEditionEnum() {self._maximumEditionEnum = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2668,24 +2694,14 @@ struct Google_Protobuf_FeatureSetDefaults {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// TODO(b/297898292) Deprecate and remove this field in favor of enums.
-    var edition: String {
-      get {return _edition ?? String()}
+    var edition: Google_Protobuf_Edition {
+      get {return _edition ?? .unknown}
       set {_edition = newValue}
     }
     /// Returns true if `edition` has been explicitly set.
     var hasEdition: Bool {return self._edition != nil}
     /// Clears the value of `edition`. Subsequent reads from it will return its default value.
     mutating func clearEdition() {self._edition = nil}
-
-    var editionEnum: Google_Protobuf_Edition {
-      get {return _editionEnum ?? .unknown}
-      set {_editionEnum = newValue}
-    }
-    /// Returns true if `editionEnum` has been explicitly set.
-    var hasEditionEnum: Bool {return self._editionEnum != nil}
-    /// Clears the value of `editionEnum`. Subsequent reads from it will return its default value.
-    mutating func clearEditionEnum() {self._editionEnum = nil}
 
     var features: Google_Protobuf_FeatureSet {
       get {return _features ?? Google_Protobuf_FeatureSet()}
@@ -2700,17 +2716,14 @@ struct Google_Protobuf_FeatureSetDefaults {
 
     init() {}
 
-    fileprivate var _edition: String? = nil
-    fileprivate var _editionEnum: Google_Protobuf_Edition? = nil
+    fileprivate var _edition: Google_Protobuf_Edition? = nil
     fileprivate var _features: Google_Protobuf_FeatureSet? = nil
   }
 
   init() {}
 
-  fileprivate var _minimumEdition: String? = nil
-  fileprivate var _maximumEdition: String? = nil
-  fileprivate var _minimumEditionEnum: Google_Protobuf_Edition? = nil
-  fileprivate var _maximumEditionEnum: Google_Protobuf_Edition? = nil
+  fileprivate var _minimumEdition: Google_Protobuf_Edition? = nil
+  fileprivate var _maximumEdition: Google_Protobuf_Edition? = nil
 }
 
 /// Encapsulates information about the original source file from which a
@@ -3045,6 +3058,7 @@ extension Google_Protobuf_FeatureSet: @unchecked Sendable {}
 extension Google_Protobuf_FeatureSet.FieldPresence: @unchecked Sendable {}
 extension Google_Protobuf_FeatureSet.EnumType: @unchecked Sendable {}
 extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: @unchecked Sendable {}
+extension Google_Protobuf_FeatureSet.Utf8Validation: @unchecked Sendable {}
 extension Google_Protobuf_FeatureSet.MessageEncoding: @unchecked Sendable {}
 extension Google_Protobuf_FeatureSet.JsonFormat: @unchecked Sendable {}
 extension Google_Protobuf_FeatureSetDefaults: @unchecked Sendable {}
@@ -3065,10 +3079,13 @@ extension Google_Protobuf_Edition: SwiftProtobuf._ProtoNameProviding {
     0: .same(proto: "EDITION_UNKNOWN"),
     1: .same(proto: "EDITION_1_TEST_ONLY"),
     2: .same(proto: "EDITION_2_TEST_ONLY"),
+    998: .same(proto: "EDITION_PROTO2"),
+    999: .same(proto: "EDITION_PROTO3"),
     1000: .same(proto: "EDITION_2023"),
     99997: .same(proto: "EDITION_99997_TEST_ONLY"),
     99998: .same(proto: "EDITION_99998_TEST_ONLY"),
     99999: .same(proto: "EDITION_99999_TEST_ONLY"),
+    2147483647: .same(proto: "EDITION_MAX"),
   ]
 }
 
@@ -3124,8 +3141,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     8: .same(proto: "options"),
     9: .standard(proto: "source_code_info"),
     12: .same(proto: "syntax"),
-    13: .same(proto: "edition"),
-    14: .standard(proto: "edition_enum"),
+    14: .same(proto: "edition"),
   ]
 
   public var isInitialized: Bool {
@@ -3155,8 +3171,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
       case 10: try { try decoder.decodeRepeatedInt32Field(value: &self.publicDependency) }()
       case 11: try { try decoder.decodeRepeatedInt32Field(value: &self.weakDependency) }()
       case 12: try { try decoder.decodeSingularStringField(value: &self._syntax) }()
-      case 13: try { try decoder.decodeSingularStringField(value: &self._edition) }()
-      case 14: try { try decoder.decodeSingularEnumField(value: &self._editionEnum) }()
+      case 14: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
       default: break
       }
     }
@@ -3204,9 +3219,6 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
       try visitor.visitSingularStringField(value: v, fieldNumber: 12)
     } }()
     try { if let v = self._edition {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 13)
-    } }()
-    try { if let v = self._editionEnum {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 14)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -3226,7 +3238,6 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProto
     if lhs._sourceCodeInfo != rhs._sourceCodeInfo {return false}
     if lhs._syntax != rhs._syntax {return false}
     if lhs._edition != rhs._edition {return false}
-    if lhs._editionEnum != rhs._editionEnum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4636,8 +4647,7 @@ extension Google_Protobuf_FieldOptions.OptionTargetType: SwiftProtobuf._ProtoNam
 extension Google_Protobuf_FieldOptions.EditionDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FieldOptions.protoMessageName + ".EditionDefault"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "edition"),
-    3: .standard(proto: "edition_enum"),
+    3: .same(proto: "edition"),
     2: .same(proto: "value"),
   ]
 
@@ -4647,9 +4657,8 @@ extension Google_Protobuf_FieldOptions.EditionDefault: SwiftProtobuf.Message, Sw
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self._edition) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self._value) }()
-      case 3: try { try decoder.decodeSingularEnumField(value: &self._editionEnum) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
       default: break
       }
     }
@@ -4660,13 +4669,10 @@ extension Google_Protobuf_FieldOptions.EditionDefault: SwiftProtobuf.Message, Sw
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._edition {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
     try { if let v = self._value {
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
     } }()
-    try { if let v = self._editionEnum {
+    try { if let v = self._edition {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -4674,7 +4680,6 @@ extension Google_Protobuf_FieldOptions.EditionDefault: SwiftProtobuf.Message, Sw
 
   static func ==(lhs: Google_Protobuf_FieldOptions.EditionDefault, rhs: Google_Protobuf_FieldOptions.EditionDefault) -> Bool {
     if lhs._edition != rhs._edition {return false}
-    if lhs._editionEnum != rhs._editionEnum {return false}
     if lhs._value != rhs._value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -5133,6 +5138,7 @@ extension Google_Protobuf_FeatureSet: SwiftProtobuf.Message, SwiftProtobuf._Mess
     1: .standard(proto: "field_presence"),
     2: .standard(proto: "enum_type"),
     3: .standard(proto: "repeated_field_encoding"),
+    4: .standard(proto: "utf8_validation"),
     5: .standard(proto: "message_encoding"),
     6: .standard(proto: "json_format"),
   ]
@@ -5151,6 +5157,7 @@ extension Google_Protobuf_FeatureSet: SwiftProtobuf.Message, SwiftProtobuf._Mess
       case 1: try { try decoder.decodeSingularEnumField(value: &self._fieldPresence) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self._enumType) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self._repeatedFieldEncoding) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._utf8Validation) }()
       case 5: try { try decoder.decodeSingularEnumField(value: &self._messageEncoding) }()
       case 6: try { try decoder.decodeSingularEnumField(value: &self._jsonFormat) }()
       case 1000..<1002, 9995..<10000:
@@ -5174,6 +5181,9 @@ extension Google_Protobuf_FeatureSet: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try { if let v = self._repeatedFieldEncoding {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
     } }()
+    try { if let v = self._utf8Validation {
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+    } }()
     try { if let v = self._messageEncoding {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
     } }()
@@ -5188,6 +5198,7 @@ extension Google_Protobuf_FeatureSet: SwiftProtobuf.Message, SwiftProtobuf._Mess
     if lhs._fieldPresence != rhs._fieldPresence {return false}
     if lhs._enumType != rhs._enumType {return false}
     if lhs._repeatedFieldEncoding != rhs._repeatedFieldEncoding {return false}
+    if lhs._utf8Validation != rhs._utf8Validation {return false}
     if lhs._messageEncoding != rhs._messageEncoding {return false}
     if lhs._jsonFormat != rhs._jsonFormat {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -5221,6 +5232,14 @@ extension Google_Protobuf_FeatureSet.RepeatedFieldEncoding: SwiftProtobuf._Proto
   ]
 }
 
+extension Google_Protobuf_FeatureSet.Utf8Validation: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UTF8_VALIDATION_UNKNOWN"),
+    2: .same(proto: "VERIFY"),
+    3: .same(proto: "NONE"),
+  ]
+}
+
 extension Google_Protobuf_FeatureSet.MessageEncoding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MESSAGE_ENCODING_UNKNOWN"),
@@ -5241,10 +5260,8 @@ extension Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtob
   static let protoMessageName: String = _protobuf_package + ".FeatureSetDefaults"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "defaults"),
-    2: .standard(proto: "minimum_edition"),
-    3: .standard(proto: "maximum_edition"),
-    4: .standard(proto: "minimum_edition_enum"),
-    5: .standard(proto: "maximum_edition_enum"),
+    4: .standard(proto: "minimum_edition"),
+    5: .standard(proto: "maximum_edition"),
   ]
 
   public var isInitialized: Bool {
@@ -5259,10 +5276,8 @@ extension Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtob
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.defaults) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self._minimumEdition) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self._maximumEdition) }()
-      case 4: try { try decoder.decodeSingularEnumField(value: &self._minimumEditionEnum) }()
-      case 5: try { try decoder.decodeSingularEnumField(value: &self._maximumEditionEnum) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self._minimumEdition) }()
+      case 5: try { try decoder.decodeSingularEnumField(value: &self._maximumEdition) }()
       default: break
       }
     }
@@ -5277,15 +5292,9 @@ extension Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtob
       try visitor.visitRepeatedMessageField(value: self.defaults, fieldNumber: 1)
     }
     try { if let v = self._minimumEdition {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._maximumEdition {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._minimumEditionEnum {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
     } }()
-    try { if let v = self._maximumEditionEnum {
+    try { if let v = self._maximumEdition {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -5295,8 +5304,6 @@ extension Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtob
     if lhs.defaults != rhs.defaults {return false}
     if lhs._minimumEdition != rhs._minimumEdition {return false}
     if lhs._maximumEdition != rhs._maximumEdition {return false}
-    if lhs._minimumEditionEnum != rhs._minimumEditionEnum {return false}
-    if lhs._maximumEditionEnum != rhs._maximumEditionEnum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -5305,8 +5312,7 @@ extension Google_Protobuf_FeatureSetDefaults: SwiftProtobuf.Message, SwiftProtob
 extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Google_Protobuf_FeatureSetDefaults.protoMessageName + ".FeatureSetEditionDefault"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "edition"),
-    3: .standard(proto: "edition_enum"),
+    3: .same(proto: "edition"),
     2: .same(proto: "features"),
   ]
 
@@ -5321,9 +5327,8 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: SwiftProt
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self._edition) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._features) }()
-      case 3: try { try decoder.decodeSingularEnumField(value: &self._editionEnum) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self._edition) }()
       default: break
       }
     }
@@ -5334,13 +5339,10 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: SwiftProt
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._edition {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
     try { if let v = self._features {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     } }()
-    try { if let v = self._editionEnum {
+    try { if let v = self._edition {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
     } }()
     try unknownFields.traverse(visitor: &visitor)
@@ -5348,7 +5350,6 @@ extension Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault: SwiftProt
 
   static func ==(lhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault, rhs: Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault) -> Bool {
     if lhs._edition != rhs._edition {return false}
-    if lhs._editionEnum != rhs._editionEnum {return false}
     if lhs._features != rhs._features {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
