@@ -28,7 +28,7 @@ extension Message {
   public func jsonString(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> String {
-    if let m = self as? _CustomJSONCodable {
+    if let m = self as? (any _CustomJSONCodable) {
       return try m.encodedJSONString(options: options)
     }
     let data: [UInt8] = try jsonUTF8Bytes(options: options)
@@ -47,7 +47,7 @@ extension Message {
   public func jsonUTF8Bytes<Bytes: SwiftProtobufContiguousBytes>(
     options: JSONEncodingOptions = JSONEncodingOptions()
   ) throws -> Bytes {
-    if let m = self as? _CustomJSONCodable {
+    if let m = self as? (any _CustomJSONCodable) {
       let string = try m.encodedJSONString(options: options)
       return Bytes(string.utf8)
     }
@@ -80,7 +80,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonString: String,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     if jsonString.isEmpty {
@@ -119,7 +119,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init<Bytes: SwiftProtobufContiguousBytes>(
     jsonUTF8Bytes: Bytes,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws {
     self.init()
@@ -131,7 +131,7 @@ extension Message {
       var decoder = JSONDecoder(source: body, options: options,
                                 messageType: Self.self, extensions: extensions)
       if decoder.scanner.skipOptionalNull() {
-        if let customCodable = Self.self as? _CustomJSONCodable.Type,
+        if let customCodable = Self.self as? any _CustomJSONCodable.Type,
            let message = try customCodable.decodedFromJSONNull() {
           self = message as! Self
         } else {

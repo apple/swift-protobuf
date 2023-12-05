@@ -84,8 +84,8 @@ func buildResponse(serializedBytes: [UInt8]) -> Conformance_ConformanceResponse 
         return response
     }
 
-    let msgType: SwiftProtobuf.Message.Type
-    let extensions: SwiftProtobuf.ExtensionMap
+    let msgType: any SwiftProtobuf.Message.Type
+    let extensions: any SwiftProtobuf.ExtensionMap
     switch request.messageType {
     case "":
         // Note: This case is here to cover using a old version of the conformance test
@@ -102,7 +102,7 @@ func buildResponse(serializedBytes: [UInt8]) -> Conformance_ConformanceResponse 
         return response
     }
 
-    let testMessage: SwiftProtobuf.Message
+    let testMessage: any SwiftProtobuf.Message
     switch request.payload {
     case .protobufPayload(let data)?:
         do {

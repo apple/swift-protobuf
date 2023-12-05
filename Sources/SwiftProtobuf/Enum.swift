@@ -49,7 +49,7 @@ extension Enum {
   /// Since the text format and JSON names are always identical, we don't need
   /// to distinguish them.
   internal var name: _NameMap.Name? {
-    guard let nameProviding = Self.self as? _ProtoNameProviding.Type else {
+    guard let nameProviding = Self.self as? any _ProtoNameProviding.Type else {
       return nil
     }
     return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
@@ -63,7 +63,7 @@ extension Enum {
   ///
   /// - Parameter name: The name of the enum case.
   internal init?(name: String) {
-    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
+    guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
       let number = nameProviding._protobuf_nameMap.number(forJSONName: name) else {
       return nil
     }
@@ -78,7 +78,7 @@ extension Enum {
   ///
   /// - Parameter name: Buffer holding the UTF-8 bytes of the desired name.
   internal init?(rawUTF8: UnsafeRawBufferPointer) {
-    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
+    guard let nameProviding = Self.self as? any _ProtoNameProviding.Type,
       let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8) else {
       return nil
     }

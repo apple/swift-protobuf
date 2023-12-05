@@ -37,9 +37,9 @@ public protocol CodeGenerator {
   ///       to the user attempting to generate sources.
   func generate(
     files: [FileDescriptor],
-    parameter: CodeGeneratorParameter,
-    protoCompilerContext: ProtoCompilerContext,
-    generatorOutputs: GeneratorOutputs) throws
+    parameter: any CodeGeneratorParameter,
+    protoCompilerContext: any ProtoCompilerContext,
+    generatorOutputs: any GeneratorOutputs) throws
 
   /// The list of features this CodeGenerator support to be reported back to
   /// the protocol buffer compiler.
@@ -161,7 +161,7 @@ extension CodeGenerator {
 ///    generation.
 public func generateCode(
   request: Google_Protobuf_Compiler_CodeGeneratorRequest,
-  generator: CodeGenerator
+  generator: any CodeGenerator
 ) -> Google_Protobuf_Compiler_CodeGeneratorResponse {
   // TODO: This will need update to support editions and language specific features.
 

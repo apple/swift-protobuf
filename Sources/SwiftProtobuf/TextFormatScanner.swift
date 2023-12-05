@@ -232,7 +232,7 @@ private func decodeString(_ s: String) -> String? {
 /// TextFormatScanner has no public members.
 ///
 internal struct TextFormatScanner {
-    internal var extensions: ExtensionMap?
+    internal var extensions: (any ExtensionMap)?
     private var p: UnsafeRawPointer
     private var end: UnsafeRawPointer
     private var doubleParser = DoubleParser()
@@ -250,7 +250,7 @@ internal struct TextFormatScanner {
       utf8Pointer: UnsafeRawPointer,
       count: Int,
       options: TextFormatDecodingOptions,
-      extensions: ExtensionMap? = nil
+      extensions: (any ExtensionMap)? = nil
     ) {
         p = utf8Pointer
         end = p + count

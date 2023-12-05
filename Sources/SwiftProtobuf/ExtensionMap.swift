@@ -24,7 +24,7 @@
 /// standard `SimpleExtensionMap` implementation.
 public protocol ExtensionMap: Sendable {
     /// Returns the extension object describing an extension or nil
-    subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? { get }
+    subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? { get }
 
     /// Returns the field number for a message with a specific field name
     ///
@@ -34,5 +34,5 @@ public protocol ExtensionMap: Sendable {
     /// for the proto file and `message` is the name of the message in
     /// which the extension was defined. (This is different from the
     /// message that is being extended!)
-    func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int?
+    func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int?
 }

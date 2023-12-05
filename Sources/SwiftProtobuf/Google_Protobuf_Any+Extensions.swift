@@ -38,7 +38,7 @@ extension Google_Protobuf_Any {
   /// - Throws: `BinaryEncodingError.missingRequiredFields` if `partial` is
   ///     false and `message` wasn't fully initialized.
   public init(
-    message: Message,
+    message: any Message,
     partial: Bool = false,
     typePrefix: String = defaultAnyTypeURLPrefix
   ) throws {
@@ -63,7 +63,7 @@ extension Google_Protobuf_Any {
   public init(
     textFormatString: String,
     options: TextFormatDecodingOptions = TextFormatDecodingOptions(),
-    extensions: ExtensionMap? = nil
+    extensions: (any ExtensionMap)? = nil
   ) throws {
     self.init()
     if !textFormatString.isEmpty {

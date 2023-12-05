@@ -16,14 +16,14 @@
 import Foundation
 
 fileprivate func serializeAnyJSON(
-  for message: Message,
+  for message: any Message,
   typeURL: String,
   options: JSONEncodingOptions
 ) throws -> String {
   var visitor = try JSONEncodingVisitor(type: type(of: message), options: options)
   visitor.startObject(message: message)
   visitor.encodeField(name: "@type", stringValue: typeURL)
-  if let m = message as? _CustomJSONCodable {
+  if let m = message as? (any _CustomJSONCodable) {
     let value = try m.encodedJSONString(options: options)
     visitor.encodeField(name: "value", jsonText: value)
   } else {
@@ -33,7 +33,7 @@ fileprivate func serializeAnyJSON(
   return visitor.stringResult
 }
 
-fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
+fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: any Message, typeURL: String) {
   let url: String
   if typeURL.isEmpty {
     url = buildTypeURL(forMessage: message, typePrefix: defaultAnyTypeURLPrefix)
@@ -53,10 +53,10 @@ fileprivate func asJSONObject(body: [UInt8]) -> Data {
 }
 
 fileprivate func unpack(contentJSON: [UInt8],
-                        extensions: ExtensionMap,
+                        extensions: any ExtensionMap,
                         options: JSONDecodingOptions,
-                        as messageType: Message.Type) throws -> Message {
-  guard messageType is _CustomJSONCodable.Type else {
+                        as messageType: any Message.Type) throws -> any Message {
+  guard messageType is any _CustomJSONCodable.Type else {
     let contentJSONAsObject = asJSONObject(body: contentJSON)
     return try messageType.init(jsonUTF8Bytes: contentJSONAsObject, extensions: extensions, options: options)
   }
@@ -135,7 +135,7 @@ internal class AnyMessageStorage {
     // unpacking that takes new options when a developer decides to decode it.
     case binary(Data)
     // a message
-    case message(Message)
+    case message(any Message)
     // parsed JSON with the @type removed and the decoding options.
     case contentJSON([UInt8], JSONDecodingOptions)
   }
@@ -162,7 +162,7 @@ internal class AnyMessageStorage {
   // replaced during the unpacking and never as a merge.
   func unpackTo<M: Message>(
     target: inout M,
-    extensions: ExtensionMap?,
+    extensions: (any ExtensionMap)?,
     options: BinaryDecodingOptions
   ) throws {
     guard isA(M.self) else {

@@ -32,14 +32,14 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format.
-  init(message: Message, options: TextFormatEncodingOptions) {
+  init(message: any Message, options: TextFormatEncodingOptions) {
     let nameMap: _NameMap?
-    if let nameProviding = message as? _ProtoNameProviding {
+    if let nameProviding = message as? (any _ProtoNameProviding) {
         nameMap = type(of: nameProviding)._protobuf_nameMap
     } else {
         nameMap = nil
     }
-    let extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+    let extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
 
     self.nameMap = nameMap
     self.nameResolver = [:]
@@ -270,9 +270,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
       let oldNameResolver = self.nameResolver
       let oldExtensions = self.extensions
       // Update configuration for new message
-      self.nameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap
+    self.nameMap = (M.self as? any _ProtoNameProviding.Type)?._protobuf_nameMap
       self.nameResolver = [:]
-      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+    self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
       // Encode submessage
       encoder.startMessageField()
       if let any = value as? Google_Protobuf_Any {
@@ -290,7 +290,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // Emit the full "verbose" form of an Any.  This writes the typeURL
   // as a field name in `[...]` followed by the fields of the
   // contained message.
-  internal mutating func visitAnyVerbose(value: Message, typeURL: String) {
+  internal mutating func visitAnyVerbose(value: any Message, typeURL: String) {
       encoder.emitExtensionFieldName(name: typeURL)
       encoder.startMessageField()
 
@@ -299,9 +299,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
       let oldNameResolver = self.nameResolver
       let oldExtensions = self.extensions
       // Update configuration for new message
-      self.nameMap = (type(of: value) as? _ProtoNameProviding.Type)?._protobuf_nameMap
+    self.nameMap = (type(of: value) as? any _ProtoNameProviding.Type)?._protobuf_nameMap
       self.nameResolver = [:]
-      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+    self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
 
       if let any = value as? Google_Protobuf_Any {
           any.textTraverse(visitor: &self)
@@ -470,9 +470,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
       let oldNameResolver = self.nameResolver
       let oldExtensions = self.extensions
       // Update encoding state for new message type
-      self.nameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap
+    self.nameMap = (M.self as? any _ProtoNameProviding.Type)?._protobuf_nameMap
       self.nameResolver = [:]
-      self.extensions = (value as? ExtensibleMessage)?._protobuf_extensionFieldValues
+    self.extensions = (value as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
       // Iterate and encode each message
       for v in value {
           encoder.emitFieldName(name: fieldName)

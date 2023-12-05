@@ -34,7 +34,7 @@ extension AsyncSequence where Element == UInt8 {
   @inlinable
   public func binaryProtobufDelimitedMessages<M: Message>(
     of messageType: M.Type = M.self,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) -> AsyncMessageSequence<Self, M> {
@@ -58,7 +58,7 @@ public struct AsyncMessageSequence<
   public typealias Element = M
 
   private let base: Base
-  private let extensions: ExtensionMap?
+  private let extensions: (any ExtensionMap)?
   private let partial: Bool
   private let options: BinaryDecodingOptions
 
@@ -80,7 +80,7 @@ public struct AsyncMessageSequence<
   ///           messages.
   public init(
     base: Base,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) {
@@ -95,7 +95,7 @@ public struct AsyncMessageSequence<
     @usableFromInline
     var iterator: Base.AsyncIterator?
     @usableFromInline
-    let extensions: ExtensionMap?
+    let extensions: (any ExtensionMap)?
     @usableFromInline
     let partial: Bool
     @usableFromInline
@@ -103,7 +103,7 @@ public struct AsyncMessageSequence<
 
     init(
       iterator: Base.AsyncIterator,
-      extensions: ExtensionMap?,
+      extensions: (any ExtensionMap)?,
       partial: Bool,
       options: BinaryDecodingOptions
     ) {

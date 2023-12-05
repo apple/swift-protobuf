@@ -15,7 +15,7 @@
 // -----------------------------------------------------------------------------
 
 public struct ExtensionFieldValueSet: Hashable, Sendable {
-  fileprivate var values = [Int : AnyExtensionField]()
+  fileprivate var values = [Int : any AnyExtensionField]()
 
   public static func ==(lhs: ExtensionFieldValueSet,
                         rhs: ExtensionFieldValueSet) -> Bool {
@@ -62,12 +62,12 @@ public struct ExtensionFieldValueSet: Hashable, Sendable {
     }
   }
 
-  public subscript(index: Int) -> AnyExtensionField? {
+  public subscript(index: Int) -> (any AnyExtensionField)? {
     get { return values[index] }
     set { values[index] = newValue }
   }
 
-  mutating func modify<ReturnType>(index: Int, _ modifier: (inout AnyExtensionField?) throws -> ReturnType) rethrows -> ReturnType {
+  mutating func modify<ReturnType>(index: Int, _ modifier: (inout (any AnyExtensionField)?) throws -> ReturnType) rethrows -> ReturnType {
     // This internal helper exists to invoke the _modify accessor on Dictionary for the given operation, which can avoid CoWs
     // during the modification operation.
     return try modifier(&values[index])

@@ -16,7 +16,7 @@ import Foundation
 
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
-  internal var messageType: Message.Type
+  internal var messageType: any Message.Type
   private var fieldCount = 0
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
@@ -30,14 +30,14 @@ internal struct JSONDecoder: Decoder {
   }
 
   internal init(source: UnsafeRawBufferPointer, options: JSONDecodingOptions,
-                messageType: Message.Type, extensions: ExtensionMap?) {
+                messageType: any Message.Type, extensions: (any ExtensionMap)?) {
     let scanner = JSONScanner(source: source,
                                options: options,
                                extensions: extensions)
     self.init(scanner: scanner, messageType: messageType)
   }
 
-  private init(scanner: JSONScanner, messageType: Message.Type) {
+  private init(scanner: JSONScanner, messageType: any Message.Type) {
     self.scanner = scanner
     self.messageType = messageType
   }
@@ -469,7 +469,7 @@ internal struct JSONDecoder: Decoder {
   mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
-      if let customDecodable = E.self as? _CustomJSONCodable.Type {
+      if let customDecodable = E.self as? any _CustomJSONCodable.Type {
         value = try customDecodable.decodedFromJSONNull() as? E
         return
       }
@@ -485,7 +485,7 @@ internal struct JSONDecoder: Decoder {
   mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
-      if let customDecodable = E.self as? _CustomJSONCodable.Type {
+      if let customDecodable = E.self as? any _CustomJSONCodable.Type {
         value = try customDecodable.decodedFromJSONNull() as! E
         return
       }
@@ -507,7 +507,7 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
-    let maybeCustomDecodable = E.self as? _CustomJSONCodable.Type
+    let maybeCustomDecodable = E.self as? any _CustomJSONCodable.Type
     while true {
       if scanner.skipOptionalNull() {
         if let customDecodable = maybeCustomDecodable {
@@ -529,11 +529,11 @@ internal struct JSONDecoder: Decoder {
   }
 
   internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
-    guard let nameProviding = (M.self as? _ProtoNameProviding.Type) else {
+    guard let nameProviding = (M.self as? any _ProtoNameProviding.Type) else {
       throw JSONDecodingError.missingFieldNames
     }
     fieldNameMap = nameProviding._protobuf_nameMap
-    if let m = message as? _CustomJSONCodable {
+    if let m = message as? (any _CustomJSONCodable) {
       var customCodable = m
       try customCodable.decodeJSON(from: &self)
       message = customCodable as! M
@@ -548,9 +548,9 @@ internal struct JSONDecoder: Decoder {
 
   mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
     if scanner.skipOptionalNull() {
-      if M.self is _CustomJSONCodable.Type {
+      if M.self is any _CustomJSONCodable.Type {
         value =
-          try (M.self as! _CustomJSONCodable.Type).decodedFromJSONNull() as? M
+        try (M.self as! any _CustomJSONCodable.Type).decodedFromJSONNull() as? M
         return
       }
       // All other message field types treat 'null' as an unset
@@ -579,8 +579,8 @@ internal struct JSONDecoder: Decoder {
     while true {
       if scanner.skipOptionalNull() {
         var appended = false
-        if M.self is _CustomJSONCodable.Type {
-          if let message = try (M.self as! _CustomJSONCodable.Type)
+        if M.self is any _CustomJSONCodable.Type {
+          if let message = try (M.self as! any _CustomJSONCodable.Type)
             .decodedFromJSONNull() as? M {
             value.append(message)
             appended = true
@@ -730,7 +730,7 @@ internal struct JSONDecoder: Decoder {
 
   mutating func decodeExtensionField(
     values: inout ExtensionFieldValueSet,
-    messageType: Message.Type,
+    messageType: any Message.Type,
     fieldNumber: Int
   ) throws {
     // Force-unwrap: we can only get here if the extension exists.

@@ -44,7 +44,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONUTF8Data jsonUTF8Data: Data,
-    extensions: ExtensionMap = SimpleExtensionMap(),
+    extensions: any ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     return try array(fromJSONUTF8Bytes: jsonUTF8Data,
