@@ -18,11 +18,11 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
     public typealias Element = AnyMessageExtension
 
     // Since type objects aren't Hashable, we can't do much better than this...
-    internal var fields = [Int: Array<AnyMessageExtension>]()
+    internal var fields = [Int: Array<any AnyMessageExtension>]()
 
     public init() {}
 
-    public init(arrayLiteral: Element...) {
+    public init(arrayLiteral: any Element...) {
         insert(contentsOf: arrayLiteral)
     }
 
@@ -32,7 +32,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
       }
     }
 
-    public subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? {
+    public subscript(messageType: any Message.Type, fieldNumber: Int) -> (any AnyMessageExtension)? {
         get {
             if let l = fields[fieldNumber] {
                 for e in l {
@@ -45,7 +45,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
         }
     }
 
-    public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
+    public func fieldNumberForProto(messageType: any Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
             for e in list {
@@ -57,7 +57,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
         return nil
     }
 
-    public mutating func insert(_ newValue: Element) {
+    public mutating func insert(_ newValue: any Element) {
         let fieldNumber = newValue.fieldNumber
         if let l = fields[fieldNumber] {
             let messageType = newValue.messageType
@@ -69,7 +69,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral {
         }
     }
 
-    public mutating func insert(contentsOf: [Element]) {
+    public mutating func insert(contentsOf: [any Element]) {
         for e in contentsOf {
             insert(e)
         }

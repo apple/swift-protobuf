@@ -109,7 +109,7 @@ public protocol Message: _CommonMessageConformances {
   /// Helper to compare `Message`s when not having a specific type to use
   /// normal `Equatable`. `Equatable` is provided with specific generated
   /// types.
-  func isEqualTo(message: Message) -> Bool
+  func isEqualTo(message: any Message) -> Bool
 }
 
 #if DEBUG
@@ -189,7 +189,7 @@ public protocol _MessageImplementationBase: Message, Hashable {
 }
 
 extension _MessageImplementationBase {
-  public func isEqualTo(message: Message) -> Bool {
+  public func isEqualTo(message: any Message) -> Bool {
     guard let other = message as? Self else {
       return false
     }

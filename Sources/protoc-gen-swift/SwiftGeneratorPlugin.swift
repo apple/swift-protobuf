@@ -25,9 +25,9 @@ struct SwiftGeneratorPlugin: CodeGenerator {
 
   func generate(
     files: [SwiftProtobufPluginLibrary.FileDescriptor],
-    parameter: CodeGeneratorParameter,
-    protoCompilerContext: SwiftProtobufPluginLibrary.ProtoCompilerContext,
-    generatorOutputs: SwiftProtobufPluginLibrary.GeneratorOutputs
+    parameter: any CodeGeneratorParameter,
+    protoCompilerContext: any SwiftProtobufPluginLibrary.ProtoCompilerContext,
+    generatorOutputs: any SwiftProtobufPluginLibrary.GeneratorOutputs
   ) throws {
     let options = try GeneratorOptions(parameter: parameter)
 
@@ -54,7 +54,7 @@ struct SwiftGeneratorPlugin: CodeGenerator {
   var copyrightLine: String? { return "\(Version.copyright)" }
   var projectURL: String? { return "https://github.com/apple/swift-protobuf" }
 
-  private func auditProtoCVersion(context: SwiftProtobufPluginLibrary.ProtoCompilerContext) {
+  private func auditProtoCVersion(context: any SwiftProtobufPluginLibrary.ProtoCompilerContext) {
     guard context.version != nil else {
       Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
       return

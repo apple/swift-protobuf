@@ -91,7 +91,7 @@ extension Message {
   @inlinable
   public init<Bytes: SwiftProtobufContiguousBytes>(
     serializedBytes bytes: Bytes,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
@@ -121,7 +121,7 @@ extension Message {
   @inlinable
   public mutating func merge<Bytes: SwiftProtobufContiguousBytes>(
     serializedBytes bytes: Bytes,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
@@ -137,7 +137,7 @@ extension Message {
   @usableFromInline
   internal mutating func _merge(
     rawBuffer body: UnsafeRawBufferPointer,
-    extensions: ExtensionMap?,
+    extensions: (any ExtensionMap)?,
     partial: Bool,
     options: BinaryDecodingOptions
   ) throws {

@@ -18,7 +18,7 @@ import XCTest
 
 extension AnyMessageExtension {
   // Support equality to simplify testing of getting the correct errors.
-  func isEqual(_ other: AnyMessageExtension) -> Bool {
+  func isEqual(_ other: any AnyMessageExtension) -> Bool {
     return (fieldNumber == other.fieldNumber &&
       fieldName == other.fieldName &&
       messageType == other.messageType)
@@ -51,9 +51,9 @@ let ext4 = MessageExtension<OptionalExtensionField<ProtobufBool>, SwiftProtoTest
 
 
 final class Test_SimpleExtensionMap: XCTestCase {
-  func assert(map: SimpleExtensionMap, contains: [AnyMessageExtension], line: UInt = #line) {
+  func assert(map: SimpleExtensionMap, contains: [any AnyMessageExtension], line: UInt = #line) {
     // Extact what it constaings.
-    var includes = [AnyMessageExtension]()
+    var includes = [any AnyMessageExtension]()
     for (_, l) in map.fields {
       for e in l {
         includes.append(e)

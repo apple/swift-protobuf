@@ -33,7 +33,7 @@ extension Message {
   @inlinable
   public init(
     serializedData data: Data,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
@@ -63,7 +63,7 @@ extension Message {
   @inlinable
   public mutating func merge(
     serializedData data: Data,
-    extensions: ExtensionMap? = nil,
+    extensions: (any ExtensionMap)? = nil,
     partial: Bool = false,
     options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {

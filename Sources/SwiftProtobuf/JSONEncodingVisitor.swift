@@ -34,8 +34,8 @@ internal struct JSONEncodingVisitor: Visitor {
 
   /// Creates a new visitor for serializing a message of the given type to JSON
   /// format.
-  init(type: Message.Type, options: JSONEncodingOptions) throws {
-    if let nameProviding = type as? _ProtoNameProviding.Type {
+  init(type: any Message.Type, options: JSONEncodingOptions) throws {
+    if let nameProviding = type as? any _ProtoNameProviding.Type {
       self.nameMap = nameProviding._protobuf_nameMap
     } else {
       throw JSONEncodingError.missingFieldNames
@@ -51,13 +51,13 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.endArray()
   }
 
-  mutating func startObject(message: Message) {
-    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+  mutating func startObject(message: any Message) {
+    self.extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
     encoder.startObject()
   }
 
-  mutating func startArrayObject(message: Message) {
-    self.extensions = (message as? ExtensibleMessage)?._protobuf_extensionFieldValues
+  mutating func startArrayObject(message: any Message) {
+    self.extensions = (message as? (any ExtensibleMessage))?._protobuf_extensionFieldValues
     encoder.startArrayObject()
   }
 
@@ -159,7 +159,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    if let e = value as? _CustomJSONCodable {
+    if let e = value as? (any _CustomJSONCodable) {
       let json = try e.encodedJSONString(options: options)
       encoder.append(text: json)
     } else if !options.alwaysPrintEnumsAsInts, let n = value.name {
@@ -171,10 +171,10 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    if let m = value as? _CustomJSONCodable {
+    if let m = value as? (any _CustomJSONCodable) {
       let json = try m.encodedJSONString(options: options)
       encoder.append(text: json)
-    } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
+    } else if let newNameMap = (M.self as? any _ProtoNameProviding.Type)?._protobuf_nameMap {
       // Preserve outer object's name and extension maps; restore them before returning
       let oldNameMap = self.nameMap
       let oldExtensions = self.extensions
@@ -296,11 +296,11 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    if let _ = E.self as? _CustomJSONCodable.Type {
+    if let _ = E.self as? any _CustomJSONCodable.Type {
       let options = self.options
       try _visitRepeated(value: value, fieldNumber: fieldNumber) {
         (encoder: inout JSONEncoder, v: E) throws in
-        let e = v as! _CustomJSONCodable
+        let e = v as! (any _CustomJSONCodable)
         let json = try e.encodedJSONString(options: options)
         encoder.append(text: json)
       }
@@ -322,7 +322,7 @@ internal struct JSONEncodingVisitor: Visitor {
     try startField(for: fieldNumber)
     var comma = false
     encoder.startArray()
-    if let _ = M.self as? _CustomJSONCodable.Type {
+    if let _ = M.self as? any _CustomJSONCodable.Type {
       for v in value {
         if comma {
           encoder.comma()
@@ -331,7 +331,7 @@ internal struct JSONEncodingVisitor: Visitor {
         let json = try v.jsonString(options: options)
         encoder.append(text: json)
       }
-    } else if let newNameMap = (M.self as? _ProtoNameProviding.Type)?._protobuf_nameMap {
+    } else if let newNameMap = (M.self as? any _ProtoNameProviding.Type)?._protobuf_nameMap {
       // Preserve name and extension maps for outer object
       let oldNameMap = self.nameMap
       let oldExtensions = self.extensions

@@ -188,7 +188,7 @@ class OneofGenerator {
         }
     }
 
-    func fieldGenerator(forFieldNumber fieldNumber: Int) -> FieldGenerator {
+    func fieldGenerator(forFieldNumber fieldNumber: Int) -> any FieldGenerator {
         for f in fields {
             if f.number == fieldNumber {
                 return f

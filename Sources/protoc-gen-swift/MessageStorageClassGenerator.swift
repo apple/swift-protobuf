@@ -20,10 +20,10 @@ import SwiftProtobuf
 /// Generates the `_StorageClass` used for messages that employ copy-on-write
 /// logic for some of their fields.
 class MessageStorageClassGenerator {
-  private let fields: [FieldGenerator]
+  private let fields: [any FieldGenerator]
 
   /// Creates a new `MessageStorageClassGenerator`.
-  init(fields: [FieldGenerator]) {
+  init(fields: [any FieldGenerator]) {
     self.fields = fields
   }
 

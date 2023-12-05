@@ -374,7 +374,7 @@ internal struct JSONScanner {
   private var index: UnsafeRawBufferPointer.Index
   private var numberParser = DoubleParser()
   internal let options: JSONDecodingOptions
-  internal let extensions: ExtensionMap
+  internal let extensions: any ExtensionMap
   internal var recursionBudget: Int
 
   /// True if the scanner has read all of the data from the source, with the
@@ -400,7 +400,7 @@ internal struct JSONScanner {
   internal init(
     source: UnsafeRawBufferPointer,
     options: JSONDecodingOptions,
-    extensions: ExtensionMap?
+    extensions: (any ExtensionMap)?
   ) {
     self.source = source
     self.index = source.startIndex
@@ -1252,7 +1252,7 @@ internal struct JSONScanner {
   /// it silently skips it.
   internal mutating func nextFieldNumber(
     names: _NameMap,
-    messageType: Message.Type
+    messageType: any Message.Type
   ) throws -> Int? {
     while true {
       var fieldName: String

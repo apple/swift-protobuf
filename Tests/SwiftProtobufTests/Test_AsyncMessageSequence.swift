@@ -229,7 +229,7 @@ final class Test_AsyncMessageSequence: XCTestCase {
       }
   }
 
-  fileprivate func serializedMessageData(messages: [Message]) throws -> [UInt8] {
+  fileprivate func serializedMessageData(messages: [any Message]) throws -> [UInt8] {
     let memoryOutputStream = OutputStream.toMemory()
     memoryOutputStream.open()
     for message in messages {

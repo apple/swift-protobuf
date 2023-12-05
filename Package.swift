@@ -39,30 +39,41 @@ let package = Package(
         name: "SwiftProtobuf",
         exclude: ["CMakeLists.txt"],
         swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
           .enableExperimentalFeature("StrictConcurrency=complete"),
         ]
     ),
     .target(
         name: "SwiftProtobufPluginLibrary",
         dependencies: ["SwiftProtobuf"],
-        exclude: ["CMakeLists.txt"]
+        exclude: ["CMakeLists.txt"],
+        swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
+        ]
     ),
     .target(
         name: "SwiftProtobufTestHelpers",
         dependencies: ["SwiftProtobuf"],
         swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
           .enableExperimentalFeature("StrictConcurrency=complete"),
         ]
     ),
     .executableTarget(
         name: "protoc-gen-swift",
         dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"],
-        exclude: ["CMakeLists.txt"]
+        exclude: ["CMakeLists.txt"],
+        swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny")
+        ]
     ),
     .executableTarget(
         name: "Conformance",
         dependencies: ["SwiftProtobuf"],
-        exclude: ["failure_list_swift.txt", "text_format_failure_list_swift.txt"]
+        exclude: ["failure_list_swift.txt", "text_format_failure_list_swift.txt"],
+        swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
+        ]
     ),
     .plugin(
         name: "SwiftProtobufPlugin",
@@ -75,16 +86,25 @@ let package = Package(
         name: "SwiftProtobufTests",
         dependencies: ["SwiftProtobuf"],
         swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
           .enableExperimentalFeature("StrictConcurrency=complete"),
         ]
     ),
     .testTarget(
         name: "SwiftProtobufPluginLibraryTests",
-        dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobufTestHelpers"]
+        dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobufTestHelpers"],
+        swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
+          .enableExperimentalFeature("StrictConcurrency=complete"),
+        ]
     ),
     .testTarget(
         name: "protoc-gen-swiftTests",
-        dependencies: ["protoc-gen-swift", "SwiftProtobufTestHelpers"]
+        dependencies: ["protoc-gen-swift", "SwiftProtobufTestHelpers"],
+        swiftSettings: [
+          .enableUpcomingFeature("ExistentialAny"),
+          .enableExperimentalFeature("StrictConcurrency=complete"),
+        ]
     ),
   ],
   swiftLanguageVersions: [.v5]

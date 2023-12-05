@@ -20,7 +20,7 @@ final class Test_BinaryDecodingOptions: XCTestCase {
 
     func testMessageDepthLimit() throws {
 
-        let tests: [([UInt8], Message.Type, ExtensionMap?, [(Int, Bool)])] = [
+        let tests: [([UInt8], any Message.Type, (any ExtensionMap)?, [(Int, Bool)])] = [
             // Input, (Limit, success/failure)
 
             // Messages within messages:     // outer is msg 1

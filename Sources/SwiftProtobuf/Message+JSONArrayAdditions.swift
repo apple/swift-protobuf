@@ -83,7 +83,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
-    extensions: ExtensionMap = SimpleExtensionMap(),
+    extensions: any ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     if jsonString.isEmpty {
@@ -124,7 +124,7 @@ extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array<Bytes: SwiftProtobufContiguousBytes>(
     fromJSONUTF8Bytes jsonUTF8Bytes: Bytes,
-    extensions: ExtensionMap = SimpleExtensionMap(),
+    extensions: any ExtensionMap = SimpleExtensionMap(),
     options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     return try jsonUTF8Bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in

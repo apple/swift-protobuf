@@ -25,8 +25,8 @@ class MessageGenerator {
   private let visibility: String
   private let swiftFullName: String
   private let swiftRelativeName: String
-  private let fields: [FieldGenerator]
-  private let fieldsSortedByNumber: [FieldGenerator]
+  private let fields: [any FieldGenerator]
+  private let fieldsSortedByNumber: [any FieldGenerator]
   private let oneofs: [OneofGenerator]
   private let storage: MessageStorageClassGenerator?
   private let enums: [EnumGenerator]
@@ -529,7 +529,7 @@ fileprivate struct MessageFieldFactory {
     oneofs = oneofGenerators
   }
 
-  func make(forFieldDescriptor field: FieldDescriptor) -> FieldGenerator {
+  func make(forFieldDescriptor field: FieldDescriptor) -> any FieldGenerator {
     guard field.realContainingOneof == nil else {
       return oneofs[Int(field.oneofIndex!)].fieldGenerator(forFieldNumber: Int(field.number))
     }

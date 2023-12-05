@@ -204,11 +204,11 @@ public protocol Decoder {
   // Decode extension fields
 
   /// Decode an extension field
-  mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws
+  mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: any Message.Type, fieldNumber: Int) throws
 
   // Run a decode loop decoding the MessageSet format for Extensions.
   mutating func decodeExtensionFieldsAsMessageSet(values: inout ExtensionFieldValueSet,
-                                                  messageType: Message.Type) throws
+                                                  messageType: any Message.Type) throws
 }
 
 /// Most Decoders won't care about Extension handing as in MessageSet
@@ -217,7 +217,7 @@ public protocol Decoder {
 extension Decoder {
   public mutating func decodeExtensionFieldsAsMessageSet(
     values: inout ExtensionFieldValueSet,
-    messageType: Message.Type
+    messageType: any Message.Type
   ) throws {
     while let fieldNumber = try self.nextFieldNumber() {
       try self.decodeExtensionField(values: &values,

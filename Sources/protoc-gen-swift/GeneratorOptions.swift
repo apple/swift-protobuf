@@ -57,7 +57,7 @@ class GeneratorOptions {
   /// A string snippet to insert for the visibility
   let visibilitySourceSnippet: String
 
-  init(parameter: CodeGeneratorParameter) throws {
+  init(parameter: any CodeGeneratorParameter) throws {
     var outputNaming: OutputNaming = .fullPath
     var moduleMapPath: String?
     var visibility: Visibility = .internal

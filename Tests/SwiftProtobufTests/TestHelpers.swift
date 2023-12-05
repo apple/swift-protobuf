@@ -134,7 +134,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     }
 
-    func assertJSONEncode(_ expected: String, extensions: ExtensionMap = SimpleExtensionMap(), encodingOptions: JSONEncodingOptions = .init(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertJSONEncode(_ expected: String, extensions: any ExtensionMap = SimpleExtensionMap(), encodingOptions: JSONEncodingOptions = .init(), file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -173,7 +173,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     /// This uses the provided block to initialize the object, then:
     /// * Encodes the object and checks that the result is the expected result
     /// * Decodes it again and verifies that the round-trip gives an equal object
-    func assertTextFormatEncode(_ expected: String, extensions: ExtensionMap? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertTextFormatEncode(_ expected: String, extensions: (any ExtensionMap)? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -191,7 +191,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONArrayEncode(
         _ expected: String,
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         configure: (inout [MessageTestType]) -> Void
@@ -218,7 +218,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     func assertJSONDecodeSucceeds(
         _ json: String,
         options: JSONDecodingOptions = JSONDecodingOptions(),
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line,
         check: (MessageTestType) -> Bool
@@ -326,7 +326,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONDecodeFails(
         _ json: String,
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         options: JSONDecodingOptions = JSONDecodingOptions(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
@@ -358,7 +358,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 
     func assertJSONArrayDecodeFails(
         _ json: String,
-        extensions: ExtensionMap = SimpleExtensionMap(),
+        extensions: any ExtensionMap = SimpleExtensionMap(),
         file: XCTestFileArgType = #file,
         line: UInt = #line
     ) {
@@ -382,7 +382,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
 }
 
 extension XCTestCase {
-    func assertDebugDescription(_ expected: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDebugDescription(_ expected: String, _ m: any SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
         // `assertDebugDescription` is a no-op in release as `debugDescription` is unavailable.
         #if DEBUG
         let actual = m.debugDescription
@@ -392,7 +392,7 @@ extension XCTestCase {
     /// Like ``assertDebugDescription``, but only checks the the ``debugDescription`` ends with
     /// ``expectedSuffix``, mainly useful where you want to be agnotics to some preable like
     /// the module name.
-    func assertDebugDescriptionSuffix(_ expectedSuffix: String, _ m: SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertDebugDescriptionSuffix(_ expectedSuffix: String, _ m: any SwiftProtobuf.Message, fmt: String? = nil, file: XCTestFileArgType = #file, line: UInt = #line) {
         // `assertDebugDescriptionSuffix` is a no-op in release as `debugDescription` is unavailable.
 #if DEBUG
         let actual = m.debugDescription
