@@ -34,7 +34,7 @@ function run_cpp_harness() {
     cmake -B ../_generated -S .
     cmake --build ../_generated
     popd
-    
+
     run_harness_and_concatenate_results "C++" "$harness" "$partial_results"
     echo
   )
