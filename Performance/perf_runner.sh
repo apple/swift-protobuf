@@ -352,7 +352,7 @@ echo
 build_swift_packages "$script_dir/.." "ForWorkTree"
 
 ${PROTOC} --plugin="$script_dir/../.build/release/protoc-gen-swift" \
-          --swift_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
+          --swift_out=FileNaming=DropPath:`dirname $gen_message_path` \
           --proto_path=`dirname $gen_message_path` \
           "$gen_message_path"
 
