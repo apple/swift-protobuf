@@ -46,7 +46,7 @@ readonly script_dir=`pwd`
 # Change this if your checkout of github.com/protocolbuffers/protobuf is in a
 # different location.
 readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../../protobuf"}
-readonly PROTOC=${PROTOC:-"${GOOGLE_PROTOBUF_CHECKOUT}/src/protoc"}
+readonly PROTOC=${PROTOC:-"${GOOGLE_PROTOBUF_CHECKOUT}/protoc"}
 
 function usage() {
   cat >&2 <<EOF
