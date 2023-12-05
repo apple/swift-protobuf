@@ -153,8 +153,8 @@ function profile_harness() {
   echo "Running $description test harness in Instruments..."
   mkdir -p "$results_trace"
   xctrace record --template 'Time Profiler' --output "$results_trace" \
-	  --env DYLD_LIBRARY_PATH="$perf_dir/_generated" \
-	  --launch -- "$harness"
+          --env DYLD_LIBRARY_PATH="$perf_dir/_generated" \
+          --launch -- "$harness"
 }
 
 # Inserts the partial visualization results from all the languages tested into
@@ -238,7 +238,7 @@ fi
 # Set up a hook to cleanup revision comparison checkouts when the script
 # completes.
 declare -a CLEANUP_WHEN_DONE
-declare -a GIT_WORKTREE
+GIT_WORKTREE=""
 function cleanup_revision_checkouts() {
   if [[ "${#CLEANUP_WHEN_DONE[@]}" -ne 0 ]]; then
     rm -rf "${CLEANUP_WHEN_DONE[@]}"
@@ -303,7 +303,9 @@ for comparison in "${comparisons[@]}"; do
     echo "==== Building/running C++ harness ===================="
     echo
 
-    ${PROTOC} --cpp_out="$script_dir" "$gen_message_path"
+    ${PROTOC} --cpp_out="$script_dir/_generated" \
+              --proto_path=`dirname $gen_message_path` \
+              "$gen_message_path"
 
     harness_cpp="$script_dir/_generated/harness_cpp"
     run_cpp_harness "$harness_cpp"
@@ -326,14 +328,10 @@ for comparison in "${comparisons[@]}"; do
       mkdir "$GIT_WORKTREE/Performance/_generated"
 
       build_swift_packages "$GIT_WORKTREE" "ForRev"
-      echo ${PROTOC} --plugin="$GIT_WORKTREE/.build/release/protoc-gen-swiftForRev" \
-           --swiftForRev_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
-	   --proto_path=`dirname $gen_message_path` \
-          "$gen_message_path"
       ${PROTOC} --plugin="$GIT_WORKTREE/.build/release/protoc-gen-swiftForRev" \
-          --swiftForRev_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
-	   --proto_path=`dirname $gen_message_path` \
-          "$gen_message_path"
+                --swiftForRev_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
+                --proto_path=`dirname $gen_message_path` \
+                "$gen_message_path"
 
       harness_swift="$GIT_WORKTREE/Performance/_generated/harness_swift"
       results_trace="$script_dir/_results/$report_type (swift)"
@@ -352,10 +350,6 @@ echo "==== Building/running Swift harness (working tree) ===================="
 echo
 
 build_swift_packages "$script_dir/.." "ForWorkTree"
-${PROTOC} --plugin="$script_dir/../.build/release/protoc-gen-swiftForWorkTree" \
-    --swiftForWorkTree_out=FileNaming=DropPath:"$script_dir/_generated" \
-    --cpp_out="$script_dir" \
-    "$gen_message_path"
 
 harness_swift="$script_dir/_generated/harness_swift"
 results_trace="$script_dir/_results/$report_type (swift)"
