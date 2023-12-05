@@ -41,7 +41,7 @@ else
 fi
 
 # Directory containing this script
-readonly script_dir="."
+readonly script_dir=`pwd`
 
 # Change this if your checkout of github.com/protocolbuffers/protobuf is in a
 # different location.
@@ -238,9 +238,13 @@ fi
 # Set up a hook to cleanup revision comparison checkouts when the script
 # completes.
 declare -a CLEANUP_WHEN_DONE
+declare -a GIT_WORKTREE
 function cleanup_revision_checkouts() {
   if [[ "${#CLEANUP_WHEN_DONE[@]}" -ne 0 ]]; then
     rm -rf "${CLEANUP_WHEN_DONE[@]}"
+  fi
+  if [ "$GIT_WORKTREE" != "" ]; then
+    git worktree remove "$GIT_WORKTREE"
   fi
 }
 trap cleanup_revision_checkouts EXIT HUP INT QUIT TERM
@@ -316,19 +320,24 @@ for comparison in "${comparisons[@]}"; do
 
       # Check out the commit to a temporary directory and create its _generated
       # directory. (Results will still go in the working tree.)
-      tmp_checkout="$(mktemp -d -t swiftprotoperf)"
-      CLEANUP_WHEN_DONE+=("$tmp_checkout")
-      git --work-tree="$tmp_checkout" checkout "$comparison" -- .
-      mkdir "$tmp_checkout/Performance/_generated"
+      GIT_WORKTREE="$(mktemp -d `pwd`/_generated/swiftprotoperf.XXXXXX)"
+      CLEANUP_WHEN_DONE+=("$GIT_WORKTREE")
+      git worktree add "$GIT_WORKTREE" "$comparison"
+      mkdir "$GIT_WORKTREE/Performance/_generated"
 
-      build_swift_packages "$tmp_checkout" "ForRev"
-      ${PROTOC} --plugin="$tmp_checkout/.build/release/protoc-gen-swiftForRev" \
-          --swiftForRev_out=FileNaming=DropPath:"$tmp_checkout/Performance/_generated" \
+      build_swift_packages "$GIT_WORKTREE" "ForRev"
+      echo ${PROTOC} --plugin="$GIT_WORKTREE/.build/release/protoc-gen-swiftForRev" \
+           --swiftForRev_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
+	   --proto_path=`dirname $gen_message_path` \
+          "$gen_message_path"
+      ${PROTOC} --plugin="$GIT_WORKTREE/.build/release/protoc-gen-swiftForRev" \
+          --swiftForRev_out=FileNaming=DropPath:"$GIT_WORKTREE/Performance/_generated" \
+	   --proto_path=`dirname $gen_message_path` \
           "$gen_message_path"
 
-      harness_swift="$tmp_checkout/Performance/_generated/harness_swift"
+      harness_swift="$GIT_WORKTREE/Performance/_generated/harness_swift"
       results_trace="$script_dir/_results/$report_type (swift)"
-      run_swift_harness "$tmp_checkout" "$comparison" "$commit_results"
+      run_swift_harness "$GIT_WORKTREE" "$comparison" "$commit_results"
     else
       echo
       echo "==== Found cached results for Swift ($comparison) ===================="
