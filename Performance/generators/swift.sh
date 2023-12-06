@@ -106,20 +106,20 @@ extension Harness {
         populateFields(of: &message)
       }
 
-      message = measureSubtask("Populate fields with with") {
+      message = measureSubtask("Populate (with)") {
         return populateFieldsWithWith()
       }
 
       // Exercise binary serialization.
-      let data = try measureSubtask("Encode binary") {
-        return try message.serializedBytes()
+      let data = try measureSubtask("Encode binary") { () -> Data in
+        try message.serializedBytes()
       }
       let message2 = try measureSubtask("Decode binary") {
         return try PerfMessage(serializedData: data)
       }
 
       // Exercise JSON serialization.
-      let json = try measureSubtask("Encode JSON") {
+      let json = try measureSubtask("Encode JSON") { () -> Data in
         return try message.jsonUTF8Bytes()
       }
       _ = try measureSubtask("Decode JSON") {

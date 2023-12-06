@@ -106,7 +106,7 @@ class Harness: GeneratedHarnessMembers {
 
         for name in taskNames {
           let time = currentSubtasks[name] ?? 0
-          print(String(format: "%9.3f", name, time), terminator: "")
+          print(String(format: "%9.3f", time), terminator: "")
           subtaskTimings[name] = (subtaskTimings[name] ?? []) + [time]
         }
         print()

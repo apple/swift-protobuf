@@ -98,7 +98,6 @@ using google::protobuf::util::BinaryToJsonString;
 using google::protobuf::util::JsonToBinaryString;
 using google::protobuf::util::MessageDifferencer;
 using google::protobuf::util::NewTypeResolverForDescriptorPool;
-using google::protobuf::util::Status;
 using google::protobuf::util::TypeResolver;
 using std::cerr;
 using std::endl;
@@ -148,12 +147,14 @@ void Harness::run() {
       // Exercise JSON serialization.
       auto json = measure_subtask("Encode JSON", [&]() {
         string out_json;
-        BinaryToJsonString(type_resolver, *type_url, data, &out_json);
+        auto r = BinaryToJsonString(type_resolver, *type_url, data, &out_json);
+        (void)r; // UNUSED
         return out_json;
       });
       auto decoded_binary = measure_subtask("Decode JSON", [&]() {
         string out_binary;
-        JsonToBinaryString(type_resolver, *type_url, json, &out_binary);
+        auto r = JsonToBinaryString(type_resolver, *type_url, json, &out_binary);
+        (void)r; // UNUSED
         return out_binary;
       });
 
