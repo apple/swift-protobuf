@@ -123,7 +123,7 @@ EOF
 
   echo "Running $language test harness alone..."
   sleep 3
-  DYLD_LIBRARY_PATH="$script_dir/_generated" "$harness" "$partial_results"
+  DYLD_LIBRARY_PATH=`dirname $harness` "$harness" "$partial_results"
   sleep 3
 
   cp "$harness" "${harness}_stripped"
