@@ -282,6 +282,9 @@ struct SetPathDecoder<T: Message>: Decoder {
     var decoder = SetPathDecoder<M>(
         path: nextPath, value: self.value
     )
+    if value == nil {
+      value = .init()
+    }
     try value?.decodeMessage(decoder: &decoder)
   }
 
@@ -324,7 +327,11 @@ struct SetPathDecoder<T: Message>: Decoder {
     value = try _value(as: _ProtobufMessageMap<KeyType, ValueType>.BaseType.self)
   }
 
-  mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {}
+  mutating func decodeExtensionField(
+    values: inout ExtensionFieldValueSet,
+    messageType: Message.Type,
+    fieldNumber: Int
+  ) throws {}
 
 }
 

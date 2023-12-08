@@ -190,11 +190,10 @@ extension Google_Protobuf_FieldMask {
   /// Initiates a field mask with all fields of the message type.
   /// - Parameter messageType: Message type to get all paths from.
   public init<M: Message & _ProtoNameProviding>(
-    from messageType: M.Type
+    allFieldsOf messageType: M.Type
   ) {
-    let paths = M._protobuf_nameMap.names.map(\.description)
     self = .with { mask in
-      mask.paths = paths
+      mask.paths = M.allProtoNames
     }
   }
 
@@ -204,40 +203,137 @@ extension Google_Protobuf_FieldMask {
   ///   - fieldNumbers: Field numbers of paths to be included.
   /// - Returns: Field mask that include paths of corresponding field numbers.
   public init<M: Message & _ProtoNameProviding>(
-    from messageType: M.Type, 
-    fieldNumbers: [Int]
-  ) {
-    let paths = fieldNumbers.compactMap { number in
-      M._protobuf_nameMap.names(for: number)?.proto.description
+    fieldNumbers: [Int],
+    of messageType: M.Type
+  ) throws {
+    var paths: [String] = []
+    for number in fieldNumbers {
+      guard let name = M.protoName(for: number) else {
+        throw FieldMaskUtilsError.invalidFieldNumber
+      }
+      paths.append(name)
     }
     self = .with { mask in
       mask.paths = paths
     }
   }
+}
 
-  /// Initiates a field mask by excluding some paths
-  /// - Parameters:
-  ///   - messageType: Message type to get all paths from.
-  ///   - paths: Paths to be excluded.
-  /// - Returns: Field mask that does not include the paths.
-  public init<M: Message & _ProtoNameProviding>(
-    from messageType: M.Type, 
-    excludedPaths paths: [String]
-  ) {
-    let allPaths = M._protobuf_nameMap.names.map(\.description)
-    let _paths = Set(allPaths).subtracting(.init(paths))
-    self = .with { mask in
-      mask.paths = Array(_paths)
+public enum FieldMaskUtilsError: Error {
+  case invalidPath
+  case invalidFieldNumber
+}
+
+extension Google_Protobuf_FieldMask {
+  public mutating func addPath<M: Message>(
+    _ path: String,
+    of messageType: M.Type
+  ) throws {
+    guard M.isPathValid(path) else {
+      throw FieldMaskUtilsError.invalidPath
+    }
+    paths.append(path)
+  }
+
+  public var canonical: Google_Protobuf_FieldMask {
+    var mask = Google_Protobuf_FieldMask()
+    let sortedPaths = self.paths.sorted()
+    var set = Set<String>()
+    for path in sortedPaths {
+      if !contains(path, in: set) {
+        set.insert(path)
+        mask.paths.append(path)
+      }
+    }
+    return mask
+  }
+
+  public func union(
+    _ mask: Google_Protobuf_FieldMask
+  ) -> Google_Protobuf_FieldMask {
+    var buffer: Set<String> = .init()
+    var _paths: [String] = []
+    let allPaths = paths + mask.paths
+    for path in allPaths where !buffer.contains(path) {
+      buffer.insert(path)
+      _paths.append(path)
+    }
+    return .with { mask in
+      mask.paths = _paths
     }
   }
 
-  /// Returns a field mask by reversing all fields. So all excluded paths from
-  /// the original field mask will be included, and vise versa.
-  /// - Parameter messageType: Message type to get all paths from.
-  /// - Returns: Field mask which is completly reverse of the cuurent one.
-  public func reverse<M: Message & _ProtoNameProviding>(
-    _ messageType: M.Type
+  private var pathsSet: Set<String> {
+    .init(paths)
+  }
+
+  public func intersect(
+    _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
-    .init(from: M.self, excludedPaths: self.paths)
+    let set = mask.pathsSet
+    var _paths: [String] = []
+    for path in paths where set.contains(path) {
+      _paths.append(path)
+    }
+    return .with { mask in
+      mask.paths = _paths
+    }
+  }
+
+  public func subtract(
+    _ mask: Google_Protobuf_FieldMask
+  ) -> Google_Protobuf_FieldMask {
+    let set = mask.pathsSet
+    var _paths: [String] = []
+    for path in paths where !set.contains(path) {
+      _paths.append(path)
+    }
+    return .with { mask in
+      mask.paths = _paths
+    }
+  }
+
+  private func levels(path: String) -> [String] {
+    let comps = path.components(separatedBy: ".")
+    return (0..<comps.count).map {
+      comps[0...$0].joined(separator: ".")
+    }
+  }
+
+  private func contains(
+    _ path: String,
+    in set: Set<String>
+  ) -> Bool {
+    for level in levels(path: path) {
+      if set.contains(level) {
+        return true
+      }
+    }
+    return false
+  }
+
+  public func contains(_ path: String) -> Bool {
+    contains(path, in: pathsSet)
+  }
+}
+
+extension Google_Protobuf_FieldMask {
+  public func isValid<M: Message & _ProtoNameProviding>(
+    for messageType: M.Type
+  ) -> Bool {
+    let message = M()
+    return paths.allSatisfy { path in
+      message.isPathValid(path)
+    }
+  }
+}
+
+private extension Message where Self: _ProtoNameProviding {
+  static func protoName(for number: Int) -> String? {
+    Self._protobuf_nameMap.names(for: number)?.proto.description
+  }
+
+  static var allProtoNames: [String] {
+    Self._protobuf_nameMap.names.map(\.description)
   }
 }

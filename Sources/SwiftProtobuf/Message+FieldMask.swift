@@ -8,70 +8,62 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extend the Message types with FieldMask utilities. (e.g. masking)
+/// Extend the Message types with FieldMask utilities.
 ///
 // -----------------------------------------------------------------------------
 
-extension Message where Self: _ProtoNameProviding {
+import Foundation
 
-  /// Clears masked fields and keep the other fields unchanged.
-  /// Notice that masking will be done in order of field mask paths.
-  ///
-  /// - Parameter mask: Field mask which determines what fields 
-  /// shoud be cleared.
-  public mutating func mask(
-    by mask: Google_Protobuf_FieldMask
-  ) throws {
-    try override(with: .init(), by: mask)
+extension Message {
+  public static func isPathValid(
+    _ path: String
+  ) -> Bool {
+    Self().hasPath(path: path)
   }
 
-  /// Overrides value of masked fields in original message with the input message.
-  /// Notice that overriding will be done in order of field mask paths.
-  ///
-  /// - Parameters:
-  ///   - message: Message which overrides some fields of the original message.
-  ///   - mask: Field mask which determines what fields should be overriden.
-  public mutating func override(
-    with message: Self,
-    by mask: Google_Protobuf_FieldMask
+  internal func isPathValid(
+    _ path: String
+  ) -> Bool {
+    hasPath(path: path)
+  }
+}
+
+extension Message {
+  public mutating func merge(
+    to source: Self,
+    fieldMask: Google_Protobuf_FieldMask
   ) throws {
     var copy = self
     var pathToValueMap: [String: Any?] = [:]
-    for path in mask.paths {
-      pathToValueMap[path] = try message.get(path: path)
+    for path in fieldMask.paths {
+      pathToValueMap[path] = try source.get(path: path)
     }
     for (path, value) in pathToValueMap {
       try copy.set(path: path, value: value)
     }
     self = copy
   }
+}
 
-  /// Returns a new message with cleared masked fields.
-  /// Notice that masking will be done in order of field mask paths.
-  ///
-  /// - Parameter mask: Field mask which determines what fields
-  /// should be cleared.
-  public func masked(
-    by mask: Google_Protobuf_FieldMask
-  ) throws -> Self {
-    var copy = self
-    try copy.mask(by: mask)
-    return copy
-  }
-
-  /// Returns a new message which some of its value are overriden with the
-  /// input message. Notice that masking will be done in order of field
-  /// mask paths.
-  ///
-  /// - Parameters:
-  ///   - message: Message which overrides some fields of the original message.
-  ///   - mask: Field mask which determines what fields should be overriden.
-  public func overriden(
-    with message: Self,
-    by mask: Google_Protobuf_FieldMask
-  ) throws -> Self {
-    var copy = self
-    try copy.override(with: message, by: mask)
-    return copy
+extension Message where Self: Equatable, Self: _ProtoNameProviding {
+  @discardableResult
+  public mutating func trim(
+    fieldMask: Google_Protobuf_FieldMask
+  ) -> Bool {
+    if !fieldMask.isValid(for: Self.self) {
+      return false
+    }
+    if fieldMask.paths.isEmpty {
+      return false
+    }
+    var tmp = Self.init()
+    do {
+      try tmp.merge(to: self, fieldMask: fieldMask)
+      let changed = tmp != self
+      self = tmp
+      return changed
+    } catch {
+      return false
+    }
   }
 }
