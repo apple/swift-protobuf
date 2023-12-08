@@ -13,11 +13,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: We should have utilities to apply a fieldmask to an arbitrary
-// message, intersect two fieldmasks, etc.
-// Google's C++ implementation does this by having utilities
-// to build a tree of field paths that can be easily intersected,
-// unioned, traversed to apply to submessages, etc.
 
 // True if the string only contains printable (non-control)
 // ASCII characters.  Note: This follows the ASCII standard;
@@ -188,6 +183,7 @@ extension Google_Protobuf_FieldMask: _CustomJSONCodable {
 extension Google_Protobuf_FieldMask {
 
   /// Initiates a field mask with all fields of the message type.
+  ///
   /// - Parameter messageType: Message type to get all paths from.
   public init<M: Message & _ProtoNameProviding>(
     allFieldsOf messageType: M.Type
@@ -198,6 +194,7 @@ extension Google_Protobuf_FieldMask {
   }
 
   /// Initiates a field mask from some particular field numbers of a message
+  ///
   /// - Parameters:
   ///   - messageType: Message type to get all paths from.
   ///   - fieldNumbers: Field numbers of paths to be included.
@@ -219,12 +216,14 @@ extension Google_Protobuf_FieldMask {
   }
 }
 
-public enum FieldMaskUtilsError: Error {
-  case invalidPath
-  case invalidFieldNumber
-}
-
 extension Google_Protobuf_FieldMask {
+
+  /// Adds a path to FieldMask after checking whether the given path is valid.
+  /// This method check-fails if the path is not a valid path for Message type.
+  ///
+  /// - Parameters:
+  ///   - path: Path to be added to FieldMask.
+  ///   - messageType: Message type to check validity.
   public mutating func addPath<M: Message>(
     _ path: String,
     of messageType: M.Type
@@ -235,6 +234,11 @@ extension Google_Protobuf_FieldMask {
     paths.append(path)
   }
 
+  /// Converts a FieldMask to the canonical form. It will:
+  ///   1. Remove paths that are covered by another path. For example,
+  ///      "foo.bar" is covered by "foo" and will be removed if "foo"
+  ///      is also in the FieldMask.
+  ///   2. Sort all paths in alphabetical order.
   public var canonical: Google_Protobuf_FieldMask {
     var mask = Google_Protobuf_FieldMask()
     let sortedPaths = self.paths.sorted()
@@ -248,6 +252,10 @@ extension Google_Protobuf_FieldMask {
     return mask
   }
 
+  /// Creates an union of two FieldMasks.
+  ///
+  /// - Parameter mask: FieldMask to union with.
+  /// - Returns: FieldMask with union of two path sets.
   public func union(
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
@@ -263,10 +271,10 @@ extension Google_Protobuf_FieldMask {
     }
   }
 
-  private var pathsSet: Set<String> {
-    .init(paths)
-  }
-
+  /// Creates an intersection of two FieldMasks.
+  ///
+  /// - Parameter mask: FieldMask to intersect with.
+  /// - Returns: FieldMask with intersection of two path sets.
   public func intersect(
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
@@ -280,6 +288,11 @@ extension Google_Protobuf_FieldMask {
     }
   }
 
+  /// Creates a FieldMasks with paths of the original FieldMask
+  /// that does not included in mask.
+  ///
+  /// - Parameter mask: FieldMask with paths should be substracted.
+  /// - Returns: FieldMask with all paths does not included in mask.
   public func subtract(
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
@@ -291,6 +304,22 @@ extension Google_Protobuf_FieldMask {
     return .with { mask in
       mask.paths = _paths
     }
+  }
+
+  /// Returns true if path is covered by the given FieldMask. Note that path
+  /// "foo.bar" covers all paths like "foo.bar.baz", "foo.bar.quz.x", etc.
+  /// Also note that parent paths are not covered by explicit child path, i.e.
+  /// "foo.bar" does NOT cover "foo", even if "bar" is the only child.
+  ///
+  /// - Parameter path: Path to be checked.
+  /// - Returns: Boolean determines is path covered.
+  public func contains(_ path: String) -> Bool {
+    contains(path, in: pathsSet)
+  }
+
+  // Set containing paths of FieldMask
+  private var pathsSet: Set<String> {
+    .init(paths)
   }
 
   private func levels(path: String) -> [String] {
@@ -311,13 +340,14 @@ extension Google_Protobuf_FieldMask {
     }
     return false
   }
-
-  public func contains(_ path: String) -> Bool {
-    contains(path, in: pathsSet)
-  }
 }
 
 extension Google_Protobuf_FieldMask {
+
+  /// Checks whether the given FieldMask is valid for type M.
+  ///
+  /// - Parameter messageType: Message type to paths check with.
+  /// - Returns: Boolean determines FieldMask is valid.
   public func isValid<M: Message & _ProtoNameProviding>(
     for messageType: M.Type
   ) -> Bool {
@@ -326,6 +356,16 @@ extension Google_Protobuf_FieldMask {
       message.isPathValid(path)
     }
   }
+}
+
+/// Describes errors could happen during FieldMask utilities.
+public enum FieldMaskUtilsError: Error {
+
+  /// Describes a path is invalid for a Message type.
+  case invalidPath
+
+  /// Describes a fieldNumber is invalid for a Message type.
+  case invalidFieldNumber
 }
 
 private extension Message where Self: _ProtoNameProviding {

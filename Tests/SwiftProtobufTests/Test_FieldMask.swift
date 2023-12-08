@@ -106,7 +106,8 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             XCTAssertThrowsError(try m.jsonString())
         }
     }
-
+    
+    // Checks merge functionality for field masks.
     func testMergeFieldsOfMessage() throws {
         var message = SwiftProtoTesting_TestAllTypes.with { model in
             model.optionalInt32 = 1
@@ -122,15 +123,18 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             }
         }
 
+        // Checks nested message merge
         try message.merge(to: secondMessage, fieldMask: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertEqual(message.optionalInt32, 1)
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
 
+        // Checks primitive type merge
         try message.merge(to: secondMessage, fieldMask: .init(protoPaths: "optional_int32"))
         XCTAssertEqual(message.optionalInt32, 2)
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
     }
 
+    // Checks trim functionality for field masks.
     func testTrimFieldsOfMessage() throws {
         var message = SwiftProtoTesting_TestAllTypes.with { model in
             model.optionalInt32 = 1
@@ -139,21 +143,30 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
             }
         }
 
+        // Checks trim to be successful.
         let r1 = message.trim(fieldMask: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertTrue(r1)
         XCTAssertEqual(message.optionalInt32, 0)
         XCTAssertEqual(message.optionalNestedMessage.bb, 2)
 
+        // Checks trim should does nothing with an empty fieldMask.
         let r2 = message.trim(fieldMask: .init())
         XCTAssertFalse(r2)
 
+        // Checks trim should return false if nothing has been changed.
         let r3 = message.trim(fieldMask: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertFalse(r3)
 
+        // Checks trim to be unsuccessful with an invalid fieldMask.
         let r4 = message.trim(fieldMask: .init(protoPaths: "invalid_path"))
         XCTAssertFalse(r4)
     }
 
+    // Checks `isPathValid` func
+    // 1. Valid primitive path should be valid.
+    // 2. Valid nested path should be valid.
+    // 3. Invalid primitive path should be valid.
+    // 4. Invalid nested path should be valid.
     func testIsPathValid() {
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int32"))
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb"))
@@ -161,6 +174,10 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bc"))
     }
 
+    // Checks `isValid` func of FieldMask.
+    // 1. Empty field mask is always valid.
+    // 2, 3. Valid field masks.
+    // 4, 5. Invalid field masks.
     func testIsFieldMaskValid() {
         let m1 = Google_Protobuf_FieldMask()
         let m2 = Google_Protobuf_FieldMask(protoPaths: [
@@ -186,15 +203,23 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertFalse(m5.isValid(for: SwiftProtoTesting_TestAllTypes.self))
     }
 
+    // Checks canonincal form of field mask.
+    // 1. Sub-message with parent in the paths should be excluded.
+    // 2. Canonincal form should be sorted.
+    // 3. More nested levels of paths.
     func testCanonicalFieldMask() {
-        let m1 = Google_Protobuf_FieldMask(protoPaths: ["a.b", "b", "a"])
+        let m1 = Google_Protobuf_FieldMask(protoPaths: ["a.b", "a", "b"])
         XCTAssertEqual(m1.canonical.paths, ["a", "b"])
-        let m2 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
+        let m2 = Google_Protobuf_FieldMask(protoPaths: ["b", "a"])
         XCTAssertEqual(m2.canonical.paths, ["a", "b"])
         let m3 = Google_Protobuf_FieldMask(protoPaths: ["c", "a.b.c", "a.b", "a.b.c.d"])
         XCTAssertEqual(m3.canonical.paths, ["a.b", "c"])
     }
 
+    // Checks `addPath` func of fieldMask with:
+    //  - Valid primitive path should be added.
+    //  - Valid nested path should be added.
+    //  - Invalid path should throw error.
     func testAddPathToFieldMask() throws {
         var mask = Google_Protobuf_FieldMask()
         XCTAssertNoThrow(try mask.addPath("optional_int32", of: SwiftProtoTesting_TestAllTypes.self))
@@ -204,6 +229,12 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertThrowsError(try mask.addPath("optional_int", of: SwiftProtoTesting_TestAllTypes.self))
     }
 
+    // Check `contains` func of fieldMask.
+    // 1. Parent contains sub-message.
+    // 2. Path contains itself.
+    // 3. Sub-message does not contain its parent.
+    // 4. Two different paths does not contain each other.
+    // 5. Two different sub-paths does not contain each other.
     func testPathContainsInFieldMask() {
         let m1 = Google_Protobuf_FieldMask(protoPaths: ["a"])
         XCTAssertTrue(m1.contains("a.b"))
@@ -217,6 +248,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertFalse(m5.contains("a.c"))
     }
 
+    // Checks inits of fieldMask with:
+    //  - All fields of a message type.
+    //  - Particular field numbers of a message type.
     func testFieldPathMessageInits() throws {
         let m1 = Google_Protobuf_FieldMask(allFieldsOf: SwiftProtoTesting_TestAny.self)
         XCTAssertEqual(m1.paths.sorted(), ["any_value", "int32_value", "repeated_any_value", "text"])
@@ -225,6 +259,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertThrowsError(try Google_Protobuf_FieldMask(fieldNumbers: [10], of: SwiftProtoTesting_TestAny.self))
     }
 
+    // Checks `union` func of fieldMask.
     func testUnionFieldMasks() throws {
         let m1 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         let m2 = Google_Protobuf_FieldMask(protoPaths: ["b", "c"])
@@ -243,6 +278,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m7.union(m8).paths, ["a", "b"])
     }
 
+    // Checks `intersect` func of fieldMask.
     func testIntersectFieldMasks() throws {
         let m1 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         let m2 = Google_Protobuf_FieldMask(protoPaths: ["b", "c"])
@@ -261,6 +297,7 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(m7.intersect(m8).paths, ["a", "b"])
     }
 
+    // Checks `substract` func of fieldMask.
     func testSubtractFieldMasks() throws {
         let m1 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         let m2 = Google_Protobuf_FieldMask(protoPaths: ["b", "c"])

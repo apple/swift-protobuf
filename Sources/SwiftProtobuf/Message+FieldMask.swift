@@ -15,6 +15,11 @@
 import Foundation
 
 extension Message {
+
+  /// Checks whether the given path is valid for Message type.
+  ///
+  /// - Parameter path: Path to be checked
+  /// - Returns: Boolean determines path is valid.
   public static func isPathValid(
     _ path: String
   ) -> Bool {
@@ -29,6 +34,12 @@ extension Message {
 }
 
 extension Message {
+
+  /// Merges fields specified in a FieldMask into another message.
+  ///
+  /// - Parameters:
+  ///   - source: Message should be merged to the original one.
+  ///   - fieldMask: FieldMask specifies which fields should be merged.
   public mutating func merge(
     to source: Self,
     fieldMask: Google_Protobuf_FieldMask
@@ -46,7 +57,13 @@ extension Message {
 }
 
 extension Message where Self: Equatable, Self: _ProtoNameProviding {
+
   @discardableResult
+  /// Removes from 'message' any field that is not represented in the given
+  /// FieldMask. If the FieldMask is empty, does nothing.
+  ///
+  /// - Parameter fieldMask: FieldMask specifies which fields should be kept.
+  /// - Returns: Boolean determines if the message is modified
   public mutating func trim(
     fieldMask: Google_Protobuf_FieldMask
   ) -> Bool {
