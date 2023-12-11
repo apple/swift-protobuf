@@ -109,9 +109,9 @@ class FileGenerator {
                 return ""
             }
         }()
-        if !fileDescriptor.isBundledProto {
-            // The well known types ship with the runtime, everything else needs
-            // to import the runtime.
+        if fileDescriptor.isBundledProto {
+            p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
+        } else {
             p.print("\(visibilityAnnotation)import \(namer.swiftProtobufModuleName)")
         }
         if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
