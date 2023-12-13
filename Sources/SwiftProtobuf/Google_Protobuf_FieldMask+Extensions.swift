@@ -206,7 +206,7 @@ extension Google_Protobuf_FieldMask {
     var paths: [String] = []
     for number in fieldNumbers {
       guard let name = M.protoName(for: number) else {
-        throw FieldMaskUtilsError.invalidFieldNumber
+        throw FieldMaskError.invalidFieldNumber
       }
       paths.append(name)
     }
@@ -229,7 +229,7 @@ extension Google_Protobuf_FieldMask {
     of messageType: M.Type
   ) throws {
     guard M.isPathValid(path) else {
-      throw FieldMaskUtilsError.invalidPath
+      throw FieldMaskError.invalidPath
     }
     paths.append(path)
   }
@@ -354,7 +354,7 @@ extension Google_Protobuf_FieldMask {
 }
 
 /// Describes errors could happen during FieldMask utilities.
-public enum FieldMaskUtilsError: Error {
+public enum FieldMaskError: Error {
 
   /// Describes a path is invalid for a Message type.
   case invalidPath
