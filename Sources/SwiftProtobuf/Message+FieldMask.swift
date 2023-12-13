@@ -34,7 +34,13 @@ extension Message {
   }
 }
 
+/// Defines available options for merging two messages.
 public enum MergeOption: Equatable {
+
+  /// The default merging behavior will append entries from the source
+  /// repeated field to the destination repeated field. If you only want
+  /// to keep the entries from the source repeated field, set this flag
+  /// to true.
   case replaceRepeatedFields
 }
 
