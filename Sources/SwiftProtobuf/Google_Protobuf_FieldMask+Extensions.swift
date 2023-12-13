@@ -282,7 +282,10 @@ extension Google_Protobuf_FieldMask {
   ) -> Google_Protobuf_FieldMask {
     let set = mask.pathsSet
     var _paths: [String] = []
-    for path in paths where set.contains(path) {
+    var _buffer = Set<String>()
+    for path in paths where set.contains(path)
+    && !_buffer.contains(path) {
+      _buffer.insert(path)
       _paths.append(path)
     }
     return .with { mask in
@@ -300,7 +303,10 @@ extension Google_Protobuf_FieldMask {
   ) -> Google_Protobuf_FieldMask {
     let set = mask.pathsSet
     var _paths: [String] = []
-    for path in paths where !set.contains(path) {
+    var _buffer = Set<String>()
+    for path in paths where !set.contains(path)
+    && !_buffer.contains(path) {
+      _buffer.insert(path)
       _paths.append(path)
     }
     return .with { mask in

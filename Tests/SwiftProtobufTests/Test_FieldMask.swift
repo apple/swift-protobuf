@@ -279,6 +279,10 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let m7 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         let m8 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         XCTAssertEqual(m7.union(m8).paths, ["a", "b"])
+
+        let m9 = Google_Protobuf_FieldMask(protoPaths: ["a", "a"])
+        let m10 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
+        XCTAssertEqual(m9.union(m10).paths, ["a", "b"])
     }
 
     // Checks `intersect` func of fieldMask.
@@ -298,6 +302,10 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let m7 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         let m8 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         XCTAssertEqual(m7.intersect(m8).paths, ["a", "b"])
+
+        let m9 = Google_Protobuf_FieldMask(protoPaths: ["a", "a"])
+        let m10 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
+        XCTAssertEqual(m9.intersect(m10).paths, ["a"])
     }
 
     // Checks `substract` func of fieldMask.
@@ -317,6 +325,10 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let m7 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         let m8 = Google_Protobuf_FieldMask(protoPaths: ["a", "b"])
         XCTAssertEqual(m7.subtract(m8).paths, [])
+
+        let m9 = Google_Protobuf_FieldMask(protoPaths: ["a", "a"])
+        let m10 = Google_Protobuf_FieldMask(protoPaths: ["b"])
+        XCTAssertEqual(m9.subtract(m10).paths, ["a"])
     }
 
 }
