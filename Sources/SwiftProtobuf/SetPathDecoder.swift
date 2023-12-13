@@ -38,20 +38,37 @@ struct SetPathDecoder<T: Message>: Decoder {
   private let value: Any?
   private var number: Int?
   private let nextPath: [String]
+  private let replaceRepeatedFields: Bool
 
-  init(path: [String], value: Any?) {
+  init(
+    path: [String],
+    value: Any?,
+    replaceRepeatedFields: Bool
+  ) {
     if let firstComponent = path.first {
       self.number = T.number(for: firstComponent)
     }
     self.nextPath = .init(path.dropFirst())
     self.value = value
+    self.replaceRepeatedFields = replaceRepeatedFields
   }
 
-  func _value<V>(as: V.Type) throws -> V {
+  private func setValue<V>(_ value: inout V) throws {
     guard let __value = self.value as? V else {
       throw PathDecodingError.typeMismatch
     }
-    return __value
+    value = __value
+  }
+
+  private func setRepeatedValue<V>(_ value: inout [V]) throws {
+    guard let __value = self.value as? [V] else {
+      throw PathDecodingError.typeMismatch
+    }
+    if replaceRepeatedFields {
+      value = __value
+    } else {
+      value.append(contentsOf: __value)
+    }
   }
 
   mutating func handleConflictingOneOf() throws {}
@@ -62,212 +79,214 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   mutating func decodeSingularFloatField(value: inout Float) throws {
-    value = try _value(as: Float.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularFloatField(value: inout Float?) throws {
-    value = try _value(as: Float?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
-    value = try _value(as: [Float].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularDoubleField(value: inout Double) throws {
-    value = try _value(as: Double.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularDoubleField(value: inout Double?) throws {
-    value = try _value(as: Double?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
-    value = try _value(as: [Double].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularInt32Field(value: inout Int32) throws {
-    value = try _value(as: Int32.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularInt32Field(value: inout Int32?) throws {
-    value = try _value(as: Int32?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
-    value = try _value(as: [Int32].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularInt64Field(value: inout Int64) throws {
-    value = try _value(as: Int64.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularInt64Field(value: inout Int64?) throws {
-    value = try _value(as: Int64?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
-    value = try _value(as: [Int64].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
-    value = try _value(as: UInt32.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
-    value = try _value(as: UInt32?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
-    value = try _value(as: [UInt32].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
-    value = try _value(as: UInt64.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
-    value = try _value(as: UInt64?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
-    value = try _value(as: [UInt64].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularSInt32Field(value: inout Int32) throws {
-    value = try _value(as: Int32.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
-    value = try _value(as: Int32?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
-    value = try _value(as: [Int32].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularSInt64Field(value: inout Int64) throws {
-    value = try _value(as: Int64.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
-    value = try _value(as: Int64?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
-    value = try _value(as: [Int64].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
-    value = try _value(as: UInt32.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
-    value = try _value(as: UInt32?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
-    value = try _value(as: [UInt32].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
-    value = try _value(as: UInt64.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
-    value = try _value(as: UInt64?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
-    value = try _value(as: [UInt64].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
-    value = try _value(as: Int32.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
-    value = try _value(as: Int32?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
-    value = try _value(as: [Int32].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
-    value = try _value(as: Int64.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
-    value = try _value(as: Int64?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
-    value = try _value(as: [Int64].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularBoolField(value: inout Bool) throws {
-    value = try _value(as: Bool.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularBoolField(value: inout Bool?) throws {
-    value = try _value(as: Bool?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
-    value = try _value(as: [Bool].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularStringField(value: inout String) throws {
-    value = try _value(as: String.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularStringField(value: inout String?) throws {
-    value = try _value(as: String?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedStringField(value: inout [String]) throws {
-    value = try _value(as: [String].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularBytesField(value: inout Data) throws {
-    value = try _value(as: Data.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularBytesField(value: inout Data?) throws {
-    value = try _value(as: Data?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
-    value = try _value(as: [Data].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularEnumField<E>(
     value: inout E
   ) throws where E : Enum, E.RawValue == Int {
-    value = try _value(as: E.self)
+    try setValue(&value)
   }
 
   mutating func decodeSingularEnumField<E>(
     value: inout E?
   ) throws where E : Enum, E.RawValue == Int {
-    value = try _value(as: E?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedEnumField<E>(
     value: inout [E]
   ) throws where E : Enum, E.RawValue == Int {
-    value = try _value(as: [E].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularMessageField<M>(
     value: inout M?
   ) throws where M : Message {
     if nextPath.isEmpty {
-      value = try _value(as: M?.self)
+      try setValue(&value)
       return
     }
     var decoder = SetPathDecoder<M>(
-        path: nextPath, value: self.value
+        path: nextPath, 
+        value: self.value,
+        replaceRepeatedFields: replaceRepeatedFields
     )
     if value == nil {
       value = .init()
@@ -278,40 +297,40 @@ struct SetPathDecoder<T: Message>: Decoder {
   mutating func decodeRepeatedMessageField<M>(
     value: inout [M]
   ) throws where M : Message {
-    value = try _value(as: [M].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeSingularGroupField<G>(
     value: inout G?
   ) throws where G : Message {
-    value = try _value(as: G?.self)
+    try setValue(&value)
   }
 
   mutating func decodeRepeatedGroupField<G>(
     value: inout [G]
   ) throws where G : Message {
-    value = try _value(as: [G].self)
+    try setRepeatedValue(&value)
   }
 
   mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: inout _ProtobufMap<KeyType, ValueType>.BaseType
   ) throws where KeyType : MapKeyType, ValueType : MapValueType {
-    value = try _value(as: _ProtobufMap<KeyType, ValueType>.BaseType.self)
+    try setValue(&value)
   }
 
   mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
   ) throws where KeyType : MapKeyType, ValueType : Enum, ValueType.RawValue == Int {
-    value = try _value(as: _ProtobufEnumMap<KeyType, ValueType>.BaseType.self)
+    try setValue(&value)
   }
 
   mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
   ) throws where KeyType : MapKeyType, ValueType : Hashable, ValueType : Message {
-    value = try _value(as: _ProtobufMessageMap<KeyType, ValueType>.BaseType.self)
+    try setValue(&value)
   }
 
   mutating func decodeExtensionField(
@@ -323,9 +342,17 @@ struct SetPathDecoder<T: Message>: Decoder {
 }
 
 extension Message {
-  mutating func `set`(path: String, value: Any?) throws {
+  mutating func `set`(
+    path: String,
+    value: Any?,
+    replaceRepeatedFields: Bool
+  ) throws {
     let _path = path.components(separatedBy: ".")
-    var decoder = SetPathDecoder<Self>(path: _path, value: value)
+    var decoder = SetPathDecoder<Self>(
+      path: _path,
+      value: value,
+      replaceRepeatedFields: replaceRepeatedFields
+    )
     try decodeMessage(decoder: &decoder)
   }
 }

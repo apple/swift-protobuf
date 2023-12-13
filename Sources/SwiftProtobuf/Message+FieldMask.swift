@@ -34,6 +34,10 @@ extension Message {
   }
 }
 
+public enum MergeOption: Equatable {
+  case replaceRepeatedFields
+}
+
 extension Message {
 
   /// Merges fields specified in a FieldMask into another message.
@@ -43,16 +47,23 @@ extension Message {
   ///   - fieldMask: FieldMask specifies which fields should be merged.
   public mutating func merge(
     to source: Self,
-    fieldMask: Google_Protobuf_FieldMask
+    fieldMask: Google_Protobuf_FieldMask,
+    mergeOptions: [MergeOption] = []
   ) throws {
     var source = source
     var copy = self
     var pathToValueMap: [String: Any?] = [:]
+    let replaceRepeatedFields = mergeOptions
+      .contains(.replaceRepeatedFields)
     for path in fieldMask.paths {
       pathToValueMap[path] = try source.get(path: path)
     }
     for (path, value) in pathToValueMap {
-      try copy.set(path: path, value: value)
+      try copy.set(
+        path: path,
+        value: value,
+        replaceRepeatedFields: replaceRepeatedFields
+      )
     }
     self = copy
   }
