@@ -242,10 +242,12 @@ extension Google_Protobuf_FieldMask {
   public var canonical: Google_Protobuf_FieldMask {
     var mask = Google_Protobuf_FieldMask()
     let sortedPaths = self.paths.sorted()
-    var set = Set<String>()
     for path in sortedPaths {
-      if !contains(path, in: set) {
-        set.insert(path)
+      if let lastPath = mask.paths.last {
+        if path != lastPath, !path.hasPrefix("\(lastPath).") {
+          mask.paths.append(path)
+        }
+      } else {
         mask.paths.append(path)
       }
     }
@@ -314,7 +316,12 @@ extension Google_Protobuf_FieldMask {
   /// - Parameter path: Path to be checked.
   /// - Returns: Boolean determines is path covered.
   public func contains(_ path: String) -> Bool {
-    contains(path, in: pathsSet)
+    for _path in paths {
+      if path.hasPrefix("\(_path).") || _path == path {
+        return true
+      }
+    }
+    return false
   }
 
   // Set containing paths of FieldMask
@@ -327,18 +334,6 @@ extension Google_Protobuf_FieldMask {
     return (0..<comps.count).map {
       comps[0...$0].joined(separator: ".")
     }
-  }
-
-  private func contains(
-    _ path: String,
-    in set: Set<String>
-  ) -> Bool {
-    for level in levels(path: path) {
-      if set.contains(level) {
-        return true
-      }
-    }
-    return false
   }
 }
 

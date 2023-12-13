@@ -206,14 +206,17 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
     // Checks canonincal form of field mask.
     // 1. Sub-message with parent in the paths should be excluded.
     // 2. Canonincal form should be sorted.
-    // 3. More nested levels of paths.
+    // 3. More nested levels of paths with duplicates.
+    // 4. Two siblings with their parent should be excluded.
     func testCanonicalFieldMask() {
         let m1 = Google_Protobuf_FieldMask(protoPaths: ["a.b", "a", "b"])
         XCTAssertEqual(m1.canonical.paths, ["a", "b"])
         let m2 = Google_Protobuf_FieldMask(protoPaths: ["b", "a"])
         XCTAssertEqual(m2.canonical.paths, ["a", "b"])
-        let m3 = Google_Protobuf_FieldMask(protoPaths: ["c", "a.b.c", "a.b", "a.b.c.d"])
+        let m3 = Google_Protobuf_FieldMask(protoPaths: ["c", "a.b.c", "a.b", "a.b", "a.b.c.d"])
         XCTAssertEqual(m3.canonical.paths, ["a.b", "c"])
+        let m4 = Google_Protobuf_FieldMask(protoPaths: ["a.c", "a", "a.b"])
+        XCTAssertEqual(m4.canonical.paths, ["a"])
     }
 
     // Checks `addPath` func of fieldMask with:
