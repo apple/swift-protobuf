@@ -1,6 +1,6 @@
 // Sources/SwiftProtobuf/Message+FieldMask.swift - Message field mask extensions
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2023 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -23,10 +23,11 @@ extension Message {
   public static func isPathValid(
     _ path: String
   ) -> Bool {
-    Self().hasPath(path: path)
+    var message = Self()
+    return message.hasPath(path: path)
   }
 
-  internal func isPathValid(
+  internal mutating func isPathValid(
     _ path: String
   ) -> Bool {
     hasPath(path: path)
@@ -44,6 +45,7 @@ extension Message {
     to source: Self,
     fieldMask: Google_Protobuf_FieldMask
   ) throws {
+    var source = source
     var copy = self
     var pathToValueMap: [String: Any?] = [:]
     for path in fieldMask.paths {

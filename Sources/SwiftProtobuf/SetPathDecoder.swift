@@ -1,6 +1,6 @@
 // Sources/SwiftProtobuf/SetPathDecoder.swift - Path decoder (Setter)
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2023 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -35,29 +35,16 @@ extension Message {
 
 struct SetPathDecoder<T: Message>: Decoder {
 
-  private let path: String
   private let value: Any?
   private var number: Int?
+  private let nextPath: [String]
 
-  init(path: String, value: Any?) {
-    self.path = path
-    self.value = value
-    if let firstPathComponent {
-      self.number = T.number(for: firstPathComponent)
+  init(path: [String], value: Any?) {
+    if let firstComponent = path.first {
+      self.number = T.number(for: firstComponent)
     }
-  }
-
-  var firstPathComponent: String? {
-    return path
-          .components(separatedBy: ".")
-          .first
-  }
-
-  var nextPath: String {
-    return path
-          .components(separatedBy: ".")
-          .dropFirst()
-          .joined(separator: ".")
+    self.nextPath = .init(path.dropFirst())
+    self.value = value
   }
 
   func _value<V>(as: V.Type) throws -> V {
@@ -337,7 +324,8 @@ struct SetPathDecoder<T: Message>: Decoder {
 
 extension Message {
   mutating func `set`(path: String, value: Any?) throws {
-    var decoder = SetPathDecoder<Self>(path: path, value: value)
+    let _path = path.components(separatedBy: ".")
+    var decoder = SetPathDecoder<Self>(path: _path, value: value)
     try decodeMessage(decoder: &decoder)
   }
 }

@@ -1,6 +1,6 @@
 // Sources/SwiftProtobuf/GetPathDecoder.swift - Path decoder (Getter)
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2023 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:
@@ -16,7 +16,7 @@ import Foundation
 
 struct GetPathDecoder<T: Message>: Decoder {
 
-  private let path: String
+  private let nextPath: [String]
   private var number: Int?
 
   private var _value: Any?
@@ -30,19 +30,11 @@ struct GetPathDecoder<T: Message>: Decoder {
     _hasPath
   }
 
-  internal init(path: String) {
-    self.path = path
-    if let firstPathComponent {
-      self.number = T.number(for: firstPathComponent)
+  internal init(path: [String]) {
+    if let firstComponent = path.first {
+      self.number = T.number(for: firstComponent)
     }
-  }
-
-  private var firstPathComponent: String? {
-    path.components(separatedBy: ".").first
-  }
-
-  private var nextPath: String {
-    path.components(separatedBy: ".").dropFirst().joined(separator: ".")
+    self.nextPath = .init(path.dropFirst())
   }
 
   mutating func handleConflictingOneOf() throws {}
@@ -309,17 +301,17 @@ struct GetPathDecoder<T: Message>: Decoder {
 }
 
 extension Message {
-  func `get`(path: String) throws -> Any? {
-    var copy = self
-    var decoder = GetPathDecoder<Self>(path: path)
-    try copy.decodeMessage(decoder: &decoder)
+  mutating func `get`(path: String) throws -> Any? {
+    let _path = path.components(separatedBy: ".")
+    var decoder = GetPathDecoder<Self>(path: _path)
+    try decodeMessage(decoder: &decoder)
     return decoder.value
   }
 
-  func hasPath(path: String) -> Bool {
-    var copy = self
-    var decoder = GetPathDecoder<Self>(path: path)
-    try? copy.decodeMessage(decoder: &decoder)
+  mutating func hasPath(path: String) -> Bool {
+    let _path = path.components(separatedBy: ".")
+    var decoder = GetPathDecoder<Self>(path: _path)
+    try? decodeMessage(decoder: &decoder)
     return decoder.hasPath
   }
 }
