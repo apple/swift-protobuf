@@ -25,8 +25,8 @@ public enum PathDecodingError: Error {
 
   /// Describes path is not found in message type.
   ///
-  /// If a message has no property with path this error
-  /// will be thrown.
+  /// If a message has no field with the given path this
+  /// error will be thrown.
   case pathNotFound
 }
 
