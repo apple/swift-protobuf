@@ -22,6 +22,12 @@ public enum PathDecodingError: Error {
   /// If a value of type A is applied to a path with type B.
   /// this error will be thrown.
   case typeMismatch
+
+  /// Describes path is not found in message type.
+  ///
+  /// If a message has no property with path this error
+  /// will be thrown.
+  case pathNotFound
 }
 
 extension Message {

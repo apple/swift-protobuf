@@ -184,15 +184,16 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
     }
 
     // Checks `isPathValid` func
-    // 1. Valid primitive path should be valid.
-    // 2. Valid nested path should be valid.
-    // 3. Invalid primitive path should be valid.
-    // 4. Invalid nested path should be valid.
+    // 1. Valid primitive path.
+    // 2. Valid nested path.
+    // 3. Invalid primitive path.
+    // 4, 5. Invalid nested path.
     func testIsPathValid() {
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int32"))
         XCTAssertTrue(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_int"))
         XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bc"))
+        XCTAssertFalse(SwiftProtoTesting_TestAllTypes.isPathValid("optional_nested_message.bb.a"))
     }
 
     // Checks `isValid` func of FieldMask.
