@@ -47,7 +47,7 @@ struct GetPathDecoder<T: Message>: Decoder {
   }
 
   private mutating func captureValue(_ value: Any?) throws {
-    if !nextPath.isEmpty {
+    guard nextPath.isEmpty else {
       throw PathDecodingError.pathNotFound
     }
     self._value = value
