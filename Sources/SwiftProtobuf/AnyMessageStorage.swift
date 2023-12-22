@@ -210,7 +210,7 @@ internal class AnyMessageStorage {
     case .contentJSON(let contentJSON, let options):
       // contentJSON requires we have the type available for decoding
       guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          throw BinaryEncodingError.anyTranscodeFailure
+          throw BinaryEncodingError.anyTypeURLNotRegistered(typeURL: _typeURL)
       }
       do {
         // Decodes the full JSON and then discard the result.
@@ -414,7 +414,7 @@ extension AnyMessageStorage {
         // binary value, so we're stuck.  (The Google spec does not
         // provide a way to just package the binary value for someone
         // else to decode later.)
-        throw JSONEncodingError.anyTranscodeFailure
+        throw JSONEncodingError.anyTypeURLNotRegistered(typeURL: _typeURL)
       }
       let m = try messageType.init(serializedBytes: valueData, partial: true)
       return try serializeAnyJSON(for: m, typeURL: _typeURL, options: options)
