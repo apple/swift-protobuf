@@ -73,33 +73,33 @@ struct SetPathDecoder<T: Message>: Decoder {
   }
 
   private func setValue<V>(_ value: inout V) throws {
-    guard let __value = self.value as? V else {
+    guard let castedValue = self.value as? V else {
       throw PathDecodingError.typeMismatch
     }
-    value = __value
+    value = castedValue
   }
 
   private func setRepeatedValue<V>(_ value: inout [V]) throws {
-    guard let __value = self.value as? [V] else {
+    guard let castedValue = self.value as? [V] else {
       throw PathDecodingError.typeMismatch
     }
     if replaceRepeatedFields {
-      value = __value
+      value = castedValue
     } else {
-      value.append(contentsOf: __value)
+      value.append(contentsOf: castedValue)
     }
   }
 
   private func setMapValue<K, V>(
     _ value: inout Dictionary<K, V>
   ) throws {
-    guard let __value = self.value as? Dictionary<K, V> else {
+    guard let castedValue = self.value as? Dictionary<K, V> else {
       throw PathDecodingError.typeMismatch
     }
     if replaceRepeatedFields {
-      value = __value
+      value = castedValue
     } else {
-      value.merge(__value) { _, new in
+      value.merge(castedValue) { _, new in
         new
       }
     }

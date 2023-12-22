@@ -311,15 +311,15 @@ struct GetPathDecoder<T: Message>: Decoder {
 
 extension Message {
   mutating func `get`(path: String) throws -> Any? {
-    let _path = path.components(separatedBy: ".")
-    var decoder = try GetPathDecoder<Self>(path: _path)
+    let components = path.components(separatedBy: ".")
+    var decoder = try GetPathDecoder<Self>(path: components)
     try decodeMessage(decoder: &decoder)
     return decoder.value
   }
 
   mutating func hasPath(path: String) -> Bool {
-    let _path = path.components(separatedBy: ".")
-    guard var decoder = try? GetPathDecoder<Self>(path: _path) else {
+    let components = path.components(separatedBy: ".")
+    guard var decoder = try? GetPathDecoder<Self>(path: components) else {
       return false
     }
     try? decodeMessage(decoder: &decoder)

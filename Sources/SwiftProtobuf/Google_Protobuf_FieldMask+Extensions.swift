@@ -262,14 +262,14 @@ extension Google_Protobuf_FieldMask {
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
     var buffer: Set<String> = .init()
-    var _paths: [String] = []
-    let allPaths = paths + mask.paths
+    var paths: [String] = []
+    let allPaths = self.paths + mask.paths
     for path in allPaths where !buffer.contains(path) {
       buffer.insert(path)
-      _paths.append(path)
+      paths.append(path)
     }
     return .with { mask in
-      mask.paths = _paths
+      mask.paths = paths
     }
   }
 
@@ -281,14 +281,14 @@ extension Google_Protobuf_FieldMask {
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
     let set = mask.pathsSet
-    var _paths: [String] = []
-    var _buffer = Set<String>()
-    for path in paths where set.contains(path) && !_buffer.contains(path) {
-      _buffer.insert(path)
-      _paths.append(path)
+    var paths: [String] = []
+    var buffer = Set<String>()
+    for path in self.paths where set.contains(path) && !buffer.contains(path) {
+      buffer.insert(path)
+      paths.append(path)
     }
     return .with { mask in
-      mask.paths = _paths
+      mask.paths = paths
     }
   }
 
@@ -301,14 +301,14 @@ extension Google_Protobuf_FieldMask {
     _ mask: Google_Protobuf_FieldMask
   ) -> Google_Protobuf_FieldMask {
     let set = mask.pathsSet
-    var _paths: [String] = []
-    var _buffer = Set<String>()
-    for path in paths where !set.contains(path) && !_buffer.contains(path) {
-      _buffer.insert(path)
-      _paths.append(path)
+    var paths: [String] = []
+    var buffer = Set<String>()
+    for path in self.paths where !set.contains(path) && !buffer.contains(path) {
+      buffer.insert(path)
+      paths.append(path)
     }
     return .with { mask in
-      mask.paths = _paths
+      mask.paths = paths
     }
   }
 
@@ -320,8 +320,8 @@ extension Google_Protobuf_FieldMask {
   /// - Parameter path: Path to be checked.
   /// - Returns: Boolean determines is path covered.
   public func contains(_ path: String) -> Bool {
-    for _path in paths {
-      if path.hasPrefix("\(_path).") || _path == path {
+    for fieldMaskPath in paths {
+      if path.hasPrefix("\(fieldMaskPath).") || fieldMaskPath == path {
         return true
       }
     }
