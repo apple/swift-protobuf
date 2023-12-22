@@ -35,13 +35,17 @@ extension Message {
 }
 
 /// Defines available options for merging two messages.
-public enum MergeOption: Equatable {
+public struct MergeOption {
+
+  public init(replaceRepeatedFields: Bool = false) {
+    self.replaceRepeatedFields = replaceRepeatedFields
+  }
 
   /// The default merging behavior will append entries from the source
   /// repeated field to the destination repeated field. If you only want
   /// to keep the entries from the source repeated field, set this flag
   /// to true.
-  case replaceRepeatedFields
+  public var replaceRepeatedFields = false
 }
 
 extension Message {
@@ -54,28 +58,26 @@ extension Message {
   public mutating func merge(
     to source: Self,
     fieldMask: Google_Protobuf_FieldMask,
-    mergeOptions: [MergeOption] = []
+    mergeOption: MergeOption = .init()
   ) throws {
     var source = source
-    var copy = self
     var pathToValueMap: [String: Any?] = [:]
-    let replaceRepeatedFields = mergeOptions
-      .contains(.replaceRepeatedFields)
     for path in fieldMask.paths {
       pathToValueMap[path] = try source.get(path: path)
     }
     for (path, value) in pathToValueMap {
-      try copy.set(
+      try? set(
         path: path,
         value: value,
-        replaceRepeatedFields: replaceRepeatedFields
+        mergeOption: mergeOption
       )
     }
-    self = copy
   }
 }
 
 extension Message where Self: Equatable, Self: _ProtoNameProviding {
+
+  // TODO: Re-implement using clear fields instead of copying message
 
   @discardableResult
   /// Removes from 'message' any field that is not represented in the given
@@ -92,7 +94,7 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
     if fieldMask.paths.isEmpty {
       return false
     }
-    var tmp = Self.init()
+    var tmp = Self(removingAllFieldsOf: self)
     do {
       try tmp.merge(to: self, fieldMask: fieldMask)
       let changed = tmp != self
@@ -101,5 +103,24 @@ extension Message where Self: Equatable, Self: _ProtoNameProviding {
     } catch {
       return false
     }
+  }
+}
+
+private extension Message {
+  init(removingAllFieldsOf message: Self) {
+    if let type = Self.self as? ExtensibleMessage.Type,
+       let extensible = message as? ExtensibleMessage {
+      self = type.init(extensionsOf: extensible) as? Self ?? .init()
+    } else {
+      self = .init()
+    }
+    self.unknownFields = message.unknownFields
+  }
+}
+
+private extension Message where Self: ExtensibleMessage {
+  init(extensionsOf message: ExtensibleMessage) {
+    self.init()
+    _protobuf_extensionFieldValues = message._protobuf_extensionFieldValues
   }
 }

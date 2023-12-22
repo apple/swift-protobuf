@@ -151,8 +151,29 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(message.repeatedInt32, [1, 2, 3, 4])
 
         // Checks with replacing repeated fields
-        try message.merge(to: secondMessage, fieldMask: fieldMask, mergeOptions: [.replaceRepeatedFields])
+        try message.merge(to: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
         XCTAssertEqual(message.repeatedInt32, [3, 4])
+    }
+
+    // Checks merge functionality for map field masks.
+    func testMergeMapFieldsOfMessage() throws {
+        var message = SwiftProtoTesting_Fuzz_Message.with { model in
+            model.mapInt32String = [1: "a", 2: "c"]
+        }
+
+        let secondMessage = SwiftProtoTesting_Fuzz_Message.with { model in
+            model.mapInt32String = [2: "b"]
+        }
+
+        let fieldMask = Google_Protobuf_FieldMask(protoPaths: ["map_int32_string"])
+
+        // Checks without replacing repeated fields
+        try message.merge(to: secondMessage, fieldMask: fieldMask)
+        XCTAssertEqual(message.mapInt32String, [1: "a", 2: "b"])
+
+        // Checks with replacing repeated fields
+        try message.merge(to: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
+        XCTAssertEqual(message.mapInt32String, [2: "b"])
     }
 
     // Checks trim functionality for field masks.

@@ -39,24 +39,37 @@ extension Message {
   }
 }
 
+// Decoder that set value of a message field by the given path
 struct SetPathDecoder<T: Message>: Decoder {
 
+  // The value should be set to the path
   private let value: Any?
+
+  // Field number should be overriden by decoder
   private var number: Int?
+
+  // The path only including sub-paths
   private let nextPath: [String]
-  private let replaceRepeatedFields: Bool
+
+  // Merge options to be concidered while setting value
+  private let mergeOption: MergeOption
+
+  private var replaceRepeatedFields: Bool {
+    mergeOption.replaceRepeatedFields
+  }
 
   init(
     path: [String],
     value: Any?,
-    replaceRepeatedFields: Bool
+    mergeOption: MergeOption
   ) {
-    if let firstComponent = path.first {
-      self.number = T.number(for: firstComponent)
+    if let firstComponent = path.first,
+       let number = T.number(for: firstComponent) {
+      self.number = number
     }
     self.nextPath = .init(path.dropFirst())
     self.value = value
-    self.replaceRepeatedFields = replaceRepeatedFields
+    self.mergeOption = mergeOption
   }
 
   private func setValue<V>(_ value: inout V) throws {
@@ -74,6 +87,21 @@ struct SetPathDecoder<T: Message>: Decoder {
       value = __value
     } else {
       value.append(contentsOf: __value)
+    }
+  }
+
+  private func setMapValue<K, V>(
+    _ value: inout Dictionary<K, V>
+  ) throws {
+    guard let __value = self.value as? Dictionary<K, V> else {
+      throw PathDecodingError.typeMismatch
+    }
+    if replaceRepeatedFields {
+      value = __value
+    } else {
+      value.merge(__value) { _, new in
+        new
+      }
     }
   }
 
@@ -292,7 +320,7 @@ struct SetPathDecoder<T: Message>: Decoder {
     var decoder = SetPathDecoder<M>(
         path: nextPath, 
         value: self.value,
-        replaceRepeatedFields: replaceRepeatedFields
+        mergeOption: mergeOption
     )
     if value == nil {
       value = .init()
@@ -322,28 +350,32 @@ struct SetPathDecoder<T: Message>: Decoder {
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: inout _ProtobufMap<KeyType, ValueType>.BaseType
   ) throws where KeyType : MapKeyType, ValueType : MapValueType {
-    try setValue(&value)
+    try setMapValue(&value)
   }
 
   mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
   ) throws where KeyType : MapKeyType, ValueType : Enum, ValueType.RawValue == Int {
-    try setValue(&value)
+    try setMapValue(&value)
   }
 
   mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
   ) throws where KeyType : MapKeyType, ValueType : Hashable, ValueType : Message {
-    try setValue(&value)
+    try setMapValue(&value)
   }
 
   mutating func decodeExtensionField(
     values: inout ExtensionFieldValueSet,
     messageType: Message.Type,
     fieldNumber: Int
-  ) throws {}
+  ) throws {
+    preconditionFailure(
+      "Path decoder should never decode an extension field"
+    )
+  }
 
 }
 
@@ -351,13 +383,13 @@ extension Message {
   mutating func `set`(
     path: String,
     value: Any?,
-    replaceRepeatedFields: Bool
+    mergeOption: MergeOption
   ) throws {
     let _path = path.components(separatedBy: ".")
     var decoder = SetPathDecoder<Self>(
       path: _path,
       value: value,
-      replaceRepeatedFields: replaceRepeatedFields
+      mergeOption: mergeOption
     )
     try decodeMessage(decoder: &decoder)
   }

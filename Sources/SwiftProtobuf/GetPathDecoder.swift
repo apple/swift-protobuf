@@ -14,21 +14,21 @@
 
 import Foundation
 
+// Decoder that captures value of a message field from the given path
 struct GetPathDecoder<T: Message>: Decoder {
 
+  // The path only including sub-paths
   private let nextPath: [String]
+
+  // Field number should be captured by decoder
   private var number: Int?
 
-  private var _value: Any?
-  private var _hasPath: Bool = false
+  // Captured value after decoding will be stored in this property
+  private(set) var value: Any?
 
-  internal var value: Any? {
-    _value
-  }
-
-  internal var hasPath: Bool {
-    _hasPath
-  }
+  // While decoding this property becomes true if the path exists
+  // Note that a property value could be nil while its path is found
+  private(set) var hasPath: Bool = false
 
   internal init(path: [String]) throws {
     guard let firstComponent = path.first,
@@ -50,8 +50,8 @@ struct GetPathDecoder<T: Message>: Decoder {
     guard nextPath.isEmpty else {
       throw PathDecodingError.pathNotFound
     }
-    self._value = value
-    self._hasPath = true
+    self.value = value
+    self.hasPath = true
   }
 
   mutating func decodeSingularFloatField(value: inout Float) throws {
@@ -260,8 +260,8 @@ struct GetPathDecoder<T: Message>: Decoder {
       var tmp = M()
       try tmp.decodeMessage(decoder: &decoder)
     }
-    self._value = decoder.value
-    self._hasPath = decoder.hasPath
+    self.value = decoder.value
+    self.hasPath = decoder.hasPath
   }
 
   mutating func decodeRepeatedMessageField<M>(value: inout [M]) throws {
@@ -301,7 +301,11 @@ struct GetPathDecoder<T: Message>: Decoder {
     values: inout ExtensionFieldValueSet,
     messageType: Message.Type,
     fieldNumber: Int
-  ) throws {}
+  ) throws {
+    preconditionFailure(
+      "Path decoder should never decode an extension field"
+    )
+  }
 
 }
 
