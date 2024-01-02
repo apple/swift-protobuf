@@ -92,9 +92,9 @@ class FileGenerator {
         p.print("import Foundation\n")
 
         if self.generatorOptions.implementationOnlyImports,
-           self.generatorOptions.visibility == .public {
+           self.generatorOptions.visibility != .internal {
             errorString = """
-                Cannot use @_implementationOnly imports when the proto visibility is public.
+                Cannot use @_implementationOnly imports when the proto visibility is public or package.
                 Either change the visibility to internal, or disable @_implementationOnly imports.
             """
             return
