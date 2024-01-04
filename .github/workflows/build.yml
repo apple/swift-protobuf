@@ -102,6 +102,9 @@ jobs:
     - name: Test SPM plugin
       working-directory: main
       run: make test-spm-plugin PROTOC=../protobuf/cmake_build/protoc
+    - name: Compilation Tests
+      working-directory: main
+      run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
 
   sanitizer_testing:
     runs-on: ubuntu-latest

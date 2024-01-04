@@ -1,0 +1,12 @@
+mapping {
+  module_name: "ModuleA"
+  proto_file_path: "Sources/ModuleA/a.proto"
+}
+mapping {
+  module_name: "ImportsAPublicly"
+  proto_file_path: "Sources/ImportsAPublicly/imports_a_publicly.proto"
+}
+mapping {
+  module_name: "ImportsImportsAPublicly"
+  proto_file_path: "Sources/ImportsImportsAPublicly/imports_imports_a_publicly.proto"
+}

@@ -77,12 +77,16 @@ PROTOS_DIRS=Conformance protoc-gen-swiftTests SwiftProtobuf SwiftProtobufPluginL
 	check-proto-files \
 	check-version-numbers \
 	clean \
+	compile-tests \
+	compile-tests-multimodule \
 	default \
 	docs \
 	install \
 	pod-lib-lint \
 	reference \
 	regenerate \
+	regenerate-compiletests-multimodule-protos \
+	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
 	regenerate-fuzz-protos \
 	regenerate-library-protos \
@@ -93,6 +97,7 @@ PROTOS_DIRS=Conformance protoc-gen-swiftTests SwiftProtobuf SwiftProtobufPluginL
 	test-everything \
 	test-plugin \
 	test-runtime \
+	test-spm-plugin \
 	update-proto-files
 
 default: build
@@ -182,11 +187,26 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 		  --tfiws_out=_test/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
+	@mkdir -p _test/CompileTests/MultiModule
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/MultiModule \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
+		--tfiws_out=_test/CompileTests/MultiModule \
+		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
 	diff -ru _test Reference
 
 # Test the SPM plugin.
 test-spm-plugin:
-	env PROTOC_PATH=$(shell realpath ${PROTOC}) swift test --package-path PluginExamples
+	env PROTOC_PATH=$(shell realpath ${PROTOC}) ${SWIFT} test --package-path PluginExamples
+
+compile-tests: compile-tests-multimodule
+
+# Test that ensure generating public into multiple modules with `import public`
+# yields buildable code.
+compile-tests-multimodule:
+	${SWIFT} test --package-path CompileTests/MultiModule
+
 
 # Rebuild the reference files by running the local version of protoc-gen-swift
 # against our menagerie of sample protos.
@@ -213,6 +233,13 @@ reference: build ${PROTOC_GEN_SWIFT}
 		  --tfiws_out=Reference/$$d \
 		  `find Protos/$$d -type f -name "*.proto"` || exit 1; \
 	done
+	@mkdir -p Reference/CompileTests/MultiModule
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/MultiModule \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
+		--tfiws_out=Reference/CompileTests/MultiModule \
+		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
 
 #
 # Rebuild the generated .pb.swift test files by running
@@ -228,6 +255,7 @@ regenerate: \
 	regenerate-fuzz-protos \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
+	regenerate-compiletests-protos \
 	regenerate-conformance-protos \
 	Tests/protoc-gen-swiftTests/DescriptorTestData.swift \
 	Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift
@@ -418,6 +446,21 @@ regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_out=Sources/Conformance \
 		`find Protos/Conformance -type f -name "*.proto"`
+
+# Rebuild just the protos used by the CompileTests.
+regenerate-compiletests-protos: regenerate-compiletests-multimodule-protos
+
+# Update the CompileTests/MultiModule files.
+# NOTE: Any changes here must be done of the "test-plugin" target so it
+# generates in the same way.
+regenerate-compiletests-multimodule-protos: build ${PROTOC_GEN_SWIFT}
+	find CompileTests/MultiModule -name "*.pb.swift" -exec rm -f {} \;
+	${GENERATE_SRCS} \
+	    -I Protos/CompileTests/MultiModule \
+		--tfiws_opt=Visibility=Public \
+		--tfiws_opt=ProtoPathModuleMappings=Protos/CompileTests/MultiModule/module_mappings.pbascii \
+		--tfiws_out=CompileTests/MultiModule \
+		`(find Protos/CompileTests/MultiModule -type f -name "*.proto")`
 
 # Helper to check if there is a protobuf checkout as expected.
 check-for-protobuf-checkout:
