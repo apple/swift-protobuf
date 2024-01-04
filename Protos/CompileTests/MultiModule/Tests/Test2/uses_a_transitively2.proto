@@ -1,0 +1,6 @@
+import "Sources/ImportsImportsAPublicly/imports_imports_a_publicly.proto";
+
+message UsesATransitively2 {
+  optional A a = 111;
+  optional E e = 122;
+}

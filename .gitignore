@@ -9,6 +9,8 @@ xcbaselines
 /docs
 /build
 mined_words.txt
+/CompileTests/MultiModule/.build
+/CompileTests/MultiModule/.swiftpm
 /*DescriptorTestData.bin
 /Package.resolved
 

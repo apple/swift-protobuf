@@ -1,0 +1,6 @@
+import public "Sources/ModuleA/a.proto";
+
+message ImportsAPublicly {
+  optional A a = 11;
+  optional E e = 12;
+}
