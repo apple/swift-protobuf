@@ -38,6 +38,13 @@ public struct ProtoFileToModuleMappings {
   /// access it to verify things.
   let mappings: [String:String]
 
+  /// A Boolean value that indicates that there were developer provided
+  /// mappings.
+  ///
+  /// Since `mappings` will have the bundled proto files also, this is used
+  /// to track whether there are any provided mappings.
+  public let hasMappings: Bool
+
   /// The name of the runtime module for SwiftProtobuf (usually "SwiftProtobuf").
   /// We expect to find the WKTs in the module named here.
   public let swiftProtobufModuleName: String
@@ -71,6 +78,7 @@ public struct ProtoFileToModuleMappings {
   public init(moduleMappingsProto mappings: SwiftProtobuf_GenSwift_ModuleMappings, swiftProtobufModuleName: String?) throws {
     self.swiftProtobufModuleName = swiftProtobufModuleName ?? defaultSwiftProtobufModuleName
     var builder = wktMappings(swiftProtobufModuleName: self.swiftProtobufModuleName)
+    let initialCount = builder.count
     for (idx, mapping) in mappings.mapping.lazy.enumerated() {
       if mapping.moduleName.isEmpty {
         throw LoadError.entryMissingModuleName(mappingIndex: idx)
@@ -92,6 +100,7 @@ public struct ProtoFileToModuleMappings {
       }
     }
     self.mappings = builder
+    self.hasMappings = initialCount != builder.count
   }
 
   public init() {
@@ -110,6 +119,7 @@ public struct ProtoFileToModuleMappings {
   /// Returns the list of modules that need to be imported for a given file based on
   /// the dependencies it has.
   public func neededModules(forFile file: FileDescriptor) -> [String]? {
+    guard hasMappings else { return nil }
     if file.dependencies.isEmpty {
       return nil
     }
