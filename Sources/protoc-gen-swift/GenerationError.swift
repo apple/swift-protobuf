@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 
-enum GenerationError: Error {
+enum GenerationError: Error, CustomStringConvertible {
   /// Raised when parsing the parameter string and found an unknown key.
   case unknownParameter(name: String)
   /// Raised when a parameter was given an invalid value.
