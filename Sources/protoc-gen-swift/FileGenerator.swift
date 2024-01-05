@@ -90,25 +90,15 @@ class FileGenerator {
 
         p.print("\(comments)import Foundation")
 
-        if self.generatorOptions.implementationOnlyImports,
-           self.generatorOptions.visibility != .internal {
-            errorString = """
-                Cannot use @_implementationOnly imports when the proto visibility is public or package.
-                Either change the visibility to internal, or disable @_implementationOnly imports.
-            """
-            return
+        // Import all other imports as @_implementationOnly if the option is
+        // set, to avoid exposing internal types to users.
+        let visibilityAnnotation: String
+        if self.generatorOptions.implementationOnlyImports {
+            precondition(self.generatorOptions.visibility == .internal)
+            visibilityAnnotation = "@_implementationOnly "
+        } else {
+            visibilityAnnotation = ""
         }
-
-        // Import all other imports as @_implementationOnly if the visiblity is
-        // internal and the option is set, to avoid exposing internal types to users.
-        let visibilityAnnotation: String = {
-            if self.generatorOptions.implementationOnlyImports,
-               self.generatorOptions.visibility == .internal {
-                return "@_implementationOnly "
-            } else {
-                return ""
-            }
-        }()
         if fileDescriptor.isBundledProto {
             p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
         } else {

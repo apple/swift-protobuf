@@ -130,5 +130,34 @@ class GeneratorOptions {
     }
 
     self.implementationOnlyImports = implementationOnlyImports
+
+    // ------------------------------------------------------------------------
+    // Now do "cross option" validations.
+
+    if self.implementationOnlyImports && self.visibility != .internal {
+      throw GenerationError.message(message: """
+        Cannot use @_implementationOnly imports when the proto visibility is public or package.
+        Either change the visibility to internal, or disable @_implementationOnly imports.
+        """)
+    }
+
+    // The majority case is that if `self.protoToModuleMappings.hasMappings` is
+    // true, then `self.visibility` should be either `.public` or `.package`.
+    // However, it is possible for someone to put top most proto files (ones
+    // not imported into other proto files) in a different module, and use
+    // internal visibility there. i.e. -
+    //
+    //    module One:
+    //    - foo.pb.swift from foo.proto generated with "public" visibility.
+    //    module Two:
+    //    - bar.pb.swift from bar.proto (which does `import foo.proto`)
+    //      generated with "internal" visiblity.
+    //
+    // Since this support is possible/valid, there's no good way a "bad" case
+    // (i.e. - if foo.pb.swift was generated with "internal" visiblity). So
+    // no options validation here, and instead developers would have to figure
+    // this out via the compiler errors around missing type (when bar.pb.swift
+    // gets unknown reference for thing that should be in module One via
+    // foo.pb.swift).
   }
 }
