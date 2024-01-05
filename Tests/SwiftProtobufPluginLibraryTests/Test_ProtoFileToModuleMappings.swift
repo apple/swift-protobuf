@@ -76,6 +76,7 @@ final class Test_ProtoFileToModuleMappings: XCTestCase {
         let mapper = try ProtoFileToModuleMappings(moduleMappingsProto: config)
         XCTAssertEqual(mapper.mappings.count, expectMappings + baselineEntries, "Index: \(idx)")
         XCTAssertEqual(Set(mapper.mappings.values).count, expectedModules + baselineModules, "Index: \(idx)")
+        XCTAssert(mapper.hasMappings == (expectMappings != 0), "Index: \(idx)")
       } catch let error {
         XCTFail("Index \(idx) - Unexpected error: \(error)")
       }
