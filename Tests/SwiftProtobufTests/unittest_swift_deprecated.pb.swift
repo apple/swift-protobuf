@@ -499,28 +499,14 @@ extension SwiftProtoTesting_Deprecated_MyMsg: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._stringField {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._intField {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      } }()
-      if !_storage._fixedField.isEmpty {
-        try visitor.visitRepeatedFixed32Field(value: _storage._fixedField, fieldNumber: 3)
-      }
-      try { if let v = _storage._msgField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
-      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularString({ $0.stringField }, fieldNumber: 1, isUnset: { $0._storage._stringField == nil }),
+    .singularInt32({ $0.intField }, fieldNumber: 2, isUnset: { $0._storage._intField == nil }),
+    .repeatedFixed32({ $0.fixedField }, fieldNumber: 3),
+    .singularMessage({ $0._storage._msgField }, fieldNumber: 4),
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 536870912),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Deprecated_MyMsg, rhs: SwiftProtoTesting_Deprecated_MyMsg) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -550,9 +536,9 @@ extension SwiftProtoTesting_Deprecated_MsgScope: SwiftProtobuf.Message, SwiftPro
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Deprecated_MsgScope, rhs: SwiftProtoTesting_Deprecated_MsgScope) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -620,27 +606,13 @@ extension SwiftProtoTesting_Deprecated_MyMsg2: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._stringField {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._intField {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      } }()
-      if !_storage._fixedField.isEmpty {
-        try visitor.visitRepeatedFixed32Field(value: _storage._fixedField, fieldNumber: 3)
-      }
-      try { if let v = _storage._msgField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularString({ $0.stringField }, fieldNumber: 1, isUnset: { $0._storage._stringField == nil }),
+    .singularInt32({ $0.intField }, fieldNumber: 2, isUnset: { $0._storage._intField == nil }),
+    .repeatedFixed32({ $0.fixedField }, fieldNumber: 3),
+    .singularMessage({ $0._storage._msgField }, fieldNumber: 4),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Deprecated_MyMsg2, rhs: SwiftProtoTesting_Deprecated_MyMsg2) -> Bool {
     if lhs._storage !== rhs._storage {

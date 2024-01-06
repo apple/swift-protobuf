@@ -229,32 +229,25 @@ extension SwiftProtoTesting_Merging_TestMessage: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.oneofField {
-    case .oneofUint32?: try {
-      guard case .oneofUint32(let v)? = self.oneofField else { preconditionFailure() }
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-    }()
-    case .oneofNestedMessage?: try {
-      guard case .oneofNestedMessage(let v)? = self.oneofField else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-    }()
-    case .oneofString?: try {
-      guard case .oneofString(let v)? = self.oneofField else { preconditionFailure() }
-      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-    }()
-    case .oneofBytes?: try {
-      guard case .oneofBytes(let v)? = self.oneofField else { preconditionFailure() }
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-    }()
-    case nil: break
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .oneOf({ $0.oneofField }) {
+      switch $0 {
+      case .oneofUint32:
+        return _oneOfField_oneofUint32
+      case .oneofNestedMessage:
+        return _oneOfField_oneofNestedMessage
+      case .oneofString:
+        return _oneOfField_oneofString
+      case .oneofBytes:
+        return _oneOfField_oneofBytes
+      }
+    },
+  ]
+  private static let _oneOfField_oneofUint32: Field<Self> = .singularUInt32({ $0.oneofUint32 }, fieldNumber: 111, isUnset: { _ in false })
+  private static let _oneOfField_oneofNestedMessage: Field<Self> = .singularMessage({ $0.oneofNestedMessage }, fieldNumber: 112)
+  private static let _oneOfField_oneofString: Field<Self> = .singularString({ $0.oneofString }, fieldNumber: 113, isUnset: { _ in false })
+  private static let _oneOfField_oneofBytes: Field<Self> = .singularBytes({ $0.oneofBytes }, fieldNumber: 114, isUnset: { _ in false })
+
 
   static func ==(lhs: SwiftProtoTesting_Merging_TestMessage, rhs: SwiftProtoTesting_Merging_TestMessage) -> Bool {
     if lhs.oneofField != rhs.oneofField {return false}
@@ -285,22 +278,12 @@ extension SwiftProtoTesting_Merging_TestMessage.NestedMessage: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._a {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._b {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._c {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.a }, fieldNumber: 1, isUnset: { $0._a == nil }),
+    .singularInt32({ $0.b }, fieldNumber: 2, isUnset: { $0._b == nil }),
+    .singularInt32({ $0.c }, fieldNumber: 3, isUnset: { $0._c == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Merging_TestMessage.NestedMessage, rhs: SwiftProtoTesting_Merging_TestMessage.NestedMessage) -> Bool {
     if lhs._a != rhs._a {return false}
@@ -331,19 +314,11 @@ extension SwiftProtoTesting_Merging_TestParsingMerge: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._optionalMessage {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.repeatedMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.repeatedMessage, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularMessage({ $0._optionalMessage }, fieldNumber: 1),
+    .repeatedMessage({ $0.repeatedMessage }, fieldNumber: 2),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Merging_TestParsingMerge, rhs: SwiftProtoTesting_Merging_TestParsingMerge) -> Bool {
     if lhs._optionalMessage != rhs._optionalMessage {return false}
@@ -373,15 +348,11 @@ extension SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator: Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.field1.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.field1, fieldNumber: 1)
-    }
-    if !self.field2.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.field2, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .repeatedMessage({ $0.field1 }, fieldNumber: 1),
+    .repeatedMessage({ $0.field2 }, fieldNumber: 2),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator, rhs: SwiftProtoTesting_Merging_TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
     if lhs.field1 != rhs.field1 {return false}

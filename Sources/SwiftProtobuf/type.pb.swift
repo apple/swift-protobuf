@@ -504,34 +504,16 @@ extension Google_Protobuf_Type: Message, _MessageImplementationBase, _ProtoNameP
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.fields.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.fields, fieldNumber: 2)
-    }
-    if !self.oneofs.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.oneofs, fieldNumber: 3)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 4)
-    }
-    try { if let v = self._sourceContext {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    } }()
-    if self.syntax != .proto2 {
-      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 6)
-    }
-    if !self.edition.isEmpty {
-      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 7)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .repeatedMessage({ $0.fields }, fieldNumber: 2),
+    .repeatedString({ $0.oneofs }, fieldNumber: 3),
+    .repeatedMessage({ $0.options }, fieldNumber: 4),
+    .singularMessage({ $0._sourceContext }, fieldNumber: 5),
+    .singularEnum({ $0.syntax }, fieldNumber: 6, defaultValue: .proto2),
+    .singularString({ $0.edition }, fieldNumber: 7),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Type, rhs: Google_Protobuf_Type) -> Bool {
     if lhs.name != rhs.name {return false}
@@ -582,39 +564,19 @@ extension Google_Protobuf_Field: Message, _MessageImplementationBase, _ProtoName
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.kind != .typeUnknown {
-      try visitor.visitSingularEnumField(value: self.kind, fieldNumber: 1)
-    }
-    if self.cardinality != .unknown {
-      try visitor.visitSingularEnumField(value: self.cardinality, fieldNumber: 2)
-    }
-    if self.number != 0 {
-      try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 3)
-    }
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
-    }
-    if !self.typeURL.isEmpty {
-      try visitor.visitSingularStringField(value: self.typeURL, fieldNumber: 6)
-    }
-    if self.oneofIndex != 0 {
-      try visitor.visitSingularInt32Field(value: self.oneofIndex, fieldNumber: 7)
-    }
-    if self.packed != false {
-      try visitor.visitSingularBoolField(value: self.packed, fieldNumber: 8)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 9)
-    }
-    if !self.jsonName.isEmpty {
-      try visitor.visitSingularStringField(value: self.jsonName, fieldNumber: 10)
-    }
-    if !self.defaultValue.isEmpty {
-      try visitor.visitSingularStringField(value: self.defaultValue, fieldNumber: 11)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularEnum({ $0.kind }, fieldNumber: 1, defaultValue: .typeUnknown),
+    .singularEnum({ $0.cardinality }, fieldNumber: 2, defaultValue: .unknown),
+    .singularInt32({ $0.number }, fieldNumber: 3),
+    .singularString({ $0.name }, fieldNumber: 4),
+    .singularString({ $0.typeURL }, fieldNumber: 6),
+    .singularInt32({ $0.oneofIndex }, fieldNumber: 7),
+    .singularBool({ $0.packed }, fieldNumber: 8),
+    .repeatedMessage({ $0.options }, fieldNumber: 9),
+    .singularString({ $0.jsonName }, fieldNumber: 10),
+    .singularString({ $0.defaultValue }, fieldNumber: 11),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Field, rhs: Google_Protobuf_Field) -> Bool {
     if lhs.kind != rhs.kind {return false}
@@ -693,31 +655,15 @@ extension Google_Protobuf_Enum: Message, _MessageImplementationBase, _ProtoNameP
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.enumvalue.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.enumvalue, fieldNumber: 2)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
-    }
-    try { if let v = self._sourceContext {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    if self.syntax != .proto2 {
-      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 5)
-    }
-    if !self.edition.isEmpty {
-      try visitor.visitSingularStringField(value: self.edition, fieldNumber: 6)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .repeatedMessage({ $0.enumvalue }, fieldNumber: 2),
+    .repeatedMessage({ $0.options }, fieldNumber: 3),
+    .singularMessage({ $0._sourceContext }, fieldNumber: 4),
+    .singularEnum({ $0.syntax }, fieldNumber: 5, defaultValue: .proto2),
+    .singularString({ $0.edition }, fieldNumber: 6),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Enum, rhs: Google_Protobuf_Enum) -> Bool {
     if lhs.name != rhs.name {return false}
@@ -753,18 +699,12 @@ extension Google_Protobuf_EnumValue: Message, _MessageImplementationBase, _Proto
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if self.number != 0 {
-      try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 2)
-    }
-    if !self.options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .singularInt32({ $0.number }, fieldNumber: 2),
+    .repeatedMessage({ $0.options }, fieldNumber: 3),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_EnumValue, rhs: Google_Protobuf_EnumValue) -> Bool {
     if lhs.name != rhs.name {return false}
@@ -795,19 +735,11 @@ extension Google_Protobuf_Option: Message, _MessageImplementationBase, _ProtoNam
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    try { if let v = self._value {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1),
+    .singularMessage({ $0._value }, fieldNumber: 2),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Option, rhs: Google_Protobuf_Option) -> Bool {
     if lhs.name != rhs.name {return false}

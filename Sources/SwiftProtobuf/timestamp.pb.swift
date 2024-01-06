@@ -184,15 +184,11 @@ extension Google_Protobuf_Timestamp: Message, _MessageImplementationBase, _Proto
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.seconds != 0 {
-      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
-    }
-    if self.nanos != 0 {
-      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.seconds }, fieldNumber: 1),
+    .singularInt32({ $0.nanos }, fieldNumber: 2),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Timestamp, rhs: Google_Protobuf_Timestamp) -> Bool {
     if lhs.seconds != rhs.seconds {return false}

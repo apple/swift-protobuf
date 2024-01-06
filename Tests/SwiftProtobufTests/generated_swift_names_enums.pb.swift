@@ -8341,6 +8341,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum escaping: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneEscaping // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEscaping
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEscaping
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEscaping: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.escaping] = [
+      .noneEscaping,
+    ]
+
+  }
+
   enum ExpressibleByArrayLiteral: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneExpressibleByArrayLiteral // = 0
@@ -8667,6 +8697,66 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFieldNumber] = [
       .noneExtensionFieldNumber,
+    ]
+
+  }
+
+  enum extensionFields: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneExtensionFields // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneExtensionFields
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneExtensionFields
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneExtensionFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFields] = [
+      .noneExtensionFields,
+    ]
+
+  }
+
+  enum extensionFieldsAsMessageSet: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneExtensionFieldsAsMessageSet // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneExtensionFieldsAsMessageSet
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneExtensionFieldsAsMessageSet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneExtensionFieldsAsMessageSet: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFieldsAsMessageSet] = [
+      .noneExtensionFieldsAsMessageSet,
     ]
 
   }
@@ -10377,6 +10467,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.getExtensionValue] = [
       .noneGetExtensionValue,
+    ]
+
+  }
+
+  enum getValue: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneGetValue // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneGetValue
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneGetValue
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneGetValue: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.getValue] = [
+      .noneGetValue,
     ]
 
   }
@@ -15691,6 +15811,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum isUnset: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneIsUnset // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneIsUnset
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneIsUnset
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneIsUnset: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isUnset] = [
+      .noneIsUnset,
+    ]
+
+  }
+
   enum itemTagsEncodedSize: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneItemTagsEncodedSize // = 0
@@ -17307,6 +17457,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeIterator] = [
       .noneMakeIterator,
+    ]
+
+  }
+
+  enum map: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneMap // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMap
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMap
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMap: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.map] = [
+      .noneMap,
     ]
 
   }
@@ -18991,6 +19171,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum oneOf: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneOneOf // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOneOf
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOneOf
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOneOf: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneOf] = [
+      .noneOneOf,
+    ]
+
+  }
+
   enum oneofDecl: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneOneofDecl // = 0
@@ -19681,6 +19891,96 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum packedBool: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedBool // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedBool
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedBool
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedBool: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedBool] = [
+      .nonePackedBool,
+    ]
+
+  }
+
+  enum packedDouble: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedDouble // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedDouble
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedDouble
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedDouble: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedDouble] = [
+      .nonePackedDouble,
+    ]
+
+  }
+
+  enum packedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedEnum // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedEnum
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedEnum
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedEnum: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedEnum] = [
+      .nonePackedEnum,
+    ]
+
+  }
+
   enum PackedEnumExtensionField: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case nonePackedEnumExtensionField // = 0
@@ -19737,6 +20037,336 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.PackedExtensionField] = [
       .nonePackedExtensionField,
+    ]
+
+  }
+
+  enum packedFixed32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedFixed32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedFixed32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedFixed32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedFixed32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedFixed32] = [
+      .nonePackedFixed32,
+    ]
+
+  }
+
+  enum packedFixed64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedFixed64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedFixed64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedFixed64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedFixed64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedFixed64] = [
+      .nonePackedFixed64,
+    ]
+
+  }
+
+  enum packedFloat: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedFloat // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedFloat
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedFloat
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedFloat: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedFloat] = [
+      .nonePackedFloat,
+    ]
+
+  }
+
+  enum packedInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedInt32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedInt32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedInt32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedInt32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedInt32] = [
+      .nonePackedInt32,
+    ]
+
+  }
+
+  enum packedInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedInt64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedInt64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedInt64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedInt64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedInt64] = [
+      .nonePackedInt64,
+    ]
+
+  }
+
+  enum packedSFixed32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedSfixed32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedSfixed32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedSfixed32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedSfixed32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSFixed32] = [
+      .nonePackedSfixed32,
+    ]
+
+  }
+
+  enum packedSFixed64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedSfixed64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedSfixed64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedSfixed64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedSfixed64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSFixed64] = [
+      .nonePackedSfixed64,
+    ]
+
+  }
+
+  enum packedSInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedSint32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedSint32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedSint32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedSint32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSInt32] = [
+      .nonePackedSint32,
+    ]
+
+  }
+
+  enum packedSInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedSint64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedSint64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedSint64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedSint64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSInt64] = [
+      .nonePackedSint64,
+    ]
+
+  }
+
+  enum packedUInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedUint32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedUint32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedUint32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedUint32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedUInt32] = [
+      .nonePackedUint32,
+    ]
+
+  }
+
+  enum packedUInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePackedUint64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePackedUint64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePackedUint64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePackedUint64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedUInt64] = [
+      .nonePackedUint64,
     ]
 
   }
@@ -22021,6 +22651,126 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum repeatedBool: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedBool // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedBool
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedBool
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedBool: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedBool] = [
+      .noneRepeatedBool,
+    ]
+
+  }
+
+  enum repeatedBytes: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedBytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedBytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedBytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedBytes] = [
+      .noneRepeatedBytes,
+    ]
+
+  }
+
+  enum repeatedDouble: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedDouble // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedDouble
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedDouble
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedDouble: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedDouble] = [
+      .noneRepeatedDouble,
+    ]
+
+  }
+
+  enum repeatedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedEnum // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedEnum
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedEnum
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedEnum: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedEnum] = [
+      .noneRepeatedEnum,
+    ]
+
+  }
+
   enum RepeatedEnumExtensionField: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneRepeatedEnumExtensionField // = 0
@@ -22111,6 +22861,126 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum repeatedFixed32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedFixed32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedFixed32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedFixed32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedFixed32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFixed32] = [
+      .noneRepeatedFixed32,
+    ]
+
+  }
+
+  enum repeatedFixed64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedFixed64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedFixed64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedFixed64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedFixed64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFixed64] = [
+      .noneRepeatedFixed64,
+    ]
+
+  }
+
+  enum repeatedFloat: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedFloat // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedFloat
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedFloat
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedFloat: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFloat] = [
+      .noneRepeatedFloat,
+    ]
+
+  }
+
+  enum repeatedGroup: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedGroup // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedGroup
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedGroup
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedGroup: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedGroup] = [
+      .noneRepeatedGroup,
+    ]
+
+  }
+
   enum RepeatedGroupExtensionField: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneRepeatedGroupExtensionField // = 0
@@ -22141,6 +23011,96 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
 
   }
 
+  enum repeatedInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedInt32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedInt32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedInt32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedInt32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedInt32] = [
+      .noneRepeatedInt32,
+    ]
+
+  }
+
+  enum repeatedInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedInt64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedInt64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedInt64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedInt64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedInt64] = [
+      .noneRepeatedInt64,
+    ]
+
+  }
+
+  enum repeatedMessage: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedMessage // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedMessage
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedMessage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedMessage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedMessage] = [
+      .noneRepeatedMessage,
+    ]
+
+  }
+
   enum RepeatedMessageExtensionField: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneRepeatedMessageExtensionField // = 0
@@ -22167,6 +23127,216 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.RepeatedMessageExtensionField] = [
       .noneRepeatedMessageExtensionField,
+    ]
+
+  }
+
+  enum repeatedSFixed32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedSfixed32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedSfixed32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedSfixed32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedSfixed32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSFixed32] = [
+      .noneRepeatedSfixed32,
+    ]
+
+  }
+
+  enum repeatedSFixed64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedSfixed64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedSfixed64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedSfixed64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedSfixed64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSFixed64] = [
+      .noneRepeatedSfixed64,
+    ]
+
+  }
+
+  enum repeatedSInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedSint32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedSint32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedSint32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedSint32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSInt32] = [
+      .noneRepeatedSint32,
+    ]
+
+  }
+
+  enum repeatedSInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedSint64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedSint64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedSint64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedSint64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSInt64] = [
+      .noneRepeatedSint64,
+    ]
+
+  }
+
+  enum repeatedString: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedString // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedString
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedString] = [
+      .noneRepeatedString,
+    ]
+
+  }
+
+  enum repeatedUInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedUint32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedUint32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedUint32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedUint32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedUInt32] = [
+      .noneRepeatedUint32,
+    ]
+
+  }
+
+  enum repeatedUInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneRepeatedUint64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneRepeatedUint64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneRepeatedUint64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneRepeatedUint64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedUInt64] = [
+      .noneRepeatedUint64,
     ]
 
   }
@@ -23277,6 +24447,546 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SimpleExtensionMap] = [
       .noneSimpleExtensionMap,
+    ]
+
+  }
+
+  enum singularBool: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularBool // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularBool
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularBool
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularBool: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularBool] = [
+      .noneSingularBool,
+    ]
+
+  }
+
+  enum singularBytes: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularBytes // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularBytes
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularBytes
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularBytes: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularBytes] = [
+      .noneSingularBytes,
+    ]
+
+  }
+
+  enum singularDouble: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularDouble // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularDouble
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularDouble
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularDouble: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularDouble] = [
+      .noneSingularDouble,
+    ]
+
+  }
+
+  enum singularEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularEnum // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularEnum
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularEnum
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularEnum: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularEnum] = [
+      .noneSingularEnum,
+    ]
+
+  }
+
+  enum singularFixed32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularFixed32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularFixed32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularFixed32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularFixed32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularFixed32] = [
+      .noneSingularFixed32,
+    ]
+
+  }
+
+  enum singularFixed64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularFixed64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularFixed64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularFixed64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularFixed64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularFixed64] = [
+      .noneSingularFixed64,
+    ]
+
+  }
+
+  enum singularFloat: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularFloat // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularFloat
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularFloat
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularFloat: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularFloat] = [
+      .noneSingularFloat,
+    ]
+
+  }
+
+  enum singularGroup: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularGroup // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularGroup
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularGroup
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularGroup: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularGroup] = [
+      .noneSingularGroup,
+    ]
+
+  }
+
+  enum singularInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularInt32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularInt32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularInt32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularInt32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularInt32] = [
+      .noneSingularInt32,
+    ]
+
+  }
+
+  enum singularInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularInt64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularInt64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularInt64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularInt64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularInt64] = [
+      .noneSingularInt64,
+    ]
+
+  }
+
+  enum singularMessage: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularMessage // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularMessage
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularMessage
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularMessage: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularMessage] = [
+      .noneSingularMessage,
+    ]
+
+  }
+
+  enum singularSFixed32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularSfixed32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularSfixed32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularSfixed32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularSfixed32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSFixed32] = [
+      .noneSingularSfixed32,
+    ]
+
+  }
+
+  enum singularSFixed64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularSfixed64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularSfixed64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularSfixed64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularSfixed64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSFixed64] = [
+      .noneSingularSfixed64,
+    ]
+
+  }
+
+  enum singularSInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularSint32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularSint32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularSint32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularSint32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSInt32] = [
+      .noneSingularSint32,
+    ]
+
+  }
+
+  enum singularSInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularSint64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularSint64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularSint64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularSint64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSInt64] = [
+      .noneSingularSint64,
+    ]
+
+  }
+
+  enum singularString: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularString // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularString
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularString] = [
+      .noneSingularString,
+    ]
+
+  }
+
+  enum singularUInt32: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularUint32 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularUint32
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularUint32
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularUint32: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularUInt32] = [
+      .noneSingularUint32,
+    ]
+
+  }
+
+  enum singularUInt64: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSingularUint64 // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSingularUint64
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSingularUint64
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSingularUint64: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularUInt64] = [
+      .noneSingularUint64,
     ]
 
   }
@@ -24897,6 +26607,36 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: Sendable {
     // The compiler won't synthesize support with the UNRECOGNIZED case.
     static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Timestamp] = [
       .noneTimestamp,
+    ]
+
+  }
+
+  enum toConcrete: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneToConcrete // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneToConcrete
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneToConcrete
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneToConcrete: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.toConcrete] = [
+      .noneToConcrete,
     ]
 
   }
@@ -28757,9 +30497,9 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums: SwiftProtobuf
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -30429,6 +32169,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Error: SwiftPr
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.escaping: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_escaping"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExpressibleByArrayLiteral"),
@@ -30492,6 +32238,18 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.ExtensionField
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFieldNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extensionFieldNumber"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFields: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_extensionFields"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.extensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_extensionFieldsAsMessageSet"),
   ]
 }
 
@@ -30834,6 +32592,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.get: SwiftProt
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.getExtensionValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_getExtensionValue"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.getValue: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_getValue"),
   ]
 }
 
@@ -31899,6 +33663,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isNegative: Sw
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.isUnset: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_isUnset"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.itemTagsEncodedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_itemTagsEncodedSize"),
@@ -32220,6 +33990,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeAsyncItera
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.makeIterator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_makeIterator"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.map: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_map"),
   ]
 }
 
@@ -32559,6 +34335,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.of: SwiftProto
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneOf: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_oneOf"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.oneofDecl: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_oneofDecl"),
@@ -32697,6 +34479,24 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packed: SwiftP
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedBool: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedBool"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedDouble: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedDouble"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedEnum"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.PackedEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_PackedEnumExtensionField"),
@@ -32706,6 +34506,72 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.PackedEnumExte
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.PackedExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_PackedExtensionField"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedFixed32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedFixed32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedFixed64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedFixed64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedFloat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedFloat"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedInt64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSFixed32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedSFixed32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSFixed64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedSFixed64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedSInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedSInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedSInt64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedUInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedUInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.packedUInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_packedUInt64"),
   ]
 }
 
@@ -33165,6 +35031,30 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeated: Swif
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedBool: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedBool"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedBytes: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedBytes"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedDouble: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedDouble"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedEnum"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.RepeatedEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedEnumExtensionField"),
@@ -33183,15 +35073,99 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFieldE
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFixed32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedFixed32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFixed64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedFixed64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedFloat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedFloat"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedGroup: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedGroup"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.RepeatedGroupExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedGroupExtensionField"),
   ]
 }
 
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedInt64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedMessage: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedMessage"),
+  ]
+}
+
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.RepeatedMessageExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedMessageExtensionField"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSFixed32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedSFixed32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSFixed64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedSFixed64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedSInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedSInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedSInt64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedString: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedString"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedUInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedUInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.repeatedUInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_repeatedUInt64"),
   ]
 }
 
@@ -33414,6 +35388,114 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.shift: SwiftPr
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.SimpleExtensionMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_SimpleExtensionMap"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularBool: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularBool"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularBytes: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularBytes"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularDouble: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularDouble"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularEnum"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularFixed32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularFixed32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularFixed64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularFixed64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularFloat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularFloat"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularGroup: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularGroup"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularInt64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularMessage: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularMessage"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSFixed32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularSFixed32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSFixed64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularSFixed64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularSInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularSInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularSInt64"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularString: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularString"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularUInt32: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularUInt32"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.singularUInt64: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_singularUInt64"),
   ]
 }
 
@@ -33738,6 +35820,12 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.timeIntervalSi
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.Timestamp: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Timestamp"),
+  ]
+}
+
+extension SwiftProtoTesting_Generated_GeneratedSwiftReservedEnums.toConcrete: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_toConcrete"),
   ]
 }
 

@@ -26,6 +26,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let swiftName: String
     private let underscoreSwiftName: String
     private let storedProperty: String
+    private let storedPropertyWithoutSelf: String
     private let swiftHasName: String
     private let swiftClearName: String
     private let swiftType: String
@@ -75,8 +76,10 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
 
         if usesHeapStorage {
             storedProperty = "_storage.\(underscoreSwiftName)"
+            storedPropertyWithoutSelf = storedProperty
         } else {
             storedProperty = "self.\(hasFieldPresence ? underscoreSwiftName : swiftName)"
+            storedPropertyWithoutSelf = "\(hasFieldPresence ? underscoreSwiftName : swiftName)"
         }
 
         super.init(descriptor: descriptor)
@@ -220,5 +223,32 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         p.print("\(prefix)if \(conditional) {")
         p.printIndented("try visitor.\(visitMethod)(\(traitsArg)value: \(varName), fieldNumber: \(number))")
         p.print("}\(suffix)")
+    }
+  
+    func generateFieldNode(printer p: inout SwiftProtobufPluginLibrary.CodePrinter) {
+      let factoryMethod: String
+      let traitsArg: String
+      if isMap {
+          factoryMethod = "map"
+          traitsArg = "type: \(traitsType).self, "
+      } else {
+          let modifier = isPacked ? "packed" : isRepeated ? "repeated" : "singular"
+          factoryMethod = "\(modifier)\(fieldDescriptor.protoGenericType)"
+          traitsArg = ""
+      }
+      
+      let getterName = isGroupOrMessage ? storedPropertyWithoutSelf : swiftName
+      
+      let suffix: String
+      if isRepeated || isGroupOrMessage {
+        suffix = ""
+      } else if hasFieldPresence {
+        suffix = ", isUnset: { $0.\(storedPropertyWithoutSelf) == nil }"
+      } else if swiftDefaultValue != "0" && swiftDefaultValue != "false" && swiftDefaultValue != "String()" && swiftDefaultValue != "Data()" {
+        suffix = ", defaultValue: \(swiftDefaultValue)"
+      } else {
+        suffix = ""
+      }
+      p.print(".\(factoryMethod)(\(traitsArg){ $0.\(getterName) }, fieldNumber: \(number)\(suffix)),")
     }
 }

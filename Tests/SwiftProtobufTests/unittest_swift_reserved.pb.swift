@@ -574,37 +574,17 @@ extension SwiftProtoTesting_SwiftReservedTest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._protoMessageName {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-    } }()
-    try { if let v = self._protoPackageName {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-    } }()
-    try { if let v = self._anyTypePrefix {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-    } }()
-    try { if let v = self._anyTypeURL {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-    } }()
-    try { if let v = self._isInitialized_p {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 20)
-    } }()
-    try { if let v = self._hashValue_p {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 21)
-    } }()
-    try { if let v = self._debugDescription_p {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-    } }()
-    try { if let v = self._requiredInt {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.protoMessageName }, fieldNumber: 10, isUnset: { $0._protoMessageName == nil }),
+    .singularInt32({ $0.protoPackageName }, fieldNumber: 11, isUnset: { $0._protoPackageName == nil }),
+    .singularInt32({ $0.anyTypePrefix }, fieldNumber: 12, isUnset: { $0._anyTypePrefix == nil }),
+    .singularInt32({ $0.anyTypeURL }, fieldNumber: 13, isUnset: { $0._anyTypeURL == nil }),
+    .singularString({ $0.isInitialized_p }, fieldNumber: 20, isUnset: { $0._isInitialized_p == nil }),
+    .singularString({ $0.hashValue_p }, fieldNumber: 21, isUnset: { $0._hashValue_p == nil }),
+    .singularInt32({ $0.debugDescription_p }, fieldNumber: 22, isUnset: { $0._debugDescription_p == nil }),
+    .singularInt32({ $0.requiredInt }, fieldNumber: 30, isUnset: { $0._requiredInt == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_SwiftReservedTest, rhs: SwiftProtoTesting_SwiftReservedTest) -> Bool {
     if lhs._protoMessageName != rhs._protoMessageName {return false}
@@ -654,10 +634,10 @@ extension SwiftProtoTesting_SwiftReservedTest.classMessage: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 2001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_SwiftReservedTest.classMessage, rhs: SwiftProtoTesting_SwiftReservedTest.classMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -683,10 +663,10 @@ extension SwiftProtoTesting_SwiftReservedTest.TypeMessage: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1000, end: 2001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_SwiftReservedTest.TypeMessage, rhs: SwiftProtoTesting_SwiftReservedTest.TypeMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -704,9 +684,9 @@ extension SwiftProtoTesting_SwiftReservedTest.isEqual: SwiftProtobuf.Message, Sw
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_SwiftReservedTest.isEqual, rhs: SwiftProtoTesting_SwiftReservedTest.isEqual) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -723,9 +703,9 @@ extension SwiftProtoTesting_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftPr
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_SwiftReservedTestExt, rhs: SwiftProtoTesting_SwiftReservedTestExt) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}

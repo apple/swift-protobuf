@@ -44,6 +44,9 @@ protocol FieldGenerator {
 
   /// Generate the support for traversing this field.
   func generateTraverse(printer: inout CodePrinter)
+  
+  /// Generate the field node
+  func generateFieldNode(printer: inout CodePrinter)
 
   /// Generate support for comparing this field's value.
   /// The generated code should return false in the current scope if the field's don't match.

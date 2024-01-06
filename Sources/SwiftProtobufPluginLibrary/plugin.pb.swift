@@ -393,25 +393,13 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._major {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._minor {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._patch {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._suffix {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.major }, fieldNumber: 1, isUnset: { $0._major == nil }),
+    .singularInt32({ $0.minor }, fieldNumber: 2, isUnset: { $0._minor == nil }),
+    .singularInt32({ $0.patch }, fieldNumber: 3, isUnset: { $0._patch == nil }),
+    .singularString({ $0.suffix }, fieldNumber: 4, isUnset: { $0._suffix == nil }),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Compiler_Version, rhs: Google_Protobuf_Compiler_Version) -> Bool {
     if lhs._major != rhs._major {return false}
@@ -455,28 +443,14 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, 
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.fileToGenerate.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.fileToGenerate, fieldNumber: 1)
-    }
-    try { if let v = self._parameter {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._compilerVersion {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    if !self.protoFile.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.protoFile, fieldNumber: 15)
-    }
-    if !self.sourceFileDescriptors.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.sourceFileDescriptors, fieldNumber: 17)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .repeatedString({ $0.fileToGenerate }, fieldNumber: 1),
+    .singularString({ $0.parameter }, fieldNumber: 2, isUnset: { $0._parameter == nil }),
+    .singularMessage({ $0._compilerVersion }, fieldNumber: 3),
+    .repeatedMessage({ $0.protoFile }, fieldNumber: 15),
+    .repeatedMessage({ $0.sourceFileDescriptors }, fieldNumber: 17),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorRequest, rhs: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if lhs.fileToGenerate != rhs.fileToGenerate {return false}
@@ -515,28 +489,14 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message,
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._error {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._supportedFeatures {
-      try visitor.visitSingularUInt64Field(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._minimumEdition {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._maximumEdition {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-    } }()
-    if !self.file.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 15)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.error }, fieldNumber: 1, isUnset: { $0._error == nil }),
+    .singularUInt64({ $0.supportedFeatures }, fieldNumber: 2, isUnset: { $0._supportedFeatures == nil }),
+    .singularInt32({ $0.minimumEdition }, fieldNumber: 3, isUnset: { $0._minimumEdition == nil }),
+    .singularInt32({ $0.maximumEdition }, fieldNumber: 4, isUnset: { $0._maximumEdition == nil }),
+    .repeatedMessage({ $0.file }, fieldNumber: 15),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
     if lhs._error != rhs._error {return false}
@@ -581,25 +541,13 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Mes
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._name {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._insertionPoint {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._content {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 15)
-    } }()
-    try { if let v = self._generatedCodeInfo {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.name }, fieldNumber: 1, isUnset: { $0._name == nil }),
+    .singularString({ $0.insertionPoint }, fieldNumber: 2, isUnset: { $0._insertionPoint == nil }),
+    .singularString({ $0.content }, fieldNumber: 15, isUnset: { $0._content == nil }),
+    .singularMessage({ $0._generatedCodeInfo }, fieldNumber: 16),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Compiler_CodeGeneratorResponse.File, rhs: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
     if lhs._name != rhs._name {return false}

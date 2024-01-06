@@ -64,12 +64,10 @@ extension SwiftProtoTesting_SwiftJSONTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.repeatedNullValue.isEmpty {
-      try visitor.visitPackedEnumField(value: self.repeatedNullValue, fieldNumber: 318)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .packedEnum({ $0.repeatedNullValue }, fieldNumber: 318),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_SwiftJSONTest, rhs: SwiftProtoTesting_SwiftJSONTest) -> Bool {
     if lhs.repeatedNullValue != rhs.repeatedNullValue {return false}

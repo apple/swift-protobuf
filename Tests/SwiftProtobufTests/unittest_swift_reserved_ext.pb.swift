@@ -349,9 +349,9 @@ extension SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftReservedTestExt2, rhs: SwiftReservedTestExt2) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}

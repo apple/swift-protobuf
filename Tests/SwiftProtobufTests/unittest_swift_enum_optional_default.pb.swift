@@ -158,9 +158,9 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault: SwiftProtobuf.Message, S
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_EnumOptionalDefault, rhs: SwiftProtoTesting_Extend_EnumOptionalDefault) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -212,21 +212,11 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage: SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._message {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._optionalEnum {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-      } }()
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularMessage({ $0._storage._message }, fieldNumber: 1),
+    .singularEnum({ $0.optionalEnum }, fieldNumber: 17, isUnset: { $0._storage._optionalEnum == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage, rhs: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
     if lhs._storage !== rhs._storage {
@@ -268,16 +258,10 @@ extension SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2: SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._optionalEnum {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularEnum({ $0.optionalEnum }, fieldNumber: 17, isUnset: { $0._optionalEnum == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2, rhs: SwiftProtoTesting_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
     if lhs._optionalEnum != rhs._optionalEnum {return false}

@@ -226,12 +226,10 @@ extension Google_Protobuf_DoubleValue: Message, _MessageImplementationBase, _Pro
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularDouble({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_DoubleValue, rhs: Google_Protobuf_DoubleValue) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -258,12 +256,10 @@ extension Google_Protobuf_FloatValue: Message, _MessageImplementationBase, _Prot
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularFloat({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_FloatValue, rhs: Google_Protobuf_FloatValue) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -290,12 +286,10 @@ extension Google_Protobuf_Int64Value: Message, _MessageImplementationBase, _Prot
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Int64Value, rhs: Google_Protobuf_Int64Value) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -322,12 +316,10 @@ extension Google_Protobuf_UInt64Value: Message, _MessageImplementationBase, _Pro
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularUInt64({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_UInt64Value, rhs: Google_Protobuf_UInt64Value) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -354,12 +346,10 @@ extension Google_Protobuf_Int32Value: Message, _MessageImplementationBase, _Prot
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_Int32Value, rhs: Google_Protobuf_Int32Value) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -386,12 +376,10 @@ extension Google_Protobuf_UInt32Value: Message, _MessageImplementationBase, _Pro
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != 0 {
-      try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularUInt32({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_UInt32Value, rhs: Google_Protobuf_UInt32Value) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -418,12 +406,10 @@ extension Google_Protobuf_BoolValue: Message, _MessageImplementationBase, _Proto
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if self.value != false {
-      try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularBool({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_BoolValue, rhs: Google_Protobuf_BoolValue) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -450,12 +436,10 @@ extension Google_Protobuf_StringValue: Message, _MessageImplementationBase, _Pro
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_StringValue, rhs: Google_Protobuf_StringValue) -> Bool {
     if lhs.value != rhs.value {return false}
@@ -482,12 +466,10 @@ extension Google_Protobuf_BytesValue: Message, _MessageImplementationBase, _Prot
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.value.isEmpty {
-      try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularBytes({ $0.value }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_BytesValue, rhs: Google_Protobuf_BytesValue) -> Bool {
     if lhs.value != rhs.value {return false}

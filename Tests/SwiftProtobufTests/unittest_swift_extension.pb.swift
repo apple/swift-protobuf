@@ -418,9 +418,9 @@ extension SwiftProtoTesting_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf._Me
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_Foo, rhs: SwiftProtoTesting_Extend_Foo) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -437,9 +437,9 @@ extension SwiftProtoTesting_Extend_Foo.Bar: SwiftProtobuf.Message, SwiftProtobuf
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_Foo.Bar, rhs: SwiftProtoTesting_Extend_Foo.Bar) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -472,17 +472,11 @@ extension SwiftProtoTesting_Extend_Foo.Bar.Baz: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._a {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.a }, fieldNumber: 1, isUnset: { $0._a == nil }),
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_Foo.Bar.Baz, rhs: SwiftProtoTesting_Extend_Foo.Bar.Baz) -> Bool {
     if lhs._a != rhs._a {return false}
@@ -510,16 +504,10 @@ extension SwiftProtoTesting_Extend_C: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._c {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 999)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.c }, fieldNumber: 999, isUnset: { $0._c == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_C, rhs: SwiftProtoTesting_Extend_C) -> Bool {
     if lhs._c != rhs._c {return false}
@@ -545,10 +533,10 @@ extension SwiftProtoTesting_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_Msg1, rhs: SwiftProtoTesting_Extend_Msg1) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -574,10 +562,10 @@ extension SwiftProtoTesting_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 1, end: 1001),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_Msg2, rhs: SwiftProtoTesting_Extend_Msg2) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -611,17 +599,11 @@ extension SwiftProtoTesting_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._x {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    } }()
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 201)
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.x }, fieldNumber: 1, isUnset: { $0._x == nil }),
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 201),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_MsgNoStorage, rhs: SwiftProtoTesting_Extend_MsgNoStorage) -> Bool {
     if lhs._x != rhs._x {return false}
@@ -685,22 +667,12 @@ extension SwiftProtoTesting_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._x {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._y {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 201)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt32({ $0.x }, fieldNumber: 1, isUnset: { $0._storage._x == nil }),
+    .singularMessage({ $0._storage._y }, fieldNumber: 2),
+    .extensionFields({ $0._protobuf_extensionFieldValues }, start: 100, end: 201),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend_MsgUsesStorage, rhs: SwiftProtoTesting_Extend_MsgUsesStorage) -> Bool {
     if lhs._storage !== rhs._storage {

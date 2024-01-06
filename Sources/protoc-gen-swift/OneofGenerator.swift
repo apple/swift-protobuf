@@ -104,6 +104,11 @@ class OneofGenerator {
         func generateTraverse(printer p: inout CodePrinter) {
             oneof.generateTraverse(printer: &p, field: self)
         }
+      
+      func generateFieldNode(printer p: inout SwiftProtobufPluginLibrary.CodePrinter) {
+          oneof.generateFieldNode(printer: &p, field: self)
+      }
+
     }
 
     private let oneofDescriptor: OneofDescriptor
@@ -360,6 +365,34 @@ class OneofGenerator {
     }
 
     var generateTraverseUsesLocals: Bool { return true }
+    
+    func generateFieldNode(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field in the group causes the output.
+        let group = fieldSortedGrouped[field.group]
+        guard field === group.first else { return }
+        p.print(".oneOf({ $0.\(swiftFieldName) }) {")
+        p.withIndentation { p in
+            p.print("switch $0 {")
+            for field in group {
+                p.print("case \(field.dottedSwiftName):")
+                p.printIndented("return _oneOfField_\(field.swiftName)")
+            }
+            if group.count != fields.count {
+                p.print("default:")
+                p.printIndented("return nil")
+            }
+            p.print("}")
+        }
+        p.print("},")
+    }
+    
+    func generateFieldNodeStaticLet(printer p: inout CodePrinter) {
+        for field in fieldsSortedByNumber {
+            let suffix = field.isGroupOrMessage ? "" :  ", isUnset: { _ in false }"
+            p.print("private static let _oneOfField_\(field.swiftName): Field<Self> = .singular\(field.protoGenericType)({ $0.\(field.swiftName) }, fieldNumber: \(field.number)\(suffix))")
+        }
+        
+    }
 
     func generateTraverse(printer p: inout CodePrinter, field: MemberFieldGenerator) {
         // First field in the group causes the output.

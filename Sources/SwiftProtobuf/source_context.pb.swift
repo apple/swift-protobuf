@@ -88,12 +88,10 @@ extension Google_Protobuf_SourceContext: Message, _MessageImplementationBase, _P
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    if !self.fileName.isEmpty {
-      try visitor.visitSingularStringField(value: self.fileName, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.fileName }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: Google_Protobuf_SourceContext, rhs: Google_Protobuf_SourceContext) -> Bool {
     if lhs.fileName != rhs.fileName {return false}

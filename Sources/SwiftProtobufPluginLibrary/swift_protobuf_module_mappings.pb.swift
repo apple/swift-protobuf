@@ -89,12 +89,10 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.mapping.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.mapping, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .repeatedMessage({ $0.mapping }, fieldNumber: 1),
+  ]
+
 
   public static func ==(lhs: SwiftProtobuf_GenSwift_ModuleMappings, rhs: SwiftProtobuf_GenSwift_ModuleMappings) -> Bool {
     if lhs.mapping != rhs.mapping {return false}
@@ -123,15 +121,11 @@ extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, Sw
     }
   }
 
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.moduleName.isEmpty {
-      try visitor.visitSingularStringField(value: self.moduleName, fieldNumber: 1)
-    }
-    if !self.protoFilePath.isEmpty {
-      try visitor.visitRepeatedStringField(value: self.protoFilePath, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  public static let _fields: [Field<Self>] = [
+    .singularString({ $0.moduleName }, fieldNumber: 1),
+    .repeatedString({ $0.protoFilePath }, fieldNumber: 2),
+  ]
+
 
   public static func ==(lhs: SwiftProtobuf_GenSwift_ModuleMappings.Entry, rhs: SwiftProtobuf_GenSwift_ModuleMappings.Entry) -> Bool {
     if lhs.moduleName != rhs.moduleName {return false}

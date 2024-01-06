@@ -217,9 +217,9 @@ extension SwiftProtoTesting_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProto
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend3_MyMessage, rhs: SwiftProtoTesting_Extend3_MyMessage) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -245,16 +245,10 @@ extension SwiftProtoTesting_Extend3_MyMessage.C: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._c {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1310)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.c }, fieldNumber: 1310, isUnset: { $0._c == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend3_MyMessage.C, rhs: SwiftProtoTesting_Extend3_MyMessage.C) -> Bool {
     if lhs._c != rhs._c {return false}
@@ -281,16 +275,10 @@ extension SwiftProtoTesting_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._c {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 1320)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+  static let _fields: [Field<Self>] = [
+    .singularInt64({ $0.c }, fieldNumber: 1320, isUnset: { $0._c == nil }),
+  ]
+
 
   static func ==(lhs: SwiftProtoTesting_Extend3_C, rhs: SwiftProtoTesting_Extend3_C) -> Bool {
     if lhs._c != rhs._c {return false}
