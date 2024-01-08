@@ -1,5 +1,5 @@
 import ImportsAPublicly
-import ModuleA  // Needed because `import public` doesn't help Swift
+// Don't need to import ModuleA because of the file being a `import public`
 
 import XCTest
 

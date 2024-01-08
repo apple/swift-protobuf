@@ -6,4 +6,9 @@ enum E {
 
 message A {
   optional E e = 1;
+  extensions 100 to 1000;
+}
+
+extend A {
+  optional string ext_str = 100;
 }

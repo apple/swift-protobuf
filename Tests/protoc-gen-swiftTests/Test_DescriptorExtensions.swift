@@ -13,6 +13,8 @@ import SwiftProtobuf
 import SwiftProtobufPluginLibrary
 @testable import protoc_gen_swift
 
+fileprivate typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
+
 final class Test_DescriptorExtensions: XCTestCase {
 
   func testExtensionRanges() throws {
@@ -192,6 +194,273 @@ final class Test_DescriptorExtensions: XCTestCase {
     XCTAssertIdentical(aliasInfo.original(of: e.values[3]), e.values[0])
     XCTAssertIdentical(aliasInfo.original(of: e.values[4]), e.values[0])
     XCTAssertIdentical(aliasInfo.original(of: e.values[5]), e.values[0])
+  }
+
+  func test_File_computeImports_noImportPublic() {
+    let configText = """
+      mapping { module_name: "foo", proto_file_path: "file" }
+      mapping { module_name: "bar", proto_file_path: "dir1/file" }
+      mapping { module_name: "baz", proto_file_path: ["dir2/file","file4"] }
+      mapping { module_name: "foo", proto_file_path: "file5" }
+    """
+
+    let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+
+    let fileProtos = [
+      FileDescriptorProto(name: "file"),
+      FileDescriptorProto(name: "google/protobuf/any.proto", package: "google.protobuf"),
+      FileDescriptorProto(name: "dir1/file", dependencies: ["file"]),
+      FileDescriptorProto(name: "dir2/file", dependencies: ["google/protobuf/any.proto"]),
+      FileDescriptorProto(name: "file4", dependencies: ["dir2/file", "dir1/file", "file"]),
+      FileDescriptorProto(name: "file5", dependencies: ["file"]),
+    ]
+    let descSet = DescriptorSet(protos: fileProtos)
+
+    // ( filename, imports, implOnly imports )
+    let tests: [(String, String, String)] = [
+      ( "file", "", "" ),
+      ( "dir1/file", "import foo", "@_implementationOnly import foo" ),
+      ( "dir2/file", "", "" ),
+      ( "file4", "import bar\nimport foo", "@_implementationOnly import bar\n@_implementationOnly import foo" ),
+      ( "file5", "", "" ),
+    ]
+
+    for (name, expected, expectedImplOnly) in tests {
+      let fileDesc = descSet.files.filter{ $0.name == name }.first!
+      do {  // reexportPublicImports: false, asImplementationOnly: false
+        let namer =
+          SwiftProtobufNamer(currentFile: fileDesc,
+                             protoFileToModuleMappings: mapper)
+        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: false)
+        XCTAssertEqual(result, expected, "Looking for \(name)")
+      }
+      do {  // reexportPublicImports: true, asImplementationOnly: false - No `import publc`, same as previous
+        let namer =
+          SwiftProtobufNamer(currentFile: fileDesc,
+                             protoFileToModuleMappings: mapper)
+        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: true, asImplementationOnly: false)
+        XCTAssertEqual(result, expected, "Looking for \(name)")
+      }
+      do {  // reexportPublicImports: false, asImplementationOnly: true
+        let namer =
+          SwiftProtobufNamer(currentFile: fileDesc,
+                             protoFileToModuleMappings: mapper)
+        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: true)
+        XCTAssertEqual(result, expectedImplOnly, "Looking for \(name)")
+      }
+    }
+  }
+
+  func test_File_computeImports_PublicImports() {
+    // See the notes on computeImports(namer:reexportPublicImports:asImplementationOnly:)
+    // about how public import complicate things.
+
+    // Given:
+    //
+    //  + File: a.proto
+    //    message A {}
+    //
+    //    enum E {
+    //      E_UNSET = 0;
+    //      E_A = 1;
+    //      E_B = 2;
+    //    }
+    //
+    //  + File: imports_a_publicly.proto
+    //    import public "a.proto";
+    //
+    //    message ImportsAPublicly {
+    //      optional A a = 1;
+    //      optional E e = 2;
+    //    }
+    //
+    //  + File: imports_imports_a_publicly.proto
+    //    import public "imports_a_publicly.proto";
+    //
+    //    message ImportsImportsAPublicly {
+    //      optional A a = 1;
+    //    }
+    //
+    //  + File: uses_a_transitively.proto
+    //    import "imports_a_publicly.proto";
+    //
+    //    message UsesATransitively {
+    //      optional A a = 1;
+    //    }
+    //
+    //  + File: uses_a_transitively2.proto
+    //    import "imports_imports_a_publicly.proto";
+    //
+    //    message UsesATransitively2 {
+    //      optional A a = 1;
+    //    }
+    //
+    // With a mapping file of:
+    //
+    //    mapping {
+    //      module_name: "A"
+    //      proto_file_path: "a.proto"
+    //    }
+    //    mapping {
+    //      module_name: "ImportsAPublicly"
+    //      proto_file_path: "imports_a_publicly.proto"
+    //    }
+    //    mapping {
+    //      module_name: "ImportsImportsAPublicly"
+    //      proto_file_path: "imports_imports_a_publicly.proto"
+    //    }
+
+    let configText = """
+      mapping { module_name: "A", proto_file_path: "a.proto" }
+      mapping { module_name: "ImportsAPublicly", proto_file_path: "imports_a_publicly.proto" }
+      mapping { module_name: "ImportsImportsAPublicly", proto_file_path: "imports_imports_a_publicly.proto" }
+    """
+
+    let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+
+    let fileProtos = [
+      try! FileDescriptorProto(textFormatString: """
+        name: "a.proto"
+        message_type {
+          name: "A"
+        }
+        enum_type {
+          name: "E"
+          value {
+            name: "E_UNSET"
+            number: 0
+          }
+          value {
+            name: "E_A"
+            number: 1
+          }
+          value {
+            name: "E_B"
+            number: 2
+          }
+        }
+      """),
+      try! FileDescriptorProto(textFormatString: """
+        name: "imports_a_publicly.proto"
+        dependency: "a.proto"
+        message_type {
+          name: "ImportsAPublicly"
+          field {
+            name: "a"
+            number: 1
+            label: LABEL_OPTIONAL
+            type: TYPE_MESSAGE
+            type_name: ".A"
+            json_name: "a"
+          }
+          field {
+            name: "e"
+            number: 2
+            label: LABEL_OPTIONAL
+            type: TYPE_ENUM
+            type_name: ".E"
+            json_name: "e"
+          }
+        }
+        public_dependency: 0
+      """),
+      try! FileDescriptorProto(textFormatString: """
+        name: "imports_imports_a_publicly.proto"
+        dependency: "imports_a_publicly.proto"
+        message_type {
+          name: "ImportsImportsAPublicly"
+          field {
+            name: "a"
+            number: 1
+            label: LABEL_OPTIONAL
+            type: TYPE_MESSAGE
+            type_name: ".A"
+            json_name: "a"
+          }
+        }
+        public_dependency: 0
+      """),
+      try! FileDescriptorProto(textFormatString: """
+        name: "uses_a_transitively.proto"
+        dependency: "imports_a_publicly.proto"
+        message_type {
+          name: "UsesATransitively"
+          field {
+            name: "a"
+            number: 1
+            label: LABEL_OPTIONAL
+            type: TYPE_MESSAGE
+            type_name: ".A"
+            json_name: "a"
+          }
+        }
+      """),
+      try! FileDescriptorProto(textFormatString: """
+        name: "uses_a_transitively2.proto"
+        dependency: "imports_imports_a_publicly.proto"
+        message_type {
+          name: "UsesATransitively2"
+          field {
+            name: "a"
+            number: 1
+            label: LABEL_OPTIONAL
+            type: TYPE_MESSAGE
+            type_name: ".A"
+            json_name: "a"
+          }
+        }
+      """),
+    ]
+    let descSet = DescriptorSet(protos: fileProtos)
+
+    // ( filename, imports, reExportPublicImports imports, implOnly imports )
+    let tests: [(String, String, String, String)] = [
+      ( "a.proto",
+        "", "", "" ),
+      ( "imports_a_publicly.proto",
+        "import A",
+        "// Use of 'import public' causes re-exports:\n@_exported import enum A.E\n@_exported import struct A.A",
+        "@_implementationOnly import A" ),
+      ( "imports_imports_a_publicly.proto",
+        "import ImportsAPublicly",
+        "// Use of 'import public' causes re-exports:\n@_exported import enum A.E\n@_exported import struct A.A\n@_exported import struct ImportsAPublicly.ImportsAPublicly",
+        "@_implementationOnly import ImportsAPublicly" ),
+      ( "uses_a_transitively.proto",
+        "import ImportsAPublicly",  // this reexports A, so we don't directly pull in A.
+        "import ImportsAPublicly",  // just a plain `import`, nothing to re-export.
+        "@_implementationOnly import ImportsAPublicly" ),
+      ( "uses_a_transitively2.proto",
+        "import ImportsImportsAPublicly",  // this chain reexports A, so we don't directly pull in A.
+        "import ImportsImportsAPublicly",  // just a plain `import`, nothing to re-export.
+        "@_implementationOnly import ImportsImportsAPublicly" ),
+    ]
+
+    for (name, expected, expectedReExport, expectedImplOnly) in tests {
+      let fileDesc = descSet.files.filter{ $0.name == name }.first!
+      do {  // reexportPublicImports: false, asImplementationOnly: false
+        let namer =
+          SwiftProtobufNamer(currentFile: fileDesc,
+                             protoFileToModuleMappings: mapper)
+        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: false)
+        XCTAssertEqual(result, expected, "Looking for \(name)")
+      }
+      do {  // reexportPublicImports: true, asImplementationOnly: false
+        let namer =
+          SwiftProtobufNamer(currentFile: fileDesc,
+                             protoFileToModuleMappings: mapper)
+        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: true, asImplementationOnly: false)
+        XCTAssertEqual(result, expectedReExport, "Looking for \(name)")
+      }
+      do {  // reexportPublicImports: false, asImplementationOnly: true
+        let namer =
+          SwiftProtobufNamer(currentFile: fileDesc,
+                             protoFileToModuleMappings: mapper)
+        let result = fileDesc.computeImports(namer: namer, reexportPublicImports: false, asImplementationOnly: true)
+        XCTAssertEqual(result, expectedImplOnly, "Looking for \(name)")
+      }
+    }
   }
 
 }
