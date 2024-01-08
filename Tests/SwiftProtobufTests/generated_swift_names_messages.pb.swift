@@ -1555,18 +1555,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct clearPhpGenericServices: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var clearPhpGenericServices_p: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct clearPhpMetadataNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -5599,18 +5587,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     init() {}
   }
 
-  struct hasPhpGenericServices: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var hasPhpGenericServices_p: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct hasPhpMetadataNamespace: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -8005,18 +7981,6 @@ struct SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages: Sendable {
     // methods supported on all messages.
 
     var phpClassPrefix: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct phpGenericServices: Sendable {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var phpGenericServices: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -15600,38 +15564,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpCla
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpClassPrefix, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpClassPrefix) -> Bool {
     if lhs.clearPhpClassPrefix_p != rhs.clearPhpClassPrefix_p {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPhpGenericServices"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "clearPhpGenericServices"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.clearPhpGenericServices_p) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.clearPhpGenericServices_p != 0 {
-      try visitor.visitSingularInt32Field(value: self.clearPhpGenericServices_p, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpGenericServices, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.clearPhpGenericServices) -> Bool {
-    if lhs.clearPhpGenericServices_p != rhs.clearPhpGenericServices_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -26389,38 +26321,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpClass
   }
 }
 
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpGenericServices"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "hasPhpGenericServices"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.hasPhpGenericServices_p) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.hasPhpGenericServices_p != 0 {
-      try visitor.visitSingularInt32Field(value: self.hasPhpGenericServices_p, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpGenericServices, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpGenericServices) -> Bool {
-    if lhs.hasPhpGenericServices_p != rhs.hasPhpGenericServices_p {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.hasPhpMetadataNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpMetadataNamespace"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -32816,38 +32716,6 @@ extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpClassPre
 
   static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpClassPrefix, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpClassPrefix) -> Bool {
     if lhs.phpClassPrefix != rhs.phpClassPrefix {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.protoMessageName + ".phpGenericServices"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "phpGenericServices"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.phpGenericServices) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.phpGenericServices != 0 {
-      try visitor.visitSingularInt32Field(value: self.phpGenericServices, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpGenericServices, rhs: SwiftProtoTesting_Generated_GeneratedSwiftReservedMessages.phpGenericServices) -> Bool {
-    if lhs.phpGenericServices != rhs.phpGenericServices {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

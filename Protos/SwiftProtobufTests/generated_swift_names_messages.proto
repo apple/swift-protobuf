@@ -131,7 +131,6 @@ message GeneratedSwiftReservedMessages {
   message clearPackage { int32 clearPackage = 1; }
   message clearPacked { int32 clearPacked = 1; }
   message clearPhpClassPrefix { int32 clearPhpClassPrefix = 1; }
-  message clearPhpGenericServices { int32 clearPhpGenericServices = 1; }
   message clearPhpMetadataNamespace { int32 clearPhpMetadataNamespace = 1; }
   message clearPhpNamespace { int32 clearPhpNamespace = 1; }
   message clearPositiveIntValue { int32 clearPositiveIntValue = 1; }
@@ -468,7 +467,6 @@ message GeneratedSwiftReservedMessages {
   message hasPackage { int32 hasPackage = 1; }
   message hasPacked { int32 hasPacked = 1; }
   message hasPhpClassPrefix { int32 hasPhpClassPrefix = 1; }
-  message hasPhpGenericServices { int32 hasPhpGenericServices = 1; }
   message hasPhpMetadataNamespace { int32 hasPhpMetadataNamespace = 1; }
   message hasPhpNamespace { int32 hasPhpNamespace = 1; }
   message hasPositiveIntValue { int32 hasPositiveIntValue = 1; }
@@ -669,7 +667,6 @@ message GeneratedSwiftReservedMessages {
   message payload { int32 payload = 1; }
   message payloadSize { int32 payloadSize = 1; }
   message phpClassPrefix { int32 phpClassPrefix = 1; }
-  message phpGenericServices { int32 phpGenericServices = 1; }
   message phpMetadataNamespace { int32 phpMetadataNamespace = 1; }
   message phpNamespace { int32 phpNamespace = 1; }
   message pos { int32 pos = 1; }
