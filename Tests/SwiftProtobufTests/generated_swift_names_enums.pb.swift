@@ -2956,31 +2956,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum clearPhpGenericServices: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneClearPhpGenericServices // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneClearPhpGenericServices
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneClearPhpGenericServices
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneClearPhpGenericServices: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum clearPhpMetadataNamespace: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneClearPhpMetadataNamespace // = 0
@@ -11456,31 +11431,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
 
   }
 
-  enum hasPhpGenericServices: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneHasPhpGenericServices // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneHasPhpGenericServices
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneHasPhpGenericServices
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneHasPhpGenericServices: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum hasPhpMetadataNamespace: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneHasPhpMetadataNamespace // = 0
@@ -16525,31 +16475,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums {
     var rawValue: Int {
       switch self {
       case .nonePhpClassPrefix: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
-  enum phpGenericServices: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case nonePhpGenericServices // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .nonePhpGenericServices
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .nonePhpGenericServices
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .nonePhpGenericServices: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -24555,13 +24480,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpClassPre
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpGenericServices: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpGenericServices] = [
-    .noneClearPhpGenericServices,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpMetadataNamespace: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpMetadataNamespace] = [
@@ -26935,13 +26853,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpClassPrefi
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpGenericServices: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpGenericServices] = [
-    .noneHasPhpGenericServices,
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpMetadataNamespace: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpMetadataNamespace] = [
@@ -28353,13 +28264,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpClassPrefix: 
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpClassPrefix] = [
     .nonePhpClassPrefix,
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpGenericServices: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpGenericServices] = [
-    .nonePhpGenericServices,
   ]
 }
 
@@ -30493,7 +30397,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearOutputType:
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPacked: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpClassPrefix: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpGenericServices: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpMetadataNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPositiveIntValue: @unchecked Sendable {}
@@ -30833,7 +30736,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasOutputType: @
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPacked: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpClassPrefix: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpGenericServices: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpMetadataNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPositiveIntValue: @unchecked Sendable {}
@@ -31036,7 +30938,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.paths: @unchecke
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payload: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payloadSize: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpClassPrefix: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpGenericServices: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpMetadataNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pointer: @unchecked Sendable {}
@@ -32048,12 +31949,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPacked: Swi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpClassPrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearPhpClassPrefix"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearPhpGenericServices: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_clearPhpGenericServices"),
   ]
 }
 
@@ -34091,12 +33986,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpClassPrefi
   ]
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpGenericServices: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_hasPhpGenericServices"),
-  ]
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasPhpMetadataNamespace: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasPhpMetadataNamespace"),
@@ -35306,12 +35195,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payloadSize: Swi
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpClassPrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_phpClassPrefix"),
-  ]
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.phpGenericServices: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_phpGenericServices"),
   ]
 }
 

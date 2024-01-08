@@ -412,6 +412,18 @@ struct ProtobufUnittest_TestRecursiveMapMessage {
   init() {}
 }
 
+struct ProtobufUnittest_TestI32StrMap {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var m32Str: Dictionary<Int32,String> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 #if swift(>=5.5) && canImport(_Concurrency)
 extension ProtobufUnittest_MapEnum: @unchecked Sendable {}
 extension ProtobufUnittest_TestMap: @unchecked Sendable {}
@@ -424,6 +436,7 @@ extension ProtobufUnittest_MessageContainingEnumCalledType: @unchecked Sendable 
 extension ProtobufUnittest_MessageContainingEnumCalledType.TypeEnum: @unchecked Sendable {}
 extension ProtobufUnittest_MessageContainingMapCalledEntry: @unchecked Sendable {}
 extension ProtobufUnittest_TestRecursiveMapMessage: @unchecked Sendable {}
+extension ProtobufUnittest_TestI32StrMap: @unchecked Sendable {}
 #endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1078,6 +1091,38 @@ extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message, Swift
 
   static func ==(lhs: ProtobufUnittest_TestRecursiveMapMessage, rhs: ProtobufUnittest_TestRecursiveMapMessage) -> Bool {
     if lhs.a != rhs.a {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestI32StrMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TestI32StrMap"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "m_32_str"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: &self.m32Str) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.m32Str.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufString>.self, value: self.m32Str, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: ProtobufUnittest_TestI32StrMap, rhs: ProtobufUnittest_TestI32StrMap) -> Bool {
+    if lhs.m32Str != rhs.m32Str {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

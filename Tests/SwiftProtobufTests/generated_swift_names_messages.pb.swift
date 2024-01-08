@@ -1435,18 +1435,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct clearPhpGenericServices {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var clearPhpGenericServices_p: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct clearPhpMetadataNamespace {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -5515,18 +5503,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     init() {}
   }
 
-  struct hasPhpGenericServices {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var hasPhpGenericServices_p: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
   struct hasPhpMetadataNamespace {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -7945,18 +7921,6 @@ struct ProtobufUnittestGenerated_GeneratedSwiftReservedMessages {
     // methods supported on all messages.
 
     var phpClassPrefix: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-  }
-
-  struct phpGenericServices {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var phpGenericServices: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11529,7 +11493,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearOutputTy
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPacked: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpClassPrefix: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpGenericServices: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpMetadataNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPositiveIntValue: @unchecked Sendable {}
@@ -11869,7 +11832,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasOutputType
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPackage: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPacked: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpClassPrefix: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpGenericServices: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpMetadataNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPositiveIntValue: @unchecked Sendable {}
@@ -12072,7 +12034,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.paths: @unche
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.payload: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.payloadSize: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpClassPrefix: @unchecked Sendable {}
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpGenericServices: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpMetadataNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpNamespace: @unchecked Sendable {}
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.pointer: @unchecked Sendable {}
@@ -16124,38 +16085,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpClass
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpClassPrefix, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpClassPrefix) -> Bool {
     if lhs.clearPhpClassPrefix_p != rhs.clearPhpClassPrefix_p {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".clearPhpGenericServices"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "clearPhpGenericServices"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.clearPhpGenericServices_p) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.clearPhpGenericServices_p != 0 {
-      try visitor.visitSingularInt32Field(value: self.clearPhpGenericServices_p, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpGenericServices, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.clearPhpGenericServices) -> Bool {
-    if lhs.clearPhpGenericServices_p != rhs.clearPhpGenericServices_p {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -27009,38 +26938,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpClassPr
   }
 }
 
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpGenericServices"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "hasPhpGenericServices"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.hasPhpGenericServices_p) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.hasPhpGenericServices_p != 0 {
-      try visitor.visitSingularInt32Field(value: self.hasPhpGenericServices_p, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpGenericServices, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpGenericServices) -> Bool {
-    if lhs.hasPhpGenericServices_p != rhs.hasPhpGenericServices_p {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
 extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.hasPhpMetadataNamespace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".hasPhpMetadataNamespace"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -33500,38 +33397,6 @@ extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpClassPrefi
 
   static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpClassPrefix, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpClassPrefix) -> Bool {
     if lhs.phpClassPrefix != rhs.phpClassPrefix {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpGenericServices: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.protoMessageName + ".phpGenericServices"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "phpGenericServices"),
-  ]
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.phpGenericServices) }()
-      default: break
-      }
-    }
-  }
-
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.phpGenericServices != 0 {
-      try visitor.visitSingularInt32Field(value: self.phpGenericServices, fieldNumber: 1)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
-  static func ==(lhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpGenericServices, rhs: ProtobufUnittestGenerated_GeneratedSwiftReservedMessages.phpGenericServices) -> Bool {
-    if lhs.phpGenericServices != rhs.phpGenericServices {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
