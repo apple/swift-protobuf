@@ -121,7 +121,6 @@ message GeneratedSwiftReservedEnums {
   enum clearPackage { NONE_clearPackage = 0; }
   enum clearPacked { NONE_clearPacked = 0; }
   enum clearPhpClassPrefix { NONE_clearPhpClassPrefix = 0; }
-  enum clearPhpGenericServices { NONE_clearPhpGenericServices = 0; }
   enum clearPhpMetadataNamespace { NONE_clearPhpMetadataNamespace = 0; }
   enum clearPhpNamespace { NONE_clearPhpNamespace = 0; }
   enum clearPositiveIntValue { NONE_clearPositiveIntValue = 0; }
@@ -461,7 +460,6 @@ message GeneratedSwiftReservedEnums {
   enum hasPackage { NONE_hasPackage = 0; }
   enum hasPacked { NONE_hasPacked = 0; }
   enum hasPhpClassPrefix { NONE_hasPhpClassPrefix = 0; }
-  enum hasPhpGenericServices { NONE_hasPhpGenericServices = 0; }
   enum hasPhpMetadataNamespace { NONE_hasPhpMetadataNamespace = 0; }
   enum hasPhpNamespace { NONE_hasPhpNamespace = 0; }
   enum hasPositiveIntValue { NONE_hasPositiveIntValue = 0; }
@@ -664,7 +662,6 @@ message GeneratedSwiftReservedEnums {
   enum payload { NONE_payload = 0; }
   enum payloadSize { NONE_payloadSize = 0; }
   enum phpClassPrefix { NONE_phpClassPrefix = 0; }
-  enum phpGenericServices { NONE_phpGenericServices = 0; }
   enum phpMetadataNamespace { NONE_phpMetadataNamespace = 0; }
   enum phpNamespace { NONE_phpNamespace = 0; }
   enum pointer { NONE_pointer = 0; }

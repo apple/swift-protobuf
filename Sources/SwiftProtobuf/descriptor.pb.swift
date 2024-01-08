@@ -1259,15 +1259,6 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `pyGenericServices`. Subsequent reads from it will return its default value.
   public mutating func clearPyGenericServices() {_uniqueStorage()._pyGenericServices = nil}
 
-  public var phpGenericServices: Bool {
-    get {return _storage._phpGenericServices ?? false}
-    set {_uniqueStorage()._phpGenericServices = newValue}
-  }
-  /// Returns true if `phpGenericServices` has been explicitly set.
-  public var hasPhpGenericServices: Bool {return _storage._phpGenericServices != nil}
-  /// Clears the value of `phpGenericServices`. Subsequent reads from it will return its default value.
-  public mutating func clearPhpGenericServices() {_uniqueStorage()._phpGenericServices = nil}
-
   /// Is this file deprecated?
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for everything in the file, or it will be completely ignored; in the very
@@ -1499,10 +1490,6 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   /// Clears the value of `deprecated`. Subsequent reads from it will return its default value.
   public mutating func clearDeprecated() {self._deprecated = nil}
 
-  /// NOTE: Do not set the option in .proto files. Always use the maps syntax
-  /// instead. The option should only be implicitly set by the proto compiler
-  /// parser.
-  ///
   /// Whether the message is an automatically generated map entry type for the
   /// maps field.
   ///
@@ -1520,6 +1507,10 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.ExtensibleMessage {
   /// use a native map in the target language to hold the keys and values.
   /// The reflection APIs in such implementations still need to work as
   /// if the field is a repeated message field.
+  ///
+  /// NOTE: Do not set the option in .proto files. Always use the maps syntax
+  /// instead. The option should only be implicitly set by the proto compiler
+  /// parser.
   public var mapEntry: Bool {
     get {return _mapEntry ?? false}
     set {_mapEntry = newValue}
@@ -1647,19 +1638,11 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.ExtensibleMessage {
   /// call from multiple threads concurrently, while non-const methods continue
   /// to require exclusive access.
   ///
-  /// Note that implementations may choose not to check required fields within
-  /// a lazy sub-message.  That is, calling IsInitialized() on the outer message
-  /// may return true even if the inner message has missing required fields.
-  /// This is necessary because otherwise the inner message would have to be
-  /// parsed in order to perform the check, defeating the purpose of lazy
-  /// parsing.  An implementation which chooses not to check required fields
-  /// must be consistent about it.  That is, for any particular sub-message, the
-  /// implementation must either *always* check its required fields, or *never*
-  /// check its required fields, regardless of whether or not the message has
-  /// been parsed.
-  ///
-  /// As of May 2022, lazy verifies the contents of the byte stream during
-  /// parsing.  An invalid byte stream will cause the overall parsing to fail.
+  /// Note that lazy message fields are still eagerly verified to check
+  /// ill-formed wireformat or missing required fields. Calling IsInitialized()
+  /// on the outer message would fail if the inner message has missing required
+  /// fields. Failed verification would result in parsing failure (except when
+  /// uninitialized messages are acceptable).
   public var lazy: Bool {
     get {return _storage._lazy ?? false}
     set {_uniqueStorage()._lazy = newValue}
@@ -2789,7 +2772,7 @@ public struct Google_Protobuf_SourceCodeInfo {
     /// location.
     ///
     /// Each element is a field number or an index.  They form a path from
-    /// the root FileDescriptorProto to the place where the definition occurs.
+    /// the root FileDescriptorProto to the place where the definition appears.
     /// For example, this path:
     ///   [ 4, 3, 2, 7, 1 ]
     /// refers to:
@@ -4101,7 +4084,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
     16: .standard(proto: "cc_generic_services"),
     17: .standard(proto: "java_generic_services"),
     18: .standard(proto: "py_generic_services"),
-    42: .standard(proto: "php_generic_services"),
     23: .same(proto: "deprecated"),
     31: .standard(proto: "cc_enable_arenas"),
     36: .standard(proto: "objc_class_prefix"),
@@ -4126,7 +4108,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
     var _ccGenericServices: Bool? = nil
     var _javaGenericServices: Bool? = nil
     var _pyGenericServices: Bool? = nil
-    var _phpGenericServices: Bool? = nil
     var _deprecated: Bool? = nil
     var _ccEnableArenas: Bool? = nil
     var _objcClassPrefix: String? = nil
@@ -4154,7 +4135,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
       _ccGenericServices = source._ccGenericServices
       _javaGenericServices = source._javaGenericServices
       _pyGenericServices = source._pyGenericServices
-      _phpGenericServices = source._phpGenericServices
       _deprecated = source._deprecated
       _ccEnableArenas = source._ccEnableArenas
       _objcClassPrefix = source._objcClassPrefix
@@ -4210,7 +4190,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 39: try { try decoder.decodeSingularStringField(value: &_storage._swiftPrefix) }()
         case 40: try { try decoder.decodeSingularStringField(value: &_storage._phpClassPrefix) }()
         case 41: try { try decoder.decodeSingularStringField(value: &_storage._phpNamespace) }()
-        case 42: try { try decoder.decodeSingularBoolField(value: &_storage._phpGenericServices) }()
         case 44: try { try decoder.decodeSingularStringField(value: &_storage._phpMetadataNamespace) }()
         case 45: try { try decoder.decodeSingularStringField(value: &_storage._rubyPackage) }()
         case 50: try { try decoder.decodeSingularMessageField(value: &_storage._features) }()
@@ -4280,9 +4259,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
       try { if let v = _storage._phpNamespace {
         try visitor.visitSingularStringField(value: v, fieldNumber: 41)
       } }()
-      try { if let v = _storage._phpGenericServices {
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 42)
-      } }()
       try { if let v = _storage._phpMetadataNamespace {
         try visitor.visitSingularStringField(value: v, fieldNumber: 44)
       } }()
@@ -4315,7 +4291,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf._Mes
         if _storage._ccGenericServices != rhs_storage._ccGenericServices {return false}
         if _storage._javaGenericServices != rhs_storage._javaGenericServices {return false}
         if _storage._pyGenericServices != rhs_storage._pyGenericServices {return false}
-        if _storage._phpGenericServices != rhs_storage._phpGenericServices {return false}
         if _storage._deprecated != rhs_storage._deprecated {return false}
         if _storage._ccEnableArenas != rhs_storage._ccEnableArenas {return false}
         if _storage._objcClassPrefix != rhs_storage._objcClassPrefix {return false}
