@@ -11,12 +11,13 @@
 import SwiftProtobuf
 
 public extension Google_Protobuf_FileDescriptorProto {
-  init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = []) {
+  init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = [], package: String = "") {
     for idx in publicDependencies { precondition(Int(idx) <= dependencies.count) }
     self.init()
     self.name = name
-    dependency = dependencies
-    publicDependency = publicDependencies
+    self.dependency = dependencies
+    self.publicDependency = publicDependencies
+    self.package = package
   }
   init(textFormatStrings: [String]) throws {
     let s = textFormatStrings.joined(separator: "\n") + "\n"
@@ -27,7 +28,7 @@ public extension Google_Protobuf_FileDescriptorProto {
 public extension Google_Protobuf_FileDescriptorSet {
   init(files: [Google_Protobuf_FileDescriptorProto]) {
     self.init()
-    file = files
+    self.file = files
   }
   init(file: Google_Protobuf_FileDescriptorProto) {
     self.init()

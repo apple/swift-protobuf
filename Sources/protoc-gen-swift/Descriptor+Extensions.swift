@@ -14,6 +14,150 @@ extension FileDescriptor {
   var isBundledProto: Bool {
     return SwiftProtobufInfo.isBundledProto(file: self)
   }
+
+  // Returns a string of any import lines for the give file based on the file's
+  // imports. The string may include multiple lines.
+  //
+  // Protocol Buffers has the concept of "public imports", these are imports
+  // into a file that expose everything from within the file to the new
+  // context. From the docs -
+  // https://protobuf.dev/programming-guides/proto/#importing
+  //   `import public` dependencies can be transitively relied upon by anyone
+  //    importing the proto containing the import public statement.
+  // To properly expose the types for use, it means in each file, the public
+  // imports from the dependencies (recursively) have to be hoisted and
+  // reexported. This way someone importing a given module still sees the type
+  // even when moved.
+  //
+  // NOTE: There is a weakness for Swift with protobuf extensions. To make
+  // the protobuf extensions easier to use, a Swift extension is declared with
+  // field exposed as a property on the exteneded message. There is no way
+  // to reexport the Swift `extension` and/or added properties. But the raw
+  // types are re-exported to minimize the breaking of code if a type is moved
+  // between files/modules.
+  //
+  // `reexportPublicImports` will cause the `import public` types to be
+  // reexported to avoid breaking downstream code using a type that might have
+  // moved between .proto files.
+  //
+  // `asImplementationOnly` will cause all of the import directives to be
+  // marked as `@_implementationOnly`. It will also cause all of the `file`'s
+  // `publicDependencies` to instead be recursively pulled up as direct imports
+  // to ensure the generate file compiles, and no `import public` files are
+  // re-exported.
+  //
+  // Aside: This could be moved into the plugin library, but it doesn't seem
+  // like anyone else would need the logic. Swift GRPC support probably stick
+  // with the support for the module mappings.
+  public func computeImports(
+    namer: SwiftProtobufNamer,
+    reexportPublicImports: Bool,
+    asImplementationOnly: Bool
+  ) -> String {
+    // The namer should be configured with the module this file generated for.
+    assert(namer.targetModule == (namer.mappings.moduleName(forFile: self) ?? ""))
+    // Both options can't be enabled.
+    assert(!reexportPublicImports ||
+           !asImplementationOnly ||
+           reexportPublicImports != asImplementationOnly)
+
+    guard namer.mappings.hasMappings else {
+      // No module mappings? Everything must be the same module, so no Swift
+      // imports will be needed.
+      return ""
+    }
+
+    if dependencies.isEmpty {
+      // No proto dependencies (imports), then no Swift imports will be needed.
+      return ""
+    }
+
+    let directive = asImplementationOnly ? "@_implementationOnly import" : "import"
+    var imports = Set<String>()
+    for dependency in dependencies {
+      if SwiftProtobufInfo.isBundledProto(file: dependency) {
+        continue  // No import needed for the runtime, that's always added.
+      }
+      if reexportPublicImports && publicDependencies.contains(where: { $0 === dependency }) {
+        // When re-exporting, the `import public` types will be imported
+        // instead of importing the module.
+        continue
+      }
+      if let depModule = namer.mappings.moduleName(forFile: dependency),
+         depModule != namer.targetModule {
+        // Different module, import it.
+        imports.insert("\(directive) \(depModule)")
+      }
+    }
+
+    // If not re-exporting imports, then there is nothing special needed for
+    // `import public` files, as any transitive `import public` directives
+    // would have already re-exported the types, so everything this file needs
+    // will be covered by the above imports.
+    let exportingImports: [String] =
+      reexportPublicImports ? computeSymbolReExports(namer: namer) : [String]()
+
+    var result = imports.sorted().joined(separator: "\n")
+    if !exportingImports.isEmpty {
+      if !result.isEmpty {
+        result.append("\n")
+      }
+      result.append("// Use of 'import public' causes re-exports:\n")
+      result.append(exportingImports.sorted().joined(separator: "\n"))
+    }
+    return result
+  }
+
+  // Internal helper to `computeImports(...)`.
+  private func computeSymbolReExports(namer: SwiftProtobufNamer) -> [String] {
+    var result = [String]()
+
+    // To handle re-exporting, recuively walk all the `import public` files
+    // and make this module do a Swift exporting import of the specific
+    // symbols. That will keep any type that gets moved between .proto files
+    // still exposed from the same modules so as not to break developer
+    // authored code.
+    var toScan = publicDependencies
+    var visited = Set<String>()
+    while let dependency = toScan.popLast() {
+      let dependencyName = dependency.name
+      if visited.contains(dependencyName) { continue }
+      visited.insert(dependencyName)
+
+      if SwiftProtobufInfo.isBundledProto(file: dependency) {
+        continue  // Bundlined file, nothing to do.
+      }
+      guard let depModule = namer.mappings.moduleName(forFile: dependency) else {
+        continue  // No mapping, assume same module, nothing to do.
+      }
+      if depModule == namer.targetModule {
+        // Same module, nothing to do (that generated file will do any re-exports).
+        continue
+      }
+
+      toScan.append(contentsOf: dependency.publicDependencies)
+
+      // NOTE: This re-exports/imports from the module that defines the type.
+      // If Xcode/SwiftPM ever were to do some sort of "layering checks" to
+      // ensure there is a direct dependency on the thing being imported, this
+      // could be updated do the re-export/import from the middle step in
+      // chained imports.
+
+      for m in dependency.messages {
+        result.append("@_exported import struct \(namer.fullName(message: m))")
+      }
+      for e in dependency.enums {
+        result.append("@_exported import enum \(namer.fullName(enum: e))")
+      }
+      // There is nothing we can do for the Swift extensions declared on the
+      // extended Messages, best we can do is expose the raw extenions
+      // themselves.
+      for e in dependency.extensions {
+        result.append("@_exported import let \(namer.fullName(extensionField: e))")
+      }
+    }
+    return result
+  }
 }
 
 extension Descriptor {

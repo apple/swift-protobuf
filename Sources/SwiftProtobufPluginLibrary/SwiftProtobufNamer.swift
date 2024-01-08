@@ -17,8 +17,8 @@ import Foundation
 public final class SwiftProtobufNamer {
   var filePrefixCache = [String:String]()
   var enumValueRelativeNameCache = [String:String]()
-  var mappings: ProtoFileToModuleMappings
-  var targetModule: String
+  public let mappings: ProtoFileToModuleMappings
+  public let targetModule: String
 
   public var swiftProtobufModuleName: String { return mappings.swiftProtobufModuleName }
 

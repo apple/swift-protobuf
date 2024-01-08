@@ -132,6 +132,14 @@ public struct ProtoFileToModuleMappings {
       }
     }
 
+    // NOTE: This api is only used by gRPC (or things like it), with
+    // `import public` now re-exporting things, this likely can go away or just
+    // be reduced just the above loop, without the need for special casing the
+    // `import public` cases. It will come down to what should expectations
+    // be for protobuf messages, enums, and extensions with repsect to something
+    // that generates on top if it. i.e. - should they re-export things or
+    // should only the generated proto code do it?
+
     // Protocol Buffers has the concept of "public imports", these are imports
     // into a file that expose everything from within the file to the new
     // context. From the docs -

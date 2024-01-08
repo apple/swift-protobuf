@@ -90,25 +90,20 @@ class FileGenerator {
 
         p.print("\(comments)import Foundation")
 
-        // Import all other imports as @_implementationOnly if the option is
-        // set, to avoid exposing internal types to users.
-        let visibilityAnnotation: String
-        if self.generatorOptions.implementationOnlyImports {
-            precondition(self.generatorOptions.visibility == .internal)
-            visibilityAnnotation = "@_implementationOnly "
-        } else {
-            visibilityAnnotation = ""
-        }
         if fileDescriptor.isBundledProto {
             p.print("// 'import \(namer.swiftProtobufModuleName)' suppressed, this proto file is meant to be bundled in the runtime.")
         } else {
-            p.print("\(visibilityAnnotation)import \(namer.swiftProtobufModuleName)")
+            let directive = self.generatorOptions.implementationOnlyImports ? "@_implementationOnly import" : "import"
+            p.print("\(directive) \(namer.swiftProtobufModuleName)")
         }
-        if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
+
+        let neededImports = fileDescriptor.computeImports(
+          namer: namer,
+          reexportPublicImports: self.generatorOptions.visibility != .internal,
+          asImplementationOnly: self.generatorOptions.implementationOnlyImports)
+        if !neededImports.isEmpty {
             p.print()
-            for i in neededImports {
-                p.print("\(visibilityAnnotation)import \(i)")
-            }
+            p.print(neededImports)
         }
 
         p.print()
