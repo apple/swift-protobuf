@@ -66,8 +66,10 @@ struct SetPathDecoder<T: Message>: Decoder {
     if let firstComponent = path.first,
        let number = T.number(for: firstComponent) {
       self.number = number
+      self.nextPath = .init(path.dropFirst())
+    } else {
+      self.nextPath = []
     }
-    self.nextPath = .init(path.dropFirst())
     self.value = value
     self.mergeOption = mergeOption
   }

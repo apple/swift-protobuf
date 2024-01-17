@@ -124,12 +124,12 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         }
 
         // Checks nested message merge
-        try message.merge(to: secondMessage, fieldMask: .init(protoPaths: "optional_nested_message.bb"))
+        try message.merge(from: secondMessage, fieldMask: .init(protoPaths: "optional_nested_message.bb"))
         XCTAssertEqual(message.optionalInt32, 1)
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
 
         // Checks primitive type merge
-        try message.merge(to: secondMessage, fieldMask: .init(protoPaths: "optional_int32"))
+        try message.merge(from: secondMessage, fieldMask: .init(protoPaths: "optional_int32"))
         XCTAssertEqual(message.optionalInt32, 2)
         XCTAssertEqual(message.optionalNestedMessage.bb, 3)
     }
@@ -147,11 +147,11 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let fieldMask = Google_Protobuf_FieldMask(protoPaths: ["repeated_int32"])
 
         // Checks without replacing repeated fields
-        try message.merge(to: secondMessage, fieldMask: fieldMask)
+        try message.merge(from: secondMessage, fieldMask: fieldMask)
         XCTAssertEqual(message.repeatedInt32, [1, 2, 3, 4])
 
         // Checks with replacing repeated fields
-        try message.merge(to: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
+        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
         XCTAssertEqual(message.repeatedInt32, [3, 4])
     }
 
@@ -168,11 +168,11 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         let fieldMask = Google_Protobuf_FieldMask(protoPaths: ["map_int32_string"])
 
         // Checks without replacing repeated fields
-        try message.merge(to: secondMessage, fieldMask: fieldMask)
+        try message.merge(from: secondMessage, fieldMask: fieldMask)
         XCTAssertEqual(message.mapInt32String, [1: "a", 2: "b"])
 
         // Checks with replacing repeated fields
-        try message.merge(to: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
+        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
         XCTAssertEqual(message.mapInt32String, [2: "b"])
     }
 
