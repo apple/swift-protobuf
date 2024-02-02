@@ -52,7 +52,7 @@ struct SetPathDecoder<T: Message>: Decoder {
   private let nextPath: [String]
 
   // Merge options to be concidered while setting value
-  private let mergeOption: MergeOption
+  private let mergeOption: Google_Protobuf_FieldMask.MergeOptions
 
   private var replaceRepeatedFields: Bool {
     mergeOption.replaceRepeatedFields
@@ -61,7 +61,7 @@ struct SetPathDecoder<T: Message>: Decoder {
   init(
     path: [String],
     value: Any?,
-    mergeOption: MergeOption
+    mergeOption: Google_Protobuf_FieldMask.MergeOptions
   ) {
     if let firstComponent = path.first,
        let number = T.number(for: firstComponent) {
@@ -385,7 +385,7 @@ extension Message {
   mutating func `set`(
     path: String,
     value: Any?,
-    mergeOption: MergeOption
+    mergeOption: Google_Protobuf_FieldMask.MergeOptions
   ) throws {
     let _path = path.components(separatedBy: ".")
     var decoder = SetPathDecoder<Self>(

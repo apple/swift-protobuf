@@ -151,7 +151,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(message.repeatedInt32, [1, 2, 3, 4])
 
         // Checks with replacing repeated fields
-        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
+        var options = Google_Protobuf_FieldMask.MergeOptions()
+        options.replaceRepeatedFields = true
+        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: options)
         XCTAssertEqual(message.repeatedInt32, [3, 4])
     }
 
@@ -172,7 +174,9 @@ final class Test_FieldMask: XCTestCase, PBTestHelpers {
         XCTAssertEqual(message.mapInt32String, [1: "a", 2: "b"])
 
         // Checks with replacing repeated fields
-        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: .init(replaceRepeatedFields: true))
+        var options = Google_Protobuf_FieldMask.MergeOptions()
+        options.replaceRepeatedFields = true
+        try message.merge(from: secondMessage, fieldMask: fieldMask, mergeOption: options)
         XCTAssertEqual(message.mapInt32String, [2: "b"])
     }
 

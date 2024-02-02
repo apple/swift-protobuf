@@ -34,18 +34,19 @@ extension Message {
   }
 }
 
-/// Defines available options for merging two messages.
-public struct MergeOption {
+extension Google_Protobuf_FieldMask {
 
-  public init(replaceRepeatedFields: Bool = false) {
-    self.replaceRepeatedFields = replaceRepeatedFields
+  /// Defines available options for merging two messages.
+  public struct MergeOptions {
+
+    public init() {}
+
+    /// The default merging behavior will append entries from the source
+    /// repeated field to the destination repeated field. If you only want
+    /// to keep the entries from the source repeated field, set this flag
+    /// to true.
+    public var replaceRepeatedFields = false
   }
-
-  /// The default merging behavior will append entries from the source
-  /// repeated field to the destination repeated field. If you only want
-  /// to keep the entries from the source repeated field, set this flag
-  /// to true.
-  public var replaceRepeatedFields = false
 }
 
 extension Message {
@@ -58,7 +59,7 @@ extension Message {
   public mutating func merge(
     from source: Self,
     fieldMask: Google_Protobuf_FieldMask,
-    mergeOption: MergeOption = .init()
+    mergeOption: Google_Protobuf_FieldMask.MergeOptions = .init()
   ) throws {
     var source = source
     var pathToValueMap: [String: Any?] = [:]
