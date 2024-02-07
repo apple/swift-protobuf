@@ -69,6 +69,8 @@ jobs:
       image: swift:${{ matrix.swift }}${{ matrix.ubuntu }}
     steps:
     - name: Checkout
+      # 5.1.5 and lower Swift versions end up on images where actions/checkout@v4
+      # fails because the image is too old.
       uses: actions/checkout@v3
       with:
         path: main
@@ -115,7 +117,7 @@ jobs:
         key: ${{ runner.os }}-${{ matrix.swift}}-protobuf-${{ steps.get-sha.outputs.sha }}
     - name: Checkout protobuf repo
       if: ${{ matrix.build_protobuf && steps.cache-protobuf.outputs.cache-hit != 'true' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: protocolbuffers/protobuf
         ref: ${{ steps.get-sha.outputs.sha }}
@@ -154,7 +156,7 @@ jobs:
     container:
       image: swift:latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Test
       run: |
         set -eu
@@ -182,6 +184,6 @@ jobs:
     container:
       image: swift:latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: FuzzTesting/do_build.sh --${{ matrix.swiftpm_config }}-only --run-regressions
