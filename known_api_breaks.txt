@@ -1,0 +1,36 @@
+API breakage: enumelement Google_Protobuf_Edition.proto2 has been added as a new enum case
+API breakage: enumelement Google_Protobuf_Edition.proto3 has been added as a new enum case
+API breakage: enumelement Google_Protobuf_Edition.max has been added as a new enum case
+API breakage: var Google_Protobuf_FileDescriptorProto.edition has declared type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FileDescriptorProto.edition.Get() has return type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FileDescriptorProto.edition.Set() has parameter 0 type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: var Google_Protobuf_FieldOptions.EditionDefault.edition has declared type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FieldOptions.EditionDefault.edition.Get() has return type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FieldOptions.EditionDefault.edition.Set() has parameter 0 type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: var Google_Protobuf_FeatureSetDefaults.minimumEdition has declared type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FeatureSetDefaults.minimumEdition.Get() has return type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FeatureSetDefaults.minimumEdition.Set() has parameter 0 type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: var Google_Protobuf_FeatureSetDefaults.maximumEdition has declared type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FeatureSetDefaults.maximumEdition.Get() has return type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FeatureSetDefaults.maximumEdition.Set() has parameter 0 type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.edition has declared type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.edition.Get() has return type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: accessor Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.edition.Set() has parameter 0 type change from Swift.String to SwiftProtobuf.Google_Protobuf_Edition
+API breakage: var Google_Protobuf_FileDescriptorProto.editionEnum has been removed
+API breakage: var Google_Protobuf_FileDescriptorProto.hasEditionEnum has been removed
+API breakage: func Google_Protobuf_FileDescriptorProto.clearEditionEnum() has been removed
+API breakage: var Google_Protobuf_FileOptions.phpGenericServices has been removed
+API breakage: var Google_Protobuf_FileOptions.hasPhpGenericServices has been removed
+API breakage: func Google_Protobuf_FileOptions.clearPhpGenericServices() has been removed
+API breakage: var Google_Protobuf_FieldOptions.EditionDefault.editionEnum has been removed
+API breakage: var Google_Protobuf_FieldOptions.EditionDefault.hasEditionEnum has been removed
+API breakage: func Google_Protobuf_FieldOptions.EditionDefault.clearEditionEnum() has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.minimumEditionEnum has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.hasMinimumEditionEnum has been removed
+API breakage: func Google_Protobuf_FeatureSetDefaults.clearMinimumEditionEnum() has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.maximumEditionEnum has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.hasMaximumEditionEnum has been removed
+API breakage: func Google_Protobuf_FeatureSetDefaults.clearMaximumEditionEnum() has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.editionEnum has been removed
+API breakage: var Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.hasEditionEnum has been removed
+API breakage: func Google_Protobuf_FeatureSetDefaults.FeatureSetEditionDefault.clearEditionEnum() has been removed

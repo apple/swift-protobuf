@@ -146,6 +146,32 @@ jobs:
       working-directory: main
       run: make test-conformance CONFORMANCE_TEST_RUNNER=../protobuf/cmake_build/conformance_test_runner
 
+  api-breakage:
+    # Only on pull requests
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    container:
+      # Test on the latest Swift release. This could run on all the support
+      # Swift versions, but the SwiftPM support isn't in all the version supported.
+      image: swift:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Mark the workspace as safe
+      # https://github.com/actions/checkout/issues/766
+      run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
+    - name: Check for API breaking changes
+      # Since descriptor.proto is generated and exposed, any changes upstream
+      # can result in things that would count as breaking changes, the allowlist
+      # is used to those won't count in this test.
+      run: |
+        LAST_TAG=$(git describe --abbrev=0 --tags)
+        echo "Comparing to tag: ${LAST_TAG}"
+        swift package diagnose-api-breaking-changes "${LAST_TAG}" --products SwiftProtobuf \
+          --breakage-allowlist-path known_api_breaks.txt
+
   sanitizer_testing:
     runs-on: ubuntu-latest
     strategy:
