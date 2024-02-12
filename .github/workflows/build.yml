@@ -106,6 +106,32 @@ jobs:
       working-directory: main
       run: make compile-tests PROTOC=../protobuf/cmake_build/protoc
 
+  api-breakage:
+    # Only on pull requests
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    # Since `main` is currently accepting breaking changes, don't fail the whole
+    # PR if this one check fails.
+    continue-on-error: true
+    container:
+      # Test on the latest Swift release. This could run on all the support
+      # Swift versions, but that doesn't seem worth it until there are Swift
+      # version specific conditionals to justify it.
+      image: swift:latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Mark the workspace as safe
+      # https://github.com/actions/checkout/issues/766
+      run: git config --global --add safe.directory ${GITHUB_WORKSPACE}
+    - name: Check for API breaking changes
+      # This will catch changes compared to main, so it doesn't build up a list.
+      # Once main is used for releases, we might want to change this to diff
+      # against the last release.
+      run: swift package diagnose-api-breaking-changes origin/main --products SwiftProtobuf
+
   sanitizer_testing:
     runs-on: ubuntu-latest
     strategy:
