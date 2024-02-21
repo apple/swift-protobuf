@@ -57,7 +57,7 @@ class ExtensionSetGenerator {
 
             swiftFullExtensionName = namer.fullName(extensionField: descriptor)
 
-            comments = descriptor.protoSourceCommentsWithDeprecation()
+            comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
             containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
         }
 

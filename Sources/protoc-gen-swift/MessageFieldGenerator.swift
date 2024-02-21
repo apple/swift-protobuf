@@ -71,7 +71,7 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         swiftStorageType = descriptor.swiftStorageType(namer: namer)
         swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
         traitsType = descriptor.traitsType(namer: namer)
-        comments = descriptor.protoSourceCommentsWithDeprecation()
+        comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
 
         if usesHeapStorage {
             storedProperty = "_storage.\(underscoreSwiftName)"

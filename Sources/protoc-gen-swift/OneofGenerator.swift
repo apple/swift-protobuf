@@ -42,7 +42,7 @@ class OneofGenerator {
         // Only valid on message fields.
         var messageType: Descriptor? { return fieldDescriptor.messageType }
 
-        init(descriptor: FieldDescriptor, namer: SwiftProtobufNamer) {
+        init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
             precondition(descriptor.oneofIndex != nil)
 
             // Set after creation.
@@ -57,7 +57,7 @@ class OneofGenerator {
             swiftType = descriptor.swiftType(namer: namer)
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
-            comments = descriptor.protoSourceCommentsWithDeprecation()
+            comments = descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions)
 
             super.init(descriptor: descriptor)
         }
@@ -130,7 +130,7 @@ class OneofGenerator {
         self.namer = namer
         self.usesHeapStorage = usesHeapStorage
 
-        comments = descriptor.protoSourceComments()
+        comments = descriptor.protoSourceComments(generatorOptions: generatorOptions)
 
         swiftRelativeName = namer.relativeName(oneof: descriptor)
         swiftFullName = namer.fullName(oneof: descriptor)
@@ -145,7 +145,9 @@ class OneofGenerator {
         }
 
         fields = descriptor.fields.map {
-            return MemberFieldGenerator(descriptor: $0, namer: namer)
+            return MemberFieldGenerator(descriptor: $0,
+                                        generatorOptions: generatorOptions,
+                                        namer: namer)
         }
         fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
