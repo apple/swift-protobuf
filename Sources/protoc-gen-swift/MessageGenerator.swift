@@ -129,7 +129,7 @@ class MessageGenerator {
 
     p.print(
         "",
-        "\(descriptor.protoSourceCommentsWithDeprecation())\(visibility)struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {")
+        "\(descriptor.protoSourceCommentsWithDeprecation(generatorOptions: generatorOptions))\(visibility)struct \(swiftRelativeName): \(conformances.joined(separator: ", ")) {")
     p.withIndentation { p in
       p.print("""
               // \(namer.swiftProtobufModuleName).Message conformance is added in an extension below. See the
